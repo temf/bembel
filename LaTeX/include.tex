@@ -1,0 +1,104 @@
+\newenvironment{convplot}{
+		\begin{tikzpicture}
+		\begin{axis}[
+		ymode=log,
+		xlabel=level,
+		ylabel=$\ell^{\infty}$-error of potential,
+		legend pos=outer north east
+		]
+	}{
+		\end{axis}
+		\end{tikzpicture}
+	}
+
+\newenvironment{convplotrho}[1]{
+		\begin{tikzpicture}
+		\begin{axis}[
+		ymode=log,
+		xlabel=level,
+		ylabel={#1}-error of density,
+		legend pos=outer north east
+		]
+	}{
+	\end{axis}
+	\end{tikzpicture}
+	}
+
+\newenvironment{timeplot}{
+		\begin{tikzpicture}
+		\begin{axis}[
+		ymode=log,
+		xlabel=level,
+		ylabel=computation time (seconds),
+		legend pos=outer north east
+		]
+	}{
+		\end{axis}
+		\end{tikzpicture}
+	}
+
+% Plot x=M, y=error from data file #1, legend entry #2
+\newcommand{\convline}[2]{
+		\addplot table [trim cells=true,x=M,y=error] {#1};
+		\addlegendentry{#2}
+	}
+
+% Plot x=M, y=error from data file #1, legend entry #2
+\newcommand{\convlinerho}[2]{
+	\addplot table [trim cells=true,x=M,y=error_rho] {#1};
+	\addlegendentry{#2}
+}
+
+% Fit convergence order 2^(-#2 M) corresponding to file #1
+\newcommand{\convfitorder}[2]{
+		\pgfplotstableread{#1}\meta
+		\pgfplotstablegetrowsof{\meta}
+		\pgfmathsetmacro{\N}{\pgfplotsretval-1}
+		\pgfplotstablegetelem{\N}{M}\of{\meta}
+		\let\lastM\pgfplotsretval
+		\pgfplotstablegetelem{\N}{error}\of{\meta}
+		\let\lasterror\pgfplotsretval
+		
+		\addplot[] table [trim cells=true,x=M,y expr=2^(-#2*(\thisrow{M}-\lastM))*\lasterror*1.3] {#1};
+		\addlegendentry{Order #2}
+	}
+	
+% Fit convergence order 2^(-#2 M) corresponding to file #1
+\newcommand{\convfitorderrho}[2]{
+	\pgfplotstableread{#1}\meta
+	\pgfplotstablegetrowsof{\meta}
+	\pgfmathsetmacro{\N}{\pgfplotsretval-1}
+	\pgfplotstablegetelem{\N}{M}\of{\meta}
+	\let\lastM\pgfplotsretval
+	\pgfplotstablegetelem{\N}{error_rho}\of{\meta}
+	\let\lasterror\pgfplotsretval
+	
+	\addplot[] table [trim cells=true,x=M,y expr=2^(-#2*(\thisrow{M}-\lastM))*\lasterror*1.3] {#1};
+	\addlegendentry{Order #2}
+}
+	
+\newcommand{\convfit}[2]{
+	\addplot [] table[skip first n=4,
+	y={create col/linear regression={y=1}}, trim cells=true] {#1};
+	\xdef\slopeA{\pgfplotstableregressiona}	
+	\addlegendentry{$2^{\pgfmathprintnumber{\slopeA}}$};
+	}
+
+% Plot x=M, y=t_mat from data file #1, legend entry #2
+\newcommand{\timeline}[2]{
+		\addplot table [trim cells=true,x=M,y=t_mat] {#1};
+		\addlegendentry{#2}
+	}
+
+\newcommand{\timefitNlogN}[1]{
+		\pgfplotstableread{#1}\meta
+		\pgfplotstablegetrowsof{\meta}
+		\pgfmathsetmacro{\N}{\pgfplotsretval-1}
+		\pgfplotstablegetelem{\N}{M}\of{\meta}
+		\let\lastM\pgfplotsretval
+		\pgfplotstablegetelem{\N}{t_mat}\of{\meta}
+		\let\lasttime\pgfplotsretval
+
+		\addplot[] table [trim cells=true,x=M,y expr=\thisrow{M}/\lastM*4^(\thisrow{M}-\lastM)*\lasttime*1.3] {#1};
+		\addlegendentry{$N\log N$}
+	}

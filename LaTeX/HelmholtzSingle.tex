@@ -1,0 +1,59 @@
+\documentclass{minimal}
+
+\usepackage[a4paper,margin=0.1in]{geometry}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+\input{include.tex}
+
+\pgfplotsset{width=0.35\textwidth}
+
+\begin{document}
+\centering
+
+\textbf{Helmholtz Dirichlet Single Layer}
+
+\begin{convplot}
+\convline{HelmholtzSingle_0.log}{Order 1}
+\convline{HelmholtzSingle_1.log}{Order 2}
+\convline{HelmholtzSingle_2.log}{Order 3}
+% \convline{HelmholtzSingle_3.log}{Order 4}
+\convfitorder{HelmholtzSingle_0.log}{3}
+\convfitorder{HelmholtzSingle_1.log}{5}
+\convfitorder{HelmholtzSingle_2.log}{7}
+% \convfitorder{HelmholtzSingle_3.log}{9}
+
+\end{convplot}
+\quad
+\begin{timeplot}
+\timeline{HelmholtzSingle_0.log}{Order 1}
+\timeline{HelmholtzSingle_1.log}{Order 2}
+\timeline{HelmholtzSingle_2.log}{Order 3}
+% \timeline{HelmholtzSingle_3.log}{Order 4}
+\timefitNlogN{HelmholtzSingle_0.log}
+\timefitNlogN{HelmholtzSingle_1.log}
+\timefitNlogN{HelmholtzSingle_2.log}
+% \timefitNlogN{HelmholtzSingle_3.log}
+\end{timeplot}
+
+%\textbf{Helmholtz Dirichlet Brakhage Werner}
+%
+%\begin{convplot}
+%	\convline{Helmholtz Brakhage-Werner_1.log}{Order 1}
+%	\convline{Helmholtz Brakhage-Werner_2.log}{Order 2}
+%	\convline{Helmholtz Brakhage-Werner_3.log}{Order 3}
+%	\convfitorder{Helmholtz Brakhage-Werner_1.log}{2}
+%	\convfitorder{Helmholtz Brakhage-Werner_2.log}{4}
+%	\convfitorder{Helmholtz Brakhage-Werner_3.log}{6}
+%\end{convplot}
+%\quad
+%\begin{timeplot}
+%	\timeline{Helmholtz Brakhage-Werner_1.log}{Order 1}
+%	\timeline{Helmholtz Brakhage-Werner_2.log}{Order 2}
+%	\timeline{Helmholtz Brakhage-Werner_3.log}{Order 3}
+%	\timefitNlogN{Helmholtz Brakhage-Werner_1.log}
+%	\timefitNlogN{Helmholtz Brakhage-Werner_2.log}
+%	\timefitNlogN{Helmholtz Brakhage-Werner_3.log}
+%\end{timeplot}
+
+\end{document}

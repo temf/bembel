@@ -1,0 +1,35 @@
+\documentclass{minimal}
+
+\usepackage[a4paper,margin=0.1in]{geometry}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{amsmath}
+
+\input{include.tex}
+
+\pgfplotsset{width=0.35\textwidth}
+
+\begin{document}
+\centering
+
+\textbf{Maxwell Dirichlet Single Layer}
+
+\begin{convplot}
+\convline{MaxwellSingle_1.log}{Order 2}
+\convline{MaxwellSingle_2.log}{Order 3}
+% \convline{MaxwellSingle_3.log}{Order 4}
+\convfitorder{MaxwellSingle_1.log}{3}
+\convfitorder{MaxwellSingle_2.log}{5}
+% \convfitorder{MaxwellSingle_3.log}{7}
+\end{convplot}
+\quad
+\begin{timeplot}
+\timeline{MaxwellSingle_1.log}{Order 2}
+\timeline{MaxwellSingle_2.log}{Order 3}
+% \timeline{MaxwellSingle_3.log}{Order 4}
+\timefitNlogN{MaxwellSingle_1.log}
+\timefitNlogN{MaxwellSingle_2.log}
+% \timefitNlogN{MaxwellSingle_3.log}
+\end{timeplot}
+
+\end{document}
