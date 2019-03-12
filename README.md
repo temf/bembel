@@ -12,7 +12,7 @@ information. -->
 1. [Introduction](#introduction)
 2. [What is a Bembel?](#whatis)
 3. [Features](#features)
-4. [How to Run it](#example)
+4. [How to Run our Code](#example)
 5. [Known Bugs and Upcoming Features](#bugs)
 6. [Publications & Preprints](#publications)
 7. [Contributers](#contributors)
@@ -23,18 +23,19 @@ information. -->
 Bembel is the 
 **B**oundary **E**lement **M**ethod **B**ased **E**ngineering **L**ibrary 
 written in C and C++ to solve boundary value problems governed by the Laplace,
-Helmholtz or electric wave equation [3,4,5]. It was developed as part of a 
-cooperation between the TU Darmstadt and the University of Basel, coordinated 
-by [H. Harbrecht](#HeHa), [S. Kurz](#SK) and [S. Schöps](#SSc). The code is
-based on the Laplace BEM of [J. Dölz](#JD), [H. Harbrecht](#HeHa) and 
-[M. Multerer](#MM), [2,6] as well as the spline and geometry framework of
-[F. Wolf](#FW). The code was extended by [J. Dölz](#JD) and [F. Wolf](#FW) in
-early 2018 to cover electromagnetic applications [4,5].
+Helmholtz or electric wave equation within the isogeometric framework [3,4,5]. 
+It was developed as part of a cooperation between the TU Darmstadt and the 
+University of Basel, coordinated by [H. Harbrecht](#HeHa), [S. Kurz](#SK) 
+and [S. Schöps](#SSc). The code is based on the Laplace BEM of [J. Dölz](#JD),
+ [H. Harbrecht](#HeHa), and [M. Multerer](#MM), [2,6] as well as the spline 
+and geometry framework of [F. Wolf](#FW). The code was extended by 
+[J. Dölz](#JD) and [F. Wolf](#FW) in early 2018 to cover electromagnetic 
+applications [4,5].
 
 This code is currently at version 0.1 and a work in progress. 
 It has to be polished and it has to be properly documented.
 
-## 2. What is a Bembel <a name="whatis"></a>
+## 2. What is a Bembel?<a name="whatis"></a>
 
 A traditional German ceramic, as depicted in our logo. 
 Quoting [Wikipedia](https://en.wikipedia.org/wiki/Apfelwein):
@@ -105,13 +106,13 @@ They can be utilized for computations. Note that
 * `LaTeX/` contains some `.tex` files utilized by the `test.sh`-script
 to visualize the examples.
 * `src/` contains the source files:
-	* `src/bemlibC` contains the C and C++ routines. Most of these have not yet
+  * `src/bemlibC` contains the C and C++ routines. Most of these have not yet
   been converted to Eigen and modern C++.
-	* `src/include/` contains the high level `.hpp`-files, which implement the
+  * `src/include/` contains the high level `.hpp`-files, which implement the
   interface to utilize our code; as well as a copy of eigen3, and some header
   files in `includeC/` and `spline/` for the low level routines.
-	* `src/examples/` contains the source code for the executables.
-	* `src/test/` contains the code of some automated tests called by `run_tests.sh`.
+  * `src/examples/` contains the source code for the executables.
+  * `src/test/` contains the code of some automated tests called by `run_tests.sh`.
 
 When using our code, we recommend starting with understanding the code in
 `src/examples/`, followed by learning the capabilities of the high-level classes
@@ -130,29 +131,29 @@ the issue tracker on github.
 
 ## 6. Publications & Preprints <a name="publications"></a>
 
-[1] A. Buffa, J. Dölz, S. Kurz, S. Schöps, R. Vázques and F. Wolf. 
+[1] A. Buffa, J. Dölz, S. Kurz, S. Schöps, R. Vázques, and F. Wolf. 
 *Multipatch Approximation of the de Rham Sequence and its Traces in Isogeometric 
-Analysis*. Submitted. [To the preprint](https://arxiv.org/abs/1806.01062).
+Analysis*. 2018. Submitted. [To the preprint](https://arxiv.org/abs/1806.01062).
 
-[2] J. Dölz, H. Harbrecht and M. Peters. *An interpolation-based fast multipole
-method for higher-order boundary elements on parametric surfaces*.
+[2] J. Dölz, H. Harbrecht, and M. Peters. *An interpolation-based fast multipole
+method for higher-order boundary elements on parametric surfaces*. Int. J. Numer. Meth. Eng., 108(13):1705-1728, 2016.
 [To the paper](https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.5274).
 
-[3] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps and F. Wolf. *A fast isogeometric
-BEM for the three dimensional Laplace- and Helmholtz problems*. 
+[3] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps, and F. Wolf. *A fast isogeometric
+BEM for the three dimensional Laplace- and Helmholtz problems*. Comput. Methods Appl. Mech. Engrg., 330:83-101, 2018. 
 [To the paper](https://www.sciencedirect.com/science/article/pii/S0045782517306916). 
 [To the preprint](https://arxiv.org/abs/1708.09162).
 
-[4] J. Dölz, S. Kurz, S. Schöps and F. Wolf. *Isogeometric Boundary Elements in 
-Electromagnetism: Rigorous Analysis, Fast Methods, and Examples*. 
+[4] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. *Isogeometric Boundary Elements in 
+Electromagnetism: Rigorous Analysis, Fast Methods, and Examples*. 2018.
 Submitted. [To the preprint](https://arxiv.org/abs/1807.03097).
 
-[5] J. Dölz, S. Kurz, S. Schöps and F. Wolf. *A Numerical Comparison of an
+[5] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. *A Numerical Comparison of an
 Isogeometric and a Classical Higher-Order Approach to the Electric Field 
-Integral Equation*. Submitted. [To the preprint](https://arxiv.org/abs/1807.03628).
+Integral Equation*. 2018. Submitted. [To the preprint](https://arxiv.org/abs/1807.03628).
 
 [6] H. Harbrecht and M. Peters. *Comparison of fast boundary element methods on
-parametric surfaces*. 
+parametric surfaces*. Comput. Methods Appl. Mech. Engrg., 261-262:39-55, 2013. 
 [To the paper](https://www.sciencedirect.com/science/article/pii/S0045782513000819).
 
 ## 7. Contributors <a name="contributors"></a>
@@ -182,8 +183,8 @@ at the University of Basel.
 * [Stefan Kurz](https://www.temf.tu-darmstadt.de/temf/mitarbeiter/mitarbeiterdetails_57408.en.jsp)
 <a name="SK"></a> currently holds a professorship at the 
 [Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
-at TU Darmstadt and is a research expert at 
-[Bosch](https://www.bosch.com/research/know-how/research-experts/prof-dr-stefan-kurz/).
+at TU Darmstadt and is a 
+[research expert at Bosch](https://www.bosch.com/research/know-how/research-experts/prof-dr-stefan-kurz/).
 
 * [Michael Multerer](https://www.ics.usi.ch/index.php/people-detail-page/297-prof-michael-multerer) 
 <a name="MM"></a> currently holds a professorship 
