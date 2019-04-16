@@ -204,4 +204,4 @@ and KU1553/4-1, as well as the Graduate School of Computational Engineering
 at TU Darmstadt and the Excellence Initiative of the German Federal and
 State Governments and the Graduate School of Computational Engineering 
 at TU Darmstadt. He may also be found 
-[on GitHub](https://github.com/coffeedrinkingpenguin).
+[on GitHub](https://github.com/flx-wlf).
