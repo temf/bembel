@@ -1,4 +1,3 @@
-<!-- Bembel v.01 -->
 <!-- This file is part of Bembel, the higher order C++ boundary element library.
 It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz, 
 M. Multerer, S. Schoeps, and F. Wolf at Technische Universtaet Darmstadt, 

@@ -21,9 +21,9 @@ static inline void HelmholtzSingleKernel(double kappa[2], double d[2],
   c.y = x.y - y.y;
   c.z = x.z - y.z;
   r = sqrt(c.x * c.x + c.y * c.y + c.z * c.z);
-  e = exp(-kappa[1] * r);
-  a = e * cos(kappa[0] * r);
-  b = e * sin(kappa[0] * r);
+  e = exp(kappa[1] * r);
+  a = e * cos(-kappa[0] * r);
+  b = e * sin(-kappa[0] * r);
   r *= 4 * M_PI;
   d[0] = a / r; /* real(Einfachschicht) */
   d[1] = b / r; /* imag(Einfachschicht) */

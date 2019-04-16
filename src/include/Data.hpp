@@ -32,7 +32,7 @@ inline double HarmonicFunction(Eigen::Vector3d in) {
 inline std::complex<double> HelmholtzFundamentalSolution(
     Eigen::Vector3d pt, std::complex<double> kappa,
     Eigen::Vector3d center = Eigen::Vector3d(0, 0, 0)) {
-  return std::exp(std::complex<double>(0, 1) * kappa * (pt - center).norm()) /
+  return std::exp(-std::complex<double>(0, 1) * kappa * (pt - center).norm()) /
          (pt - center).norm();
 }
 

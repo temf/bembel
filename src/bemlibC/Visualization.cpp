@@ -176,8 +176,9 @@ Eigen::Vector3cd evaluate_maxwell_rho_at(
           free(longVec);
           free(smallVec);
           Eigen::Matrix<double, 3, 2> jac = geom[p].jacobian(x, y);
-          return jac.col(0) * std::complex<double>(out_real_1, out_imag_1) +
-                 jac.col(1) * std::complex<double>(out_real_2, out_imag_2);
+          double surfmeas = geom[p].evaln(x, y).norm();
+          return (jac.col(0) * std::complex<double>(out_real_1, out_imag_1) +
+                 jac.col(1) * std::complex<double>(out_real_2, out_imag_2))/surfmeas;
         }
       }
     }
