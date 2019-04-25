@@ -3,3 +3,4 @@ logo: assets/img/bembel_small.png
 description: The BEM-based engineering library
 show_downloads: true
 theme: jekyll-theme-minimal
+exclude: ["src/include/eigen3"]
