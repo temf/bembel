@@ -954,8 +954,9 @@ void potMaxwell(double *rho, double **Pot, vector3 *R, int nr,
  * wonderful in OpenMP 4.0 and later, but to be backwards compatible, we do
  * it the old school way
  */
-#pragma omp parallel default(shared) private( \
-    j, d, d_dx, d_dy, zi, s, k, t, y, mypot, Chi_df, w, w_div, wr, wc, c, e)
+#pragma omp parallel default(none) private( \
+    j, d, d_dx, d_dy, zi, s, k, t, y, mypot, Chi_df, w, w_div, w_divh, wr, wc, c, e)\
+    shared(nr, a_bs, nf, pE, h, Q, g, Chi, disc, rhol, N, kappa2, kappa2abs2, R, kappa, Pot)
   {
     mypot = (double *)calloc(6 * nr, sizeof(double));
     d = (double *)calloc(a_bs, sizeof(double));
