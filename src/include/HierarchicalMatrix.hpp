@@ -116,6 +116,13 @@ class HierarchicalMatrix : public EigenBase<HierarchicalMatrix<Derived> > {
   const Derived& get_matVecHandle() const { return _matVecHandle; }
 
  private:
+  // we declare functionality which has not been implemented (yet)
+  // to be private
+  HierarchicalMatrix(const HierarchicalMatrix<Derived>& H);
+  HierarchicalMatrix(HierarchicalMatrix<Derived>&& H);
+  HierarchicalMatrix& operator=(const HierarchicalMatrix<Derived>& H);
+  HierarchicalMatrix& operator=(HierarchicalMatrix<Derived>&& H);
+  // member variables
   int _nct;
   Bembel::ct_root* _H;
   Bembel::hmatrixsettings _hmatset; /* settings for H-matrix discretization */
