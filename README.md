@@ -87,7 +87,7 @@ library. Thus, Bembel should compile out of the box. Under Linux, you may simply
 run the `compile.sh` shell script, which creates a `build/` directory and takes
 care of compilation. Afterwards, we recommend running `run_tests.sh` which will
 call test routines, as well as examples for the computation of a Laplace,
-Helmholtz, and Maxwell problem. Afterwards, if you have a workin LaTeX
+Helmholtz, and Maxwell problem. Afterwards, if you have a working LaTeX
 installation, you can call `run_latex.sh`, generating `.pdf`'s with nice
 convergence plots. However, depending on your system, this may take a while.
 
@@ -100,7 +100,7 @@ The general structure of the repository looks as follows.
 They can be utilized for computations. Note that 
 **the normal vector must be outward directed** on all patches!
   * `geo/octave_example/` includes `.m` files that showcase how geometries can be
-  construct using the [NURBS package](https://octave.sourceforge.io/nurbs/) 
+  constructed using the [NURBS package](https://octave.sourceforge.io/nurbs/) 
   of octave.
 * `LaTeX/` contains some `.tex` files utilized by the `test.sh`-script
 to visualize the examples.
@@ -172,7 +172,8 @@ particularly the quadrature routines).
 at TU Darmstadt. While contributing to Bembel, he was supported by SNSF Grants 156101 
 and 174987, as well as the Graduate School of Computational Engineering at TU Darmstadt
 and the Excellence Initiative of the German Federal and State Governments and
-the Graduate School of Computational Engineering at TU Darmstadt.
+the Graduate School of Computational Engineering at TU Darmstadt. He may also be found 
+[on GitHub](https://github.com/jdoelz).
 
 * [Helmut Harbrecht](https://cm.dmi.unibas.ch/) 
 <a name="HeHa"></a> currently holds a professorship at the 
@@ -182,8 +183,8 @@ at the University of Basel.
 * [Stefan Kurz](https://www.temf.tu-darmstadt.de/temf/mitarbeiter/mitarbeiterdetails_57408.en.jsp)
 <a name="SK"></a> currently holds a professorship at the 
 [Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
-at TU Darmstadt and is a 
-[research expert at Bosch](https://www.bosch.com/research/know-how/research-experts/prof-dr-stefan-kurz/).
+at TU Darmstadt and is a  
+[chief expert at Bosch corporate research](https://www.bosch.com/research/know-how/research-experts/prof-dr-stefan-kurz/).
 
 * [Michael Multerer](https://www.ics.usi.ch/index.php/people-detail-page/297-prof-michael-multerer) 
 <a name="MM"></a> currently holds a professorship 
