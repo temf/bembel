@@ -46,6 +46,13 @@ class Discretization {
   int get_num_dofs() { return _disc.real_na; }
 
  private:
+  // we declare functionality which has not been implemented (yet)
+  // to be private
+  Discretization(const Discretization<Derived>& H);
+  Discretization(Discretization<Derived>&& H);
+  Discretization& operator=(const Discretization<Derived>& H);
+  Discretization& operator=(Discretization<Derived>&& H);
+  // member variables
   discretization _disc;
   Geometry _geo;
   Mesh _msh;

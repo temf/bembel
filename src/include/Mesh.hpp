@@ -25,6 +25,12 @@ class Mesh {
   meshdata &get_mesh() { return _mesh; }
 
  private:
+  // we declare functionality which has not been implemented (yet)
+  // to be private
+  Mesh(const Mesh& other);
+  Mesh(Mesh&& other);
+  Mesh& operator=(const Mesh& other);
+  Mesh& operator=(Mesh&& other);
   meshdata _mesh;
 };
 }  // namespace Bembel
