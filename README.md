@@ -6,7 +6,7 @@ source code is subject to the GNU General Public License version 3 and
 provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further 
 information. -->
 # Bembel
-
+[![DOI](https://zenodo.org/badge/173278911.svg)](https://zenodo.org/badge/latestdoi/173278911)
 ## Table of contents
 1. [Introduction](#introduction)
 2. [What is a Bembel?](#whatis)
@@ -31,7 +31,7 @@ and geometry framework of [F. Wolf](#FW). The code was extended by
 [J. Dölz](#JD) and [F. Wolf](#FW) in early 2018 to cover electromagnetic 
 applications [4,5].
 
-This code is currently at version 0.1 and a work in progress. 
+This code is currently at version 0.9 and a work in progress. 
 It has to be polished and it has to be properly documented.
 
 ## 2. What is a Bembel?<a name="whatis"></a>
