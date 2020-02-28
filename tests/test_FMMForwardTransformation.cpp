@@ -18,6 +18,7 @@ int main() {
   using namespace Eigen;
 
   int number_of_points = 9;
+  int number_of_points2 = number_of_points * number_of_points;
   int refinement_level = 6;
   int cluster_level = 2;
 
@@ -48,6 +49,27 @@ int main() {
                                       cluster_level - 2,
                                       refinement_level - cluster_level + 2,
                                       number_of_points);
+
+  fmm_moment_matrix0[0].conservativeResize(2 * number_of_points2,
+                                           fmm_moment_matrix0[0].cols());
+  fmm_moment_matrix0[0].block(number_of_points2, 0, number_of_points2,
+                              fmm_moment_matrix0[0].cols()) =
+      fmm_moment_matrix0[0].block(0, 0, number_of_points2,
+                                  fmm_moment_matrix0[0].cols());
+
+  fmm_moment_matrix1[0].conservativeResize(2 * number_of_points2,
+                                           fmm_moment_matrix1[0].cols());
+  fmm_moment_matrix1[0].block(number_of_points2, 0, number_of_points2,
+                              fmm_moment_matrix1[0].cols()) =
+      fmm_moment_matrix1[0].block(0, 0, number_of_points2,
+                                  fmm_moment_matrix1[0].cols());
+
+  fmm_moment_matrix2[0].conservativeResize(2 * number_of_points2,
+                                           fmm_moment_matrix2[0].cols());
+  fmm_moment_matrix2[0].block(number_of_points2, 0, number_of_points2,
+                              fmm_moment_matrix2[0].cols()) =
+      fmm_moment_matrix2[0].block(0, 0, number_of_points2,
+                                  fmm_moment_matrix2[0].cols());
 
   // generate random vector and reshape to matrices
   VectorXd random_vector = VectorXd::Random(fmm_moment_matrix2[0].cols());
