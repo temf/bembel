@@ -1,6 +1,5 @@
 build
 eigen3
-Doxy_out
 .DS_Store
 *.swp
 *.vtk

@@ -8,6 +8,7 @@ information. -->
 # Bembel  {#mainpage}
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![DOI](https://zenodo.org/badge/173278911.svg)](https://zenodo.org/badge/latestdoi/173278911)
+[![CircleCI](https://circleci.com/gh/temf/bembel/tree/master.svg?style=shield)](https://circleci.com/gh/temf/bembel/tree/master)
 ## Table of contents
 1. [Introduction](#introduction)
 2. [What is a Bembel?](#whatis)
