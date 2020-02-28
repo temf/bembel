@@ -1,3 +1,0 @@
-[submodule "src/include/eigen3"]
-	path = src/include/eigen3
-	url = https://github.com/eigenteam/eigen-git-mirror.git

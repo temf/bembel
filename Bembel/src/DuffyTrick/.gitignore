@@ -1,0 +1,6 @@
+.DS_Store
+*.vtk
+*.o
+*.m
+*.swp
+*.out

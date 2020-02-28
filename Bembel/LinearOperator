@@ -1,0 +1,24 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
+#ifndef BEMBEL_LINEAROPERATOR_MODULE_
+#define BEMBEL_LINEAROPERATOR_MODULE_
+
+#include "AnsatzSpace"
+#include "DuffyTrick"
+#include "H2Matrix"
+#include "Quadrature"
+
+#include "src/Geometry/SurfacePoint.hpp"
+#include "src/H2Matrix/H2Matrix.hpp"
+#include "src/LinearOperator/DifferentialFormEnum.hpp"
+#include "src/LinearOperator/DiscreteOperator.hpp"
+#include "src/LinearOperator/LinearOperatorBase.hpp"
+#include "src/LinearOperator/LinearOperatorTraits.hpp"
+
+#endif
