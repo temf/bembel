@@ -40,15 +40,28 @@ int main() {
           ansatz_space.get_superspace(), cluster_level - 1,
           refinement_level - cluster_level + 1, number_of_points);
 
+  fmm_moment_matrix1[0].conservativeResize(2 * number_of_points2,
+                                           fmm_moment_matrix1[0].cols());
+  fmm_moment_matrix1[0].block(number_of_points2, 0, number_of_points2,
+                              fmm_moment_matrix1[0].cols()) =
+      fmm_moment_matrix1[0].block(0, 0, number_of_points2,
+                                  fmm_moment_matrix1[0].cols());
+  fmm_moment_matrix2[0].conservativeResize(2 * number_of_points2,
+                                           fmm_moment_matrix2[0].cols());
+  fmm_moment_matrix2[0].block(number_of_points2, 0, number_of_points2,
+                              fmm_moment_matrix2[0].cols()) =
+      fmm_moment_matrix2[0].block(0, 0, number_of_points2,
+                                  fmm_moment_matrix2[0].cols());
+
   // generate random vector
-  VectorXd random_vector = VectorXd::Random(number_of_points2);
+  VectorXd random_vector = VectorXd::Random(2 * number_of_points2);
 
   // apply moment matrices to these matrices
   MatrixXd testcase = fmm_moment_matrix2[0].transpose() * random_vector;
 
   // do backward transformation
   std::vector<MatrixXd> backward_dst;
-  backward_dst.push_back(MatrixXd::Zero(number_of_points2, 4));
+  backward_dst.push_back(MatrixXd::Zero(2 * number_of_points2, 4));
   backward_dst.push_back(random_vector);
   MatrixXd backward = H2Multipole::backwardTransformation(
       fmm_moment_matrix1[0], fmm_transfer_matrices, 1, backward_dst);

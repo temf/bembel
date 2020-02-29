@@ -20,6 +20,9 @@ struct PotentialTraits<MaxwellSingleLayerPotential<LinOp>> {
   static constexpr int OutputSpaceDimension = 3;
 };
 
+/**
+ * \ingroup Maxwell
+ */
 template <typename LinOp>
 class MaxwellSingleLayerPotential
     : public PotentialBase<MaxwellSingleLayerPotential<LinOp>, LinOp> {

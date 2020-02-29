@@ -38,7 +38,7 @@ applications [5,6].
 A short introduction to the code has been written [3]. 
 If you utilise our code as part of a publication, we would appreciate it if you cite it. 
 
-This code is currently at version 1.0. Additional features are planned, and development is ongoing.
+This code is currently at version 0.99. Additional features are planned, development and testing is ongoing.
 
 ## 2. What is a Bembel?<a name="whatis"></a>
 
@@ -92,6 +92,8 @@ from `CMakeLists.txt`, and give a path to the eigen headers as an include direct
 
 Then, the examples and tests should compile without any issues. You may run all tests by calling
 `make test` from the `build/` directory after a successful compilation.
+
+The geometry files required to run the examples can be found in the `geo/` folder.
 
 ## 5. Structure of the Repository <a name="structure"></a>
 
@@ -174,7 +176,7 @@ Contributors include (alphabetically):
 ## 10. About the People <a name="people"></a>
 
 * [Jürgen Dölz](https://www.mathematik.tu-darmstadt.de/fb/personal/details/juergen_doelz.de.jsp) 
-<a name="JD"></a> currently holds an assistant professorship at the University of Twente. He may also be found 
+<a name="JD"></a> currently holds an assistant professorship at the [University of Twente](https://www.utwente.nl/en/). He may also be found 
 [on GitHub](https://github.com/jdoelz).
 
 * [Helmut Harbrecht](https://cm.dmi.unibas.ch/) 
@@ -206,8 +208,8 @@ at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
 ## 11. Funding <a name="funding"></a>
 
 Work on Bembel was conducted with the following financial support (alphabetically):
-*  DFG Grant SCHO1562/3-1,
 *  DFG Grant KU1553/4-1,
+*  DFG Grant SCHO1562/3-1,
 *  The Graduate School of Computational Engineering at TU Darmstadt and the Excellence Initiative of the German Federal and State Governments and the Graduate School of Computational Engineering at TU Darmstadt,
 *  SNSF Grant 137669,
 *  SNSF Grant 156101,

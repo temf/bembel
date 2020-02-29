@@ -25,6 +25,9 @@ struct LinearOperatorTraits<HelmholtzSingleLayerOperator> {
   };
 };
 
+/**
+ * \ingroup Helmholtz
+ */
 class HelmholtzSingleLayerOperator
     : public LinearOperatorBase<HelmholtzSingleLayerOperator> {
   // implementation of the kernel evaluation, which may be based on the

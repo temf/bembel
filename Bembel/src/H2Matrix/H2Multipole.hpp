@@ -117,10 +117,13 @@ Eigen::MatrixXd computeTransferMatrices(int number_of_points) {
 template <typename InterpolationPoints, typename LinOp>
 struct Moment1D {
   static Eigen::MatrixXd computeMoment1D(const SuperSpace<LinOp> &super_space,
+                                         const int cluster_level,
                                          const int cluster_refinements,
                                          const int number_of_points) {
     int n = 1 << cluster_refinements;
     double h = 1. / n;
+    int N = 1 << cluster_level;
+    double H = 1. / N;
     int polynomial_degree = super_space.get_polynomial_degree();
     int polynomial_degree_plus_one = polynomial_degree + 1;
     int polynomial_degree_plus_one_squared =
@@ -144,7 +147,7 @@ struct Moment1D {
         for (auto k = 0; k < Q.w_.size(); ++k) {
           super_space.addScaledBasis1D(
               &intval,
-              std::sqrt(h) * Q.w_(k) *
+              Q.w_(k) * std::sqrt(h * H) *
                   evaluatePolynomial<InterpolationPoints>(L.col(i),
                                                           h * (j + Q.xi_(k))),
               Q.xi_(k));
@@ -166,10 +169,13 @@ struct Moment1D {
 template <typename InterpolationPoints, typename LinOp>
 struct Moment1DDerivative {
   static Eigen::MatrixXd computeMoment1D(const SuperSpace<LinOp> &super_space,
+                                         const int cluster_level,
                                          const int cluster_refinements,
                                          const int number_of_points) {
     int n = 1 << cluster_refinements;
     double h = 1. / n;
+    int N = 1 << cluster_level;
+    double H = 1. / N;
     int polynomial_degree = super_space.get_polynomial_degree();
     int polynomial_degree_plus_one = polynomial_degree + 1;
     int polynomial_degree_plus_one_squared =
@@ -193,7 +199,7 @@ struct Moment1DDerivative {
         for (auto k = 0; k < Q.w_.size(); ++k) {
           super_space.addScaledBasis1DDx(
               &intval,
-              Q.w_(k) / std::sqrt(h) / h *
+              Q.w_(k) / std::sqrt(h * H) *
                   evaluatePolynomial<InterpolationPoints>(L.col(i),
                                                           h * (j + Q.xi_(k))),
               Q.xi_(k));
@@ -219,20 +225,16 @@ Eigen::MatrixXd moment2DComputer(const SuperSpace<LinOp> &super_space,
                                  const int number_of_points) {
   int n = 1 << cluster_refinements;
   auto n2 = n * n;
-  int N = 1 << cluster_level;
-  double H = 1. / N;
   int polynomial_degree = super_space.get_polynomial_degree();
   int polynomial_degree_plus_one = polynomial_degree + 1;
   int polynomial_degree_plus_one_squared =
       polynomial_degree_plus_one * polynomial_degree_plus_one;
 
   // compute 1D moments
-  Eigen::MatrixXd moment1D_1 =
-      std::sqrt(H) * Mom1D_1::computeMoment1D(super_space, cluster_refinements,
-                                              number_of_points);
-  Eigen::MatrixXd moment1D_2 =
-      std::sqrt(H) * Mom1D_2::computeMoment1D(super_space, cluster_refinements,
-                                              number_of_points);
+  Eigen::MatrixXd moment1D_1 = Mom1D_1::computeMoment1D(
+      super_space, cluster_level, cluster_refinements, number_of_points);
+  Eigen::MatrixXd moment1D_2 = Mom1D_2::computeMoment1D(
+      super_space, cluster_level, cluster_refinements, number_of_points);
   /**
    *  Throughout this code we face the problem of memory serialisation for
    *  the traversel of elements in the element tree. the canonical orders would
@@ -378,50 +380,43 @@ forwardTransformation(const Eigen::MatrixXd &moment_matrices,
                       const Eigen::MatrixXd &transfer_matrices, const int steps,
                       const Eigen::Matrix<Scalar, Eigen::Dynamic,
                                           Eigen::Dynamic> &long_rhs_matrix) {
+  // get numbers
+  int number_of_points = transfer_matrices.rows();
+  int number_of_FMM_components = moment_matrices.rows() / number_of_points;
+  // apply moment matrices
   std::vector<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>
       long_rhs_forward;
   long_rhs_forward.push_back(moment_matrices * long_rhs_matrix);
-  for (int i = 0; i < steps; ++i) {
-    long_rhs_forward.push_back(
-        transfer_matrices *
-        Eigen::Map<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>(
-            long_rhs_forward.back().data(), 4 * long_rhs_forward.back().rows(),
-            long_rhs_forward.back().cols() / 4));
-  }
-  return long_rhs_forward;
-}
-#if 0
-template <typename Scalar>
-std::vector<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>
-forwardTransformation(const std::vector<Eigen::MatrixXd> &moment_matrices,
-                      const Eigen::MatrixXd &transfer_matrices, const int steps,
-                      const Eigen::Matrix<Scalar, Eigen::Dynamic,
-                                          Eigen::Dynamic> &long_rhs_matrix) {
-  int vector_components = moment_matrices.size();
-  int component_size = long_rhs_matrix.cols() / vector_components;
-  std::vector<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>
-      long_rhs_forward;
-  // apply moment matrices
-  long_rhs_forward.push_back(
-      Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>(
-          moment_matrices[0].rows(), long_rhs_matrix.cols()));
-  for (int i = 0; i < vector_components; ++i)
-    long_rhs_forward[0].block(0, i * component_size, moment_matrices[0].rows(),
-                              component_size) =
-        moment_matrices[i] * long_rhs_matrix.block(0, i * component_size,
-                                                   long_rhs_matrix.rows(),
-                                                   component_size);
   // apply transfer matrices
   for (int i = 0; i < steps; ++i) {
-    long_rhs_forward.push_back(
-        transfer_matrices *
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> reshaped =
         Eigen::Map<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>(
             long_rhs_forward.back().data(), 4 * long_rhs_forward.back().rows(),
-            long_rhs_forward.back().cols() / 4));
+            long_rhs_forward.back().cols() / 4);
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> transferred(
+        reshaped.rows() / 4, reshaped.cols());
+
+    // iterate over FMM components
+    for (int j = 0; j < number_of_FMM_components; ++j) {
+      Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> to_transfer(
+          4 * number_of_points, reshaped.cols());
+      to_transfer << reshaped.block(
+          (j + 0 * number_of_FMM_components) * number_of_points, 0,
+          number_of_points, reshaped.cols()),
+          reshaped.block((j + 1 * number_of_FMM_components) * number_of_points,
+                         0, number_of_points, reshaped.cols()),
+          reshaped.block((j + 2 * number_of_FMM_components) * number_of_points,
+                         0, number_of_points, reshaped.cols()),
+          reshaped.block((j + 3 * number_of_FMM_components) * number_of_points,
+                         0, number_of_points, reshaped.cols());
+      transferred.block(j * number_of_points, 0, number_of_points,
+                        reshaped.cols()) = transfer_matrices * to_transfer;
+    }
+
+    long_rhs_forward.push_back(transferred);
   }
   return long_rhs_forward;
 }
-#endif
 /**
  * \ingroup H2Matrix
  * \brief Backward transformation for FMM. The content of long_dst_backward is
@@ -433,50 +428,42 @@ Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> backwardTransformation(
     const Eigen::MatrixXd &transfer_matrices, const int steps,
     std::vector<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>
         &long_dst_backward) {
+  // get numbers
+  int number_of_points = transfer_matrices.rows();
+  int number_of_FMM_components = moment_matrices.rows() / number_of_points;
+  // apply transfer matrices
   for (int i = steps; i > 0; --i) {
-    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> prod =
-        transfer_matrices.transpose() * long_dst_backward[i];
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> transferred(
+        4 * long_dst_backward[i].rows(), long_dst_backward[i].cols());
+    for (int j = 0; j < number_of_FMM_components; ++j) {
+      Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> prod =
+          transfer_matrices.transpose() *
+          long_dst_backward[i].block(j * number_of_points, 0, number_of_points,
+                                     long_dst_backward[i].cols());
+      transferred.block((j + 0 * number_of_FMM_components) * number_of_points,
+                        0, number_of_points, prod.cols()) =
+          prod.block(0 * number_of_points, 0, number_of_points, prod.cols());
+      transferred.block((j + 1 * number_of_FMM_components) * number_of_points,
+                        0, number_of_points, prod.cols()) =
+          prod.block(1 * number_of_points, 0, number_of_points, prod.cols());
+      transferred.block((j + 2 * number_of_FMM_components) * number_of_points,
+                        0, number_of_points, prod.cols()) =
+          prod.block(2 * number_of_points, 0, number_of_points, prod.cols());
+      transferred.block((j + 3 * number_of_FMM_components) * number_of_points,
+                        0, number_of_points, prod.cols()) =
+          prod.block(3 * number_of_points, 0, number_of_points, prod.cols());
+    }
     long_dst_backward[i - 1] +=
         Eigen::Map<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>(
-            prod.data(), long_dst_backward[i - 1].rows(),
+            transferred.data(), long_dst_backward[i - 1].rows(),
             long_dst_backward[i - 1].cols());
   }
+  // apply moment matrices
   Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> long_dst_matrix =
       moment_matrices.transpose() * long_dst_backward[0];
   return Eigen::Map<Eigen::Matrix<Scalar, Eigen::Dynamic, 1>>(
       long_dst_matrix.data(), long_dst_matrix.size());
 }
-#if 0
-template <typename Scalar>
-Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> backwardTransformation(
-    const std::vector<Eigen::MatrixXd> &moment_matrices,
-    const Eigen::MatrixXd &transfer_matrices, const int steps,
-    std::vector<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>
-        &long_dst_backward) {
-  int vector_components = moment_matrices.size();
-  int component_size = long_dst_backward[0].cols() / vector_components;
-  // apply transfer matrices
-  for (int i = steps; i > 0; --i) {
-    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> prod =
-        transfer_matrices.transpose() * long_dst_backward[i];
-    long_dst_backward[i - 1] +=
-        Eigen::Map<Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>>(
-            prod.data(), long_dst_backward[i - 1].rows(),
-            long_dst_backward[i - 1].cols());
-  }
-  // apply moment matrices
-  Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> long_dst_matrix(
-      moment_matrices[0].cols(), long_dst_backward[0].cols());
-  for (int i = 0; i < vector_components; ++i)
-    long_dst_matrix.block(0, i * component_size, long_dst_matrix.rows(),
-                          component_size) =
-        moment_matrices[i].transpose() *
-        long_dst_backward[0].block(0, i * component_size,
-                                   long_dst_backward[0].rows(), component_size);
-  return Eigen::Map<Eigen::Matrix<Scalar, Eigen::Dynamic, 1>>(
-      long_dst_matrix.data(), long_dst_matrix.size());
-}
-#endif
 
 }  // namespace H2Multipole
 }  // namespace Bembel

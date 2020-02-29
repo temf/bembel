@@ -20,6 +20,9 @@ struct PotentialTraits<LaplaceSingleLayerPotential<LinOp>> {
   static constexpr int OutputSpaceDimension = 1;
 };
 
+/**
+ * \ingroup Laplace
+ */
 template <typename LinOp>
 class LaplaceSingleLayerPotential
     : public PotentialBase<LaplaceSingleLayerPotential<LinOp>, LinOp> {

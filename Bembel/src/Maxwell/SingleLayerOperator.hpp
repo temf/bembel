@@ -25,6 +25,9 @@ struct LinearOperatorTraits<MaxwellSingleLayerOperator> {
   };
 };
 
+/**
+ * \ingroup Maxwell
+ */
 class MaxwellSingleLayerOperator
     : public LinearOperatorBase<MaxwellSingleLayerOperator> {
   // implementation of the kernel evaluation, which may be based on the
@@ -77,6 +80,38 @@ class MaxwellSingleLayerOperator
     return;
   }
 
+  Eigen::Matrix<std::complex<double>, 4, 4> evaluateFMMInterpolation_impl(
+      const SurfacePoint &p1, const SurfacePoint &p2) const {
+    // get evaluation points on unit square
+    auto s = p1.segment<2>(0);
+    auto t = p2.segment<2>(0);
+
+    // get points on geometry and tangential derivatives
+    auto x_f = p1.segment<3>(3);
+    auto x_f_dx = p1.segment<3>(6);
+    auto x_f_dy = p1.segment<3>(9);
+    auto y_f = p2.segment<3>(3);
+    auto y_f_dx = p2.segment<3>(6);
+    auto y_f_dy = p2.segment<3>(9);
+
+    // evaluate kernel
+    auto kernel = evaluateKernel(x_f, y_f);
+
+    // interpolation
+    Eigen::Matrix<std::complex<double>, 4, 4> intval;
+    intval.setZero();
+    intval(0, 0) = kernel * x_f_dx.dot(y_f_dx);
+    intval(0, 2) = kernel * x_f_dx.dot(y_f_dy);
+    intval(2, 0) = kernel * x_f_dy.dot(y_f_dx);
+    intval(2, 2) = kernel * x_f_dy.dot(y_f_dy);
+    intval(1, 1) = -kernel / wavenumber2_;
+    intval(1, 3) = -kernel / wavenumber2_;
+    intval(3, 1) = -kernel / wavenumber2_;
+    intval(3, 3) = -kernel / wavenumber2_;
+
+    return intval;
+  }
+
   /**
    * \brief Fundamental solution of Helmholtz/Maxwell problem
    */
@@ -101,6 +136,43 @@ class MaxwellSingleLayerOperator
  private:
   std::complex<double> wavenumber_;
   std::complex<double> wavenumber2_;
+};
+
+/**
+ * \brief The Maxwell single layer operator requires a special treatment of the
+ * moment matrices of the FMM due to the involved derivatives on the ansatz
+ * functions.
+ */
+template <typename InterpolationPoints>
+struct H2Multipole::Moment2D<InterpolationPoints, MaxwellSingleLayerOperator> {
+  static std::vector<Eigen::MatrixXd> compute2DMoment(
+      const SuperSpace<MaxwellSingleLayerOperator> &super_space,
+      const int cluster_level, const int cluster_refinements,
+      const int number_of_points) {
+    Eigen::MatrixXd moment = moment2DComputer<
+        Moment1D<InterpolationPoints, MaxwellSingleLayerOperator>,
+        Moment1D<InterpolationPoints, MaxwellSingleLayerOperator>>(
+        super_space, cluster_level, cluster_refinements, number_of_points);
+    Eigen::MatrixXd moment_dx = moment2DComputer<
+        Moment1DDerivative<InterpolationPoints, MaxwellSingleLayerOperator>,
+        Moment1D<InterpolationPoints, MaxwellSingleLayerOperator>>(
+        super_space, cluster_level, cluster_refinements, number_of_points);
+    Eigen::MatrixXd moment_dy = moment2DComputer<
+        Moment1D<InterpolationPoints, MaxwellSingleLayerOperator>,
+        Moment1DDerivative<InterpolationPoints, MaxwellSingleLayerOperator>>(
+        super_space, cluster_level, cluster_refinements, number_of_points);
+
+    Eigen::MatrixXd moment1(moment.rows() + moment_dx.rows(), moment.cols());
+    moment1 << moment, moment_dx;
+    Eigen::MatrixXd moment2(moment.rows() + moment_dy.rows(), moment.cols());
+    moment2 << moment, moment_dy;
+
+    std::vector<Eigen::MatrixXd> vector_of_moments;
+    vector_of_moments.push_back(moment1);
+    vector_of_moments.push_back(moment2);
+
+    return vector_of_moments;
+  }
 };
 
 }  // namespace Bembel

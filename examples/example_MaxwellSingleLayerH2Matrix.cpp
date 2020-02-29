@@ -7,8 +7,8 @@
 #include <Bembel/AnsatzSpace>
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
-#include <Bembel/Helmholtz>
 #include <Bembel/LinearForm>
+#include <Bembel/Maxwell>
 
 #include "Data.hpp"
 #include "Error.hpp"
@@ -28,36 +28,35 @@ int main() {
   // points.
   MatrixXd gridpoints = Util::makeSphereGrid(2, 10);
 
-  // Define analytical solution using lambda function, in this case the
-  // Helmholtz fundamental solution centered on 0, see Data.hpp
-  const std::function<std::complex<double>(Vector3d)> fun =
-      [wavenumber](Vector3d pt) {
-        return Data::HelmholtzFundamentalSolution(pt, wavenumber,
-                                                  Vector3d(0., 0., 0.));
-      };
+  // Define analytical solution using lambda function, in this case a dipole
+  // centered on 0, see Data.hpp
+  const std::function<VectorXcd(Vector3d)> fun = [wavenumber](Vector3d pt) {
+    return Data::Dipole(pt, wavenumber, Vector3d(0.2, 0.2, 0.2),
+                        Vector3d(0., 0.1, 0.1));
+  };
 
   std::cout << "\n============================================================="
                "==========\n";
   // Iterate over polynomial degree.
-  for (auto polynomial_degree : {0,1,2}) {
+  for (auto polynomial_degree : {1, 2, 3}) {
     // Iterate over refinement levels
-    for (auto refinement_level : {0,1,2,3}) {
+    for (auto refinement_level : {0, 1, 2, 3}) {
       std::cout << "Degree " << polynomial_degree << " Level "
                 << refinement_level << "\t\t";
       // Build ansatz space
-      AnsatzSpace<HelmholtzSingleLayerOperator> ansatz_space(
+      AnsatzSpace<MaxwellSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
 
       // Set up load vector
-      DiscreteLinearForm<DirichletTrace<std::complex<double>>,
-                         HelmholtzSingleLayerOperator>
+      DiscreteLinearForm<RotatedTangentialTrace<std::complex<double>>,
+                         MaxwellSingleLayerOperator>
           disc_lf(ansatz_space);
       disc_lf.get_linear_form().set_function(fun);
       disc_lf.compute();
 
       // Set up and compute discrete operator
       DiscreteOperator<H2Matrix<std::complex<double>>,
-                       HelmholtzSingleLayerOperator>
+                       MaxwellSingleLayerOperator>
           disc_op(ansatz_space);
       disc_op.get_linear_operator().set_wavenumber(wavenumber);
       disc_op.compute();
@@ -68,18 +67,15 @@ int main() {
       auto rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
-      DiscretePotential<
-          HelmholtzSingleLayerPotential<HelmholtzSingleLayerOperator>,
-          HelmholtzSingleLayerOperator>
+      DiscretePotential<MaxwellSingleLayerPotential<MaxwellSingleLayerOperator>,
+                        MaxwellSingleLayerOperator>
           disc_pot(ansatz_space);
       disc_pot.get_potential().set_wavenumber(wavenumber);
       disc_pot.set_cauchy_data(rho);
       auto pot = disc_pot.evaluate(gridpoints);
 
       // print error
-      std::cout << maxPointwiseError<std::complex<double>>(pot, gridpoints,
-      fun)
-      << std::endl;
+      std::cout << maxPointwiseError(pot, gridpoints, fun) << std::endl;
     }
     std::cout << std::endl;
   }
