@@ -20,6 +20,9 @@ struct PotentialTraits<HelmholtzSingleLayerPotential<LinOp>> {
   static constexpr int OutputSpaceDimension = 1;
 };
 
+/**
+ * \ingroup Helmholtz
+ */
 template <typename LinOp>
 class HelmholtzSingleLayerPotential
     : public PotentialBase<HelmholtzSingleLayerPotential<LinOp>, LinOp> {

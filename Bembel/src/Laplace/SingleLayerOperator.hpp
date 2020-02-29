@@ -25,6 +25,9 @@ struct LinearOperatorTraits<LaplaceSingleLayerOperator> {
   };
 };
 
+/**
+ * \ingroup Laplace
+ */
 class LaplaceSingleLayerOperator
     : public LinearOperatorBase<LaplaceSingleLayerOperator> {
   // implementation of the kernel evaluation, which may be based on the
