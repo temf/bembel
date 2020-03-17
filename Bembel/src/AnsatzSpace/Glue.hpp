@@ -316,13 +316,25 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
           // yes, we just add the new one to the dof_id, if not, we make a new
           // identification group.
           if (already_stored_in[small_dof] > -1) {
-            assert(already_stored_in[large_dof] == -1);
-            out[already_stored_in[small_dof]].dofs.push_back(large_dof);
-            already_stored_in[large_dof] = already_stored_in[small_dof];
+            // It could be that the large_dof is already matched with another
+            // dof, i.e., in the case of a 'circle'. Then there is nothing to do. 
+            // If not, we match it with the master of the partner. 
+            if(already_stored_in[large_dof] == -1){
+              out[already_stored_in[small_dof]].dofs.push_back(large_dof);
+              already_stored_in[large_dof] = already_stored_in[small_dof];
+            } else {
+              assert(already_stored_in[small_dof] == already_stored_in[large_dof]);
+            }
           } else if (already_stored_in[large_dof] > -1) {
-            assert(already_stored_in[small_dof] == -1);
-            out[already_stored_in[large_dof]].dofs.push_back(small_dof);
-            already_stored_in[small_dof] = already_stored_in[large_dof];
+            // It could be that the small_dof is already matched with another
+            // dof, i.e., in the case of a 'circle'. Then there is nothing to do. 
+            // If not, we match it with the master of the partner. 
+            if(already_stored_in[small_dof] == -1){
+              out[already_stored_in[large_dof]].dofs.push_back(small_dof);
+              already_stored_in[small_dof] = already_stored_in[large_dof];
+            } else {
+              assert(already_stored_in[small_dof] == already_stored_in[large_dof]);
+            }
           } else {
             d.dofs.push_back(small_dof);
             d.dofs.push_back(large_dof);
