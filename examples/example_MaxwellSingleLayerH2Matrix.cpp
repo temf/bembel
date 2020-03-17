@@ -64,6 +64,7 @@ int main() {
       // solve system
       GMRES<H2Matrix<std::complex<double>>, IdentityPreconditioner> gmres;
       gmres.compute(disc_op.get_discrete_operator());
+      gmres.set_restart(2000);
       auto rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
