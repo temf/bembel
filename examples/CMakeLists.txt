@@ -1,0 +1,41 @@
+add_executable(example_Spline.out example_Spline)
+target_link_libraries(example_Spline.out Eigen3::Eigen)
+
+add_executable(example_Geometry.out example_Geometry)
+target_link_libraries(example_Geometry.out Eigen3::Eigen)
+
+add_executable(example_AnsatzSpace.out example_AnsatzSpace)
+target_link_libraries(example_AnsatzSpace.out Eigen3::Eigen)
+
+add_executable(example_Quadrature.out example_Quadrature)
+target_link_libraries(example_Quadrature.out Eigen3::Eigen)
+
+add_executable(example_BlockClusterTree.out example_BlockClusterTree)
+target_link_libraries(example_BlockClusterTree.out Eigen3::Eigen)
+
+add_executable(example_LaplaceSingleLayerFull.out example_LaplaceSingleLayerFull)
+target_link_libraries(example_LaplaceSingleLayerFull.out Eigen3::Eigen)
+
+add_executable(example_LaplaceSingleLayerH2Matrix.out example_LaplaceSingleLayerH2Matrix)
+target_link_libraries(example_LaplaceSingleLayerH2Matrix.out Eigen3::Eigen)
+
+add_executable(example_HelmholtzSingleLayerFull.out example_HelmholtzSingleLayerFull)
+target_link_libraries(example_HelmholtzSingleLayerFull.out Eigen3::Eigen)
+
+add_executable(example_HelmholtzSingleLayerH2Matrix.out example_HelmholtzSingleLayerH2Matrix)
+target_link_libraries(example_HelmholtzSingleLayerH2Matrix.out Eigen3::Eigen)
+
+add_executable(example_MaxwellSingleLayerFull.out example_MaxwellSingleLayerFull)
+target_link_libraries(example_MaxwellSingleLayerFull.out Eigen3::Eigen)
+
+add_executable(example_MaxwellSingleLayerH2Matrix.out example_MaxwellSingleLayerH2Matrix)
+target_link_libraries(example_MaxwellSingleLayerH2Matrix.out Eigen3::Eigen)
+
+add_executable(example_VTKSurfaceExport.out example_VTKSurfaceExport)
+target_link_libraries(example_VTKSurfaceExport.out Eigen3::Eigen)
+
+add_executable(example_VTKDomainExport.out example_VTKDomainExport)
+target_link_libraries(example_VTKDomainExport.out Eigen3::Eigen)
+
+add_executable(example_FullLaplaceWorkflow.out example_FullLaplaceWorkflow)
+target_link_libraries(example_FullLaplaceWorkflow.out Eigen3::Eigen)
