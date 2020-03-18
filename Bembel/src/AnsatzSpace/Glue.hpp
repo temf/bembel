@@ -134,8 +134,8 @@ class Glue {
       // The dof cannot be declared slave and master at the same time
       assert(not(dof_is_master[pre_index] && dof_is_slave[pre_index]));
       if (dof_is_master[pre_index]) {
-        // The dofs in dof_id dont know they might be moved forward. So the
-        // smalles dof of those to be identified should coinicde with the
+        // The dofs in dof_id don't know they might be moved forward. So the
+        // smallest dof of those to be identified should coincide with the
         // pre_index.
         assert(pre_index == dof_id[master_index].dofs[0]);
         const int number_of_partners = dof_id[master_index].dofs.size();
@@ -158,7 +158,7 @@ class Glue {
 
 namespace GlueRoutines {
 
-// This routine collects the inices of DOFs with support on an edge in
+// This routine collects the indices of DOFs with support on an edge in
 // dependence of the dimension of the space in each tensor product direction
 // and the edge. The shift parameter can be used to shift it to the correct
 // patch or vector component.
@@ -317,25 +317,71 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
           // identification group.
           if (already_stored_in[small_dof] > -1) {
             // It could be that the large_dof is already matched with another
-            // dof, i.e., in the case of a 'circle'. Then there is nothing to do. 
-            // If not, we match it with the master of the partner. 
-            if(already_stored_in[large_dof] == -1){
+            // dof, i.e., in the case of a 'circle'. Then there is nothing to
+            // do. If not, we match it with the master of the partner.
+            if (already_stored_in[large_dof] == -1) {
               out[already_stored_in[small_dof]].dofs.push_back(large_dof);
               already_stored_in[large_dof] = already_stored_in[small_dof];
             } else {
-              assert(already_stored_in[small_dof] == already_stored_in[large_dof]);
+              if (not(already_stored_in[small_dof] ==
+                      already_stored_in[large_dof])) {
+                // This case is tricky. Assume that we have to identify four
+                // DOFs with each other, but they have already been assigned in
+                // pairs of two. Then we need to reverse this process. First, we
+                // grab the two storage locations.
+                const int small_store = std::min(already_stored_in[large_dof],
+                                                 already_stored_in[small_dof]);
+                const int large_store = std::max(already_stored_in[large_dof],
+                                                 already_stored_in[small_dof]);
+                for (auto dfs : out[large_store].dofs) {
+                  // now we put all of those in the larger location into the
+                  // smaller one.
+                  already_stored_in[dfs] = small_store;
+                  for (auto other_dfs : out[small_store].dofs) {
+                    assert(dfs != other_dfs);
+                  }
+                  out[small_store].dofs.push_back(dfs);
+                }
+                // Now we set the larger storage location to empty.
+                out[large_store].dofs = {};
+                out[large_store].coef = 0;
+              }
             }
           } else if (already_stored_in[large_dof] > -1) {
             // It could be that the small_dof is already matched with another
-            // dof, i.e., in the case of a 'circle'. Then there is nothing to do. 
-            // If not, we match it with the master of the partner. 
-            if(already_stored_in[small_dof] == -1){
+            // dof, i.e., in the case of a 'circle'. Then there is nothing to
+            // do. If not, we match it with the master of the partner.
+            if (already_stored_in[small_dof] == -1) {
               out[already_stored_in[large_dof]].dofs.push_back(small_dof);
               already_stored_in[small_dof] = already_stored_in[large_dof];
             } else {
-              assert(already_stored_in[small_dof] == already_stored_in[large_dof]);
+              if (not(already_stored_in[small_dof] ==
+                      already_stored_in[large_dof])) {
+                // This case is tricky. Assume that we have to identify four
+                // DOFs with each other, but they have already been assigned in
+                // pairs of two. Then we need to reverse this process. First, we
+                // grab the two storage locations.
+                const int small_store = std::min(already_stored_in[large_dof],
+                                                 already_stored_in[small_dof]);
+                const int large_store = std::max(already_stored_in[large_dof],
+                                                 already_stored_in[small_dof]);
+                for (auto dfs : out[large_store].dofs) {
+                  // now we put all of those in the larger location into the
+                  // smaller one.
+                  already_stored_in[dfs] = small_store;
+                  for (auto other_dfs : out[small_store].dofs) {
+                    assert(dfs != other_dfs);
+                  }
+                  out[small_store].dofs.push_back(dfs);
+                }
+                // Now we set the larger storage location to empty.
+                out[large_store].dofs = {};
+                out[large_store].coef = 0;
+              }
             }
           } else {
+            // With the exception of corners, this will be the default case.
+            // We just add a pair of dofs to the bookkeeping.
             d.dofs.push_back(small_dof);
             d.dofs.push_back(large_dof);
             already_stored_in[small_dof] = d_count;
@@ -347,7 +393,13 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
         }
       }
     }
-
+    // Now we need to clean up the empty dofsets, since subsequent routines
+    // assume there to be at least one element.
+    for (auto x = out.begin(); x != out.end(); ++x) {
+      if ((*x).dofs.size() == 0) {
+        out.erase(x);
+      }
+    }
     return out;
   }
 };
