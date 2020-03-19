@@ -91,8 +91,9 @@ class DiscretePotential {
         {
           SurfacePoint qp;
           for (auto j = 0; j < Q.w_.size(); ++j) {
-            super_space.map2surface(*element, Q.xi_.col(j),
-                                    element->get_h() * Q.w_(j), &qp);
+            super_space.map2surface(
+                *element, Q.xi_.col(j),
+                element->get_h() * element->get_h() * Q.w_(j), &qp);
             for (auto i = 0; i < points.rows(); ++i) {
               my_potential.row(i) += pot_.evaluateIntegrand_impl(
                   fun_ev_, *element, points.row(i), qp);
