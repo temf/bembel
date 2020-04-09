@@ -9,6 +9,8 @@
 #ifndef BEMBEL_LINEARFORM_MODULE_
 #define BEMBEL_LINEARFORM_MODULE_
 
+#include "Quadrature"
+
 #include "src/LinearForm/LinearForm.hpp"
 
 #include "src/LinearForm/DirichletTrace.hpp"

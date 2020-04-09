@@ -55,8 +55,6 @@ class DiscretePotential {
     GaussSquare<Constants::maximum_quadrature_degree> GS;
     auto Q = GS[deg_];
 
-    SurfacePoint qp;
-
     auto super_space = ansatz_space_.get_superspace();
 
     auto element_tree = super_space.get_mesh().get_element_tree();
@@ -76,16 +74,35 @@ class DiscretePotential {
                      PotentialTraits<Derived>::OutputSpaceDimension);
     potential.setZero();
 
-    for (auto i = 0; i < points.rows(); ++i) {
+#pragma omp parallel
+    {
+      Eigen::Matrix<typename PotentialReturnScalar<
+                        typename LinearOperatorTraits<LinOp>::Scalar,
+                        typename PotentialTraits<Derived>::Scalar>::Scalar,
+                    Eigen::Dynamic,
+                    PotentialTraits<Derived>::OutputSpaceDimension>
+          my_potential;
+      my_potential.resize(points.rows(),
+                          PotentialTraits<Derived>::OutputSpaceDimension);
+      my_potential.setZero();
       for (auto element = element_tree.cpbegin();
            element != element_tree.cpend(); ++element) {
-        for (auto j = 0; j < Q.w_.size(); ++j) {
-          super_space.map2surface(*element, Q.xi_.col(j),
-                                  element->get_h() * Q.w_(j), &qp);
-          potential.row(i) +=
-              pot_.evaluateIntegrand_impl(fun_ev_, *element, points.row(i), qp);
+#pragma omp single nowait
+        {
+          SurfacePoint qp;
+          for (auto j = 0; j < Q.w_.size(); ++j) {
+            super_space.map2surface(
+                *element, Q.xi_.col(j),
+                element->get_h() * element->get_h() * Q.w_(j), &qp);
+            for (auto i = 0; i < points.rows(); ++i) {
+              my_potential.row(i) += pot_.evaluateIntegrand_impl(
+                  fun_ev_, *element, points.row(i), qp);
+            }
+          }
         }
       }
+#pragma omp critical
+      potential += my_potential;
     }
     return potential;
   }
@@ -110,7 +127,7 @@ class DiscretePotential {
   Derived pot_;
   AnsatzSpace<LinOp> ansatz_space_;
   FunctionEvaluator<LinOp> fun_ev_;
-};
+};  // namespace Bembel
 
 }  // namespace Bembel
 #endif
