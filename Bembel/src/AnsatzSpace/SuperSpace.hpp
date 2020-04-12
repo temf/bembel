@@ -116,9 +116,8 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   void map2surface(const ElementTreeNode& e, const Eigen::Vector2d& xi,
                    double w, SurfacePoint* surf_pt) const {
-    auto Chi = mesh_->get_geometry()[e.patch_];
     Eigen::Vector2d st = e.llc_ + e.get_h() * xi;
-    Chi.updateSurfacePoint(surf_pt, st, w, xi);
+    mesh_->get_geometry()[e.patch_].updateSurfacePoint(surf_pt, st, w, xi);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
