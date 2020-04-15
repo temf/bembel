@@ -347,7 +347,7 @@ struct generic_product_impl<H2Matrix<ScalarT>, Rhs, SparseShape, DenseShape,
         std::vector<Matrix<ScalarT, Dynamic, Dynamic>> long_rhs_forward =
             Bembel::H2Multipole::forwardTransformation(
                 moment_matrix[col_component], transfer_matrices,
-                max_level - min_cluster_level - 1, long_rhs_matrix);
+                max_level - min_cluster_level, long_rhs_matrix);
 
 #pragma omp parallel
         {
@@ -417,7 +417,7 @@ struct generic_product_impl<H2Matrix<ScalarT>, Rhs, SparseShape, DenseShape,
           // do backward transformation
           my_long_dst += Bembel::H2Multipole::backwardTransformation(
               moment_matrix[row_component], transfer_matrices,
-              max_level - min_cluster_level - 1, my_long_dst_backward);
+              max_level - min_cluster_level, my_long_dst_backward);
 
 #pragma omp critical
           long_dst += my_long_dst;

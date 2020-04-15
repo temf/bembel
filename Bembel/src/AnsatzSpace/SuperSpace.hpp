@@ -82,7 +82,7 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    init_SuperSpace
   //////////////////////////////////////////////////////////////////////////////
-  void init_SuperSpace(Geometry& geom, int M, int P) {
+  void init_SuperSpace(const Geometry& geom, int M, int P) {
     polynomial_degree = P;
     polynomial_degree_plus_one_squared =
         (polynomial_degree + 1) * (polynomial_degree + 1);
