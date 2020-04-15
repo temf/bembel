@@ -26,7 +26,7 @@ information. -->
 
 Bembel is the 
 Boundary Element Method Based Engineering Library 
-written in C and C++ to solve boundary value problems governed by the Laplace,
+written in C++ to solve boundary value problems governed by the Laplace,
 Helmholtz or electric wave equation within the isogeometric framework [3,4,5,6]. 
 It was developed as part of a cooperation between the TU Darmstadt and the 
 University of Basel, coordinated by [H. Harbrecht](#HeHa), [S. Kurz](#SK) 
