@@ -42,19 +42,19 @@ class AnsatzSpace {
     return *this;
   }
 
-  AnsatzSpace(Geometry &geomtry, int refinement_level, int polynomial_degree,
+  AnsatzSpace(const Geometry &geometry, int refinement_level, int polynomial_degree,
               int knot_repetition = 1) {
-    init_AnsatzSpace(geomtry, refinement_level, polynomial_degree,
+    init_AnsatzSpace(geometry, refinement_level, polynomial_degree,
                      knot_repetition);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
   //    init_Ansatzspace
   //////////////////////////////////////////////////////////////////////////////
-  void init_AnsatzSpace(Geometry &geomtry, int refinement_level,
+  void init_AnsatzSpace(const Geometry &geometry, int refinement_level,
                         int polynomial_degree, int knot_repetition) {
     knot_repetition_ = knot_repetition;
-    super_space_.init_SuperSpace(geomtry, refinement_level, polynomial_degree);
+    super_space_.init_SuperSpace(geometry, refinement_level, polynomial_degree);
     Projector<Derived> proj(super_space_, knot_repetition_);
     Glue<Derived> glue(super_space_, proj);
     transformation_matrix_ =
