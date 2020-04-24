@@ -38,8 +38,6 @@ applications [5,6].
 A short introduction to the code has been written [3]. 
 If you utilise our code as part of a publication, we would appreciate it if you cite it. 
 
-This code is currently at version 0.99. Additional features are planned, development and testing is ongoing.
-
 ## 2. What is a Bembel?<a name="whatis"></a>
 
 A traditional German ceramic, as depicted in our logo. 
@@ -82,10 +80,12 @@ We recommend setting up a `build/` directory
 in the root directory of the Bembel, to switch to it and then to call `cmake ..` and `make debug` 
 or `make release`, respectively. 
 
-The CMake-File checks for installations of Eigen via the corresponding ` Eigen3Config.cmake`. 
-On Unix you may run
-`apt install libeigen3-dev`, or on Mac with Homebrew `brew install eigen`, and everything should work. Alternatively, you can delete the line
-``` find_package (Eigen3 3.3 REQUIRED NO_MODULE)```
+The CMake-File checks for installations of Eigen via the 
+corresponding `Eigen3Config.cmake`. On Unix you may 
+run `apt install libeigen3-dev`, or on Mac with 
+Homebrew `brew install eigen`, and everything should work. 
+Alternatively, you can delete the line
+`find_package (Eigen3 3.3 REQUIRED NO_MODULE)`
 and all lines of the type
 `target_link_librarires(... Eigen3::Eigen)`
 from `CMakeLists.txt`, and give a path to the eigen headers as an include directory manually.
@@ -146,7 +146,7 @@ the issue tracker on github.
 method for higher-order boundary elements on parametric surfaces*. In: Int. J. Numer. Meth. Eng., 108(13):1705-1728, 2016.
 [To the paper](https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.5274).
 
-[3] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. 2019. Submitted. [To the preprint](https://arxiv.org/abs/1906.00785).
+[3] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476. [To the paper](https://doi.org/10.1016/j.softx.2020.100476).
 
 [4] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps, and F. Wolf. *A fast isogeometric
 BEM for the three dimensional Laplace- and Helmholtz problems*. In: Comput. Methods Appl. Mech. Engrg., 330:83-101, 2018. 
