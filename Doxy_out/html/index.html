@@ -85,7 +85,10 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="el" href="namespace_bembel.html">Bembel</a></h1>
-<p><a href="https://www.gnu.org/licenses/gpl-3.0"></a> <a href="https://zenodo.org/badge/latestdoi/173278911"></a> <a href="https://circleci.com/gh/temf/bembel/tree/master"></a> </p><h2>Table of contents</h2>
+<p><a href="https://www.gnu.org/licenses/gpl-3.0"></a> </p><div class="image">
+<img src="https://img.shields.io/github/v/release/temf/bembel" alt="GitHub release (latest by date)"/>
+</div>
+<p> <a href="https://zenodo.org/badge/latestdoi/173278911"></a> <a href="https://circleci.com/gh/temf/bembel/tree/master"></a> </p><h2>Table of contents</h2>
 <ol type="1">
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#whatis">What is a Bembel?</a></li>
@@ -101,7 +104,6 @@ $(document).ready(function(){initNavTree('index.html','');});
 </ol>
 <h2>1. Introduction <a class="anchor" id="introduction"></a></h2>
 <p><a class="el" href="namespace_bembel.html">Bembel</a> is the Boundary Element Method Based Engineering Library written in C++ to solve boundary value problems governed by the Laplace, Helmholtz or electric wave equation within the isogeometric framework [3,4,5,6]. It was developed as part of a cooperation between the TU Darmstadt and the University of Basel, coordinated by <a href="#HeHa">H. Harbrecht</a>, <a href="#SK">S. Kurz</a> and <a href="#SSc">S. Schöps</a>. The code is based on the Laplace BEM of <a href="#JD">J. Dölz</a>, <a href="#HeHa">H. Harbrecht</a>, and <a href="#MM">M. Multerer</a>, [2,7] as well as the spline and geometry framework of <a href="#FW">F. Wolf</a>. The code was extended by <a href="#JD">J. Dölz</a> and <a href="#FW">F. Wolf</a> in early 2018 to cover electromagnetic applications [5,6]. A short introduction to the code has been written [3]. If you utilise our code as part of a publication, we would appreciate it if you cite it.</p>
-<p>This code is currently at version 0.99. Additional features are planned, development and testing is ongoing.</p>
 <h2>2. What is a <a class="el" href="namespace_bembel.html">Bembel</a>?<a class="anchor" id="whatis"></a></h2>
 <p>A traditional German ceramic, as depicted in our logo. Quoting <a href="https://en.wikipedia.org/wiki/Apfelwein">Wikipedia</a>:</p>
 <blockquote class="doxtable">
@@ -160,7 +162,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <h2>8. Publications &amp; Preprints <a class="anchor" id="publications"></a></h2>
 <p>[1] A. Buffa, J. Dölz, S. Kurz, S. Schöps, R. Vázques, and F. Wolf. <em>Multipatch approximation of the de Rham sequence and its traces in isogeometric analysis.</em> In: Numer. Math., 144, 201-236, 2020. <a href="https://link.springer.com/article/10.1007/s00211-019-01079-x">To the paper</a>. <a href="https://arxiv.org/abs/1806.01062">To the preprint</a>.</p>
 <p>[2] J. Dölz, H. Harbrecht, and M. Peters. <em>An interpolation-based fast multipole method for higher-order boundary elements on parametric surfaces</em>. In: Int. J. Numer. Meth. Eng., 108(13):1705-1728, 2016. <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.5274">To the paper</a>.</p>
-<p>[3] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. <em><a class="el" href="namespace_bembel.html">Bembel</a>: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation</em>. 2019. Submitted. <a href="https://arxiv.org/abs/1906.00785">To the preprint</a>.</p>
+<p>[3] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. <em><a class="el" href="namespace_bembel.html">Bembel</a>: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation</em>. In: SoftwareX, 11, 10476. <a href="https://doi.org/10.1016/j.softx.2020.100476">To the paper</a>.</p>
 <p>[4] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps, and F. Wolf. <em>A fast isogeometric BEM for the three dimensional Laplace- and Helmholtz problems</em>. In: Comput. Methods Appl. Mech. Engrg., 330:83-101, 2018. <a href="https://www.sciencedirect.com/science/article/pii/S0045782517306916">To the paper</a>. <a href="https://arxiv.org/abs/1708.09162">To the preprint</a>.</p>
 <p>[5] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. <em>Isogeometric Boundary Elements in Electromagnetism: Rigorous Analysis, Fast Methods, and Examples</em>. In: SIAM J. Sci. Comput., 41(5), B983-B1010, 2019. <a href="https://epubs.siam.org/doi/abs/10.1137/18M1227251">To the paper</a>. <a href="https://arxiv.org/abs/1807.03097">To the preprint</a>.</p>
 <p>[6] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. <em>A Numerical Comparison of an Isogeometric and a Parametric Higher Order Raviart–Thomas Approach to the Electric Field Integral Equation</em>. In: IEEE Trans. Antenn. Prop., 68(1), 593–597, 2020. <a href="https://ieeexplore.ieee.org/abstract/document/8809890">To the paper</a>. <a href="https://arxiv.org/abs/1807.03628">To the preprint</a>.</p>
@@ -197,7 +199,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Apr 21 2020 13:56:27 for Bembel by
+    <li class="footer">Generated on Fri Apr 24 2020 21:06:01 for Bembel by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
