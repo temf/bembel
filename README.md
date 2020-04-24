@@ -7,6 +7,7 @@ provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 information. -->
 # Bembel
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/temf/bembel)
 [![DOI](https://zenodo.org/badge/173278911.svg)](https://zenodo.org/badge/latestdoi/173278911)
 [![CircleCI](https://circleci.com/gh/temf/bembel/tree/master.svg?style=shield)](https://circleci.com/gh/temf/bembel/tree/master)
 ## Table of contents
