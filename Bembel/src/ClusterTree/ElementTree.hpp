@@ -417,7 +417,7 @@ class ElementTree {
       if(cur_neighbour != -1){
         ElementTreeNode &ref_cur_neighbour = mem_->adjcent(cur_el, i);
         // is the neighbour already refined?
-        if (cur_neighbour != -1 && ref_cur_neighbour.sons_.size()) {
+        if (ref_cur_neighbour.sons_.size()) {
           // this is the midpoint of the shared edge
           ptIds[i] = mem_->son(ref_cur_neighbour, refNeighbours[i])
                          .vertices_[(refNeighbours[i] + 1) % 4];
