@@ -60,7 +60,7 @@ class Logger {
   }
   template <typename T, typename... Args>
   void file(T t, Args... arg) {
-    if (not(_file.is_open())) {
+    if (!(_file.is_open())) {
       _file.open(name_, std::fstream::out | std::fstream::trunc);
     }
     _file << std::setprecision(N - 4) << std::setw(N + _sep.size()) << std::left
@@ -69,7 +69,7 @@ class Logger {
   }
   template <typename T>
   void file(T t) {
-    if (not(_file.is_open())) {
+    if (!(_file.is_open())) {
       _file.open(name_, std::fstream::out | std::fstream::trunc);
     }
     std::setprecision(N);

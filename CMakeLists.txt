@@ -47,7 +47,28 @@ provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 information.
 ")
 
+
+#   Instructions for VisualStudio users (tested with VS 2019 Community)
+#
+#   Assuming you do not have some preixisting setup, you can compile 
+#   tests and examples as follows: Uncomment the options
+#
+#   add_compile_options(-bigobj)
+#   include_directories(eigen3)
+#
+#   in this file, and comment out the line  
+
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
+#   below. Then place the eigen3 directory obtained from downloading 
+#   Eigen in Bembels root directory, where this CMake file sits. 
+#   Afterwards, comment or remove the 
+#
+#   target_link_libraries(example_Quadrature.out Eigen3::Eigen)
+#
+#   lines in the CMake-Files of "\examples" and "\tests".
+
+
 set (BEMBEL_PATH "${PROJECT_SOURCE_DIR}")
 
 include(CheckCXXCompilerFlag)

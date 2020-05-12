@@ -146,8 +146,8 @@ inline _proj_info makeLocalProjectionTriplets(
   // Here, we suddenly use the degree for basisevaluation, i.e.,
   // maximal_polynomial_degree-1. This is confusing, but correct and tested.
   {
-    double vals_y[maximal_polynomial_degree];
-    double vals_x[maximal_polynomial_degree];
+    double vals_y[Constants::MaxP + 1];
+    double vals_x[Constants::MaxP + 1];
     for (int iy = 0; iy < maximal_polynomial_degree; ++iy) {
       Bembel::Basis::ShapeFunctionHandler::evalBasis(
           maximal_polynomial_degree - 1, vals_y, mask[iy]);
@@ -188,13 +188,13 @@ inline _proj_info makeLocalProjectionTriplets(
     nonzero_dofs_x.reserve(pp1x);
     nonzero_dofs_y.reserve(pp1y);
     for (int dof_y = 0; dof_y < c_space_dim_y; ++dof_y) {
-      if ((c_space_knot_y[dof_y] <= mid_y) and
+      if ((c_space_knot_y[dof_y] <= mid_y) &&
           (c_space_knot_y[dof_y + pp1y] >= mid_y)) {
         nonzero_dofs_y.push_back(dof_y);
       }
     }
     for (int dof_x = 0; dof_x < c_space_dim_x; ++dof_x) {
-      if ((c_space_knot_x[dof_x] <= mid_x) and
+      if ((c_space_knot_x[dof_x] <= mid_x) &&
           (c_space_knot_x[dof_x + pp1x] >= mid_x)) {
         nonzero_dofs_x.push_back(dof_x);
       }
@@ -212,8 +212,8 @@ inline _proj_info makeLocalProjectionTriplets(
         for (int i = 0; i < masksize; ++i) {
           local_mask_x[i] = pos_x + (1.0 / n) * mask[i];
           local_mask_y[i] = pos_y + (1.0 / n) * mask[i];
-          assert(local_mask_x[i] < 1 and local_mask_x[i] > 0);
-          assert(local_mask_y[i] < 1 and local_mask_y[i] > 0);
+          assert(local_mask_x[i] < 1 && local_mask_x[i] > 0);
+          assert(local_mask_y[i] < 1 && local_mask_y[i] > 0);
         }
 
         // build unit vectors

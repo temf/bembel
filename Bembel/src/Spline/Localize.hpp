@@ -66,7 +66,7 @@ inline Eigen::Matrix<double, -1, -1> GetInterpolationMatrix(
   Eigen::Matrix<double, -1, -1> interpolationMatrix(polynomial_degree + 1,
                                                     polynomial_degree + 1);
 
-  double val[polynomial_degree + 1];
+  double val[Constants::MaxP + 1];
   for (int j = 0; j < polynomial_degree + 1; j++) {
     Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree, val,
                                                    mask[j]);
