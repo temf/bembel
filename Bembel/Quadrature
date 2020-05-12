@@ -18,6 +18,7 @@
 #include <Eigen/Eigenvalues>
 
 // Module headers
+#include "src/util/Macros.hpp"
 #include "src/Quadrature/Quadrature.hpp"
 #include "src/Quadrature/Cubature.hpp"
 #include "src/Quadrature/GaussLegendreRule.hpp"

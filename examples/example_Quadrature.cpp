@@ -68,15 +68,15 @@ int main() {
 
     // tensor product quadrature
     {
-      double exact_integral = (std::cos(M_PI) - std::cos(0)) / M_PI;
+      double exact_integral = (std::cos(BEMBEL_PI) - std::cos(0)) / BEMBEL_PI;
       exact_integral *= exact_integral;
 
       Bembel::GaussSquare<max_tp_order> GS;
       for (auto j = 0; j < max_tp_order; ++j) {
         double quadrature_val = 0;
         for (auto i = 0; i < GS[j].xi_.cols(); ++i)
-          quadrature_val += GS[j].w_(i) * std::sin(M_PI * GS[j].xi_(0, i)) *
-                            std::sin(M_PI * GS[j].xi_(1, i));
+          quadrature_val += GS[j].w_(i) * std::sin(BEMBEL_PI * GS[j].xi_(0, i)) *
+                            std::sin(BEMBEL_PI * GS[j].xi_(1, i));
         std::cout << "TP quadrature degree " << j + 1 << " error: "
                   << std::abs(quadrature_val - exact_integral) /
                          std::abs(exact_integral)

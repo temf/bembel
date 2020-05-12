@@ -18,7 +18,7 @@
 
 #define BEMBEL_TEST_IF(in_bool)                                                \
   {                                                                            \
-    if (not(in_bool)) {                                                        \
+    if (!(in_bool)) {                                                        \
       assert(in_bool);                                                         \
       std::cout << "A test failed. Please recompile without -DNDEBUG to see "; \
       std::cout << "the corresponding assert.";                                \

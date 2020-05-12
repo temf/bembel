@@ -132,7 +132,7 @@ class Glue {
       const int pre_index = i + skip;
       trips.push_back(Eigen::Triplet<double>(pre_index, post_index, 1));
       // The dof cannot be declared slave and master at the same time
-      assert(not(dof_is_master[pre_index] && dof_is_slave[pre_index]));
+      assert(!(dof_is_master[pre_index] && dof_is_slave[pre_index]));
       if (dof_is_master[pre_index]) {
         // The dofs in dof_id don't know they might be moved forward. So the
         // smallest dof of those to be identified should coincide with the
@@ -219,13 +219,13 @@ inline bool edgeIsForwardParametrized(int edgeCase) {
   return edgeCase == 0 || edgeCase == 1;
 }
 inline bool edgeIsBackwardsParametrized(int edgeCase) {
-  return not(edgeIsForwardParametrized(edgeCase));
+  return !(edgeIsForwardParametrized(edgeCase));
 }
 inline bool normalComponentIsInwardDirected(int edgeCase) {
   return edgeCase == 0 || edgeCase == 3;
 }
 inline bool normalComponentIsOutwardDirected(int edgeCase) {
-  return not(normalComponentIsInwardDirected(edgeCase));
+  return !(normalComponentIsInwardDirected(edgeCase));
 }
 
 inline bool reverseParametrized(const std::array<int, 4> &edge) {
@@ -323,7 +323,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
               out[already_stored_in[small_dof]].dofs.push_back(large_dof);
               already_stored_in[large_dof] = already_stored_in[small_dof];
             } else {
-              if (not(already_stored_in[small_dof] ==
+              if (!(already_stored_in[small_dof] ==
                       already_stored_in[large_dof])) {
                 // This case is tricky. Assume that we have to identify four
                 // DOFs with each other, but they have already been assigned in
@@ -355,7 +355,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
               out[already_stored_in[large_dof]].dofs.push_back(small_dof);
               already_stored_in[small_dof] = already_stored_in[large_dof];
             } else {
-              if (not(already_stored_in[small_dof] ==
+              if (!(already_stored_in[small_dof] ==
                       already_stored_in[large_dof])) {
                 // This case is tricky. Assume that we have to identify four
                 // DOFs with each other, but they have already been assigned in
