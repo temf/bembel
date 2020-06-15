@@ -179,7 +179,7 @@ Contributors include (alphabetically):
 ## 10. About the People <a name="people"></a>
 
 * [Jürgen Dölz](https://ins.uni-bonn.de/staff/doelz) 
-<a name="JD"></a> currently holds an assistant professorship at the [University of Bonn](https://www.uni-bonn.de/). He may also be found 
+<a name="JD"></a> currently holds a professorship at the [University of Bonn](https://www.uni-bonn.de/). He may also be found 
 [on GitHub](https://github.com/jdoelz).
 
 * [Helmut Harbrecht](https://cm.dmi.unibas.ch/) 
