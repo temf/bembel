@@ -18,7 +18,7 @@ information. -->
 5. [Structure of the Repository](#structure)
 6. [Documentation](#doc)
 7. [Known Bugs and Upcoming Features](#bugs)
-8. [Publications & Preprints](#publications)
+8. [Publications, Preprints, and how to cite](#publications)
 9. [Contributers](#contributors)
 10. [About the People](#people)
 11. [Funding](#funding)
@@ -138,7 +138,9 @@ A good place to start are the examples in the `examples/` folder, together with 
 For a list of known bugs and upcoming features, please have a look at 
 the issue tracker on github.
 
-## 8. Publications & Preprints <a name="publications"></a>
+## 8. Publications, Preprints, and how to cite <a name="publications"></a>
+
+The following articles and preprints influenced the development of Bembel. We appreciate a citation of [3] if you use it in one of your articles.
 
 [1] A. Buffa, J. Dölz, S. Kurz, S. Schöps, R. Vázques, and F. Wolf. 
 *Multipatch approximation of the de Rham sequence and its traces in isogeometric analysis.* In: Numer. Math., 144, 201-236, 2020. [To the paper](https://link.springer.com/article/10.1007/s00211-019-01079-x). [To the preprint](https://arxiv.org/abs/1806.01062).
@@ -176,8 +178,8 @@ Contributors include (alphabetically):
 
 ## 10. About the People <a name="people"></a>
 
-* [Jürgen Dölz](https://www.mathematik.tu-darmstadt.de/fb/personal/details/juergen_doelz.de.jsp) 
-<a name="JD"></a> currently holds an assistant professorship at the [University of Twente](https://www.utwente.nl/en/). He may also be found 
+* [Jürgen Dölz](https://ins.uni-bonn.de/staff/doelz) 
+<a name="JD"></a> currently holds an assistant professorship at the [University of Bonn](https://www.uni-bonn.de/). He may also be found 
 [on GitHub](https://github.com/jdoelz).
 
 * [Helmut Harbrecht](https://cm.dmi.unibas.ch/) 
