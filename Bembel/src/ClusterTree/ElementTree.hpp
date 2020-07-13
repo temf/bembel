@@ -414,7 +414,7 @@ class ElementTree {
     //  determine new points
     for (auto i = 0; i < 4; ++i) {
       auto cur_neighbour = cur_el.adjcents_[i];
-      if(cur_neighbour != -1){
+      if (cur_neighbour != -1) {
         ElementTreeNode &ref_cur_neighbour = mem_->adjcent(cur_el, i);
         // is the neighbour already refined?
         if (ref_cur_neighbour.sons_.size()) {
@@ -426,12 +426,16 @@ class ElementTree {
               std::addressof(mem_->son(ref_cur_neighbour, refNeighbours[i])));
           elements.push_back(std::addressof(
               mem_->son(ref_cur_neighbour, (refNeighbours[i] + 1) % 4)));
-        }
-        // otherwise add the point id to the tree
-        else {
+
+        } else {
+          // otherwise add the point id to the tree
           ptIds[i] = number_of_points_;
           ++number_of_points_;
         }
+      } else {
+        // otherwise add the point id to the tree
+        ptIds[i] = number_of_points_;
+        ++number_of_points_;
       }
     }
     // add midpoint of the current element, which is always a new point
@@ -447,9 +451,11 @@ class ElementTree {
       mem_->son(cur_el, i).id_ = 4 * cur_el.id_ + i;
       mem_->son(cur_el, i).adjcents_ = std::vector<int>(4, -1);
       mem_->son(cur_el, i).llc_(0) =
-          cur_el.llc_(0) + Constants::llcs[0][i] / (1 << cur_el.level_);
+          cur_el.llc_(0) +
+          double(Constants::llcs[0][i]) / double(1 << cur_el.level_);
       mem_->son(cur_el, i).llc_(1) =
-          cur_el.llc_(1) + Constants::llcs[1][i] / (1 << cur_el.level_);
+          cur_el.llc_(1) +
+          double(Constants::llcs[1][i]) / double(1 << cur_el.level_);
       mem_->son(cur_el, i).set_memory(mem_);
       elements.push_back(std::addressof(mem_->son(cur_el, i)));
     }
