@@ -57,13 +57,13 @@ jobs:
       - run:
           name: "Install Node.js and npm"
           command: |
-            curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+            curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
             sudo apt-get install -qy build-essential
             sudo apt-get install -qy nodejs
       - run:
           name: Install and configure dependencies
           command: |
-            npm install gh-pages
+            npm install gh-pages@3.0.0
             git config user.email "flx-wlf@users.noreply.github.com"
             git config user.name "ci-build"
       - run:
