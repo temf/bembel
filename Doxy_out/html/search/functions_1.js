@@ -1,12 +1,12 @@
 var searchData=
 [
   ['backwardtransformation',['backwardTransformation',['../group___h2_matrix.html#ga4dafafe2155a1976f270f22ff35c5ea2',1,'Bembel::H2Multipole']]],
-  ['basis',['basis',['../struct_bembel_1_1_super_space.html#a35111d561ac62313054332a1315c06ad',1,'Bembel::SuperSpace']]],
-  ['basis1d',['basis1D',['../struct_bembel_1_1_super_space.html#a857f041a9f84079553a30e511a21df0a',1,'Bembel::SuperSpace']]],
-  ['basis1ddx',['basis1DDx',['../struct_bembel_1_1_super_space.html#a4ec6b23236e862ce5acf746ea51f837e',1,'Bembel::SuperSpace']]],
-  ['basisdx',['basisDx',['../struct_bembel_1_1_super_space.html#a46b91aba687859220e1701a66197d294',1,'Bembel::SuperSpace']]],
-  ['basisdy',['basisDy',['../struct_bembel_1_1_super_space.html#aefbd013a293d25441346c4edf6d9d9d0',1,'Bembel::SuperSpace']]],
-  ['basisinteraction',['basisInteraction',['../struct_bembel_1_1_super_space.html#a2e4c2fb54531752fc14a75fd97648989',1,'Bembel::SuperSpace']]],
+  ['basis',['basis',['../struct_bembel_1_1_super_space.html#ac9ed3b8f26e85ac3d18a42e622f6d642',1,'Bembel::SuperSpace']]],
+  ['basis1d',['basis1D',['../struct_bembel_1_1_super_space.html#a654bc93437b49bfda1ee92d5d4b05f90',1,'Bembel::SuperSpace']]],
+  ['basis1ddx',['basis1DDx',['../struct_bembel_1_1_super_space.html#afb106403b4c9475da7ea60af723337ed',1,'Bembel::SuperSpace']]],
+  ['basisdx',['basisDx',['../struct_bembel_1_1_super_space.html#a1f3174ff6264672ae9b719a216710284',1,'Bembel::SuperSpace']]],
+  ['basisdy',['basisDy',['../struct_bembel_1_1_super_space.html#ade66b57b366eca54c71137ea058c4ebc',1,'Bembel::SuperSpace']]],
+  ['basisinteraction',['basisInteraction',['../struct_bembel_1_1_super_space.html#a6ba5bbc27c394bf6f21b26a1d88d5838',1,'Bembel::SuperSpace']]],
   ['bernstein',['Bernstein',['../namespace_bembel_1_1_basis.html#af9819981f584aabe446e9ee282330caf',1,'Bembel::Basis']]],
   ['bernsteinx',['BernsteinX',['../group___spline.html#gab9ad832bc55e1f2854be5baba2d6c8b6',1,'Bembel::Basis']]],
   ['bernsteinx_3c_200_20_3e',['BernsteinX&lt; 0 &gt;',['../namespace_bembel_1_1_basis.html#a8dbaf587dc2933608c74858cdffd5984',1,'Bembel::Basis']]],

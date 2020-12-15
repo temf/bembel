@@ -14,7 +14,7 @@ var searchData=
   ['map2surface',['map2surface',['../struct_bembel_1_1_super_space.html#afb46395178178b0d82d14ba3dfeb806e',1,'Bembel::SuperSpace']]],
   ['maptoreferenceelement',['mapToReferenceElement',['../class_bembel_1_1_element_tree_node.html#abb52690ebac4df925982bdae798f5528',1,'Bembel::ElementTreeNode']]],
   ['max_5flevel_5f',['max_level_',['../struct_bembel_1_1_element_tree_memory.html#a09c4f767c1d74b035b16d3e56a5d9b32',1,'Bembel::ElementTreeMemory::max_level_()'],['../struct_bembel_1_1_block_cluster_tree_parameters.html#a1118076c9d015ab482e161d7fb2aed6e',1,'Bembel::BlockClusterTreeParameters::max_level_()']]],
-  ['maxcolsatcompiletime',['MaxColsAtCompileTime',['../class_eigen_1_1_h2_matrix.html#adeac7ac0e03fc607c5a0b3d59ab303a2a571b70715c29f7d4e76b1775954557ca',1,'Eigen::H2Matrix']]],
+  ['maxcolsatcompiletime',['MaxColsAtCompileTime',['../class_eigen_1_1_h2_matrix.html#ae7a09c25b3a886746c3851b0692218d6a571b70715c29f7d4e76b1775954557ca',1,'Eigen::H2Matrix']]],
   ['maximum_5fquadrature_5fdegree',['maximum_quadrature_degree',['../namespace_bembel_1_1_constants.html#a0a45aaab55ad39bfe97259ddd967c340',1,'Bembel::Constants']]],
   ['maxp',['MaxP',['../namespace_bembel_1_1_constants.html#a9844c7cee46cad2052b76f742bd9ad29',1,'Bembel::Constants']]],
   ['maxwell',['Maxwell',['../group___maxwell.html',1,'']]],

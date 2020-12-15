@@ -21,6 +21,7 @@ namespace Bembel {
 template <typename Derived>
 class AnsatzSpace {
  public:
+  enum { Form = LinearOperatorTraits<Derived>::Form };
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
@@ -42,8 +43,8 @@ class AnsatzSpace {
     return *this;
   }
 
-  AnsatzSpace(const Geometry &geometry, int refinement_level, int polynomial_degree,
-              int knot_repetition = 1) {
+  AnsatzSpace(const Geometry &geometry, int refinement_level,
+              int polynomial_degree, int knot_repetition = 1) {
     init_AnsatzSpace(geometry, refinement_level, polynomial_degree,
                      knot_repetition);
     return;

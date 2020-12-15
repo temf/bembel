@@ -10,6 +10,6 @@ var group___potential =
       [ "set_degree", "class_bembel_1_1_discrete_potential.html#a2b7d4d062e4727b66633ce627b46baeb", null ]
     ] ],
     [ "PotentialTraits", "struct_bembel_1_1_potential_traits.html", [
-      [ "YOU_DID_NOT_SPECIFY_POTENTIAL_TRAITS", "struct_bembel_1_1_potential_traits.html#ad55e57f53e6f89ee4b8941d7dd2d61f3a2992147114c1ecfb06b87af534102069", null ]
+      [ "YOU_DID_NOT_SPECIFY_POTENTIAL_TRAITS", "struct_bembel_1_1_potential_traits.html#a3d10ea34e4f3e39ca5ec80d345cd8c4fa2992147114c1ecfb06b87af534102069", null ]
     ] ]
 ];

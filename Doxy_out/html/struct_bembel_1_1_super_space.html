@@ -81,6 +81,7 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_super_space.html',''
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="struct_bembel_1_1_super_space-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -93,6 +94,11 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_super_space.html',''
 
 <p><code>#include &lt;<a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad4d1abf0c875a4d026ae2e7534a08a6c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a></td></tr>
+<tr class="separator:ad4d1abf0c875a4d026ae2e7534a08a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab20a5cddf39d5023db66104827bb00a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ab20a5cddf39d5023db66104827bb00a9">SuperSpace</a> ()</td></tr>
@@ -123,54 +129,60 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afbe66fe8571dc707289a2dbcaae673e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb46395178178b0d82d14ba3dfeb806e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#afb46395178178b0d82d14ba3dfeb806e">map2surface</a> (const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e, const Eigen::Vector2d &amp;xi, double w, <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> *surf_pt) const</td></tr>
 <tr class="separator:afb46395178178b0d82d14ba3dfeb806e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20e1325c0d752e1357affa300679a40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ac20e1325c0d752e1357affa300679a40">addScaledBasisInteraction</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
-<tr class="memdesc:ac20e1325c0d752e1357affa300679a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of local shape functions on the unit square at coordinates s,t, scale by w and add to intval.  <a href="#ac20e1325c0d752e1357affa300679a40">More...</a><br /></td></tr>
-<tr class="separator:ac20e1325c0d752e1357affa300679a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e4c2fb54531752fc14a75fd97648989"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a2e4c2fb54531752fc14a75fd97648989">basisInteraction</a> (const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
-<tr class="memdesc:a2e4c2fb54531752fc14a75fd97648989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of local shape functions on the unit square at coordinates s,t.  <a href="#a2e4c2fb54531752fc14a75fd97648989">More...</a><br /></td></tr>
-<tr class="separator:a2e4c2fb54531752fc14a75fd97648989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57bc726f2496a1cf07770cd34ce41639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a57bc726f2496a1cf07770cd34ce41639">addScaledVectorBasisInteraction</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t, const Eigen::Vector3d x_f_dx, const Eigen::Vector3d x_f_dy, const Eigen::Vector3d y_f_dx, const Eigen::Vector3d y_f_dy) const</td></tr>
-<tr class="memdesc:a57bc726f2496a1cf07770cd34ce41639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all scalar products of vector valued local shape functions on the surface points with reference coordinates s,t, scale by w and add to intval.  <a href="#a57bc726f2496a1cf07770cd34ce41639">More...</a><br /></td></tr>
-<tr class="separator:a57bc726f2496a1cf07770cd34ce41639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad549f6e4b8a1ddb157e12ba7d8d6b736"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ad549f6e4b8a1ddb157e12ba7d8d6b736">vectorBasisInteraction</a> (const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t, const Eigen::Vector3d x_f_dx, const Eigen::Vector3d x_f_dy, const Eigen::Vector3d y_f_dx, const Eigen::Vector3d y_f_dy) const</td></tr>
-<tr class="memdesc:ad549f6e4b8a1ddb157e12ba7d8d6b736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all scalar products of vector valued local shape functions on the surface points with reference coordinates s,t.  <a href="#ad549f6e4b8a1ddb157e12ba7d8d6b736">More...</a><br /></td></tr>
-<tr class="separator:ad549f6e4b8a1ddb157e12ba7d8d6b736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a11b794e8bdb6638a533fcaab1d134c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a4a11b794e8bdb6638a533fcaab1d134c">addScaledVectorBasisDivergenceInteraction</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
-<tr class="memdesc:a4a11b794e8bdb6638a533fcaab1d134c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of divergences of local shape functions on the unit square at coordinates s,t, scale by w and add to intval.  <a href="#a4a11b794e8bdb6638a533fcaab1d134c">More...</a><br /></td></tr>
-<tr class="separator:a4a11b794e8bdb6638a533fcaab1d134c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1722210e171e373ceaacd13838acb4e4"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a1722210e171e373ceaacd13838acb4e4">vectorBasisDivergenceInteraction</a> (const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
-<tr class="memdesc:a1722210e171e373ceaacd13838acb4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of divergences of local shape functions on the unit square at coordinates s,t.  <a href="#a1722210e171e373ceaacd13838acb4e4">More...</a><br /></td></tr>
-<tr class="separator:a1722210e171e373ceaacd13838acb4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a254a140357b35f882830161873da9148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a254a140357b35f882830161873da9148">addScaledBasis</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, const Eigen::Vector2d &amp;s) const</td></tr>
-<tr class="memdesc:a254a140357b35f882830161873da9148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit square at coordinate s, scale by w and add to intval.  <a href="#a254a140357b35f882830161873da9148">More...</a><br /></td></tr>
-<tr class="separator:a254a140357b35f882830161873da9148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35111d561ac62313054332a1315c06ad"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a35111d561ac62313054332a1315c06ad">basis</a> (const Eigen::Vector2d &amp;s) const</td></tr>
-<tr class="memdesc:a35111d561ac62313054332a1315c06ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit square at coordinate s.  <a href="#a35111d561ac62313054332a1315c06ad">More...</a><br /></td></tr>
-<tr class="separator:a35111d561ac62313054332a1315c06ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f98a1aefb5b3a6c07e0885b259c5fae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a5f98a1aefb5b3a6c07e0885b259c5fae">addScaledBasisDx</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, const Eigen::Vector2d &amp;s) const</td></tr>
-<tr class="memdesc:a5f98a1aefb5b3a6c07e0885b259c5fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s, scale by w and add to intval.  <a href="#a5f98a1aefb5b3a6c07e0885b259c5fae">More...</a><br /></td></tr>
-<tr class="separator:a5f98a1aefb5b3a6c07e0885b259c5fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46b91aba687859220e1701a66197d294"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a46b91aba687859220e1701a66197d294">basisDx</a> (const Eigen::Vector2d &amp;s) const</td></tr>
-<tr class="memdesc:a46b91aba687859220e1701a66197d294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s.  <a href="#a46b91aba687859220e1701a66197d294">More...</a><br /></td></tr>
-<tr class="separator:a46b91aba687859220e1701a66197d294"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8590ecd2ed427ec2488c7daf5a67766c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a8590ecd2ed427ec2488c7daf5a67766c">addScaledBasisDy</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, const Eigen::Vector2d &amp;s) const</td></tr>
-<tr class="memdesc:a8590ecd2ed427ec2488c7daf5a67766c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in y direction of local shape functions on the unit square at coordinate s, scale by w and add to intval.  <a href="#a8590ecd2ed427ec2488c7daf5a67766c">More...</a><br /></td></tr>
-<tr class="separator:a8590ecd2ed427ec2488c7daf5a67766c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefbd013a293d25441346c4edf6d9d9d0"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#aefbd013a293d25441346c4edf6d9d9d0">basisDy</a> (const Eigen::Vector2d &amp;s) const</td></tr>
-<tr class="memdesc:aefbd013a293d25441346c4edf6d9d9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in y direction of local shape functions on the unit square at coordinate s.  <a href="#aefbd013a293d25441346c4edf6d9d9d0">More...</a><br /></td></tr>
-<tr class="separator:aefbd013a293d25441346c4edf6d9d9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b278ca7004c085128e583dc27110ef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a8b278ca7004c085128e583dc27110ef2">addScaledBasis1D</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, double s) const</td></tr>
-<tr class="memdesc:a8b278ca7004c085128e583dc27110ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit interval at coordinate s, scale by w and add to intval.  <a href="#a8b278ca7004c085128e583dc27110ef2">More...</a><br /></td></tr>
-<tr class="separator:a8b278ca7004c085128e583dc27110ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a857f041a9f84079553a30e511a21df0a"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a857f041a9f84079553a30e511a21df0a">basis1D</a> (double s) const</td></tr>
-<tr class="memdesc:a857f041a9f84079553a30e511a21df0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit interval at coordinate s.  <a href="#a857f041a9f84079553a30e511a21df0a">More...</a><br /></td></tr>
-<tr class="separator:a857f041a9f84079553a30e511a21df0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97223d59c36089e982ef216f7c54d983"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a97223d59c36089e982ef216f7c54d983">addScaledBasis1DDx</a> (Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar w, double s) const</td></tr>
-<tr class="memdesc:a97223d59c36089e982ef216f7c54d983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives of local shape functions on the unit interval at coordinate s, scale by w and add to intval.  <a href="#a97223d59c36089e982ef216f7c54d983">More...</a><br /></td></tr>
-<tr class="separator:a97223d59c36089e982ef216f7c54d983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ec6b23236e862ce5acf746ea51f837e"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a4ec6b23236e862ce5acf746ea51f837e">basis1DDx</a> (double s) const</td></tr>
-<tr class="memdesc:a4ec6b23236e862ce5acf746ea51f837e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives of local shape functions on the unit interval at coordinate s.  <a href="#a4ec6b23236e862ce5acf746ea51f837e">More...</a><br /></td></tr>
-<tr class="separator:a4ec6b23236e862ce5acf746ea51f837e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81bb4d97f282fd307102400237c37102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a81bb4d97f282fd307102400237c37102">addScaledBasisInteraction</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
+<tr class="memdesc:a81bb4d97f282fd307102400237c37102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of local shape functions on the unit square at coordinates s,t, scale by w and add to intval.  <a href="#a81bb4d97f282fd307102400237c37102">More...</a><br /></td></tr>
+<tr class="separator:a81bb4d97f282fd307102400237c37102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba5bbc27c394bf6f21b26a1d88d5838"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a6ba5bbc27c394bf6f21b26a1d88d5838">basisInteraction</a> (const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
+<tr class="memdesc:a6ba5bbc27c394bf6f21b26a1d88d5838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of local shape functions on the unit square at coordinates s,t.  <a href="#a6ba5bbc27c394bf6f21b26a1d88d5838">More...</a><br /></td></tr>
+<tr class="separator:a6ba5bbc27c394bf6f21b26a1d88d5838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1934e3726354bd138e559b5aaff5c7ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a1934e3726354bd138e559b5aaff5c7ad">addScaledSurfaceCurlInteraction</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memdesc:a1934e3726354bd138e559b5aaff5c7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of surface curls of local shape functions on the unit square at coordinates s,t.  <a href="#a1934e3726354bd138e559b5aaff5c7ad">More...</a><br /></td></tr>
+<tr class="separator:a1934e3726354bd138e559b5aaff5c7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf2f6a8f0fb6176d2997f6bfa8753ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#adaf2f6a8f0fb6176d2997f6bfa8753ec">addScaledSurfaceGradientInteraction</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memdesc:adaf2f6a8f0fb6176d2997f6bfa8753ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of surface gradients of local shape functions on the unit square at coordinates s,t.  <a href="#adaf2f6a8f0fb6176d2997f6bfa8753ec">More...</a><br /></td></tr>
+<tr class="separator:adaf2f6a8f0fb6176d2997f6bfa8753ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf087d630a75dcb2d6ce5bc83a15209b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#acf087d630a75dcb2d6ce5bc83a15209b">addScaledVectorBasisInteraction</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t, const Eigen::Vector3d x_f_dx, const Eigen::Vector3d x_f_dy, const Eigen::Vector3d y_f_dx, const Eigen::Vector3d y_f_dy) const</td></tr>
+<tr class="memdesc:acf087d630a75dcb2d6ce5bc83a15209b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all scalar products of vector valued local shape functions on the surface points with reference coordinates s,t, scale by w and add to intval.  <a href="#acf087d630a75dcb2d6ce5bc83a15209b">More...</a><br /></td></tr>
+<tr class="separator:acf087d630a75dcb2d6ce5bc83a15209b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abebd91f1bf499833d960736905774920"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#abebd91f1bf499833d960736905774920">vectorBasisInteraction</a> (const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t, const Eigen::Vector3d x_f_dx, const Eigen::Vector3d x_f_dy, const Eigen::Vector3d y_f_dx, const Eigen::Vector3d y_f_dy) const</td></tr>
+<tr class="memdesc:abebd91f1bf499833d960736905774920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all scalar products of vector valued local shape functions on the surface points with reference coordinates s,t.  <a href="#abebd91f1bf499833d960736905774920">More...</a><br /></td></tr>
+<tr class="separator:abebd91f1bf499833d960736905774920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9ed5ff3d5ec971798c678b7c4ed610"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a6d9ed5ff3d5ec971798c678b7c4ed610">addScaledVectorBasisDivergenceInteraction</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
+<tr class="memdesc:a6d9ed5ff3d5ec971798c678b7c4ed610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of divergences of local shape functions on the unit square at coordinates s,t, scale by w and add to intval.  <a href="#a6d9ed5ff3d5ec971798c678b7c4ed610">More...</a><br /></td></tr>
+<tr class="separator:a6d9ed5ff3d5ec971798c678b7c4ed610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29ba4a6d02d564a7ec3fe3c91003565"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ac29ba4a6d02d564a7ec3fe3c91003565">vectorBasisDivergenceInteraction</a> (const Eigen::Vector2d &amp;s, const Eigen::Vector2d &amp;t) const</td></tr>
+<tr class="memdesc:ac29ba4a6d02d564a7ec3fe3c91003565"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all products of divergences of local shape functions on the unit square at coordinates s,t.  <a href="#ac29ba4a6d02d564a7ec3fe3c91003565">More...</a><br /></td></tr>
+<tr class="separator:ac29ba4a6d02d564a7ec3fe3c91003565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b6ae4a87aa8397cf41736d7cc7bb64e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a7b6ae4a87aa8397cf41736d7cc7bb64e">addScaledBasis</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const Eigen::Vector2d &amp;s) const</td></tr>
+<tr class="memdesc:a7b6ae4a87aa8397cf41736d7cc7bb64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit square at coordinate s, scale by w and add to intval.  <a href="#a7b6ae4a87aa8397cf41736d7cc7bb64e">More...</a><br /></td></tr>
+<tr class="separator:a7b6ae4a87aa8397cf41736d7cc7bb64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ed3b8f26e85ac3d18a42e622f6d642"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ac9ed3b8f26e85ac3d18a42e622f6d642">basis</a> (const Eigen::Vector2d &amp;s) const</td></tr>
+<tr class="memdesc:ac9ed3b8f26e85ac3d18a42e622f6d642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit square at coordinate s.  <a href="#ac9ed3b8f26e85ac3d18a42e622f6d642">More...</a><br /></td></tr>
+<tr class="separator:ac9ed3b8f26e85ac3d18a42e622f6d642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b05d0489687bad5005112d5d39df38e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a4b05d0489687bad5005112d5d39df38e">addScaledBasisDx</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const Eigen::Vector2d &amp;s) const</td></tr>
+<tr class="memdesc:a4b05d0489687bad5005112d5d39df38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s, scale by w and add to intval.  <a href="#a4b05d0489687bad5005112d5d39df38e">More...</a><br /></td></tr>
+<tr class="separator:a4b05d0489687bad5005112d5d39df38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3174ff6264672ae9b719a216710284"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a1f3174ff6264672ae9b719a216710284">basisDx</a> (const Eigen::Vector2d &amp;s) const</td></tr>
+<tr class="memdesc:a1f3174ff6264672ae9b719a216710284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s.  <a href="#a1f3174ff6264672ae9b719a216710284">More...</a><br /></td></tr>
+<tr class="separator:a1f3174ff6264672ae9b719a216710284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a111f70273ac459831bdb106724d82311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a111f70273ac459831bdb106724d82311">addScaledBasisDy</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *intval, typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, const Eigen::Vector2d &amp;s) const</td></tr>
+<tr class="memdesc:a111f70273ac459831bdb106724d82311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in y direction of local shape functions on the unit square at coordinate s, scale by w and add to intval.  <a href="#a111f70273ac459831bdb106724d82311">More...</a><br /></td></tr>
+<tr class="separator:a111f70273ac459831bdb106724d82311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade66b57b366eca54c71137ea058c4ebc"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#ade66b57b366eca54c71137ea058c4ebc">basisDy</a> (const Eigen::Vector2d &amp;s) const</td></tr>
+<tr class="memdesc:ade66b57b366eca54c71137ea058c4ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives in y direction of local shape functions on the unit square at coordinate s.  <a href="#ade66b57b366eca54c71137ea058c4ebc">More...</a><br /></td></tr>
+<tr class="separator:ade66b57b366eca54c71137ea058c4ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af680ca6273050538cbfc5527a60cbc55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#af680ca6273050538cbfc5527a60cbc55">addScaledBasis1D</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, double s) const</td></tr>
+<tr class="memdesc:af680ca6273050538cbfc5527a60cbc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit interval at coordinate s, scale by w and add to intval.  <a href="#af680ca6273050538cbfc5527a60cbc55">More...</a><br /></td></tr>
+<tr class="separator:af680ca6273050538cbfc5527a60cbc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654bc93437b49bfda1ee92d5d4b05f90"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a654bc93437b49bfda1ee92d5d4b05f90">basis1D</a> (double s) const</td></tr>
+<tr class="memdesc:a654bc93437b49bfda1ee92d5d4b05f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate local shape functions on the unit interval at coordinate s.  <a href="#a654bc93437b49bfda1ee92d5d4b05f90">More...</a><br /></td></tr>
+<tr class="separator:a654bc93437b49bfda1ee92d5d4b05f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a811dec7fc466349f4bc67177641bd137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#a811dec7fc466349f4bc67177641bd137">addScaledBasis1DDx</a> (Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *intval, <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> w, double s) const</td></tr>
+<tr class="memdesc:a811dec7fc466349f4bc67177641bd137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives of local shape functions on the unit interval at coordinate s, scale by w and add to intval.  <a href="#a811dec7fc466349f4bc67177641bd137">More...</a><br /></td></tr>
+<tr class="separator:a811dec7fc466349f4bc67177641bd137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb106403b4c9475da7ea60af723337ed"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html#afb106403b4c9475da7ea60af723337ed">basis1DDx</a> (double s) const</td></tr>
+<tr class="memdesc:afb106403b4c9475da7ea60af723337ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate derivatives of local shape functions on the unit interval at coordinate s.  <a href="#afb106403b4c9475da7ea60af723337ed">More...</a><br /></td></tr>
+<tr class="separator:afb106403b4c9475da7ea60af723337ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
@@ -179,7 +191,26 @@ struct Bembel::SuperSpace&lt; Derived &gt;</h3>
 <p>The superspace manages local polynomial bases on each element of the mesh and provides an itnerface to evaluate them. </p>
 
 <p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00017">17</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ad4d1abf0c875a4d026ae2e7534a08a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d1abf0c875a4d026ae2e7534a08a6c">&#9670;&nbsp;</a></span>Scalar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a> <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00018">18</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab20a5cddf39d5023db66104827bb00a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab20a5cddf39d5023db66104827bb00a9">&#9670;&nbsp;</a></span>SuperSpace() <span class="overload">[1/4]</span></h2>
 
@@ -205,7 +236,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00021">21</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00022">22</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +282,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00022">22</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00023">23</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +312,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00023">23</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00024">24</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -311,13 +342,13 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00037">37</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00038">38</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a254a140357b35f882830161873da9148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a254a140357b35f882830161873da9148">&#9670;&nbsp;</a></span>addScaledBasis()</h2>
+<a id="a7b6ae4a87aa8397cf41736d7cc7bb64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b6ae4a87aa8397cf41736d7cc7bb64e">&#9670;&nbsp;</a></span>addScaledBasis()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,13 +361,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledBasis </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -360,12 +391,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate local shape functions on the unit square at coordinate s, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00233">233</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00246">246</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a8b278ca7004c085128e583dc27110ef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b278ca7004c085128e583dc27110ef2">&#9670;&nbsp;</a></span>addScaledBasis1D()</h2>
+<a id="af680ca6273050538cbfc5527a60cbc55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af680ca6273050538cbfc5527a60cbc55">&#9670;&nbsp;</a></span>addScaledBasis1D()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,13 +409,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledBasis1D </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -412,16 +443,16 @@ template&lt;typename Derived&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_a8b278ca7004c085128e583dc27110ef2_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a8b278ca7004c085128e583dc27110ef2_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_a8b278ca7004c085128e583dc27110ef2_icgraph" id="struct_bembel_1_1_super_space_a8b278ca7004c085128e583dc27110ef2_icgraph">
+<div class="center"><img src="struct_bembel_1_1_super_space_af680ca6273050538cbfc5527a60cbc55_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_af680ca6273050538cbfc5527a60cbc55_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_af680ca6273050538cbfc5527a60cbc55_icgraph" id="struct_bembel_1_1_super_space_af680ca6273050538cbfc5527a60cbc55_icgraph">
 <area shape="rect" id="node2" href="struct_bembel_1_1_h2_multipole_1_1_moment1_d.html#a645c5e59c4d28eca10453539ceef22b9" title="Bembel::H2Multipole\l::Moment1D::computeMoment1D" alt="" coords="209,5,447,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a97223d59c36089e982ef216f7c54d983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97223d59c36089e982ef216f7c54d983">&#9670;&nbsp;</a></span>addScaledBasis1DDx()</h2>
+<a id="a811dec7fc466349f4bc67177641bd137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811dec7fc466349f4bc67177641bd137">&#9670;&nbsp;</a></span>addScaledBasis1DDx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,13 +465,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledBasis1DDx </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -464,20 +495,20 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate derivatives of local shape functions on the unit interval at coordinate s, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00330">330</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00324">324</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_a97223d59c36089e982ef216f7c54d983_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a97223d59c36089e982ef216f7c54d983_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_a97223d59c36089e982ef216f7c54d983_icgraph" id="struct_bembel_1_1_super_space_a97223d59c36089e982ef216f7c54d983_icgraph">
+<div class="center"><img src="struct_bembel_1_1_super_space_a811dec7fc466349f4bc67177641bd137_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a811dec7fc466349f4bc67177641bd137_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_a811dec7fc466349f4bc67177641bd137_icgraph" id="struct_bembel_1_1_super_space_a811dec7fc466349f4bc67177641bd137_icgraph">
 <area shape="rect" id="node2" href="struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative.html#ab65342599d2836d4a5bebdb2c1bdd17d" title="Bembel::H2Multipole\l::Moment1DDerivative\l::computeMoment1D" alt="" coords="221,5,391,61"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a5f98a1aefb5b3a6c07e0885b259c5fae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f98a1aefb5b3a6c07e0885b259c5fae">&#9670;&nbsp;</a></span>addScaledBasisDx()</h2>
+<a id="a4b05d0489687bad5005112d5d39df38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b05d0489687bad5005112d5d39df38e">&#9670;&nbsp;</a></span>addScaledBasisDx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -490,13 +521,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledBasisDx </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -520,12 +551,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00257">257</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00265">265</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a8590ecd2ed427ec2488c7daf5a67766c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8590ecd2ed427ec2488c7daf5a67766c">&#9670;&nbsp;</a></span>addScaledBasisDy()</h2>
+<a id="a111f70273ac459831bdb106724d82311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a111f70273ac459831bdb106724d82311">&#9670;&nbsp;</a></span>addScaledBasisDy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,13 +569,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledBasisDy </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1 &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -568,12 +599,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate derivatives in y direction of local shape functions on the unit square at coordinate s, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00282">282</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00286">286</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ac20e1325c0d752e1357affa300679a40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac20e1325c0d752e1357affa300679a40">&#9670;&nbsp;</a></span>addScaledBasisInteraction()</h2>
+<a id="a81bb4d97f282fd307102400237c37102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81bb4d97f282fd307102400237c37102">&#9670;&nbsp;</a></span>addScaledBasisInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -586,13 +617,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledBasisInteraction </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -622,12 +653,128 @@ template&lt;typename Derived&gt; </div>
 
 <p>Compute all products of local shape functions on the unit square at coordinates s,t, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00130">130</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00117">117</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a4a11b794e8bdb6638a533fcaab1d134c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a11b794e8bdb6638a533fcaab1d134c">&#9670;&nbsp;</a></span>addScaledVectorBasisDivergenceInteraction()</h2>
+<a id="a1934e3726354bd138e559b5aaff5c7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1934e3726354bd138e559b5aaff5c7ad">&#9670;&nbsp;</a></span>addScaledSurfaceCurlInteraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledSurfaceCurlInteraction </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
+          <td class="paramname"><em>intval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute all products of surface curls of local shape functions on the unit square at coordinates s,t. </p>
+
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00140">140</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_bembel_1_1_super_space_a1934e3726354bd138e559b5aaff5c7ad_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a1934e3726354bd138e559b5aaff5c7ad_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_a1934e3726354bd138e559b5aaff5c7ad_icgraph" id="struct_bembel_1_1_super_space_a1934e3726354bd138e559b5aaff5c7ad_icgraph">
+<area shape="rect" id="node2" href="struct_bembel_1_1_super_space.html#adaf2f6a8f0fb6176d2997f6bfa8753ec" title="Compute all products of surface gradients of local shape functions on the unit square at coordinates ..." alt="" coords="296,5,509,61"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adaf2f6a8f0fb6176d2997f6bfa8753ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf2f6a8f0fb6176d2997f6bfa8753ec">&#9670;&nbsp;</a></span>addScaledSurfaceGradientInteraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledSurfaceGradientInteraction </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
+          <td class="paramname"><em>intval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute all products of surface gradients of local shape functions on the unit square at coordinates s,t. </p>
+
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00167">167</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6d9ed5ff3d5ec971798c678b7c4ed610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9ed5ff3d5ec971798c678b7c4ed610">&#9670;&nbsp;</a></span>addScaledVectorBasisDivergenceInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -640,13 +787,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledVectorBasisDivergenceInteraction </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -676,12 +823,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Compute all products of divergences of local shape functions on the unit square at coordinates s,t, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00206">206</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00223">223</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a57bc726f2496a1cf07770cd34ce41639"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57bc726f2496a1cf07770cd34ce41639">&#9670;&nbsp;</a></span>addScaledVectorBasisInteraction()</h2>
+<a id="acf087d630a75dcb2d6ce5bc83a15209b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf087d630a75dcb2d6ce5bc83a15209b">&#9670;&nbsp;</a></span>addScaledVectorBasisInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -694,13 +841,13 @@ template&lt;typename Derived&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::addScaledVectorBasisInteraction </td>
           <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
+          <td class="paramtype">Eigen::Matrix&lt; <a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
           <td class="paramname"><em>intval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -754,20 +901,20 @@ template&lt;typename Derived&gt; </div>
 
 <p>Compute all scalar products of vector valued local shape functions on the surface points with reference coordinates s,t, scale by w and add to intval. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00157">157</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00180">180</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_a57bc726f2496a1cf07770cd34ce41639_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a57bc726f2496a1cf07770cd34ce41639_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_a57bc726f2496a1cf07770cd34ce41639_icgraph" id="struct_bembel_1_1_super_space_a57bc726f2496a1cf07770cd34ce41639_icgraph">
-<area shape="rect" id="node2" href="struct_bembel_1_1_super_space.html#ad549f6e4b8a1ddb157e12ba7d8d6b736" title="Compute all scalar products of vector valued local shape functions on the surface points with referen..." alt="" coords="296,5,539,47"/>
+<div class="center"><img src="struct_bembel_1_1_super_space_acf087d630a75dcb2d6ce5bc83a15209b_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_acf087d630a75dcb2d6ce5bc83a15209b_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_acf087d630a75dcb2d6ce5bc83a15209b_icgraph" id="struct_bembel_1_1_super_space_acf087d630a75dcb2d6ce5bc83a15209b_icgraph">
+<area shape="rect" id="node2" href="struct_bembel_1_1_super_space.html#abebd91f1bf499833d960736905774920" title="Compute all scalar products of vector valued local shape functions on the surface points with referen..." alt="" coords="296,5,539,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a35111d561ac62313054332a1315c06ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35111d561ac62313054332a1315c06ad">&#9670;&nbsp;</a></span>basis()</h2>
+<a id="ac9ed3b8f26e85ac3d18a42e622f6d642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ed3b8f26e85ac3d18a42e622f6d642">&#9670;&nbsp;</a></span>basis()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -778,7 +925,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basis </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basis </td>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector2d &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -794,12 +941,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate local shape functions on the unit square at coordinate s. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00245">245</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00253">253</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_a35111d561ac62313054332a1315c06ad_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a35111d561ac62313054332a1315c06ad_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_a35111d561ac62313054332a1315c06ad_icgraph" id="struct_bembel_1_1_super_space_a35111d561ac62313054332a1315c06ad_icgraph">
+<div class="center"><img src="struct_bembel_1_1_super_space_ac9ed3b8f26e85ac3d18a42e622f6d642_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_ac9ed3b8f26e85ac3d18a42e622f6d642_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_ac9ed3b8f26e85ac3d18a42e622f6d642_icgraph" id="struct_bembel_1_1_super_space_ac9ed3b8f26e85ac3d18a42e622f6d642_icgraph">
 <area shape="rect" id="node2" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_continuous_00_01_lin_op_01_4.html#a35fb1d49ba99355468cd487476a675a8" title="Bembel::FunctionEvaluator\lEval\&lt; Scalar, DifferentialForm\l::Continuous, LinOp \&gt;::eval" alt="" coords="212,5,431,61"/>
 <area shape="rect" id="node3" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#af3b37d399d7327b283360499560f3d2c" title="Bembel::FunctionEvaluator\lEval\&lt; Scalar, DifferentialForm\l::DivConforming, LinOp \&gt;::eval" alt="" coords="209,85,433,141"/>
 <area shape="rect" id="node4" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_discontinuous_00_01_lin_op_01_4.html#a698c05dc1fd19c20af06da1894db025b" title="Bembel::FunctionEvaluator\lEval\&lt; Scalar, DifferentialForm\l::Discontinuous, LinOp \&gt;::eval" alt="" coords="212,165,431,221"/>
@@ -808,8 +955,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a857f041a9f84079553a30e511a21df0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a857f041a9f84079553a30e511a21df0a">&#9670;&nbsp;</a></span>basis1D()</h2>
+<a id="a654bc93437b49bfda1ee92d5d4b05f90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a654bc93437b49bfda1ee92d5d4b05f90">&#9670;&nbsp;</a></span>basis1D()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -820,7 +967,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basis1D </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basis1D </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -836,12 +983,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate local shape functions on the unit interval at coordinate s. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00318">318</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00314">314</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a4ec6b23236e862ce5acf746ea51f837e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ec6b23236e862ce5acf746ea51f837e">&#9670;&nbsp;</a></span>basis1DDx()</h2>
+<a id="afb106403b4c9475da7ea60af723337ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb106403b4c9475da7ea60af723337ed">&#9670;&nbsp;</a></span>basis1DDx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -852,7 +999,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basis1DDx </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basis1DDx </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -868,12 +1015,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate derivatives of local shape functions on the unit interval at coordinate s. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00342">342</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00332">332</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a46b91aba687859220e1701a66197d294"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46b91aba687859220e1701a66197d294">&#9670;&nbsp;</a></span>basisDx()</h2>
+<a id="a1f3174ff6264672ae9b719a216710284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3174ff6264672ae9b719a216710284">&#9670;&nbsp;</a></span>basisDx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -884,7 +1031,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basisDx </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basisDx </td>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector2d &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -900,20 +1047,21 @@ template&lt;typename Derived&gt; </div>
 
 <p>Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00270">270</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00274">274</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_a46b91aba687859220e1701a66197d294_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a46b91aba687859220e1701a66197d294_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_a46b91aba687859220e1701a66197d294_icgraph" id="struct_bembel_1_1_super_space_a46b91aba687859220e1701a66197d294_icgraph">
+<div class="center"><img src="struct_bembel_1_1_super_space_a1f3174ff6264672ae9b719a216710284_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a1f3174ff6264672ae9b719a216710284_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_a1f3174ff6264672ae9b719a216710284_icgraph" id="struct_bembel_1_1_super_space_a1f3174ff6264672ae9b719a216710284_icgraph">
 <area shape="rect" id="node2" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#ad146e74022a55e95c86692e5f09e8fb9" title="Bembel::FunctionEvaluator\lEval\&lt; Scalar, DifferentialForm\l::DivConforming, LinOp \&gt;::evalDiv" alt="" coords="209,5,456,61"/>
+<area shape="rect" id="node3" href="struct_bembel_1_1_super_space.html#a1934e3726354bd138e559b5aaff5c7ad" title="Compute all products of surface curls of local shape functions on the unit square at coordinates s..." alt="" coords="226,85,439,141"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aefbd013a293d25441346c4edf6d9d9d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefbd013a293d25441346c4edf6d9d9d0">&#9670;&nbsp;</a></span>basisDy()</h2>
+<a id="ade66b57b366eca54c71137ea058c4ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade66b57b366eca54c71137ea058c4ebc">&#9670;&nbsp;</a></span>basisDy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -924,7 +1072,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basisDy </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, 1&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basisDy </td>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector2d &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -944,16 +1092,17 @@ template&lt;typename Derived&gt; </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_aefbd013a293d25441346c4edf6d9d9d0_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_aefbd013a293d25441346c4edf6d9d9d0_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_aefbd013a293d25441346c4edf6d9d9d0_icgraph" id="struct_bembel_1_1_super_space_aefbd013a293d25441346c4edf6d9d9d0_icgraph">
+<div class="center"><img src="struct_bembel_1_1_super_space_ade66b57b366eca54c71137ea058c4ebc_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_ade66b57b366eca54c71137ea058c4ebc_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_ade66b57b366eca54c71137ea058c4ebc_icgraph" id="struct_bembel_1_1_super_space_ade66b57b366eca54c71137ea058c4ebc_icgraph">
 <area shape="rect" id="node2" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#ad146e74022a55e95c86692e5f09e8fb9" title="Bembel::FunctionEvaluator\lEval\&lt; Scalar, DifferentialForm\l::DivConforming, LinOp \&gt;::evalDiv" alt="" coords="209,5,456,61"/>
+<area shape="rect" id="node3" href="struct_bembel_1_1_super_space.html#a1934e3726354bd138e559b5aaff5c7ad" title="Compute all products of surface curls of local shape functions on the unit square at coordinates s..." alt="" coords="226,85,439,141"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a2e4c2fb54531752fc14a75fd97648989"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e4c2fb54531752fc14a75fd97648989">&#9670;&nbsp;</a></span>basisInteraction()</h2>
+<a id="a6ba5bbc27c394bf6f21b26a1d88d5838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ba5bbc27c394bf6f21b26a1d88d5838">&#9670;&nbsp;</a></span>basisInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -964,7 +1113,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basisInteraction </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::basisInteraction </td>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector2d &amp;&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -990,13 +1139,13 @@ template&lt;typename Derived&gt; </div>
 
 <p>Compute all products of local shape functions on the unit square at coordinates s,t. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00143">143</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00127">127</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_super_space_a2e4c2fb54531752fc14a75fd97648989_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a2e4c2fb54531752fc14a75fd97648989_icgraph" alt=""/></div>
-<map name="struct_bembel_1_1_super_space_a2e4c2fb54531752fc14a75fd97648989_icgraph" id="struct_bembel_1_1_super_space_a2e4c2fb54531752fc14a75fd97648989_icgraph">
-<area shape="rect" id="node2" href="struct_bembel_1_1_super_space.html#a57bc726f2496a1cf07770cd34ce41639" title="Compute all scalar products of vector valued local shape functions on the surface points with referen..." alt="" coords="209,5,415,61"/>
+<div class="center"><img src="struct_bembel_1_1_super_space_a6ba5bbc27c394bf6f21b26a1d88d5838_icgraph.png" border="0" usemap="#struct_bembel_1_1_super_space_a6ba5bbc27c394bf6f21b26a1d88d5838_icgraph" alt=""/></div>
+<map name="struct_bembel_1_1_super_space_a6ba5bbc27c394bf6f21b26a1d88d5838_icgraph" id="struct_bembel_1_1_super_space_a6ba5bbc27c394bf6f21b26a1d88d5838_icgraph">
+<area shape="rect" id="node2" href="struct_bembel_1_1_super_space.html#acf087d630a75dcb2d6ce5bc83a15209b" title="Compute all scalar products of vector valued local shape functions on the surface points with referen..." alt="" coords="209,5,415,61"/>
 </map>
 </div>
 
@@ -1027,7 +1176,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00080">80</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00077">77</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -1056,7 +1205,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00081">81</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00078">78</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1096,7 +1245,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00074">74</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00075">75</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -1125,7 +1274,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00077">77</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00076">76</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1163,7 +1312,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00069">69</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00070">70</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1211,7 +1360,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00070">70</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00071">71</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1389,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00073">73</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00074">74</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1296,7 +1445,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00085">85</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00082">82</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1356,7 +1505,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00117">117</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00104">104</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1394,12 +1543,12 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00051">51</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00052">52</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a1722210e171e373ceaacd13838acb4e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1722210e171e373ceaacd13838acb4e4">&#9670;&nbsp;</a></span>vectorBasisDivergenceInteraction()</h2>
+<a id="ac29ba4a6d02d564a7ec3fe3c91003565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29ba4a6d02d564a7ec3fe3c91003565">&#9670;&nbsp;</a></span>vectorBasisDivergenceInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1410,7 +1559,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::vectorBasisDivergenceInteraction </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::vectorBasisDivergenceInteraction </td>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector2d &amp;&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -1436,12 +1585,12 @@ template&lt;typename Derived&gt; </div>
 
 <p>Compute all products of divergences of local shape functions on the unit square at coordinates s,t. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00219">219</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00233">233</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ad549f6e4b8a1ddb157e12ba7d8d6b736"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad549f6e4b8a1ddb157e12ba7d8d6b736">&#9670;&nbsp;</a></span>vectorBasisInteraction()</h2>
+<a id="abebd91f1bf499833d960736905774920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abebd91f1bf499833d960736905774920">&#9670;&nbsp;</a></span>vectorBasisInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1452,7 +1601,7 @@ template&lt;typename Derived&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::vectorBasisInteraction </td>
+          <td class="memname">Eigen::Matrix&lt;<a class="el" href="struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c">Scalar</a>, Eigen::Dynamic, Eigen::Dynamic&gt; <a class="el" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a>&lt; Derived &gt;::vectorBasisInteraction </td>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector2d &amp;&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -1502,7 +1651,7 @@ template&lt;typename Derived&gt; </div>
 
 <p>Compute all scalar products of vector valued local shape functions on the surface points with reference coordinates s,t. </p>
 
-<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00188">188</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_super_space_8hpp_source.html#l00207">207</a> of file <a class="el" href="_super_space_8hpp_source.html">SuperSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -1515,7 +1664,7 @@ template&lt;typename Derived&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a></li>
-    <li class="footer">Generated on Mon Jul 13 2020 12:29:33 for Bembel by
+    <li class="footer">Generated on Tue Dec 15 2020 15:18:13 for Bembel by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

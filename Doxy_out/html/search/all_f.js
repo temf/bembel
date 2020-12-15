@@ -46,7 +46,7 @@ var searchData=
   ['print2ascii',['print2ascii',['../namespace_bembel_1_1_i_o.html#ab4d31f4164fc1746a1d7e3f5ef29de52',1,'Bembel::IO']]],
   ['print2bin',['print2bin',['../namespace_bembel_1_1_i_o.html#af23406cf18b95211f12a78a4c0bc4c44',1,'Bembel::IO']]],
   ['print2file_2ehpp',['print2file.hpp',['../print2file_8hpp.html',1,'']]],
-  ['print2m',['print2m',['../namespace_bembel_1_1_i_o.html#ab5f2547db8b4d1e94d14f72e3c760d46',1,'Bembel::IO']]],
+  ['print2m',['print2m',['../namespace_bembel_1_1_i_o.html#ab5f2547db8b4d1e94d14f72e3c760d46',1,'Bembel::IO::print2m(const std::string &amp;fileName, const std::string &amp;varName, const Eigen::MatrixBase&lt; Derived &gt; &amp;var, const std::string &amp;writeMode)'],['../namespace_bembel_1_1_i_o.html#a77b5668b1404f24d41387e3ad346e485',1,'Bembel::IO::print2m(const std::string &amp;fileName, const std::string &amp;varName, const Eigen::SparseMatrix&lt; Scalar &gt; &amp;var, const std::string &amp;writeMode)']]],
   ['printnode',['printNode',['../class_bembel_1_1_block_cluster_tree.html#ab86347928a70cdd0bb08c7bf9e904801',1,'Bembel::BlockClusterTree']]],
   ['projector',['Projector',['../class_bembel_1_1_projector.html',1,'Bembel::Projector&lt; Derived &gt;'],['../class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a',1,'Bembel::Projector::Projector()'],['../class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870',1,'Bembel::Projector::Projector(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knot_repetition)']]],
   ['projector_2ehpp',['Projector.hpp',['../_projector_8hpp.html',1,'']]],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_bembel_1_1_basis_1_1_hidden_bernstein_class.html#a68b7c5bc9970dfdbe4e049f3ab399c5b":[3,0,0,0,0,5],
 "class_bembel_1_1_basis_1_1_hidden_bernstein_class.html#a6f6729baac5e6830378b0b2e25ac0ae0":[3,0,0,0,0,1],
 "class_bembel_1_1_basis_1_1_hidden_bernstein_class.html#a7ba20025f4503ca1f420fb3b25fca211":[3,0,0,0,0,3],
 "class_bembel_1_1_basis_1_1_hidden_bernstein_class.html#aa96663d787e95a98e1f4e6f957f813ce":[3,0,0,0,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "class_bembel_1_1_helmholtz_single_layer_potential.html#aa0893b6eaa39cbde0b089f3bc7d5fea7":[1,5,1,2],
 "class_bembel_1_1_helmholtz_single_layer_potential.html#aa2dd7b8523f355748f268ce0406ab19a":[1,5,1,0],
 "class_bembel_1_1_i_o_1_1_logger.html":[1,6,0],
-"class_bembel_1_1_i_o_1_1_logger.html#a1ae53ae2593a177deaf7c253d39b48d2":[1,6,0,3],
-"class_bembel_1_1_i_o_1_1_logger.html#a272af21f3a2096f5ee973a0c3ad83bf8":[1,6,0,7]
+"class_bembel_1_1_i_o_1_1_logger.html#a1ae53ae2593a177deaf7c253d39b48d2":[1,6,0,3]
 };

@@ -34,5 +34,5 @@ var searchData=
   ['io',['IO',['../group___i_o.html',1,'']]],
   ['is_5flow_5frank',['is_low_rank',['../class_bembel_1_1_tree_leaf.html#aa03a169bac2828a07b0a0b94c45882ed',1,'Bembel::TreeLeaf']]],
   ['isalmostzero',['isAlmostZero',['../namespace_bembel_1_1_constants.html#ac7b79e5b9207d56d418c1e2969f929e0',1,'Bembel::Constants']]],
-  ['isrowmajor',['IsRowMajor',['../class_eigen_1_1_h2_matrix.html#adeac7ac0e03fc607c5a0b3d59ab303a2a7eae07c0a62755614caacd0e7ee5116a',1,'Eigen::H2Matrix']]]
+  ['isrowmajor',['IsRowMajor',['../class_eigen_1_1_h2_matrix.html#ae7a09c25b3a886746c3851b0692218d6a7eae07c0a62755614caacd0e7ee5116a',1,'Eigen::H2Matrix']]]
 ];

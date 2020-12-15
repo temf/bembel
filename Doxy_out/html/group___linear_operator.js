@@ -1,9 +1,9 @@
 var group___linear_operator =
 [
     [ "DifferentialForm", "struct_bembel_1_1_differential_form.html", [
-      [ "Continuous", "struct_bembel_1_1_differential_form.html#aca86c883a30f7b39fa095e4723153195a348366fcc91a759bdd1e3ee5eda286a0", null ],
-      [ "DivConforming", "struct_bembel_1_1_differential_form.html#aca86c883a30f7b39fa095e4723153195ae6f943889aa67e7aa7ea89eae33b1939", null ],
-      [ "Discontinuous", "struct_bembel_1_1_differential_form.html#aca86c883a30f7b39fa095e4723153195a9069b7e3f2dd459f02912eefa3b166a5", null ]
+      [ "Continuous", "struct_bembel_1_1_differential_form.html#a1e9356bfc35189cc06fd5c18316d41baa348366fcc91a759bdd1e3ee5eda286a0", null ],
+      [ "DivConforming", "struct_bembel_1_1_differential_form.html#a1e9356bfc35189cc06fd5c18316d41baae6f943889aa67e7aa7ea89eae33b1939", null ],
+      [ "Discontinuous", "struct_bembel_1_1_differential_form.html#a1e9356bfc35189cc06fd5c18316d41baa9069b7e3f2dd459f02912eefa3b166a5", null ]
     ] ],
     [ "DiscreteOperatorComputer", "struct_bembel_1_1_discrete_operator_computer.html", null ],
     [ "LinearOperatorBase", "struct_bembel_1_1_linear_operator_base.html", [
