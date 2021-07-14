@@ -53,11 +53,11 @@ class DiscretePotential {
     auto OutputDimension = PotentialTraits<Derived>::OutputSpaceDimension;
 
     GaussSquare<Constants::maximum_quadrature_degree> GS;
-    auto Q = GS[deg_];
+    const auto &Q = GS[deg_];
 
-    auto super_space = ansatz_space_.get_superspace();
+    const auto &super_space = ansatz_space_.get_superspace();
 
-    auto element_tree = super_space.get_mesh().get_element_tree();
+    const auto &element_tree = super_space.get_mesh().get_element_tree();
     auto number_of_elements = element_tree.get_number_of_elements();
 
     auto polynomial_degree = super_space.get_polynomial_degree();
@@ -119,6 +119,8 @@ class DiscretePotential {
   //    getter
   //////////////////////////////////////////////////////////////////////////////
   Derived &get_potential() { return pot_; }
+  FunctionEvaluator<LinOp> &get_fun_ev() { return fun_ev_; }
+  const FunctionEvaluator<LinOp> &get_fun_ev() const { return fun_ev_; }
   //////////////////////////////////////////////////////////////////////////////
   //    private member variables
   //////////////////////////////////////////////////////////////////////////////

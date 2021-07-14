@@ -27,6 +27,8 @@ class ElementTree {
   ElementTree(const Geometry &g, unsigned int max_level) {
     init_ElementTree(g, max_level);
   }
+  ~ElementTree() { mem_->resize(0); }
+  ElementTree(const ElementTree &) = delete;
   //////////////////////////////////////////////////////////////////////////////
   /// init
   //////////////////////////////////////////////////////////////////////////////
@@ -34,14 +36,13 @@ class ElementTree {
     // initialise the data fields
     geometry_ = g.get_geometry_ptr();
     mem_ = std::make_shared<ElementTreeMemory>();
-    mem_->number_of_patches_ = geometry_->size();
-    mem_->max_level_ = max_level;
+    mem_->set_number_of_patches(geometry_->size());
+    mem_->set_max_level(max_level);
     max_level_ = max_level;
-    number_of_patches_ = mem_->number_of_patches_;
+    number_of_patches_ = mem_->get_number_of_patches();
     // balanced quadTree > the number of elements per branch is
     // \sum_{l=0}^L 4^l = (4^{L+1}-1) / 3;
-    mem_->memory_ = std::make_shared<std::vector<ElementTreeNode>>();
-    mem_->memory_->resize(mem_->cumNumElements(max_level));
+    mem_->resize(mem_->cumNumElements(max_level));
     // create the patches and set up the topology
     {
       std::vector<Eigen::Vector3d> uniquePts;
@@ -50,7 +51,7 @@ class ElementTree {
       number_of_points_ = 0;
       // set hold all element
       ElementTreeNode &root = mem_->get_root();
-      root.sons_.resize(mem_->number_of_patches_);
+      root.sons_.resize(mem_->get_number_of_patches());
       root.set_memory(mem_);
 
       for (auto i = 0; i < number_of_patches_; ++i) {
@@ -92,7 +93,7 @@ class ElementTree {
     }
     return;
   }
-
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd computeElementEnclosings() {
     // compute point list
     Eigen::MatrixXd P = generatePointList();
@@ -123,9 +124,10 @@ class ElementTree {
     }
     return P;
   }
+  //////////////////////////////////////////////////////////////////////////////
   void print() const {
     auto i = 0;
-    for (auto it = mem_->memory_->begin(); it != mem_->memory_->end(); ++it) {
+    for (auto it = mem_->begin(); it != mem_->end(); ++it) {
       std::cout << "element[" << i++ << "] = ";
       it->print();
     }
@@ -165,20 +167,21 @@ class ElementTree {
   /// other Stuff
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generateMidpointList() const {
-    Eigen::MatrixXd retval(3, mem_->cumNumElements(mem_->max_level_));
+    Eigen::MatrixXd retval(3, mem_->cumNumElements(mem_->get_max_level()));
     unsigned int i = 0;
-    for (auto it = mem_->memory_->begin(); it != mem_->memory_->end(); ++it)
+    for (auto it = mem_->begin(); it != mem_->end(); ++it)
       retval.col(i++) = it->midpoint_;
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generateRadiusList() const {
-    Eigen::VectorXd retval(mem_->cumNumElements(mem_->max_level_));
+    Eigen::VectorXd retval(mem_->cumNumElements(mem_->get_max_level()));
     unsigned int i = 0;
-    for (auto it = mem_->memory_->begin(); it != mem_->memory_->end(); ++it)
+    for (auto it = mem_->begin(); it != mem_->end(); ++it)
       retval(i++) = it->radius_;
     return retval;
   }
-
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generatePointList() const {
     Eigen::MatrixXd retval(3, number_of_points_);
     double h = mem_->cpbegin()->get_h();
@@ -194,6 +197,7 @@ class ElementTree {
     }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXi generateElementList() const {
     Eigen::MatrixXi retval(4, number_of_patches_ * (1 << 2 * max_level_));
     unsigned int i = 0;
@@ -203,6 +207,7 @@ class ElementTree {
     }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi generateElementLabels() const {
     Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
     unsigned int i = 0;
@@ -211,6 +216,7 @@ class ElementTree {
     }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi generatePatchBoundaryLabels() const {
     Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
     retval.setZero();
@@ -226,11 +232,12 @@ class ElementTree {
     }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi identifyPatch(unsigned int pn) const {
     Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
     retval.setZero();
     assert(pn < number_of_patches_);
-    ElementTreeNode &patch = (*(mem_->memory_))[1 + pn];
+    ElementTreeNode &patch = *(mem_->begin() + 1 + pn);
     auto begin = mem_->cluster_begin(patch);
     auto end = mem_->cluster_end(patch);
     for (auto it = begin; it != end; ++it) {
@@ -414,26 +421,20 @@ class ElementTree {
     //  determine new points
     for (auto i = 0; i < 4; ++i) {
       auto cur_neighbour = cur_el.adjcents_[i];
-      if (cur_neighbour != -1) {
-        ElementTreeNode &ref_cur_neighbour = mem_->adjcent(cur_el, i);
-        // is the neighbour already refined?
-        if (ref_cur_neighbour.sons_.size()) {
-          // this is the midpoint of the shared edge
-          ptIds[i] = mem_->son(ref_cur_neighbour, refNeighbours[i])
-                         .vertices_[(refNeighbours[i] + 1) % 4];
-          // these are the two elements adjacent to the edge
-          elements.push_back(
-              std::addressof(mem_->son(ref_cur_neighbour, refNeighbours[i])));
-          elements.push_back(std::addressof(
-              mem_->son(ref_cur_neighbour, (refNeighbours[i] + 1) % 4)));
-
-        } else {
-          // otherwise add the point id to the tree
-          ptIds[i] = number_of_points_;
-          ++number_of_points_;
-        }
-      } else {
-        // otherwise add the point id to the tree
+      ElementTreeNode &ref_cur_neighbour = mem_->adjcent(cur_el, i);
+      // is the neighbour already refined?
+      if (cur_neighbour != -1 && ref_cur_neighbour.sons_.size()) {
+        // this is the midpoint of the shared edge
+        ptIds[i] = mem_->son(ref_cur_neighbour, refNeighbours[i])
+                       .vertices_[(refNeighbours[i] + 1) % 4];
+        // these are the two elements adjacent to the edge
+        elements.push_back(
+            std::addressof(mem_->son(ref_cur_neighbour, refNeighbours[i])));
+        elements.push_back(std::addressof(
+            mem_->son(ref_cur_neighbour, (refNeighbours[i] + 1) % 4)));
+      }
+      // otherwise add the point id to the tree
+      else {
         ptIds[i] = number_of_points_;
         ++number_of_points_;
       }
@@ -451,11 +452,9 @@ class ElementTree {
       mem_->son(cur_el, i).id_ = 4 * cur_el.id_ + i;
       mem_->son(cur_el, i).adjcents_ = std::vector<int>(4, -1);
       mem_->son(cur_el, i).llc_(0) =
-          cur_el.llc_(0) +
-          double(Constants::llcs[0][i]) / double(1 << cur_el.level_);
+          cur_el.llc_(0) + Constants::llcs[0][i] / (1 << cur_el.level_);
       mem_->son(cur_el, i).llc_(1) =
-          cur_el.llc_(1) +
-          double(Constants::llcs[1][i]) / double(1 << cur_el.level_);
+          cur_el.llc_(1) + Constants::llcs[1][i] / (1 << cur_el.level_);
       mem_->son(cur_el, i).set_memory(mem_);
       elements.push_back(std::addressof(mem_->son(cur_el, i)));
     }

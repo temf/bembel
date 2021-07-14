@@ -40,13 +40,13 @@ class DiscreteLinearForm {
    **/
   void compute() {
     GaussSquare<Constants::maximum_quadrature_degree> GS;
-    auto Q = GS[deg_];
+    const auto &Q = GS[deg_];
     SurfacePoint qp;
-    auto super_space = ansatz_space_.get_superspace();
-    auto element_tree = super_space.get_mesh().get_element_tree();
-    auto number_of_elements = element_tree.get_number_of_elements();
-    auto polynomial_degree = super_space.get_polynomial_degree();
-    auto polynomial_degree_plus_one_squared =
+    const auto &super_space = ansatz_space_.get_superspace();
+    const auto &element_tree = super_space.get_mesh().get_element_tree();
+    const auto number_of_elements = element_tree.get_number_of_elements();
+    const auto polynomial_degree = super_space.get_polynomial_degree();
+    const auto polynomial_degree_plus_one_squared =
         (polynomial_degree + 1) * (polynomial_degree + 1);
     const auto function_space_dimension =
         getFunctionSpaceVectorDimension<LinearOperatorTraits<LinOp>::Form>();

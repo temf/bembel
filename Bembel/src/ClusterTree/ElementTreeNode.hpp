@@ -55,6 +55,7 @@ class ElementTreeNode {
     radius_ = other.radius_;
     memory_ = other.memory_;
   }
+  ~ElementTreeNode() { memory_ = nullptr; }
   //////////////////////////////////////////////////////////////////////////////
   /// operators
   //////////////////////////////////////////////////////////////////////////////
@@ -102,7 +103,7 @@ class ElementTreeNode {
     return out;
   }
   Eigen::Vector2d referenceMidpoint() const {
-    return llc_+Eigen::Vector2d(0.5,0.5)*get_h();
+    return llc_ + 0.5 * Eigen::Vector2d::Ones() * get_h();
   }
   //////////////////////////////////////////////////////////////////////////////
   /// setter
@@ -116,7 +117,9 @@ class ElementTreeNode {
   //////////////////////////////////////////////////////////////////////////////
   constexpr double get_h() const { return 1. / double(1 << level_); }
   constexpr int get_level() const { return level_; }
-  const std::shared_ptr<ElementTreeMemory> get_memory() const { return memory_; }
+  const std::shared_ptr<ElementTreeMemory> get_memory() const {
+    return memory_;
+  }
   //////////////////////////////////////////////////////////////////////////////
   /// member variables
   //////////////////////////////////////////////////////////////////////////////

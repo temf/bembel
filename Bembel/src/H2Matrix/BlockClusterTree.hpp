@@ -118,14 +118,14 @@ class BlockClusterTree {
                              const AnsatzSpace<Derived> &ansatz_space) {
     if (parameters_ == nullptr) set_parameters();
     // get element tree from ansatz space
-    auto element_tree =
+    const auto &element_tree =
         ansatz_space.get_superspace().get_mesh().get_element_tree();
     cluster1_ = std::addressof(element_tree.root());
     cluster2_ = std::addressof(element_tree.root());
     // get memory structure from element tree
-    auto mem = cluster1_->memory_;
+    const auto &mem = cluster1_->memory_;
     // set parameters for matrix assembly
-    parameters_->max_level_ = mem->max_level_;
+    parameters_->max_level_ = mem->get_max_level();
     parameters_->polynomial_degree_ =
         ansatz_space.get_superspace().get_polynomial_degree();
     parameters_->polynomial_degree_plus_one_squared_ =
