@@ -79,6 +79,7 @@ class ElementTree {
     for (auto i = 0; i < max_level; ++i) refineUniformly();
     return;
   }
+  //////////////////////////////////////////////////////////////////////////////
   void refineUniformly_recursion(ElementTreeNode &el) {
     if (el.sons_.size())
       for (auto i = 0; i < el.sons_.size(); ++i)
@@ -87,16 +88,31 @@ class ElementTree {
       refineLeaf(el);
     return;
   }
+  //////////////////////////////////////////////////////////////////////////////
   void refineUniformly() {
     refineUniformly_recursion(root_);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
-  void generatePointList_recursion(Eigen::MatrixXd *pts,
+  void refinePatch_recursion(ElementTreeNode &el) {
+    if (el.sons_.size())
+      for (auto i = 0; i < el.sons_.size(); ++i)
+        refineUniformly_recursion(el.sons_[i]);
+    else
+      refineLeaf(el);
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  void refinePatch(int patch) {
+    refinePatch_recursion(root_.sons_[patch]);
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  void generatePointList_recursion(Eigen::MatrixXd *pts, Eigen::VectorXi *idct,
                                    const ElementTreeNode &el) const {
     if (el.sons_.size())
       for (auto i = 0; i < el.sons_.size(); ++i)
-        generatePointList_recursion(pts, el.sons_[i]);
+        generatePointList_recursion(pts, idct, el.sons_[i]);
     else {
       double h = double(1) / double(1 << el.level_);
       pts->col(el.vertices_[0]) =
@@ -107,13 +123,19 @@ class ElementTree {
           (*geometry_)[el.patch_].eval(el.llc_(0) + h, el.llc_(1) + h);
       pts->col(el.vertices_[3]) =
           (*geometry_)[el.patch_].eval(el.llc_(0), el.llc_(1) + h);
+      ++((*idct)(el.vertices_[0]));
+      ++((*idct)(el.vertices_[1]));
+      ++((*idct)(el.vertices_[2]));
+      ++((*idct)(el.vertices_[3]));
     }
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
-  Eigen::MatrixXd generatePointList() const {
+  Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct) const {
     Eigen::MatrixXd retval(3, number_of_points_);
-    generatePointList_recursion(&retval, root_);
+    idct->resize(number_of_points_);
+    idct->setZero();
+    generatePointList_recursion(&retval, idct, root_);
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////

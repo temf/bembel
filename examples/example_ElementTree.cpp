@@ -5,7 +5,6 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-
 #include <chrono>
 #include <fstream>
 #include <functional>
@@ -16,10 +15,13 @@
 #include <utility>
 #include <vector>
 #include <Bembel/Geometry>
+/////////////////////////////////////////////////////////////
 #include <Bembel/src/ClusterTree/ElementTreeNode.hpp>
+
+/////////////////////////////////////////////////////////////
+
 #include <Bembel/src/ClusterTree/ElementTree.hpp>
 #include <Bembel/src/IO/Stopwatch.hpp>
-#include <iostream>
 
 #include "writeVTK.hpp"
 
@@ -29,12 +31,20 @@ int main() {
             << " patches." << std::endl;
   Bembel::IO::Stopwatch T;
   T.tic();
-  Bembel::ElementTree et(geometry, 10);
-  std::cout << "time: " << T.toc() << " s.\n"; 
+  Bembel::ElementTree et(geometry, 4);
+  et.refinePatch(0);
+  et.refinePatch(0);
+  et.refinePatch(0);
+  et.refinePatch(0);
+  et.refinePatch(0);
+  et.refinePatch(1);
+  et.refinePatch(4);
+  std::cout << "time: " << T.toc() << " s.\n";
   std::cout << "got element tree\n";
-  Eigen::MatrixXd P = et.generatePointList();
+  Eigen::VectorXi id;
+  Eigen::MatrixXd P = et.generatePointList(&id);
   Eigen::MatrixXi E = et.generateElementList();
   Eigen::VectorXd z = P.row(2);
-  writeMesh2vtk("geometry.vtk", P, E, z);
+  writeMesh2vtk("geometry.vtk", P, E, id);
   return 0;
 }
