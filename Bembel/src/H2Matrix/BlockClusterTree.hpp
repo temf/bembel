@@ -125,7 +125,7 @@ class BlockClusterTree {
     // get memory structure from element tree
     auto mem = cluster1_->memory_;
     // set parameters for matrix assembly
-    parameters_->max_level_ = mem->max_level_;
+    parameters_->max_level_ = mem->get_max_level();
     parameters_->polynomial_degree_ =
         ansatz_space.get_superspace().get_polynomial_degree();
     parameters_->polynomial_degree_plus_one_squared_ =
