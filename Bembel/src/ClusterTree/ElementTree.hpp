@@ -26,6 +26,43 @@ class ElementTree {
   ElementTree &operator=(const ElementTree &) = delete;
   ElementTree &operator=(ElementTree &&) = delete;
   //////////////////////////////////////////////////////////////////////////////
+  struct LeafIterator {
+    using iterator_category = std::forward_iterator_tag;
+    using difference_type = std::ptrdiff_t;
+    using value_type = ElementTreeNode;
+    using pointer = value_type *;
+    using reference = value_type &;
+
+    LeafIterator(std::map<size_t, pointer>::const_iterator ptr) : m_ptr(ptr) {}
+
+    reference operator*() const { return *(m_ptr->second); }
+    const pointer operator->() const { return m_ptr->second; }
+
+    // Prefix increment
+    LeafIterator &operator++() {
+      ++m_ptr;
+      return *this;
+    }
+
+    // Postfix increment
+    LeafIterator operator++(int) {
+      LeafIterator tmp = *this;
+      ++(*this);
+      return tmp;
+    }
+
+    friend bool operator==(const LeafIterator &a, const LeafIterator &b) {
+      return a.m_ptr == b.m_ptr;
+    };
+    friend bool operator!=(const LeafIterator &a, const LeafIterator &b) {
+      return a.m_ptr != b.m_ptr;
+    };
+
+   private:
+    std::map<size_t, pointer>::const_iterator m_ptr;
+  };
+
+  //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
   ElementTree() {}
@@ -40,6 +77,7 @@ class ElementTree {
     geometry_ = g.get_geometry_ptr();
     max_level_ = max_level;
     number_of_patches_ = geometry_->size();
+    leafs_.clear();
     // create the patches and set up the topology
     {
       std::vector<Eigen::Vector3d> uniquePts;
@@ -73,6 +111,8 @@ class ElementTree {
           }
         }
         patches.push_back(std::addressof(root.sons_[i]));
+        leafs_.insert(std::make_pair(compute_global_id(root.sons_[i]),
+                                     std::addressof(root.sons_[i])));
       }
       updateTopology(patches);
     }
@@ -131,154 +171,148 @@ class ElementTree {
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
-  Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct) const {
-    Eigen::MatrixXd retval(3, number_of_points_);
-    idct->resize(number_of_points_);
-    idct->setZero();
-    generatePointList_recursion(&retval, idct, root_);
-    return retval;
-  }
-  //////////////////////////////////////////////////////////////////////////////
-  void generateElementList_recursion(Eigen::MatrixXi *elements,
-                                     const ElementTreeNode &el,
-                                     unsigned int &elID) const {
-    if (el.sons_.size())
-      for (auto i = 0; i < el.sons_.size(); ++i)
-        generateElementList_recursion(elements, el.sons_[i], elID);
-    else {
-      elements->col(elID) << el.vertices_[0], el.vertices_[1], el.vertices_[2],
-          el.vertices_[3];
-      ++elID;
+  Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct = nullptr) const {
+    Eigen::MatrixXd pts(3, number_of_points_);
+    if (idct != nullptr) {
+      idct->resize(number_of_points_);
+      idct->setZero();
     }
-    return;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      double h = double(1) / double(1 << it->level_);
+      pts.col(it->vertices_[0]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0), it->llc_(1));
+      pts.col(it->vertices_[1]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0) + h, it->llc_(1));
+      pts.col(it->vertices_[2]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0) + h, it->llc_(1) + h);
+      pts.col(it->vertices_[3]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0), it->llc_(1) + h);
+      if (idct != nullptr) {
+        ++((*idct)(it->vertices_[0]));
+        ++((*idct)(it->vertices_[1]));
+        ++((*idct)(it->vertices_[2]));
+        ++((*idct)(it->vertices_[3]));
+      }
+    }
+
+    return pts;
   }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXi generateElementList() const {
     unsigned int elID = 0;
     Eigen::MatrixXi retval(4, number_of_elements_);
-    generateElementList_recursion(&retval, root_, elID);
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval.col(elID) << it->vertices_[0], it->vertices_[1], it->vertices_[2],
+          it->vertices_[3];
+      ++elID;
+    }
     return retval;
   }
-#if 0
+  //////////////////////////////////////////////////////////////////////////////
+  /// getter
+  //////////////////////////////////////////////////////////////////////////////
+  int get_number_of_points() const { return number_of_points_; }
+  int get_number_of_elements() const { return number_of_elements_; }
+  int get_max_level() const { return max_level_; }
+  ElementTreeNode &root() { return root_; }
+  const ElementTreeNode &root() const { return root_; }
+  const PatchVector &get_geometry() const { return *geometry_; }
+  //////////////////////////////////////////////////////////////////////////////
+  /// iterators
+  //////////////////////////////////////////////////////////////////////////////
+  LeafIterator pbegin() const { return LeafIterator(leafs_.begin()); }
+  LeafIterator pend() const { return LeafIterator(leafs_.end()); }
+  LeafIterator cpbegin() const { return LeafIterator(leafs_.begin()); }
+  LeafIterator cpend() const { return LeafIterator(leafs_.end()); }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd computeElementEnclosings() {
     // compute point list
     Eigen::MatrixXd P = generatePointList();
-    // assign enclosing balls to leafs
-    for (auto it = mem_->pbegin(); it != mem_->pend(); ++it) {
-      Eigen::Vector3d mp1, mp2;
-      double r1, r2;
-      computeEnclosingBall(&mp1, &r1, P.col(it->vertices_[0]), 0,
-                           P.col(it->vertices_[2]), 0);
-      computeEnclosingBall(&mp2, &r2, P.col(it->vertices_[1]), 0,
-                           P.col(it->vertices_[3]), 0);
-      computeEnclosingBall(&(it->midpoint_), &(it->radius_), mp1, r1, mp2, r2);
-    }
-    // assign enclosing balls to fathers bottom up
-    for (auto level = max_level_ - 1; level >= 0; --level) {
-      for (auto it = mem_->lbegin(level); it != mem_->lend(level); ++it) {
-        Eigen::Vector3d mp1, mp2;
-        double r1, r2;
-        computeEnclosingBall(
-            &mp1, &r1, mem_->son(*it, 0).midpoint_, mem_->son(*it, 0).radius_,
-            mem_->son(*it, 2).midpoint_, mem_->son(*it, 2).radius_);
-        computeEnclosingBall(
-            &mp2, &r2, mem_->son(*it, 1).midpoint_, mem_->son(*it, 1).radius_,
-            mem_->son(*it, 3).midpoint_, mem_->son(*it, 3).radius_);
-        computeEnclosingBall(&(it->midpoint_), &(it->radius_), mp1, r1, mp2,
-                             r2);
-      }
-    }
+    for (auto i = 0; i < root_.sons_.size(); ++i)
+      computeElementEnclosings_recursion(root_.sons_[i], P);
     return P;
   }
   //////////////////////////////////////////////////////////////////////////////
-  void print() const {
+  void computeElementEnclosings_recursion(ElementTreeNode &el,
+                                          const Eigen::MatrixXd &P) {
+    Eigen::Vector3d mp1, mp2;
+    double r1, r2;
+    // compute point list
+    if (!el.sons_.size()) {
+      // assign enclosing balls to leafs
+
+      computeEnclosingBall(&mp1, &r1, P.col(el.vertices_[0]), 0,
+                           P.col(el.vertices_[2]), 0);
+      computeEnclosingBall(&mp2, &r2, P.col(el.vertices_[1]), 0,
+                           P.col(el.vertices_[3]), 0);
+      computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2, r2);
+    } else {
+      // handle the four(!!!) children
+      for (auto i = 0; i < 4; ++i)
+        computeElementEnclosings_recursion(el.sons_[i], P);
+      // assign enclosing balls to fathers bottom up
+      computeEnclosingBall(&mp1, &r1, el.sons_[0].midpoint_,
+                           el.sons_[0].radius_, el.sons_[2].midpoint_,
+                           el.sons_[2].radius_);
+      computeEnclosingBall(&mp2, &r2, el.sons_[1].midpoint_,
+                           el.sons_[1].radius_, el.sons_[3].midpoint_,
+                           el.sons_[3].radius_);
+      computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2, r2);
+    }
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  void printPanels() const {
     auto i = 0;
-    for (auto it = mem_->begin(); it != mem_->end(); ++it) {
+    for (auto it = pbegin(); it != pend(); ++it) {
       std::cout << "element[" << i++ << "] = ";
       it->print();
     }
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
-  /// getter
-  //////////////////////////////////////////////////////////////////////////////
-  int get_number_of_points() const { return number_of_points_; }
-  int get_number_of_elements() const { return mem_->cpend() - mem_->cpbegin(); }
-  ElementTreeNode &root() { return mem_->get_root(); }
-  const ElementTreeNode &root() const { return mem_->get_root(); }
-  //////////////////////////////////////////////////////////////////////////////
-  /// iterators
-  //////////////////////////////////////////////////////////////////////////////
-  std::vector<ElementTreeNode>::const_iterator cpbegin() const {
-    return mem_->cpbegin();
-  }
-  std::vector<ElementTreeNode>::const_iterator cpend() const {
-    return mem_->cpend();
-  }
-  std::vector<ElementTreeNode>::iterator pbegin() { return mem_->pbegin(); }
-  std::vector<ElementTreeNode>::const_iterator pend() { return mem_->pend(); }
-  std::vector<ElementTreeNode>::iterator lbegin(unsigned int level) {
-    return mem_->lbegin(level);
-  }
-  std::vector<ElementTreeNode>::const_iterator lend(unsigned int level) {
-    return mem_->lend(level);
-  }
-  std::vector<ElementTreeNode>::const_iterator clbegin(unsigned int level) {
-    return mem_->clbegin(level);
-  }
-  std::vector<ElementTreeNode>::const_iterator clend(unsigned int level) const {
-    return mem_->clend(level);
-  }
-  //////////////////////////////////////////////////////////////////////////////
   /// other Stuff
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generateMidpointList() const {
-    Eigen::MatrixXd retval(3, mem_->cumNumElements(mem_->get_max_level()));
+    Eigen::MatrixXd retval(3, number_of_elements_);
     unsigned int i = 0;
-    for (auto it = mem_->begin(); it != mem_->end(); ++it)
-      retval.col(i++) = it->midpoint_;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval.col(i) = it->midpoint_;
+      ++i;
+    }
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generateRadiusList() const {
-    Eigen::VectorXd retval(mem_->cumNumElements(mem_->get_max_level()));
+    Eigen::VectorXd retval(number_of_elements_);
     unsigned int i = 0;
-    for (auto it = mem_->begin(); it != mem_->end(); ++it)
-      retval(i++) = it->radius_;
-    return retval;
-  }
-
-  //////////////////////////////////////////////////////////////////////////////
-  Eigen::MatrixXi generateElementList() const {
-    Eigen::MatrixXi retval(4, number_of_patches_ * (1 << 2 * max_level_));
-    unsigned int i = 0;
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
-      retval.col(i++) << it->vertices_[0], it->vertices_[1], it->vertices_[2],
-          it->vertices_[3];
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval(i) = it->radius_;
+      ++i;
     }
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi generateElementLabels() const {
-    Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
+    Eigen::VectorXi retval(number_of_elements_);
     unsigned int i = 0;
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
-      retval(i++) = it->id_;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval(i) = compute_global_id(*it);
+      ++i;
     }
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi generatePatchBoundaryLabels() const {
-    Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
+    Eigen::VectorXi retval(number_of_elements_);
     retval.setZero();
     unsigned int i = 0;
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
+    for (auto it = pbegin(); it != pend(); ++it) {
       for (auto j = 0; j < 4; ++j)
-        if (it->adjcents_[j] == -1) {
+        if (it->adjcents_[j] == nullptr) {
           retval[i] = -1;
           break;
-        } else if (mem_->adjcent(*it, j).patch_ != it->patch_)
+        } else if (it->adjcents_[j]->patch_ != it->patch_)
           ++(retval[i]);
       ++i;
     }
@@ -286,14 +320,13 @@ class ElementTree {
   }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi identifyPatch(unsigned int pn) const {
-    Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
+    Eigen::VectorXi retval(number_of_elements_);
     retval.setZero();
     assert(pn < number_of_patches_);
-    ElementTreeNode &patch = *(mem_->begin() + 1 + pn);
-    auto begin = mem_->cluster_begin(patch);
-    auto end = mem_->cluster_end(patch);
-    for (auto it = begin; it != end; ++it) {
-      retval[it->id_] = 1;
+    unsigned int i = 0;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval[i] = it->patch_ == pn ? 1 : 0;
+      ++i;
     }
     return retval;
   }
@@ -301,8 +334,8 @@ class ElementTree {
   /// static members
   //////////////////////////////////////////////////////////////////////////////
   /**
-   *  \brief computes a ball enclosing the union of B_r1(mp1) and B_r2(mp2), i.e
-   *         B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)
+   *  \brief computes a ball enclosing the union of B_r1(mp1) and B_r2(mp2),
+   * i.e B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)
    */
   static void computeEnclosingBall(Eigen::Vector3d *mp, double *r,
                                    const Eigen::Vector3d &mp1, double r1,
@@ -332,18 +365,18 @@ class ElementTree {
   //////////////////////////////////////////////////////////////////////////////
   std::vector<std::array<int, 4>> patchTopologyInfo() const {
     std::vector<std::array<int, 4>> retval;
-    for (auto it = mem_->clbegin(0); it != mem_->clend(0); ++it) {
+    for (auto it = root_.sons_.begin(); it != root_.sons_.end(); ++it) {
       for (auto j = 0; j < 4; ++j) {
         // do we have a neighbour?
-        if (it->adjcents_[j] != -1) {
-          const ElementTreeNode &cur_neighbour = mem_->adjcent(*it, j);
+        if (it->adjcents_[j] != nullptr) {
+          const ElementTreeNode &cur_neighbour = *(it->adjcents_[j]);
           // add the edge only if it->id_ < neighbour->id_
           // otherwise the edge has already been added
           if (it->id_ < cur_neighbour.id_) {
             int k = 0;
             for (; k < 4; ++k)
-              if (cur_neighbour.adjcents_[k] != -1 &&
-                  mem_->adjcent(cur_neighbour, k).id_ == it->id_)
+              if (cur_neighbour.adjcents_[k] != nullptr &&
+                  cur_neighbour.adjcents_[k]->id_ == it->id_)
                 break;
             retval.push_back({it->id_, cur_neighbour.id_, j, k});
           }
@@ -353,13 +386,15 @@ class ElementTree {
     }
     return retval;
   }
+
   // The ordering of elements in the element tree does not correspond to the
   // element order underlying the coefficient vector. This reordering can be
-  // computet for look ups by this function.
+  // computed for look ups by this function.
+  // TODO This function assumes that everything is refined uniformly!
   //////////////////////////////////////////////////////////////////////////////
   std::vector<int> computeReorderingVector() const {
-    std::vector<int> out(get_number_of_elements());
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
+    std::vector<int> out(number_of_elements_);
+    for (auto it = pbegin(); it != pend(); ++it) {
       const double h = it->get_h();
       const Eigen::Vector2d ref_mid =
           it->llc_ + Eigen::Vector2d(.5 * h, .5 * h);
@@ -373,7 +408,12 @@ class ElementTree {
     }
     return out;
   }
-#endif
+  //////////////////////////////////////////////////////////////////////////////
+  size_t compute_global_id(const ElementTreeNode &el) const {
+    return number_of_patches_ *
+               (((1 << el.level_) * (1 << el.level_) - 1) / 3) +
+           el.id_;
+  }
   //////////////////////////////////////////////////////////////////////////////
   /// private members
   //////////////////////////////////////////////////////////////////////////////
@@ -476,6 +516,10 @@ class ElementTree {
     // set up new elements
     cur_el.sons_.resize(4);
     number_of_elements_ += 3;
+    max_level_ =
+        max_level_ < cur_el.level_ + 1 ? cur_el.level_ + 1 : max_level_;
+    auto it = leafs_.find(compute_global_id(cur_el));
+    if (it != leafs_.end()) leafs_.erase(it);
     for (auto i = 0; i < 4; ++i) {
       cur_el.sons_[i].patch_ = cur_el.patch_;
       cur_el.sons_[i].level_ = cur_el.level_ + 1;
@@ -486,6 +530,8 @@ class ElementTree {
       cur_el.sons_[i].llc_(1) =
           cur_el.llc_(1) + Constants::llcs[1][i] / double(1 << cur_el.level_);
       elements.push_back(std::addressof(cur_el.sons_[i]));
+      leafs_.insert(std::make_pair(compute_global_id(cur_el.sons_[i]),
+                                   std::addressof(cur_el.sons_[i])));
     }
     // set vertices
     // first element
@@ -517,6 +563,7 @@ class ElementTree {
   /// member variables
   //////////////////////////////////////////////////////////////////////////////
   std::shared_ptr<PatchVector> geometry_;
+  std::map<size_t, ElementTreeNode *> leafs_;
   ElementTreeNode root_;
   int number_of_patches_;
   int max_level_;

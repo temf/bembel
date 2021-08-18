@@ -5,6 +5,7 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
+#include <Bembel/Geometry>
 #include <chrono>
 #include <fstream>
 #include <functional>
@@ -14,13 +15,10 @@
 #include <string>
 #include <utility>
 #include <vector>
-#include <Bembel/Geometry>
-/////////////////////////////////////////////////////////////
-#include <Bembel/src/ClusterTree/ElementTreeNode.hpp>
-
 /////////////////////////////////////////////////////////////
 
-#include <Bembel/src/ClusterTree/ElementTree.hpp>
+/////////////////////////////////////////////////////////////
+#include <Bembel/ClusterTree>
 #include <Bembel/src/IO/Stopwatch.hpp>
 
 #include "writeVTK.hpp"
@@ -31,20 +29,29 @@ int main() {
             << " patches." << std::endl;
   Bembel::IO::Stopwatch T;
   T.tic();
-  Bembel::ElementTree et(geometry, 4);
+  Bembel::ClusterTree CT(geometry, 0);
+  Bembel::ElementTree &et = CT.get_element_tree();
+  et.printPanels();
   et.refinePatch(0);
+  std::cout << et.get_number_of_elements() << std::endl;
+  CT.checkOrientation();
+#if 0
   et.refinePatch(0);
   et.refinePatch(0);
   et.refinePatch(0);
   et.refinePatch(0);
   et.refinePatch(1);
   et.refinePatch(4);
+#endif
   std::cout << "time: " << T.toc() << " s.\n";
   std::cout << "got element tree\n";
+  for (auto it = et.pbegin(); it != et.pend(); ++it)
+    std::cout << et.compute_global_id(*it) << std::endl;
   Eigen::VectorXi id;
   Eigen::MatrixXd P = et.generatePointList(&id);
+  id = et.generatePatchBoundaryLabels();
   Eigen::MatrixXi E = et.generateElementList();
   Eigen::VectorXd z = P.row(2);
-  writeMesh2vtk("geometry.vtk", P, E, id);
+  writeMesh2vtk("geometry.vtk", P, E, id, 1);
   return 0;
 }

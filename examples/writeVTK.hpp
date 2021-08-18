@@ -15,7 +15,8 @@ template <typename Derived1, typename Derived2, typename Derived3>
 void writeMesh2vtk(const std::string &fileName,
                    const Eigen::MatrixBase<Derived1> &P,
                    const Eigen::MatrixBase<Derived2> &E,
-                   const Eigen::MatrixBase<Derived3> &Cdata) {
+                   const Eigen::MatrixBase<Derived3> &Cdata,
+                   bool isCellData = false) {
   std::ofstream myfile;
   myfile.open(fileName);
   myfile << "# vtk DataFile Version 3.1\n";
@@ -40,11 +41,18 @@ void writeMesh2vtk(const std::string &fileName,
   for (auto i = 0; i < E.cols(); ++i) myfile << int(9) << "\n";
   myfile << "\n";
   // print cell labels
-  myfile << "POINT_DATA " << P.cols() << "\n";
-  myfile << "SCALARS value FLOAT\n";
-  myfile << "LOOKUP_TABLE default\n";
-  for (auto i = 0; i < P.cols(); ++i) myfile << float(Cdata(i)) << "\n";
+  if (isCellData) {
+    myfile << "CELL_DATA " << E.cols() << "\n";
+    myfile << "SCALARS value FLOAT\n";
+    myfile << "LOOKUP_TABLE default\n";
+    for (auto i = 0; i < E.cols(); ++i) myfile << float(Cdata(i)) << "\n";
 
+  } else {
+    myfile << "POINT_DATA " << P.cols() << "\n";
+    myfile << "SCALARS value FLOAT\n";
+    myfile << "LOOKUP_TABLE default\n";
+    for (auto i = 0; i < P.cols(); ++i) myfile << float(Cdata(i)) << "\n";
+  }
   myfile.close();
 #if 0
 /* print z-values of the geometry and solved density for visualization        */

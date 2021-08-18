@@ -118,14 +118,12 @@ class BlockClusterTree {
                              const AnsatzSpace<Derived> &ansatz_space) {
     if (parameters_ == nullptr) set_parameters();
     // get element tree from ansatz space
-    auto element_tree =
+    const ElementTree &element_tree =
         ansatz_space.get_superspace().get_mesh().get_element_tree();
     cluster1_ = std::addressof(element_tree.root());
     cluster2_ = std::addressof(element_tree.root());
-    // get memory structure from element tree
-    auto mem = cluster1_->memory_;
     // set parameters for matrix assembly
-    parameters_->max_level_ = mem->get_max_level();
+    parameters_->max_level_ = element_tree.get_max_level();
     parameters_->polynomial_degree_ =
         ansatz_space.get_superspace().get_polynomial_degree();
     parameters_->polynomial_degree_plus_one_squared_ =
@@ -137,10 +135,8 @@ class BlockClusterTree {
     leaf_pointers_ = std::make_shared<std::vector<BlockClusterTree *>>();
     leaf_pointers_->clear();
     // block cluster tree assembly
-    rows_ = std::distance(mem->cluster_begin(*cluster1_),
-                          mem->cluster_end(*cluster1_));
-    cols_ = std::distance(mem->cluster_begin(*cluster2_),
-                          mem->cluster_end(*cluster2_));
+    rows_ = element_tree.get_number_of_leafs();
+    cols_ = element_tree.get_number_of_leafs();
     // we let appendSubtree handle everything, since the root always
     // returns 0 in compare cluster
     appendSubtree(linOp, ansatz_space, cluster1_, cluster2_);
@@ -155,7 +151,6 @@ class BlockClusterTree {
                      const AnsatzSpace<Derived> &ansatz_space,
                      const ElementTreeNode *cluster1,
                      const ElementTreeNode *cluster2) {
-    auto mem = cluster1->memory_;
     cc_ = compareCluster(*cluster1, *cluster2);
     // there are children to handle
     if (cc_ == BlockClusterAdmissibility::Refine) {
@@ -163,8 +158,8 @@ class BlockClusterTree {
       sons_.resize(cluster1->sons_.size(), cluster2->sons_.size());
       for (auto j = 0; j < sons_.cols(); ++j)
         for (auto i = 0; i < sons_.rows(); ++i) {
-          const ElementTreeNode &son1 = mem->son(*cluster1, i);
-          const ElementTreeNode &son2 = mem->son(*cluster2, j);
+          const ElementTreeNode &son1 = cluster1->sons_[i];
+          const ElementTreeNode &son2 = cluster2->sons_[j];
           sons_(i, j).parameters_ = parameters_;
           sons_(i, j).cluster1_ = std::addressof(son1);
           sons_(i, j).cluster2_ = std::addressof(son2);
