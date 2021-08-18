@@ -83,6 +83,10 @@ class ElementTreeNode {
   //////////////////////////////////////////////////////////////////////////////
   /// member variables
   //////////////////////////////////////////////////////////////////////////////
+  std::vector<ElementTreeNode> sons_;  /// children
+  std::vector<ElementTreeNode *> adjcents_;  /// neighbouring elements indices
+  ElementTreeNode *prev_;
+  ElementTreeNode *next_;
   Eigen::Vector3d midpoint_;           /// midpoint of the element
   Eigen::Vector2d llc_;                /// lower left corner on [0,1]^2
   std::vector<int> vertices_;          /// indices of the vertices
@@ -90,8 +94,7 @@ class ElementTreeNode {
   int id_;                             /// element id with respect to the level
   int level_;                          /// level of the element
   int patch_;                          /// patch of the element
-  std::vector<ElementTreeNode> sons_;  /// children
-  std::vector<ElementTreeNode *> adjcents_;  /// neighbouring elements indices
+
 };
 }  // namespace Bembel
 #endif

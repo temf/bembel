@@ -93,6 +93,15 @@ class ElementTree {
         root.sons_[i].id_ = i;
         root.sons_[i].level_ = 0;
         root.sons_[i].patch_ = i;
+        // add linked list structure to the panels
+        if (i == 0)
+          root.sons_[i].prev_ = nullptr;
+        else
+          root.sons_[i].prev_ = std::addressof(root.sons_[i - 1]);
+        if (i == number_of_patches_ - 1)
+          root.sons_[i].next_ = nullptr;
+        else
+          root.sons_[i].next_ = std::addressof(root.sons_[i + 1]);
         // get images of the four corners of the unit square under the
         // diffeomorphism geo[i]
         for (auto j = 0; j < 4; ++j) {
@@ -111,8 +120,8 @@ class ElementTree {
           }
         }
         patches.push_back(std::addressof(root.sons_[i]));
-        leafs_.insert(std::make_pair(compute_global_id(root.sons_[i]),
-                                     std::addressof(root.sons_[i])));
+        //   leafs_.insert(std::make_pair(compute_global_id(root.sons_[i]),
+        //                                std::addressof(root.sons_[i])));
       }
       updateTopology(patches);
     }
@@ -240,7 +249,6 @@ class ElementTree {
     // compute point list
     if (!el.sons_.size()) {
       // assign enclosing balls to leafs
-
       computeEnclosingBall(&mp1, &r1, P.col(el.vertices_[0]), 0,
                            P.col(el.vertices_[2]), 0);
       computeEnclosingBall(&mp2, &r2, P.col(el.vertices_[1]), 0,
@@ -518,9 +526,20 @@ class ElementTree {
     number_of_elements_ += 3;
     max_level_ =
         max_level_ < cur_el.level_ + 1 ? cur_el.level_ + 1 : max_level_;
-    auto it = leafs_.find(compute_global_id(cur_el));
-    if (it != leafs_.end()) leafs_.erase(it);
+    //  auto it = leafs_.find(compute_global_id(cur_el));
+    //  if (it != leafs_.end()) leafs_.erase(it);
     for (auto i = 0; i < 4; ++i) {
+      // add linked list structure to the panels
+      if (i == 0) {
+        cur_el.sons_[i].prev_ = cur_el.prev_;
+        cur_el.prev_ = nullptr;
+      } else
+        cur_el.sons_[i].prev_ = std::addressof(cur_el.sons_[i - 1]);
+      if (i == number_of_patches_ - 1) {
+        cur_el.sons_[i].next_ = cur_el.next_;
+        cur_el.next_ = nullptr;
+      } else
+        cur_el.sons_[i].next_ = std::addressof(cur_el.sons_[i + 1]);
       cur_el.sons_[i].patch_ = cur_el.patch_;
       cur_el.sons_[i].level_ = cur_el.level_ + 1;
       cur_el.sons_[i].id_ = 4 * cur_el.id_ + i;
