@@ -13,7 +13,7 @@ int main() {
   myT.tic();
   Bembel::ClusterTree mesh(geometry, refinement_level);
   std::cout << "ClusterTree " << myT.toc() << std::endl;
-  auto et = mesh.get_element_tree();
+  const Bembel::ElementTree& et = mesh.get_element_tree();
   Bembel::AnsatzSpace<Bembel::LaplaceSingleLayerOperator> ansatz_space(
       geometry, refinement_level, polynomial_degree);
   Bembel::LaplaceSingleLayerOperator S;

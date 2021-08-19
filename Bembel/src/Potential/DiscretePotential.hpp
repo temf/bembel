@@ -57,7 +57,7 @@ class DiscretePotential {
 
     auto super_space = ansatz_space_.get_superspace();
 
-    auto element_tree = super_space.get_mesh().get_element_tree();
+    const ElementTree &element_tree = super_space.get_mesh().get_element_tree();
     auto number_of_elements = element_tree.get_number_of_elements();
 
     auto polynomial_degree = super_space.get_polynomial_degree();

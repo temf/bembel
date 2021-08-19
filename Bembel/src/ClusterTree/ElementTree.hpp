@@ -33,14 +33,14 @@ class ElementTree {
     using pointer = value_type *;
     using reference = value_type &;
 
-    LeafIterator(std::map<size_t, pointer>::const_iterator ptr) : m_ptr(ptr) {}
+    LeafIterator(pointer ptr) : m_ptr(ptr) {}
 
-    reference operator*() const { return *(m_ptr->second); }
-    const pointer operator->() const { return m_ptr->second; }
+    reference operator*() const { return *m_ptr; }
+    const pointer operator->() const { return m_ptr; }
 
     // Prefix increment
     LeafIterator &operator++() {
-      ++m_ptr;
+      m_ptr = m_ptr->next_;
       return *this;
     }
 
@@ -59,7 +59,7 @@ class ElementTree {
     };
 
    private:
-    std::map<size_t, pointer>::const_iterator m_ptr;
+    pointer m_ptr;
   };
 
   //////////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,6 @@ class ElementTree {
     geometry_ = g.get_geometry_ptr();
     max_level_ = max_level;
     number_of_patches_ = geometry_->size();
-    leafs_.clear();
     // create the patches and set up the topology
     {
       std::vector<Eigen::Vector3d> uniquePts;
@@ -94,13 +93,15 @@ class ElementTree {
         root.sons_[i].level_ = 0;
         root.sons_[i].patch_ = i;
         // add linked list structure to the panels
-        if (i == 0)
-          root.sons_[i].prev_ = nullptr;
-        else
+        if (i == 0) {
+          root.sons_[0].prev_ = nullptr;
+          pfirst_ = std::addressof(root.sons_[0]);
+        } else
           root.sons_[i].prev_ = std::addressof(root.sons_[i - 1]);
-        if (i == number_of_patches_ - 1)
+        if (i == number_of_patches_ - 1) {
           root.sons_[i].next_ = nullptr;
-        else
+          plast_ = std::addressof(root.sons_[i]);
+        } else
           root.sons_[i].next_ = std::addressof(root.sons_[i + 1]);
         // get images of the four corners of the unit square under the
         // diffeomorphism geo[i]
@@ -120,8 +121,6 @@ class ElementTree {
           }
         }
         patches.push_back(std::addressof(root.sons_[i]));
-        //   leafs_.insert(std::make_pair(compute_global_id(root.sons_[i]),
-        //                                std::addressof(root.sons_[i])));
       }
       updateTopology(patches);
     }
@@ -143,40 +142,8 @@ class ElementTree {
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
-  void refinePatch_recursion(ElementTreeNode &el) {
-    if (el.sons_.size())
-      for (auto i = 0; i < el.sons_.size(); ++i)
-        refineUniformly_recursion(el.sons_[i]);
-    else
-      refineLeaf(el);
-    return;
-  }
-  //////////////////////////////////////////////////////////////////////////////
   void refinePatch(int patch) {
-    refinePatch_recursion(root_.sons_[patch]);
-    return;
-  }
-  //////////////////////////////////////////////////////////////////////////////
-  void generatePointList_recursion(Eigen::MatrixXd *pts, Eigen::VectorXi *idct,
-                                   const ElementTreeNode &el) const {
-    if (el.sons_.size())
-      for (auto i = 0; i < el.sons_.size(); ++i)
-        generatePointList_recursion(pts, idct, el.sons_[i]);
-    else {
-      double h = double(1) / double(1 << el.level_);
-      pts->col(el.vertices_[0]) =
-          (*geometry_)[el.patch_].eval(el.llc_(0), el.llc_(1));
-      pts->col(el.vertices_[1]) =
-          (*geometry_)[el.patch_].eval(el.llc_(0) + h, el.llc_(1));
-      pts->col(el.vertices_[2]) =
-          (*geometry_)[el.patch_].eval(el.llc_(0) + h, el.llc_(1) + h);
-      pts->col(el.vertices_[3]) =
-          (*geometry_)[el.patch_].eval(el.llc_(0), el.llc_(1) + h);
-      ++((*idct)(el.vertices_[0]));
-      ++((*idct)(el.vertices_[1]));
-      ++((*idct)(el.vertices_[2]));
-      ++((*idct)(el.vertices_[3]));
-    }
+    refineUniformly_recursion(root_.sons_[patch]);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -229,10 +196,16 @@ class ElementTree {
   //////////////////////////////////////////////////////////////////////////////
   /// iterators
   //////////////////////////////////////////////////////////////////////////////
-  LeafIterator pbegin() const { return LeafIterator(leafs_.begin()); }
-  LeafIterator pend() const { return LeafIterator(leafs_.end()); }
-  LeafIterator cpbegin() const { return LeafIterator(leafs_.begin()); }
-  LeafIterator cpend() const { return LeafIterator(leafs_.end()); }
+  LeafIterator pbegin() const { return LeafIterator(pfirst_); }
+  LeafIterator pend() const { return LeafIterator(plast_->next_); }
+  LeafIterator cpbegin() const { return LeafIterator(pfirst_); }
+  LeafIterator cpend() const { return LeafIterator(plast_->next_); }
+  LeafIterator cluster_begin(const ElementTreeNode &cl) const {
+    return LeafIterator(const_cast<ElementTreeNode *>(cl.front()));
+  }
+  LeafIterator cluster_end(const ElementTreeNode &cl) const {
+    return LeafIterator(const_cast<ElementTreeNode *>(cl.end()));
+  }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd computeElementEnclosings() {
     // compute point list
@@ -530,16 +503,27 @@ class ElementTree {
     //  if (it != leafs_.end()) leafs_.erase(it);
     for (auto i = 0; i < 4; ++i) {
       // add linked list structure to the panels
+      //////////////////////////////////////////////////////////////////////////
       if (i == 0) {
         cur_el.sons_[i].prev_ = cur_el.prev_;
+        if (cur_el.prev_ != nullptr)
+          (cur_el.prev_)->next_ = std::addressof(cur_el.sons_[i]);
         cur_el.prev_ = nullptr;
+        if (std::addressof(cur_el) == pfirst_)
+          pfirst_ = std::addressof(cur_el.sons_[i]);
+
       } else
         cur_el.sons_[i].prev_ = std::addressof(cur_el.sons_[i - 1]);
-      if (i == number_of_patches_ - 1) {
+      if (i == 3) {
         cur_el.sons_[i].next_ = cur_el.next_;
+        if (cur_el.next_ != nullptr)
+          (cur_el.next_)->prev_ = std::addressof(cur_el.sons_[i]);
         cur_el.next_ = nullptr;
+        if (std::addressof(cur_el) == plast_)
+          plast_ = std::addressof(cur_el.sons_[i]);
       } else
         cur_el.sons_[i].next_ = std::addressof(cur_el.sons_[i + 1]);
+      //////////////////////////////////////////////////////////////////////////
       cur_el.sons_[i].patch_ = cur_el.patch_;
       cur_el.sons_[i].level_ = cur_el.level_ + 1;
       cur_el.sons_[i].id_ = 4 * cur_el.id_ + i;
@@ -549,8 +533,6 @@ class ElementTree {
       cur_el.sons_[i].llc_(1) =
           cur_el.llc_(1) + Constants::llcs[1][i] / double(1 << cur_el.level_);
       elements.push_back(std::addressof(cur_el.sons_[i]));
-      leafs_.insert(std::make_pair(compute_global_id(cur_el.sons_[i]),
-                                   std::addressof(cur_el.sons_[i])));
     }
     // set vertices
     // first element
@@ -582,8 +564,9 @@ class ElementTree {
   /// member variables
   //////////////////////////////////////////////////////////////////////////////
   std::shared_ptr<PatchVector> geometry_;
-  std::map<size_t, ElementTreeNode *> leafs_;
   ElementTreeNode root_;
+  ElementTreeNode *pfirst_;
+  ElementTreeNode *plast_;
   int number_of_patches_;
   int max_level_;
   int number_of_points_;

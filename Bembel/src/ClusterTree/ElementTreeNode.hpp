@@ -46,10 +46,8 @@ class ElementTreeNode {
     std::cout << "{" << std::endl;
     std::cout << "midpoint:   " << midpoint_.transpose() << std::endl;
     std::cout << "llc:        " << llc_.transpose() << std::endl;
-    std::cout << "children:   ";
-    for (auto i = 0; i < sons_.size(); ++i)
-      std::cout << std::addressof(sons_[i]) << " ";
-    std::cout << std::endl;
+    std::cout << "p s n:      " << prev_ << " " << this << " " << next_
+              << std::endl;
     std::cout << "neighbours: ";
     for (auto i = 0; i < adjcents_.size(); ++i)
       std::cout << adjcents_[i] << " ";
@@ -78,23 +76,40 @@ class ElementTreeNode {
   //////////////////////////////////////////////////////////////////////////////
   /// getter
   //////////////////////////////////////////////////////////////////////////////
-  constexpr double get_h() const { return double(1) / double(1 << level_); }
-  constexpr int get_level() const { return level_; }
+  double get_h() const { return double(1) / double(1 << level_); }
+  //////////////////////////////////////////////////////////////////////////////
+  int get_level() const { return level_; }
+  //////////////////////////////////////////////////////////////////////////////
+  const ElementTreeNode *front() const {
+    const ElementTreeNode *ptr = this;
+    while (ptr->sons_.size()) ptr = std::addressof(ptr->sons_.front());
+    return ptr;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  const ElementTreeNode *back() const {
+    const ElementTreeNode *ptr = this;
+    while (ptr->sons_.size()) ptr = std::addressof(ptr->sons_.back());
+    return ptr;
+  }
+  const ElementTreeNode *end() const {
+    const ElementTreeNode *ptr = this;
+    while (ptr->sons_.size()) ptr = std::addressof(ptr->sons_.back());
+    return ptr->next_;
+  }
   //////////////////////////////////////////////////////////////////////////////
   /// member variables
   //////////////////////////////////////////////////////////////////////////////
-  std::vector<ElementTreeNode> sons_;  /// children
+  std::vector<ElementTreeNode> sons_;        /// children
   std::vector<ElementTreeNode *> adjcents_;  /// neighbouring elements indices
   ElementTreeNode *prev_;
   ElementTreeNode *next_;
-  Eigen::Vector3d midpoint_;           /// midpoint of the element
-  Eigen::Vector2d llc_;                /// lower left corner on [0,1]^2
-  std::vector<int> vertices_;          /// indices of the vertices
-  double radius_;                      /// radius of the element
-  int id_;                             /// element id with respect to the level
-  int level_;                          /// level of the element
-  int patch_;                          /// patch of the element
-
+  Eigen::Vector3d midpoint_;   /// midpoint of the element
+  Eigen::Vector2d llc_;        /// lower left corner on [0,1]^2
+  std::vector<int> vertices_;  /// indices of the vertices
+  double radius_;              /// radius of the element
+  int id_;                     /// element id with respect to the level
+  int level_;                  /// level of the element
+  int patch_;                  /// patch of the element
 };
 }  // namespace Bembel
 #endif
