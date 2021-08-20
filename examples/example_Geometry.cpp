@@ -6,14 +6,13 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#include <iostream>
-
 #include <Bembel/Geometry>
+#include <iostream>
 
 int main() {
   Bembel::Geometry geometry("sphere.dat");
   std::cout << "The geometry has " << geometry.get_number_of_patches()
             << " patches." << std::endl;
-
+  std::cout << std::string(60, '-') << std::endl;
   return 0;
 }
