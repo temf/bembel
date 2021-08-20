@@ -214,7 +214,8 @@ class BlockClusterTree {
   }
   int get_row_start_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
-           std::distance(get_parameters().et_root_->begin(), cluster1_->begin());
+           std::distance(get_parameters().et_root_->begin(),
+                         cluster1_->begin());
   }
   int get_row_end_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
@@ -222,7 +223,8 @@ class BlockClusterTree {
   }
   int get_col_start_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
-           std::distance(get_parameters().et_root_->begin(), cluster2_->begin());
+           std::distance(get_parameters().et_root_->begin(),
+                         cluster2_->begin());
   }
   int get_col_end_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
