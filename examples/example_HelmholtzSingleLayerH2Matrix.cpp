@@ -1,14 +1,20 @@
-
-#include <iostream>
-
-#include <Eigen/Dense>
-#include <unsupported/Eigen/IterativeSolvers>
+// This file is part of Bembel, the higher order C++ boundary element library.
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
 
 #include <Bembel/AnsatzSpace>
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
 #include <Bembel/Helmholtz>
+#include <Bembel/IO>
 #include <Bembel/LinearForm>
+#include <Eigen/Dense>
+#include <iostream>
+#include <unsupported/Eigen/IterativeSolvers>
 
 #include "Data.hpp"
 #include "Error.hpp"
@@ -17,7 +23,7 @@
 int main() {
   using namespace Bembel;
   using namespace Eigen;
-
+  Bembel::IO::Stopwatch sw;
   std::complex<double> wavenumber(1., 0.);
 
   // Load geometry from file "sphere.dat", which must be placed in the same
@@ -36,14 +42,14 @@ int main() {
                                                   Vector3d(0., 0., 0.));
       };
 
-  std::cout << "\n============================================================="
-               "==========\n";
+  std::cout << "\n" << std::string(60, '=') << "\n";
   // Iterate over polynomial degree.
-  for (auto polynomial_degree : {0,1,2}) {
+  for (auto polynomial_degree : {0, 1, 2}) {
     // Iterate over refinement levels
-    for (auto refinement_level : {0,1,2,3}) {
+    for (auto refinement_level : {0, 1, 2, 3}) {
+      sw.tic();
       std::cout << "Degree " << polynomial_degree << " Level "
-                << refinement_level << "\t\t";
+                << refinement_level;
       // Build ansatz space
       AnsatzSpace<HelmholtzSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
@@ -77,15 +83,13 @@ int main() {
       auto pot = disc_pot.evaluate(gridpoints);
 
       // print error
-      std::cout << maxPointwiseError<std::complex<double>>(pot, gridpoints,
-      fun)
-      << std::endl;
+      std::cout << " time " << std::setprecision(4) << sw.toc() << "s\t\t";
+      std::cout << maxPointwiseError<std::complex<double>>(pot, gridpoints, fun)
+                << std::endl;
     }
     std::cout << std::endl;
   }
-  std::cout << "============================================================="
-               "=========="
-            << std::endl;
+  std::cout << std::string(60, '=') << std::endl;
 
   return 0;
 }

@@ -1,15 +1,19 @@
-
-#include <iostream>
-
-#include <Eigen/Dense>
-#include <Eigen/IterativeLinearSolvers>
-
+// This file is part of Bembel, the higher order C++ boundary element library.
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+//
 #include <Bembel/AnsatzSpace>
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
 #include <Bembel/IO>
 #include <Bembel/Laplace>
 #include <Bembel/LinearForm>
+#include <Eigen/Dense>
+#include <Eigen/IterativeLinearSolvers>
+#include <iostream>
 
 #include "Data.hpp"
 #include "Error.hpp"
@@ -18,7 +22,6 @@
 int main() {
   using namespace Bembel;
   using namespace Eigen;
-
   // Load geometry from file "sphere.dat", which must be placed in the same
   // directory as the executable
   Geometry geometry("torus.dat");
@@ -36,17 +39,16 @@ int main() {
   };
 
   // Iterate over polynomial degree.
-  for (auto polynomial_degree : {0, 1, 2}) {
+  for (auto polynomial_degree : {0, 1, 2, 3}) {
     // Iterate over refinement levels
     IO::Logger<12> logger("log_LaplaceSingle_" +
                           std::to_string(polynomial_degree) + ".log");
     logger.both("P", "M", "error");
 
-    for (auto refinement_level : {0, 1, 2, 3, 4}) {
+    for (auto refinement_level : {0, 1, 2, 3}) {
       // Build ansatz space
       AnsatzSpace<LaplaceSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
-
       // Set up load vector
       DiscreteLinearForm<DirichletTrace<double>, LaplaceSingleLayerOperator>
           disc_lf(ansatz_space);
