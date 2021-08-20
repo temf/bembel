@@ -29,6 +29,7 @@ struct BlockClusterTreeParameters {
   int max_level_;          // depth of block cluster tree
   int polynomial_degree_;  // todo @Michael comment this
   int polynomial_degree_plus_one_squared_;  // todo @Michael comment this
+  const ElementTreeNode *et_root_;
 };
 
 template <typename Scalar>
@@ -120,6 +121,7 @@ class BlockClusterTree {
     // get element tree from ansatz space
     const ElementTree &element_tree =
         ansatz_space.get_superspace().get_mesh().get_element_tree();
+    parameters_->et_root_ = std::addressof(element_tree.root());
     cluster1_ = std::addressof(element_tree.root());
     cluster2_ = std::addressof(element_tree.root());
     // set parameters for matrix assembly
@@ -135,8 +137,8 @@ class BlockClusterTree {
     leaf_pointers_ = std::make_shared<std::vector<BlockClusterTree *>>();
     leaf_pointers_->clear();
     // block cluster tree assembly
-    rows_ = element_tree.get_number_of_leafs();
-    cols_ = element_tree.get_number_of_leafs();
+    rows_ = element_tree.get_number_of_elements();
+    cols_ = element_tree.get_number_of_elements();
     // we let appendSubtree handle everything, since the root always
     // returns 0 in compare cluster
     appendSubtree(linOp, ansatz_space, cluster1_, cluster2_);
@@ -163,10 +165,8 @@ class BlockClusterTree {
           sons_(i, j).parameters_ = parameters_;
           sons_(i, j).cluster1_ = std::addressof(son1);
           sons_(i, j).cluster2_ = std::addressof(son2);
-          sons_(i, j).rows_ =
-              std::distance(mem->cluster_begin(son1), mem->cluster_end(son1));
-          sons_(i, j).cols_ =
-              std::distance(mem->cluster_begin(son2), mem->cluster_end(son2));
+          sons_(i, j).rows_ = std::distance(son1.begin(), son1.end());
+          sons_(i, j).cols_ = std::distance(son2.begin(), son2.end());
           // let recursion handle the rest
           sons_(i, j).appendSubtree(linear_operator, ansatz_space,
                                     std::addressof(son1), std::addressof(son2));
@@ -214,23 +214,19 @@ class BlockClusterTree {
   }
   int get_row_start_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
-           std::distance(cluster1_->get_memory()->cpbegin(),
-                         cluster1_->get_memory()->cluster_begin(*cluster1_));
+           std::distance(get_parameters().et_root_->begin(), cluster1_->begin());
   }
   int get_row_end_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
-           std::distance(cluster1_->get_memory()->cpbegin(),
-                         cluster1_->get_memory()->cluster_end(*cluster1_));
+           std::distance(get_parameters().et_root_->begin(), cluster1_->end());
   }
   int get_col_start_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
-           std::distance(cluster2_->get_memory()->cpbegin(),
-                         cluster2_->get_memory()->cluster_begin(*cluster2_));
+           std::distance(get_parameters().et_root_->begin(), cluster2_->begin());
   }
   int get_col_end_index() {
     return get_parameters().polynomial_degree_plus_one_squared_ *
-           std::distance(cluster2_->get_memory()->cpbegin(),
-                         cluster2_->get_memory()->cluster_end(*cluster2_));
+           std::distance(get_parameters().et_root_->begin(), cluster2_->end());
   }
   const BlockClusterTreeParameters<Scalar> &get_parameters() const {
     return *parameters_;

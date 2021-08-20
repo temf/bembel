@@ -159,11 +159,9 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
                     (*(leafs[0]))->get_cluster1();
                 const Bembel::ElementTreeNode* cluster2 =
                     (*(leafs[0]))->get_cluster2();
-                const std::shared_ptr<Bembel::ElementTreeMemory> memory =
-                    cluster1->get_memory();
-                int block_size = std::distance(memory->cluster_begin(*cluster2),
-                                               memory->cluster_end(*cluster2)) *
-                                 polynomial_degree_plus_one_squared;
+                int block_size =
+                    std::distance(cluster2->begin(), cluster2->end()) *
+                    polynomial_degree_plus_one_squared;
                 std::vector<
                     Eigen::Matrix<ScalarT, Eigen::Dynamic, Eigen::Dynamic>>
                     F;
@@ -172,10 +170,11 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
                       Eigen::Matrix<ScalarT, Eigen::Dynamic, Eigen::Dynamic>(
                           block_size, block_size));
                 // iterate over elements in dense matrix block
-                for (auto element1 = memory->cluster_begin(*cluster1);
-                     element1 != memory->cluster_end(*cluster1); ++element1) {
-                  for (auto element2 = memory->cluster_begin(*cluster2);
-                       element2 != memory->cluster_end(*cluster2); ++element2) {
+                unsigned int cl1index = 0;
+                unsigned int cl2index = 0;
+                for (const auto& element1 : *cluster1) {
+                  cl2index = 0;
+                  for (const auto& element2 : *cluster2) {
                     Eigen::Matrix<ScalarT, Eigen::Dynamic, Eigen::Dynamic>
                         intval(vector_dimension *
                                    polynomial_degree_plus_one_squared,
@@ -183,26 +182,23 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
                                    polynomial_degree_plus_one_squared);
                     // do integration
                     Bembel::DuffyTrick::evaluateBilinearForm(
-                        linOp, super_space, *element1, *element2, GS,
+                        linOp, super_space, element1, element2, GS,
                         ffield_qnodes, &intval);
                     // insert into dense matrices of all block cluster trees
                     for (int i = 0; i < vector_dimension; ++i)
                       for (int j = 0; j < vector_dimension; ++j)
                         F[i * vector_dimension + j].block(
-                            polynomial_degree_plus_one_squared *
-                                std::distance(memory->cluster_begin(*cluster1),
-                                              element1),
-
-                            polynomial_degree_plus_one_squared *
-                                std::distance(memory->cluster_begin(*cluster2),
-                                              element2),
+                            polynomial_degree_plus_one_squared * cl1index,
+                            polynomial_degree_plus_one_squared * cl2index,
                             polynomial_degree_plus_one_squared,
                             polynomial_degree_plus_one_squared) =
                             intval.block(j * polynomial_degree_plus_one_squared,
                                          i * polynomial_degree_plus_one_squared,
                                          polynomial_degree_plus_one_squared,
                                          polynomial_degree_plus_one_squared);
+                    ++cl2index;
                   }
+                  ++cl1index;
                 }
                 for (int i = 0; i < vector_dimension * vector_dimension; ++i)
                   (*(leafs[i]))->get_leaf().set_F(F[i]);
@@ -397,8 +393,6 @@ struct generic_product_impl<H2Matrix<ScalarT>, Rhs, SparseShape, DenseShape,
                                       .get_parameters()
                                       .min_cluster_level_ -
                                   (*leaf)->get_cluster1()->get_level();
-                  const std::shared_ptr<Bembel::ElementTreeMemory> memory =
-                      cluster1->get_memory();
                   int cluster1_col = cluster1->id_;
                   int cluster2_col = cluster2->id_;
                   my_long_dst_backward[fmm_level].col(cluster1_col) +=

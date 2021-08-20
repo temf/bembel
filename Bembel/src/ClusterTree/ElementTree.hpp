@@ -10,7 +10,6 @@
 #define BEMBEL_CLUSTERTREE_ELEMENTTREE_H_
 
 namespace Bembel {
-
 /**
  *  \ingroup ClusterTree
  *  \brief This class organizes an element structure on a Geometry object and
@@ -25,43 +24,6 @@ class ElementTree {
   ElementTree(ElementTree &&) = delete;
   ElementTree &operator=(const ElementTree &) = delete;
   ElementTree &operator=(ElementTree &&) = delete;
-  //////////////////////////////////////////////////////////////////////////////
-  struct LeafIterator {
-    using iterator_category = std::forward_iterator_tag;
-    using difference_type = std::ptrdiff_t;
-    using value_type = ElementTreeNode;
-    using pointer = value_type *;
-    using reference = value_type &;
-
-    LeafIterator(pointer ptr) : m_ptr(ptr) {}
-
-    reference operator*() const { return *m_ptr; }
-    const pointer operator->() const { return m_ptr; }
-
-    // Prefix increment
-    LeafIterator &operator++() {
-      m_ptr = m_ptr->next_;
-      return *this;
-    }
-
-    // Postfix increment
-    LeafIterator operator++(int) {
-      LeafIterator tmp = *this;
-      ++(*this);
-      return tmp;
-    }
-
-    friend bool operator==(const LeafIterator &a, const LeafIterator &b) {
-      return a.m_ptr == b.m_ptr;
-    };
-    friend bool operator!=(const LeafIterator &a, const LeafIterator &b) {
-      return a.m_ptr != b.m_ptr;
-    };
-
-   private:
-    pointer m_ptr;
-  };
-
   //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
@@ -170,7 +132,6 @@ class ElementTree {
         ++((*idct)(it->vertices_[3]));
       }
     }
-
     return pts;
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -196,15 +157,20 @@ class ElementTree {
   //////////////////////////////////////////////////////////////////////////////
   /// iterators
   //////////////////////////////////////////////////////////////////////////////
-  LeafIterator pbegin() const { return LeafIterator(pfirst_); }
-  LeafIterator pend() const { return LeafIterator(plast_->next_); }
-  LeafIterator cpbegin() const { return LeafIterator(pfirst_); }
-  LeafIterator cpend() const { return LeafIterator(plast_->next_); }
-  LeafIterator cluster_begin(const ElementTreeNode &cl) const {
-    return LeafIterator(const_cast<ElementTreeNode *>(cl.front()));
+  ElementTreeNode::const_iterator pbegin() const {
+    return ElementTreeNode::const_iterator(pfirst_);
   }
-  LeafIterator cluster_end(const ElementTreeNode &cl) const {
-    return LeafIterator(const_cast<ElementTreeNode *>(cl.end()));
+  ElementTreeNode::const_iterator pend() const {
+    return ElementTreeNode::const_iterator(plast_->next_);
+  }
+  ElementTreeNode::const_iterator cpbegin() const { return pbegin(); }
+  ElementTreeNode::const_iterator cpend() const { return pend(); }
+  ElementTreeNode::const_iterator cluster_begin(
+      const ElementTreeNode &cl) const {
+    return cl.cbegin();
+  }
+  ElementTreeNode::const_iterator cluster_end(const ElementTreeNode &cl) const {
+    return cl.cend();
   }
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd computeElementEnclosings() {
@@ -367,7 +333,6 @@ class ElementTree {
     }
     return retval;
   }
-
   // The ordering of elements in the element tree does not correspond to the
   // element order underlying the coefficient vector. This reordering can be
   // computed for look ups by this function.
