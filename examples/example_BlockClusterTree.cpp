@@ -27,7 +27,7 @@ int main() {
   }
   std::cout << std::string(60, '-') << std::endl;
   std::cout << "    block cluster tree setup\n";
-  for (int refinement_level = 0; refinement_level < 10; ++refinement_level) {
+  for (int refinement_level = 0; refinement_level < 5; ++refinement_level) {
     sw.tic();
     const int polynomial_degree = 3;
     Bembel::AnsatzSpace<Bembel::LaplaceSingleLayerOperator> ansatz_space(
