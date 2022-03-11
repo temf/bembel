@@ -10,7 +10,6 @@
 #define BEMBEL_CLUSTERTREE_ELEMENTTREE_H_
 
 namespace Bembel {
-
 /**
  *  \ingroup ClusterTree
  *  \brief This class organizes an element structure on a Geometry object and
@@ -21,10 +20,15 @@ namespace Bembel {
 class ElementTree {
  public:
   //////////////////////////////////////////////////////////////////////////////
+  ElementTree(const ElementTree &) = delete;
+  ElementTree(ElementTree &&) = delete;
+  ElementTree &operator=(const ElementTree &) = delete;
+  ElementTree &operator=(ElementTree &&) = delete;
+  //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
   ElementTree() {}
-  ElementTree(const Geometry &g, unsigned int max_level) {
+  ElementTree(const Geometry &g, unsigned int max_level = 0) {
     init_ElementTree(g, max_level);
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -33,34 +37,34 @@ class ElementTree {
   void init_ElementTree(const Geometry &g, unsigned int max_level) {
     // initialise the data fields
     geometry_ = g.get_geometry_ptr();
-    mem_ = std::make_shared<ElementTreeMemory>();
-    mem_->number_of_patches_ = geometry_->size();
-    mem_->max_level_ = max_level;
     max_level_ = max_level;
-    number_of_patches_ = mem_->number_of_patches_;
-    // balanced quadTree > the number of elements per branch is
-    // \sum_{l=0}^L 4^l = (4^{L+1}-1) / 3;
-    mem_->memory_ = std::make_shared<std::vector<ElementTreeNode>>();
-    mem_->memory_->resize(mem_->cumNumElements(max_level));
+    number_of_patches_ = geometry_->size();
     // create the patches and set up the topology
     {
       std::vector<Eigen::Vector3d> uniquePts;
       std::vector<ElementTreeNode *> patches;
       Eigen::Vector3d v;
       number_of_points_ = 0;
-      // set hold all element
-      ElementTreeNode &root = mem_->get_root();
-      root.sons_.resize(mem_->number_of_patches_);
-      root.set_memory(mem_);
-
+      number_of_elements_ = number_of_patches_;
+      ElementTreeNode &root = root_;
+      root.sons_.resize(number_of_patches_);
       for (auto i = 0; i < number_of_patches_; ++i) {
-        root.sons_[i] = i + 1;
-        mem_->son(root, i).adjcents_ = std::vector<int>(4, -1);
-        mem_->son(root, i).vertices_.resize(4);
-        mem_->son(root, i).id_ = i;
-        mem_->son(root, i).level_ = 0;
-        mem_->son(root, i).patch_ = i;
-        mem_->son(root, i).set_memory(mem_);
+        root.sons_[i].adjcents_ = std::vector<ElementTreeNode *>(4, nullptr);
+        root.sons_[i].vertices_.resize(4);
+        root.sons_[i].id_ = i;
+        root.sons_[i].level_ = 0;
+        root.sons_[i].patch_ = i;
+        // add linked list structure to the panels
+        if (i == 0) {
+          root.sons_[0].prev_ = nullptr;
+          pfirst_ = std::addressof(root.sons_[0]);
+        } else
+          root.sons_[i].prev_ = std::addressof(root.sons_[i - 1]);
+        if (i == number_of_patches_ - 1) {
+          root.sons_[i].next_ = nullptr;
+          plast_ = std::addressof(root.sons_[i]);
+        } else
+          root.sons_[i].next_ = std::addressof(root.sons_[i + 1]);
         // get images of the four corners of the unit square under the
         // diffeomorphism geo[i]
         for (auto j = 0; j < 4; ++j) {
@@ -71,170 +75,205 @@ class ElementTree {
             if ((uniquePts[index] - v).norm() < Constants::pt_comp_tolerance)
               break;
           if (index != uniquePts.size())
-            mem_->son(root, i).vertices_[j] = index;
+            root.sons_[i].vertices_[j] = index;
           else {
             uniquePts.push_back(v);
-            mem_->son(root, i).vertices_[j] = number_of_points_;
+            root.sons_[i].vertices_[j] = number_of_points_;
             ++number_of_points_;
           }
         }
-        patches.push_back(std::addressof(mem_->son(root, i)));
+        patches.push_back(std::addressof(root.sons_[i]));
       }
       updateTopology(patches);
     }
-    // refine mesh
-    {
-      for (auto level = 0; level < max_level_; ++level) {
-        auto offset1 = mem_->cumNumElements(level - 1);
-        auto offset2 = mem_->cumNumElements(level);
-        for (auto j = offset1; j < offset2; ++j) refineLeaf(j);
-      }
-    }
+    for (auto i = 0; i < max_level; ++i) refineUniformly();
     return;
   }
-
+  //////////////////////////////////////////////////////////////////////////////
+  void refineUniformly_recursion(ElementTreeNode &el) {
+    if (el.sons_.size())
+      for (auto i = 0; i < el.sons_.size(); ++i)
+        refineUniformly_recursion(el.sons_[i]);
+    else
+      refineLeaf(el);
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  void refineUniformly() {
+    refineUniformly_recursion(root_);
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  void refinePatch(int patch) {
+    refineUniformly_recursion(root_.sons_[patch]);
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct = nullptr) const {
+    Eigen::MatrixXd pts(3, number_of_points_);
+    if (idct != nullptr) {
+      idct->resize(number_of_points_);
+      idct->setZero();
+    }
+    for (auto it = pbegin(); it != pend(); ++it) {
+      double h = double(1) / double(1 << it->level_);
+      pts.col(it->vertices_[0]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0), it->llc_(1));
+      pts.col(it->vertices_[1]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0) + h, it->llc_(1));
+      pts.col(it->vertices_[2]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0) + h, it->llc_(1) + h);
+      pts.col(it->vertices_[3]) =
+          (*geometry_)[it->patch_].eval(it->llc_(0), it->llc_(1) + h);
+      if (idct != nullptr) {
+        ++((*idct)(it->vertices_[0]));
+        ++((*idct)(it->vertices_[1]));
+        ++((*idct)(it->vertices_[2]));
+        ++((*idct)(it->vertices_[3]));
+      }
+    }
+    return pts;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  Eigen::MatrixXi generateElementList() const {
+    unsigned int elID = 0;
+    Eigen::MatrixXi retval(4, number_of_elements_);
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval.col(elID) << it->vertices_[0], it->vertices_[1], it->vertices_[2],
+          it->vertices_[3];
+      ++elID;
+    }
+    return retval;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  /// getter
+  //////////////////////////////////////////////////////////////////////////////
+  int get_number_of_points() const { return number_of_points_; }
+  int get_number_of_elements() const { return number_of_elements_; }
+  int get_max_level() const { return max_level_; }
+  ElementTreeNode &root() { return root_; }
+  const ElementTreeNode &root() const { return root_; }
+  const PatchVector &get_geometry() const { return *geometry_; }
+  //////////////////////////////////////////////////////////////////////////////
+  /// iterators
+  //////////////////////////////////////////////////////////////////////////////
+  ElementTreeNode::const_iterator pbegin() const {
+    return ElementTreeNode::const_iterator(pfirst_);
+  }
+  ElementTreeNode::const_iterator pend() const {
+    return ElementTreeNode::const_iterator(plast_->next_);
+  }
+  ElementTreeNode::const_iterator cpbegin() const { return pbegin(); }
+  ElementTreeNode::const_iterator cpend() const { return pend(); }
+  ElementTreeNode::const_iterator cluster_begin(
+      const ElementTreeNode &cl) const {
+    return cl.cbegin();
+  }
+  ElementTreeNode::const_iterator cluster_end(const ElementTreeNode &cl) const {
+    return cl.cend();
+  }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd computeElementEnclosings() {
     // compute point list
     Eigen::MatrixXd P = generatePointList();
-    // assign enclosing balls to leafs
-    for (auto it = mem_->pbegin(); it != mem_->pend(); ++it) {
-      Eigen::Vector3d mp1, mp2;
-      double r1, r2;
-      computeEnclosingBall(&mp1, &r1, P.col(it->vertices_[0]), 0,
-                           P.col(it->vertices_[2]), 0);
-      computeEnclosingBall(&mp2, &r2, P.col(it->vertices_[1]), 0,
-                           P.col(it->vertices_[3]), 0);
-      computeEnclosingBall(&(it->midpoint_), &(it->radius_), mp1, r1, mp2, r2);
-    }
-    // assign enclosing balls to fathers bottom up
-    for (auto level = max_level_ - 1; level >= 0; --level) {
-      for (auto it = mem_->lbegin(level); it != mem_->lend(level); ++it) {
-        Eigen::Vector3d mp1, mp2;
-        double r1, r2;
-        computeEnclosingBall(
-            &mp1, &r1, mem_->son(*it, 0).midpoint_, mem_->son(*it, 0).radius_,
-            mem_->son(*it, 2).midpoint_, mem_->son(*it, 2).radius_);
-        computeEnclosingBall(
-            &mp2, &r2, mem_->son(*it, 1).midpoint_, mem_->son(*it, 1).radius_,
-            mem_->son(*it, 3).midpoint_, mem_->son(*it, 3).radius_);
-        computeEnclosingBall(&(it->midpoint_), &(it->radius_), mp1, r1, mp2,
-                             r2);
-      }
-    }
+    for (auto i = 0; i < root_.sons_.size(); ++i)
+      computeElementEnclosings_recursion(root_.sons_[i], P);
     return P;
   }
-  void print() const {
+  //////////////////////////////////////////////////////////////////////////////
+  void computeElementEnclosings_recursion(ElementTreeNode &el,
+                                          const Eigen::MatrixXd &P) {
+    Eigen::Vector3d mp1, mp2;
+    double r1, r2;
+    // compute point list
+    if (!el.sons_.size()) {
+      // assign enclosing balls to leafs
+      computeEnclosingBall(&mp1, &r1, P.col(el.vertices_[0]), 0,
+                           P.col(el.vertices_[2]), 0);
+      computeEnclosingBall(&mp2, &r2, P.col(el.vertices_[1]), 0,
+                           P.col(el.vertices_[3]), 0);
+      computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2, r2);
+    } else {
+      // handle the four(!!!) children
+      for (auto i = 0; i < 4; ++i)
+        computeElementEnclosings_recursion(el.sons_[i], P);
+      // assign enclosing balls to fathers bottom up
+      computeEnclosingBall(&mp1, &r1, el.sons_[0].midpoint_,
+                           el.sons_[0].radius_, el.sons_[2].midpoint_,
+                           el.sons_[2].radius_);
+      computeEnclosingBall(&mp2, &r2, el.sons_[1].midpoint_,
+                           el.sons_[1].radius_, el.sons_[3].midpoint_,
+                           el.sons_[3].radius_);
+      computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2, r2);
+    }
+    return;
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  void printPanels() const {
     auto i = 0;
-    for (auto it = mem_->memory_->begin(); it != mem_->memory_->end(); ++it) {
+    for (auto it = pbegin(); it != pend(); ++it) {
       std::cout << "element[" << i++ << "] = ";
       it->print();
     }
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
-  /// getter
-  //////////////////////////////////////////////////////////////////////////////
-  int get_number_of_points() const { return number_of_points_; }
-  int get_number_of_elements() const { return mem_->cpend() - mem_->cpbegin(); }
-  ElementTreeNode &root() { return mem_->get_root(); }
-  const ElementTreeNode &root() const { return mem_->get_root(); }
-  //////////////////////////////////////////////////////////////////////////////
-  /// iterators
-  //////////////////////////////////////////////////////////////////////////////
-  std::vector<ElementTreeNode>::const_iterator cpbegin() const {
-    return mem_->cpbegin();
-  }
-  std::vector<ElementTreeNode>::const_iterator cpend() const {
-    return mem_->cpend();
-  }
-  std::vector<ElementTreeNode>::iterator pbegin() { return mem_->pbegin(); }
-  std::vector<ElementTreeNode>::const_iterator pend() { return mem_->pend(); }
-  std::vector<ElementTreeNode>::iterator lbegin(unsigned int level) {
-    return mem_->lbegin(level);
-  }
-  std::vector<ElementTreeNode>::const_iterator lend(unsigned int level) {
-    return mem_->lend(level);
-  }
-  std::vector<ElementTreeNode>::const_iterator clbegin(unsigned int level) {
-    return mem_->clbegin(level);
-  }
-  std::vector<ElementTreeNode>::const_iterator clend(unsigned int level) const {
-    return mem_->clend(level);
-  }
-  //////////////////////////////////////////////////////////////////////////////
   /// other Stuff
   //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generateMidpointList() const {
-    Eigen::MatrixXd retval(3, mem_->cumNumElements(mem_->max_level_));
+    Eigen::MatrixXd retval(3, number_of_elements_);
     unsigned int i = 0;
-    for (auto it = mem_->memory_->begin(); it != mem_->memory_->end(); ++it)
-      retval.col(i++) = it->midpoint_;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval.col(i) = it->midpoint_;
+      ++i;
+    }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::MatrixXd generateRadiusList() const {
-    Eigen::VectorXd retval(mem_->cumNumElements(mem_->max_level_));
+    Eigen::VectorXd retval(number_of_elements_);
     unsigned int i = 0;
-    for (auto it = mem_->memory_->begin(); it != mem_->memory_->end(); ++it)
-      retval(i++) = it->radius_;
-    return retval;
-  }
-
-  Eigen::MatrixXd generatePointList() const {
-    Eigen::MatrixXd retval(3, number_of_points_);
-    double h = mem_->cpbegin()->get_h();
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
-      retval.col(it->vertices_[0]) =
-          (*geometry_)[it->patch_].eval(it->llc_(0), it->llc_(1));
-      retval.col(it->vertices_[1]) =
-          (*geometry_)[it->patch_].eval(it->llc_(0) + h, it->llc_(1));
-      retval.col(it->vertices_[2]) =
-          (*geometry_)[it->patch_].eval(it->llc_(0) + h, it->llc_(1) + h);
-      retval.col(it->vertices_[3]) =
-          (*geometry_)[it->patch_].eval(it->llc_(0), it->llc_(1) + h);
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval(i) = it->radius_;
+      ++i;
     }
     return retval;
   }
-  Eigen::MatrixXi generateElementList() const {
-    Eigen::MatrixXi retval(4, number_of_patches_ * (1 << 2 * max_level_));
-    unsigned int i = 0;
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
-      retval.col(i++) << it->vertices_[0], it->vertices_[1], it->vertices_[2],
-          it->vertices_[3];
-    }
-    return retval;
-  }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi generateElementLabels() const {
-    Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
+    Eigen::VectorXi retval(number_of_elements_);
     unsigned int i = 0;
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
-      retval(i++) = it->id_;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval(i) = compute_global_id(*it);
+      ++i;
     }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi generatePatchBoundaryLabels() const {
-    Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
+    Eigen::VectorXi retval(number_of_elements_);
     retval.setZero();
     unsigned int i = 0;
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
+    for (auto it = pbegin(); it != pend(); ++it) {
       for (auto j = 0; j < 4; ++j)
-        if (it->adjcents_[j] == -1) {
+        if (it->adjcents_[j] == nullptr) {
           retval[i] = -1;
           break;
-        } else if (mem_->adjcent(*it, j).patch_ != it->patch_)
+        } else if (it->adjcents_[j]->patch_ != it->patch_)
           ++(retval[i]);
       ++i;
     }
     return retval;
   }
+  //////////////////////////////////////////////////////////////////////////////
   Eigen::VectorXi identifyPatch(unsigned int pn) const {
-    Eigen::VectorXi retval(number_of_patches_ * (1 << 2 * max_level_));
+    Eigen::VectorXi retval(number_of_elements_);
     retval.setZero();
     assert(pn < number_of_patches_);
-    ElementTreeNode &patch = (*(mem_->memory_))[1 + pn];
-    auto begin = mem_->cluster_begin(patch);
-    auto end = mem_->cluster_end(patch);
-    for (auto it = begin; it != end; ++it) {
-      retval[it->id_] = 1;
+    unsigned int i = 0;
+    for (auto it = pbegin(); it != pend(); ++it) {
+      retval[i] = it->patch_ == pn ? 1 : 0;
+      ++i;
     }
     return retval;
   }
@@ -242,8 +281,8 @@ class ElementTree {
   /// static members
   //////////////////////////////////////////////////////////////////////////////
   /**
-   *  \brief computes a ball enclosing the union of B_r1(mp1) and B_r2(mp2), i.e
-   *         B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)
+   *  \brief computes a ball enclosing the union of B_r1(mp1) and B_r2(mp2),
+   * i.e B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)
    */
   static void computeEnclosingBall(Eigen::Vector3d *mp, double *r,
                                    const Eigen::Vector3d &mp1, double r1,
@@ -270,20 +309,21 @@ class ElementTree {
   /**
    *  \brief
    */
+  //////////////////////////////////////////////////////////////////////////////
   std::vector<std::array<int, 4>> patchTopologyInfo() const {
     std::vector<std::array<int, 4>> retval;
-    for (auto it = mem_->clbegin(0); it != mem_->clend(0); ++it) {
+    for (auto it = root_.sons_.begin(); it != root_.sons_.end(); ++it) {
       for (auto j = 0; j < 4; ++j) {
         // do we have a neighbour?
-        if (it->adjcents_[j] != -1) {
-          const ElementTreeNode &cur_neighbour = mem_->adjcent(*it, j);
+        if (it->adjcents_[j] != nullptr) {
+          const ElementTreeNode &cur_neighbour = *(it->adjcents_[j]);
           // add the edge only if it->id_ < neighbour->id_
           // otherwise the edge has already been added
           if (it->id_ < cur_neighbour.id_) {
             int k = 0;
             for (; k < 4; ++k)
-              if (cur_neighbour.adjcents_[k] != -1 &&
-                  mem_->adjcent(cur_neighbour, k).id_ == it->id_)
+              if (cur_neighbour.adjcents_[k] != nullptr &&
+                  cur_neighbour.adjcents_[k]->id_ == it->id_)
                 break;
             retval.push_back({it->id_, cur_neighbour.id_, j, k});
           }
@@ -295,10 +335,12 @@ class ElementTree {
   }
   // The ordering of elements in the element tree does not correspond to the
   // element order underlying the coefficient vector. This reordering can be
-  // computet for look ups by this function.
+  // computed for look ups by this function.
+  // TODO This function assumes that everything is refined uniformly!
+  //////////////////////////////////////////////////////////////////////////////
   std::vector<int> computeReorderingVector() const {
-    std::vector<int> out(get_number_of_elements());
-    for (auto it = mem_->cpbegin(); it != mem_->cpend(); ++it) {
+    std::vector<int> out(number_of_elements_);
+    for (auto it = pbegin(); it != pend(); ++it) {
       const double h = it->get_h();
       const Eigen::Vector2d ref_mid =
           it->llc_ + Eigen::Vector2d(.5 * h, .5 * h);
@@ -313,17 +355,15 @@ class ElementTree {
     return out;
   }
   //////////////////////////////////////////////////////////////////////////////
+  size_t compute_global_id(const ElementTreeNode &el) const {
+    return number_of_patches_ *
+               (((1 << el.level_) * (1 << el.level_) - 1) / 3) +
+           el.id_;
+  }
+  //////////////////////////////////////////////////////////////////////////////
   /// private members
   //////////////////////////////////////////////////////////////////////////////
  private:
-  //////////////////////////////////////////////////////////////////////////////
-  /// member variables
-  //////////////////////////////////////////////////////////////////////////////
-  std::shared_ptr<PatchVector> geometry_;
-  std::shared_ptr<ElementTreeMemory> mem_;
-  int number_of_patches_;
-  int max_level_;
-  int number_of_points_;
   //////////////////////////////////////////////////////////////////////////////
   /// methods
   //////////////////////////////////////////////////////////////////////////////
@@ -334,67 +374,44 @@ class ElementTree {
     }
   };
   /**
-   *  \brief comparison functor for edges
-   */
-  template <typename T>
-  struct edgeComp {
-    bool operator()(const T &v1, const T &v2) const {
-      return std::lexicographical_compare(v1.data(), v1.data() + 2, v2.data(),
-                                          v2.data() + 2);
-    }
-  };
-  /**
-   * \brief function to set up the local topolog, i.e. the adjacents_
-   *        y of a refined element
+   * \brief function to set up the local topology, i.e. the adjacents_
+   *        of a refined element
    **/
+  //////////////////////////////////////////////////////////////////////////////
   void updateTopology(const std::vector<ElementTreeNode *> &elements) {
-    std::set<std::array<int, 3>, edgeComp<std::array<int, 3>>> edges;
-    std::array<int, 3> e1, e2;
+    std::map<std::array<int, 2>, ElementTreeNode *> edges;
+    std::array<int, 2> e1, e2;
     // generate edge list for all elements in question
-    for (auto i = 0; i < elements.size(); ++i) {
-      // iterate over the four edges of each element
+    for (auto i = 0; i < elements.size(); ++i)
       for (auto j = 0; j < 4; ++j) {
         // compute a unique id for each edge
-        if (elements[i]->vertices_[j] < elements[i]->vertices_[(j + 1) % 4]) {
-          e1[0] = elements[i]->vertices_[j];
-          e1[1] = elements[i]->vertices_[(j + 1) % 4];
-        } else {
-          e1[1] = elements[i]->vertices_[j];
-          e1[0] = elements[i]->vertices_[(j + 1) % 4];
-        }
-        e1[2] = i;
+        const int v1 = elements[i]->vertices_[j];
+        const int v2 = elements[i]->vertices_[(j + 1) % 4];
+        e1 = {v1 < v2 ? v1 : v2, v1 < v2 ? v2 : v1};
         // perferm a look up if the edge is already existing.
         auto it = edges.find(e1);
         // if so, identify the two neighbours
         if (it != edges.end()) {
-          elements[i]->adjcents_[j] =
-              mem_->cumNumElements(elements[(*it)[2]]->level_ - 1) +
-              elements[(*it)[2]]->id_;
+          elements[i]->adjcents_[j] = it->second;
           // now find the edge also in the patch that added it to the set
           for (auto k = 0; k < 4; ++k) {
-            if (elements[(*it)[2]]->vertices_[k] <
-                elements[(*it)[2]]->vertices_[(k + 1) % 4]) {
-              e2[0] = elements[(*it)[2]]->vertices_[k];
-              e2[1] = elements[(*it)[2]]->vertices_[(k + 1) % 4];
-            } else {
-              e2[1] = elements[(*it)[2]]->vertices_[k];
-              e2[0] = elements[(*it)[2]]->vertices_[(k + 1) % 4];
+            const int v3 = it->second->vertices_[k];
+            const int v4 = it->second->vertices_[(k + 1) % 4];
+            e2 = {v3 < v4 ? v3 : v4, v3 < v4 ? v4 : v3};
+            if (e1 == e2) {
+              it->second->adjcents_[k] = elements[i];
+              break;
             }
-            if (e1[0] == e2[0] && e1[1] == e2[1])
-              elements[(*it)[2]]->adjcents_[k] =
-                  mem_->cumNumElements(elements[i]->level_ - 1) +
-                  elements[i]->id_;
           }
           // otherwise add the edge to the list
         } else
-          edges.insert(e1);
+          edges.insert(std::make_pair(e1, elements[i]));
       }
-    }
     return;
   }
-  void refineLeaf(int global_id) {
+  //////////////////////////////////////////////////////////////////////////////
+  void refineLeaf(ElementTreeNode &cur_el) {
     // check if we have actually a panel
-    ElementTreeNode &cur_el = mem_->get_element(global_id);
     if (cur_el.sons_.size()) return;
     std::vector<int> ptIds(5);
     std::vector<int> refNeighbours(4);
@@ -402,9 +419,9 @@ class ElementTree {
     // determine position of p with respect to its neighbours
     for (auto i = 0; i < 4; ++i) {
       // is there a neighbour?
-      if (cur_el.adjcents_[i] != -1) {
+      if (cur_el.adjcents_[i] != nullptr) {
         for (auto j = 0; j < 4; ++j)
-          if (mem_->adjcent(cur_el, i).adjcents_[j] == global_id) {
+          if (cur_el.adjcents_[i]->adjcents_[j] == std::addressof(cur_el)) {
             refNeighbours[i] = j;
             break;
           }
@@ -413,27 +430,28 @@ class ElementTree {
     }
     //  determine new points
     for (auto i = 0; i < 4; ++i) {
-      auto cur_neighbour = cur_el.adjcents_[i];
-      if (cur_neighbour != -1) {
-        ElementTreeNode &ref_cur_neighbour = mem_->adjcent(cur_el, i);
+      // is there a neighbour?
+      if (cur_el.adjcents_[i] != nullptr) {
+        ElementTreeNode &ref_cur_neighbour = *(cur_el.adjcents_[i]);
         // is the neighbour already refined?
         if (ref_cur_neighbour.sons_.size()) {
           // this is the midpoint of the shared edge
-          ptIds[i] = mem_->son(ref_cur_neighbour, refNeighbours[i])
+          ptIds[i] = ref_cur_neighbour.sons_[refNeighbours[i]]
                          .vertices_[(refNeighbours[i] + 1) % 4];
           // these are the two elements adjacent to the edge
           elements.push_back(
-              std::addressof(mem_->son(ref_cur_neighbour, refNeighbours[i])));
+              std::addressof(ref_cur_neighbour.sons_[refNeighbours[i]]));
           elements.push_back(std::addressof(
-              mem_->son(ref_cur_neighbour, (refNeighbours[i] + 1) % 4)));
-
-        } else {
-          // otherwise add the point id to the tree
+              ref_cur_neighbour.sons_[(refNeighbours[i] + 1) % 4]));
+        }
+        // otherwise add the point id to the tree
+        else {
           ptIds[i] = number_of_points_;
           ++number_of_points_;
         }
-      } else {
-        // otherwise add the point id to the tree
+      }
+      // otherwise add the point id to the tree
+      else {
         ptIds[i] = number_of_points_;
         ++number_of_points_;
       }
@@ -443,47 +461,81 @@ class ElementTree {
     ++number_of_points_;
     // set up new elements
     cur_el.sons_.resize(4);
+    number_of_elements_ += 3;
+    max_level_ =
+        max_level_ < cur_el.level_ + 1 ? cur_el.level_ + 1 : max_level_;
+    //  auto it = leafs_.find(compute_global_id(cur_el));
+    //  if (it != leafs_.end()) leafs_.erase(it);
     for (auto i = 0; i < 4; ++i) {
-      auto child_ind = 4 * cur_el.id_ + i + mem_->cumNumElements(cur_el.level_);
-      cur_el.sons_[i] = child_ind;
-      mem_->son(cur_el, i).patch_ = cur_el.patch_;
-      mem_->son(cur_el, i).level_ = cur_el.level_ + 1;
-      mem_->son(cur_el, i).id_ = 4 * cur_el.id_ + i;
-      mem_->son(cur_el, i).adjcents_ = std::vector<int>(4, -1);
-      mem_->son(cur_el, i).llc_(0) =
-          cur_el.llc_(0) +
-          double(Constants::llcs[0][i]) / double(1 << cur_el.level_);
-      mem_->son(cur_el, i).llc_(1) =
-          cur_el.llc_(1) +
-          double(Constants::llcs[1][i]) / double(1 << cur_el.level_);
-      mem_->son(cur_el, i).set_memory(mem_);
-      elements.push_back(std::addressof(mem_->son(cur_el, i)));
+      // add linked list structure to the panels
+      //////////////////////////////////////////////////////////////////////////
+      if (i == 0) {
+        cur_el.sons_[i].prev_ = cur_el.prev_;
+        if (cur_el.prev_ != nullptr)
+          (cur_el.prev_)->next_ = std::addressof(cur_el.sons_[i]);
+        cur_el.prev_ = nullptr;
+        if (std::addressof(cur_el) == pfirst_)
+          pfirst_ = std::addressof(cur_el.sons_[i]);
+
+      } else
+        cur_el.sons_[i].prev_ = std::addressof(cur_el.sons_[i - 1]);
+      if (i == 3) {
+        cur_el.sons_[i].next_ = cur_el.next_;
+        if (cur_el.next_ != nullptr)
+          (cur_el.next_)->prev_ = std::addressof(cur_el.sons_[i]);
+        cur_el.next_ = nullptr;
+        if (std::addressof(cur_el) == plast_)
+          plast_ = std::addressof(cur_el.sons_[i]);
+      } else
+        cur_el.sons_[i].next_ = std::addressof(cur_el.sons_[i + 1]);
+      //////////////////////////////////////////////////////////////////////////
+      cur_el.sons_[i].patch_ = cur_el.patch_;
+      cur_el.sons_[i].level_ = cur_el.level_ + 1;
+      cur_el.sons_[i].id_ = 4 * cur_el.id_ + i;
+      cur_el.sons_[i].adjcents_ = std::vector<ElementTreeNode *>(4, nullptr);
+      cur_el.sons_[i].llc_(0) =
+          cur_el.llc_(0) + Constants::llcs[0][i] / double(1 << cur_el.level_);
+      cur_el.sons_[i].llc_(1) =
+          cur_el.llc_(1) + Constants::llcs[1][i] / double(1 << cur_el.level_);
+      elements.push_back(std::addressof(cur_el.sons_[i]));
     }
     // set vertices
-    mem_->son(cur_el, 0).vertices_.push_back(cur_el.vertices_[0]);
-    mem_->son(cur_el, 0).vertices_.push_back(ptIds[0]);
-    mem_->son(cur_el, 0).vertices_.push_back(ptIds[4]);
-    mem_->son(cur_el, 0).vertices_.push_back(ptIds[3]);
-
-    mem_->son(cur_el, 1).vertices_.push_back(ptIds[0]);
-    mem_->son(cur_el, 1).vertices_.push_back(cur_el.vertices_[1]);
-    mem_->son(cur_el, 1).vertices_.push_back(ptIds[1]);
-    mem_->son(cur_el, 1).vertices_.push_back(ptIds[4]);
-
-    mem_->son(cur_el, 2).vertices_.push_back(ptIds[4]);
-    mem_->son(cur_el, 2).vertices_.push_back(ptIds[1]);
-    mem_->son(cur_el, 2).vertices_.push_back(cur_el.vertices_[2]);
-    mem_->son(cur_el, 2).vertices_.push_back(ptIds[2]);
-
-    mem_->son(cur_el, 3).vertices_.push_back(ptIds[3]);
-    mem_->son(cur_el, 3).vertices_.push_back(ptIds[4]);
-    mem_->son(cur_el, 3).vertices_.push_back(ptIds[2]);
-    mem_->son(cur_el, 3).vertices_.push_back(cur_el.vertices_[3]);
-
+    // first element
+    cur_el.sons_[0].vertices_.push_back(cur_el.vertices_[0]);
+    cur_el.sons_[0].vertices_.push_back(ptIds[0]);
+    cur_el.sons_[0].vertices_.push_back(ptIds[4]);
+    cur_el.sons_[0].vertices_.push_back(ptIds[3]);
+    // second element
+    cur_el.sons_[1].vertices_.push_back(ptIds[0]);
+    cur_el.sons_[1].vertices_.push_back(cur_el.vertices_[1]);
+    cur_el.sons_[1].vertices_.push_back(ptIds[1]);
+    cur_el.sons_[1].vertices_.push_back(ptIds[4]);
+    // third element
+    cur_el.sons_[2].vertices_.push_back(ptIds[4]);
+    cur_el.sons_[2].vertices_.push_back(ptIds[1]);
+    cur_el.sons_[2].vertices_.push_back(cur_el.vertices_[2]);
+    cur_el.sons_[2].vertices_.push_back(ptIds[2]);
+    // fourth element
+    cur_el.sons_[3].vertices_.push_back(ptIds[3]);
+    cur_el.sons_[3].vertices_.push_back(ptIds[4]);
+    cur_el.sons_[3].vertices_.push_back(ptIds[2]);
+    cur_el.sons_[3].vertices_.push_back(cur_el.vertices_[3]);
+    // fix adjecency relations
     updateTopology(elements);
 
     return;
   }
+  //////////////////////////////////////////////////////////////////////////////
+  /// member variables
+  //////////////////////////////////////////////////////////////////////////////
+  std::shared_ptr<PatchVector> geometry_;
+  ElementTreeNode root_;
+  ElementTreeNode *pfirst_;
+  ElementTreeNode *plast_;
+  int number_of_patches_;
+  int max_level_;
+  int number_of_points_;
+  int number_of_elements_;
   //////////////////////////////////////////////////////////////////////////////
 };
 }  // namespace Bembel

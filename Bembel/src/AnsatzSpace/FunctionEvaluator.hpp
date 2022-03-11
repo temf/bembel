@@ -89,9 +89,11 @@ class FunctionEvaluator {
     const int tp_idx =
         x_idx + elements_per_direction * y_idx + patch * elements_per_patch;
     const int et_idx = reordering_vector_[tp_idx];
-    const ElementTreeNode &element = *(
-        ansatz_space_.get_superspace().get_mesh().get_element_tree().cpbegin() +
-        et_idx);
+    const ElementTree &et =
+        ansatz_space_.get_superspace().get_mesh().get_element_tree();
+    auto it = et.cpbegin();
+    std::advance(it, et_idx);
+    const ElementTreeNode &element = *it;
 
     SurfacePoint sp;
     ansatz_space_.get_superspace().get_geometry()[patch].updateSurfacePoint(

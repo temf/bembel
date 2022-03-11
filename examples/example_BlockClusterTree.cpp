@@ -26,7 +26,6 @@ int main() {
               << ") setup time: " << sw.toc() << std::endl;
   }
   std::cout << std::string(60, '-') << std::endl;
-
   std::cout << "    block cluster tree setup\n";
   for (int refinement_level = 0; refinement_level < 5; ++refinement_level) {
     sw.tic();

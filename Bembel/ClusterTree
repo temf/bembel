@@ -22,7 +22,6 @@
 #include "src/util/Constants.hpp"
 
 #include "src/ClusterTree/ElementTreeNode.hpp"
-#include "src/ClusterTree/ElementTreeMemory.hpp"
 #include "src/ClusterTree/ElementTree.hpp"
 #include "src/ClusterTree/ClusterTree.hpp"
 
