@@ -40,7 +40,7 @@ int main() {
   std::cout << std::string(60, '-') << std::endl;
   {
     const int polynomial_degree = 3;
-    const int refinement_level = 9;
+    const int refinement_level = 5;
     Bembel::AnsatzSpace<Bembel::LaplaceSingleLayerOperator> ansatz_space(
         geometry, refinement_level, polynomial_degree);
     Bembel::LaplaceSingleLayerOperator S;
