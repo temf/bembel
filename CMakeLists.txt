@@ -111,6 +111,6 @@ add_custom_target(release
   )
 
 
-add_subdirectory(examples)
 add_subdirectory(tests)
+add_subdirectory(examples)
 enable_testing()

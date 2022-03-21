@@ -78,8 +78,7 @@ inline double maxPointwiseError(
 
 inline double maxPointwiseError(
     const Eigen::MatrixXcd &pot, const Eigen::MatrixXd &grid,
-    const std::function<Eigen::Vector3cd(Eigen::Vector3d)>
-        &fun) {
+    const std::function<Eigen::Vector3cd(Eigen::Vector3d)> &fun) {
   const int gridsz = grid.rows();
   assert(pot.cols() == grid.cols());
   assert((std::max(pot.cols(), pot.rows()) == grid.rows()) &&
@@ -95,6 +94,25 @@ inline double maxPointwiseError(
     error = tmp > error ? tmp : error;
   }
   return error;
+}
+
+double estimateRateOfConvergence(const Eigen::VectorXd &errors) {
+  Eigen::MatrixXd A(errors.rows(), 2);
+  A << Eigen::VectorXd::Ones(errors.rows()),
+      Eigen::VectorXd::LinSpaced(errors.rows(), 0, errors.rows() - 1);
+  Eigen::VectorXd b = errors.array().abs().log() / std::log(2);
+  Eigen::VectorXd x = A.colPivHouseholderQr().solve(b);
+  return -x(1);
+}
+
+bool checkRateOfConvergence(const Eigen::VectorXd &errors,
+                            const int expected_rate, const double tol_factor,
+                            double *rate_of_convergence_out = NULL) {
+  double rate_of_convergence = estimateRateOfConvergence(errors);
+  if (rate_of_convergence_out) rate_of_convergence_out[0] = rate_of_convergence;
+  std::cout << "Estimated rate of convergence:" << rate_of_convergence
+            << std::endl;
+  return (rate_of_convergence > tol_factor * expected_rate);
 }
 
 }  // namespace Bembel

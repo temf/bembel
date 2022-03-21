@@ -6,17 +6,14 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#include <iostream>
-
-#include <Eigen/Dense>
-#include <Eigen/IterativeLinearSolvers>
-
 #include <Bembel/AnsatzSpace>
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
+#include <Bembel/IO>
 #include <Bembel/Laplace>
 #include <Bembel/LinearForm>
-#include <Bembel/IO>
+#include <Eigen/Dense>
+#include <iostream>
 
 #include "Data.hpp"
 #include "Error.hpp"
@@ -26,6 +23,10 @@ int main() {
   using namespace Bembel;
   using namespace Eigen;
   Bembel::IO::Stopwatch sw;
+
+  int polynomial_degree_max = 3;
+  int refinement_level_max = 3;
+
   // Load geometry from file "sphere.dat", which must be placed in the same
   // directory as the executable
   Geometry geometry("sphere.dat");
@@ -44,12 +45,16 @@ int main() {
 
   std::cout << "\n" << std::string(60, '=') << "\n";
   // Iterate over polynomial degree.
-  for (auto polynomial_degree : {0, 1, 2, 3}) {
+  for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
+       ++polynomial_degree) {
+    VectorXd error(refinement_level_max + 1);
     // Iterate over refinement levels
-    for (auto refinement_level : {0, 1, 2, 3}) {
+    for (int refinement_level = 0; refinement_level < refinement_level_max + 1;
+         ++refinement_level) {
       sw.tic();
+
       std::cout << "Degree " << polynomial_degree << " Level "
-                << refinement_level;
+                << refinement_level << "\t\t";
       // Build ansatz space
       AnsatzSpace<LaplaceSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
@@ -61,15 +66,14 @@ int main() {
       disc_lf.compute();
 
       // Set up and compute discrete operator
-      DiscreteOperator<H2Matrix<double>, LaplaceSingleLayerOperator> disc_op(
+      DiscreteOperator<MatrixXd, LaplaceSingleLayerOperator> disc_op(
           ansatz_space);
       disc_op.compute();
 
       // solve system
-      ConjugateGradient<H2Matrix<double>, Lower | Upper, IdentityPreconditioner>
-          cg;
-      cg.compute(disc_op.get_discrete_operator());
-      auto rho = cg.solve(disc_lf.get_discrete_linear_form());
+      LLT<MatrixXd> llt;
+      llt.compute(disc_op.get_discrete_operator());
+      auto rho = llt.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<LaplaceSingleLayerPotential<LaplaceSingleLayerOperator>,
@@ -78,13 +82,23 @@ int main() {
       disc_pot.set_cauchy_data(rho);
       auto pot = disc_pot.evaluate(gridpoints);
 
-      // print error
+      // compute reference, print time, and compute error
+      VectorXd pot_ref(gridpoints.rows());
+      for (int i = 0; i < gridpoints.rows(); ++i)
+        pot_ref(i) = fun(gridpoints.row(i));
+      error(refinement_level) = (pot - pot_ref).cwiseAbs().maxCoeff();
       std::cout << " time " << std::setprecision(4) << sw.toc() << "s\t\t";
-      std::cout << maxPointwiseError<double>(pot, gridpoints, fun) << std::endl;
+      std::cout << error(refinement_level) << std::endl;
     }
+
+    // estimate rate of convergence and check whether it is at least 90% of the
+    // expected value
+    assert(
+        checkRateOfConvergence(error.tail(2), 2 * polynomial_degree + 3, 0.9));
+
     std::cout << std::endl;
   }
   std::cout << std::string(60, '=') << std::endl;
-  
+
   return 0;
 }
