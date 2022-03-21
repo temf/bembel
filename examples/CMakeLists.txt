@@ -13,11 +13,8 @@ set(CIFILES
     Geometry
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
-    LaplaceDoubleLayerH2
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
-    HelmholtzDoubleLayerH2
-    HelmholtzBrakhageWernerH2
     MaxwellSingleLayerFull
     MaxwellSingleLayerH2
     )
@@ -36,7 +33,6 @@ enable_testing()
 
 set(NOCIFILES
     Quadrature
-    MassMatrix
     VTKSurfaceExport
     VTKDomainExport
     FullLaplaceWorkflow
