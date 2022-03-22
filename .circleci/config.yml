@@ -1,4 +1,4 @@
-version: 2
+version: 2.0
 jobs:
   build:
     filters:
@@ -6,13 +6,13 @@ jobs:
         only:
           - master
     docker:
-      - image: ubuntu:18.04
+      - image: ubuntu:latest
     steps:
-      - checkout
       - run:
-          name: "Uptdating"
+          name: "Updating"
           command: |
-            apt-get update
+            apt-get update && apt-get install -y openssh-client git
+      - checkout
       - run:
           name: "Getting Eigen"
           command: |
