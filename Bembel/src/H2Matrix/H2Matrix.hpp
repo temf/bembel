@@ -82,7 +82,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
   /**
    * \brief Assemble H2-Matrix for linear operator linOp and AnsatzSpace
    * ansatz_space with number_of_points interpolation points in one direction of
-   * the unit square (standard is number_of_points=16)
+   * the unit square (standard is number_of_points=9)
    */
   template <typename Derived>
   void init_H2Matrix(const Derived& linOp,

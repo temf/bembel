@@ -22,6 +22,10 @@
 int main() {
   using namespace Bembel;
   using namespace Eigen;
+
+  int polynomial_degree_max = 3;
+  int refinement_level_max = 3;
+
   // Load geometry from file "sphere.dat", which must be placed in the same
   // directory as the executable
   Geometry geometry("torus.dat");
@@ -39,16 +43,21 @@ int main() {
   };
 
   // Iterate over polynomial degree.
-  for (auto polynomial_degree : {0, 1, 2, 3}) {
-    // Iterate over refinement levels
+  for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
+       ++polynomial_degree) {
+    VectorXd error(refinement_level_max + 1);
     IO::Logger<12> logger("log_LaplaceSingle_" +
                           std::to_string(polynomial_degree) + ".log");
     logger.both("P", "M", "error");
-
-    for (auto refinement_level : {0, 1, 2, 3}) {
+    // Iterate over refinement levels
+    for (int refinement_level = 0; refinement_level < refinement_level_max + 1;
+         ++refinement_level) {
+      std::cout << "Degree " << polynomial_degree << " Level "
+                << refinement_level << "\t\t";
       // Build ansatz space
       AnsatzSpace<LaplaceSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
+
       // Set up load vector
       DiscreteLinearForm<DirichletTrace<double>, LaplaceSingleLayerOperator>
           disc_lf(ansatz_space);
@@ -73,9 +82,13 @@ int main() {
       disc_pot.set_cauchy_data(rho);
       auto pot = disc_pot.evaluate(gridpoints);
 
-      auto error = maxPointwiseError<double>(pot, gridpoints, fun);
+      // compute reference and compute error
+      VectorXd pot_ref(gridpoints.rows());
+      for (int i = 0; i < gridpoints.rows(); ++i)
+        pot_ref(i) = fun(gridpoints.row(i));
+      error(refinement_level) = (pot - pot_ref).cwiseAbs().maxCoeff();
 
-      logger.both(polynomial_degree, refinement_level, error);
+      logger.both(polynomial_degree, refinement_level, error(refinement_level));
 
       // we only need one visualization
       if (refinement_level == 3 && polynomial_degree == 2) {
@@ -94,7 +107,12 @@ int main() {
         writer.writeToFile("LaplaceSingle.vtp");
       }
     }
+
+    std::cout << std::endl;
   }
+  std::cout << "============================================================="
+               "=========="
+            << std::endl;
 
   return 0;
 }
