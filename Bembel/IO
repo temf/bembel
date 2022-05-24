@@ -26,6 +26,7 @@
 #include "src/IO/Stopwatch.hpp"
 #include "src/IO/VTKDomainExport.hpp"
 #include "src/IO/VTKSurfaceExport.hpp"
+#include "src/IO/VTKPointExport.hpp"
 #include "src/IO/print2file.hpp"
 
 #endif
