@@ -29,8 +29,8 @@ struct DiscreteOperatorComputer<
       Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
     GaussSquare<Constants::maximum_quadrature_degree> GS;
-    const SuperSpace<Derived>& super_space = ansatz_space.get_superspace();
-    const ElementTree& element_tree = super_space.get_mesh().get_element_tree();
+    const SuperSpace<Derived> &super_space = ansatz_space.get_superspace();
+    const ElementTree &element_tree = super_space.get_mesh().get_element_tree();
     auto number_of_elements = element_tree.get_number_of_elements();
     const auto vector_dimension =
         getFunctionSpaceVectorDimension<LinearOperatorTraits<Derived>::Form>();
@@ -57,9 +57,10 @@ struct DiscreteOperatorComputer<
               Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> intval(
                   vector_dimension * polynomial_degree_plus_one_squared,
                   vector_dimension * polynomial_degree_plus_one_squared);
-              DuffyTrick::evaluateBilinearForm(lin_op, super_space, *element1,
-                                               *element2, GS, ffield_qnodes,
-                                               &intval);
+              DuffyTrick::evaluateBilinearForm(
+                  lin_op, super_space, *element1, *element2, GS,
+                  ffield_qnodes[element1->id_], ffield_qnodes[element2->id_],
+                  &intval);
               for (auto i = 0; i < vector_dimension; ++i)
                 for (auto j = 0; j < vector_dimension; ++j)
                   disc_op->block(polynomial_degree_plus_one_squared *

@@ -19,21 +19,20 @@ namespace DuffyTrick {
 template <typename Derived, class T>
 void integrate0(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
                 const ElementTreeNode &e1, int rot1, const ElementTreeNode &e2,
-                int rot2, const Eigen::MatrixXd &ffield_qnodes,
-                const Cubature &Q,
+                int rot2, const Eigen::MatrixXd &ffield_qnodes1,
+                const Eigen::MatrixXd &ffield_qnodes2, const Cubature &Q,
                 Eigen::Matrix<typename LinearOperatorTraits<Derived>::Scalar,
                               Eigen::Dynamic, Eigen::Dynamic> *intval) {
   intval->setZero();
   for (auto i = 0; i < Q.w_.size(); ++i)
     for (auto j = 0; j < Q.w_.size(); ++j)
-      LinOp.evaluateIntegrand(
-          super_space, ffield_qnodes.col(e1.id_ * Q.w_.size() + i),
-          ffield_qnodes.col(e2.id_ * Q.w_.size() + j), intval);
+      LinOp.evaluateIntegrand(super_space, ffield_qnodes1.col(i),
+                              ffield_qnodes2.col(j), intval);
   BEMBEL_UNUSED_(rot1);
   BEMBEL_UNUSED_(rot2);
   BEMBEL_UNUSED_(Q);
   return;
 }
-}  // namespace Duffy
+}  // namespace DuffyTrick
 }  // namespace Bembel
 #endif

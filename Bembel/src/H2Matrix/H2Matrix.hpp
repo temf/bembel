@@ -183,7 +183,8 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
                     // do integration
                     Bembel::DuffyTrick::evaluateBilinearForm(
                         linOp, super_space, element1, element2, GS,
-                        ffield_qnodes, &intval);
+                        ffield_qnodes[element1.id_],
+                        ffield_qnodes[element2.id_], &intval);
                     // insert into dense matrices of all block cluster trees
                     for (int i = 0; i < vector_dimension; ++i)
                       for (int j = 0; j < vector_dimension; ++j)

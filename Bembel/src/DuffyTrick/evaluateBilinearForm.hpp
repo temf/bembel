@@ -19,7 +19,8 @@ template <typename Derived, class T, class CubatureVector>
 void evaluateBilinearForm(
     const LinearOperatorBase<Derived>& linOp, const T& super_space,
     const ElementTreeNode& e1, const ElementTreeNode& e2,
-    const CubatureVector& GS, const Eigen::MatrixXd& ffield_qnodes,
+    const CubatureVector& GS, const Eigen::MatrixXd& ffield_qnodes1,
+    const Eigen::MatrixXd& ffield_qnodes2,
     Eigen::Matrix<typename LinearOperatorTraits<Derived>::Scalar,
                   Eigen::Dynamic, Eigen::Dynamic>* intval) {
   //////////////////////////////////////////////////////////////////////////////
@@ -38,24 +39,27 @@ void evaluateBilinearForm(
   switch (cp(2)) {
     case 0:
       if (nfield_deg == ffield_deg) {
-        integrate0(linOp, super_space, e1, 0, e2, 0, ffield_qnodes, Q, intval);
+        integrate0(linOp, super_space, e1, 0, e2, 0, ffield_qnodes1,
+                   ffield_qnodes2, Q, intval);
         return;
       } else {
-        integrate1(linOp, super_space, e1, 0, e2, 0, ffield_qnodes, Q, intval);
+        integrate1(linOp, super_space, e1, 0, e2, 0, ffield_qnodes1,
+                   ffield_qnodes2, Q, intval);
         return;
       }
     case 1:
       assert(!"you should not have ended up here!");
     case 2:
-      integrate2(linOp, super_space, e1, 0, e2, 0, ffield_qnodes, Q, intval);
+      integrate2(linOp, super_space, e1, 0, e2, 0, ffield_qnodes1,
+                 ffield_qnodes2, Q, intval);
       return;
     case 3:
-      integrate3(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes, Q,
-                 intval);
+      integrate3(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes1,
+                 ffield_qnodes2, Q, intval);
       return;
     case 4:
-      integrate4(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes, Q,
-                 intval);
+      integrate4(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes1,
+                 ffield_qnodes2, Q, intval);
       return;
     default:
       assert(!"you should not have ended up here!");
