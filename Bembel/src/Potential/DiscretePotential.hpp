@@ -39,10 +39,6 @@ class DiscretePotential {
   //////////////////////////////////////////////////////////////////////////////
   //    compute
   //////////////////////////////////////////////////////////////////////////////
-  static_assert(
-      getFunctionSpaceOutputDimension<LinearOperatorTraits<LinOp>::Form>() ==
-          PotentialTraits<Derived>::OutputSpaceDimension,
-      "Dimension mismatch in potential evaluation");
   Eigen::Matrix<typename PotentialReturnScalar<
                     typename LinearOperatorTraits<LinOp>::Scalar,
                     typename PotentialTraits<Derived>::Scalar>::Scalar,
