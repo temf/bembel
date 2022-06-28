@@ -25,16 +25,15 @@ struct PotentialTraits<LaplaceSingleLayerPotentialGradient<LinOp>> {
  */
 template <typename LinOp>
 class LaplaceSingleLayerPotentialGradient
-    : public PotentialBase<LaplaceSingleLayerPotentialGradient<LinOp>,
-                           LinOp> {
+    : public PotentialBase<LaplaceSingleLayerPotentialGradient<LinOp>, LinOp> {
   // implementation of the kernel evaluation, which may be based on the
   // information available from the superSpace
  public:
   LaplaceSingleLayerPotentialGradient() {}
-  Eigen::Matrix<typename PotentialReturnScalar<
-                    typename LinearOperatorTraits<LinOp>::Scalar,
-                    std::complex<double>>::Scalar,
-                3, 1>
+  Eigen::Matrix<
+      typename PotentialReturnScalar<
+          typename LinearOperatorTraits<LinOp>::Scalar, double>::Scalar,
+      3, 1>
   evaluateIntegrand_impl(const FunctionEvaluator<LinOp> &fun_ev,
                          const ElementTreeNode &element,
                          const Eigen::Vector3d &point,
@@ -69,7 +68,7 @@ class LaplaceSingleLayerPotentialGradient
    * \brief Fundamental solution of Laplace problem
    */
   Eigen::VectorXd evaluateKernelGrad(const Eigen::Vector3d &x,
-                                      const Eigen::Vector3d &y) const {
+                                     const Eigen::Vector3d &y) const {
     auto c = x - y;
     auto r = c.norm();
     auto r3 = r * r * r;
