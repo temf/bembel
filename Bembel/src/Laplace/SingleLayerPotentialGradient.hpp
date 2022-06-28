@@ -72,7 +72,7 @@ class LaplaceSingleLayerPotentialGradient
     auto c = x - y;
     auto r = c.norm();
     auto r3 = r * r * r;
-    return c / r3 / 4. / BEMBEL_PI;
+    return -c / r3 / 4. / BEMBEL_PI;
   }
 };
 
