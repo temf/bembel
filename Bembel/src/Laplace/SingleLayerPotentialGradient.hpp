@@ -16,7 +16,7 @@ class LaplaceSingleLayerPotentialGradient;
 
 template <typename LinOp>
 struct PotentialTraits<LaplaceSingleLayerPotentialGradient<LinOp>> {
-  typedef Eigen::VectorXcd::Scalar Scalar;
+  typedef Eigen::VectorXd::Scalar Scalar;
   static constexpr int OutputSpaceDimension = 3;
 };
 
