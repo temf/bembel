@@ -20,5 +20,6 @@
 #include "src/Laplace/DoubleLayerPotential.hpp"
 #include "src/Laplace/SingleLayerOperator.hpp"
 #include "src/Laplace/SingleLayerPotential.hpp"
+#include "src/Laplace/SingleLayerPotentialGradient.hpp"
 
 #endif
