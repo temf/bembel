@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cd Bembel;
-cpplint --quiet --extensions=hpp,cpp --root=.. --recursive ./src
+cpplint --quiet --recursive --exclude=Bembel/src/util/Doxygen.hpp Bembel
