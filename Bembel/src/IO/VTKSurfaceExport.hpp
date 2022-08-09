@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_IO_VTKSURFACEEXPORT_H_
-#define BEMBEL_IO_VTKSURFACEEXPORT_H_
+#ifndef BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_
+#define BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_
 
 namespace Bembel {
 
@@ -182,4 +182,4 @@ class VTKSurfaceExport {
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_

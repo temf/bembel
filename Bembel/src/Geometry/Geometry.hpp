@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_GEOMETRY_GEOMETRY_H_
-#define BEMBEL_GEOMETRY_GEOMETRY_H_
+#ifndef BEMBEL_SRC_GEOMETRY_GEOMETRY_HPP_
+#define BEMBEL_SRC_GEOMETRY_GEOMETRY_HPP_
 
 namespace Bembel {
 /**
@@ -65,4 +65,4 @@ class Geometry {
   std::shared_ptr<PatchVector> geometry_;
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_GEOMETRY_GEOMETRY_HPP_

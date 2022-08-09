@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_CLUSTERTREE_ELEMENTTREENODE_H_
-#define BEMBEL_CLUSTERTREE_ELEMENTTREENODE_H_
+#ifndef BEMBEL_SRC_CLUSTERTREE_ELEMENTTREENODE_HPP_
+#define BEMBEL_SRC_CLUSTERTREE_ELEMENTTREENODE_HPP_
 
 namespace Bembel {
 
@@ -167,4 +167,4 @@ class ElementTreeNode {
   int patch_;      /// patch of the element
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_CLUSTERTREE_ELEMENTTREENODE_HPP_

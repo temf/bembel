@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_DUFFYTRICK_COMPAREELEMENTS_H_
-#define BEMBEL_DUFFYTRICK_COMPAREELEMENTS_H_
+#ifndef BEMBEL_SRC_DUFFYTRICK_COMPAREELEMENTS_HPP_
+#define BEMBEL_SRC_DUFFYTRICK_COMPAREELEMENTS_HPP_
 
 namespace Bembel {
 namespace DuffyTrick {
@@ -67,4 +67,4 @@ Eigen::Vector3i compareElements(const ElementTreeNode &e1,
 }  // namespace DuffyTrick
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_DUFFYTRICK_COMPAREELEMENTS_HPP_

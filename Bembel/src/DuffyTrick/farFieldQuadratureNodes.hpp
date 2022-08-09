@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_DUFFYTRICK_FARFIELDQUADRATURENODES_H_
-#define BEMBEL_DUFFYTRICK_FARFIELDQUADRATURENODES_H_
+#ifndef BEMBEL_SRC_DUFFYTRICK_FARFIELDQUADRATURENODES_HPP_
+#define BEMBEL_SRC_DUFFYTRICK_FARFIELDQUADRATURENODES_HPP_
 
 namespace Bembel {
 namespace DuffyTrick {
@@ -41,4 +41,4 @@ Eigen::Matrix<double, 12, Eigen::Dynamic> computeFfieldQnodes(
 }
 }  // namespace DuffyTrick
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_DUFFYTRICK_FARFIELDQUADRATURENODES_HPP_

@@ -25,4 +25,4 @@
 #include "src/ClusterTree/ElementTree.hpp"
 #include "src/ClusterTree/ClusterTree.hpp"
 
-#endif
+#endif  // BEMBEL_CLUSTERTREE_MODULE_

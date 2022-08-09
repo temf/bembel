@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_ANSATZSPACE_FUNCTIONEVALUATOREVAL_H_
-#define BEMBEL_ANSATZSPACE_FUNCTIONEVALUATOREVAL_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_
 
 namespace Bembel {
 
@@ -95,4 +95,4 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Discontinuous, LinOp> {
   };
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_

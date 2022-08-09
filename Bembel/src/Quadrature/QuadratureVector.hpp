@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_QUADRATURE_QUADRATUREVECTOR_H_
-#define BEMBEL_QUADRATURE_QUADRATUREVECTOR_H_
+#ifndef BEMBEL_SRC_QUADRATURE_QUADRATUREVECTOR_HPP_
+#define BEMBEL_SRC_QUADRATURE_QUADRATUREVECTOR_HPP_
 
 namespace Bembel {
 
@@ -44,4 +44,4 @@ struct QuadratureVector<QuadratureRule, 0> {
   const Quadrature<1> &operator[](unsigned int i) const { return Q_; }
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_QUADRATURE_QUADRATUREVECTOR_HPP_

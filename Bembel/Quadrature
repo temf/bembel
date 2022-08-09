@@ -27,4 +27,4 @@
 #include "src/Quadrature/GaussLegendre.hpp"
 #include "src/Quadrature/GaussSquare.hpp"
 
-#endif
+#endif  // BEMBEL_QUADRATURE_MODULE_

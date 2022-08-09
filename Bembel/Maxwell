@@ -19,4 +19,4 @@
 #include "src/Maxwell/SingleLayerOperator.hpp"
 #include "src/Maxwell/SingleLayerPotential.hpp"
 
-#endif
+#endif  // BEMBEL_MAXWELLOPERATOR_MODULE_

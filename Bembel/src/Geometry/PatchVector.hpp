@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_GEOMETRY_PATCHVECTOR_H_
-#define BEMBEL_GEOMETRY_PATCHVECTOR_H_
+#ifndef BEMBEL_SRC_GEOMETRY_PATCHVECTOR_HPP_
+#define BEMBEL_SRC_GEOMETRY_PATCHVECTOR_HPP_
 
 namespace Bembel {
 /**
@@ -21,4 +21,4 @@ namespace Bembel {
 typedef std::vector<Bembel::Patch> PatchVector;
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_GEOMETRY_PATCHVECTOR_HPP_

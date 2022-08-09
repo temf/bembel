@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_UTIL_GENERICMATRIX_H_
-#define BEMBEL_UTIL_GENERICMATRIX_H_
+#ifndef BEMBEL_SRC_UTIL_GENERICMATRIX_HPP_
+#define BEMBEL_SRC_UTIL_GENERICMATRIX_HPP_
 
 #include <vector>
 
@@ -72,4 +72,4 @@ class GenericMatrix {
   rowIndex rows_;
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_UTIL_GENERICMATRIX_HPP_

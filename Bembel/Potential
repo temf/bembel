@@ -12,4 +12,4 @@
 #include "src/Potential/Potential.hpp"
 #include "src/Potential/DiscretePotential.hpp"
 
-#endif
+#endif  // BEMBEL_POTENTIAL_MODULE_

@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_DUFFYTRICK_INTGRATE4_H_
-#define BEMBEL_DUFFYTRICK_INTGRATE4_H_
+#ifndef BEMBEL_SRC_DUFFYTRICK_INTEGRATE4_HPP_
+#define BEMBEL_SRC_DUFFYTRICK_INTEGRATE4_HPP_
 
 namespace Bembel {
 namespace DuffyTrick {
@@ -61,4 +61,4 @@ void integrate4(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
 }  // namespace Duffy
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_DUFFYTRICK_INTEGRATE4_HPP_

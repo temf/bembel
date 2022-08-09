@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_H2MATRIX_H2MULTIPOLE_H_
-#define BEMBEL_H2MATRIX_H2MULTIPOLE_H_
+#ifndef BEMBEL_SRC_H2MATRIX_H2MULTIPOLE_HPP_
+#define BEMBEL_SRC_H2MATRIX_H2MULTIPOLE_HPP_
 
 namespace Bembel {
 namespace H2Multipole {
@@ -467,4 +467,4 @@ Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> backwardTransformation(
 
 }  // namespace H2Multipole
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_H2MULTIPOLE_HPP_

@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_H2MATRIX_BLOCKCLUSTERTREE_H_
-#define BEMBEL_H2MATRIX_BLOCKCLUSTERTREE_H_
+#ifndef BEMBEL_SRC_H2MATRIX_BLOCKCLUSTERTREE_HPP_
+#define BEMBEL_SRC_H2MATRIX_BLOCKCLUSTERTREE_HPP_
 
 namespace Bembel {
 
@@ -308,4 +308,4 @@ class BlockClusterTree {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_BLOCKCLUSTERTREE_HPP_

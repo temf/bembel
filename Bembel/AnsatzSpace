@@ -32,4 +32,4 @@
 
 #include "src/AnsatzSpace/FunctionEvaluator.hpp"
 
-#endif
+#endif  // BEMBEL_ANSATZSPACE_MODULE_

@@ -31,4 +31,4 @@
 #include "src/DuffyTrick/integrate4.hpp"
 #include "src/DuffyTrick/evaluateBilinearForm.hpp"
 
-#endif
+#endif  // BEMBEL_DUFFYTRICK_MODULE_

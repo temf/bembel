@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_INCLUDE_TRACEOPERATORS_ROTATEDTANGENTIALTRACE_H_
-#define BEMBEL_INCLUDE_TRACEOPERATORS_ROTATEDTANGENTIALTRACE_H_
+#ifndef BEMBEL_SRC_LINEARFORM_ROTATEDTANGENTIALTRACE_HPP_
+#define BEMBEL_SRC_LINEARFORM_ROTATEDTANGENTIALTRACE_HPP_
 
 #include "LinearForm.hpp"
 
@@ -86,4 +86,4 @@ class RotatedTangentialTrace
 };
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_LINEARFORM_ROTATEDTANGENTIALTRACE_HPP_

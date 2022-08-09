@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_LOCALISE_H_
-#define BEMBEL_SPLINE_LOCALISE_H_
+#ifndef BEMBEL_SRC_SPLINE_LOCALIZE_HPP_
+#define BEMBEL_SRC_SPLINE_LOCALIZE_HPP_
 
 namespace Bembel {
 
@@ -120,4 +120,4 @@ inline std::vector<T> GetCoefficients(const int increments,
 }
 }  // namespace Spl
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_LOCALIZE_HPP_

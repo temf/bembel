@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_GEOMETRY_SURFACEPOINT_H_
-#define BEMBEL_GEOMETRY_SURFACEPOINT_H_
+#ifndef BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
+#define BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
 /**
  * \ingroup Geometry
  * \brief typedef of SurfacePoint
@@ -37,4 +37,4 @@
  **/
 typedef Eigen::Matrix<double, 12, 1> SurfacePoint;
 
-#endif
+#endif  // BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_

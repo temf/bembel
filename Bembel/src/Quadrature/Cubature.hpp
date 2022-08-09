@@ -6,12 +6,12 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_QUADRATURE_CUBATURE_H_
-#define BEMBEL_QUADRATURE_CUBATURE_H_
+#ifndef BEMBEL_SRC_QUADRATURE_CUBATURE_HPP_
+#define BEMBEL_SRC_QUADRATURE_CUBATURE_HPP_
 namespace Bembel {
 
 // A typedef for convenience
 typedef Quadrature<2> Cubature;
 
 }
-#endif
+#endif  // BEMBEL_SRC_QUADRATURE_CUBATURE_HPP_

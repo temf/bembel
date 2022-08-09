@@ -17,4 +17,4 @@
 
 #include "src/LinearOperator/Dummy/DummyOperator.hpp"
 
-#endif
+#endif  // BEMBEL_DUMMYOPERATOR_MODULE_

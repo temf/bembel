@@ -28,4 +28,4 @@
 #include "src/IO/VTKSurfaceExport.hpp"
 #include "src/IO/print2file.hpp"
 
-#endif
+#endif  // BEMBEL_VISUALIZE_MODULE_

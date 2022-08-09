@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_PASCAL_H_
-#define BEMBEL_SPLINE_PASCAL_H_
+#ifndef BEMBEL_SRC_SPLINE_PASCAL_HPP_
+#define BEMBEL_SRC_SPLINE_PASCAL_HPP_
 
 namespace Bembel {
 
@@ -46,4 +46,4 @@ struct Binomial<0, N> {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_PASCAL_HPP_

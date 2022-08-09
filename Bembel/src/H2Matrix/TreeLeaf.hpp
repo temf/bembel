@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_H2MATRIX_TREELEAF_H_
-#define BEMBEL_H2MATRIX_TREELEAF_H_
+#ifndef BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_
+#define BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_
 
 namespace Bembel {
 template <typename Derived>
@@ -137,4 +137,4 @@ class TreeLeaf {
   bool is_low_rank_;
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_

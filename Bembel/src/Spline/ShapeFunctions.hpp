@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_SPLINE_SHAPEFUNCTIONS_H_
-#define BEMBEL_SPLINE_SHAPEFUNCTIONS_H_
+#ifndef BEMBEL_SRC_SPLINE_SHAPEFUNCTIONS_HPP_
+#define BEMBEL_SRC_SPLINE_SHAPEFUNCTIONS_HPP_
 
 namespace Bembel {
 namespace Basis {
@@ -103,4 +103,4 @@ using ShapeFunctionHandler = PSpecificShapeFunctionHandler<Constants::MaxP>;
 
 }  // namespace Basis
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_SHAPEFUNCTIONS_HPP_

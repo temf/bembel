@@ -36,4 +36,4 @@
 #include "src/Spline/Bezierextraction.hpp"
 
 
-#endif
+#endif  // BEMBEL_SPLINE_MODULE_

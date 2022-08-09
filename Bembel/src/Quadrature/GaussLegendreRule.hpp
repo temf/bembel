@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_QUADRATURE_GAUSSLEGENDRERULE_H_
-#define BEMBEL_QUADRATURE_GAUSSLEGENDRERULE_H_
+#ifndef BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRERULE_HPP_
+#define BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRERULE_HPP_
 
 namespace Bembel {
 /**
@@ -640,4 +640,4 @@ struct GaussLegendreRule<20> {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRERULE_HPP_

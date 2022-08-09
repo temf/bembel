@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_POTENTIAL_POTENTIAL_H_
-#define BEMBEL_POTENTIAL_POTENTIAL_H_
+#ifndef BEMBEL_SRC_POTENTIAL_POTENTIAL_HPP_
+#define BEMBEL_SRC_POTENTIAL_POTENTIAL_HPP_
 
 #include <Eigen/Dense>
 
@@ -83,4 +83,4 @@ struct PotentialBase {
   const Derived &derived() const { return *static_cast<const Derived *>(this); }
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_POTENTIAL_POTENTIAL_HPP_

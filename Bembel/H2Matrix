@@ -21,4 +21,4 @@
 #include "src/H2Matrix/BlockClusterTree.hpp"
 #include "src/H2Matrix/H2Multipole.hpp"
 
-#endif
+#endif  // BEMBEL_H2MATRIX_MODULE_

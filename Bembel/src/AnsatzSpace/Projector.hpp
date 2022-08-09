@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_ANSATZSPACE_PROJECTOR_H_
-#define BEMBEL_ANSATZSPACE_PROJECTOR_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_
 
 namespace Bembel {
 namespace ProjectorRoutines {
@@ -344,4 +344,4 @@ struct projector_matrixmaker_<Derived, DifferentialForm::Discontinuous> {
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_

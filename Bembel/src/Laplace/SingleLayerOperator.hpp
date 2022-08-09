@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACESINGLELAYEROPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACESINGLELAYEROPERATOR_H_
+#ifndef BEMBEL_SRC_LAPLACE_SINGLELAYEROPERATOR_HPP_
+#define BEMBEL_SRC_LAPLACE_SINGLELAYEROPERATOR_HPP_
 
 namespace Bembel {
 // forward declaration of class LaplaceSingleLayerOperator in order to define
@@ -111,4 +111,4 @@ class LaplaceSingleLayerOperator
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LAPLACE_SINGLELAYEROPERATOR_HPP_

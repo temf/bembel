@@ -19,4 +19,4 @@
 #include "src/Laplace/SingleLayerOperator.hpp"
 #include "src/Laplace/SingleLayerPotential.hpp"
 
-#endif
+#endif  // BEMBEL_LAPLACEOPERATOR_MODULE_

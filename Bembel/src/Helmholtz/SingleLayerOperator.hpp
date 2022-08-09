@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_LINEAROPERATOR_HELMHOLTZ_HELMHOLTZSINGLELAYEROPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_HELMHOLTZ_HELMHOLTZSINGLELAYEROPERATOR_H_
+#ifndef BEMBEL_SRC_HELMHOLTZ_SINGLELAYEROPERATOR_HPP_
+#define BEMBEL_SRC_HELMHOLTZ_SINGLELAYEROPERATOR_HPP_
 
 namespace Bembel {
 // forward declaration of class HelmholtzSingleLayerOperator in order to define
@@ -126,4 +126,4 @@ class HelmholtzSingleLayerOperator
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_HELMHOLTZ_SINGLELAYEROPERATOR_HPP_

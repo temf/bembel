@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_SPLINE_BASIS_H_
-#define BEMBEL_SPLINE_BASIS_H_
+#ifndef BEMBEL_SRC_SPLINE_BASIS_HPP_
+#define BEMBEL_SRC_SPLINE_BASIS_HPP_
 
 namespace Bembel {
 /**
@@ -351,4 +351,4 @@ using BasisHandler = PSpecificBasisHandler<Constants::MaxP, Scalar>;
 }  // namespace Basis
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_SPLINE_BASIS_HPP_

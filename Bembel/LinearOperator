@@ -21,4 +21,4 @@
 #include "src/LinearOperator/LinearOperatorBase.hpp"
 #include "src/LinearOperator/LinearOperatorTraits.hpp"
 
-#endif
+#endif  // BEMBEL_LINEAROPERATOR_MODULE_

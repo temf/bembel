@@ -19,4 +19,4 @@
 #include "src/Helmholtz/SingleLayerOperator.hpp"
 #include "src/Helmholtz/SingleLayerPotential.hpp"
 
-#endif
+#endif  // BEMBEL_HELMHOLTZOPERATOR_MODULE_

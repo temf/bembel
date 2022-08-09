@@ -28,4 +28,4 @@
 #include "src/Geometry/SurfacePoint.hpp"
 #include "src/Geometry/Geometry.hpp"
 
-#endif
+#endif  // BEMBEL_GEOMETRY_MODULE_

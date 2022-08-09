@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_HELPER_H_
-#define BEMBEL_SPLINE_HELPER_H_
+#ifndef BEMBEL_SRC_SPLINE_UNROLL_HPP_
+#define BEMBEL_SRC_SPLINE_UNROLL_HPP_
 
 namespace Bembel {
 namespace Spl {
@@ -30,4 +30,4 @@ inline Eigen::Matrix<T, -1, 1> Unroll(
 }
 }  // namespace Spl
 }  // namespace Bembel
-#endif  // BEMBEL_SPLINE_HELPER_H_
+#endif  // BEMBEL_SRC_SPLINE_UNROLL_HPP_

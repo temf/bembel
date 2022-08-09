@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_INCLUDE_SUPERSPACE_H_
-#define BEMBEL_INCLUDE_SUPERSPACE_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
 namespace Bembel {
 /**
  *  \ingroup AnsatzSpace
@@ -353,4 +353,4 @@ struct SuperSpace {
   int polynomial_degree_plus_one_squared;
 };  // namespace Bembel
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_

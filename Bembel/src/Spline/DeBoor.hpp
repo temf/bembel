@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_DEBOOR_H_
-#define BEMBEL_SPLINE_DEBOOR_H_
+#ifndef BEMBEL_SRC_SPLINE_DEBOOR_HPP_
+#define BEMBEL_SRC_SPLINE_DEBOOR_HPP_
 
 namespace Bembel {
 namespace Spl {
@@ -163,4 +163,4 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoor(
 }
 }  // namespace Spl
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_DEBOOR_HPP_

@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_KNOTS_H_
-#define BEMBEL_SPLINE_KNOTS_H_
+#ifndef BEMBEL_SRC_SPLINE_KNOTS_HPP_
+#define BEMBEL_SRC_SPLINE_KNOTS_HPP_
 
 namespace Bembel {
 namespace Spl {
@@ -82,4 +82,4 @@ inline int FindLocationInKnotVector(const double &x,
 }
 }  // namespace Spl
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_KNOTS_HPP_
