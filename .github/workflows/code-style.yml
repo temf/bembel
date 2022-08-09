@@ -19,4 +19,4 @@ jobs:
           pip install cpplint
       - name: "Check Code Format"
         run: |
-          cd Bembel && cpplint --quiet --extensions=hpp,cpp --root=.. --recursive ./src ../examples ../tests
+          ./scripts/cpplint.sh
