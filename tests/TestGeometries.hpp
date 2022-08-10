@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_TEST_TESTGEOMETRIES_H_
-#define BEMBEL_TEST_TESTGEOMETRIES_H_
+#ifndef TESTS_TESTGEOMETRIES_HPP_
+#define TESTS_TESTGEOMETRIES_HPP_
 
 #include "Test.hpp"
 
@@ -503,4 +503,4 @@ struct TestGeometryWriter {
 };
 
 }  // namespace Test
-#endif
+#endif  // TESTS_TESTGEOMETRIES_HPP_

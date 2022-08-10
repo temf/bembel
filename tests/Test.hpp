@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_TEST_TEST_H_
-#define BEMBEL_TEST_TEST_H_
+#ifndef TESTS_TEST_HPP_
+#define TESTS_TEST_HPP_
 
 #include <array>
 #include <fstream>
@@ -48,4 +48,4 @@ constexpr double integrate4_tolerance = 1e-4;
 }  // namespace Constants
 }  // namespace Test
 
-#endif
+#endif  // TESTS_TEST_HPP_

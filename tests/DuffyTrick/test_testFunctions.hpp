@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_TEST_DUFFYTRICK_TESTFUNCTIONS_H_
-#define BEMBEL_TEST_DUFFYTRICK_TESTFUNCTIONS_H_
+#ifndef TESTS_DUFFYTRICK_TEST_TESTFUNCTIONS_HPP_
+#define TESTS_DUFFYTRICK_TEST_TESTFUNCTIONS_HPP_
 
 namespace Test {
 namespace DuffyTrick {

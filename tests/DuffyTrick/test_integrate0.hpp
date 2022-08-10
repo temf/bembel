@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_TEST_DUFFYTRICK_INTEGRATE0_H_
-#define BEMBEL_TEST_DUFFYTRICK_INTEGRATE0_H_
+#ifndef TESTS_DUFFYTRICK_TEST_INTEGRATE0_HPP_
+#define TESTS_DUFFYTRICK_TEST_INTEGRATE0_HPP_
 
 namespace Test {
 namespace DuffyTrick {
@@ -51,4 +51,4 @@ bool test_integrate0(const Bembel::AnsatzSpace<Derived> &ansatz_space,
 }
 }  // namespace DuffyTrick
 }  // namespace Test
-#endif
+#endif  // TESTS_DUFFYTRICK_TEST_INTEGRATE0_HPP_
