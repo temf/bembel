@@ -64,7 +64,7 @@ void integrate2(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
   BEMBEL_UNUSED_(ffield_qnodes);
   return;
 }
-}  // namespace Duffy
+}  // namespace DuffyTrick
 }  // namespace Bembel
 
 #endif  // BEMBEL_SRC_DUFFYTRICK_INTEGRATE2_HPP_

@@ -86,6 +86,6 @@ class Logger {
   }
   ~Logger() { _file.close(); }
 };
-}  // namespace Util
+}  // namespace IO
 }  // namespace Bembel
 #endif  // BEMBEL_SRC_IO_LOGGER_HPP_
