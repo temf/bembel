@@ -53,10 +53,10 @@ class ElementTreeNode {
 
     friend bool operator==(const const_iterator &a, const const_iterator &b) {
       return a.m_ptr == b.m_ptr;
-    };
+    }
     friend bool operator!=(const const_iterator &a, const const_iterator &b) {
       return a.m_ptr != b.m_ptr;
-    };
+    }
 
    private:
     pointer m_ptr;

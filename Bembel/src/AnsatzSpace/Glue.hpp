@@ -238,7 +238,7 @@ inline bool reverseParametrized(const std::array<int, 4> &edge) {
            edgeIsBackwardsParametrized(edge[3])))
              ? true
              : false;
-};
+}
 
 inline int glueCoefficientDivergenceConforming(const std::array<int, 4> &edge) {
   return ((normalComponentIsInwardDirected(edge[2]) &&

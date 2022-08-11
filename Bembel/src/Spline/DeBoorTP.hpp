@@ -46,12 +46,12 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoorDer(
   for (int ll = 0; ll < dimension; ll++) {
     assert(control_points[0].cols() == control_points[ll].cols() &&
            control_points[0].rows() == control_points[ll].rows());
-  };
+  }
   const int polynomial_degree = knot.size() - control_points_cols - 1;
   std::vector<Eigen::Matrix<T, -1, -1>> temp(dimension);
   for (int ll = 0; ll < dimension; ll++) {
     temp[ll].resize(control_points[ll].rows(), control_points_cols - 1);
-  };
+  }
 
   for (int i = control_points_cols - 1; 0 <= --i;) {
     double factor =
@@ -75,12 +75,12 @@ std::vector<Eigen::Matrix<T, -1, -1>> deBoorDerGiveData(
   for (int ll = 0; ll < dimension; ll++) {
     assert(control_points[0].cols() == control_points[ll].cols() &&
            control_points[0].rows() == control_points[ll].rows());
-  };
+  }
   const int polynomial_degree = knot.size() - control_points_cols - 1;
   std::vector<Eigen::Matrix<T, -1, -1>> temp(dimension);
   for (int ll = 0; ll < dimension; ll++) {
     temp[ll].resize(control_points[ll].rows(), control_points_cols - 1);
-  };
+  }
 
   for (int i = control_points_cols - 1; 0 <= --i;) {
     double factor =

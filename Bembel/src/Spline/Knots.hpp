@@ -35,7 +35,7 @@ inline int GetPolynomialDegreeFromKnotVector(
   while (++i < sz) {
     if (knot_vector[i] > tol) {
       return i;
-    };
+    }
   }
   return 0;
 }

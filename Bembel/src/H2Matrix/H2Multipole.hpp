@@ -46,7 +46,7 @@ Eigen::MatrixXd computeLagrangePolynomials(int number_of_points) {
       for (auto k = number_of_points - 1; k >= j; --k)
         retval(k, i) = (retval(k, i) - retval(k - 1, i)) / (x(k) - x(k - j));
   return retval;
-};
+}
 /**
  *  \ingroup H2Matrix
  *  \brief evaluates a given polynomial in the Newton basis wrt the

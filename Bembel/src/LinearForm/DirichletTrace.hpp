@@ -63,7 +63,7 @@ class DirichletTrace : public LinearFormBase<DirichletTrace<Scalar>, Scalar> {
     super_space.addScaledBasis(intval, integrand, s);
 
     return;
-  };
+  }
 
  private:
   std::function<Scalar(Eigen::Vector3d)> function_;

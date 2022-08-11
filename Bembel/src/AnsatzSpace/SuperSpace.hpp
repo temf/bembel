@@ -22,7 +22,7 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
-  SuperSpace(){};
+  SuperSpace(){}
   SuperSpace(Geometry& geom, int M, int P) { init_SuperSpace(geom, M, P); }
   SuperSpace(const SuperSpace& other) {
     mesh_ = other.mesh_;
@@ -51,7 +51,7 @@ struct SuperSpace {
     polynomial_degree = other.polynomial_degree;
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
-  };
+  }
   SuperSpace& operator=(SuperSpace other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -78,7 +78,7 @@ struct SuperSpace {
   int get_number_of_elements() const { return mesh_->get_number_of_elements(); }
   int get_number_of_patches() const { return mesh_->get_geometry().size(); }
   const PatchVector& get_geometry() const { return mesh_->get_geometry(); }
-  const ClusterTree& get_mesh() const { return *mesh_; };
+  const ClusterTree& get_mesh() const { return *mesh_; }
   //////////////////////////////////////////////////////////////////////////////
   //    init_SuperSpace
   //////////////////////////////////////////////////////////////////////////////
@@ -100,7 +100,7 @@ struct SuperSpace {
     mesh_->init_ClusterTree(geom, M);
     mesh_->checkOrientation();
     return;
-  };
+  }
   //////////////////////////////////////////////////////////////////////////////
   //    map2surface
   //////////////////////////////////////////////////////////////////////////////

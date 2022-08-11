@@ -60,7 +60,7 @@ class Geometry {
     return geometry_;
   }
   std::shared_ptr<PatchVector> get_geometry_ptr() { return geometry_; }
-  int get_number_of_patches() const { return geometry_->size(); };
+  int get_number_of_patches() const { return geometry_->size(); }
   //////////////////////////////////////////////////////////////////////////////
   //    private member variables
   //////////////////////////////////////////////////////////////////////////////

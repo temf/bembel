@@ -82,7 +82,7 @@ class RotatedTangentialTrace
     // compute integrals
     (*intval) += phiPhiMat;
     return;
-  };
+  }
 
  private:
   std::function<Eigen::Matrix<Scalar, 3, 1>(Eigen::Vector3d)> function_;

@@ -35,7 +35,7 @@ class Stopwatch {
   inline Stopwatch() {
     has_been_started_ = false;
     has_lapped_ = false;
-  };
+  }
 
   void tic(void) { p_ = std::chrono::high_resolution_clock::now(); }
   double toc(void) {

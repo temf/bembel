@@ -31,7 +31,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Continuous, LinOp> {
            &coeff) const {
     auto s = p.segment<2>(0);
     return coeff.transpose() * super_space.basis(s) / element.get_h();
-  };
+  }
 };
 
 // div-conforming
@@ -57,7 +57,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::DivConforming, LinOp> {
     return (x_f_dx * tangential_coefficients(0) +
             x_f_dy * tangential_coefficients(1)) /
            h;
-  };
+  }
 
   Scalar evalDiv(
       const SuperSpace<LinOp> &super_space,
@@ -77,7 +77,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::DivConforming, LinOp> {
         phiPhiVec_dy = super_space.basisDy(s);
     return (phiPhiVec_dx.dot(coeff.col(0)) + phiPhiVec_dy.dot(coeff.col(1))) /
            h / h;
-  };
+  }
 };
 
 // discontinuous
@@ -95,7 +95,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Discontinuous, LinOp> {
            &coeff) const {
     auto s = p.segment<2>(0);
     return coeff.transpose() * super_space.basis(s) / element.get_h();
-  };
+  }
 };
 }  // namespace Bembel
 #endif  // BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_
