@@ -290,8 +290,9 @@ class BlockClusterTree {
       for (auto j = 0; j < child.sons_.cols(); ++j)
         for (auto i = 0; i < child.sons_.rows(); ++i)
           updateLeafPointers_recursion(child.sons_(i, j));
-    } else
+    } else {
       leaf_pointers_->push_back(std::addressof(child));
+    }
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
