@@ -20,7 +20,7 @@ namespace Bembel {
  **/
 template <typename Derived>
 struct LinearOperatorTraits {
-  // YOU_DID_NOT_SPECIFY_LINEAROPERATOR_TRAITS 
+  // YOU_DID_NOT_SPECIFY_LINEAROPERATOR_TRAITS
   // typedef Eigen::VectorXd EigenType;
   // typedef Eigen::VectorXd::Scalar Scalar;
   // enum { OperatorOrder = 0, Form = DifferentialForm::Discontinuous };

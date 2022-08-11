@@ -22,7 +22,7 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
-  SuperSpace(){}
+  SuperSpace() {}
   SuperSpace(Geometry& geom, int M, int P) { init_SuperSpace(geom, M, P); }
   SuperSpace(const SuperSpace& other) {
     mesh_ = other.mesh_;

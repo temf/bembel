@@ -30,7 +30,7 @@ struct LinearFormTraits {
 template <typename Derived, typename Scalar>
 struct LinearFormBase {
   // Constructors
-  LinearFormBase(){}
+  LinearFormBase() {}
 
   // the user has to provide the implementation of this function, which
   // tells

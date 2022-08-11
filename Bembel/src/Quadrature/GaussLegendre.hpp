@@ -12,7 +12,7 @@
 #ifndef BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRE_HPP_
 #define BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRE_HPP_
 
-namespace Bembel{
+namespace Bembel {
 
 
 template <unsigned int Order>

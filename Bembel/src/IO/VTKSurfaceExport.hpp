@@ -25,14 +25,14 @@ class VTKSurfaceExport {
   * deliberately not a mesh, since the visualization will often be on a finer
   * mesh then that of a computation.
   **/
-  VTKSurfaceExport(const Geometry& geo, int M) { init_VTKSurfaceExport(geo, M); }
+  VTKSurfaceExport(const Geometry& geo, int M) {init_VTKSurfaceExport(geo, M);}
   inline void init_VTKSurfaceExport(const Geometry& geo, int M) {
     msh.init_ClusterTree(geo, M);
     points = msh.get_element_tree().generatePointList().transpose();
     cells = msh.get_element_tree().generateElementList().transpose();
     normals = Eigen::MatrixXd(cells.rows(), 3);
     patch_number = Eigen::VectorXi(cells.rows());
-    
+
     for (auto e = msh.get_element_tree().cpbegin();
          e != msh.get_element_tree().cpend(); ++e) {
       normals.row(e->id_) = msh.get_geometry()[e->patch_]

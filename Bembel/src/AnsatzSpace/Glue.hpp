@@ -209,7 +209,7 @@ std::vector<int> getEdgeDofIndices(int edgeCase, int dimXdir, int dimYdir,
       }
       return out;
     };
-    default:;
+    default:{};
       // An edge might have a -1 index. This occurs only when no partner could
       // be found, and the -1 is the placeholder of the missing partner.
   }

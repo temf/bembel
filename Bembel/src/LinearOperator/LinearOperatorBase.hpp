@@ -20,7 +20,7 @@ namespace Bembel {
 template <typename Derived>
 struct LinearOperatorBase {
   // Constructors
-  LinearOperatorBase(){}
+  LinearOperatorBase() {}
   // the user has to provide the implementation of this function, which
   // is able to evaluate the integrand of the Galerkin formulation in a
   // pair of quadrature points represented as a

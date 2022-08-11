@@ -57,7 +57,7 @@ struct PotentialReturnScalar<std::complex<double>, std::complex<double>> {
 template <typename Derived, typename LinOp>
 struct PotentialBase {
   // Constructors
-  PotentialBase(){}
+  PotentialBase() {}
 
   // the user has to provide the implementation of this function, which
   // tells

@@ -27,7 +27,7 @@ struct DiscreteOperatorComputer {};
 template <typename Derived, typename Scalar>
 struct DiscreteOperatorComputer<
     Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>, Derived> {
-  DiscreteOperatorComputer(){}
+  DiscreteOperatorComputer() {}
   static void compute(
       Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
@@ -91,7 +91,7 @@ struct DiscreteOperatorComputer<
 template <typename Derived>
 struct DiscreteOperatorComputer<
     Eigen::H2Matrix<typename LinearOperatorTraits<Derived>::Scalar>, Derived> {
-  DiscreteOperatorComputer(){}
+  DiscreteOperatorComputer() {}
   static void compute(
       Eigen::H2Matrix<typename LinearOperatorTraits<Derived>::Scalar> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {

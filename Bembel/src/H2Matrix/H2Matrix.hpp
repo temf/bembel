@@ -107,7 +107,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
       for (int i = 0; i < vector_dimension; ++i)
         for (int j = 0; j < vector_dimension; ++j)
           block_cluster_tree_(i, j) =
-              bt;  //.init_BlockClusterTree(linOp, ansatz_space);
+              bt;  // .init_BlockClusterTree(linOp, ansatz_space);
     }
     auto parameters = block_cluster_tree_(0, 0).get_parameters();
     // compute transfer and moment matrices for fmm
