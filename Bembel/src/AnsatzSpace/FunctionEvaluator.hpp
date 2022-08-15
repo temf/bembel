@@ -33,7 +33,7 @@ class FunctionEvaluator {
         other.polynomial_degree_plus_one_squared_;
     return *this;
   }
-  FunctionEvaluator(const AnsatzSpace<Derived> &ansatz_space) {
+  explicit FunctionEvaluator(const AnsatzSpace<Derived> &ansatz_space) {
     init_FunctionEvaluator(ansatz_space);
     return;
   }

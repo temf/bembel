@@ -19,7 +19,7 @@ namespace H2Multipole {
  */
 struct ChebychevRoots {
   ChebychevRoots() {}
-  ChebychevRoots(int number_of_points) {
+  explicit ChebychevRoots(int number_of_points) {
     init_ChebyshevRoots(number_of_points);
   }
   void init_ChebyshevRoots(int n_pts) {

@@ -110,7 +110,7 @@ class DiscreteOperator {
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
   DiscreteOperator() {}
-  DiscreteOperator(const AnsatzSpace<Derived> &ansatz_space) {
+  explicit DiscreteOperator(const AnsatzSpace<Derived> &ansatz_space) {
     init_DiscreteOperator(ansatz_space);
   }
   //////////////////////////////////////////////////////////////////////////////

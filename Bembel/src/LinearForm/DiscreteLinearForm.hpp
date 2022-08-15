@@ -24,7 +24,7 @@ class DiscreteLinearForm {
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
   DiscreteLinearForm() {}
-  DiscreteLinearForm(const AnsatzSpace<LinOp> &ansatz_space) {
+  explicit DiscreteLinearForm(const AnsatzSpace<LinOp> &ansatz_space) {
     init_DiscreteLinearForm(ansatz_space);
   }
   //////////////////////////////////////////////////////////////////////////////

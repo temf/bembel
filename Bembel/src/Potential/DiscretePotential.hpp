@@ -24,7 +24,7 @@ class DiscretePotential {
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
   DiscretePotential() {}
-  DiscretePotential(const AnsatzSpace<LinOp> &ansatz_space) {
+  explicit DiscretePotential(const AnsatzSpace<LinOp> &ansatz_space) {
     init_DiscretePotential(ansatz_space);
   }
   //////////////////////////////////////////////////////////////////////////////

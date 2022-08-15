@@ -56,7 +56,7 @@ class TreeLeaf {
    *        whatever Eigen object is put in here will be evaluated
    **/
   template <typename otherDerived>
-  TreeLeaf(const Eigen::MatrixBase<otherDerived> &F)
+  explicit TreeLeaf(const Eigen::MatrixBase<otherDerived> &F)
       : F_(F), L_(Derived(0, 0)), R_(Derived(0, 0)), is_low_rank_(false) {}
   /**
    * \brief lowRank move constructor
@@ -66,7 +66,7 @@ class TreeLeaf {
   /**
    * \brief full move constructor
    **/
-  TreeLeaf(Derived &&F)
+  explicit TreeLeaf(Derived &&F)
       : F_(F), L_(Derived(0, 0)), R_(Derived(0, 0)), is_low_rank_(false) {}
   //////////////////////////////////////////////////////////////////////////////
   //    getter

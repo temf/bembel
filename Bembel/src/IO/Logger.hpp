@@ -34,7 +34,7 @@ class Logger {
 
  public:
   Logger() {}
-  Logger(std::string name) { name_ = name; }
+  explicit Logger(std::string name) { name_ = name; }
   Logger(std::string name, std::string sep) {
     name_ = name;
     _sep = sep;
@@ -48,7 +48,7 @@ class Logger {
     name_ = name;
     _mode = mode;
   }
-  Logger(std::ios_base::openmode mode) { _mode = mode; }
+  explicit Logger(std::ios_base::openmode mode) { _mode = mode; }
   template <typename T, typename... Args>
   void term(T t, Args... arg) {
     std::cout << std::setprecision(N - 4) << std::setw(N + _sep.size())

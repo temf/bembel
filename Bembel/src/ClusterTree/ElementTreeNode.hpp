@@ -33,7 +33,7 @@ class ElementTreeNode {
     using pointer = value_type *;
     using reference = value_type &;
 
-    const_iterator(pointer ptr) : m_ptr(ptr) {}
+    explicit const_iterator(pointer ptr) : m_ptr(ptr) {}
 
     reference operator*() const { return *m_ptr; }
     const pointer operator->() const { return m_ptr; }

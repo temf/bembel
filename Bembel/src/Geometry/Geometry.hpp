@@ -23,7 +23,7 @@ class Geometry {
   //    Constructors
   //////////////////////////////////////////////////////////////////////////////
   Geometry() {}
-  Geometry(const std::string &filename) { init_Geometry(filename); }
+  explicit Geometry(const std::string &filename) { init_Geometry(filename); }
   Geometry(Geometry &&other) { geometry_ = std::move(other.geometry_); }
   // though we are using a shared pointer, we are creating an actual
   // copy here. might be useful if we want to modify the geometry object
@@ -31,7 +31,7 @@ class Geometry {
     geometry_ = std::make_shared<PatchVector>();
     *geometry_ = *(other.geometry_);
   }
-  Geometry(const PatchVector &in) {
+  explicit Geometry(const PatchVector &in) {
     geometry_ = std::make_shared<PatchVector>();
     *geometry_ = in;
   }

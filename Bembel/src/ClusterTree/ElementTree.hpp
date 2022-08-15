@@ -31,7 +31,7 @@ class ElementTree {
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
   ElementTree() {}
-  ElementTree(const Geometry &g, unsigned int max_level = 0) {
+  explicit ElementTree(const Geometry &g, unsigned int max_level = 0) {
     init_ElementTree(g, max_level);
   }
   //////////////////////////////////////////////////////////////////////////////
