@@ -18,14 +18,16 @@ namespace Bembel {
 class VTKSurfaceExport {
  public:
   /**
-  * \ingroup IO
-  * \brief Provides export routines to the VTK file format.
-  *
-  * The constructor wants a geometetry and a refinement level. This choice is
-  * deliberately not a mesh, since the visualization will often be on a finer
-  * mesh then that of a computation.
-  **/
-  VTKSurfaceExport(const Geometry& geo, int M) {init_VTKSurfaceExport(geo, M);}
+   * \ingroup IO
+   * \brief Provides export routines to the VTK file format.
+   *
+   * The constructor wants a geometetry and a refinement level. This choice is
+   * deliberately not a mesh, since the visualization will often be on a finer
+   * mesh then that of a computation.
+   **/
+  VTKSurfaceExport(const Geometry& geo, int M) {
+    init_VTKSurfaceExport(geo, M);
+  }
   inline void init_VTKSurfaceExport(const Geometry& geo, int M) {
     msh.init_ClusterTree(geo, M);
     points = msh.get_element_tree().generatePointList().transpose();
@@ -53,8 +55,9 @@ class VTKSurfaceExport {
   // std::function<Eigen::Vector3d(int, Eigen::Vector2d)>
   // std::function<double(Eigen::Vector3d)>
   // std::function<Eigen::Vector3d(Eigen::Vector3d)>
-  inline void addDataSet(const std::string& name,
-                         std::function<double(int, const Eigen::Vector2d&)> fun) {
+  inline void addDataSet(
+      const std::string& name,
+      std::function<double(int, const Eigen::Vector2d&)> fun) {
     Eigen::MatrixXd data(cells.rows(), 1);
     for (auto e = msh.get_element_tree().cpbegin();
          e != msh.get_element_tree().cpend(); ++e) {
@@ -75,8 +78,9 @@ class VTKSurfaceExport {
     addDataSet_(name, data);
     return;
   }
-  inline void addDataSet(const std::string& name,
-                         std::function<Eigen::Vector3d(const Eigen::Vector3d&)> fun) {
+  inline void addDataSet(
+      const std::string& name,
+      std::function<Eigen::Vector3d(const Eigen::Vector3d&)> fun) {
     Eigen::MatrixXd data(cells.rows(), 3);
     for (auto e = msh.get_element_tree().cpbegin();
          e != msh.get_element_tree().cpend(); ++e) {

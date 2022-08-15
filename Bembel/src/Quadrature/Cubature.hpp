@@ -16,5 +16,5 @@ namespace Bembel {
 // A typedef for convenience
 typedef Quadrature<2> Cubature;
 
-}
+}  // namespace Bembel
 #endif  // BEMBEL_SRC_QUADRATURE_CUBATURE_HPP_

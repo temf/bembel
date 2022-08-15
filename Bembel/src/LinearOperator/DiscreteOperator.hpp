@@ -32,8 +32,8 @@ struct DiscreteOperatorComputer<
       Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
     GaussSquare<Constants::maximum_quadrature_degree> GS;
-    const SuperSpace<Derived>& super_space = ansatz_space.get_superspace();
-    const ElementTree& element_tree = super_space.get_mesh().get_element_tree();
+    const SuperSpace<Derived> &super_space = ansatz_space.get_superspace();
+    const ElementTree &element_tree = super_space.get_mesh().get_element_tree();
     auto number_of_elements = element_tree.get_number_of_elements();
     const auto vector_dimension =
         getFunctionSpaceVectorDimension<LinearOperatorTraits<Derived>::Form>();

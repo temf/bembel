@@ -64,10 +64,9 @@ class MaxwellSingleLayerPotential
     // integrand without basis functions, note that the surface measure
     // disappears for the divergence
     // auto integrand = kernel * scalar_part * ws;
-    auto integrand =
-        (kernel * scalar_part +
-         1. / wavenumber2_ * kernel_gradient * divergence_part) *
-        ws;
+    auto integrand = (kernel * scalar_part +
+                      1. / wavenumber2_ * kernel_gradient * divergence_part) *
+                     ws;
 
     return integrand;
   }

@@ -19,7 +19,11 @@ template <>
 struct LinearOperatorTraits<DummyOperator> {
   typedef Eigen::VectorXd EigenType;
   typedef Eigen::VectorXd::Scalar Scalar;
-  enum { OperatorOrder = 0, Form = DifferentialForm::Discontinuous, NumberOfFMMComponents = 1 };
+  enum {
+    OperatorOrder = 0,
+    Form = DifferentialForm::Discontinuous,
+    NumberOfFMMComponents = 1
+  };
 };
 
 // forward declaration of class DummyOperator in order to define traits

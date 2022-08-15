@@ -209,7 +209,8 @@ std::vector<int> getEdgeDofIndices(int edgeCase, int dimXdir, int dimYdir,
       }
       return out;
     };
-    default:{};
+    default: {
+    };
       // An edge might have a -1 index. This occurs only when no partner could
       // be found, and the -1 is the placeholder of the missing partner.
   }
@@ -327,7 +328,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
               already_stored_in[large_dof] = already_stored_in[small_dof];
             } else {
               if (!(already_stored_in[small_dof] ==
-                      already_stored_in[large_dof])) {
+                    already_stored_in[large_dof])) {
                 // This case is tricky. Assume that we have to identify four
                 // DOFs with each other, but they have already been assigned in
                 // pairs of two. Then we need to reverse this process. First, we
@@ -359,7 +360,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
               already_stored_in[small_dof] = already_stored_in[large_dof];
             } else {
               if (!(already_stored_in[small_dof] ==
-                      already_stored_in[large_dof])) {
+                    already_stored_in[large_dof])) {
                 // This case is tricky. Assume that we have to identify four
                 // DOFs with each other, but they have already been assigned in
                 // pairs of two. Then we need to reverse this process. First, we

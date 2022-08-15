@@ -72,7 +72,8 @@ class HelmholtzSingleLayerOperator
 
     // multiply basis functions with integrand and add to intval, this is an
     // efficient implementation of
-    // (*intval) += super_space.BasisInteraction(s, t) * evaluateKernel(x_f, y_f)
+    // (*intval) += super_space.BasisInteraction(s, t) * evaluateKernel(x_f,
+    // y_f)
     // * x_kappa * y_kappa * ws * wt;
     super_space.addScaledBasisInteraction(intval, integrand, s, t);
 

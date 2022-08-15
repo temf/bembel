@@ -14,10 +14,8 @@
 
 namespace Bembel {
 
-
 template <unsigned int Order>
 using GaussLegendre = QuadratureVector<GaussLegendreRule, Order>;
-
 
 }
 #endif  // BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRE_HPP_

@@ -15,7 +15,7 @@ namespace Bembel {
 namespace Spl {
 /**
  *  \ingroup Spline
- *  \brief A "by the book" implementation of the derivatives and TP-algos based 
+ *  \brief A "by the book" implementation of the derivatives and TP-algos based
  *         on the DeBoor Recursion.
  **/
 template <typename T>

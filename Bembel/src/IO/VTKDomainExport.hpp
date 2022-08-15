@@ -17,10 +17,10 @@ namespace Bembel {
 // This class provides the possibilty to generate a vtk-visualization.
 class VTKDomainExport {
  public:
-    /**
-  * \ingroup IO
-  * \brief Provides export routines to the VTK file format.
-  **/
+  /**
+   * \ingroup IO
+   * \brief Provides export routines to the VTK file format.
+   **/
   VTKDomainExport(const Eigen::VectorXd &x_vec, const Eigen::VectorXd &y_vec,
                   const Eigen::VectorXd &z_vec) {
     init_VTKDomainExport(x_vec, y_vec, z_vec);

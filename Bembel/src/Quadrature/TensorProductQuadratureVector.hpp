@@ -14,7 +14,6 @@
 
 namespace Bembel {
 
-
 /**
  *  \ingroup Quadrature
  *  \todo add a desciption
@@ -32,7 +31,8 @@ struct TensorProductQuadratureVector {
     }
   }
   Cubature Q_;
-  TensorProductQuadratureVector<QuadratureRule, Order - 1> remainingQuadratures_;
+  TensorProductQuadratureVector<QuadratureRule, Order - 1>
+      remainingQuadratures_;
   const Cubature &operator[](unsigned int i) const {
     return (i == Order) ? Q_ : remainingQuadratures_[i];
   }

@@ -11,7 +11,6 @@
 #ifndef BEMBEL_SRC_IO_LOGGER_HPP_
 #define BEMBEL_SRC_IO_LOGGER_HPP_
 
-
 namespace Bembel {
 namespace IO {
 

@@ -111,7 +111,7 @@ inline void GetCoefficients(const int incr, const std::vector<double> &mask,
 
 /**
  *  \ingroup Spline
- *  \brief this solves a generic interpolation problem. 
+ *  \brief this solves a generic interpolation problem.
  **/
 template <typename T>
 inline std::vector<T> GetCoefficients(const int increments,
