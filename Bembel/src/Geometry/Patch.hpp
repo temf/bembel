@@ -222,6 +222,8 @@ class Patch {
     const double scaledy = Spl::Rescale(ref_pt(1), unique_knots_y_[y_location],
                                         unique_knots_y_[y_location + 1]);
 
+    // TODO(Felix) Do not use variable-length arrays in accordance to Google
+    // Style guide
     double *buffer =
         new double[2 * (polynomial_degree_x_ + polynomial_degree_y_) + 12];
     for (int i = 0; i < 12; ++i) buffer[i] = 0;

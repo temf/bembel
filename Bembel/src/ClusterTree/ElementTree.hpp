@@ -344,7 +344,7 @@ class ElementTree {
   // The ordering of elements in the element tree does not correspond to the
   // element order underlying the coefficient vector. This reordering can be
   // computed for look ups by this function.
-  // TODO This function assumes that everything is refined uniformly!
+  // TODO(Max) This function assumes that everything is refined uniformly!
   //////////////////////////////////////////////////////////////////////////////
   std::vector<int> computeReorderingVector() const {
     std::vector<int> out(number_of_elements_);
