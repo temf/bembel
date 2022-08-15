@@ -1,0 +1,35 @@
+name: End-2-End Tests
+
+on:
+  pull_request:
+    branches: [ "**" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      target: examples
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download Executables
+      uses: actions/download-artifact@v3
+      with:
+        name: build
+        path: ${{github.workspace}}/build
+    - name: Change Permission
+      shell: bash
+      # Downloaded artifacts loose permissions.
+      # See https://github.com/actions/download-artifact/blob/main/README.md
+      run: chmod +wx build/tests/*.out build/examples/*.out
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      shell: bash
+      # Execute tests defined by the CMake configuration.  
+      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+      run: ctest -C $BUILD_TYPE -E2E --output-on-failure
