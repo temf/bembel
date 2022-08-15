@@ -11,8 +11,6 @@
 #ifndef BEMBEL_SRC_LINEARFORM_ROTATEDTANGENTIALTRACE_HPP_
 #define BEMBEL_SRC_LINEARFORM_ROTATEDTANGENTIALTRACE_HPP_
 
-#include "LinearForm.hpp"
-
 namespace Bembel {
 
 template <typename Scalar>
