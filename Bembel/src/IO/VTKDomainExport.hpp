@@ -48,7 +48,7 @@ class VTKDomainExport {
     for (int z_idx = 0; z_idx < z_vec_.rows(); ++z_idx)
       for (int y_idx = 0; y_idx < y_vec_.rows(); ++y_idx)
         for (int x_idx = 0; x_idx < x_vec_.rows(); ++x_idx) {
-          const unsigned long i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
+          const uint32_t i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
                                   (x_vec_.rows() * y_idx) + x_idx;
           data(i) =
               fun(Eigen::Vector3d(x_vec_(x_idx), y_vec_(y_idx), z_vec_(z_idx)));
@@ -63,7 +63,7 @@ class VTKDomainExport {
     for (int z_idx = 0; z_idx < z_vec_.rows(); ++z_idx)
       for (int y_idx = 0; y_idx < y_vec_.rows(); ++y_idx)
         for (int x_idx = 0; x_idx < x_vec_.rows(); ++x_idx) {
-          const unsigned long i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
+          const uint32_t i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
                                   (x_vec_.rows() * y_idx) + x_idx;
           data.row(i) =
               fun(Eigen::Vector3d(x_vec_(x_idx), y_vec_(y_idx), z_vec_(z_idx)))
