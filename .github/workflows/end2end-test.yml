@@ -26,7 +26,7 @@ jobs:
       shell: bash
       # Downloaded artifacts loose permissions.
       # See https://github.com/actions/download-artifact/blob/main/README.md
-      run: chmod +wx build/tests/*.out build/examples/*.out
+      run: chmod +wx build/tests/* build/examples/*
     - name: Test
       working-directory: ${{github.workspace}}/build
       shell: bash
