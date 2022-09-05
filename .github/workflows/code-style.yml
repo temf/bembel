@@ -3,7 +3,7 @@ name: Check for Google C++ Style Guide
 on: [push]
 
 jobs:
-  build:
+  code-style:
 
     runs-on: ubuntu-latest
 
