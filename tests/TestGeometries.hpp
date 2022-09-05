@@ -12,7 +12,7 @@
 #ifndef TESTS_TESTGEOMETRIES_HPP_
 #define TESTS_TESTGEOMETRIES_HPP_
 
-#include "Test.hpp"
+#include "tests/Test.hpp"
 
 namespace Test {
 

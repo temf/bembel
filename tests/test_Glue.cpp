@@ -9,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#include "Test.hpp"
 #include <Bembel/AnsatzSpace>
+#include "tests/Test.hpp"
 
 class TestOperatorDivC;
 template <>

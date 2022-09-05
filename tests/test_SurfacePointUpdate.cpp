@@ -9,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#include "Test.hpp"
 #include <Bembel/Geometry>
+#include "tests/Test.hpp"
 
 
 int main() {

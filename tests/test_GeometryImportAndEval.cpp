@@ -10,7 +10,7 @@
 // information.
 
 #include <Bembel/Geometry>
-#include "Test.hpp"
+#include "tests/Test.hpp"
 
 int main() {
   using namespace Bembel;

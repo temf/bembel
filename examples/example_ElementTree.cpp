@@ -9,6 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 #include <Bembel/Geometry>
+#include <Bembel/IO>
+#include <Bembel/ClusterTree>
 #include <chrono>
 #include <fstream>
 #include <functional>
@@ -21,10 +23,8 @@
 /////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////
-#include <Bembel/ClusterTree>
-#include <Bembel/src/IO/Stopwatch.hpp>
 
-#include "writeVTK.hpp"
+#include "examples/writeVTK.hpp"
 
 int main() {
   Bembel::Geometry geometry("sphere.dat");

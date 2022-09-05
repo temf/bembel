@@ -10,7 +10,7 @@
 // information.
 
 #include <Bembel/AnsatzSpace>
-#include "Test.hpp"
+#include "tests/Test.hpp"
 
 class TestOperatorDisc;
 class TestOperatorDivC;

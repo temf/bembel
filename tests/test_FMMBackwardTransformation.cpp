@@ -13,8 +13,8 @@
 #include <Bembel/DummyOperator>
 #include <Bembel/Geometry>
 
-#include "Test.hpp"
-#include "TestGeometries.hpp"
+#include "tests/Test.hpp"
+#include "tests/TestGeometries.hpp"
 
 int main() {
   using namespace Bembel;

@@ -9,9 +9,9 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#include "DuffyTrick/test_DuffyTrick"
+#include "tests/DuffyTrick/test_DuffyTrick"
 
-#include "TestGeometries.hpp"
+#include "tests/TestGeometries.hpp"
 
 int main() {
   Test::TestGeometryWriter::writeScreen();

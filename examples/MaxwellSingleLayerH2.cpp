@@ -16,12 +16,12 @@
 #include <Bembel/LinearForm>
 #include <Bembel/Maxwell>
 #include <Eigen/Dense>
-#include <iostream>
 #include <unsupported/Eigen/IterativeSolvers>
+#include <iostream>
 
-#include "Data.hpp"
-#include "Error.hpp"
-#include "Grids.hpp"
+#include "examples/Data.hpp"
+#include "examples/Error.hpp"
+#include "examples/Grids.hpp"
 
 int main() {
   using namespace Bembel;
