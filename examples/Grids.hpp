@@ -8,8 +8,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_GRIDS_
-#define __BEMBEL_GRIDS_
+#ifndef EXAMPLES_GRIDS_HPP_
+#define EXAMPLES_GRIDS_HPP_
 #include <Eigen/Dense>
 #include <tuple>
 #include <vector>
@@ -53,4 +53,4 @@ inline Eigen::Matrix<double, Eigen::Dynamic, 3> makeSphereGrid(
 }
 }  // namespace Util
 }  // namespace Bembel
-#endif
+#endif  // EXAMPLES_GRIDS_HPP_

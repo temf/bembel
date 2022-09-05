@@ -8,8 +8,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_DATA_
-#define __BEMBEL_DATA_
+#ifndef EXAMPLES_DATA_HPP_
+#define EXAMPLES_DATA_HPP_
 
 #include <Eigen/Dense>
 #include <cmath>
@@ -65,4 +65,4 @@ inline Eigen::Vector3cd Dipole(Eigen::Vector3d pt, std::complex<double> kappa,
 
 }  // namespace Data
 }  // namespace Bembel
-#endif
+#endif  // EXAMPLES_DATA_HPP_

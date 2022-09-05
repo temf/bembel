@@ -8,8 +8,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_UTIL_ERROR__
-#define __BEMBEL_UTIL_ERROR__
+#ifndef EXAMPLES_ERROR_HPP_
+#define EXAMPLES_ERROR_HPP_
 
 /**
  * @brief Routines for the evalutation of pointwise errors.
@@ -120,4 +120,4 @@ bool checkRateOfConvergence(const Eigen::VectorXd &errors,
 
 }  // namespace Bembel
 
-#endif
+#endif  // EXAMPLES_ERROR_HPP_

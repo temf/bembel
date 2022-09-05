@@ -9,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef __WRITEMESH2VTK__
-#define __WRITEMESH2VTK__
+#ifndef EXAMPLES_WRITEVTK_HPP_
+#define EXAMPLES_WRITEVTK_HPP_
 
 #include <Eigen/Dense>
 #include <fstream>
@@ -77,4 +77,4 @@ fprintf (f, "\n");
   return;
 }
 }  // namespace Eigen
-#endif
+#endif  // EXAMPLES_WRITEVTK_HPP_

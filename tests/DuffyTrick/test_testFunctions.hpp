@@ -183,4 +183,4 @@ std::function<double(const Eigen::MatrixXd &)>
     };
 }  // namespace DuffyTrick
 }  // namespace Test
-#endif
+#endif  // TESTS_DUFFYTRICK_TEST_TESTFUNCTIONS_HPP_
