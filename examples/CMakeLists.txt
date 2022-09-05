@@ -23,6 +23,7 @@ foreach(file IN LISTS CIFILES)
   add_executable(${file} ${file})
   target_link_libraries(${file} Eigen3::Eigen)
   add_test(${file}Example ${file})
+  set_tests_properties(${file}Example PROPERTIES LABELS "E2E")
 endforeach()
 
 enable_testing()
