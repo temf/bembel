@@ -26,7 +26,7 @@ jobs:
       run: sudo apt-get update
     
     - name: Install Eigen3
-      run: sudo apt-get install --yes  libeigen3-dev
+      run: sudo apt-get install --yes libeigen3-dev
 
     - name: Create Build Environment
       # Some projects don't allow in-source building, so create a separate build directory
@@ -48,9 +48,6 @@ jobs:
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --config $BUILD_TYPE --target ${{ inputs.target }} -j 2
-    - name: Debug
-      shell: bash
-      run: pwd && ls -la
     - name: Upload Executables
       uses: actions/upload-artifact@v3
       with:

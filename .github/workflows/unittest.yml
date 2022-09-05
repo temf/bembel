@@ -22,7 +22,6 @@ jobs:
     - name: Download Executables
       uses: actions/download-artifact@v3
       with:
-        name: build
         path: ${{github.workspace}}/build
     - name: Change Permission
       shell: bash
