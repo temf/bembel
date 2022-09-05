@@ -15,7 +15,6 @@
 #include <Bembel/IO>
 #include <Bembel/Laplace>
 #include <Bembel/LinearForm>
-
 #include <Eigen/Dense>
 #include <Eigen/IterativeLinearSolvers>
 #include <iostream>
@@ -27,7 +26,7 @@
 int main() {
   using namespace Bembel;
   using namespace Eigen;
-  
+
   Bembel::IO::Stopwatch sw;
 
   int polynomial_degree_max = 3;
@@ -105,6 +104,6 @@ int main() {
     std::cout << std::endl;
   }
   std::cout << std::string(60, '=') << std::endl;
-  
+
   return 0;
 }

@@ -59,6 +59,5 @@ int main() {
     BEMBEL_TEST_IF(test4);
   }
 
-
   return 0;
 }

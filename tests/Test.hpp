@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-#include "TestGeometries.hpp"
+#include "tests/TestGeometries.hpp"
 
 #define BEMBEL_TEST_IF(in_bool)                                                \
   {                                                                            \

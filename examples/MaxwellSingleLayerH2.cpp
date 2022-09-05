@@ -28,7 +28,7 @@ int main() {
   using namespace Eigen;
 
   Bembel::IO::Stopwatch sw;
-  
+
   int polynomial_degree_max = 2;
   int refinement_level_max = 3;
   std::complex<double> wavenumber(2., 0.);
@@ -92,7 +92,7 @@ int main() {
       auto pot = disc_pot.evaluate(gridpoints);
 
       // compute reference, print time, and compute error
-      MatrixXcd pot_ref(gridpoints.rows(),3);
+      MatrixXcd pot_ref(gridpoints.rows(), 3);
       for (int i = 0; i < gridpoints.rows(); ++i)
         pot_ref.row(i) = fun(gridpoints.row(i));
       error(refinement_level) = (pot - pot_ref).rowwise().norm().maxCoeff();

@@ -10,13 +10,11 @@
 // information.
 
 #include <Bembel/Geometry>
-#include "tests/Test.hpp"
 
+#include "tests/Test.hpp"
 
 int main() {
   using namespace Bembel;
-  
-
 
   Test::TestGeometryWriter::writeScreen();
 
@@ -40,7 +38,9 @@ int main() {
 
       geometry.get_geometry()[0].updateSurfacePoint(&srf_pt, pt, 3.1415, pt);
 
-      if ((srf_pt - srf_pt_ref).norm() > Test::Constants::test_tolerance_geometry) return 1;
+      if ((srf_pt - srf_pt_ref).norm() >
+          Test::Constants::test_tolerance_geometry)
+        return 1;
     }
   }
   return 0;

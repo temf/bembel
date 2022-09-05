@@ -26,7 +26,7 @@
 int main() {
   using namespace Bembel;
   using namespace Eigen;
-  
+
   Bembel::IO::Stopwatch sw;
 
   int polynomial_degree_max = 2;

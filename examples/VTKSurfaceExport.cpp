@@ -48,7 +48,7 @@ int main() {
   // std::function<double(Eigen::Vector3d)>
   // std::function<Eigen::Vector3d(Eigen::Vector3d)>
   std::function<Eigen::Vector3d(int, const Eigen::Vector2d&)> fun1 =
-      [&](int patch_number, const Eigen::Vector2d &reference_domain_point) {
+      [&](int patch_number, const Eigen::Vector2d& reference_domain_point) {
         return evaluator.evaluateOnPatch(patch_number, reference_domain_point);
       };
 

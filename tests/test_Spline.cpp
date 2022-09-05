@@ -10,8 +10,8 @@
 // information.
 
 #include <Bembel/Spline>
-#include "tests/Test.hpp"
 
+#include "tests/Test.hpp"
 
 int main() {
   using namespace Bembel;
@@ -30,7 +30,8 @@ int main() {
         result2(i) = Spl::DeBoor(coef, Spl::MakeBezierKnotVector(p + 1), v)(0);
         coef(i) = 0;
       }
-      BEMBEL_TEST_IF((result1 - result2).norm() < Test::Constants::coefficient_accuracy);
+      BEMBEL_TEST_IF((result1 - result2).norm() <
+                     Test::Constants::coefficient_accuracy);
     }
   }
 
@@ -49,7 +50,8 @@ int main() {
             Spl::DeBoorDer(coef, Spl::MakeBezierKnotVector(p + 1), v)(0);
         coef(i) = 0;
       }
-      BEMBEL_TEST_IF((result1 - result2).norm() < Test::Constants::coefficient_accuracy);
+      BEMBEL_TEST_IF((result1 - result2).norm() <
+                     Test::Constants::coefficient_accuracy);
     }
   }
 

@@ -66,13 +66,15 @@ void writeMesh2vtk(const std::string &fileName,
   }
   myfile.close();
 #if 0
-/* print z-values of the geometry and solved density for visualization        */
+// print z-values of the geometry and solved density for visualization
+/*
 fprintf (f, "POINT_DATA %d\n", np);
 fprintf (f, "SCALARS Solution FLOAT\n");
 fprintf (f, "LOOKUP_TABLE default\n");
 for (i = 0 ; i < np ; ++i)
    fprintf (f, "%20.16f\n", u[i]);
 fprintf (f, "\n");
+*/
 #endif
   return;
 }

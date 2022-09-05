@@ -10,6 +10,7 @@
 // information.
 
 #include <Bembel/Geometry>
+
 #include "tests/Test.hpp"
 
 int main() {

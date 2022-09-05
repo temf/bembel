@@ -8,9 +8,9 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
+#include <Bembel/ClusterTree>
 #include <Bembel/Geometry>
 #include <Bembel/IO>
-#include <Bembel/ClusterTree>
 #include <chrono>
 #include <fstream>
 #include <functional>

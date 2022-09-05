@@ -23,8 +23,8 @@ int main() {
   // Exceptionally handy is a dataset that describes the distance to the
   // geometry. This is useful for paraview visualizations, s.t. one can use the
   // threashold feature to clip the domain. For this, we can just iterate over
-  // the elements of a ClusterTree. Usually the ClusterTree is hidden in an ansatz space and
-  // can be accest via the get_mesh() method. Try running the
+  // the elements of a ClusterTree. Usually the ClusterTree is hidden in an
+  // ansatz space and can be accest via the get_mesh() method. Try running the
   // example_VTKSurfaceExport and visualise both files on top of each other.
   ClusterTree mesh(geo, 5);
   std::function<double(const Eigen::Vector3d&)> fun1 =

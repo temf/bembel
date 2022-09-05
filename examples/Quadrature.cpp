@@ -86,7 +86,8 @@ int main() {
       for (auto j = 0; j < max_tp_order; ++j) {
         double quadrature_val = 0;
         for (auto i = 0; i < GS[j].xi_.cols(); ++i)
-          quadrature_val += GS[j].w_(i) * std::sin(BEMBEL_PI * GS[j].xi_(0, i)) *
+          quadrature_val += GS[j].w_(i) *
+                            std::sin(BEMBEL_PI * GS[j].xi_(0, i)) *
                             std::sin(BEMBEL_PI * GS[j].xi_(1, i));
         std::cout << "TP quadrature degree " << j + 1 << " error: "
                   << std::abs(quadrature_val - exact_integral) /

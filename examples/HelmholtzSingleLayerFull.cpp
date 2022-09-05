@@ -13,8 +13,8 @@
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
 #include <Bembel/Helmholtz>
-#include <Bembel/LinearForm>
 #include <Bembel/IO>
+#include <Bembel/LinearForm>
 #include <Eigen/Dense>
 #include <iostream>
 
@@ -25,7 +25,7 @@
 int main() {
   using namespace Bembel;
   using namespace Eigen;
-  
+
   Bembel::IO::Stopwatch sw;
 
   int polynomial_degree_max = 3;
