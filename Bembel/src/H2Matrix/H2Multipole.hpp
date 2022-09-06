@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_H2MATRIX_H2MULTIPOLE_H_
-#define BEMBEL_H2MATRIX_H2MULTIPOLE_H_
+#ifndef BEMBEL_SRC_H2MATRIX_H2MULTIPOLE_HPP_
+#define BEMBEL_SRC_H2MATRIX_H2MULTIPOLE_HPP_
 
 namespace Bembel {
 namespace H2Multipole {
@@ -16,7 +19,7 @@ namespace H2Multipole {
  */
 struct ChebychevRoots {
   ChebychevRoots() {}
-  ChebychevRoots(int number_of_points) {
+  explicit ChebychevRoots(int number_of_points) {
     init_ChebyshevRoots(number_of_points);
   }
   void init_ChebyshevRoots(int n_pts) {
@@ -43,7 +46,7 @@ Eigen::MatrixXd computeLagrangePolynomials(int number_of_points) {
       for (auto k = number_of_points - 1; k >= j; --k)
         retval(k, i) = (retval(k, i) - retval(k - 1, i)) / (x(k) - x(k - j));
   return retval;
-};
+}
 /**
  *  \ingroup H2Matrix
  *  \brief evaluates a given polynomial in the Newton basis wrt the
@@ -467,4 +470,4 @@ Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> backwardTransformation(
 
 }  // namespace H2Multipole
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_H2MULTIPOLE_HPP_

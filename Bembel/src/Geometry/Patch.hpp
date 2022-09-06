@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_GEOMETRY_PATCH_H_
-#define BEMBEL_GEOMETRY_PATCH_H_
+#ifndef BEMBEL_SRC_GEOMETRY_PATCH_HPP_
+#define BEMBEL_SRC_GEOMETRY_PATCH_HPP_
 namespace Bembel {
 
 /**
@@ -19,7 +22,7 @@ class Patch {
   //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
-  Patch(){};
+  Patch() {}
   Patch(const std::vector<Eigen::Matrix<double, -1, -1>> &control_points,
         const std::vector<double> &knots_x,
         const std::vector<double> &knots_y) {
@@ -219,6 +222,8 @@ class Patch {
     const double scaledy = Spl::Rescale(ref_pt(1), unique_knots_y_[y_location],
                                         unique_knots_y_[y_location + 1]);
 
+    // TODO(Felix) Do not use variable-length arrays in accordance to Google
+    // Style guide
     double *buffer =
         new double[2 * (polynomial_degree_x_ + polynomial_degree_y_) + 12];
     for (int i = 0; i < 12; ++i) buffer[i] = 0;
@@ -356,4 +361,4 @@ inline std::vector<Patch> PatchShredder(
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_GEOMETRY_PATCH_HPP_

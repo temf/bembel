@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_GEOMETRY_GEOMETRY_H_
-#define BEMBEL_GEOMETRY_GEOMETRY_H_
+#ifndef BEMBEL_SRC_GEOMETRY_GEOMETRY_HPP_
+#define BEMBEL_SRC_GEOMETRY_GEOMETRY_HPP_
 
 namespace Bembel {
 /**
@@ -20,7 +23,7 @@ class Geometry {
   //    Constructors
   //////////////////////////////////////////////////////////////////////////////
   Geometry() {}
-  Geometry(const std::string &filename) { init_Geometry(filename); }
+  explicit Geometry(const std::string &filename) { init_Geometry(filename); }
   Geometry(Geometry &&other) { geometry_ = std::move(other.geometry_); }
   // though we are using a shared pointer, we are creating an actual
   // copy here. might be useful if we want to modify the geometry object
@@ -28,7 +31,7 @@ class Geometry {
     geometry_ = std::make_shared<PatchVector>();
     *geometry_ = *(other.geometry_);
   }
-  Geometry(const PatchVector &in) {
+  explicit Geometry(const PatchVector &in) {
     geometry_ = std::make_shared<PatchVector>();
     *geometry_ = in;
   }
@@ -57,7 +60,7 @@ class Geometry {
     return geometry_;
   }
   std::shared_ptr<PatchVector> get_geometry_ptr() { return geometry_; }
-  int get_number_of_patches() const { return geometry_->size(); };
+  int get_number_of_patches() const { return geometry_->size(); }
   //////////////////////////////////////////////////////////////////////////////
   //    private member variables
   //////////////////////////////////////////////////////////////////////////////
@@ -65,4 +68,4 @@ class Geometry {
   std::shared_ptr<PatchVector> geometry_;
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_GEOMETRY_GEOMETRY_HPP_

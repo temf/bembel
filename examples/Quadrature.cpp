@@ -1,3 +1,14 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
 #include <Bembel/Quadrature>
 #include <iostream>
 
@@ -75,7 +86,8 @@ int main() {
       for (auto j = 0; j < max_tp_order; ++j) {
         double quadrature_val = 0;
         for (auto i = 0; i < GS[j].xi_.cols(); ++i)
-          quadrature_val += GS[j].w_(i) * std::sin(BEMBEL_PI * GS[j].xi_(0, i)) *
+          quadrature_val += GS[j].w_(i) *
+                            std::sin(BEMBEL_PI * GS[j].xi_(0, i)) *
                             std::sin(BEMBEL_PI * GS[j].xi_(1, i));
         std::cout << "TP quadrature degree " << j + 1 << " error: "
                   << std::abs(quadrature_val - exact_integral) /

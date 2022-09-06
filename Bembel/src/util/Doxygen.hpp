@@ -113,10 +113,12 @@
 
 /**
  *  \defgroup Quadrature Quadrature
- *  \brief The Quadrature module provides quadrature routines for the unit interval/square/cube/.... by means of template recursion.
+ *  \brief The Quadrature module provides quadrature routines for the unit
+ *interval/square/cube/.... by means of template recursion.
  **/
 
 /**
  *  \defgroup Spline Spline
- *  \brief The Spline module provides basic routines related to spline function and local polynomials.
+ *  \brief The Spline module provides basic routines related to spline function
+ *and local polynomials.
  **/

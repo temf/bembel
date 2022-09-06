@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_CLUSTERTREE_ELEMENTTREE_H_
-#define BEMBEL_CLUSTERTREE_ELEMENTTREE_H_
+#ifndef BEMBEL_SRC_CLUSTERTREE_ELEMENTTREE_HPP_
+#define BEMBEL_SRC_CLUSTERTREE_ELEMENTTREE_HPP_
 
 namespace Bembel {
 /**
@@ -28,7 +31,7 @@ class ElementTree {
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
   ElementTree() {}
-  ElementTree(const Geometry &g, unsigned int max_level = 0) {
+  explicit ElementTree(const Geometry &g, unsigned int max_level = 0) {
     init_ElementTree(g, max_level);
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -58,13 +61,15 @@ class ElementTree {
         if (i == 0) {
           root.sons_[0].prev_ = nullptr;
           pfirst_ = std::addressof(root.sons_[0]);
-        } else
+        } else {
           root.sons_[i].prev_ = std::addressof(root.sons_[i - 1]);
+        }
         if (i == number_of_patches_ - 1) {
           root.sons_[i].next_ = nullptr;
           plast_ = std::addressof(root.sons_[i]);
-        } else
+        } else {
           root.sons_[i].next_ = std::addressof(root.sons_[i + 1]);
+        }
         // get images of the four corners of the unit square under the
         // diffeomorphism geo[i]
         for (auto j = 0; j < 4; ++j) {
@@ -74,9 +79,9 @@ class ElementTree {
           for (; index < uniquePts.size(); ++index)
             if ((uniquePts[index] - v).norm() < Constants::pt_comp_tolerance)
               break;
-          if (index != uniquePts.size())
+          if (index != uniquePts.size()) {
             root.sons_[i].vertices_[j] = index;
-          else {
+          } else {
             uniquePts.push_back(v);
             root.sons_[i].vertices_[j] = number_of_points_;
             ++number_of_points_;
@@ -91,11 +96,12 @@ class ElementTree {
   }
   //////////////////////////////////////////////////////////////////////////////
   void refineUniformly_recursion(ElementTreeNode &el) {
-    if (el.sons_.size())
+    if (el.sons_.size()) {
       for (auto i = 0; i < el.sons_.size(); ++i)
         refineUniformly_recursion(el.sons_[i]);
-    else
+    } else {
       refineLeaf(el);
+    }
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -259,8 +265,9 @@ class ElementTree {
         if (it->adjcents_[j] == nullptr) {
           retval[i] = -1;
           break;
-        } else if (it->adjcents_[j]->patch_ != it->patch_)
+        } else if (it->adjcents_[j]->patch_ != it->patch_) {
           ++(retval[i]);
+        }
       ++i;
     }
     return retval;
@@ -327,8 +334,9 @@ class ElementTree {
                 break;
             retval.push_back({it->id_, cur_neighbour.id_, j, k});
           }
-        } else
+        } else {
           retval.push_back({it->id_, -1, j, -1});
+        }
       }
     }
     return retval;
@@ -336,7 +344,7 @@ class ElementTree {
   // The ordering of elements in the element tree does not correspond to the
   // element order underlying the coefficient vector. This reordering can be
   // computed for look ups by this function.
-  // TODO This function assumes that everything is refined uniformly!
+  // TODO(Max) This function assumes that everything is refined uniformly!
   //////////////////////////////////////////////////////////////////////////////
   std::vector<int> computeReorderingVector() const {
     std::vector<int> out(number_of_elements_);
@@ -404,8 +412,9 @@ class ElementTree {
             }
           }
           // otherwise add the edge to the list
-        } else
+        } else {
           edges.insert(std::make_pair(e1, elements[i]));
+        }
       }
     return;
   }
@@ -425,8 +434,9 @@ class ElementTree {
             refNeighbours[i] = j;
             break;
           }
-      } else
+      } else {
         refNeighbours[i] = -1;
+      }
     }
     //  determine new points
     for (auto i = 0; i < 4; ++i) {
@@ -443,15 +453,13 @@ class ElementTree {
               std::addressof(ref_cur_neighbour.sons_[refNeighbours[i]]));
           elements.push_back(std::addressof(
               ref_cur_neighbour.sons_[(refNeighbours[i] + 1) % 4]));
-        }
-        // otherwise add the point id to the tree
-        else {
+        } else {
+          // otherwise add the point id to the tree
           ptIds[i] = number_of_points_;
           ++number_of_points_;
         }
-      }
-      // otherwise add the point id to the tree
-      else {
+      } else {
+        // otherwise add the point id to the tree
         ptIds[i] = number_of_points_;
         ++number_of_points_;
       }
@@ -477,8 +485,9 @@ class ElementTree {
         if (std::addressof(cur_el) == pfirst_)
           pfirst_ = std::addressof(cur_el.sons_[i]);
 
-      } else
+      } else {
         cur_el.sons_[i].prev_ = std::addressof(cur_el.sons_[i - 1]);
+      }
       if (i == 3) {
         cur_el.sons_[i].next_ = cur_el.next_;
         if (cur_el.next_ != nullptr)
@@ -486,8 +495,9 @@ class ElementTree {
         cur_el.next_ = nullptr;
         if (std::addressof(cur_el) == plast_)
           plast_ = std::addressof(cur_el.sons_[i]);
-      } else
+      } else {
         cur_el.sons_[i].next_ = std::addressof(cur_el.sons_[i + 1]);
+      }
       //////////////////////////////////////////////////////////////////////////
       cur_el.sons_[i].patch_ = cur_el.patch_;
       cur_el.sons_[i].level_ = cur_el.level_ + 1;
@@ -539,4 +549,4 @@ class ElementTree {
   //////////////////////////////////////////////////////////////////////////////
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_CLUSTERTREE_ELEMENTTREE_HPP_
