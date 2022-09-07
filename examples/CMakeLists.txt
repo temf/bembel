@@ -23,13 +23,13 @@ foreach(file IN LISTS CIFILES)
   add_executable(${file} ${file})
   target_link_libraries(${file} Eigen3::Eigen)
   add_test(${file}Example ${file})
-  set_tests_properties(${file}Example PROPERTIES LABELS "E2E")
+  set_tests_properties(${file}Example PROPERTIES LABELS "E2Etests")
 endforeach()
 
 enable_testing()
 
-add_custom_target(E2E)
-add_dependencies(E2E ${CIFILES})
+add_custom_target(E2Etests)
+add_dependencies(E2Etests ${CIFILES})
 
 ###############################################################################
 # examples not being run from CI
