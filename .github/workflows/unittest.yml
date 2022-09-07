@@ -7,7 +7,7 @@ on:
     branches: [ "**" ]
 
 jobs:
-  build-n-test:
+  unittests:
     uses: ./.github/workflows/build-n-test.yml
     with:
       target: unittests
