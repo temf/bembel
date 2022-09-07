@@ -1,9 +1,12 @@
 <!-- This file is part of Bembel, the higher order C++ boundary element library.
-It was written as part of a cooperation of J. Dölz, H. Harbrecht, S. Kurz, 
-M. Multerer, S. Schöps, and F. Wolf at Technische Universitaet Darmstadt, 
-Universitaet Basel, and Universita della Svizzera italiana, Lugano. This 
-source code is subject to the GNU General Public License version 3 and 
-provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further 
+
+Copyright (C) 2022 see <http://www.bembel.eu>
+
+It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+source code is subject to the GNU General Public License version 3 and
+provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 information. -->
 # Bembel
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -174,6 +177,7 @@ Contributors include (alphabetically):
 *   [J. Dölz](#JD), 
 *   [H. Harbrecht](#HeHa), 
 *   [M. Multerer](#MM), 
+*   [M. Nolte](#MN), 
 *   [F. Wolf](#FW).
 
 ## 10. About the People <a name="people"></a>
@@ -187,23 +191,26 @@ Contributors include (alphabetically):
 [Departement Mathematik und Informatik](https://dmi.unibas.ch/de/home/) 
 at the University of Basel.
 
-* [Stefan Kurz](https://www.temf.tu-darmstadt.de/temf/mitarbeiter/mitarbeiterdetails_57408.en.jsp)
-<a name="SK"></a> currently holds a professorship at the 
-[Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
-at TU Darmstadt and is Vice President for Hybrid Modelling at Robert Bosch GmbH.
+* [Stefan Kurz](https://gepris.dfg.de/gepris/person/1810768)
+<a name="SK"></a> currently holds a professorship at the University of Jyväskylä.
 
 * [Michael Multerer](https://www.ics.usi.ch/index.php/people-detail-page/297-prof-michael-multerer) 
 <a name="MM"></a> currently holds a professorship 
 at the Institute of Computational Science at the Università della Svizzera italiana in Lugano.
 He may also be found [on GitHub](https://github.com/muchip).
 
-* [Sebastian Schöps](https://www.cem.tu-darmstadt.de/cem/group/ref_group_details_27328.en.jsp
+* [Maximilian Nolte](https://www.cem.tu-darmstadt.de/cem/group/nolte.en.jsp) 
+<a name="MN"></a>is currently a PhD student at the 
+[Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) at TU Darmstadt. He may also be found 
+[on GitHub](https://github.com/mx-nlte).
+
+* [Sebastian Schöps](https://www.cem.tu-darmstadt.de/cem/group/schops.en.jsp
 )<a name="SSc"></a> currently holds a professorship at the 
 [Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
 at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
 
-* [Felix Wolf](https://www.cem.tu-darmstadt.de/cem/group/ref_group_details_57665.en.jsp) 
-<a name="FW"></a>is currently a postdoc at the 
+* [Felix Wolf](https://www.cem.tu-darmstadt.de/cem/group/wolf.en.jsp) 
+<a name="FW"></a>is currently a lecturer at the 
 [Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) at TU Darmstadt. He may also be found 
 [on GitHub](https://github.com/flx-wlf).
 
@@ -213,6 +220,7 @@ at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
 Work on Bembel was conducted with the following financial support (alphabetically):
 *  DFG Grant KU1553/4-1,
 *  DFG Grant SCHO1562/3-1,
+*  DFG Grant SCHO1562/7,
 *  The Graduate School of Computational Engineering at TU Darmstadt and the Excellence Initiative of the German Federal and State Governments and the Graduate School of Computational Engineering at TU Darmstadt,
 *  SNSF Grant 137669,
 *  SNSF Grant 156101,
