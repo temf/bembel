@@ -43,6 +43,6 @@ set(NOCIFILES
     )
 
   foreach(file IN LISTS NOCIFILES)
-  add_executable(${file}.out ${file})
-  target_link_libraries(${file}.out Eigen3::Eigen)
+  add_executable(${file} ${file}.cpp)
+  target_link_libraries(${file} Eigen3::Eigen)
 endforeach()
