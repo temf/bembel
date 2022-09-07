@@ -5,7 +5,7 @@ on:
     branches: [ "**" ]
 
 jobs:
-  E2Etests:
+  build:
     uses: ./.github/workflows/build-n-test.yml
     with:
       target: E2Etests
