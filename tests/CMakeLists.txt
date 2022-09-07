@@ -13,10 +13,10 @@ foreach(file IN LISTS UNITTESTS)
   add_executable(${file} ${file}.cpp)
   target_link_libraries(${file} Eigen3::Eigen)
   add_test(${file}Unittest ${file})
-  set_tests_properties(${file}Unittest PROPERTIES LABELS "unit")
+  set_tests_properties(${file}Unittest PROPERTIES LABELS "unittest")
 endforeach()
 
 enable_testing()
 
-add_custom_target(unittests)
-add_dependencies(unittests ${UNITTESTS})
+add_custom_target(unittest)
+add_dependencies(unittest ${UNITTESTS})

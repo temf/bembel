@@ -28,8 +28,8 @@ endforeach()
 
 enable_testing()
 
-add_custom_target(examples)
-add_dependencies(examples ${CIFILES})
+add_custom_target(E2E)
+add_dependencies(E2E ${CIFILES})
 
 ###############################################################################
 # examples not being run from CI
