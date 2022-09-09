@@ -39,34 +39,34 @@ class TangentialTrace : public LinearFormBase<TangentialTrace<Scalar>, Scalar> {
   void evaluateIntegrand_impl(
       const T &super_space, const SurfacePoint &p,
       Eigen::Matrix<Scalar, Eigen::Dynamic, 2> *intval) const {
-    auto polynomial_degree = super_space.get_polynomial_degree();
-    auto polynomial_degree_plus_one_squared =
+    int polynomial_degree = super_space.get_polynomial_degree();
+    int polynomial_degree_plus_one_squared =
         (polynomial_degree + 1) * (polynomial_degree + 1);
 
     // get evaluation points on unit square
-    auto s = p.segment<2>(0);
+    Eigen::Vector2d s = p.segment<2>(0);
 
     // get quadrature weights
-    auto ws = p(2);
+    double ws = p(2);
 
     // get points on geometry and tangential derivatives
-    auto x_f = p.segment<3>(3);
-    auto x_f_dx = p.segment<3>(6);
-    auto x_f_dy = p.segment<3>(9);
+    Eigen::Vector3d x_f = p.segment<3>(3);
+    Eigen::Vector3d x_f_dx = p.segment<3>(6);
+    Eigen::Vector3d x_f_dy = p.segment<3>(9);
 
     // compute surface measures from tangential derivatives
-    auto x_n = x_f_dx.cross(x_f_dy).normalized();
+    Eigen::Vector3d x_n = x_f_dx.cross(x_f_dy).normalized();
 
     // tangential component + quadrature weights
-    auto fun_x_f = function_(x_f);
-    auto tangential_component = fun_x_f.cross(x_n) * ws;
+    Eigen::Vector3cd fun_x_f = function_(x_f);
+    Eigen::Vector3cd tangential_component = fun_x_f.cross(x_n) * ws;
 
     // extract tangential component
-    auto component_x = x_f_dx.dot(tangential_component);
-    auto component_y = x_f_dy.dot(tangential_component);
+    std::complex<double> component_x = x_f_dx.dot(tangential_component);
+    std::complex<double> component_y = x_f_dy.dot(tangential_component);
 
     // evaluate shape functions
-    auto phiPhiVec = super_space.basis(s);
+    Eigen::MatrixXd phiPhiVec = super_space.basis(s);
 
     // multiply basis functions with integrand
     Eigen::Matrix<Scalar, Eigen::Dynamic, 2> phiPhiMat(
