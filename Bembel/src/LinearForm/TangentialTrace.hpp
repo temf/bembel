@@ -66,7 +66,8 @@ class TangentialTrace : public LinearFormBase<TangentialTrace<Scalar>, Scalar> {
     std::complex<double> component_y = x_f_dy.dot(tangential_component);
 
     // evaluate shape functions
-    Eigen::MatrixXd phiPhiVec = super_space.basis(s);
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> phiPhiVec =
+        super_space.basis(s);
 
     // multiply basis functions with integrand
     Eigen::Matrix<Scalar, Eigen::Dynamic, 2> phiPhiMat(
