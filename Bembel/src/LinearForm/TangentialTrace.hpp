@@ -84,4 +84,4 @@ class TangentialTrace : public LinearFormBase<TangentialTrace<Scalar>, Scalar> {
 };
 }  // namespace Bembel
 
-#endif  // BEMBEL_SRC_LINEARFORM_ROTATEDTANGENTIALTRACE_HPP_
+#endif  // BEMBEL_SRC_LINEARFORM_TANGENTIALTRACE_HPP_
