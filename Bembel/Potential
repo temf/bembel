@@ -12,6 +12,15 @@
 #ifndef BEMBEL_POTENTIAL_MODULE_
 #define BEMBEL_POTENTIAL_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup Potential Potential
+ *  \brief The Potential module introduces means to evaluate the solution to a
+ *PDE via a suitable integral operator taking the unknown of the linear system
+ *as input. It relies on a suitable specialization corresponding of the
+ *LinearOperatorBase class.
+ **/
+
 #include "src/Potential/Potential.hpp"
 #include "src/Potential/DiscretePotential.hpp"
 

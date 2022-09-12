@@ -12,6 +12,24 @@
 #ifndef BEMBEL_LINEAROPERATOR_MODULE_
 #define BEMBEL_LINEAROPERATOR_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup LinearOperator LinearOperator
+ *  \brief Specializations of the LinearOperatorBase class govern the behaviour
+ *of most other modules.
+ *
+ * To provide a valid specialization, methods for kernel
+ *evaluation and evaluation of the integrand, i.e., including the test
+ *functions, must be provided. Moreover, the corresponding specialization of
+ *LinearOperatorTraits must be provided, allowing other classes to determine
+ *crucial properties such as the numerical type of the problem (in general
+ *double or std::complex<double> ) and the type of discretization, i.e., either
+ *DifferentialForm::Continuous , corresponding to a discrete subspace of H1/2 ,
+ *DifferentialForm::DivConforming , corresponding to a discrete subspace of
+ *H-1/2x(div), or DifferentialForm::Discontinuous , corresponding to a discrete
+ *subspace of H-1/2).
+ **/
+
 #include "AnsatzSpace"
 #include "DuffyTrick"
 #include "H2Matrix"
