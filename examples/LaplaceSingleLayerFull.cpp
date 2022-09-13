@@ -30,7 +30,7 @@
  *  Consider the following Dirichlet problem.
  *  Let \f$\Omega\f$ be a compact domain with boundary \f$\Gamma\f$.
  *  Given a function \f$g\f$ on \f$\Gamma\f$, find a function \f$u\f$ on
- *\f$\Omega\f$ such that,
+ *  \f$\Omega\f$ such that,
  *
  *  \f{aligned}{
  *    \Delta u &= 0\quad\mathrm{in}\, \Omega \\
@@ -51,13 +51,13 @@
  *
  *  is the Laplace single layer potential with some density \f$\mu\f$.
  *  Utilizing the trace operator \f$\gamma\f$, the single layer operator is
- *defined by \f$V = \gamma\circ\tilde V\f$. When discretized in a conformal
- *finite-dimensional function space \f$\mathbb{S}\f$, the variational
- *formulation is as follows: Find \f$\omega\in\mathbb{S}\f$, such that
+ *  defined by \f$V = \gamma\circ\tilde V\f$. When discretized in a conformal
+ *  finite-dimensional function space \f$\mathbb{S}\f$, the variational
+ *  formulation is as follows: Find \f$\omega\in\mathbb{S}\f$, such that
  *
  *  \f{aligned}{
  *    \int_\Gamma \mu \int_\Gamma V(\omega)(x)\,\mathrm{d}x = \int_\Gamma \mu
- *f\,\mathrm{d}x\quad\forall\mu\in \mathbb{S} \\ \f}
+ *  f\,\mathrm{d}x\quad\forall\mu\in \mathbb{S} \\ \f}
  *
  *holds, which is realized in this example.
  */
