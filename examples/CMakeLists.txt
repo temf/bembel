@@ -12,6 +12,7 @@ set(CIFILES
     BlockClusterTree
     Geometry
     MassMatrix
+    LaplaceBeltrami
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
     HelmholtzSingleLayerFull
