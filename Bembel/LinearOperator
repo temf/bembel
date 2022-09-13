@@ -23,5 +23,7 @@
 #include "src/LinearOperator/DiscreteOperator.hpp"
 #include "src/LinearOperator/LinearOperatorBase.hpp"
 #include "src/LinearOperator/LinearOperatorTraits.hpp"
+#include "src/LinearOperator/LocalOperatorBase.hpp"
+#include "src/LinearOperator/DiscreteLocalOperator.hpp"
 
 #endif  // BEMBEL_LINEAROPERATOR_MODULE_
