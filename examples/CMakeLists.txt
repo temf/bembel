@@ -11,6 +11,7 @@ set(CIFILES
     AnsatzSpace
     BlockClusterTree
     Geometry
+    MassMatrix
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
     HelmholtzSingleLayerFull
