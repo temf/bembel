@@ -12,6 +12,16 @@
 #ifndef BEMBEL_DUFFYTRICK_MODULE_
 #define BEMBEL_DUFFYTRICK_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup DuffyTrick DuffyTrick
+ *  \brief The DuffyTrick module provides quadrature routines for (nearly)
+ * singular integrals.
+ *
+ * Therein, the implementation is ssentially an adaptation of the so-called
+ * Sauter-Schwab quadrature rules
+ **/
+
 #include <cassert>
 #include <Eigen/Dense>
 
