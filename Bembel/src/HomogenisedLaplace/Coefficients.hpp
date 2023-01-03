@@ -21,7 +21,7 @@
 #include <Eigen/Dense>
 #include <Bembel/Quadrature>
 
-namespace Bembel{
+namespace Bembel {
 
 using namespace Eigen;
 
@@ -29,7 +29,7 @@ VectorXd getCoefficients(double precision);
 
 inline unsigned int getDegree(double precision);
 
-VectorXd getDdisplacement(MatrixXd ps_left, MatrixXd ps_front, MatrixXd ps_bottom);
+VectorXd getDisplacement(MatrixXd ps_l, MatrixXd ps_f, MatrixXd ps_b);
 
 inline double k_mod(Vector3d in);
 
@@ -41,6 +41,7 @@ VectorXd getCoefficients(double precision) {
 	VectorXd coeffs;
 
 	unsigned int deg = getDegree(precision);
+	unsigned int Msquare = POINT_DEGREE*POINT_DEGREE;
 
 	 GaussSquare<POINT_DEGREE> GS;
 	 MatrixXd xs = GS[POINT_DEGREE].xi_ - 0.5;
@@ -61,6 +62,10 @@ VectorXd getCoefficients(double precision) {
 	 MatrixXd ps_bottom(3, xs.cols());
 	 ps_bottom.block(0, 0, 2, xs.cols()) = xs.block(0, 0, 2, xs.cols());
 	 ps_bottom.row(2) = -0.5*Eigen::VectorXd::Ones(xs.cols());
+
+	 VectorXd displacement = getDisplacement(ps_left, ps_front, ps_bottom);
+
+	 MatrixXd systemMatrix(6*Msquare, ((deg+1)*(deg+2))/2);
 
 	 return coeffs;
 
