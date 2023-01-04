@@ -65,7 +65,10 @@ VectorXd getCoefficients(double precision) {
 
 	 VectorXd displacement = getDisplacement(ps_left, ps_front, ps_bottom);
 
+	 /* TODO: Is column major, but here row-major would make more sense... */
 	 MatrixXd systemMatrix(6*Msquare, ((deg+1)*(deg+2))/2);
+
+
 
 	 return coeffs;
 
