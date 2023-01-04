@@ -17,5 +17,6 @@
 #include "Potential"
 
 #include "src/HomogenisedLaplace/Coefficients.hpp"
+#include "src/util/Sphericals.hpp"
 
 #endif

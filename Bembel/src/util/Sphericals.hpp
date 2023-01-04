@@ -23,7 +23,7 @@ Eigen::Matrix<double, Eigen::Dynamic, 2> spherical_harmonics_full(Eigen::Vector3
 
 inline Eigen::Vector2d spherical_prev(Eigen::Vector3d x, int m, int n, Eigen::Vector2d y1, Eigen::Vector2d y2);
 
-Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(Eigen::Vector3d x, unsigned int N, Eigen::VectorXd L);
+Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(Eigen::Vector3d x, unsigned int N, Eigen::MatrixXd ys);
 
 Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im);
 

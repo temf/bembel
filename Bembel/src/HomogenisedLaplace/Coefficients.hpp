@@ -19,6 +19,7 @@
 #include <functional>
 
 #include <Eigen/Dense>
+#include <Bembel/HomogenisedLaplace>
 #include <Bembel/Quadrature>
 
 namespace Bembel {
@@ -38,39 +39,119 @@ inline Vector3d Dk_mod(Vector3d in);
 
 VectorXd getCoefficients(double precision) {
 
-	VectorXd coeffs;
+	VectorXd diff;
+	Vector3d v;
+	MatrixXd spherical_values_pre, spherical_values_pst, Dsolid_values_pre, Dsolid_values_pst;
 
 	unsigned int deg = getDegree(precision);
 	unsigned int Msquare = POINT_DEGREE*POINT_DEGREE;
 
-	 GaussSquare<POINT_DEGREE> GS;
-	 MatrixXd xs = GS[POINT_DEGREE].xi_ - 0.5;
+	unsigned int m, n, k;
+	double scale, norm;
 
-	 Vector3d ex(1.0, 0.0, 0.0);
-	 Vector3d ey(0.0, 1.0, 0.0);
-	 Vector3d ez(0.0, 0.0, 1.0);
+	GaussSquare<POINT_DEGREE> GS;
+	MatrixXd xs = GS[POINT_DEGREE].xi_ - 0.5;
 
-	 MatrixXd ps_left(3, xs.cols());
-	 ps_left.row(0) = -0.5*Eigen::VectorXd::Ones(xs.cols());
-	 ps_left.block(1, 0, 2, xs.cols()) = xs.block(0, 0, 2, xs.cols());
+	Vector3d ex(1.0, 0.0, 0.0);
+	Vector3d ey(0.0, 1.0, 0.0);
+	Vector3d ez(0.0, 0.0, 1.0);
 
-	 MatrixXd ps_front(3, xs.cols());
-	 ps_front.row(0) = xs.row(0);
-	 ps_front.row(1) = -0.5*Eigen::VectorXd::Ones(xs.cols());
-	 ps_front.row(2) = xs.row(1);
+	MatrixXd ps_left(3, xs.cols());
+	ps_left.row(0) = -0.5*Eigen::VectorXd::Ones(xs.cols());
+	ps_left.block(1, 0, 2, xs.cols()) = xs.block(0, 0, 2, xs.cols());
 
-	 MatrixXd ps_bottom(3, xs.cols());
-	 ps_bottom.block(0, 0, 2, xs.cols()) = xs.block(0, 0, 2, xs.cols());
-	 ps_bottom.row(2) = -0.5*Eigen::VectorXd::Ones(xs.cols());
+	MatrixXd ps_front(3, xs.cols());
+	ps_front.row(0) = xs.row(0);
+	ps_front.row(1) = -0.5*Eigen::VectorXd::Ones(xs.cols());
+	ps_front.row(2) = xs.row(1);
 
-	 VectorXd displacement = getDisplacement(ps_left, ps_front, ps_bottom);
+	MatrixXd ps_bottom(3, xs.cols());
+	ps_bottom.block(0, 0, 2, xs.cols()) = xs.block(0, 0, 2, xs.cols());
+	ps_bottom.row(2) = -0.5*Eigen::VectorXd::Ones(xs.cols());
 
-	 /* TODO: Is column major, but here row-major would make more sense... */
-	 MatrixXd systemMatrix(6*Msquare, ((deg+1)*(deg+2))/2);
+	VectorXd displacement = getDisplacement(ps_left, ps_front, ps_bottom);
+
+	/* TODO: Is column major, but here row-major would make more sense... */
+	MatrixXd systemMatrix(6*Msquare, ((deg+1)*(deg+2))/2 -1);
+
+	for(k = 0; k < Msquare; k++) {
+		/* left - right difference */
+		v = ps_left.col(k);
+		norm = v.norm();
+
+		spherical_values_pre = spherical_harmonics_full(v, 	 	deg);
+		spherical_values_pst = spherical_harmonics_full(v + ex, deg);
+
+		Dsolid_values_pre = Dsolid_harmonics_full(v, 	  deg, spherical_values_pre);
+		Dsolid_values_pst = Dsolid_harmonics_full(v + ex, deg, spherical_values_pst);
+
+		for(n = 1; n <= deg; n++) {
+			for(m = 0; m <= n; m++) {
+				scale = pow(norm, n);
+
+				diff = scale*(spherical_values_pre.segment(n*n, n+1) - spherical_values_pst.segment(n*n, n+1));
+				systemMatrix.block(k, (n*(n+1))/2 - 1, 1, n+1) = diff;
+
+				diff = Dsolid_values_pre.row(0) - Dsolid_values_pst.row(0);
+				systemMatrix.block(k + Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff;
+			}
+		}
+
+		/* front - back difference */
+		v = ps_front.col(k);
+
+		spherical_values_pre = spherical_harmonics_full(v, 	 	deg);
+		spherical_values_pst = spherical_harmonics_full(v + ey, deg);
+
+		Dsolid_values_pre = Dsolid_harmonics_full(v, 	  deg, spherical_values_pre);
+		Dsolid_values_pst = Dsolid_harmonics_full(v + ey, deg, spherical_values_pst);
+
+		for(n = 1; n <= deg; n++) {
+			for(m = 0; m <= n; m++) {
+				scale = pow(norm, n);
+
+				diff = scale*(spherical_values_pre.segment(n*n, n+1) - spherical_values_pst.segment(n*n, n+1));
+				systemMatrix.block(k + 2*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff;
+
+				diff = Dsolid_values_pre.row(1) - Dsolid_values_pst.row(1);
+				systemMatrix.block(k + 3*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff;
+			}
+		}
+
+		/* bottom - top difference */
+		v = ps_bottom.col(k);
+
+		spherical_values_pre = spherical_harmonics_full(v, 	 	deg);
+		spherical_values_pst = spherical_harmonics_full(v + ez, deg);
+
+		Dsolid_values_pre = Dsolid_harmonics_full(v, 	  deg, spherical_values_pre);
+		Dsolid_values_pst = Dsolid_harmonics_full(v + ez, deg, spherical_values_pst);
+
+		for(n = 1; n <= deg; n++) {
+			for(m = 0; m <= n; m++) {
+				scale = pow(norm, n);
+
+				diff = scale*(spherical_values_pre.segment(n*n, n+1) - spherical_values_pst.segment(n*n, n+1));
+				systemMatrix.block(k, (n*(n+1))/2 - 1, 1, n+1) = diff;
+
+				diff = Dsolid_values_pre.row(2) - Dsolid_values_pst.row(2);
+				systemMatrix.block(k + Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff;
+			}
+		}
+
+	}
+
+	/* solve the system */
+	VectorXd coeffs(((deg+1)*(deg+2))/2);
+	coeffs.segment(1, ((deg+1)*(deg+2))/2-1) = systemMatrix.colPivHouseholderQr().solve(displacement);
+
+	/* calculate the first coefficient */
+	coeffs(0) = 0;
 
 
 
-	 return coeffs;
+
+	return coeffs;
 
 
 }
