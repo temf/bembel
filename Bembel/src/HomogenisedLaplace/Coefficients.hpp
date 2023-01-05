@@ -48,7 +48,7 @@ VectorXd getCoefficients(double precision) {
 	unsigned int Msquare = (POINT_DEGREE + 1)*(POINT_DEGREE + 1);
 
 	unsigned int m, n, k;
-	double scale, norm;
+	double scale, fac, norm;
 
 	GaussSquare<POINT_DEGREE> GS;
 	MatrixXd xs = GS[POINT_DEGREE].xi_;
@@ -88,19 +88,22 @@ VectorXd getCoefficients(double precision) {
 		Dsolid_values_pst = Dsolid_harmonics_full(v + ex, deg, spherical_values_pst);
 
 		for(n = 1; n <= deg; n++) {
+			scale = pow(norm, n);
 			for(m = 0; m <= n; m++) {
-				scale = pow(norm, n);
+				if(m == 0)	{fac = 1.0;}
+				else		{fac = 2.0;} /* twice the real part */
 
-				diff = scale*(spherical_values_pre.block(n*n, 0, n+1, 1) - spherical_values_pst.block(n*n, 0, n+1, 1));
+				diff = fac*scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
 				systemMatrix.block(k, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
 
-				difft = Dsolid_values_pre.block(0, n*n, 1, n+1) - Dsolid_values_pst.block(0, n*n, 1, n+1);
+				difft = fac*(Dsolid_values_pre.block(0, n*n + n, 1, n+1) - Dsolid_values_pst.block(0, n*n + n, 1, n+1));
 				systemMatrix.block(k + Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
 			}
 		}
 
 		/* front - back difference */
 		v = ps_front.col(k);
+		norm = v.norm();
 
 		spherical_values_pre = spherical_harmonics_full(v, 	 	deg);
 		spherical_values_pst = spherical_harmonics_full(v + ey, deg);
@@ -109,19 +112,22 @@ VectorXd getCoefficients(double precision) {
 		Dsolid_values_pst = Dsolid_harmonics_full(v + ey, deg, spherical_values_pst);
 
 		for(n = 1; n <= deg; n++) {
+			scale = pow(norm, n);
 			for(m = 0; m <= n; m++) {
-				scale = pow(norm, n);
+				if(m == 0)	{fac = 1.0;}
+				else		{fac = 2.0;} /* twice the real part */
 
-				diff = scale*(spherical_values_pre.block(n*n, 0, n+1, 1) - spherical_values_pst.block(n*n, 0, n+1, 1));
+				diff = fac*scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
 				systemMatrix.block(k + 2*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
 
-				difft = Dsolid_values_pre.block(1, n*n, 1, n+1) - Dsolid_values_pst.block(1, n*n, 1, n+1);
+				difft = fac*(Dsolid_values_pre.block(1, n*n + n, 1, n+1) - Dsolid_values_pst.block(1, n*n + n, 1, n+1));
 				systemMatrix.block(k + 3*Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
 			}
 		}
 
 		/* bottom - top difference */
 		v = ps_bottom.col(k);
+		norm = v.norm();
 
 		spherical_values_pre = spherical_harmonics_full(v, 	 	deg);
 		spherical_values_pst = spherical_harmonics_full(v + ez, deg);
@@ -132,22 +138,24 @@ VectorXd getCoefficients(double precision) {
 		for(n = 1; n <= deg; n++) {
 			scale = pow(norm, n);
 			for(m = 0; m <= n; m++) {
-				diff = scale*(spherical_values_pre.block(n*n, 0, n+1, 1) - spherical_values_pst.block(n*n, 0, n+1, 1));
-				systemMatrix.block(k, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+				if(m == 0)	{fac = 1.0;}
+				else		{fac = 2.0;} /* twice the real part */
 
-				difft = Dsolid_values_pre.block(2, n*n, 1, n+1) - Dsolid_values_pst.block(2, n*n, 1, n+1);
-				systemMatrix.block(k + Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
+				diff = fac*scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
+				systemMatrix.block(k + 4*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+
+				difft = fac*(Dsolid_values_pre.block(2, n*n + n, 1, n+1) - Dsolid_values_pst.block(2, n*n + n, 1, n+1));
+				systemMatrix.block(k + 5*Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
 			}
 		}
 
 	}
 
-	std::cout << displacement.segment(441, 441) << std::endl;
-
+	std::cout << systemMatrix.row(Msquare) << std::endl;
 
 	/* solve the system */
 	VectorXd coeffs(((deg+1)*(deg+2))/2);
-	coeffs.segment(1, ((deg+1)*(deg+2))/2-1) = systemMatrix.colPivHouseholderQr().solve(displacement);
+	coeffs.segment(1, ((deg+1)*(deg+2))/2-1) = systemMatrix.colPivHouseholderQr().solve(-displacement);
 
 	/* calculate the first coefficient */
 	coeffs(0) = 0;
