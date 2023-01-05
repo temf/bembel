@@ -13,7 +13,7 @@
 #endif
 
 #ifndef PI
-#define PI 3.141592653589793
+#define PI M_PI
 #endif
 
 #include <functional>
@@ -45,7 +45,7 @@ VectorXd getCoefficients(double precision) {
 	MatrixXd spherical_values_pre, spherical_values_pst, Dsolid_values_pre, Dsolid_values_pst;
 
 	unsigned int deg = getDegree(precision);
-	unsigned int Msquare = POINT_DEGREE*POINT_DEGREE;
+	unsigned int Msquare = (POINT_DEGREE + 1)*(POINT_DEGREE + 1);
 
 	unsigned int m, n, k;
 	double scale, norm;
@@ -142,6 +142,9 @@ VectorXd getCoefficients(double precision) {
 
 	}
 
+	std::cout << displacement.segment(441, 441) << std::endl;
+
+
 	/* solve the system */
 	VectorXd coeffs(((deg+1)*(deg+2))/2);
 	coeffs.segment(1, ((deg+1)*(deg+2))/2-1) = systemMatrix.colPivHouseholderQr().solve(displacement);
@@ -193,7 +196,7 @@ VectorXd getDisplacement(MatrixXd ps_l, MatrixXd ps_f, MatrixXd ps_b) {
 	std::function<double(Vector3d)>  u = [](Vector3d in) {return k_mod(in);};
 	std::function<Vector3d(Vector3d)> Du = [](Vector3d in) {return Dk_mod(in);};
 
-	unsigned int Msquare = POINT_DEGREE*POINT_DEGREE;
+	unsigned int Msquare = (POINT_DEGREE + 1)*(POINT_DEGREE + 1);
 	unsigned int k;
 
 	Vector3d ex(1.0, 0.0, 0.0);
@@ -232,7 +235,7 @@ inline double k_mod(Vector3d in) {
 
 	double r = 0.0;
 
-	short i, j, k;
+	short int i, j, k;
 	Vector3d m;
 
 	for(i = -1; i <= 1; i++) {
@@ -258,7 +261,7 @@ inline Vector3d Dk_mod(Vector3d in) {
 	double snorm;
 	r.setZero();
 
-	short i, j, k;
+	short int i, j, k;
 	for(i = -1; i <= 1; i++) {
 		for(j = -1; j <= 1; j++) {
 			for(k = -1; k <= 1; k++) {
@@ -269,7 +272,7 @@ inline Vector3d Dk_mod(Vector3d in) {
 		}
 	}
 
-	r /=(4*PI);
+	r /= (4.0*PI);
 
 	/* the part to ensure the vanishing mean on the Laplacian */
 	r += in/3.0;

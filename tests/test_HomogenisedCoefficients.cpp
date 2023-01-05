@@ -30,6 +30,8 @@ int main() {
 
 	VectorXd cs = getCoefficients(precision);
 
+//	std::cout << cs << std::endl;
+
 	unsigned int Npoints = 101;
 
 	ArrayXd xs = ArrayXd::LinSpaced(Npoints, -0.5, 0.5);
