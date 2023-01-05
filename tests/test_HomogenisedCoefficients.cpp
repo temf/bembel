@@ -14,12 +14,11 @@
 #include <Bembel/HomogenisedLaplace>
 #include <Eigen/Dense>
 
-
 inline double k_per(Eigen:: Vector3d in, Eigen::VectorXd coeffs, unsigned int deg);
 
 inline Eigen::Vector3d Dk_per(Eigen:: Vector3d in, Eigen::VectorXd coeffs, unsigned int deg);
 
-Eigen::Matrix<double, Eigen::Dynamic, 2> tensorise(Eigen::VectorXd xs);
+Eigen::Matrix<double, 2, Eigen::Dynamic> tensorise(Eigen::ArrayXd xs);
 
 int main() {
 
@@ -31,28 +30,26 @@ int main() {
 
 	VectorXd cs = getCoefficients(precision);
 
-	unsigned int Npoints = 100;
-	double step = 1.0/Npoints;
+	unsigned int Npoints = 101;
 
-
-	VectorXd xs = Eigen::ArrayXf::LinSpaced(step, -0.5, 0.5);
+	ArrayXd xs = ArrayXd::LinSpaced(Npoints, -0.5, 0.5);
 	MatrixXd ys = tensorise(xs);
 
-	double err = 0;
+	double err = 0.0;
 
-	Eigen::Vector3d ex(1.0, 0.0, 0.0);
-	Eigen::Vector3d ey(0.0, 1.0, 0.0);
-	Eigen::Vector3d ez(0.0, 0.0, 1.0);
+	Vector3d ex(1.0, 0.0, 0.0);
+	Vector3d ey(0.0, 1.0, 0.0);
+	Vector3d ez(0.0, 0.0, 1.0);
 
-	std::function<double(Vector3d)> u = [](Vector3d in) 								{return k_per(in, cs, deg);};
-	std::function<double(Vector3d, unsigned int)> Du = [](Vector3d in, unsigned int d)	{return Dk_per(in, cs, deg)(d);};
+	std::function<double(Vector3d)> u = [cs, deg](Vector3d in) 									{return k_per(in, cs, deg);};
+	std::function<double(Vector3d, unsigned int)> Du = [cs, deg](Vector3d in, unsigned int d)	{return Dk_per(in, cs, deg)(d);};
 
 
 	unsigned int k;
 	Vector3d v;
 	for(k = 0; k < Npoints*Npoints; k++) {
 		v = Vector3d(-0.5, ys(0, k), ys(1, k));
-		err += fabs(u(v) - u(v + ex));
+		err += fabs(k_per(v, cs, deg) - k_per(v + ex, cs, deg));
 		err += fabs(Du(v, 0) - Du(v + ex, 0));
 
 		v = Vector3d(ys(0, k), -0.5, ys(1, k));
@@ -76,11 +73,20 @@ inline double k_per(Eigen::Vector3d in, Eigen::VectorXd coeffs, unsigned int deg
 	double norm = in.norm();
 	double rn;
 
-	if(deg == 0)		{rn = 1.0;}
-	else if(deg == 1)	{rn = norm;}
-	else				{rn = pow(norm, deg);}
 
-	return Bembel::k_mod(in) + rn*Bembel::evaluate_sphericals(in/norm, coeffs, deg);
+	Eigen::VectorXd coeffs_p(coeffs.rows());
+	unsigned int n;
+
+	/* add the radial weights */
+	coeffs_p(0) = coeffs(0);
+	coeffs_p.segment(1, 3) = norm*coeffs.segment(1, 3);
+	rn = norm;
+	for(n = 2; n <= deg; n++) {
+		rn *= norm;
+		coeffs_p.segment(n*n, 2*n+1) = rn*coeffs.segment(n*n, 2*n+1);
+	}
+
+	return Bembel::k_mod(in) + Bembel::evaluate_sphericals(in/norm, coeffs_p, deg);
 }
 
 inline Eigen::Vector3d Dk_per(Eigen::Vector3d in, Eigen::VectorXd coeffs, unsigned int deg) {
@@ -92,7 +98,7 @@ inline Eigen::Vector3d Dk_per(Eigen::Vector3d in, Eigen::VectorXd coeffs, unsign
 	unsigned int n, m;
 
 	Eigen::Vector3d y = in/norm;
-	Eigen::VectorXd c_harm, c_rad;
+	Eigen::VectorXd c_harm(coeffs.rows()), c_rad(coeffs.rows());
 
 	for(n = 0; n <= deg; n++) {
 		if(n == 0)	{
@@ -120,23 +126,23 @@ inline Eigen::Vector3d Dk_per(Eigen::Vector3d in, Eigen::VectorXd coeffs, unsign
 
 	Eigen::Vector3d res = Bembel::Dk_mod(in);
 
-	res += y*Bembel::evaluate_dsphericals(y, c_rad, deg);
+	res += y*Bembel::evaluate_sphericals(y, c_rad, deg);
 	res += Bembel::functionalMatrix(in)*Bembel::evaluate_dsphericals(y, c_harm, deg);
 
 	return res;
 }
 
-Eigen::Matrix<double, 2, Eigen::Dynamic> tensorise(Eigen::VectorXd x) {
+Eigen::Matrix<double, 2, Eigen::Dynamic> tensorise(Eigen::ArrayXd xs) {
 
-	unsigned int len = x.rows();
+	unsigned int len = xs.rows();
 
 
-	Eigen::Matrix<double, len*len, 2> ys;
+	Eigen::MatrixXd ys(2, len*len);
 
 	unsigned int k;
 	for(k = 0; k < len; k++) {
-		ys.block(0, k, 1, len) = x(k);
-		ys.block(1, k, 1, len) = x.transpose();
+		ys.block(0, k*len, 1, len) = xs(k)*Eigen::MatrixXd::Ones(1, len);
+		ys.block(1, k*len, 1, len) = xs.transpose();
 	}
 
 	return ys;

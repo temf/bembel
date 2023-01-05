@@ -16,8 +16,8 @@
 #include "LinearOperator"
 #include "Potential"
 
-#include "src/HomogenisedLaplace/Coefficients.hpp"
-
 #include "src/util/Sphericals.hpp"
+
+#include "src/HomogenisedLaplace/Coefficients.hpp"
 
 #endif

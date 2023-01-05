@@ -220,7 +220,7 @@ Eigen::Matrix<double, Eigen::Dynamic, 2> spherical_harmonics_full(Eigen::Vector3
 
 	}
 
-	Eigen::Matrix<double, (N+1)*(N+1), 2> res;
+	Eigen::MatrixXd res((N+1)*(N+1), 2);
 	res.col(0) = real;
 	res.col(1) = imag;
 
@@ -257,13 +257,11 @@ inline Eigen::Vector2d spherical_prev(Eigen::Vector3d x, int m, int n, Eigen::Ve
  */
 Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(Eigen::Vector3d x, unsigned int N, Eigen::MatrixXd ys) {
 
-	Eigen::Matrix<double, 3, Eigen::Dynamic> reals, imags;
-
 	Eigen::Vector3d y = x/x.norm();
-
 	Eigen::VectorXd L = legendreFull(N, y(2));
-
 	Eigen::Matrix<double, 3, 2> z;
+
+	Eigen::MatrixXd reals(3, (N+1)*(N+1)), imags(3, (N+1)*(N+1));
 
 	int m, n;
 
@@ -271,23 +269,23 @@ Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(Eigen::Vector3d x
 		for(m = 0; m <= n; m++) {
 			z = dsolid_spherical_prev(y, m, n, L, ys(n*n + n+m, 0), ys(n*n + n+m, 1));
 
-			reals(n*n + n+m, 0) = z(0, 0);
-			reals(n*n + n+m, 1) = z(1, 0);
-			reals(n*n + n+m, 2) = z(2, 0);
+			reals(0, n*n + n+m) = z(0, 0);
+			reals(1, n*n + n+m) = z(1, 0);
+			reals(2, n*n + n+m) = z(2, 0);
 
-			imags(n*n + n+m, 0) = z(0, 1);
-			imags(n*n + n+m, 1) = z(1, 1);
-			imags(n*n + n+m, 2) = z(2, 1);
+			imags(0, n*n + n+m) = z(0, 1);
+			imags(1, n*n + n+m) = z(1, 1);
+			imags(2, n*n + n+m) = z(2, 1);
 
 
 			if(m > 0) {
-				reals(n*n + n-m, 0) = z(0, 0);
-				reals(n*n + n-m, 1) = z(1, 0);
-				reals(n*n + n-m, 2) = z(2, 0);
+				reals(0, n*n + n-m) = z(0, 0);
+				reals(1, n*n + n-m) = z(1, 0);
+				reals(2, n*n + n-m) = z(2, 0);
 
-				imags(n*n + n-m, 0) = -z(0, 1);
-				imags(n*n + n-m, 1) = -z(1, 1);
-				imags(n*n + n-m, 2) = -z(2, 1);
+				imags(0, n*n + n-m) = -z(0, 1);
+				imags(1, n*n + n-m) = -z(1, 1);
+				imags(2, n*n + n-m) = -z(2, 1);
 			}
 
 		}
