@@ -128,9 +128,8 @@ VectorXd getCoefficients(double precision) {
 		Dsolid_values_pst = Dsolid_harmonics_full(v + ez, deg, spherical_values_pst);
 
 		for(n = 1; n <= deg; n++) {
+			scale = pow(norm, n);
 			for(m = 0; m <= n; m++) {
-				scale = pow(norm, n);
-
 				diff = scale*(spherical_values_pre.segment(n*n, n+1) - spherical_values_pst.segment(n*n, n+1));
 				systemMatrix.block(k, (n*(n+1))/2 - 1, 1, n+1) = diff;
 
