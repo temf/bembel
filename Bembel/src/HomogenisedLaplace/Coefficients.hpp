@@ -36,7 +36,12 @@ inline double k_mod(Vector3d in);
 
 inline Vector3d Dk_mod(Vector3d in);
 
+double calculateFirstCoefficient(VectorXd cs, unsigned int deg, MatrixXd ps_l, MatrixXd ps_f, MatrixXd ps_b);
 
+
+/**
+ * Calculates the coefficients for the solid harmonics expansion of the periodic kernel
+ */
 VectorXd getCoefficients(double precision) {
 
 	VectorXd diff;
@@ -73,7 +78,6 @@ VectorXd getCoefficients(double precision) {
 
 	VectorXd displacement = getDisplacement(ps_left, ps_front, ps_bottom);
 
-	/* TODO: Is column major, but here row-major would make more sense... */
 	MatrixXd systemMatrix(6*Msquare, ((deg+1)*(deg+2))/2 -1);
 
 	for(k = 0; k < Msquare; k++) {
@@ -150,6 +154,7 @@ VectorXd getCoefficients(double precision) {
 
 	/* solve the system */
 	VectorXd coeffs(((deg+1)*(deg+2))/2);
+	coeffs.setZero();
 	coeffs.segment(1, ((deg+1)*(deg+2))/2-1) = systemMatrix.colPivHouseholderQr().solve(-displacement);
 
 	/* Copy the stuff into the full Coefficient list */
@@ -164,13 +169,9 @@ VectorXd getCoefficients(double precision) {
 	}
 
 	/* calculate the first coefficient */
-
-
-
+	coeffs_full(0) = calculateFirstCoefficient(coeffs_full, deg, ps_left, ps_front, ps_bottom);
 
 	return coeffs_full;
-
-
 }
 
 
@@ -230,7 +231,6 @@ VectorXd getDisplacement(MatrixXd ps_l, MatrixXd ps_f, MatrixXd ps_b) {
 	}
 
 	return d;
-
 }
 
 inline double k_mod(Vector3d in) {
@@ -279,8 +279,38 @@ inline Vector3d Dk_mod(Vector3d in) {
 	/* the part to ensure the vanishing mean on the Laplacian */
 	r += in/3.0;
 
-
 	return r;
+}
+
+/**
+ * Calculates the first coefficient via a Gauss quadrature on the boundary
+ */
+double calculateFirstCoefficient(VectorXd cs, unsigned int deg, MatrixXd ps_l, MatrixXd ps_f, MatrixXd ps_b) {
+	double res = 0.0;
+
+	GaussSquare<POINT_DEGREE> GS;
+	VectorXd ws = GS[POINT_DEGREE].w_;
+
+	VectorXd cs_tmp(cs.rows());
+	cs_tmp.setZero();
+
+	unsigned int k, n;
+	double norm;
+
+	for(k = 0; k < ps_l.cols(); k++) {
+		norm = ps_l.col(k).norm(); /* equal for ps_f and ps_b */
+		for(n = 1; n <= deg; n++) {cs_tmp.segment(n*n, 2*n+1) = pow(norm, n)*cs.segment(n*n, 2*n+1);}
+
+		res += ws(k)*(k_mod(ps_l.col(k)) + evaluate_sphericals(ps_l.col(k), cs_tmp, deg));
+		res += ws(k)*(k_mod(ps_f.col(k)) + evaluate_sphericals(ps_f.col(k), cs_tmp, deg));
+		res += ws(k)*(k_mod(ps_b.col(k)) + evaluate_sphericals(ps_b.col(k), cs_tmp, deg));
+	}
+
+	res /= 3.0;
+
+	res -= (1.0/24);
+
+	return -2.0*sqrt(PI)*res;
 }
 
 } /* namespace Bembel */
