@@ -19,5 +19,6 @@
 #include "src/util/Sphericals.hpp"
 
 #include "src/HomogenisedLaplace/Coefficients.hpp"
+#include "src/HomogenisedLaplace/SingleLayerOperator.hpp"
 
 #endif

@@ -301,9 +301,9 @@ double calculateFirstCoefficient(VectorXd cs, unsigned int deg, MatrixXd ps_l, M
 		norm = ps_l.col(k).norm(); /* equal for ps_f and ps_b */
 		for(n = 1; n <= deg; n++) {cs_tmp.segment(n*n, 2*n+1) = pow(norm, n)*cs.segment(n*n, 2*n+1);}
 
-		res += ws(k)*(k_mod(ps_l.col(k)) + evaluate_sphericals(ps_l.col(k), cs_tmp, deg));
-		res += ws(k)*(k_mod(ps_f.col(k)) + evaluate_sphericals(ps_f.col(k), cs_tmp, deg));
-		res += ws(k)*(k_mod(ps_b.col(k)) + evaluate_sphericals(ps_b.col(k), cs_tmp, deg));
+		res += ws(k)*(k_mod(ps_l.col(k)) + evaluate_sphericals(ps_l.col(k)/norm, cs_tmp, deg));
+		res += ws(k)*(k_mod(ps_f.col(k)) + evaluate_sphericals(ps_f.col(k)/norm, cs_tmp, deg));
+		res += ws(k)*(k_mod(ps_b.col(k)) + evaluate_sphericals(ps_b.col(k)/norm, cs_tmp, deg));
 	}
 
 	res /= 3.0;
