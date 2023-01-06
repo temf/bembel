@@ -308,7 +308,7 @@ double calculateFirstCoefficient(VectorXd cs, unsigned int deg, MatrixXd ps_l, M
 
 	res /= 3.0;
 
-	res -= (1.0/24);
+	res += (1.0/24);
 
 	return -2.0*sqrt(PI)*res;
 }
