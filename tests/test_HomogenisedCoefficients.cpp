@@ -30,8 +30,6 @@ int main() {
 
 	VectorXd cs = getCoefficients(precision);
 
-//	std::cout << cs << std::endl;
-
 	unsigned int Npoints = 101;
 
 	ArrayXd xs = ArrayXd::LinSpaced(Npoints, -0.5, 0.5);
@@ -63,7 +61,7 @@ int main() {
 		err += fabs(Du(v, 2) - Du(v + ez, 2));
 	}
 
-	err /= Npoints*Npoints;
+	err /= (6*Npoints*Npoints);
 
 	std::cout << "Average Pointwise Error is " << err << std::endl;
 

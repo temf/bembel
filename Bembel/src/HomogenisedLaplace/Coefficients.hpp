@@ -89,16 +89,15 @@ VectorXd getCoefficients(double precision) {
 
 		for(n = 1; n <= deg; n++) {
 			scale = pow(norm, n);
-			for(m = 0; m <= n; m++) {
-				if(m == 0)	{fac = 1.0;}
-				else		{fac = 2.0;} /* twice the real part */
+			diff = scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
+			difft = Dsolid_values_pre.block(0, n*n + n, 1, n+1) - Dsolid_values_pst.block(0, n*n + n, 1, n+1);
 
-				diff = fac*scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
-				systemMatrix.block(k, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+			/* adapt the scaling */
+			diff.segment(1, n) *= 2.0;
+			difft.segment(1, n) *= 2.0;
 
-				difft = fac*(Dsolid_values_pre.block(0, n*n + n, 1, n+1) - Dsolid_values_pst.block(0, n*n + n, 1, n+1));
-				systemMatrix.block(k + Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
-			}
+			systemMatrix.block(k, 			(n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+			systemMatrix.block(k + Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
 		}
 
 		/* front - back difference */
@@ -113,16 +112,15 @@ VectorXd getCoefficients(double precision) {
 
 		for(n = 1; n <= deg; n++) {
 			scale = pow(norm, n);
-			for(m = 0; m <= n; m++) {
-				if(m == 0)	{fac = 1.0;}
-				else		{fac = 2.0;} /* twice the real part */
+			diff = scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
+			difft = Dsolid_values_pre.block(1, n*n + n, 1, n+1) - Dsolid_values_pst.block(1, n*n + n, 1, n+1);
 
-				diff = fac*scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
-				systemMatrix.block(k + 2*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+			/* adapt the scaling */
+			diff.segment(1, n) *= 2.0;
+			difft.segment(1, n) *= 2.0;
 
-				difft = fac*(Dsolid_values_pre.block(1, n*n + n, 1, n+1) - Dsolid_values_pst.block(1, n*n + n, 1, n+1));
-				systemMatrix.block(k + 3*Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
-			}
+			systemMatrix.block(k + 2*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+			systemMatrix.block(k + 3*Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
 		}
 
 		/* bottom - top difference */
@@ -137,32 +135,26 @@ VectorXd getCoefficients(double precision) {
 
 		for(n = 1; n <= deg; n++) {
 			scale = pow(norm, n);
-			for(m = 0; m <= n; m++) {
-				if(m == 0)	{fac = 1.0;}
-				else		{fac = 2.0;} /* twice the real part */
+			diff = scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
+			difft = Dsolid_values_pre.block(2, n*n + n, 1, n+1) - Dsolid_values_pst.block(2, n*n + n, 1, n+1);
 
-				diff = fac*scale*(spherical_values_pre.block(n*n + n, 0, n+1, 1) - spherical_values_pst.block(n*n + n, 0, n+1, 1));
-				systemMatrix.block(k + 4*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+			/* adapt the scaling */
+			diff.segment(1, n) *= 2.0;
+			difft.segment(1, n) *= 2.0;
 
-				difft = fac*(Dsolid_values_pre.block(2, n*n + n, 1, n+1) - Dsolid_values_pst.block(2, n*n + n, 1, n+1));
-				systemMatrix.block(k + 5*Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
-			}
+			systemMatrix.block(k + 4*Msquare, (n*(n+1))/2 - 1, 1, n+1) = diff.transpose();
+			systemMatrix.block(k + 5*Msquare, (n*(n+1))/2 - 1, 1, n+1) = difft;
 		}
 
 	}
-
-	std::cout << systemMatrix.row(Msquare) << std::endl;
 
 	/* solve the system */
 	VectorXd coeffs(((deg+1)*(deg+2))/2);
 	coeffs.segment(1, ((deg+1)*(deg+2))/2-1) = systemMatrix.colPivHouseholderQr().solve(-displacement);
 
-	/* calculate the first coefficient */
-	coeffs(0) = 0;
-
 	/* Copy the stuff into the full Coefficient list */
 	VectorXd coeffs_full((deg+1)*(deg+1));
-	coeffs_full(0) = coeffs(0);
+	coeffs_full(0) = 0;
 	for(n = 1; n <= deg; n++) {
 		coeffs_full(n*n + n) = coeffs((n*(n+1))/2);
 		for(m = 1; m <= n; m++) {
@@ -170,6 +162,8 @@ VectorXd getCoefficients(double precision) {
 			coeffs_full(n*n + n-m) = coeffs((n*(n+1))/2 + m);
 		}
 	}
+
+	/* calculate the first coefficient */
 
 
 

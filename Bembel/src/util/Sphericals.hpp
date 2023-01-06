@@ -25,11 +25,11 @@ inline Eigen::Vector2d spherical_prev(Eigen::Vector3d x, int m, int n, Eigen::Ve
 
 Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(Eigen::Vector3d x, unsigned int N, Eigen::MatrixXd spherical_val);
 
-Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im);
+Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im);
 
 Eigen::VectorXd legendreFull(unsigned int N, double t);
 
-double constant(unsigned int m, unsigned int n);
+double constant(int m, unsigned int n);
 
 Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z);
 
@@ -294,43 +294,35 @@ Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(Eigen::Vector3d x
 
 }
 
-inline Eigen::Matrix<double, 3, 2> dspherical_prev(Eigen::Vector3d x, unsigned int m, unsigned int n, Eigen::VectorXd L) {
+inline Eigen::Matrix<double, 3, 2> dspherical_prev(Eigen::Vector3d x, int m, unsigned int n, Eigen::VectorXd L) {
 
-	double		c;
-	unsigned int	i;
+	double c;
+	unsigned int i;
 
 	Eigen::Matrix<double, 3, 2> z;
 
-	if (m == 0) {
+	if(m == 0) {
 		z(0, 0) = z(0, 1) = z(2, 1) = 0;
-		if(1 > n) {
-			z(2, 0) = 0;
-		} else {
-			z(2, 0) = L((n*(n+1))/2 + 1);
-		}
+		if(1 > n)	{z(2, 0) = 0;}
+		else		{z(2, 0) = L((n*(n+1))/2 + 1);}
 	} else {
-		if(m > n) {
-			z(0, 0) = 0;
-		} else {
-			z(0, 0) = L((n*(n+1))/2 + m);
-		}
+		if(m > n)	{z(0, 0) = 0;}
+		else		{z(0, 0) = L((n*(n+1))/2 + m);}
 
-		if(m+1 > n) {
-			z(2, 0) = 0;
-		} else {
-			z(2, 0) = L((n*(n+1))/2 + m+1);
-		}
+		if(m+1 > n) {z(2, 0) = 0;}
+		else		{z(2, 0) = L((n*(n+1))/2 + m+1);}
 		z(0, 1) = z(2, 1) = 0;
 
 		c		= x(0) * z(2, 0) - x(1) * z(2, 1);
 		z(2, 1) = x(0) * z(2, 1) + x(1) * z(2, 0);
 		z(2, 0) = c;
-		for (i=1; i<m; i++) {
-			c     = x(0) * z(0, 0) - x(1) * z(0, 1);
+
+		for(i = 1; i < m; i++) {
+			c		= x(0) * z(0, 0) - x(1) * z(0, 1);
 			z(0, 1) = x(0) * z(0, 1) + x(1) * z(0, 0);
 			z(0, 0) = c;
 
-			c     = x(0) * z(2, 0) - x(1) * z(2, 1);
+			c 		= x(0) * z(2, 0) - x(1) * z(2, 1);
 			z(2, 1) = x(0) * z(2, 1) + x(1) * z(2, 0);
 			z(2, 0) = c;
 		}
@@ -350,7 +342,7 @@ inline Eigen::Matrix<double, 3, 2> dspherical_prev(Eigen::Vector3d x, unsigned i
 /**
  * Calculates the derivative of the solid harmonics function phi_n^m at the point y with the spherical values
  */
-Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im) {
+Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im) {
 
 	//normalise y
 	// x denotes the normalised y and is passed to the original functions
@@ -367,13 +359,10 @@ Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned in
 
 	// part with the gradient of Y
 	if(m >= 0) {
-
 		m_tilde = m;
-
 		z_harm = dspherical_prev(x, m_tilde, n, L);
 
 		// multiply the gradient of Y by r^(n-3) and the matrix A
-		// pow has a problem if the exponent is negative, so we adapt it here
 		double r_n3;
 		if(n > 3)			{r_n3 = pow(r, n-3);}
 		else if (n == 3)	{r_n3 = 1.0;}
@@ -384,6 +373,8 @@ Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned in
 
 	} else {
 		m_tilde = -m;
+		z_harm = dspherical_prev(x, m_tilde, n, L);
+
 		// define r^(n-3) as above
 		double r_n3;
 		if(n > 3)			{r_n3 = pow(r, n-3);}
@@ -391,12 +382,12 @@ Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned in
 		else				{r_n3 = pow(1/r, 3-n);}
 
 		// get the part of the gradient of Y, conjugate and multiply by the functional matrix
-		z_harm = dspherical_prev(x, m_tilde, n, L);
+
 		A = functionalMatrix(y);
 		z_harm = r_n3*(A*z_harm);
 
 		// get the complex conjugation
-		z_harm.col(1) *= -1;
+		z_harm.col(1) *= -1.0;
 
 	}
 
@@ -410,17 +401,11 @@ Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, unsigned in
 		// the gradient of r^n is n*r^(n-2)*y = nr^(n-1)*x
 		// again adapt the power
 		double nr_n1;
-		if(n > 1) {
-			nr_n1= n*pow(r, n-1);
-		} else if(n == 1) {
-			nr_n1 = 1;
-		} else {
-			nr_n1 = n*pow(1/r, 1-n);
-		}
-
+		if(n == 1)	{nr_n1 = 1.0;}
+		else		{nr_n1 = n*pow(r, n-1);}
 
 		double y_imt;
-		if(m >= 0)	{y_imt = y_im;}
+		if(m >= 0)	{y_imt =  y_im;}
 		else		{y_imt = -y_im;}
 
 		z_rad.col(0) =  y_re*nr_n1*x;
@@ -454,11 +439,11 @@ Eigen::VectorXd legendreFull(unsigned int N, double t) {
 			L(s+m) = ((2*n-1)*t*L((n*(n-1))/2 + m) - (n+m-1)*L(((n-1)*(n-2))/2 + m))/(n-m);
 		}
 
-		//m = n-1
+		/* m = n-1 */
 		m = n-1;
 		L(s+m) = (2*m + 1)*t*L((m*(m+1))/2 + m);
 
-		//m = n
+		/* m = n */
 		m = n;
 		L(s+m) = (2*m - 1)*L((n*(n-1))/2 + n-1);
 	}
@@ -469,7 +454,7 @@ Eigen::VectorXd legendreFull(unsigned int N, double t) {
 /**
  *  gives the norming factor of the spherical polynomials
  */
-double constant(unsigned int m, unsigned int n) {
+double constant(int m, unsigned int n) {
 	unsigned int i;
 	double c = sqrt((2*n+1)/(4*pi));
 
