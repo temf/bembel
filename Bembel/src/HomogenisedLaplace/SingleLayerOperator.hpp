@@ -19,7 +19,7 @@ struct LinearOperatorTraits<HomogenisedLaplaceSingleLayerOperator> {
 	typedef Eigen::VectorXd::Scalar Scalar;
 	enum {
 		OperatorOrder = -1,
-		Form = DifferentialForm::Continuous,
+		Form = DifferentialForm::Discontinuous,
 		NumberOfFMMComponents = 1
 	};
 };
@@ -34,11 +34,12 @@ class HomogenisedLaplaceSingleLayerOperator
 		private:
 	unsigned int deg;
 	Eigen::VectorXd cs;
+	static double precision;
 
 		public:
-	HomogenisedLaplaceSingleLayerOperator(double precision) {
-		deg = getDegree(precision);
-		cs = getCoefficients(precision);
+	HomogenisedLaplaceSingleLayerOperator() {
+		this->deg = getDegree(HomogenisedLaplaceSingleLayerOperator::precision);
+		this->cs = getCoefficients(HomogenisedLaplaceSingleLayerOperator::precision);
 	}
 
 	template <class T>
@@ -125,15 +126,21 @@ class HomogenisedLaplaceSingleLayerOperator
 
 	}
 
+	static void setPrecision(double p) {
+		HomogenisedLaplaceSingleLayerOperator::precision = p;
+	}
+
+	static double getPrecision() {
+		return HomogenisedLaplaceSingleLayerOperator::precision;
+	}
+
 
 };
 
+double HomogenisedLaplaceSingleLayerOperator::precision = 0;
+
 }  // namespace Bembel
 
-
-
-
-#endif
 
 
 

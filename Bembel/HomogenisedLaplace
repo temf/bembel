@@ -20,5 +20,6 @@
 
 #include "src/HomogenisedLaplace/Coefficients.hpp"
 #include "src/HomogenisedLaplace/SingleLayerOperator.hpp"
+#include "src/HomogenisedLaplace/SingleLayerPotential.hpp"
 
 #endif
