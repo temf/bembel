@@ -1,7 +1,7 @@
 /*
- * example_HomogenisedLaplaceSingleLayerFull.cpp
+ * example_HomogenisedLaplaceSingleLayerH2Matrix.cpp
  *
- *  Created on: 9 Jan 2023
+ *  Created on: 10 Jan 2023
  *      Author: ricrem00
  */
 
@@ -62,14 +62,14 @@ int main() {
 			disc_lf.compute();
 
 			// Set up and compute discrete operator
-			DiscreteOperator<MatrixXd, HomogenisedLaplaceSingleLayerOperator> disc_op(
+			DiscreteOperator<H2Matrix<double>, HomogenisedLaplaceSingleLayerOperator> disc_op(
 					ansatz_space);
 			disc_op.compute();
 
 			// solve system
-			LLT<MatrixXd> llt;
-			llt.compute(disc_op.get_discrete_operator());
-			VectorXd rho = llt.solve(disc_lf.get_discrete_linear_form());
+			ConjugateGradient<H2Matrix<double>, Lower | Upper, IdentityPreconditioner> cg;
+			cg.compute(disc_op.get_discrete_operator());
+			VectorXd rho = cg.solve(disc_lf.get_discrete_linear_form());
 
 			// evaluate potential
 			DiscretePotential<HomogenisedLaplaceSingleLayerPotential<HomogenisedLaplaceSingleLayerOperator>,
@@ -89,4 +89,3 @@ int main() {
 
 	return 0;
 }
-
