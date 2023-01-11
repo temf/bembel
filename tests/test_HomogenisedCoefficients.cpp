@@ -63,71 +63,34 @@ int main() {
 
 	err /= (6*Npoints*Npoints);
 
-	std::cout << "Average Pointwise Error is " << err << std::endl;
+	std::cout << "Average Pointwise Error is\t" << err << std::endl;
+
+	/* test the gradient with the differential quotient */
+
+	double h = 1e-8;
+	Vector3d p(0.1, 0.2, -0.3);
+	Vector3d dir = Vector3d::Random(3).normalized();
+	Vector3d t = p + h*dir;
+	double dq = (k_per(t, cs, deg) - k_per(p, cs, deg))/h;
+	double gr = Dk_per(p, cs, deg).dot(dir);
+
+	std::cout << "Error in difference quotient is\t" << abs(dq - gr) << std::endl;
 
 	return 0;
 }
 
 inline double k_per(Eigen::Vector3d in, Eigen::VectorXd coeffs, unsigned int deg) {
 
-	double norm = in.norm();
-	double rn;
-
-
-	Eigen::VectorXd coeffs_p(coeffs.rows());
-	unsigned int n;
-
-	/* add the radial weights */
-	coeffs_p(0) = coeffs(0);
-	coeffs_p.segment(1, 3) = norm*coeffs.segment(1, 3);
-	rn = norm;
-	for(n = 2; n <= deg; n++) {
-		rn *= norm;
-		coeffs_p.segment(n*n, 2*n+1) = rn*coeffs.segment(n*n, 2*n+1);
-	}
-
-	return Bembel::k_mod(in) + Bembel::evaluate_sphericals(in/norm, coeffs_p, deg);
+	return Bembel::k_mod(in) + Bembel::evaluate_solid_sphericals(in, coeffs, deg, false);
 }
 
 inline Eigen::Vector3d Dk_per(Eigen::Vector3d in, Eigen::VectorXd coeffs, unsigned int deg) {
 
-	if(deg == 0) {return Eigen::Vector3d(0.0, 0.0, 0.0);}
-
-	double norm = in.norm();
-	double nr_n1, r_n3;
-	unsigned int n, m;
-
-	Eigen::Vector3d y = in/norm;
-	Eigen::VectorXd c_harm(coeffs.rows()), c_rad(coeffs.rows());
-
-	for(n = 0; n <= deg; n++) {
-		if(n == 0)	{
-			c_harm(0) = 0;
-			c_rad(0) = 0;
-			continue;
-		} else if(n == 1) {
-			nr_n1 = 1.0;
-			r_n3 = 1.0/(norm*norm);
-		} else if(n == 2) {
-			nr_n1 = 2*norm;
-			r_n3 = 1.0/norm;
-		} else if(n == 3) {
-			nr_n1 = 3*norm*norm;
-			r_n3 = 1.0;
-		} else {
-			nr_n1 = n*pow(norm, n-1);
-			r_n3 = pow(norm, n-3);
-		}
-
-		c_harm.segment(n*n, 2*n+1) = r_n3*coeffs.segment(n*n, 2*n+1);
-		c_rad.segment(n*n, 2*n+1) = nr_n1*coeffs.segment(n*n, 2*n+1);
-	}
-
+	if(deg == 0) {return Bembel::Dk_mod(in);}
 
 	Eigen::Vector3d res = Bembel::Dk_mod(in);
-
-	res += y*Bembel::evaluate_sphericals(y, c_rad, deg);
-	res += Bembel::functionalMatrix(in)*Bembel::evaluate_dsphericals(y, c_harm, deg);
+	res += (in/in.norm())*Bembel::evaluate_solid_sphericals(in, coeffs, deg, true);
+	res += Bembel::functionalMatrix(in)*Bembel::evaluate_dsolid_sphericals(in, coeffs, deg);
 
 	return res;
 }

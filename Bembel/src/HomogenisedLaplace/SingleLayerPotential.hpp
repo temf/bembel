@@ -78,14 +78,7 @@ class HomogenisedLaplaceSingleLayerPotential
 	double evaluateKernel(const Eigen::Vector3d &x,
 			const Eigen::Vector3d &y) const {
 
-		Eigen::VectorXd cs_tmp(cs.rows());
-		double norm = (x-y).norm();
-
-		/* scale the coefficients */
-		cs_tmp(0) = cs(0);
-		for(unsigned int n = 1; n <= deg; n++)	{cs_tmp.segment(n*n, 2*n+1) = pow(norm, n)*cs.segment(n*n, 2*n+1);}
-
-		return k_mod(x-y) + evaluate_sphericals((x-y)/norm, cs_tmp, deg);
+		return k_mod(x-y) + evaluate_solid_sphericals(x-y, this->cs, this->deg, false);
 	}
 
 };

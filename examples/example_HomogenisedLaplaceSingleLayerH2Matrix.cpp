@@ -28,7 +28,7 @@ int main() {
 	Geometry geometry("../geo/cube_small.dat");
 
 	// Define evaluation points for potential field, a tensor product grid of
-	// 7*7*7 points in [0, 0.25]^3
+	// 10*10*10 points in [0, 0.25]^3
 	MatrixXd gridpoints = Util::makeTensorProductGrid(
 			VectorXd::LinSpaced(10, 0.05, 0.20), VectorXd::LinSpaced(10, 0.05, 0.20),
 			VectorXd::LinSpaced(10, 0.05, 0.20));

@@ -15,9 +15,13 @@
 
 namespace Bembel {
 
-double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd k, unsigned int nk);
+double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg);
+
+double evaluate_solid_sphericals(Eigen::Vector3d y, Eigen::VectorXd cs, unsigned int deg, bool grad);
 
 Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd k, unsigned int nk);
+
+Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg);
 
 Eigen::Matrix<double, Eigen::Dynamic, 2> spherical_harmonics_full(Eigen::Vector3d x, unsigned int N);
 
@@ -31,26 +35,28 @@ Eigen::VectorXd legendreFull(unsigned int N, double t);
 
 double constant(int m, unsigned int n);
 
-Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z);
+inline Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z);
+
+inline double pow_int(double x, int n);
 
 /**
- * Evaluates the series \sum_{n = 0}^{nk} \sum_{m = -n}^n k_m^n Y_m^n(x) for real coefficients k
+ * Evaluates the series \sum_{n = 0}^{nk} \sum_{m = -n}^n k_m^n Y_m^n(x) for real coefficients cs
  *
  * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
- * 			k:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 			cs:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
  * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			nk:		unsigned int		The degree
+ * 			deg:	unsigned int		The degree
  */
-double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd k, unsigned int nk) {
+double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg) {
 	unsigned int	m, n;
 	double		z1[2], z2[2], z3[2], z1_start[2];
 	double		r, fac, rootTimesZ, root_2, root_3;
 
 	r = z1[1] = 0;
 	z1[0] = 0.5/sqrt(pi);
-	if(nk <= 1)	{return k(0)*z1[0];}
+	if(deg <= 1)	{return cs(0)*z1[0];}
 
-	for (m=0; m<nk-1; m++) {
+	for (m=0; m<deg-1; m++) {
 		if(m == 0)	{fac = 1.0;}
 		else		{fac = 2.0;}
 
@@ -59,15 +65,15 @@ double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd k, unsigned int nk
 		rootTimesZ = sqrt(2*m+3)*x(2);
 		z2[0] = rootTimesZ*z1[0];
 		z2[1] = rootTimesZ*z1[1];
-		r += fac*k( m   *(m+1)+m)*z1[0]; // + k[ m   *(m+1)-m]*z1[1];
-		r += fac*k((m+1)*(m+2)+m)*z2[0]; // + k[(m+1)*(m+2)-m]*z2[1];
-		for (n=m+2; n<nk; n++) {
+		r += fac*cs( m   *(m+1)+m)*z1[0]; // + k[ m   *(m+1)-m]*z1[1];
+		r += fac*cs((m+1)*(m+2)+m)*z2[0]; // + k[(m+1)*(m+2)-m]*z2[1];
+		for (n=m+2; n<deg; n++) {
 			root_2 = sqrt((2*n+1.0)/((n-m)*(n+m)));
 			rootTimesZ = sqrt(2*n-1)*x(2);
 			root_3 = sqrt(((n+m-1.0)*(n-m-1.0))/(2*n-3));
 			z3[0] = root_2*(rootTimesZ*z2[0] - root_3*z1[0]);
 			z3[1] = root_2*(rootTimesZ*z2[1] - root_3*z1[1]);
-			r += fac*k(n*(n+1)+m)*z3[0]; // + k[n*(n+1)-m]*z3[1];
+			r += fac*cs(n*(n+1)+m)*z3[0]; // + k[n*(n+1)-m]*z3[1];
 			z1[0] = z2[0];
 			z1[1] = z2[1];
 			z2[0] = z3[0];
@@ -77,7 +83,73 @@ double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd k, unsigned int nk
 		z1[0] = root_2*(x(0)*z1_start[0]-x(1)*z1_start[1]);
 		z1[1] = root_2*(x(0)*z1_start[1]+x(1)*z1_start[0]);
 	}
-	r += 2*k((nk-1)*(nk+1))*z1[0]; //+k[(nk-1)*(nk-1)]*z1[1];
+	r += 2*cs((deg-1)*(deg+1))*z1[0]; //+k[(nk-1)*(nk-1)]*z1[1];
+	return r;
+}
+
+/**
+ * Evaluates the series \sum_{n = 0}^{deg} \sum_{m = -n}^n r^n c_m^n Y_m^n(x) for real coefficients cs if grad is false
+ * 						\sum_{n = 0}^{deg} \sum_{m = -n}^n n r^{n-1} c_m^n Y_m^n(x) for real coefficients cs if grad is true
+ *
+ * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
+ * 			cs:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 																			  (2, -2), (2, -1), ... (n, n)]
+ * 			deg:	unsigned int		The degree
+ */
+double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg, bool grad) {
+	unsigned int		m, n;
+	double				z1[2], z2[2], z3[2], z1_start[2];
+	double				r, fac, rootTimesZ, root_2, root_3, norm, fac_tot;
+	Eigen::Vector3d		y;
+
+	r = z1[1] = 0;
+	z1[0] = 0.5/sqrt(pi);
+	if(grad && deg <= 1)		{return 0.0;}
+	else if(!grad && deg <= 1)	{return cs(0)*z1[0];}
+
+	norm = x.norm();
+	y = x/norm;
+
+	for (m=0; m<deg-1; m++) {
+		if(m == 0)	{fac = 1.0;}
+		else		{fac = 2.0;}
+
+		if(grad)	{fac_tot = fac*m*pow_int(norm, m-1);}
+		else		{fac_tot = fac*pow_int(norm, m);}
+
+		z1_start[0] = z1[0];
+		z1_start[1] = z1[1];
+		rootTimesZ = sqrt(2*m+3)*y(2);
+		z2[0] = rootTimesZ*z1[0];
+		z2[1] = rootTimesZ*z1[1];
+		r += fac_tot*cs( m   *(m+1)+m)*z1[0];
+
+		if(grad)	{fac_tot = fac*(m+1)*pow_int(norm, m);}
+		else		{fac_tot *= norm;}
+		r += fac_tot*cs((m+1)*(m+2)+m)*z2[0];
+
+		for (n=m+2; n<deg; n++) {
+			if(grad)	{fac_tot = fac*n*pow_int(norm, n-1);}
+			else		{fac_tot *= norm;}
+			root_2 = sqrt((2*n+1.0)/((n-m)*(n+m)));
+			rootTimesZ = sqrt(2*n-1)*y(2);
+			root_3 = sqrt(((n+m-1.0)*(n-m-1.0))/(2*n-3));
+			z3[0] = root_2*(rootTimesZ*z2[0] - root_3*z1[0]);
+			z3[1] = root_2*(rootTimesZ*z2[1] - root_3*z1[1]);
+			r += fac_tot*cs(n*(n+1)+m)*z3[0];
+			z1[0] = z2[0];
+			z1[1] = z2[1];
+			z2[0] = z3[0];
+			z2[1] = z3[1];
+		}
+		root_2 = sqrt((2*m+3.0)/(2*m+2));
+		z1[0] = root_2*(y(0)*z1_start[0]-y(1)*z1_start[1]);
+		z1[1] = root_2*(y(0)*z1_start[1]+y(1)*z1_start[0]);
+	}
+
+	if(grad)	{fac_tot = fac*deg*pow_int(norm, deg-1);}
+	else		{fac_tot *= norm;}
+	r += fac_tot*cs((deg-1)*(deg+1))*z1[0];
 	return r;
 }
 
@@ -144,6 +216,81 @@ Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd k, unsig
 	dr(0) += (nk-1)*(2*k((nk-1)*(nk+1))*z1[0]); //+a[(na-1)*(na-1)]*z1[1]);
 	dr(1) -= (nk-1)*(2*k((nk-1)*(nk+1))*z1[1]); //-a[(na-1)*(na-1)]*z1[0]);
 	dr(2) += 2*sqrt(2*(nk-1))*(k(nk*(nk-1)+(nk-2))*z1[0]+k(nk*(nk-1)-(nk-2))*z1[1]);
+
+	return dr;
+}
+
+/**
+ * Evaluates the series \sum_{n = 0}^{nk} \sum_{m = -n}^n r^{n-3} c_m^n  grad Y_m^n(x) for real coefficients cs
+ *
+ * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
+ * 			cs:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 																			  (2, -2), (2, -1), ... (n, n)]
+ * 			deg:	unsigned int		The degree
+ */
+Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg) {
+	unsigned int		m, n;
+	double				z1[2], z2[2], z3[2], z1_start[2];
+	Eigen::Vector3d		dr, y;
+	double 				fac, rootTimesZ, root_2, root_3, norm, r_n3;
+
+	z1[0] = sqrt(0.375/pi);
+	z1[1] = 0;
+
+	dr = Eigen::Vector3d(0.0, 0.0, 0.0);
+	norm = x.norm();
+	y = x/norm;
+
+	if(deg == 1)	{return dr;}
+
+	for (m=1; m<deg-1; m++) {
+		r_n3 = pow_int(norm, m-3);
+
+		z1_start[0] = z1[0];
+		z1_start[1] = z1[1];
+		rootTimesZ = sqrt(2*m+3)*y(2);
+		z2[0] = rootTimesZ*z1[0];
+		z2[1] = rootTimesZ*z1[1];
+		dr(0) += 2*m*r_n3*(cs( m   *(m+1)+m)*z1[0]);
+		dr(0) += 2*m*r_n3*norm*(cs((m+1)*(m+2)+m)*z2[0]);
+		dr(1) -= 2*m*r_n3*(cs( m   *(m+1)+m)*z1[1]);
+		dr(1) -= 2*m*r_n3*norm*(cs((m+1)*(m+2)+m)*z2[1]);
+
+		if(m == 1) {
+			fac = 1.0;
+			dr(2) += fac*r_n3*sqrt(2*m  )*(cs( m   *(m+1)+(m-1))*z1[0]+cs( m   *(m+1)-(m-1))*z1[1]);
+			dr(2) += fac*r_n3*norm*sqrt(4*m+2)*(cs((m+1)*(m+2)+(m-1))*z2[0]+cs((m+1)*(m+2)-(m-1))*z2[1]);
+		} else {
+			fac = 2.0;
+			dr(2) += fac*r_n3*sqrt(2*m  )*(cs( m   *(m+1)+(m-1))*z1[0]);
+			dr(2) += fac*r_n3*norm*sqrt(4*m+2)*(cs((m+1)*(m+2)+(m-1))*z2[0]);
+		}
+
+		r_n3 *= norm;
+
+		for (n=m+2; n<deg; n++) {
+			r_n3 *= norm;
+			root_2 = sqrt((2*n+1.0)/((n-m)*(n+m)));
+			rootTimesZ = sqrt(2*n-1)*y(2);
+			root_3 = sqrt(((n+m-1.0)*(n-m-1.0))/(2*n-3));
+			z3[0] = root_2*(rootTimesZ*z2[0] - root_3*z1[0]);
+			z3[1] = root_2*(rootTimesZ*z2[1] - root_3*z1[1]);
+			dr(0) += 2*m*r_n3*(cs(n*(n+1)+m)*z3[0]);
+			dr(1) -= 2*m*r_n3*(cs(n*(n+1)+m)*z3[1]);
+			dr(2) += fac*r_n3*sqrt((n+m)*(n-m+1))*(cs(n*(n+1)+(m-1))*z3[0]);
+			z1[0] = z2[0];
+			z1[1] = z2[1];
+			z2[0] = z3[0];
+			z2[1] = z3[1];
+		}
+		root_2 = sqrt((2*m+3.0)/(2*m+2));
+		z1[0] = root_2*(y(0)*z1_start[0]-y(1)*z1_start[1]);
+		z1[1] = root_2*(y(0)*z1_start[1]+y(1)*z1_start[0]);
+	}
+	r_n3 *= norm;
+	dr(0) += (deg-1)*r_n3*(2*cs((deg-1)*(deg+1))*z1[0]);
+	dr(1) -= (deg-1)*r_n3*(2*cs((deg-1)*(deg+1))*z1[1]);
+	dr(2) += 2*r_n3*sqrt(2*(deg-1))*(cs(deg*(deg-1)+(deg-2))*z1[0]+cs(deg*(deg-1)-(deg-2))*z1[1]);
 
 	return dr;
 }
@@ -466,7 +613,7 @@ double constant(int m, unsigned int n) {
 /**
  * Gives the Jacobi Matrix of the transformation z |--> z / |z|
  */
-Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z) {
+inline Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z) {
 
 		Eigen::Matrix3d M;
 
@@ -482,6 +629,27 @@ Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z) {
 		M(2, 1) = M(1, 2) = -z(1)*z(2);
 
 		return M;
+
+}
+
+/**
+ * returns the n-th power of x without pow
+ */
+inline double pow_int(double x, int n) {
+
+	if(n == 0) 	{return 1.0;}
+
+	unsigned int ul, k;
+	if(n > 0)	{ul = n;}
+	else		{ul = -n;}
+
+	double res = x;
+	for(k = 1; k < ul; k++) {
+		res *= x;
+	}
+
+	if(n > 0)	{return res;}
+	else		{return 1.0/res;}
 
 }
 
