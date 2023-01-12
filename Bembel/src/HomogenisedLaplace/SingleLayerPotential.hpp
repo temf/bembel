@@ -30,10 +30,16 @@ class HomogenisedLaplaceSingleLayerPotential: public PotentialBase<
   // information available from the superSpace
 
  private:
+  /** The degree of the spherical harmonics expansion */
   unsigned int deg;
+  /** The coefficients of the spherical harmonics expansion */
   Eigen::VectorXd cs;
 
  public:
+  /**
+     * \brief Constructs an object initialising the coefficients and the degree
+     *  via the static variable HomogenisedLaplaceSingleLayerOperator::precision.
+     */
   HomogenisedLaplaceSingleLayerPotential() {
     this->deg = getDegree(
         HomogenisedLaplaceSingleLayerOperator::getPrecision());

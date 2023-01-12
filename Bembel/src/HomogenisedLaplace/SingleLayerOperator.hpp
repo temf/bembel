@@ -32,11 +32,18 @@ class HomogenisedLaplaceSingleLayerOperator: public LinearOperatorBase<
   // implementation of the kernel evaluation, which may be based on the
   // information available from the superSpace
  private:
+  /** The degree of the spherical harmonics expansion */
   unsigned int deg;
+  /** The coefficients of the spherical harmonics expansion */
   Eigen::VectorXd cs;
+  /** The precision of the periodicity of the kernel */
   static double precision;
 
  public:
+  /**
+   * \brief Constructs an object initialising the coefficients and the degree
+   *  via the static variable precision.
+   */
   HomogenisedLaplaceSingleLayerOperator() {
     this->deg = getDegree(HomogenisedLaplaceSingleLayerOperator::precision);
     this->cs = getCoefficients(
@@ -119,10 +126,16 @@ class HomogenisedLaplaceSingleLayerOperator: public LinearOperatorBase<
         + evaluate_solid_sphericals(x - y, this->cs, this->deg, false);
   }
 
+  /**
+   * \brief sets the precision of the periodicity of the kernel
+   */
   static void setPrecision(double p) {
     HomogenisedLaplaceSingleLayerOperator::precision = p;
   }
 
+  /**
+   * \brief returns the precision of the periodicity of the kernel
+   */
   static double getPrecision() {
     return HomogenisedLaplaceSingleLayerOperator::precision;
   }
