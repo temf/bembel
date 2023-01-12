@@ -65,6 +65,12 @@
  **/
 
 /**
+ *  \defgroup HomogenisedLaplace HomogenisedLaplace
+ *  \brief The HomogenisedLaplace module provides som specialisations to solve
+ *the homogenised Laplace problem.
+ */
+
+/**
  *  \defgroup IO IO
  *  \brief The IO module provides input-output functionality.
  **/

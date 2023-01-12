@@ -117,6 +117,7 @@ design of the Eigen library. If Bembel is used, only these module files should b
     * `Geometry`  implements the handling of the geometry.
     * `H2Matrix` handles the compression of the large, densely populated matrices. The algorithm was introduced in [2] and was generalized to the Maxwell case in [5].
     * `Helmholtz` provides the necessary specializations to solve Helmholtz problems.
+    * `HomogenisedLaplace` provides the necessary specialisations to solve the homogensied Laplace problem.
     * `IO` provides input-output functionality, including routines for VTK file export, timing, and writing log files.
     * `Laplace`  provides the necessary specializations to solve Laplace problems.
     * `LinearForm` implements trace operators, i.e., routines to generate the right hand side of the linear systems. Currently, only a Dirichlet trace and a rotated tangential trace are provided.

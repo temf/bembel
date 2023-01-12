@@ -18,11 +18,11 @@ namespace Bembel {
 double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg);
 
-double evaluate_solid_sphericals(Eigen::Vector3d y, Eigen::VectorXd cs,
+double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg, bool grad);
 
-Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd k,
-    unsigned int nk);
+Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
+    unsigned int deg);
 
 Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x,
     Eigen::VectorXd cs, unsigned int deg);
@@ -48,12 +48,15 @@ inline Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z);
 inline double pow_int(double x, int n);
 
 /**
- * Evaluates the series \sum_{n = 0}^{nk} \sum_{m = -n}^n k_m^n Y_m^n(x) for real coefficients cs
+ * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n Y_m^n(x) \f$ for real coefficients,
+ *        with the convenction that \f$ Y_{-m}^n := \overline{Y_m^n} \f$.
  *
- * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
- * 			cs:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * \see Master's thesis of Remo.
+ *
+ * Input: x:		Eigen::Vector3d		  The point of evaluation, a vector with length 1
+ * 			  cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
  * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			deg:	unsigned int		The degree
+ * 			  deg:	unsigned int		    The degree
  */
 double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg) {
@@ -102,13 +105,15 @@ double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
 }
 
 /**
- * Evaluates the series \sum_{n = 0}^{deg} \sum_{m = -n}^n r^n c_m^n Y_m^n(x) for real coefficients cs if grad is false
- * 						\sum_{n = 0}^{deg} \sum_{m = -n}^n n r^{n-1} c_m^n Y_m^n(x) for real coefficients cs if grad is true
+ * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n
+ *   |x|^n c_m^n Y_m^n( \frac{x}{|x|}) \f$ for real coefficients cs if grad is false, and
+ * 		\f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n n |x|^{n-1} c_m^n Y_m^n(\frac{x}{|x|}) \f$
+ * 		for real coefficients cs if grad is true
  *
- * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
- * 			cs:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * Input:	x:		Eigen::Vector3d		  The point of evaluation
+ * 			  cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
  * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			deg:	unsigned int		The degree
+ * 			  deg:	unsigned int		    The degree
  */
 double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg, bool grad) {
@@ -187,15 +192,16 @@ double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
 }
 
 /**
- * Evaluates the series \sum_{n = 0}^{nk} \sum_{m = -n}^n k_m^n  grad Y_m^n(x) for real coefficients k
+ * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n
+ *  \nabla Y_m^n(x) \f$ for real coefficients.
  *
- * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
- * 			k:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * Input: x:		Eigen::Vector3d		  The point of evaluation, a vector with length 1
+ * 			  cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
  * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			nk:		unsigned int		The degree
+ * 			  deg:	unsigned int		    The degree
  */
-Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd k,
-    unsigned int nk) {
+Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
+    unsigned int deg) {
   unsigned int m, n;
   double z1[2], z2[2], z3[2], z1_start[2];
   Eigen::Vector3d dr;
@@ -206,52 +212,52 @@ Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd k,
 
   dr = Eigen::Vector3d(0.0, 0.0, 0.0);
 
-  if (nk == 1) {
+  if (deg == 1) {
     return dr;
   }
 
-  for (m = 1; m < nk - 1; m++) {
+  for (m = 1; m < deg - 1; m++) {
     z1_start[0] = z1[0];
     z1_start[1] = z1[1];
     rootTimesZ = sqrt(2 * m + 3) * x(2);
     z2[0] = rootTimesZ * z1[0];
     z2[1] = rootTimesZ * z1[1];
-    dr(0) += 2 * m * (k(m * (m + 1) + m) * z1[0]);
+    dr(0) += 2 * m * (cs(m * (m + 1) + m) * z1[0]);
     // + a[ m   *(m+1)-m]*z1[1]) for imaginary coefficients;
-    dr(0) += 2 * m * (k((m + 1) * (m + 2) + m) * z2[0]);
+    dr(0) += 2 * m * (cs((m + 1) * (m + 2) + m) * z2[0]);
     // + a[(m+1)*(m+2)-m]*z2[1]) for imaginary coefficients;
-    dr(1) -= 2 * m * (k(m * (m + 1) + m) * z1[1]);
+    dr(1) -= 2 * m * (cs(m * (m + 1) + m) * z1[1]);
     // - a[ m   *(m+1)-m]*z1[0]) for imaginary coefficients;
-    dr(1) -= 2 * m * (k((m + 1) * (m + 2) + m) * z2[1]);
+    dr(1) -= 2 * m * (cs((m + 1) * (m + 2) + m) * z2[1]);
     // - a[(m+1)*(m+2)-m]*z2[0]) for imaginary coefficients;
 
     if (m == 1) {
       fac = 1.0;
-      dr(2) +=
-          fac * sqrt(2 * m)
-              * (k(m * (m + 1) + (m - 1)) * z1[0]
-                  + k(m * (m + 1) - (m - 1)) * z1[1]);
+      dr(2) += fac * sqrt(2 * m)
+          * (cs(m * (m + 1) + (m - 1)) * z1[0]
+              + cs(m * (m + 1) - (m - 1)) * z1[1]);
       dr(2) += fac * sqrt(4 * m + 2)
-          * (k((m + 1) * (m + 2) + (m - 1)) * z2[0]
-              + k((m + 1) * (m + 2) - (m - 1)) * z2[1]);
+          * (cs((m + 1) * (m + 2) + (m - 1)) * z2[0]
+              + cs((m + 1) * (m + 2) - (m - 1)) * z2[1]);
     } else {
       fac = 2.0;
-      dr(2) += fac * sqrt(2 * m) * (k(m * (m + 1) + (m - 1)) * z1[0]);
+      dr(2) += fac * sqrt(2 * m) * (cs(m * (m + 1) + (m - 1)) * z1[0]);
       // + a[ m   *(m+1)-(m-1)]*z1[1]) for imaginary coefficients;
-      dr(2) += fac * sqrt(4 * m + 2) * (k((m + 1) * (m + 2) + (m - 1)) * z2[0]);
+      dr(2) += fac * sqrt(4 * m + 2)
+          * (cs((m + 1) * (m + 2) + (m - 1)) * z2[0]);
       // + a[(m+1)*(m+2)-(m-1)]*z2[1]) for imaginary coefficients;
     }
 
-    for (n = m + 2; n < nk; n++) {
+    for (n = m + 2; n < deg; n++) {
       root_2 = sqrt((2 * n + 1.0) / ((n - m) * (n + m)));
       rootTimesZ = sqrt(2 * n - 1) * x(2);
       root_3 = sqrt(((n + m - 1.0) * (n - m - 1.0)) / (2 * n - 3));
       z3[0] = root_2 * (rootTimesZ * z2[0] - root_3 * z1[0]);
       z3[1] = root_2 * (rootTimesZ * z2[1] - root_3 * z1[1]);
-      dr(0) += 2 * m * (k(n * (n + 1) + m) * z3[0]);  // + a[n*(n+1)-m]*z3[1]);
-      dr(1) -= 2 * m * (k(n * (n + 1) + m) * z3[1]);  // - a[n*(n+1)-m]*z3[0]);
+      dr(0) += 2 * m * (cs(n * (n + 1) + m) * z3[0]);  // + a[n*(n+1)-m]*z3[1]);
+      dr(1) -= 2 * m * (cs(n * (n + 1) + m) * z3[1]);  // - a[n*(n+1)-m]*z3[0]);
       dr(2) += fac * sqrt((n + m) * (n - m + 1))
-          * (k(n * (n + 1) + (m - 1)) * z3[0]);  // + a[n*(n+1)-(m-1)]*z3[1]);
+          * (cs(n * (n + 1) + (m - 1)) * z3[0]);  // + a[n*(n+1)-(m-1)]*z3[1]);
       z1[0] = z2[0];
       z1[1] = z2[1];
       z2[0] = z3[0];
@@ -261,24 +267,25 @@ Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd k,
     z1[0] = root_2 * (x(0) * z1_start[0] - x(1) * z1_start[1]);
     z1[1] = root_2 * (x(0) * z1_start[1] + x(1) * z1_start[0]);
   }
-  dr(0) += (nk - 1) * (2 * k((nk - 1) * (nk + 1)) * z1[0]);
+  dr(0) += (deg - 1) * (2 * cs((deg - 1) * (deg + 1)) * z1[0]);
   // + a[(na-1)*(na-1)]*z1[1]) for imaginary coefficients;
-  dr(1) -= (nk - 1) * (2 * k((nk - 1) * (nk + 1)) * z1[1]);
+  dr(1) -= (deg - 1) * (2 * cs((deg - 1) * (deg + 1)) * z1[1]);
   // - a[(na-1)*(na-1)]*z1[0]) for imaginary coefficients;
-  dr(2) += 2 * sqrt(2 * (nk - 1))
-      * (k(nk * (nk - 1) + (nk - 2)) * z1[0]
-          + k(nk * (nk - 1) - (nk - 2)) * z1[1]);
+  dr(2) += 2 * sqrt(2 * (deg - 1))
+      * (cs(deg * (deg - 1) + (deg - 2)) * z1[0]
+          + cs(deg * (deg - 1) - (deg - 2)) * z1[1]);
 
   return dr;
 }
 
 /**
- * Evaluates the series \sum_{n = 0}^{nk} \sum_{m = -n}^n r^{n-3} c_m^n  grad Y_m^n(x) for real coefficients cs
+ * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n
+ * |x|^{n-3} c_m^n  (\nabla Y_m^n)(\frac{x}{|x|}) \f$ for real coefficients.
  *
- * Input:	x:		Eigen::Vector3d		The point of evaluation, a vector with length 1
- * 			cs:		Eigen::VectorXd		The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
+ * Input:   x:		Eigen::Vector3d		  The point of evaluation
+ * 			    cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
  * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			deg:	unsigned int		The degree
+ * 			    deg:	unsigned int		    The degree
  */
 Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x,
     Eigen::VectorXd cs, unsigned int deg) {
@@ -359,7 +366,12 @@ Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x,
 }
 
 /**
- * Calculates the the solid harmonics phi_n^m(x), ordered by [phi_0^0, phi_1^{-1}, phi_1^0 phi_1^1, phi_2^{-2}, ..., phi_N^N]
+ * \brief Calculates the the spherical harmonics \f$ Y_n^m(x) \f$,
+ *  ordered by \f$ [Y_0^0, \, Y_1^{-1}, \, Y_1^0, \, Y_1^1, \,
+ *  Y_2^{-2}, ..., Y_N^N] \f$
+ *
+ *  Input:  x:    Vector3d        the point of evaluation, a vector with length 1
+ *          N:    unsigned int    the maximal degree
  */
 Eigen::Matrix<double, Eigen::Dynamic, 2> spherical_harmonics_full(
     Eigen::Vector3d x, unsigned int N) {
@@ -433,8 +445,8 @@ Eigen::Matrix<double, Eigen::Dynamic, 2> spherical_harmonics_full(
   return res;
 }
 
-/*
- * Calculates the spherical harmonics value Y_n^m(x) based on the previous values
+/**
+ * \brief Calculates the spherical harmonic \f$ Y_n^m(x) \f$ based on previous values
  */
 inline Eigen::Vector2d spherical_prev(Eigen::Vector3d x, int m, int n,
     Eigen::Vector2d y1, Eigen::Vector2d y2) {
@@ -461,7 +473,7 @@ inline Eigen::Vector2d spherical_prev(Eigen::Vector3d x, int m, int n,
 }
 
 /**
- * Calculates all gradients of the solid harmonics, given the Legendre Coefficients L
+ * \brief Calculates all gradients of the solid harmonics, given the Legendre Coefficients L.
  */
 Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(
     Eigen::Vector3d x, unsigned int N, Eigen::MatrixXd spherical_val) {
@@ -500,6 +512,9 @@ Eigen::Matrix<double, 3, Eigen::Dynamic> Dsolid_harmonics_full(
   return reals;
 }
 
+/**
+ * \brief Calculates \f$ \nabla Y_m^n(x) \f$ based on the Legendre Coefficients L.
+ */
 inline Eigen::Matrix<double, 3, 2> dspherical_prev(Eigen::Vector3d x, int m,
     unsigned int n, Eigen::VectorXd L) {
 
@@ -556,7 +571,8 @@ inline Eigen::Matrix<double, 3, 2> dspherical_prev(Eigen::Vector3d x, int m,
 }
 
 /**
- * Calculates the derivative of the solid harmonics function phi_n^m at the point y with the spherical values
+ * \brief Calculates the derivative of the solid harmonics function \f$ \phi_n^m \f$ at
+ *  the point \f$ y \f$ with the spherical values.
  */
 Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, int m,
     unsigned int n, Eigen::VectorXd L, double y_re, double y_im) {
@@ -640,7 +656,7 @@ Eigen::Matrix<double, 3, 2> dsolid_spherical_prev(Eigen::Vector3d y, int m,
 }
 
 /**
- * Returns the values of the spherical polynomials P_n^m(t)
+ * \brief Returns the values of the spherical polynomials \f$ P_n^m(t) \f$
  */
 Eigen::VectorXd legendreFull(unsigned int N, double t) {
   Eigen::VectorXd L(((N + 1) * (N + 2)) / 2);
@@ -672,7 +688,7 @@ Eigen::VectorXd legendreFull(unsigned int N, double t) {
 }
 
 /**
- *  gives the norming factor of the spherical polynomials
+ *  \brief gives the norming factor of the spherical polynomials
  */
 double constant(int m, unsigned int n) {
   unsigned int i;
@@ -686,7 +702,7 @@ double constant(int m, unsigned int n) {
 }
 
 /**
- * Gives the Jacobi Matrix of the transformation z |--> z / |z|
+ * \brief gives \f$ |z|^3 \f$ times the Jacobi Matrix of the transformation \f$ z \mapsto \frac{z}{|z|} \f$
  */
 inline Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z) {
   Eigen::Matrix3d M;
@@ -705,7 +721,7 @@ inline Eigen::Matrix3d functionalMatrix(Eigen::Vector3d z) {
 }
 
 /**
- * returns the n-th power of x without pow
+ * \brief returns the \f$ n \f$-th power of \f$ x \f$ without using pow.
  */
 inline double pow_int(double x, int n) {
   if (n == 0) {
