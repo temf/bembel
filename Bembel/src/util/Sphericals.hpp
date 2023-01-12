@@ -51,18 +51,23 @@ inline double pow_int(double x, int n);
  * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n Y_m^n(x) \f$ for real coefficients,
  *        with the convenction that \f$ Y_{-m}^n := \overline{Y_m^n} \f$.
  *
- * \see Master's thesis of Remo.
+ * \see K. Giebermann. _Schnelle Summationsverfahren zur numerischen Lösung von Integralgleichungen
+ *  für Streuprobleme im_ \f$ \mathbb{R}^3 \f$. PhD thesis, Universität Karlsruhe (TH), Germany, 1997.
+ * \see R. von Rickenbach. _Boundary Element Methods for Shape Optimisation in Homogenisation_.
+ *  MSc thesis, Universität Basel, Switzerland, 2021.
  *
- * Input: x:		Eigen::Vector3d		  The point of evaluation, a vector with length 1
- * 			  cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
- * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			  deg:	unsigned int		    The degree
+ * @param x:		The point of evaluation, a vector with length 1
+ * @param cs:		The coefficients stored in the order \f$ [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 																			  (2, -2), (2, -1), ... (n, n)] \f$
+ * @param deg:	The degree
  */
 double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg) {
   unsigned int m, n;
   double z1[2], z2[2], z3[2], z1_start[2];
   double r, fac, rootTimesZ, root_2, root_3;
+
+  assert(abs(x.norm() - 1) < 1e-14);
 
   r = z1[1] = 0;
   z1[0] = 0.5 / sqrt(pi);
@@ -110,10 +115,10 @@ double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
  * 		\f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n n |x|^{n-1} c_m^n Y_m^n(\frac{x}{|x|}) \f$
  * 		for real coefficients cs if grad is true
  *
- * Input:	x:		Eigen::Vector3d		  The point of evaluation
- * 			  cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
- * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			  deg:	unsigned int		    The degree
+ * @param	x:		The point of evaluation
+ * @param cs:		The coefficients stored in the order \f$ [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 																			  (2, -2), (2, -1), ... (n, n)] \f$
+ * @param deg:	The degree
  */
 double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg, bool grad) {
@@ -195,10 +200,10 @@ double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
  * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n
  *  \nabla Y_m^n(x) \f$ for real coefficients.
  *
- * Input: x:		Eigen::Vector3d		  The point of evaluation, a vector with length 1
- * 			  cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
- * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			  deg:	unsigned int		    The degree
+ * @param x:		The point of evaluation, a vector with length 1
+ * @param cs:		The coefficients stored in the order \f$ [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 																			  (2, -2), (2, -1), ... (n, n)] \f$
+ * @param deg:	The degree
  */
 Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg) {
@@ -206,6 +211,8 @@ Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
   double z1[2], z2[2], z3[2], z1_start[2];
   Eigen::Vector3d dr;
   double fac, rootTimesZ, root_2, root_3;
+
+  assert(abs(x.norm() - 1) < 1e-14);
 
   z1[0] = sqrt(0.375 / pi);
   z1[1] = 0;
@@ -282,10 +289,10 @@ Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
  * \brief Evaluates the series \f$ \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n
  * |x|^{n-3} c_m^n  (\nabla Y_m^n)(\frac{x}{|x|}) \f$ for real coefficients.
  *
- * Input:   x:		Eigen::Vector3d		  The point of evaluation
- * 			    cs:		Eigen::VectorXd		  The coefficients stored in the order [(0,  0), (1, -1), (1, 0), (1, 1)
- * 																			  (2, -2), (2, -1), ... (n, n)]
- * 			    deg:	unsigned int		    The degree
+ * @param x:		The point of evaluation
+ * @param cs:		The coefficients stored in the order \f$ [(0,  0), (1, -1), (1, 0), (1, 1)
+ * 																			  (2, -2), (2, -1), ... (n, n)] \f$
+ * @param deg:	The degree
  */
 Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x,
     Eigen::VectorXd cs, unsigned int deg) {
@@ -366,12 +373,12 @@ Eigen::Vector3d evaluate_dsolid_sphericals(Eigen::Vector3d x,
 }
 
 /**
- * \brief Calculates the the spherical harmonics \f$ Y_n^m(x) \f$,
+ * \brief Calculates the the spherical harmonics \f$ Y_n^m(\frac{x}{|x|}) \f$,
  *  ordered by \f$ [Y_0^0, \, Y_1^{-1}, \, Y_1^0, \, Y_1^1, \,
  *  Y_2^{-2}, ..., Y_N^N] \f$
  *
- *  Input:  x:    Vector3d        the point of evaluation, a vector with length 1
- *          N:    unsigned int    the maximal degree
+ *  @param  x:    the point of evaluation
+ *  @param  N:    the maximal degree
  */
 Eigen::Matrix<double, Eigen::Dynamic, 2> spherical_harmonics_full(
     Eigen::Vector3d x, unsigned int N) {
@@ -452,6 +459,8 @@ inline Eigen::Vector2d spherical_prev(Eigen::Vector3d x, int m, int n,
     Eigen::Vector2d y1, Eigen::Vector2d y2) {
   Eigen::Vector2d z;
 
+  assert(abs(x.norm() - 1) < 1e-14);
+
   if ((m == 0) && (n == 0)) {
     z(0) = 0.5 / sqrt(pi);
     z(1) = 0;
@@ -520,6 +529,8 @@ inline Eigen::Matrix<double, 3, 2> dspherical_prev(Eigen::Vector3d x, int m,
 
   double c;
   unsigned int i;
+
+  assert(abs(x.norm() - 1) < 1e-14);
 
   Eigen::Matrix<double, 3, 2> z;
 

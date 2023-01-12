@@ -9,7 +9,7 @@
 #define BEMBEL_SRC_HOMOGENISEDLAPLACE_COEFFICIENTS_HPP_
 
 #ifndef POINT_DEGREE
-#define POINT_DEGREE 20 /* the number of points on the surface of the cube */
+#define POINT_DEGREE 20 /** the number of points on the surface of the cube */
 #endif
 
 #ifndef PI
@@ -39,7 +39,23 @@ double calculateFirstCoefficient(Eigen::VectorXd cs, unsigned int deg,
     Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f, Eigen::MatrixXd ps_b);
 
 /**
- * Calculates the coefficients for the solid harmonics expansion of the periodic kernel
+ * \brief Calculates the coefficients for the solid harmonics expansion of
+ *  the periodic kernel \f$ k(x) = \sum_{m \in \{-1, 0, 1\}^3} \frac{1}{4 \pi |x-m|}
+ *  + \frac{|x|^2}{6} + \sum_{n = 0}^{N} \sum_{m = -n}^n c_m^n \phi_n^m(x) \f$.
+ *
+ * @param precision:  The desired mean error from periodicity.
+ *
+ * \see A. Barnett and L. Greengard. A new integral representation for quasi-periodic
+ *  fields and its application to two-dimensional band structure calculations.
+ *  _Journal of Computational Physics_, 229(19):6898--6914, 2010.
+ *
+ * \see P. Cazeaux and O. Zahm. A fast boundary element method
+ *  for the solution of periodic many-inclusion problems via
+ *  hierarchical matrix techniques. _ESAIM: Proceedings and Surveys_,
+ *  48:156--168, 2015.
+ *
+ * \see R. von Rickenbach. _Boundary Element Methods for Shape
+ *  Optimisation in Homogenisation_. MSc thesis, Universität Basel, 2021.
  */
 Eigen::VectorXd getCoefficients(double precision) {
   Eigen::VectorXd diff;
@@ -191,8 +207,16 @@ Eigen::VectorXd getCoefficients(double precision) {
 }
 
 /**
- * Returns the degree n of the sphericals expansion
- * given a precision. Compare the Plots in the msc thesis.
+ * \brief Returns the degree of the sphericals expansion
+ * given a precision. Can be extended, use even numbers only!
+ *
+ * \see P. Cazeaux and O. Zahm. A fast boundary element method
+ *  for the solution of periodic many-inclusion problems via
+ *  hierarchical matrix techniques. _ESAIM: Proceedings and Surveys_,
+ *  48:156--168, 2015.
+ *
+ * \see R. von Rickenbach. _Boundary Element Methods for Shape
+ *  Optimisation in Homogenisation_. MSc thesis, Universität Basel, 2021.
  */
 inline unsigned int getDegree(double precision) {
   if (precision > 1e-4) {
@@ -205,9 +229,11 @@ inline unsigned int getDegree(double precision) {
 }
 
 /**
- * Returns the displacement field for the homogenised
- * Laplace calculation. This corresponds to the
- * right-hand side of the system
+ * \brief Returns the right-hand side for the homogenised coefficient calculation.
+ *
+ * @param ps_l: Points on the left side, i.e. \f$ \subseteq \{-0.5\} \times [-0.5, 0.5] \times [-0.5, 0.5] \f$.
+ * @param ps_f: Points on the front side, i.e. \f$ \subseteq [-0.5, 0.5] \times \{-0.5\} \times [-0.5, 0.5] \f$.
+ * @param ps_b: Points on the bottom side, i.e. \f$ \subseteq [-0.5, 0.5] \times [-0.5, 0.5] \times \{-0.5\} \f$.
  */
 Eigen::VectorXd getDisplacement(Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f,
     Eigen::MatrixXd ps_b) {
@@ -253,6 +279,10 @@ Eigen::VectorXd getDisplacement(Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f,
   return d;
 }
 
+/**
+ * \brief Returns the modified kernel \f$ \sum_{m \in \{-1, 0, 1 \}^3} \frac{1}{4 \pi |x-m|}
+ *  + \frac{|x|^2}{6} \f$.
+ */
 inline double k_mod(Eigen::Vector3d in) {
   double r = 0.0;
   int i, j, k;
@@ -275,6 +305,10 @@ inline double k_mod(Eigen::Vector3d in) {
   return r;
 }
 
+/**
+ * \brief Returns the gradient of the modified kernel \f$ - \sum_{m \in \{-1, 0, 1\}^3}
+ *  \frac{x-m}{|x-m|^3} + \frac{x}{3} \f$.
+ */
 inline Eigen::Vector3d Dk_mod(Eigen::Vector3d in) {
   Eigen::Vector3d r, s;
   double snorm;
@@ -300,7 +334,14 @@ inline Eigen::Vector3d Dk_mod(Eigen::Vector3d in) {
 }
 
 /**
- * Calculates the first coefficient via a Gauss quadrature on the boundary
+ * \brief Calculates the first coefficient such that the mean of the
+ *  kernel vanishes.
+ *
+ * @param cs:   The already calculated other coefficients
+ * @param deg:  The degree
+ * @param ps_l: Gauss quadrature points on the left side of the cube
+ * @param ps_f: Gauss quadrature points on the front side of the cube
+ * @param ps_b: Gauss quadrature points on the bottom side of the cube
  */
 double calculateFirstCoefficient(Eigen::VectorXd cs, unsigned int deg,
     Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f, Eigen::MatrixXd ps_b) {
