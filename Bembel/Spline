@@ -12,6 +12,13 @@
 #ifndef BEMBEL_SPLINE_MODULE_
 #define BEMBEL_SPLINE_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup Spline Spline
+ *  \brief The Spline module provides basic routines related to spline function
+ *	and local polynomials.
+ **/
+
 #include <array>
 #include <cassert>
 #include <cstdlib>
