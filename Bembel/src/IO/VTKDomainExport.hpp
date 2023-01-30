@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,18 +9,18 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_IO_VTKDOMAINEXPORT_H_
-#define BEMBEL_IO_VTKDOMAINEXPORT_H_
+#ifndef BEMBEL_SRC_IO_VTKDOMAINEXPORT_HPP_
+#define BEMBEL_SRC_IO_VTKDOMAINEXPORT_HPP_
 
 namespace Bembel {
 
 // This class provides the possibilty to generate a vtk-visualization.
 class VTKDomainExport {
  public:
-    /**
-  * \ingroup IO
-  * \brief Provides export routines to the VTK file format.
-  **/
+  /**
+   * \ingroup IO
+   * \brief Provides export routines to the VTK file format.
+   **/
   VTKDomainExport(const Eigen::VectorXd &x_vec, const Eigen::VectorXd &y_vec,
                   const Eigen::VectorXd &z_vec) {
     init_VTKDomainExport(x_vec, y_vec, z_vec);
@@ -45,7 +48,7 @@ class VTKDomainExport {
     for (int z_idx = 0; z_idx < z_vec_.rows(); ++z_idx)
       for (int y_idx = 0; y_idx < y_vec_.rows(); ++y_idx)
         for (int x_idx = 0; x_idx < x_vec_.rows(); ++x_idx) {
-          const unsigned long i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
+          const uint32_t i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
                                   (x_vec_.rows() * y_idx) + x_idx;
           data(i) =
               fun(Eigen::Vector3d(x_vec_(x_idx), y_vec_(y_idx), z_vec_(z_idx)));
@@ -60,7 +63,7 @@ class VTKDomainExport {
     for (int z_idx = 0; z_idx < z_vec_.rows(); ++z_idx)
       for (int y_idx = 0; y_idx < y_vec_.rows(); ++y_idx)
         for (int x_idx = 0; x_idx < x_vec_.rows(); ++x_idx) {
-          const unsigned long i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
+          const uint32_t i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
                                   (x_vec_.rows() * y_idx) + x_idx;
           data.row(i) =
               fun(Eigen::Vector3d(x_vec_(x_idx), y_vec_(y_idx), z_vec_(z_idx)))
@@ -138,4 +141,4 @@ class VTKDomainExport {
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_IO_VTKDOMAINEXPORT_HPP_

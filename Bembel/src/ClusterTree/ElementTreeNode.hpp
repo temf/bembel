@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_CLUSTERTREE_ELEMENTTREENODE_H_
-#define BEMBEL_CLUSTERTREE_ELEMENTTREENODE_H_
+#ifndef BEMBEL_SRC_CLUSTERTREE_ELEMENTTREENODE_HPP_
+#define BEMBEL_SRC_CLUSTERTREE_ELEMENTTREENODE_HPP_
 
 namespace Bembel {
 
@@ -30,7 +33,7 @@ class ElementTreeNode {
     using pointer = value_type *;
     using reference = value_type &;
 
-    const_iterator(pointer ptr) : m_ptr(ptr) {}
+    explicit const_iterator(pointer ptr) : m_ptr(ptr) {}
 
     reference operator*() const { return *m_ptr; }
     const pointer operator->() const { return m_ptr; }
@@ -50,10 +53,10 @@ class ElementTreeNode {
 
     friend bool operator==(const const_iterator &a, const const_iterator &b) {
       return a.m_ptr == b.m_ptr;
-    };
+    }
     friend bool operator!=(const const_iterator &a, const const_iterator &b) {
       return a.m_ptr != b.m_ptr;
-    };
+    }
 
    private:
     pointer m_ptr;
@@ -151,7 +154,8 @@ class ElementTreeNode {
   //////////////////////////////////////////////////////////////////////////////
   const_iterator end() const {
     return cend();
-  }  //////////////////////////////////////////////////////////////////////////////
+  }
+  //////////////////////////////////////////////////////////////////////////////
   /// member variables
   //////////////////////////////////////////////////////////////////////////////
   std::vector<ElementTreeNode> sons_;        /// children
@@ -167,4 +171,4 @@ class ElementTreeNode {
   int patch_;      /// patch of the element
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_CLUSTERTREE_ELEMENTTREENODE_HPP_

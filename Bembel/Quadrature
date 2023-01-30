@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -27,4 +30,4 @@
 #include "src/Quadrature/GaussLegendre.hpp"
 #include "src/Quadrature/GaussSquare.hpp"
 
-#endif
+#endif  // BEMBEL_QUADRATURE_MODULE_

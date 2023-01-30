@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_TEST_DUFFYTRICK_INTEGRATE1_H_
-#define BEMBEL_TEST_DUFFYTRICK_INTEGRATE1_H_
+#ifndef TESTS_DUFFYTRICK_TEST_INTEGRATE1_HPP_
+#define TESTS_DUFFYTRICK_TEST_INTEGRATE1_HPP_
 
 namespace Test {
 namespace DuffyTrick {
@@ -50,4 +53,4 @@ bool test_integrate1(const Bembel::AnsatzSpace<Derived> &ansatz_space,
 }
 }  // namespace DuffyTrick
 }  // namespace Test
-#endif
+#endif  // TESTS_DUFFYTRICK_TEST_INTEGRATE1_HPP_
