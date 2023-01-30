@@ -38,6 +38,6 @@
  * updateSurdacePoint method is specialized and should be used, since it avoids
  * redundant work.
  **/
-typedef Eigen::Matrix<double, 13, 1> SurfacePoint;
+typedef Eigen::Matrix<double, 12, 1> SurfacePoint;
 
 #endif  // BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
