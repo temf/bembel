@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_LINEARFORM_LINEARFORM_H_
-#define BEMBEL_LINEARFORM_LINEARFORM_H_
+#ifndef BEMBEL_SRC_LINEARFORM_LINEARFORM_HPP_
+#define BEMBEL_SRC_LINEARFORM_LINEARFORM_HPP_
 
 namespace Bembel {
 /**
@@ -27,7 +30,7 @@ struct LinearFormTraits {
 template <typename Derived, typename Scalar>
 struct LinearFormBase {
   // Constructors
-  LinearFormBase(){};
+  LinearFormBase() {}
 
   // the user has to provide the implementation of this function, which
   // tells
@@ -49,4 +52,4 @@ struct LinearFormBase {
   const Derived &derived() const { return *static_cast<const Derived *>(this); }
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LINEARFORM_LINEARFORM_HPP_

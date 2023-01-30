@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_DUFFYTRICK_INTGRATE2_H_
-#define BEMBEL_DUFFYTRICK_INTGRATE2_H_
+#ifndef BEMBEL_SRC_DUFFYTRICK_INTEGRATE2_HPP_
+#define BEMBEL_SRC_DUFFYTRICK_INTEGRATE2_HPP_
 
 namespace Bembel {
 namespace DuffyTrick {
@@ -65,4 +68,4 @@ void integrate2(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
 }  // namespace DuffyTrick
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_DUFFYTRICK_INTEGRATE2_HPP_

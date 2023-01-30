@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -10,19 +13,19 @@
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
 #include <Bembel/Helmholtz>
-#include <Bembel/LinearForm>
 #include <Bembel/IO>
+#include <Bembel/LinearForm>
 #include <Eigen/Dense>
 #include <iostream>
 
-#include "Data.hpp"
-#include "Error.hpp"
-#include "Grids.hpp"
+#include "examples/Data.hpp"
+#include "examples/Error.hpp"
+#include "examples/Grids.hpp"
 
 int main() {
   using namespace Bembel;
   using namespace Eigen;
-  
+
   Bembel::IO::Stopwatch sw;
 
   int polynomial_degree_max = 3;

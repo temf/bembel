@@ -5,22 +5,23 @@ jobs:
       branches:
         only:
           - master
-    docker:
-      - image: ubuntu:latest
+    machine:
+      image: ubuntu-2004:current
+    resource_class: large
     steps:
       - run:
           name: "Updating"
           command: |
-            apt-get update && apt-get install -y openssh-client git
+            sudo apt-get update && sudo apt-get install -y openssh-client git
       - checkout
       - run:
           name: "Getting Eigen"
           command: |
-            export DEBIAN_FRONTEND=noninteractive && apt-get install --yes  libeigen3-dev
+            export DEBIAN_FRONTEND=noninteractive && sudo apt-get install --yes  libeigen3-dev
       - run:
           name: "Getting build-essential"
           command: |
-            apt-get install --yes build-essential make cmake;
+            sudo apt-get install --yes build-essential make cmake;
       - run:
           name: "Calling CMake"
           command: |

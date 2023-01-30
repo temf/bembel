@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_LINEAROPERATOR_DISCRETEOPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_DISCRETEOPERATOR_H_
+#ifndef BEMBEL_SRC_LINEAROPERATOR_DISCRETEOPERATOR_HPP_
+#define BEMBEL_SRC_LINEAROPERATOR_DISCRETEOPERATOR_HPP_
 
 namespace Bembel {
 /**
@@ -24,7 +27,7 @@ struct DiscreteOperatorComputer {};
 template <typename Derived, typename Scalar>
 struct DiscreteOperatorComputer<
     Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>, Derived> {
-  DiscreteOperatorComputer(){};
+  DiscreteOperatorComputer() {}
   static void compute(
       Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
@@ -89,7 +92,7 @@ struct DiscreteOperatorComputer<
 template <typename Derived>
 struct DiscreteOperatorComputer<
     Eigen::H2Matrix<typename LinearOperatorTraits<Derived>::Scalar>, Derived> {
-  DiscreteOperatorComputer(){};
+  DiscreteOperatorComputer() {}
   static void compute(
       Eigen::H2Matrix<typename LinearOperatorTraits<Derived>::Scalar> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
@@ -108,7 +111,7 @@ class DiscreteOperator {
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
   DiscreteOperator() {}
-  DiscreteOperator(const AnsatzSpace<Derived> &ansatz_space) {
+  explicit DiscreteOperator(const AnsatzSpace<Derived> &ansatz_space) {
     init_DiscreteOperator(ansatz_space);
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -142,4 +145,4 @@ class DiscreteOperator {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LINEAROPERATOR_DISCRETEOPERATOR_HPP_

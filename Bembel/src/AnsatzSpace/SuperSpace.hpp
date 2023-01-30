@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_INCLUDE_SUPERSPACE_H_
-#define BEMBEL_INCLUDE_SUPERSPACE_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
 namespace Bembel {
 /**
  *  \ingroup AnsatzSpace
@@ -19,7 +22,7 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
-  SuperSpace(){};
+  SuperSpace() {}
   SuperSpace(Geometry& geom, int M, int P) { init_SuperSpace(geom, M, P); }
   SuperSpace(const SuperSpace& other) {
     mesh_ = other.mesh_;
@@ -48,7 +51,7 @@ struct SuperSpace {
     polynomial_degree = other.polynomial_degree;
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
-  };
+  }
   SuperSpace& operator=(SuperSpace other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -75,7 +78,7 @@ struct SuperSpace {
   int get_number_of_elements() const { return mesh_->get_number_of_elements(); }
   int get_number_of_patches() const { return mesh_->get_geometry().size(); }
   const PatchVector& get_geometry() const { return mesh_->get_geometry(); }
-  const ClusterTree& get_mesh() const { return *mesh_; };
+  const ClusterTree& get_mesh() const { return *mesh_; }
   //////////////////////////////////////////////////////////////////////////////
   //    init_SuperSpace
   //////////////////////////////////////////////////////////////////////////////
@@ -97,7 +100,7 @@ struct SuperSpace {
     mesh_->init_ClusterTree(geom, M);
     mesh_->checkOrientation();
     return;
-  };
+  }
   //////////////////////////////////////////////////////////////////////////////
   //    map2surface
   //////////////////////////////////////////////////////////////////////////////
@@ -353,4 +356,4 @@ struct SuperSpace {
   int polynomial_degree_plus_one_squared;
 };  // namespace Bembel
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
