@@ -60,9 +60,10 @@ struct DiscreteOperatorComputer<
               Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> intval(
                   vector_dimension * polynomial_degree_plus_one_squared,
                   vector_dimension * polynomial_degree_plus_one_squared);
-              DuffyTrick::evaluateBilinearForm(lin_op, super_space, *element1,
-                                               *element2, GS, ffield_qnodes,
-                                               &intval);
+              DuffyTrick::evaluateBilinearForm(
+                  lin_op, super_space, *element1, *element2, GS,
+                  ffield_qnodes[element1->id_], ffield_qnodes[element2->id_],
+                  &intval);
               for (auto i = 0; i < vector_dimension; ++i)
                 for (auto j = 0; j < vector_dimension; ++j)
                   disc_op->block(polynomial_degree_plus_one_squared *

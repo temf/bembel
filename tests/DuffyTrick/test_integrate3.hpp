@@ -46,7 +46,7 @@ bool test_integrate3(const Bembel::AnsatzSpace<Derived> &ansatz_space,
         ////////////////////////////////////////////////////////////////////////
         Bembel::DuffyTrick::integrate3(linOp, ansatz_space.get_superspace(),
                                        *it, cp(0), *it2, cp(1), ffield_qnodes,
-                                       Q, &intval);
+                                       ffield_qnodes, Q, &intval);
         ////////////////////////////////////////////////////////////////////////
         axis.col(0) << it->llc_(0), it->llc_(0) + h;
         axis.col(1) << it->llc_(1), it->llc_(1) + h;
