@@ -27,8 +27,9 @@ namespace DuffyTrick {
 template <typename Derived, class T>
 void integrate2(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
                 const ElementTreeNode &e1, int rot1, const ElementTreeNode &e2,
-                int rot2, const Eigen::MatrixXd &ffield_qnodes1,
-                const Eigen::MatrixXd &ffield_qnodes2, const Cubature &Q,
+                int rot2, const std::vector<SurfacePoint> &ffield_qnodes1,
+                const std::vector<SurfacePoint> &ffield_qnodes2,
+                const Cubature &Q,
                 Eigen::Matrix<typename LinearOperatorTraits<Derived>::Scalar,
                               Eigen::Dynamic, Eigen::Dynamic> *intval) {
   intval->setZero();
