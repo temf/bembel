@@ -21,7 +21,7 @@ bool test_integrate2(const Bembel::AnsatzSpace<Derived> &ansatz_space,
   Bembel::GaussSquare<maxqdeg + 1> GS;
   auto Q = GS[maxqdeg];
 
-  std::vector<SurfacePoint> ffield_qnodes;
+  ElementSurfacePoints ffield_qnodes;
   Eigen::MatrixXd intval;
   Eigen::MatrixXd axis;
   intval.resize(1, 1);

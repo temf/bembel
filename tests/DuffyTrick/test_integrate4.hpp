@@ -20,7 +20,7 @@ bool test_integrate4(const Bembel::AnsatzSpace<Derived> &ansatz_space,
                      const Bembel::LinearOperatorBase<Derived> &linOp) {
   Bembel::GaussSquare<maxqdeg + 1> GS;
   auto Q = GS[maxqdeg];
-  std::vector<SurfacePoint> ffield_qnodes;
+  ElementSurfacePoints ffield_qnodes;
   Eigen::MatrixXd intval;
   Eigen::MatrixXd axis;
   intval.resize(1, 1);

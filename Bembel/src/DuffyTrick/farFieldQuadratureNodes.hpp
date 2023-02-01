@@ -20,9 +20,9 @@ namespace DuffyTrick {
  *         is qNodes.col(k) = [xi, w, Chi(xi); dsChi(xi); dtChi(xi)]\in\Rbb^12
  **/
 template <class T>
-std::vector<std::vector<SurfacePoint>> computeFfieldQnodes(const T &super_space,
-                                                           const Cubature &Q) {
-  std::vector<std::vector<SurfacePoint>> ffield_qnodes;
+std::vector<ElementSurfacePoints> computeFfieldQnodes(const T &super_space,
+                                                      const Cubature &Q) {
+  std::vector<ElementSurfacePoints> ffield_qnodes;
   int next = 0;
   // assume isotropic mesh width h!
   double h = (super_space.get_mesh().get_element_tree().cpbegin())->get_h();
