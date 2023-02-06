@@ -42,6 +42,7 @@ set(NOCIFILES
     VTKSurfaceExport
     VTKDomainExport
     FullLaplaceWorkflow
+    MaxwellSingleLayerScreen
     )
 
   foreach(file IN LISTS NOCIFILES)
