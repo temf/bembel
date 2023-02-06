@@ -124,20 +124,20 @@ class Glue {
                 return a.dofs[0] < b.dofs[0];
               });
 
-    const int post_dofs =
-        pre_dofs - number_of_slaves - number_of_boundary_dofs;
+    const int post_dofs = pre_dofs - number_of_slaves - number_of_boundary_dofs;
     const int glued_dofs = pre_dofs - number_of_slaves;
     assert(post_dofs != 0 && "All degrees of freedom are on the boundary!");
     // This block is the heart of the algorithms. Skip keeps track of how many
     // slaves have been skipped already, and master_index keeps track on which
-    // master is about to be glued next.
+    // master is about to be glued next. post_index keeps track on how many
+    // dofs are on the boundary of the patches and therefore skipped.
     int skip = 0;
     int master_index = 0;
     int post_index = 0;
     for (int i = 0; i < glued_dofs; ++i) {
       while (dof_is_slave[i + skip] && ((i + skip) < pre_dofs)) ++skip;
       const int pre_index = i + skip;
-      // skip boundary dofs
+      // skip dofs on patch boundary without a slave patch
       if (dof_is_master[pre_index] && dof_id[master_index].dofs.size() == 1) {
         ++master_index;
         continue;
@@ -483,7 +483,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::DivConforming> {
       const bool needReversion = reverseParametrized(edge);
       const int coef = glueCoefficientDivergenceConforming(edge);
 
-      // Check if the edge is hanging. For screens one would need an "else".
+      // Check if the edge is hanging.
       if (edge[1] > -1 && edge[0] > -1) {
         for (int i = 0; i < size_of_edge_dofs; ++i) {
           GlueRoutines::dofIdentification d;
@@ -497,9 +497,9 @@ struct glue_identificationmaker_<Derived, DifferentialForm::DivConforming> {
         }
       } else {
         for (int i = 0; i < size_of_edge_dofs; ++i) {
+          // Add only the master dof which is skipped in subsequent routines
           GlueRoutines::dofIdentification d;
           d.dofs.push_back(dofs_e1[i]);
-          d.coef = 0;
           out.push_back(d);
         }
       }
