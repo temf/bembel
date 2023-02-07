@@ -38,7 +38,7 @@ int main() {
 
       geometry.get_geometry()[0].updateSurfacePoint(&srf_pt, pt, 3.1415, pt);
 
-      if ((srf_pt - srf_pt_ref).norm() >
+      if ((srf_pt.get_data() - srf_pt_ref.get_data()).norm() >
           Test::Constants::test_tolerance_geometry)
         return 1;
     }

@@ -134,7 +134,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
     Bembel::GaussSquare<Bembel::Constants::maximum_quadrature_degree> GS;
     auto super_space = ansatz_space.get_superspace();
     auto ffield_deg = linOp.get_FarfieldQuadratureDegree(polynomial_degree);
-    auto ffield_qnodes =
+    std::vector<ElementSurfacePoints> ffield_qnodes =
         Bembel::DuffyTrick::computeFfieldQnodes(super_space, GS[ffield_deg]);
     const int NumberOfFMMComponents =
         Bembel::LinearOperatorTraits<Derived>::NumberOfFMMComponents;

@@ -11,10 +11,10 @@
 //
 #ifndef BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
 #define BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
-#include <Eigen/StdVector>
+// #include <Eigen/StdVector>
 /**
  * \ingroup Geometry
- * \brief typedef of SurfacePoint
+ * \brief Wrapper class for legacy SurfacePoint represented as an Eigen::Vector
  *
  * This typedef is essential for any evaluation of a bilinear form. It provides
  * all required geometry information, stored as follows:
@@ -39,13 +39,84 @@
  * updateSurdacePoint method is specialized and should be used, since it avoids
  * redundant work.
  **/
-typedef Eigen::Matrix<double, 12, 1> SurfacePoint;
+class SurfacePoint {
+ public:
+  /**
+   * \brief Supports legacy code.
+   */
+  double& operator()(const int j) { return (data_(j)); }
+  /**
+   * \brief Supports legacy code.
+   */
+  const double& operator()(const int j) const { return (data_(j)); }
+  /**
+   * \brief Supports legacy code.
+   */
+  template <int N>
+  Eigen::Matrix<double, N, 1> segment(const int l) {
+    return data_.segment<N>(l);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  template <int N>
+  const Eigen::Matrix<double, N, 1> segment(const int l) const {
+    return data_.segment<N>(l);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  Eigen::Matrix<double, Eigen::Dynamic, 1> segment(const int l, const int n) {
+    return data_.segment(l, n);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  const Eigen::Matrix<double, Eigen::Dynamic, 1> segment(const int l,
+                                                         const int n) const {
+    return data_.segment(l, n);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  Eigen::Matrix<double, Eigen::Dynamic, 1> head(const int n) {
+    return data_.head(n);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  const Eigen::Matrix<double, Eigen::Dynamic, 1> head(const int n) const {
+    return data_.head(n);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  Eigen::Matrix<double, Eigen::Dynamic, 1> tail(const int n) {
+    return data_.tail(n);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  const Eigen::Matrix<double, Eigen::Dynamic, 1> tail(const int n) const {
+    return data_.tail(n);
+  }
+  /**
+   * \brief Supports legacy code.
+   */
+  Eigen::Matrix<double, Eigen::Dynamic, 1> get_data() { return data_; }
+  /**
+   * \brief Supports legacy code.
+   */
+  const Eigen::Matrix<double, Eigen::Dynamic, 1> get_data() const {
+    return data_;
+  }
 
-/**
- * \ingroup Geometry
- * \brief typedef std::vector<SurfacePoint> with aligned allocator of Eigen for
- * compatibility with older compilers.
- */
+  // EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
+ private:
+  Eigen::Matrix<double, 12, 1> data_;
+};
+
 typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
     ElementSurfacePoints;
 
