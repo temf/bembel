@@ -50,3 +50,4 @@ typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
     ElementSurfacePoints;
 
 #endif  // BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
+
