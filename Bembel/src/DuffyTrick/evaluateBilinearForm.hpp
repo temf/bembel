@@ -22,8 +22,8 @@ template <typename Derived, class T, class CubatureVector>
 void evaluateBilinearForm(
     const LinearOperatorBase<Derived>& linOp, const T& super_space,
     const ElementTreeNode& e1, const ElementTreeNode& e2,
-    const CubatureVector& GS, const Eigen::MatrixXd& ffield_qnodes1,
-    const Eigen::MatrixXd& ffield_qnodes2,
+    const CubatureVector& GS, const ElementSurfacePoints& ffield_qnodes1,
+    const ElementSurfacePoints& ffield_qnodes2,
     Eigen::Matrix<typename LinearOperatorTraits<Derived>::Scalar,
                   Eigen::Dynamic, Eigen::Dynamic>* intval) {
   //////////////////////////////////////////////////////////////////////////////

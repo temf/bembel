@@ -24,7 +24,7 @@ int main() {
   for (auto x : Test::Constants::eq_points) {
     for (auto y : Test::Constants::eq_points) {
       auto pt = Eigen::Vector2d(x, y);
-      Eigen::Matrix<double, 12, 1> srf_pt, srf_pt_ref;
+      SurfacePoint srf_pt, srf_pt_ref;
 
       srf_pt_ref.head(2) = pt;
       srf_pt_ref(2) = 3.1415;
