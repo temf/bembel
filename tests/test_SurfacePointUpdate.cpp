@@ -16,31 +16,26 @@
 int main() {
   using namespace Bembel;
 
+  // initialize geometry
   Test::TestGeometryWriter::writeScreen();
-
   Bembel::Geometry geometry("test_Screen.dat");
   assert(geometry.get_geometry().size() == 1);
+
+  // initialize tolerance
+  double tol = Test::Constants::test_tolerance_geometry;
 
   for (auto x : Test::Constants::eq_points) {
     for (auto y : Test::Constants::eq_points) {
       auto pt = Eigen::Vector2d(x, y);
-      SurfacePoint srf_pt, srf_pt_ref;
-
-      srf_pt_ref.head(2) = pt;
-      srf_pt_ref(2) = 3.1415;
-      srf_pt_ref.segment(3, 3) = geometry.get_geometry()[0].eval(pt);
-      auto dummy = geometry.get_geometry()[0].evalJacobian(pt);
-      srf_pt_ref.segment(6, 3) = dummy.col(0);
-      srf_pt_ref.segment(9, 3) = dummy.col(1);
-
-      auto point = geometry.get_geometry()[0].eval(pt);
-      auto jacobian = geometry.get_geometry()[0].evalJacobian(pt);
-
+      SurfacePoint srf_pt;
       geometry.get_geometry()[0].updateSurfacePoint(&srf_pt, pt, 3.1415, pt);
-
-      if ((srf_pt.get_data() - srf_pt_ref.get_data()).norm() >
-          Test::Constants::test_tolerance_geometry)
-        return 1;
+      assert((srf_pt.get_xi() - pt).norm() < tol);
+      assert(std::abs(srf_pt.get_w() - 3.1415) < tol);
+      assert((srf_pt.get_f() - geometry.get_geometry()[0].eval(pt)).norm() <
+             tol);
+      assert(
+          (srf_pt.get_jacobian() - geometry.get_geometry()[0].evalJacobian(pt))
+              .norm() < tol);
     }
   }
   return 0;

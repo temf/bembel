@@ -143,19 +143,16 @@ struct SuperSpace {
   void addScaledSurfaceCurlInteraction(
       Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>* intval, Scalar w,
       const SurfacePoint& p1, const SurfacePoint& p2) const {
-    // surface measures
-    double kappa1 = p1.segment<3>(6).cross(p1.segment<3>(9)).norm();
-    double kappa2 = p2.segment<3>(6).cross(p2.segment<3>(9)).norm();
     // compute basis functions's surface curl. Each column of s_curl is a basis
     // function's surface curl at point s.
     Eigen::MatrixXd s_curl(3, polynomial_degree_plus_one_squared);
-    s_curl = (1.0 / kappa1) *
-             (-p1.segment<3>(6) * basisDy(p1.segment<2>(0)).transpose() +
-              p1.segment<3>(9) * basisDx(p1.segment<2>(0)).transpose());
+    s_curl = (1.0 / p1.get_surface_measure()) *
+             (-p1.get_f_dx() * basisDy(p1.get_xi()).transpose() +
+              p1.get_f_dy() * basisDx(p1.get_xi()).transpose());
     Eigen::MatrixXd t_curl(3, polynomial_degree_plus_one_squared);
-    t_curl = (1.0 / kappa2) *
-             (-p2.segment<3>(6) * basisDy(p2.segment<2>(0)).transpose() +
-              p2.segment<3>(9) * basisDx(p2.segment<2>(0)).transpose());
+    t_curl = (1.0 / p2.get_surface_measure()) *
+             (-p2.get_f_dx() * basisDy(p2.get_xi()).transpose() +
+              p2.get_f_dy() * basisDx(p2.get_xi()).transpose());
     // inner product of surface curls of any two basis functions
     for (int j = 0; j < polynomial_degree_plus_one_squared; ++j)
       for (int i = 0; i < polynomial_degree_plus_one_squared; ++i)

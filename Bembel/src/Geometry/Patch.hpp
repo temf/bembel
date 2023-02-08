@@ -209,9 +209,8 @@ class Patch {
 
   // This is a combination of eval und evalJacobian, to avoid duplication of
   // work. See SurfacePoint.hpp
-  void updateSurfacePoint(SurfacePoint *srf_pt,
-                          const Eigen::Vector2d &ref_pt, double w,
-                          const Eigen::Vector2d &xi) const {
+  void updateSurfacePoint(SurfacePoint *srf_pt, const Eigen::Vector2d &ref_pt,
+                          double w, const Eigen::Vector2d &xi) const {
     const int x_location =
         Spl::FindLocationInKnotVector(ref_pt(0), unique_knots_x_);
     const int y_location =
@@ -266,18 +265,17 @@ class Patch {
     const double bot = 1. / tmp[3];
     const double botsqr = bot * bot;
 
-    (*srf_pt)(0) = xi(0);
-    (*srf_pt)(1) = xi(1);
-    (*srf_pt)(2) = w;
-    (*srf_pt)(3) = tmp[0] * bot;
-    (*srf_pt)(4) = tmp[1] * bot;
-    (*srf_pt)(5) = tmp[2] * bot;
-    (*srf_pt)(6) = (tmpDx[0] * tmp[3] - tmp[0] * tmpDx[3]) * botsqr;
-    (*srf_pt)(7) = (tmpDx[1] * tmp[3] - tmp[1] * tmpDx[3]) * botsqr;
-    (*srf_pt)(8) = (tmpDx[2] * tmp[3] - tmp[2] * tmpDx[3]) * botsqr;
-    (*srf_pt)(9) = (tmpDy[0] * tmp[3] - tmp[0] * tmpDy[3]) * botsqr;
-    (*srf_pt)(10) = (tmpDy[1] * tmp[3] - tmp[1] * tmpDy[3]) * botsqr;
-    (*srf_pt)(11) = (tmpDy[2] * tmp[3] - tmp[2] * tmpDy[3]) * botsqr;
+    Eigen::Vector3d tmpvec(tmp[0], tmp[1], tmp[2]);
+    Eigen::Vector3d tmpDxvec(tmpDx[0], tmpDx[1], tmpDx[2]);
+    Eigen::Vector3d tmpDyvec(tmpDy[0], tmpDy[1], tmpDy[2]);
+
+    srf_pt->set_xi(xi);
+    srf_pt->set_w(w);
+    srf_pt->set_f(bot * tmpvec);
+    srf_pt->set_jacobian(botsqr * (Eigen::Matrix<double, 3, 2>()
+                                       << tmpDxvec * tmp[3] - tmpvec * tmpDx[3],
+                                   tmpDyvec * tmp[3] - tmpvec * tmpDy[3])
+                                      .finished());
     delete[] buffer;
     return;
   }

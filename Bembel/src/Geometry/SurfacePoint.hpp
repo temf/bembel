@@ -41,80 +41,55 @@
  **/
 class SurfacePoint {
  public:
-  /**
-   * \brief Supports legacy code.
-   */
-  double& operator()(const int j) { return (data_(j)); }
-  /**
-   * \brief Supports legacy code.
-   */
-  const double& operator()(const int j) const { return (data_(j)); }
-  /**
-   * \brief Supports legacy code.
-   */
-  template <int N>
-  Eigen::Matrix<double, N, 1> segment(const int l) {
-    return data_.segment<N>(l);
+  // quadrature point
+  Eigen::Vector2d get_xi() { return xi_; }
+  const Eigen::Vector2d get_xi() const { return xi_; }
+
+  // quadrature weight
+  double get_w() { return w_; }
+  const double get_w() const { return w_; }
+
+  // geometry parametrization
+  Eigen::Vector3d get_f() { return f_; }
+  const Eigen::Vector3d get_f() const { return f_; }
+
+  // geometry parametrization first derivatives
+  Eigen::Vector3d get_f_dx() { return jacobian_.col(0); }
+  const Eigen::Vector3d get_f_dx() const { return jacobian_.col(0); }
+  Eigen::Vector3d get_f_dy() { return jacobian_.col(1); }
+  const Eigen::Vector3d get_f_dy() const { return jacobian_.col(1); }
+  Eigen::Matrix<double, 3, 2> get_jacobian() { return jacobian_; }
+  const Eigen::Matrix<double, 3, 2> get_jacobian() const { return jacobian_; }
+
+  // normal vectors
+  Eigen::Vector3d get_normal() {
+    return jacobian_.col(0).cross(jacobian_.col(1));
   }
-  /**
-   * \brief Supports legacy code.
-   */
-  template <int N>
-  const Eigen::Matrix<double, N, 1> segment(const int l) const {
-    return data_.segment<N>(l);
+  const Eigen::Vector3d get_normal() const {
+    return jacobian_.col(0).cross(jacobian_.col(1));
   }
-  /**
-   * \brief Supports legacy code.
-   */
-  Eigen::Matrix<double, Eigen::Dynamic, 1> segment(const int l, const int n) {
-    return data_.segment(l, n);
-  }
-  /**
-   * \brief Supports legacy code.
-   */
-  const Eigen::Matrix<double, Eigen::Dynamic, 1> segment(const int l,
-                                                         const int n) const {
-    return data_.segment(l, n);
-  }
-  /**
-   * \brief Supports legacy code.
-   */
-  Eigen::Matrix<double, Eigen::Dynamic, 1> head(const int n) {
-    return data_.head(n);
-  }
-  /**
-   * \brief Supports legacy code.
-   */
-  const Eigen::Matrix<double, Eigen::Dynamic, 1> head(const int n) const {
-    return data_.head(n);
-  }
-  /**
-   * \brief Supports legacy code.
-   */
-  Eigen::Matrix<double, Eigen::Dynamic, 1> tail(const int n) {
-    return data_.tail(n);
-  }
-  /**
-   * \brief Supports legacy code.
-   */
-  const Eigen::Matrix<double, Eigen::Dynamic, 1> tail(const int n) const {
-    return data_.tail(n);
-  }
-  /**
-   * \brief Supports legacy code.
-   */
-  Eigen::Matrix<double, Eigen::Dynamic, 1> get_data() { return data_; }
-  /**
-   * \brief Supports legacy code.
-   */
-  const Eigen::Matrix<double, Eigen::Dynamic, 1> get_data() const {
-    return data_;
+  Eigen::Vector3d get_unit_normal() { return get_normal().normalized(); }
+  const Eigen::Vector3d get_unit_normal() const {
+    return get_normal().normalized();
   }
 
-  // EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+  // surface measure
+  double get_surface_measure() { return get_normal().norm(); }
+  const double get_surface_measure() const { return get_normal().norm(); }
+
+  // setter
+  void set_xi(const Eigen::Vector2d &xi) { xi_ = xi; }
+  void set_w(const double w) { w_ = w; }
+  void set_f(const Eigen::Vector3d &f) { f_ = f; }
+  void set_jacobian(const Eigen::Matrix<double, 3, 2> &jacobian) {
+    jacobian_ = jacobian;
+  }
 
  private:
-  Eigen::Matrix<double, 12, 1> data_;
+  Eigen::Vector2d xi_;
+  double w_;
+  Eigen::Vector3d f_;
+  Eigen::Matrix<double, 3, 2> jacobian_;
 };
 
 typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
