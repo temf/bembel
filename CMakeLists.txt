@@ -75,7 +75,8 @@ include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-march=native" MARCHNATIVE)
 CHECK_CXX_COMPILER_FLAG("-flto" FLTO)
 
-set(CMAKE_CXX_FLAGS "-std=c++11 -I${BEMBEL_PATH}")
+set(CMAKE_CXX_STANDARD 11)
+include_directories(${BEMBEL_PATH})
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
