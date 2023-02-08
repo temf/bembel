@@ -71,46 +71,36 @@ find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 set (BEMBEL_PATH "${PROJECT_SOURCE_DIR}")
 
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-march=native" MARCHNATIVE)
-CHECK_CXX_COMPILER_FLAG("-flto" FLTO)
-
 set(CMAKE_CXX_STANDARD 11)
 include_directories(${BEMBEL_PATH})
+
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release CACHE STRING
+      "Choose the type of build, options are: Debug Release."
+      FORCE)
+endif()
+
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-march=native" MARCHNATIVE)
 if (MARCHNATIVE)
-message(STATUS "Found -march=native, adding option to builds of type >release< only")
+message(STATUS "Found -march=native, adding option to builds of type >Release< only")
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native" CACHE STRING "compile flags" FORCE)
 endif()
+
+CHECK_CXX_COMPILER_FLAG("-flto" FLTO)
 if (FLTO)
-message(STATUS "Found -flto, adding option to builds of type >release< only")
+message(STATUS "Found -flto, adding option to builds of type >Release< only")
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -flto" CACHE STRING "compile flags" FORCE)
 endif()
 
 find_package(OpenMP)
 if (OPENMP_FOUND)
-message(STATUS "Found -fopenmp, adding option to builds of type >release< only")
+message(STATUS "Found -fopenmp, adding option to builds of type >Release< only")
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fopenmp")
 endif()
-
-set( PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}")
-include_directories("${PROJECT_SOURCE_DIR}")
-
-
-add_custom_target(debug
-  COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Debug ${CMAKE_SOURCE_DIR}
-  COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target all
-  COMMENT "Switch CMAKE_BUILD_TYPE to Debug"
-  )
-
-add_custom_target(release
-  COMMAND ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release ${CMAKE_SOURCE_DIR}
-  COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target all
-  COMMENT "Switch CMAKE_BUILD_TYPE to Release"
-  )
-
 
 add_subdirectory(tests)
 add_subdirectory(examples)
