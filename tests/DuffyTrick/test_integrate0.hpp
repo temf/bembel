@@ -20,7 +20,7 @@ bool test_integrate0(const Bembel::AnsatzSpace<Derived> &ansatz_space,
                      const Bembel::LinearOperatorBase<Derived> &linOp) {
   Bembel::GaussSquare<maxqdeg + 1> GS;
   auto Q = GS[maxqdeg];
-  auto ffield_qnodes =
+  std::vector<ElementSurfacePoints> ffield_qnodes =
       Bembel::DuffyTrick::computeFfieldQnodes(ansatz_space.get_superspace(), Q);
   Eigen::MatrixXd intval;
   Eigen::MatrixXd axis;
