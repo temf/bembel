@@ -102,6 +102,10 @@ message(STATUS "Found -fopenmp, adding option to builds of type >Release< only")
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fopenmp")
 endif()
 
+set(CMAKE_CXX_FLAGS_COVERAGE "-g --coverage -fprofile-abs-path" CACHE STRING
+    "Flags used by the coverage test."
+    FORCE)
+
 add_subdirectory(tests)
 add_subdirectory(examples)
 enable_testing()
