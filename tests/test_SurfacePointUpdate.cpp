@@ -26,13 +26,17 @@ int main() {
 
   for (auto x : Test::Constants::eq_points) {
     for (auto y : Test::Constants::eq_points) {
-      auto pt = Eigen::Vector2d(x, y);
+      Eigen::Vector2d pt = Eigen::Vector2d(x, y);
       SurfacePoint srf_pt;
       geometry.get_geometry()[0].updateSurfacePoint(&srf_pt, pt, 3.1415, pt);
       assert((srf_pt.get_xi() - pt).norm() < tol);
       assert(std::abs(srf_pt.get_w() - 3.1415) < tol);
+      assert((srf_pt.get_f().head<2>() - pt).norm() < tol);
+      assert(std::abs(srf_pt.get_f()(2) < tol));
       assert((srf_pt.get_f() - geometry.get_geometry()[0].eval(pt)).norm() <
              tol);
+      assert((srf_pt.get_f_dx() - Eigen::Vector3d(1., 0., 0.)).norm() < tol);
+      assert((srf_pt.get_f_dy() - Eigen::Vector3d(0, 1., 0.)).norm() < tol);
       assert(
           (srf_pt.get_jacobian() - geometry.get_geometry()[0].evalJacobian(pt))
               .norm() < tol);

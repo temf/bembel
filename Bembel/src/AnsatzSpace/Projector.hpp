@@ -149,18 +149,16 @@ inline _proj_info makeLocalProjectionTriplets(
   // Here, we suddenly use the degree for basisevaluation, i.e.,
   // maximal_polynomial_degree-1. This is confusing, but correct and tested.
   {
-    double vals_y[Constants::MaxP + 1];
-    double vals_x[Constants::MaxP + 1];
     for (int iy = 0; iy < maximal_polynomial_degree; ++iy) {
-      Bembel::Basis::ShapeFunctionHandler::evalBasis(
-          maximal_polynomial_degree - 1, vals_y, mask[iy]);
+      Eigen::VectorXd vals_y = Bembel::Basis::ShapeFunctionHandler::evalBasis(
+          maximal_polynomial_degree - 1, mask[iy]);
       for (int ix = 0; ix < maximal_polynomial_degree; ++ix) {
-        Bembel::Basis::ShapeFunctionHandler::evalBasis(
-            maximal_polynomial_degree - 1, vals_x, mask[ix]);
+        Eigen::VectorXd vals_x = Bembel::Basis::ShapeFunctionHandler::evalBasis(
+            maximal_polynomial_degree - 1, mask[ix]);
         for (int jy = 0; jy < maximal_polynomial_degree; ++jy) {
           for (int jx = 0; jx < maximal_polynomial_degree; ++jx) {
             system(iy * masksize + ix, jy * maximal_polynomial_degree + jx) =
-                vals_x[jx] * vals_y[jy];
+                vals_x(jx) * vals_y(jy);
           }
         }
       }
