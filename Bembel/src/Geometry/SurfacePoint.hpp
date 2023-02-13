@@ -56,6 +56,16 @@ class SurfacePoint {
   double get_surface_measure() { return get_normal().norm(); }
   const double get_surface_measure() const { return get_normal().norm(); }
 
+  // buffer
+  std::vector<Eigen::MatrixXd, Eigen::aligned_allocator<Eigen::MatrixXd>>
+      &get_buffer() {
+    return buffer_;
+  }
+  const std::vector<Eigen::MatrixXd, Eigen::aligned_allocator<Eigen::MatrixXd>>
+      &get_buffer() const {
+    return buffer_;
+  }
+
   // setter
   void set_xi(const Eigen::Vector2d &xi) { xi_ = xi; }
   void set_w(const double w) { w_ = w; }
@@ -69,6 +79,8 @@ class SurfacePoint {
   double w_;
   Eigen::Vector3d f_;
   Eigen::Matrix<double, 3, 2> jacobian_;
+  std::vector<Eigen::MatrixXd, Eigen::aligned_allocator<Eigen::MatrixXd>>
+      buffer_;
 };
 
 typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>

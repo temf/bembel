@@ -101,8 +101,7 @@ class Patch {
         const double tpbasisval = xbasis(i) * ybasis(j);
         const int accs = 4 * (numy * (polynomial_degree_x_ * x_location + i) +
                               polynomial_degree_y_ * y_location + j);
-        for (int k = 0; k < 4; k++)
-          tmp(k) += data_[accs + k] * tpbasisval;
+        for (int k = 0; k < 4; k++) tmp(k) += data_[accs + k] * tpbasisval;
       }
     }
 
@@ -191,17 +190,33 @@ class Patch {
     const double scaledy = Spl::Rescale(ref_pt(1), unique_knots_y_[y_location],
                                         unique_knots_y_[y_location + 1]);
 
-    Eigen::Vector4d tmp = Eigen::Vector4d::Zero();
-    Eigen::Vector4d tmpDx = Eigen::Vector4d::Zero();
-    Eigen::Vector4d tmpDy = Eigen::Vector4d::Zero();
+    // resize operations do nothing if the size does not change
+    srf_pt->get_buffer().resize(6);
+    srf_pt->get_buffer()[0].resize(4, 1);
+    srf_pt->get_buffer()[1].resize(4, 2);
+    srf_pt->get_buffer()[2].resize(polynomial_degree_x_, 1);
+    srf_pt->get_buffer()[3].resize(polynomial_degree_y_, 1);
+    srf_pt->get_buffer()[4].resize(polynomial_degree_x_, 1);
+    srf_pt->get_buffer()[5].resize(polynomial_degree_y_, 1);
 
-    Eigen::VectorXd xbasis = Bembel::Basis::ShapeFunctionHandler::evalBasis(
+    // improve readability
+    Eigen::MatrixXd &tmp = srf_pt->get_buffer()[0];
+    Eigen::MatrixXd &tmpD = srf_pt->get_buffer()[1];
+    Eigen::MatrixXd &xbasis = srf_pt->get_buffer()[2];
+    Eigen::MatrixXd &ybasis = srf_pt->get_buffer()[3];
+    Eigen::MatrixXd &xbasisD = srf_pt->get_buffer()[4];
+    Eigen::MatrixXd &ybasisD = srf_pt->get_buffer()[5];
+
+    tmp.setZero();
+    tmpD.setZero();
+
+    xbasis.col(0) = Bembel::Basis::ShapeFunctionHandler::evalBasis(
         polynomial_degree_x_ - 1, scaledx);
-    Eigen::VectorXd ybasis = Bembel::Basis::ShapeFunctionHandler::evalBasis(
+    ybasis.col(0) = Bembel::Basis::ShapeFunctionHandler::evalBasis(
         polynomial_degree_y_ - 1, scaledy);
-    Eigen::VectorXd xbasisD = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
+    xbasisD.col(0) = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
         polynomial_degree_x_ - 1, scaledx);
-    Eigen::VectorXd ybasisD = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
+    ybasisD.col(0) = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
         polynomial_degree_y_ - 1, scaledy);
 
     for (int i = 0; i < polynomial_degree_x_; ++i) {
@@ -215,24 +230,27 @@ class Patch {
         // Here I add up the values of the basis functions in the dc
         // basis
         for (int k = 0; k < 4; ++k) {
-          tmp(k) += data_[accs + k] * tpbasisval;
-          tmpDx(k) += data_[accs + k] * tpbasisvalDx;
-          tmpDy(k) += data_[accs + k] * tpbasisvalDy;
+          tmp(k, 0) += data_[accs + k] * tpbasisval;
+          tmpD(k, 0) += data_[accs + k] * tpbasisvalDx;
+          tmpD(k, 1) += data_[accs + k] * tpbasisvalDy;
         }
       }
     }
 
-    const double bot = 1. / tmp[3];
+    const double bot = 1. / tmp(3, 0);
     const double botsqr = bot * bot;
 
     srf_pt->set_xi(xi);
     srf_pt->set_w(w);
-    srf_pt->set_f(bot * tmp.head<3>());
-    srf_pt->set_jacobian(
-        botsqr * (Eigen::Matrix<double, 3, 2>()
-                      << tmpDx.head<3>() * tmp(3) - tmp.head<3>() * tmpDx(3),
-                  tmpDy.head<3>() * tmp(3) - tmp.head<3>() * tmpDy(3))
-                     .finished());
+    srf_pt->set_f(bot * tmp.block<3, 1>(0, 0));
+    // srf_pt->set_jacobian(
+    //     botsqr * (Eigen::Matrix<double, 3, 2>()
+    //                   << tmpDx.head<3>() * tmp(3) - tmp.head<3>() * tmpDx(3),
+    //               tmpDy.head<3>() * tmp(3) - tmp.head<3>() * tmpDy(3))
+    //                  .finished());
+    srf_pt->set_jacobian(botsqr *
+                         (tmpD.block<3, 2>(0, 0) * tmp(3, 0) -
+                          tmp.block<3, 1>(0, 0) * tmpD.block<1, 2>(3, 0)));
     return;
   }
 
