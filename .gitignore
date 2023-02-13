@@ -7,3 +7,6 @@ eigen3
 # Important for a nice gh-pages branch
 node_modules/
 package-lock.json
+# dev
+vtune
+.vscode

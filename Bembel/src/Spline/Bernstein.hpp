@@ -52,12 +52,16 @@ inline constexpr double Bernstein(double evaluation_point) noexcept {
 template <int N, int P>
 class HiddenBernsteinClass {
  public:
+  // think twice when replacing double* by something else. All other attempts
+  // were slower
   static inline void EvalBasis(double *in,
                                const double evaluation_point) noexcept {
     in[N] = Bernstein<N, P>(evaluation_point);
     HiddenBernsteinClass<N - 1, P>::EvalBasis(in, evaluation_point);
     return;
   }
+  // think twice when replacing double* by something else. All other attempts
+  // were slower
   static inline void EvalDerBasis(double *in,
                                   const double evaluation_point) noexcept {
     in[N] = (P + 1) * (Bernstein<N - 1, P>(evaluation_point) -
@@ -108,11 +112,15 @@ class HiddenBernsteinClass<-1, P> {
 /// Evaluation Routines
 ////////////////////////////////////////////////////////////////////////////////
 
+// think twice when replacing double* by something else. All other attempts
+// were slower
 template <int P>
 void EvalBernsteinBasis(double *in, const double evaluation_point) noexcept {
   HiddenBernsteinClass<P, P>::EvalBasis(in, evaluation_point);
 }
 
+// think twice when replacing double* by something else. All other attempts
+// were slower
 template <int P>
 void EvalBernsteinDerBasis(double *in, const double evaluation_point) noexcept {
   in[P] = P * Bernstein<P - 1, P - 1>(evaluation_point);

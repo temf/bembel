@@ -90,22 +90,32 @@ class Patch {
         Spl::Rescale(reference_point(1), unique_knots_y_[y_location],
                      unique_knots_y_[y_location + 1]);
 
-    Eigen::Vector4d tmp = Eigen::Vector4d::Zero();
-    Eigen::VectorXd xbasis = Bembel::Basis::ShapeFunctionHandler::evalBasis(
-        polynomial_degree_x_ - 1, scaledx);
-    Eigen::VectorXd ybasis = Bembel::Basis::ShapeFunctionHandler::evalBasis(
-        polynomial_degree_y_ - 1, scaledy);
+    double *xbasis = new double[polynomial_degree_x_];
+    double *ybasis = new double[polynomial_degree_y_];
+
+    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree_x_ - 1,
+                                                   xbasis, scaledx);
+    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree_y_ - 1,
+                                                   ybasis, scaledy);
+
+    double tmp[4] = {0., 0., 0., 0.};
 
     for (int i = 0; i < polynomial_degree_x_; i++) {
       for (int j = 0; j < polynomial_degree_y_; j++) {
-        const double tpbasisval = xbasis(i) * ybasis(j);
+        const double tpbasisval = xbasis[i] * ybasis[j];
         const int accs = 4 * (numy * (polynomial_degree_x_ * x_location + i) +
                               polynomial_degree_y_ * y_location + j);
-        for (int k = 0; k < 4; k++) tmp(k) += data_[accs + k] * tpbasisval;
+        for (int k = 0; k < 4; k++) tmp[k] += data_[accs + k] * tpbasisval;
       }
     }
 
-    return tmp.head<3>() / tmp[3];
+    delete[] xbasis;
+    delete[] ybasis;
+
+    Eigen::Vector3d out(tmp[0], tmp[1], tmp[2]);
+    // Rescaling by the NRBS weight, i.e. projection to 3D from 4D hom
+
+    return out / tmp[3];
   }
 
   Eigen::Matrix<double, 3, 2> evalJacobian(
@@ -122,41 +132,55 @@ class Patch {
         Spl::Rescale(reference_point(1), unique_knots_y_[y_location],
                      unique_knots_y_[y_location + 1]);
 
-    Eigen::Vector4d tmp = Eigen::Vector4d::Zero();
-    Eigen::Vector4d tmpDx = Eigen::Vector4d::Zero();
-    Eigen::Vector4d tmpDy = Eigen::Vector4d::Zero();
-    Eigen::VectorXd xbasis = Bembel::Basis::ShapeFunctionHandler::evalBasis(
-        polynomial_degree_x_ - 1, scaledx);
-    Eigen::VectorXd ybasis = Bembel::Basis::ShapeFunctionHandler::evalBasis(
-        polynomial_degree_y_ - 1, scaledy);
-    Eigen::VectorXd xbasisD = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
-        polynomial_degree_x_ - 1, scaledx);
-    Eigen::VectorXd ybasisD = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
-        polynomial_degree_y_ - 1, scaledy);
+    double *xbasis = new double[polynomial_degree_x_];
+    double *ybasis = new double[polynomial_degree_y_];
+    double *xbasisD = new double[polynomial_degree_x_];
+    double *ybasisD = new double[polynomial_degree_y_];
+
+    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree_x_ - 1,
+                                                   xbasis, scaledx);
+    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree_y_ - 1,
+                                                   ybasis, scaledy);
+    Bembel::Basis::ShapeFunctionHandler::evalDerBasis(polynomial_degree_x_ - 1,
+                                                      xbasisD, scaledx);
+    Bembel::Basis::ShapeFunctionHandler::evalDerBasis(polynomial_degree_y_ - 1,
+                                                      ybasisD, scaledy);
+
+    double tmp[4] = {0., 0., 0., 0.};
+    double tmpDx[4] = {0., 0., 0., 0.};
+    double tmpDy[4] = {0., 0., 0., 0.};
 
     for (int i = 0; i < polynomial_degree_x_; i++) {
       for (int j = 0; j < polynomial_degree_y_; j++) {
-        const double tpbasisval = xbasis(i) * ybasis(j);
-        const double tpbasisvalDx = xbasisD(i) * ybasis(j);
-        const double tpbasisvalDy = xbasis(i) * ybasisD(j);
+        const double tpbasisval = xbasis[i] * ybasis[j];
+        const double tpbasisvalDx = xbasisD[i] * ybasis[j];
+        const double tpbasisvalDy = xbasis[i] * ybasisD[j];
         const int accs = 4 * (numy * (polynomial_degree_x_ * x_location + i) +
                               polynomial_degree_y_ * y_location + j);
 
         // Here I add up the values of the basis functions in the dc
         // basis
         for (int k = 0; k < 4; k++) {
-          tmp(k) += data_[accs + k] * tpbasisval;
-          tmpDx(k) += data_[accs + k] * tpbasisvalDx;
-          tmpDy(k) += data_[accs + k] * tpbasisvalDy;
+          tmp[k] += data_[accs + k] * tpbasisval;
+          tmpDx[k] += data_[accs + k] * tpbasisvalDx;
+          tmpDy[k] += data_[accs + k] * tpbasisvalDy;
         }
       }
     }
 
-    double botsqr = 1. / (tmp(3) * tmp(3));
-    return botsqr * (Eigen::Matrix<double, 3, 2>()
-                         << tmpDx.head<3>() * tmp(3) - tmp.head<3>() * tmpDx(3),
-                     tmpDy.head<3>() * tmp(3) - tmp.head<3>() * tmpDy(3))
-                        .finished();
+    delete[] xbasis;
+    delete[] ybasis;
+    delete[] xbasisD;
+    delete[] ybasisD;
+
+    double bot = 1. / (tmp[3] * tmp[3]);
+    Eigen::Matrix<double, 3, 2> out;
+    for (int k = 0; k < 3; k++) {
+      out(k, 0) = (tmpDx[k] * tmp[3] - tmp[k] * tmpDx[3]) * bot;
+      out(k, 1) = (tmpDy[k] * tmp[3] - tmp[k] * tmpDy[3]) * bot;
+    }
+
+    return out;
   }
 
   inline Eigen::Matrix<double, 3, 1> evalNormal(
@@ -190,67 +214,61 @@ class Patch {
     const double scaledy = Spl::Rescale(ref_pt(1), unique_knots_y_[y_location],
                                         unique_knots_y_[y_location + 1]);
 
-    // resize operations do nothing if the size does not change
-    srf_pt->get_buffer().resize(6);
-    srf_pt->get_buffer()[0].resize(4, 1);
-    srf_pt->get_buffer()[1].resize(4, 2);
-    srf_pt->get_buffer()[2].resize(polynomial_degree_x_, 1);
-    srf_pt->get_buffer()[3].resize(polynomial_degree_y_, 1);
-    srf_pt->get_buffer()[4].resize(polynomial_degree_x_, 1);
-    srf_pt->get_buffer()[5].resize(polynomial_degree_y_, 1);
+    // allocating memory is expensive, use the buffer in SurfacePoint
+    srf_pt->allocate_buffer(2 * (polynomial_degree_x_ + polynomial_degree_y_) +
+                            12);
+    double *buffer = srf_pt->get_buffer();
+    std::memset(buffer, 0, 12 * sizeof(double));
 
-    // improve readability
-    Eigen::MatrixXd &tmp = srf_pt->get_buffer()[0];
-    Eigen::MatrixXd &tmpD = srf_pt->get_buffer()[1];
-    Eigen::MatrixXd &xbasis = srf_pt->get_buffer()[2];
-    Eigen::MatrixXd &ybasis = srf_pt->get_buffer()[3];
-    Eigen::MatrixXd &xbasisD = srf_pt->get_buffer()[4];
-    Eigen::MatrixXd &ybasisD = srf_pt->get_buffer()[5];
+    double *tmp = buffer;
+    double *tmpDx = tmp + 4;
+    double *tmpDy = tmpDx + 4;
+    double *xbasis = tmpDy + 4;
+    double *ybasis = xbasis + polynomial_degree_x_;
+    double *xbasisD = ybasis + polynomial_degree_y_;
+    double *ybasisD = xbasisD + polynomial_degree_x_;
 
-    tmp.setZero();
-    tmpD.setZero();
-
-    xbasis.col(0) = Bembel::Basis::ShapeFunctionHandler::evalBasis(
-        polynomial_degree_x_ - 1, scaledx);
-    ybasis.col(0) = Bembel::Basis::ShapeFunctionHandler::evalBasis(
-        polynomial_degree_y_ - 1, scaledy);
-    xbasisD.col(0) = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
-        polynomial_degree_x_ - 1, scaledx);
-    ybasisD.col(0) = Bembel::Basis::ShapeFunctionHandler::evalDerBasis(
-        polynomial_degree_y_ - 1, scaledy);
+    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree_x_ - 1,
+                                                   xbasis, scaledx);
+    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree_y_ - 1,
+                                                   ybasis, scaledy);
+    Bembel::Basis::ShapeFunctionHandler::evalDerBasis(polynomial_degree_x_ - 1,
+                                                      xbasisD, scaledx);
+    Bembel::Basis::ShapeFunctionHandler::evalDerBasis(polynomial_degree_y_ - 1,
+                                                      ybasisD, scaledy);
 
     for (int i = 0; i < polynomial_degree_x_; ++i) {
       for (int j = 0; j < polynomial_degree_y_; ++j) {
-        const double tpbasisval = xbasis(i) * ybasis(j);
-        const double tpbasisvalDx = xbasisD(i) * ybasis(j);
-        const double tpbasisvalDy = xbasis(i) * ybasisD(j);
+        const double tpbasisval = xbasis[i] * ybasis[j];
+        const double tpbasisvalDx = xbasisD[i] * ybasis[j];
+        const double tpbasisvalDy = xbasis[i] * ybasisD[j];
         const int accs = 4 * (numy * (polynomial_degree_x_ * x_location + i) +
                               polynomial_degree_y_ * y_location + j);
 
         // Here I add up the values of the basis functions in the dc
         // basis
         for (int k = 0; k < 4; ++k) {
-          tmp(k, 0) += data_[accs + k] * tpbasisval;
-          tmpD(k, 0) += data_[accs + k] * tpbasisvalDx;
-          tmpD(k, 1) += data_[accs + k] * tpbasisvalDy;
+          tmp[k] += data_[accs + k] * tpbasisval;
+          tmpDx[k] += data_[accs + k] * tpbasisvalDx;
+          tmpDy[k] += data_[accs + k] * tpbasisvalDy;
         }
       }
     }
 
-    const double bot = 1. / tmp(3, 0);
+    const double bot = 1. / tmp[3];
     const double botsqr = bot * bot;
+
+    Eigen::Vector3d tmpvec(tmp[0], tmp[1], tmp[2]);
+    Eigen::Vector3d tmpDxvec(tmpDx[0], tmpDx[1], tmpDx[2]);
+    Eigen::Vector3d tmpDyvec(tmpDy[0], tmpDy[1], tmpDy[2]);
 
     srf_pt->set_xi(xi);
     srf_pt->set_w(w);
-    srf_pt->set_f(bot * tmp.block<3, 1>(0, 0));
-    // srf_pt->set_jacobian(
-    //     botsqr * (Eigen::Matrix<double, 3, 2>()
-    //                   << tmpDx.head<3>() * tmp(3) - tmp.head<3>() * tmpDx(3),
-    //               tmpDy.head<3>() * tmp(3) - tmp.head<3>() * tmpDy(3))
-    //                  .finished());
-    srf_pt->set_jacobian(botsqr *
-                         (tmpD.block<3, 2>(0, 0) * tmp(3, 0) -
-                          tmp.block<3, 1>(0, 0) * tmpD.block<1, 2>(3, 0)));
+    srf_pt->set_f(bot * tmpvec);
+    srf_pt->set_jacobian(botsqr * (Eigen::Matrix<double, 3, 2>()
+                                       << tmpDxvec * tmp[3] - tmpvec * tmpDx[3],
+                                   tmpDyvec * tmp[3] - tmpvec * tmpDy[3])
+                                      .finished());
     return;
   }
 

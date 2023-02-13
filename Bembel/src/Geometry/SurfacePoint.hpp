@@ -20,6 +20,10 @@
  **/
 class SurfacePoint {
  public:
+  ~SurfacePoint() {
+    if (buffer_is_allocated()) delete[] buffer_;
+  }
+
   // quadrature point
   Eigen::Vector2d get_xi() { return xi_; }
   const Eigen::Vector2d get_xi() const { return xi_; }
@@ -57,14 +61,10 @@ class SurfacePoint {
   const double get_surface_measure() const { return get_normal().norm(); }
 
   // buffer
-  std::vector<Eigen::MatrixXd, Eigen::aligned_allocator<Eigen::MatrixXd>>
-      &get_buffer() {
-    return buffer_;
-  }
-  const std::vector<Eigen::MatrixXd, Eigen::aligned_allocator<Eigen::MatrixXd>>
-      &get_buffer() const {
-    return buffer_;
-  }
+  bool buffer_is_allocated() { return buffer_is_alloced_; }
+  const bool buffer_is_allocated() const { return buffer_is_alloced_; }
+  double *get_buffer() { return buffer_; }
+  const double *get_buffer() const { return buffer_; }
 
   // setter
   void set_xi(const Eigen::Vector2d &xi) { xi_ = xi; }
@@ -73,14 +73,29 @@ class SurfacePoint {
   void set_jacobian(const Eigen::Matrix<double, 3, 2> &jacobian) {
     jacobian_ = jacobian;
   }
+  void allocate_buffer(const int n) {
+    assert(n > 0);
+    if (n != buffer_size_) {
+      if (buffer_is_allocated()) {
+        delete[] buffer_;
+        buffer_is_alloced_ = false;
+      }
+      // TODO(Felix) Do not use variable-length arrays in accordance to Google
+      // Style guide
+      buffer_ = new double[n];
+      buffer_size_ = n;
+      buffer_is_alloced_ = true;
+    }
+  }
 
  private:
   Eigen::Vector2d xi_;
   double w_;
   Eigen::Vector3d f_;
   Eigen::Matrix<double, 3, 2> jacobian_;
-  std::vector<Eigen::MatrixXd, Eigen::aligned_allocator<Eigen::MatrixXd>>
-      buffer_;
+  bool buffer_is_alloced_ = false;
+  int buffer_size_ = 0;
+  double *buffer_;
 };
 
 typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>

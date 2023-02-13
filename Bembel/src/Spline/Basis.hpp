@@ -157,8 +157,8 @@ void Phi_times_Phi_(Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> *c,
   for (int iy = 0; iy < I; iy++)
     for (int ix = 0; ix < I; ix++) b[iy * I + ix] = X[ix] * Y[iy];
 
-  for (int i = 0; i < (I * I); i++)
-    for (int j = 0; j < (I * I); j++) (*c)(i, j) += a[i] * b[j];
+  for (int j = 0; j < (I * I); j++)
+    for (int i = 0; i < (I * I); i++) (*c)(i, j) += a[i] * b[j];
 
   return;
 }
@@ -187,14 +187,14 @@ void Div_Phi_times_Div_Phi_(
   phiphi_dx_<P>(&b_dx, 1., eta);
   phiphi_dy_<P>(&b_dy, 1., eta);
 
-  for (int i = 0; i < I2; ++i)
-    for (int j = 0; j < I2; ++j) (*c)(i, j) += a_dx[i] * b_dx[j];
-  for (int i = 0; i < I2; ++i)
-    for (int j = 0; j < I2; ++j) (*c)(i, j + I2) += a_dx[i] * b_dy[j];
-  for (int i = 0; i < I2; ++i)
-    for (int j = 0; j < I2; ++j) (*c)(i + I2, j) += a_dy[i] * b_dx[j];
-  for (int i = 0; i < I2; ++i)
-    for (int j = 0; j < I2; ++j) (*c)(i + I2, j + I2) += a_dy[i] * b_dy[j];
+  for (int j = 0; j < I2; ++j)
+    for (int i = 0; i < I2; ++i) (*c)(i, j) += a_dx[i] * b_dx[j];
+  for (int j = 0; j < I2; ++j)
+    for (int i = 0; i < I2; ++i) (*c)(i, j + I2) += a_dx[i] * b_dy[j];
+  for (int j = 0; j < I2; ++j)
+    for (int i = 0; i < I2; ++i) (*c)(i + I2, j) += a_dy[i] * b_dx[j];
+  for (int j = 0; j < I2; ++j)
+    for (int i = 0; i < I2; ++i) (*c)(i + I2, j + I2) += a_dy[i] * b_dy[j];
 
   return;
 }
