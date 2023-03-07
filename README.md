@@ -143,42 +143,60 @@ the issue tracker on github.
 
 ## 8. Publications, Preprints, and how to cite <a name="publications"></a>
 
-The following articles and preprints influenced the development of Bembel. We appreciate a citation of [3] if you use it in one of your articles.
+The following articles and preprints influenced the development of Bembel. We appreciate a citation of [6] if you use it in one of your articles.
 
 [1] A. Buffa, J. Dölz, S. Kurz, S. Schöps, R. Vázques, and F. Wolf. 
 *Multipatch approximation of the de Rham sequence and its traces in isogeometric analysis.* In: Numer. Math., 144, 201-236, 2020. [To the paper](https://link.springer.com/article/10.1007/s00211-019-01079-x). [To the preprint](https://arxiv.org/abs/1806.01062).
 
-[2] J. Dölz, H. Harbrecht, and M. Peters. *An interpolation-based fast multipole
+[2] J. Dölz. *A Higher Order Perturbation Approach for Electromagnetic Scattering Problems on Random Domains*. In: SIAM/ASA J. UQ, 2020, 8(2). 
+[To the paper](https://epubs.siam.org/doi/abs/10.1137/19M1274365).
+
+[3] J. Dölz. *Data sparse multilevel covariance estimation in optimal complexity*. Preprint available, 2023. 
+[To the preprint](https://arxiv.org/abs/2301.11992).
+
+[4] J. Dölz, H. Harbrecht, C. Jerez-Hanckes and M. Multerer. *Isogeometric multilevel quadrature for forward and inverse random acoustic scattering*. In: Comput. Methods Appl. Mech. Engrg., 388, 114242, 2022. 
+[To the paper](https://www.sciencedirect.com/science/article/abs/pii/S0045782521005648).
+
+[5] J. Dölz, H. Harbrecht, and M. Peters. *An interpolation-based fast multipole
 method for higher-order boundary elements on parametric surfaces*. In: Int. J. Numer. Meth. Eng., 108(13):1705-1728, 2016.
 [To the paper](https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.5274).
 
-[3] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476. [To the paper](https://doi.org/10.1016/j.softx.2020.100476).
+[6] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476. [To the paper](https://doi.org/10.1016/j.softx.2020.100476).
 
-[4] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps, and F. Wolf. *A fast isogeometric
+[7] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps, and F. Wolf. *A fast isogeometric
 BEM for the three dimensional Laplace- and Helmholtz problems*. In: Comput. Methods Appl. Mech. Engrg., 330:83-101, 2018. 
 [To the paper](https://www.sciencedirect.com/science/article/pii/S0045782517306916). 
 [To the preprint](https://arxiv.org/abs/1708.09162).
 
-[5] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. *Isogeometric Boundary Elements in 
+[8] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. *Isogeometric Boundary Elements in 
 Electromagnetism: Rigorous Analysis, Fast Methods, and Examples*. In: SIAM J. Sci. Comput., 41(5), B983-B1010, 2019. [To the paper](https://epubs.siam.org/doi/abs/10.1137/18M1227251). [To the preprint](https://arxiv.org/abs/1807.03097).
 
-[6] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. *A Numerical Comparison of an Isogeometric and a Parametric Higher Order Raviart–Thomas Approach to the Electric Field Integral Equation*. In: IEEE Trans. Antenn. Prop., 68(1),
+[9] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. *A Numerical Comparison of an Isogeometric and a Parametric Higher Order Raviart–Thomas Approach to the Electric Field Integral Equation*. In: IEEE Trans. Antenn. Prop., 68(1),
 593–597, 2020. [To the paper](https://ieeexplore.ieee.org/abstract/document/8809890). [To the preprint](https://arxiv.org/abs/1807.03628).
 
-[7] H. Harbrecht and M. Peters. *Comparison of fast boundary element methods on
+[10] J. Dölz, O. Palii and M. Schlottbom. *On robustly convergent and efficient iterative methods for anisotropic radiative transfer*. In: J. Sci. Comput., 2022, 90(3). 
+[To the paper](https://link.springer.com/article/10.1007/s10915-021-01757-9).
+
+[11] M. Elasmi, C. Erath and S. Kurz. *Non-symmetric isogeometric FEM-BEM couplings*. In: Adv. Appl. Math. Mech., 2021, 47(61). 
+[To the paper](https://link.springer.com/article/10.1007/s10444-021-09886-3).
+
+[12] H. Harbrecht, M. Multerer and R. von Rickenbach. *Isogeometric shape optimization of periodic structures in three dimensions*. In: Comput. Methods Appl. Mech. Engrg., 391, 114552, 2022. 
+[To the paper](https://www.sciencedirect.com/science/article/pii/S0045782521007325).
+
+[13] H. Harbrecht and M. Peters. *Comparison of fast boundary element methods on
 parametric surfaces*. In: Comput. Methods Appl. Mech. Engrg., 261-262:39-55, 2013. 
 [To the paper](https://www.sciencedirect.com/science/article/pii/S0045782513000819).
 
-[8] J. Dölz, H. Harbrecht, C. Jerez-Hanckes and M. Multerer. *Isogeometric multilevel quadrature for forward and inverse random acoustic scattering*. In: Comput. Methods Appl. Mech. Engrg., 388, 114242, 2022. 
-[To the paper](https://www.sciencedirect.com/science/article/abs/pii/S0045782521005648).
-
-[9] H. Harbrecht, M. Multerer and R. von Rickenbach. *Isogeometric shape optimization of periodic structures in three dimensions*. In: Comput. Methods Appl. Mech. Engrg., 391, 114552, 2022. 
-[To the paper](https://www.sciencedirect.com/science/article/pii/S0045782521007325).
-
-[10] W. Huang and M. Multerer. *Isogeometric analysis of diffusion problems on random surfaces*. In: APNUM, 179, 50-65, 2022. 
+[14] W. Huang and M. Multerer. *Isogeometric analysis of diffusion problems on random surfaces*. In: APNUM, 179, 50-65, 2022. 
 [To the paper](https://www.sciencedirect.com/science/article/pii/S0168927422001076).
 
-[11] R. Torchio, M. Nolte, S. Schöps and A. E. Ruehli. *A spline-based partial element equivalent circuit method for electrostatics*. In: IEEE Trans. Dielectr. Electr. Insul., 2022, forthcoming. 
+[15] S. Kurz, S. Schöps, G. Unger and F. Wolf. *Solving Maxwell's Eigenvalue Problem via Isogeometric Boundary Elements and a Contour Integral Method*. In: Math. Meth. Appl. Sci., 2021, 44(13). 
+[To the paper](https://onlinelibrary.wiley.com/doi/10.1002/mma.7447).
+
+[16] M. Liebsch, S. Russenschuck and S. Kurz. *BEM-Based Magnetic Field Reconstruction by Ensemble Kálmán Filtering*. In: Comput. Methods Appl. Mech. Engrg., 2022, forthcoming. 
+[To the paper](https://www.degruyter.com/document/doi/10.1515/cmam-2022-0121/html).
+
+[17] R. Torchio, M. Nolte, S. Schöps and A. E. Ruehli. *A spline-based partial element equivalent circuit method for electrostatics*. In: IEEE Trans. Dielectr. Electr. Insul., 2022, forthcoming. 
 [To the paper](https://ieeexplore.ieee.org/abstract/document/9963965).
 
 ## 9. Contributors <a name="contributors"></a>
