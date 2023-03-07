@@ -169,6 +169,18 @@ Electromagnetism: Rigorous Analysis, Fast Methods, and Examples*. In: SIAM J. Sc
 parametric surfaces*. In: Comput. Methods Appl. Mech. Engrg., 261-262:39-55, 2013. 
 [To the paper](https://www.sciencedirect.com/science/article/pii/S0045782513000819).
 
+[8] J. Dölz, H. Harbrecht, C. Jerez-Hanckes and M. Multerer. *Isogeometric multilevel quadrature for forward and inverse random acoustic scattering*. In: Comput. Methods Appl. Mech. Engrg., 388, 114242, 2022. 
+[To the paper](https://www.sciencedirect.com/science/article/abs/pii/S0045782521005648).
+
+[9] H. Harbrecht, M. Multerer and R. von Rickenbach. *Isogeometric shape optimization of periodic structures in three dimensions*. In: Comput. Methods Appl. Mech. Engrg., 391, 114552, 2022. 
+[To the paper](https://www.sciencedirect.com/science/article/pii/S0045782521007325).
+
+[10] W. Huang and M. Multerer. *Isogeometric analysis of diffusion problems on random surfaces*. In: APNUM, 179, 50-65, 2022. 
+[To the paper](https://www.sciencedirect.com/science/article/pii/S0168927422001076).
+
+[11] R. Torchio, M. Nolte, S. Schöps and A. E. Ruehli. *A spline-based partial element equivalent circuit method for electrostatics*. In: IEEE Trans. Dielectr. Electr. Insul., 2022, forthcoming. 
+[To the paper](https://ieeexplore.ieee.org/abstract/document/9963965).
+
 ## 9. Contributors <a name="contributors"></a>
 
 Contributors include (alphabetically): 
