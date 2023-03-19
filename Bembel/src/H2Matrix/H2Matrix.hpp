@@ -9,21 +9,6 @@
 #define __BEMBEL_H2MATRIX_H2MATRIX_H__
 
 /**
- *  \namespace DirtyLittleHelpers
- *  \brief Provides useful stuff like compile time checks for types.
- *         Currently, this is not used.
- **/
-namespace DirtyLittleHelpers {
-template <bool condition>
-struct testMatchingTypes {};
-template <>
-struct testMatchingTypes<true> {
-  enum { YOU_CHOSE_INCOMPATIBLE_TYPES_FOR_H2MATRIX_AND_PDEPROBLEM = 1 };
-};
-
-}  // namespace DirtyLittleHelpers
-
-/**
  *  \class H2Matrix
  *  \brief Hierarchical Matrix class, which extends the EigenBase class.
  *
@@ -42,16 +27,27 @@ namespace Eigen {
 /// forward definition of the H2Matrix Class in order to define traits
 template <typename ScalarT>
 class H2Matrix;
-/// inherit the traits from the Eigen::SparseMatrix class
+/// small modification of internal traits of SparseMatrix
 namespace internal {
 template <typename ScalarT>
-struct traits<H2Matrix<ScalarT>>
-    : public internal::traits<SparseMatrix<ScalarT>> {};
+struct traits<H2Matrix<ScalarT>> {
+  typedef ScalarT Scalar;
+  typedef int StorageIndex;
+  typedef H2 StorageKind;
+  typedef MatrixXpr XprKind;
+  enum {
+    RowsAtCompileTime = Dynamic,
+    ColsAtCompileTime = Dynamic,
+    MaxRowsAtCompileTime = Dynamic,
+    MaxColsAtCompileTime = Dynamic,
+    Flags = NestByRefBit
+  };
+};
 }  // namespace internal
 
 // actual definition of the class
 template <typename ScalarT>
-class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
+class H2Matrix : public H2MatrixBase<H2Matrix<ScalarT>> {
  public:
   //////////////////////////////////////////////////////////////////////////////
   /// Eigen related things
@@ -281,6 +277,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
   H2Matrix(H2Matrix<ScalarT>&& H);
   H2Matrix& operator=(const H2Matrix<ScalarT>& H);
   H2Matrix& operator=(H2Matrix<ScalarT>&& H);
+
   Eigen::SparseMatrix<double> transformation_matrix_;
   Bembel::GenericMatrix<Bembel::BlockClusterTree<ScalarT>> block_cluster_tree_;
   Eigen::MatrixXd fmm_transfer_matrices_;

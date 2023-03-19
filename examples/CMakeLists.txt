@@ -13,6 +13,7 @@ set(CIFILES
     Geometry
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
+    LazyEigenSum
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
     MaxwellSingleLayerFull
