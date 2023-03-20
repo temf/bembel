@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_H2MATRIX_H2CWISEBINARYOP_H__
-#define __BEMBEL_H2MATRIX_H2CWISEBINARYOP_H__
+#ifndef __BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_H__
+#define __BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_H__
 
 // The contents of this file are a modification of the file
 // SparseCwiseBinaryOp.h from the Eigen library
@@ -30,8 +30,6 @@ namespace Eigen {
 //  4 - dense op dense     product      dense
 //                         generic      dense
 
-/// todo possibly adapt SparseMatrixBase to future H2MatrixBase class, once this
-/// is available
 template <typename BinaryOp, typename Lhs, typename Rhs>
 class CwiseBinaryOpImpl<BinaryOp, Lhs, Rhs, H2>
     : public H2MatrixBase<CwiseBinaryOp<BinaryOp, Lhs, Rhs> > {

@@ -67,6 +67,27 @@ class H2MatrixBase : public EigenBase<Derived> {
   Derived& operator/=(const Scalar& other);
 };
 
+namespace internal {
+
+// adaption from SparseMatrixBase from Eigen
+template <typename Derived>
+struct evaluator<H2MatrixBase<Derived>> : evaluator_base<Derived> {
+  typedef typename Derived::Scalar Scalar;
+
+  enum { CoeffReadCost = NumTraits<Scalar>::ReadCost, Flags = Derived::Flags };
+
+  operator Derived&() { return m_matrix->const_cast_derived(); }
+  operator const Derived&() const { return *m_matrix; }
+
+  typedef typename DenseCoeffsBase<Derived, ReadOnlyAccessors>::CoeffReturnType
+      CoeffReturnType;
+
+  const Derived* m_matrix;
+  const Scalar m_zero;
+};
+
+}  // end namespace internal
+
 }  // end namespace Eigen
 
 #endif

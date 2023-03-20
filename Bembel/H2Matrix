@@ -29,6 +29,9 @@
 //
 #include "src/H2Matrix/H2Matrix.hpp"
 //
+#include "src/H2Matrix/EigenHelper/H2Assign.hpp"
 #include "src/H2Matrix/EigenHelper/H2CwiseBinaryOp.hpp"
+#include "src/H2Matrix/EigenHelper/H2DenseProduct.hpp"
+#include "src/H2Matrix/EigenHelper/H2Util.hpp"
 
 #endif

@@ -52,8 +52,9 @@ int main() {
       auto sum = S + H2;
 
       VectorXd a = VectorXd::Random(H2.cols());
-      auto b = (H2 + S) * a;
+      auto b = S * a;
       VectorXd c = b;
+      std::cout << c.norm() << std::endl;
     }
 
     std::cout << std::endl;
