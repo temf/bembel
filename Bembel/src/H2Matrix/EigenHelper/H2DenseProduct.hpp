@@ -29,47 +29,43 @@ struct H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
                                   AlphaType, ColMajor, true> {
   static void run(const H2LhsType& lhs, const DenseRhsType& rhs,
                   DenseResType& res, const AlphaType& alpha) {
-    typedef typename internal::remove_all<H2LhsType>::type Lhs;
-    typedef typename internal::remove_all<DenseRhsType>::type Rhs;
-    typedef typename internal::remove_all<DenseResType>::type Res;
-    typedef Matrix<Lhs, Dynamic, 1> RhsVec;
-    typedef Matrix<Lhs, Dynamic, 1> ResVec;
-    typedef Matrix<Lhs, Dynamic, Dynamic> RhsMat;
-    typedef Matrix<Lhs, Dynamic, Dynamic> ResMat;
+    typedef typename traits<H2LhsType>::Scalar Scalar;
 
     // get H2-data
-    const int max_level =
+    int max_level =
         lhs.get_block_cluster_tree()(0, 0).get_parameters().max_level_;
-    const int min_cluster_level =
+    int min_cluster_level =
         lhs.get_block_cluster_tree()(0, 0).get_parameters().min_cluster_level_;
-    const std::vector<MatrixXd>& moment_matrix = lhs.get_fmm_moment_matrix();
-    const MatrixXd& transfer_matrices = lhs.get_fmm_transfer_matrices();
+    auto moment_matrix = lhs.get_fmm_moment_matrix();
+    auto transfer_matrices = lhs.get_fmm_transfer_matrices();
     int vector_dimension = moment_matrix.size();
 
     // go discontinuous in rhs
-    RhsVec long_rhs_all = (lhs.get_transformation_matrix() * rhs).eval();
+    Matrix<Scalar, Dynamic, 1> long_rhs_all =
+        (lhs.get_transformation_matrix() * rhs).eval();
     int vector_component_size = long_rhs_all.rows() / vector_dimension;
 
     // initialize destination
-    RhsVec long_res_all(long_rhs_all.rows());
-    long_res_all.setZero();
+    Matrix<Scalar, Dynamic, 1> long_dst_all(long_rhs_all.rows());
+    long_dst_all.setZero();
 
     for (int col_component = 0; col_component < vector_dimension;
          ++col_component) {
       for (int row_component = 0; row_component < vector_dimension;
            ++row_component) {
-        RhsVec long_rhs = long_rhs_all.segment(
+        Matrix<Scalar, Dynamic, 1> long_rhs = long_rhs_all.segment(
             col_component * vector_component_size, vector_component_size);
-        ResVec long_res(long_rhs.rows());
-        long_res.setZero();
+        Matrix<Scalar, Dynamic, 1> long_dst(long_rhs.rows());
+        long_dst.setZero();
 
         // split long rhs into pieces by reshaping
-        RhsMat long_rhs_matrix =
-            Map<RhsMat>(long_rhs.data(), moment_matrix[col_component].cols(),
-                        long_rhs.rows() / moment_matrix[col_component].cols());
+        Matrix<Scalar, Dynamic, Dynamic> long_rhs_matrix =
+            Map<Matrix<Scalar, Dynamic, Dynamic>>(
+                long_rhs.data(), moment_matrix[col_component].cols(),
+                long_rhs.rows() / moment_matrix[col_component].cols());
 
         // do forward-transformation
-        std::vector<RhsMat> long_rhs_forward =
+        std::vector<Matrix<Scalar, Dynamic, Dynamic>> long_rhs_forward =
             Bembel::H2Multipole::forwardTransformation(
                 moment_matrix[col_component], transfer_matrices,
                 max_level - min_cluster_level, long_rhs_matrix);
@@ -77,14 +73,15 @@ struct H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
 #pragma omp parallel
         {
           // initialize target for each process
-          ResVec my_long_res(long_res.rows());
+          Matrix<Scalar, Dynamic, 1> my_long_dst(long_dst.rows());
 
           // initialize target of backward-transformation
-          std::vector<ResMat> my_long_res_backward;
+          std::vector<Matrix<Scalar, Dynamic, Dynamic>> my_long_dst_backward;
           for (int i = 0; i < long_rhs_forward.size(); ++i)
-            my_long_res_backward.push_back(ResMat::Zero(
-                long_rhs_forward[i].rows(), long_rhs_forward[i].cols()));
-          my_long_res.setZero();
+            my_long_dst_backward.push_back(
+                Matrix<Scalar, Dynamic, Dynamic>::Zero(
+                    long_rhs_forward[i].rows(), long_rhs_forward[i].cols()));
+          my_long_dst.setZero();
 
           // matrix-vector
           for (auto leaf =
@@ -99,7 +96,7 @@ struct H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
               switch ((*leaf)->get_cc()) {
                 // deal with matrix blocks
                 case Bembel::BlockClusterAdmissibility::Dense: {
-                  my_long_res.segment((*leaf)->get_row_start_index(),
+                  my_long_dst.segment((*leaf)->get_row_start_index(),
                                       (*leaf)->get_row_end_index() -
                                           (*leaf)->get_row_start_index()) +=
                       (*leaf)->get_leaf().get_F() *
@@ -123,7 +120,7 @@ struct H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
                                   (*leaf)->get_cluster1()->get_level();
                   int cluster1_col = cluster1->id_;
                   int cluster2_col = cluster2->id_;
-                  my_long_res_backward[fmm_level].col(cluster1_col) +=
+                  my_long_dst_backward[fmm_level].col(cluster1_col) +=
                       (*leaf)->get_leaf().get_F() *
                       long_rhs_forward[fmm_level].col(cluster2_col);
                 } break;
@@ -137,22 +134,22 @@ struct H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
           }
 
           // do backward transformation
-          my_long_res += Bembel::H2Multipole::backwardTransformation(
+          my_long_dst += Bembel::H2Multipole::backwardTransformation(
               moment_matrix[row_component], transfer_matrices,
-              max_level - min_cluster_level, my_long_res_backward);
+              max_level - min_cluster_level, my_long_dst_backward);
 
 #pragma omp critical
-          long_res += my_long_res;
+          long_dst += my_long_dst;
         }
 
         // finish off vector component
-        long_res_all.segment(row_component * vector_component_size,
-                             vector_component_size) += long_res;
+        long_dst_all.segment(row_component * vector_component_size,
+                             vector_component_size) += long_dst;
       }
     }
 
     // go continuous and write output
-    res += alpha * lhs.get_transformation_matrix().transpose() * long_res_all;
+    res += lhs.get_transformation_matrix().transpose() * long_dst_all;
   }
 };
 

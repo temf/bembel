@@ -45,16 +45,22 @@ int main() {
       disc_op.compute();
       const H2Matrix<double> &H2 = disc_op.get_discrete_operator();
 
-      // set up sparse matrix
+      // H2matrix vector
+      VectorXd a1 = VectorXd::Random(H2.cols());
+      auto b1 = H2 * a1;
+      VectorXd c1 = a1 + b1;
+
+      // set up dense identity matrix
       MatrixXd S(H2.rows(), H2.cols());
       S.setIdentity();
 
+      // set up sum of matrices
       auto sum = S + H2;
 
-      VectorXd a = VectorXd::Random(H2.cols());
-      auto b = S * a;
-      VectorXd c = b;
-      std::cout << c.norm() << std::endl;
+      VectorXd a2 = VectorXd::Random(H2.cols());
+      auto b2 = sum * a2;
+      // VectorXd c2 = b2;
+      // std::cout << c2.norm() << std::endl;
     }
 
     std::cout << std::endl;

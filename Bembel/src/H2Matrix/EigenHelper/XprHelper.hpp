@@ -18,11 +18,11 @@ namespace internal {
 
 template <typename Functor>
 struct cwise_promote_storage_type<H2, Dense, Functor> {
-  typedef H2 ret;
+  typedef Dense ret;
 };
 template <typename Functor>
 struct cwise_promote_storage_type<Dense, H2, Functor> {
-  typedef H2 ret;
+  typedef Dense ret;
 };
 
 }  // end namespace internal
