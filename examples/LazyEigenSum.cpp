@@ -57,10 +57,13 @@ int main() {
       // set up sum of matrices
       auto sum = S + H2;
 
+      SparseMatrix<double> gaga(H2.rows(), H2.cols());
+      auto sum2 = S + gaga;
+
       VectorXd a2 = VectorXd::Random(H2.cols());
       auto b2 = sum * a2;
-      // VectorXd c2 = b2;
-      // std::cout << c2.norm() << std::endl;
+      VectorXd c2 = b2;
+      std::cout << (c1 - c2).norm() << std::endl;
     }
 
     std::cout << std::endl;

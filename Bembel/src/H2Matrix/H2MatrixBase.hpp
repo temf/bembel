@@ -76,12 +76,17 @@ struct evaluator<H2MatrixBase<Derived>> : evaluator_base<Derived> {
 
   enum { CoeffReadCost = NumTraits<Scalar>::ReadCost, Flags = Derived::Flags };
 
+  evaluator() : m_matrix(0), m_zero(0) {
+    EIGEN_INTERNAL_CHECK_COST_VALUE(CoeffReadCost);
+  }
+  explicit evaluator(const Derived& mat) : m_matrix(&mat), m_zero(0) {
+    EIGEN_INTERNAL_CHECK_COST_VALUE(CoeffReadCost);
+  }
+
   operator Derived&() { return m_matrix->const_cast_derived(); }
   operator const Derived&() const { return *m_matrix; }
 
-  typedef typename DenseCoeffsBase<Derived, ReadOnlyAccessors>::CoeffReturnType
-      CoeffReturnType;
-
+  // todo: what are these good for?
   const Derived* m_matrix;
   const Scalar m_zero;
 };

@@ -53,12 +53,10 @@ inline Derived &H2MatrixBase<Derived>::operator=(const Derived &other) {
 
 namespace internal {
 
-#if 0
 template <>
 struct storage_kind_to_evaluator_kind<H2> {
-  typedef IteratorBased Kind;
+  typedef H2 Kind;
 };
-#endif
 
 template <>
 struct storage_kind_to_shape<H2> {

@@ -12,6 +12,7 @@
 // SparseCwiseBinaryOp.h from the Eigen library
 namespace Eigen {
 
+// TODO: Adapt this documentation, likely to be not true.
 // Here we have to handle 3 cases:
 //  1 - H2 op dense
 //  2 - dense op H2
@@ -50,11 +51,60 @@ class CwiseBinaryOpImpl<BinaryOp, Lhs, Rhs, H2>
 
 namespace internal {
 
+#if 1
+
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
+    : evaluator_base<CwiseBinaryOp<BinaryOp, Lhs, Rhs> > {
+ protected:
+  typedef CwiseBinaryOp<BinaryOp, Lhs, Rhs> XprType;
+  typedef typename traits<XprType>::Scalar Scalar;
+  typedef typename XprType::StorageIndex StorageIndex;
+
+ public:
+  enum {
+    CoeffReadCost = evaluator<Lhs>::CoeffReadCost +
+                    evaluator<Rhs>::CoeffReadCost +
+                    functor_traits<BinaryOp>::Cost,
+    // Expose storage order of the H2 expression
+    Flags = (XprType::Flags & ~RowMajorBit) | (int(Rhs::Flags) & RowMajorBit)
+  };
+
+  explicit binary_evaluator(const XprType& xpr)
+      : m_functor(xpr.functor()),
+        m_lhsImpl(xpr.lhs()),
+        m_rhsImpl(xpr.rhs()),
+        m_expr(xpr) {
+    EIGEN_INTERNAL_CHECK_COST_VALUE(functor_traits<BinaryOp>::Cost);
+    EIGEN_INTERNAL_CHECK_COST_VALUE(CoeffReadCost);
+  }
+
+
+  // todo: these coefficient functions do not seem to be needed at this point in time
+  typedef typename XprType::CoeffReturnType CoeffReturnType;
+
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE CoeffReturnType coeff(Index row,
+                                                              Index col) const {
+    std::cout << "gaga called" << std::endl;
+    return m_functor(m_lhsImpl.coeff(row, col), m_rhsImpl.coeff(row, col));
+  }
+
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE CoeffReturnType
+  coeff(Index index) const {
+    std::cout << "alphabet called" << std::endl;
+    return m_functor(m_lhsImpl.coeff(index), m_rhsImpl.coeff(index));
+  }
+
+ protected:
+  const BinaryOp m_functor;
+  evaluator<Lhs> m_lhsImpl;
+  evaluator<Rhs> m_rhsImpl;
+  const XprType& m_expr;
+};
+#endif
+
 #if 0
 // Generic "H2 OP H2"
-template <typename XprType>
-struct binary_H2_evaluator;
-
 template <typename BinaryOp, typename Lhs, typename Rhs>
 struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IteratorBased,
                         IteratorBased>

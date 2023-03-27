@@ -16,13 +16,16 @@ namespace Eigen {
 
 namespace internal {
 
+
+// if I replace H2 by dense, then I know what to do...
+
 template <typename Functor>
 struct cwise_promote_storage_type<H2, Dense, Functor> {
-  typedef Dense ret;
+  typedef H2 ret;
 };
 template <typename Functor>
 struct cwise_promote_storage_type<Dense, H2, Functor> {
-  typedef Dense ret;
+  typedef H2 ret;
 };
 
 }  // end namespace internal
