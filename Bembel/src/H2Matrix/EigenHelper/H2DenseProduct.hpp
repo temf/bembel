@@ -207,6 +207,7 @@ inline void H2_time_dense_product(const H2LhsType& lhs, const DenseRhsType& rhs,
                              AlphaType>::run(lhs, rhs, res, alpha);
 }
 
+#if 1
 template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
           typename Rhs, int ProductType>
 struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
@@ -216,14 +217,43 @@ struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
           generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>,
                                Rhs, H2, DenseShape, ProductType>> {
   typedef CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs> Lhs;
-  typedef typename Product<Lhs, Rhs>::Scalar Scalar;
+  typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
+  typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
+  typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
 
+  template <typename Dest>
+  static inline void evalTo(Dest& dst, const Lhs& lhs, const Rhs& rhs) {
+    LeftProduct // to define
+    RightProduct // to define
+    NewCwiseBinaryOp // to define
+    binary_evaluator<NewCwiseBinaryOp, IndexBased, IndexBased>(xpr);
+    //  build new binary operator (and evaluate to dst???), do it as binary_evaluator
+    //  in H2CwiseBinaryOp, then use assignment as in the following (need to
+    //  replace double)
+    Assignment<DenseShape, NewCwiseBinaryOp, assign_op<double, double>,
+               Dense2Dense>
+    // gaga::run(dst, src, const internal::sub_assign_op<double,double>&);
+  }
+
+#if 0
   template <typename Dest>
   static void scaleAndAddTo(Dest& dst, const Lhs& lhs, const Rhs& rhs,
                             const Scalar& alpha) {
-    /////////////////////////////////////////////////////////
-    // todo here: build structs for cwisebinaryop of products and eval to dst
-    /////////////////////////////////////////////////////////
+    typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
+    typedef typename internal::remove_all<BinaryLhs>::type LhsProductType;
+    typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
+    typedef typename internal::remove_all<BinaryRhs>::type RhsProductType;
+
+    typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
+
+    LeftProduct new_left_prod();
+    RightProduct new_right_prod();
+    NewCwiseBinaryOp new_op(new_left_prod, new_right_prod, binaryop);
+
+    generic_product_impl<BinaryLhs, Rhs>::scaleAndAddTo(dst, lhs.lhs(), rhs,
+                                                        alpha);
+    generic_product_impl<BinaryRhs, Rhs>::scaleAndAddTo(dst, lhs.rhs(), rhs,
+                                                        alpha);
 
     // typedef
     // typename nested_eval<Lhs, ((Rhs::Flags & RowMajorBit) == 0)
@@ -235,7 +265,9 @@ struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
     // RhsNested rhsNested(rhs);
     // internal::H2_time_dense_product(lhsNested, rhsNested, dst, alpha);
   }
+#endif
 };
+#endif
 
 template <typename Lhs, typename Rhs, int ProductType>
 struct generic_product_impl<Lhs, Rhs, H2, DenseShape, ProductType>
