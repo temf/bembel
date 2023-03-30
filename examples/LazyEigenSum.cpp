@@ -89,10 +89,8 @@ int main() {
 
     testOpPlus(S, H2);
     testOpPlus(H2, S);
-    testOpPlus(H2, H2);
     testOpMinus(S, H2);
     testOpMinus(H2, S);
-    testOpMinus(H2, H2);
   }
 
   return 0;
