@@ -23,32 +23,6 @@ template <typename H2LhsType, typename DenseRhsType, typename DenseResType,
                            DenseRhsType::ColsAtCompileTime == 1>
 struct H2_time_dense_product_impl;
 
-// template <typename H2LhsType, typename DenseRhsType, typename DenseResType,
-//           typename AlphaType>
-// struct H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
-//                                   AlphaType, ColMajor, true> {
-//   typedef typename internal::remove_all<H2LhsType>::type Lhs;
-//   typedef typename internal::remove_all<DenseRhsType>::type Rhs;
-//   typedef typename internal::remove_all<DenseResType>::type Res;
-//   typedef typename evaluator<Lhs>::InnerIterator LhsInnerIterator;
-//   typedef
-//       typename ScalarBinaryOpTraits<AlphaType, typename
-//       Rhs::Scalar>::ReturnType
-//           ScalarRes;
-//   static void run(const H2LhsType& lhs, const DenseRhsType& rhs,
-//                   DenseResType& res, const AlphaType& alpha) {
-//     evaluator<Lhs> lhsEval(lhs);
-//     for (Index c = 0; c < rhs.cols(); ++c) {
-//       Matrix<ScalarRes, Dynamic, 1> alpha* rhs.col(c);
-//       for (Index j = 0; j < lhs.outerSize(); ++j) {
-//         H2_time_vector_product_impl::run(lhsEval);
-//         // for (LhsInnerIterator it(lhsEval, j); it; ++it)
-//         // res.coeffRef(it.index(), c) += it.value() * rhs_j;
-//       }
-//     }
-//   }
-// };
-
 /**
  * \brief H2-matrix-vector multiplication, works also for matrices by iterating
  * over the columns.
@@ -187,18 +161,6 @@ struct H2_time_dense_product_impl<H2Matrix<ScalarH2>, DenseRhsType,
   }
 };
 
-#if 0
-template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
-          typename DenseRhsType, typename DenseResType, typename AlphaType>
-inline void H2_time_dense_product(
-    const CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>& lhs,
-    const DenseRhsType& rhs, DenseResType& res, const AlphaType& alpha) {
-  H2_time_dense_product_impl<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, DenseRhsType,
-                             DenseResType, AlphaType>::run(lhs, rhs, res,
-                                                           alpha);
-}
-#endif
-
 template <typename H2LhsType, typename DenseRhsType, typename DenseResType,
           typename AlphaType>
 inline void H2_time_dense_product(const H2LhsType& lhs, const DenseRhsType& rhs,
@@ -206,68 +168,6 @@ inline void H2_time_dense_product(const H2LhsType& lhs, const DenseRhsType& rhs,
   H2_time_dense_product_impl<H2LhsType, DenseRhsType, DenseResType,
                              AlphaType>::run(lhs, rhs, res, alpha);
 }
-
-#if 1
-template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
-          typename Rhs, int ProductType>
-struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
-                            H2, DenseShape, ProductType>
-    : generic_product_impl_base<
-          CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
-          generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>,
-                               Rhs, H2, DenseShape, ProductType>> {
-  typedef CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs> Lhs;
-  typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
-  typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
-  typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
-
-  template <typename Dest>
-  static inline void evalTo(Dest& dst, const Lhs& lhs, const Rhs& rhs) {
-    LeftProduct // to define
-    RightProduct // to define
-    NewCwiseBinaryOp // to define
-    binary_evaluator<NewCwiseBinaryOp, IndexBased, IndexBased>(xpr);
-    //  build new binary operator (and evaluate to dst???), do it as binary_evaluator
-    //  in H2CwiseBinaryOp, then use assignment as in the following (need to
-    //  replace double)
-    Assignment<DenseShape, NewCwiseBinaryOp, assign_op<double, double>,
-               Dense2Dense>
-    // gaga::run(dst, src, const internal::sub_assign_op<double,double>&);
-  }
-
-#if 0
-  template <typename Dest>
-  static void scaleAndAddTo(Dest& dst, const Lhs& lhs, const Rhs& rhs,
-                            const Scalar& alpha) {
-    typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
-    typedef typename internal::remove_all<BinaryLhs>::type LhsProductType;
-    typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
-    typedef typename internal::remove_all<BinaryRhs>::type RhsProductType;
-
-    typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
-
-    LeftProduct new_left_prod();
-    RightProduct new_right_prod();
-    NewCwiseBinaryOp new_op(new_left_prod, new_right_prod, binaryop);
-
-    generic_product_impl<BinaryLhs, Rhs>::scaleAndAddTo(dst, lhs.lhs(), rhs,
-                                                        alpha);
-    generic_product_impl<BinaryRhs, Rhs>::scaleAndAddTo(dst, lhs.rhs(), rhs,
-                                                        alpha);
-
-    // typedef
-    // typename nested_eval<Lhs, ((Rhs::Flags & RowMajorBit) == 0)
-    //? 1
-    //: Rhs::ColsAtCompileTime>::type LhsNested;
-    // typedef typename nested_eval<
-    // Rhs, ((Lhs::Flags & RowMajorBit) == 0) ? 1 : Dynamic>::type RhsNested;
-    // LhsNested lhsNested(lhs);
-    // RhsNested rhsNested(rhs);
-    // internal::H2_time_dense_product(lhsNested, rhsNested, dst, alpha);
-  }
-#endif
-};
-#endif
 
 template <typename Lhs, typename Rhs, int ProductType>
 struct generic_product_impl<Lhs, Rhs, H2, DenseShape, ProductType>
@@ -294,14 +194,10 @@ struct generic_product_impl<Lhs, Rhs, H2, DenseShape, ProductType>
 template <typename Lhs, typename Rhs, int Options, int ProductTag>
 struct product_evaluator<Product<Lhs, Rhs, Options>, ProductTag, H2, DenseShape>
     : public evaluator<typename Product<Lhs, Rhs, Options>::PlainObject> {
-  typedef Product<Lhs, Rhs, AliasFreeProduct> XprType;
+  typedef Product<Lhs, Rhs, Options> XprType;
   typedef typename XprType::PlainObject PlainObject;
   typedef evaluator<PlainObject> Base;
 
-  // setting EvalBeforeNestingBit ensures that H2-matrix-vector publications are
-  // carried out completely before doing further operations
-  // enum { Flags = Base::Flags | EvalBeforeNestingBit, CoeffReadCost = HugeCost
-  // };
   enum { Flags = Base::Flags };
 
   explicit product_evaluator(const XprType& xpr)
@@ -314,6 +210,7 @@ struct product_evaluator<Product<Lhs, Rhs, Options>, ProductTag, H2, DenseShape>
  protected:
   PlainObject m_result;
 };
+
 
 }  // end namespace internal
 
