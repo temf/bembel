@@ -70,16 +70,21 @@ int main() {
   disc_op.compute();
   const H2MatrixType& H2 = disc_op.get_discrete_operator();
 
-  // reference random vector
-  VectorType a = VectorType::Random(H2.cols());
-
-  // H2matrix vector
-  auto b1 = H2 * a;
-  VectorType c1 = a + b1;
-
   {
     // set up dense identity matrix
     DenseMatrixType S(H2.rows(), H2.cols());
+    S.setIdentity();
+
+    testOpPlus(S, H2);
+    testOpPlus(H2, S);
+    testOpPlus(H2, H2);
+    testOpMinus(S, H2);
+    testOpMinus(H2, S);
+    testOpMinus(H2, H2);
+  }
+  {
+    // set up dense identity matrix
+    SparseMatrixType S(H2.rows(), H2.cols());
     S.setIdentity();
 
     testOpPlus(S, H2);

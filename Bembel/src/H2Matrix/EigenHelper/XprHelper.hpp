@@ -16,8 +16,8 @@ namespace Eigen {
 
 namespace internal {
 
-
-// if I replace H2 by dense, then I know what to do...
+// remember: storage type is not necessarily storage type, but more a template
+// parameter which handles the called specializations.
 
 template <typename Functor>
 struct cwise_promote_storage_type<H2, Dense, Functor> {
@@ -25,6 +25,14 @@ struct cwise_promote_storage_type<H2, Dense, Functor> {
 };
 template <typename Functor>
 struct cwise_promote_storage_type<Dense, H2, Functor> {
+  typedef H2 ret;
+};
+template <typename Functor>
+struct cwise_promote_storage_type<H2, Sparse, Functor> {
+  typedef H2 ret;
+};
+template <typename Functor>
+struct cwise_promote_storage_type<Sparse, H2, Functor> {
   typedef H2 ret;
 };
 
