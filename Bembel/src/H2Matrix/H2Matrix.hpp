@@ -40,6 +40,13 @@ struct traits<H2Matrix<ScalarT>> {
     Flags = NestByRefBit
   };
 };
+
+// this struct is necessary for compatibility with iterative solvers
+template <typename ScalarT>
+struct is_ref_compatible<H2Matrix<ScalarT>> {
+  enum { value = false };
+};
+
 }  // namespace internal
 
 // actual definition of the class
