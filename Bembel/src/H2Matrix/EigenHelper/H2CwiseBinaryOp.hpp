@@ -12,25 +12,6 @@
 // SparseCwiseBinaryOp.h from the Eigen library
 namespace Eigen {
 
-// TODO: Adapt this documentation, likely to be not true.
-// Here we have to handle 3 cases:
-//  1 - H2 op dense
-//  2 - dense op H2
-//  3 - H2 op H2
-// We also need to implement a 4th iterator for:
-//  4 - dense op dense
-// Finally, we also need to distinguish between the product and other operations
-// :
-//                configuration      returned mode
-//  1 - H2 op dense        product      H2
-//                         generic      dense
-//  2 - dense op H2        product      H2
-//                         generic      dense
-//  3 - H2 op H2           product      H2
-//                         generic      H2
-//  4 - dense op dense     product      dense
-//                         generic      dense
-
 template <typename BinaryOp, typename Lhs, typename Rhs>
 class CwiseBinaryOpImpl<BinaryOp, Lhs, Rhs, H2>
     : public H2MatrixBase<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {
