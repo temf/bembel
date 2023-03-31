@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "complex": "cpp",
+        "cstddef": "cpp",
+        "string": "cpp",
+        "functional": "cpp",
+        "type_traits": "cpp",
+        "cmath": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "quadrature": "cpp"
+    }
+}
