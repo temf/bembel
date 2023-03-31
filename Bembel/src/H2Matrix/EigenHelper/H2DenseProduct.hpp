@@ -187,6 +187,7 @@ struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
   typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
   typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
 
+#if 0
   template <typename Dest>
   static inline void evalTo(Dest& dst, const Lhs& lhs, const Rhs& rhs) {
     LeftProduct lprod(lhs.lhs(), rhs);
@@ -194,6 +195,31 @@ struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
     NewCwiseBinaryOp xpr(lprod, rprod, lhs.functor());
     Assignment<Dest, NewCwiseBinaryOp, assignOp, Dense2Dense>::run(dst, xpr,
                                                                    assignOp());
+  }
+#endif
+  // we only need to specify scaleAndAddTo, everything else is build on this in
+  // the background
+  typedef typename Product<Lhs, Rhs>::Scalar Scalar;
+  template <typename Dest>
+  static void scaleAndAddTo(Dest& dst, const Lhs& lhs, const Rhs& rhs,
+                            const Scalar& alpha) {
+    typedef Matrix<Scalar, Dynamic, Dynamic> DenseMatrix;
+    typedef add_assign_op<LhsScalar, RhsScalar> addAssignOp;
+    typedef CwiseNullaryOp<scalar_constant_op<Scalar>, DenseMatrix>
+        ScalarCwiseNullaryOp;
+    typedef scalar_product_op<Scalar, Scalar> ScalarTimesOp;
+    typedef scalar_constant_op<Scalar> ScalarConstantOp;
+    typedef CwiseBinaryOp<ScalarTimesOp, ScalarCwiseNullaryOp, NewCwiseBinaryOp>
+        ScalarTimesNewCwiseBinaryOp;
+
+    LeftProduct lprod(lhs.lhs(), rhs);
+    RightProduct rprod(lhs.rhs(), rhs);
+    NewCwiseBinaryOp xpr_prod(lprod, rprod, lhs.functor());
+    ScalarCwiseNullaryOp xpr_scalar(lprod.rows(), lprod.cols(),
+                                    ScalarConstantOp(alpha));
+    ScalarTimesNewCwiseBinaryOp xpr(xpr_scalar, xpr_prod, ScalarTimesOp());
+    Assignment<Dest, ScalarTimesNewCwiseBinaryOp, addAssignOp,
+               Dense2Dense>::run(dst, xpr, addAssignOp());
   }
 };
 // same overwrite, but for const CwiseBinaryOp by inheritance from non-const
