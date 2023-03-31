@@ -169,6 +169,42 @@ inline void H2_time_dense_product(const H2LhsType& lhs, const DenseRhsType& rhs,
                              AlphaType>::run(lhs, rhs, res, alpha);
 }
 
+// overwrite eigen implementation by using distributive law, i.e., compute
+// A*c+B*c instead of (A+B)*c
+template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
+          typename Rhs, int ProductType>
+struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
+                            H2, DenseShape, ProductType>
+    : generic_product_impl_base<
+          CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
+          generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>,
+                               Rhs, H2, DenseShape, ProductType>> {
+  typedef CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs> Lhs;
+  typedef typename traits<Lhs>::Scalar LhsScalar;
+  typedef typename traits<Rhs>::Scalar RhsScalar;
+  typedef assign_op<LhsScalar, RhsScalar> assignOp;
+  typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
+  typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
+  typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
+
+  template <typename Dest>
+  static inline void evalTo(Dest& dst, const Lhs& lhs, const Rhs& rhs) {
+    LeftProduct lprod(lhs.lhs(), rhs);
+    RightProduct rprod(lhs.rhs(), rhs);
+    NewCwiseBinaryOp xpr(lprod, rprod, lhs.functor());
+    Assignment<Dest, NewCwiseBinaryOp, assignOp, Dense2Dense>::run(dst, xpr,
+                                                                   assignOp());
+  }
+};
+// same overwrite, but for const CwiseBinaryOp by inheritance from non-const
+// version
+template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
+          typename Rhs, int ProductType>
+struct generic_product_impl<const CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>,
+                            Rhs, H2, DenseShape, ProductType>
+    : generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
+                           H2, DenseShape, ProductType> {};
+
 template <typename Lhs, typename Rhs, int ProductType>
 struct generic_product_impl<Lhs, Rhs, H2, DenseShape, ProductType>
     : generic_product_impl_base<
@@ -176,6 +212,8 @@ struct generic_product_impl<Lhs, Rhs, H2, DenseShape, ProductType>
           generic_product_impl<Lhs, Rhs, H2, DenseShape, ProductType>> {
   typedef typename Product<Lhs, Rhs>::Scalar Scalar;
 
+  // we only need to specify scaleAndAddTo, everything else is build on this in
+  // the background
   template <typename Dest>
   static void scaleAndAddTo(Dest& dst, const Lhs& lhs, const Rhs& rhs,
                             const Scalar& alpha) {
@@ -210,7 +248,6 @@ struct product_evaluator<Product<Lhs, Rhs, Options>, ProductTag, H2, DenseShape>
  protected:
   PlainObject m_result;
 };
-
 
 }  // end namespace internal
 

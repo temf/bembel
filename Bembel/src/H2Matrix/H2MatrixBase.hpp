@@ -20,6 +20,7 @@ class H2MatrixBase : public EigenBase<Derived> {
  public:
   typedef typename internal::traits<Derived>::Scalar Scalar;
   typedef typename internal::ref_selector<Derived>::type Nested;
+  typedef H2MatrixBase StorageBaseType;
   typedef Scalar CoeffReturnType;
 
   enum {
@@ -40,6 +41,9 @@ class H2MatrixBase : public EigenBase<Derived> {
     return *static_cast<const Derived*>(this);
   }
   inline Derived& derived() { return *static_cast<Derived*>(this); }
+
+#define EIGEN_CURRENT_STORAGE_BASE_CLASS Eigen::H2MatrixBase
+#include "Eigen/src/plugins/CommonCwiseBinaryOps.h"
 
   // H2 * dense
   template <typename OtherDerived>
@@ -86,7 +90,6 @@ struct evaluator<H2MatrixBase<Derived>> : evaluator_base<Derived> {
   operator Derived&() { return m_matrix->const_cast_derived(); }
   operator const Derived&() const { return *m_matrix; }
 
-  // todo: what are these good for?
   const Derived* m_matrix;
   const Scalar m_zero;
 };

@@ -32,8 +32,9 @@ class CwiseBinaryOpImpl<BinaryOp, Lhs, Rhs, H2>
 
 namespace internal {
 
+// allow H2+H2, H2-H2, etc.
 template <typename BinaryOp, typename Lhs, typename Rhs>
-struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2>
     : evaluator_base<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {
  protected:
   typedef CwiseBinaryOp<BinaryOp, Lhs, Rhs> XprType;
@@ -42,10 +43,7 @@ struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
 
  public:
   enum {
-    CoeffReadCost = evaluator<Lhs>::CoeffReadCost +
-                    evaluator<Rhs>::CoeffReadCost +
-                    functor_traits<BinaryOp>::Cost,
-    // Expose storage order of the H2 expression
+    CoeffReadCost = HugeCost,
     Flags = (XprType::Flags & ~RowMajorBit) | (int(Rhs::Flags) & RowMajorBit)
   };
 
@@ -54,7 +52,6 @@ struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
         m_lhsImpl(xpr.lhs()),
         m_rhsImpl(xpr.rhs()),
         m_expr(xpr) {
-    EIGEN_INTERNAL_CHECK_COST_VALUE(functor_traits<BinaryOp>::Cost);
     EIGEN_INTERNAL_CHECK_COST_VALUE(CoeffReadCost);
   }
 
@@ -64,32 +61,12 @@ struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
   evaluator<Rhs> m_rhsImpl;
   const XprType& m_expr;
 };
-
-template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
-          typename Rhs, int ProductType>
-struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
-                            H2, DenseShape, ProductType>
-    : generic_product_impl_base<
-          CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
-          generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>,
-                               Rhs, H2, DenseShape, ProductType>> {
-  typedef CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs> Lhs;
-  typedef typename traits<Lhs>::Scalar LhsScalar;
-  typedef typename traits<Rhs>::Scalar RhsScalar;
-  typedef assign_op<LhsScalar, RhsScalar> assignOp;
-  typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
-  typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
-  typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
-
-  template <typename Dest>
-  static inline void evalTo(Dest& dst, const Lhs& lhs, const Rhs& rhs) {
-    LeftProduct lprod(lhs.lhs(), rhs);
-    RightProduct rprod(lhs.rhs(), rhs);
-    NewCwiseBinaryOp xpr(lprod, rprod, lhs.functor());
-    Assignment<Dest, NewCwiseBinaryOp, assignOp, Dense2Dense>::run(dst, xpr,
-                                                                   assignOp());
-  }
-};
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
+    : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, IndexBased>
+    : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
 
 }  // namespace internal
 
@@ -149,19 +126,6 @@ EIGEN_STRONG_INLINE const
                                                              b.derived());
 }
 
-template <typename H2DerivedL, typename H2DerivedR>
-EIGEN_STRONG_INLINE const
-    CwiseBinaryOp<internal::scalar_sum_op<typename H2DerivedL::Scalar,
-                                          typename H2DerivedR::Scalar>,
-                  const H2DerivedR, const H2DerivedR>
-    operator+(const H2MatrixBase<H2DerivedL>& a,
-              const H2MatrixBase<H2DerivedR>& b) {
-  return CwiseBinaryOp<internal::scalar_sum_op<typename H2DerivedL::Scalar,
-                                               typename H2DerivedR::Scalar>,
-                       const H2DerivedL, const H2DerivedR>(a.derived(),
-                                                           b.derived());
-}
-
 template <typename DenseDerived, typename H2Derived>
 EIGEN_STRONG_INLINE const
     CwiseBinaryOp<internal::scalar_difference_op<typename DenseDerived::Scalar,
@@ -212,19 +176,6 @@ operator-(const H2MatrixBase<H2Derived>& a,
       internal::scalar_difference_op<typename H2Derived::Scalar,
                                      typename SparseDerived::Scalar>,
       const H2Derived, const SparseDerived>(a.derived(), b.derived());
-}
-
-template <typename H2DerivedL, typename H2DerivedR>
-EIGEN_STRONG_INLINE const
-    CwiseBinaryOp<internal::scalar_difference_op<typename H2DerivedL::Scalar,
-                                                 typename H2DerivedR::Scalar>,
-                  const H2DerivedR, const H2DerivedR>
-    operator-(const H2MatrixBase<H2DerivedL>& a,
-              const H2MatrixBase<H2DerivedR>& b) {
-  return CwiseBinaryOp<
-      internal::scalar_difference_op<typename H2DerivedL::Scalar,
-                                     typename H2DerivedR::Scalar>,
-      const H2DerivedL, const H2DerivedR>(a.derived(), b.derived());
 }
 
 }  // end namespace Eigen

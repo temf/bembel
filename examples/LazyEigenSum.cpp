@@ -70,27 +70,60 @@ int main() {
   disc_op.compute();
   const H2MatrixType& H2 = disc_op.get_discrete_operator();
 
-  {
-    // set up dense identity matrix
+  {  // interaction with itself
+    testOpPlus(H2, H2);
+    testOpPlus(H2, H2 + H2);
+    testOpPlus(H2 + H2, H2);
+    testOpPlus(H2, H2 - H2);
+    testOpPlus(H2 - H2, H2);
+    testOpMinus(H2, H2);
+    testOpMinus(H2, H2 + H2);
+    testOpMinus(H2 + H2, H2);
+    testOpMinus(H2, H2 - H2);
+    testOpMinus(H2 - H2, H2);
+  }
+  {  // interaction with dense matrix
     DenseMatrixType S(H2.rows(), H2.cols());
     S.setIdentity();
 
     testOpPlus(S, H2);
+    testOpPlus(S, H2 + H2);
+    testOpPlus(S, H2 - H2);
     testOpPlus(H2, S);
-    testOpPlus(H2, H2);
+    testOpPlus(H2 + H2, S);
+    testOpPlus(H2 - H2, S);
     testOpMinus(S, H2);
+    testOpMinus(S, H2 + H2);
+    testOpMinus(S, H2 - H2);
     testOpMinus(H2, S);
-    testOpMinus(H2, H2);
+    testOpMinus(H2 + H2, S);
+    testOpMinus(H2 - H2, S);
   }
-  {
-    // set up dense identity matrix
+  {  // interaction with sparse matrix
     SparseMatrixType S(H2.rows(), H2.cols());
     S.setIdentity();
 
     testOpPlus(S, H2);
+    testOpPlus(S, H2 + H2);
+    testOpPlus(S, H2 - H2);
     testOpPlus(H2, S);
+    testOpPlus(H2 + H2, S);
+    testOpPlus(H2 - H2, S);
     testOpMinus(S, H2);
+    testOpMinus(S, H2 + H2);
+    testOpMinus(S, H2 - H2);
     testOpMinus(H2, S);
+    testOpMinus(H2 + H2, S);
+    testOpMinus(H2 - H2, S);
+  }
+  {  // interaction with scalar
+    Scalar b = 3.;
+
+    testOpPlus(H2, b * H2);
+    testOpPlus(H2, H2 + b * H2);
+    testOpPlus(H2, H2 - b * H2);
+    testOpPlus(H2, b * H2 + H2);
+    testOpPlus(H2, b * H2 - H2);
   }
 
   return 0;
