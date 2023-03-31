@@ -20,6 +20,7 @@ set(CIFILES
     HelmholtzSingleLayerH2
     HelmholtzDoubleLayerH2
     HelmholtzAdjointDoubleLayerH2
+    HelmholtzHypersingularH2
     MaxwellSingleLayerFull
     MaxwellSingleLayerH2
     )
