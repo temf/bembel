@@ -32,6 +32,12 @@ class CwiseBinaryOpImpl<BinaryOp, Lhs, Rhs, H2>
 
 namespace internal {
 
+// brute force solution to allow the use of CwiseBinaryOps in solvers
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct is_ref_compatible<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {
+  enum { value = false };
+};
+
 // allow H2+H2, H2-H2, etc.
 template <typename BinaryOp, typename Lhs, typename Rhs>
 struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2>
