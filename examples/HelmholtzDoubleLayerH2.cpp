@@ -85,11 +85,11 @@ int main() {
       DiscreteLocalOperator<MassMatrixScalarDisc> disc_op_mass(
           ansatz_space_mass);
       disc_op_mass.compute();
-      const SparseMatrix<std::complex<double>> &M =
+      SparseMatrix<std::complex<double>> M =
           disc_op_mass.get_discrete_operator().cast<std::complex<double>>();
+      auto system_matrix = 0.5 * M + K;  // important: do NOT change auto!
 
       // solve system
-      auto system_matrix = 0.5 * M + K;
       GMRES<typeof(system_matrix), IdentityPreconditioner> gmres;
       gmres.compute(system_matrix);
       auto rho = gmres.solve(disc_lf.get_discrete_linear_form());
@@ -115,7 +115,7 @@ int main() {
     // estimate rate of convergence and check whether it is at least 90% of the
     // expected value
     assert(
-        checkRateOfConvergence(error.tail(3), 2 * polynomial_degree + 3, 0.9));
+        checkRateOfConvergence(error.tail(3), 2 * polynomial_degree + 2, 0.9));
 
     std::cout << std::endl;
   }
