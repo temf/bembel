@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_ANSATZSPACE_GLUE_H_
-#define BEMBEL_ANSATZSPACE_GLUE_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_GLUE_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_GLUE_HPP_
 
 namespace Bembel {
 /*
@@ -206,7 +209,8 @@ std::vector<int> getEdgeDofIndices(int edgeCase, int dimXdir, int dimYdir,
       }
       return out;
     };
-    default:;
+    default: {
+    };
       // An edge might have a -1 index. This occurs only when no partner could
       // be found, and the -1 is the placeholder of the missing partner.
   }
@@ -235,7 +239,7 @@ inline bool reverseParametrized(const std::array<int, 4> &edge) {
            edgeIsBackwardsParametrized(edge[3])))
              ? true
              : false;
-};
+}
 
 inline int glueCoefficientDivergenceConforming(const std::array<int, 4> &edge) {
   return ((normalComponentIsInwardDirected(edge[2]) &&
@@ -324,7 +328,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
               already_stored_in[large_dof] = already_stored_in[small_dof];
             } else {
               if (!(already_stored_in[small_dof] ==
-                      already_stored_in[large_dof])) {
+                    already_stored_in[large_dof])) {
                 // This case is tricky. Assume that we have to identify four
                 // DOFs with each other, but they have already been assigned in
                 // pairs of two. Then we need to reverse this process. First, we
@@ -356,7 +360,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
               already_stored_in[small_dof] = already_stored_in[large_dof];
             } else {
               if (!(already_stored_in[small_dof] ==
-                      already_stored_in[large_dof])) {
+                    already_stored_in[large_dof])) {
                 // This case is tricky. Assume that we have to identify four
                 // DOFs with each other, but they have already been assigned in
                 // pairs of two. Then we need to reverse this process. First, we
@@ -490,4 +494,4 @@ struct glue_identificationmaker_<Derived, DifferentialForm::DivConforming> {
 };  // namespace GlueRoutines
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_GLUE_HPP_

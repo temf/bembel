@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
-// M. Multerer, S. Schoeps, and F. Wolf at Technische Universtaet Darmstadt,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_H2MATRIX_H2MATRIX_H__
-#define __BEMBEL_H2MATRIX_H2MATRIX_H__
+#ifndef BEMBEL_SRC_H2MATRIX_H2MATRIX_HPP_
+#define BEMBEL_SRC_H2MATRIX_H2MATRIX_HPP_
 
 /**
  *  \namespace DirtyLittleHelpers
@@ -104,7 +107,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
       for (int i = 0; i < vector_dimension; ++i)
         for (int j = 0; j < vector_dimension; ++j)
           block_cluster_tree_(i, j) =
-              bt;  //.init_BlockClusterTree(linOp, ansatz_space);
+              bt;  // .init_BlockClusterTree(linOp, ansatz_space);
     }
     auto parameters = block_cluster_tree_(0, 0).get_parameters();
     // compute transfer and moment matrices for fmm
@@ -131,7 +134,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
     Bembel::GaussSquare<Bembel::Constants::maximum_quadrature_degree> GS;
     auto super_space = ansatz_space.get_superspace();
     auto ffield_deg = linOp.get_FarfieldQuadratureDegree(polynomial_degree);
-    auto ffield_qnodes =
+    std::vector<ElementSurfacePoints> ffield_qnodes =
         Bembel::DuffyTrick::computeFfieldQnodes(super_space, GS[ffield_deg]);
     const int NumberOfFMMComponents =
         Bembel::LinearOperatorTraits<Derived>::NumberOfFMMComponents;
@@ -183,7 +186,8 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
                     // do integration
                     Bembel::DuffyTrick::evaluateBilinearForm(
                         linOp, super_space, element1, element2, GS,
-                        ffield_qnodes, &intval);
+                        ffield_qnodes[element1.id_],
+                        ffield_qnodes[element2.id_], &intval);
                     // insert into dense matrices of all block cluster trees
                     for (int i = 0; i < vector_dimension; ++i)
                       for (int j = 0; j < vector_dimension; ++j)
@@ -431,4 +435,4 @@ struct generic_product_impl<H2Matrix<ScalarT>, Rhs, SparseShape, DenseShape,
 }  // namespace internal
 }  // namespace Eigen
 
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_H2MATRIX_HPP_

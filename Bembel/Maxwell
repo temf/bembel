@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -8,6 +11,12 @@
 
 #ifndef BEMBEL_MAXWELLOPERATOR_MODULE_
 #define BEMBEL_MAXWELLOPERATOR_MODULE_
+
+/**
+ *  \ingroup Modules
+ *  \defgroup Maxwell Maxwell
+ *  \brief The Maxwell module provides specializations to solve Maxwell problems
+ **/
 
 #include <functional>
 
@@ -19,4 +28,4 @@
 #include "src/Maxwell/SingleLayerOperator.hpp"
 #include "src/Maxwell/SingleLayerPotential.hpp"
 
-#endif
+#endif  // BEMBEL_MAXWELLOPERATOR_MODULE_
