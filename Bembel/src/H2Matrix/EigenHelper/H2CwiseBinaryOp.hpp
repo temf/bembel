@@ -37,6 +37,9 @@ template <typename BinaryOp, typename Lhs, typename Rhs>
 struct is_ref_compatible<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {
   enum { value = false };
 };
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct is_ref_compatible<const CwiseBinaryOp<BinaryOp, Lhs, Rhs>>
+    : is_ref_compatible<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {};
 
 // allow H2+H2, H2-H2, etc.
 template <typename BinaryOp, typename Lhs, typename Rhs>
@@ -67,11 +70,19 @@ struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2>
   evaluator<Rhs> m_rhsImpl;
   const XprType& m_expr;
 };
+// interaction structs with dense
 template <typename BinaryOp, typename Lhs, typename Rhs>
 struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
     : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
 template <typename BinaryOp, typename Lhs, typename Rhs>
 struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, IndexBased>
+    : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
+// interaction structs with sparse
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IteratorBased, H2>
+    : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, IteratorBased>
     : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
 
 }  // namespace internal

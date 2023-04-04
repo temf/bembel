@@ -169,8 +169,10 @@ inline void H2_time_dense_product(const H2LhsType& lhs, const DenseRhsType& rhs,
                              AlphaType>::run(lhs, rhs, res, alpha);
 }
 
-// overwrite eigen implementation by using distributive law, i.e., compute
-// A*c+B*c instead of (A+B)*c
+/**
+ * \brief overwrite eigen implementation by using distributive law, i.e.,
+ *compute A*c+B*c instead of (A+B)*c
+ */
 template <typename BinaryOp, typename BinaryLhs, typename BinaryRhs,
           typename Rhs, int ProductType>
 struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
@@ -180,37 +182,32 @@ struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
           generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>,
                                Rhs, H2, DenseShape, ProductType>> {
   typedef CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs> Lhs;
-  typedef typename traits<Lhs>::Scalar LhsScalar;
-  typedef typename traits<Rhs>::Scalar RhsScalar;
-  typedef assign_op<LhsScalar, RhsScalar> assignOp;
-  typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
-  typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
-  typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
+  typedef typename Product<Lhs, Rhs>::Scalar Scalar;
 
-#if 0
-  template <typename Dest>
-  static inline void evalTo(Dest& dst, const Lhs& lhs, const Rhs& rhs) {
-    LeftProduct lprod(lhs.lhs(), rhs);
-    RightProduct rprod(lhs.rhs(), rhs);
-    NewCwiseBinaryOp xpr(lprod, rprod, lhs.functor());
-    Assignment<Dest, NewCwiseBinaryOp, assignOp, Dense2Dense>::run(dst, xpr,
-                                                                   assignOp());
-  }
-#endif
   // we only need to specify scaleAndAddTo, everything else is build on this in
   // the background
-  typedef typename Product<Lhs, Rhs>::Scalar Scalar;
   template <typename Dest>
   static void scaleAndAddTo(Dest& dst, const Lhs& lhs, const Rhs& rhs,
                             const Scalar& alpha) {
+    typedef Product<BinaryLhs, Rhs, ProductType> LeftProduct;
+    typedef Product<BinaryRhs, Rhs, ProductType> RightProduct;
+    typedef CwiseBinaryOp<BinaryOp, LeftProduct, RightProduct> NewCwiseBinaryOp;
     typedef Matrix<Scalar, Dynamic, Dynamic> DenseMatrix;
-    typedef add_assign_op<LhsScalar, RhsScalar> addAssignOp;
     typedef CwiseNullaryOp<scalar_constant_op<Scalar>, DenseMatrix>
         ScalarCwiseNullaryOp;
-    typedef scalar_product_op<Scalar, Scalar> ScalarTimesOp;
     typedef scalar_constant_op<Scalar> ScalarConstantOp;
+    typedef scalar_product_op<Scalar, Scalar> ScalarTimesOp;
     typedef CwiseBinaryOp<ScalarTimesOp, ScalarCwiseNullaryOp, NewCwiseBinaryOp>
         ScalarTimesNewCwiseBinaryOp;
+    typedef typename traits<Lhs>::Scalar LhsScalar;
+    typedef typename traits<Rhs>::Scalar RhsScalar;
+    typedef add_assign_op<LhsScalar, RhsScalar> addAssignOp;
+
+    static_assert(
+        is_same<BinaryOp, scalar_sum_op<LhsScalar, RhsScalar>>::value ||
+            is_same<BinaryOp,
+                    scalar_difference_op<LhsScalar, RhsScalar>>::value,
+        "Product of CwiseBinaryOp not defined for this BinaryOp");
 
     LeftProduct lprod(lhs.lhs(), rhs);
     RightProduct rprod(lhs.rhs(), rhs);
@@ -220,6 +217,40 @@ struct generic_product_impl<CwiseBinaryOp<BinaryOp, BinaryLhs, BinaryRhs>, Rhs,
     ScalarTimesNewCwiseBinaryOp xpr(xpr_scalar, xpr_prod, ScalarTimesOp());
     Assignment<Dest, ScalarTimesNewCwiseBinaryOp, addAssignOp,
                Dense2Dense>::run(dst, xpr, addAssignOp());
+  }
+};
+/**
+ * \brief overwrite eigen implementation by using associative law to compute
+ *a*(H*x) instead of (a*H)*x
+ */
+template <typename ProdLhsScalar, typename ProdRhsScalar, typename BinaryLhs,
+          typename BinaryRhs, typename Rhs, int ProductType>
+struct generic_product_impl<
+    CwiseBinaryOp<scalar_product_op<ProdLhsScalar, ProdRhsScalar>, BinaryLhs,
+                  BinaryRhs>,
+    Rhs, H2, DenseShape, ProductType>
+    : generic_product_impl_base<
+          CwiseBinaryOp<scalar_product_op<ProdLhsScalar, ProdRhsScalar>,
+                        BinaryLhs, BinaryRhs>,
+          Rhs,
+          generic_product_impl<
+              CwiseBinaryOp<scalar_product_op<ProdLhsScalar, ProdRhsScalar>,
+                            BinaryLhs, BinaryRhs>,
+              Rhs, H2, DenseShape, ProductType>> {
+  typedef CwiseBinaryOp<scalar_product_op<ProdLhsScalar, ProdRhsScalar>,
+                        BinaryLhs, BinaryRhs>
+      Lhs;
+  typedef typename Product<Lhs, Rhs>::Scalar Scalar;
+
+  // we only need to specify scaleAndAddTo, everything else is build on this in
+  // the background
+  template <typename Dest>
+  static void scaleAndAddTo(Dest& dst, const Lhs& lhs, const Rhs& rhs,
+                            const Scalar& alpha) {
+    Scalar beta = lhs.lhs().functor()();
+    generic_product_impl<BinaryRhs, Rhs, H2, DenseShape,
+                         ProductType>::scaleAndAddTo(dst, lhs.rhs(), rhs,
+                                                     alpha * beta);
   }
 };
 // same overwrite, but for const CwiseBinaryOp by inheritance from non-const
