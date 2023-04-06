@@ -7,6 +7,7 @@ set(UNITTESTS
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
 		test_DuffyTrick
+		LazyEigenSum
 		)
 
 foreach(file IN LISTS UNITTESTS)

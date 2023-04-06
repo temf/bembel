@@ -11,7 +11,7 @@
 // The contents of this file are a modification of the file
 // Core/util/Constants.h from the Eigen library
 namespace Eigen {
-// usually defined in
+
 struct H2 {};
 
 }  // end namespace Eigen
