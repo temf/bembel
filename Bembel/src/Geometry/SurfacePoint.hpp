@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,9 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_GEOMETRY_SURFACEPOINT_H_
-#define BEMBEL_GEOMETRY_SURFACEPOINT_H_
+#ifndef BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
+#define BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
+#include <Eigen/StdVector>
 /**
  * \ingroup Geometry
  * \brief typedef of SurfacePoint
@@ -37,4 +41,13 @@
  **/
 typedef Eigen::Matrix<double, 12, 1> SurfacePoint;
 
-#endif
+/**
+ * \ingroup Geometry
+ * \brief typedef std::vector<SurfacePoint> with aligned allocator of Eigen for
+ * compatibility with older compilers.
+ */
+typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
+    ElementSurfacePoints;
+
+#endif  // BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
+

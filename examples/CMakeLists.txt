@@ -11,6 +11,8 @@ set(CIFILES
     AnsatzSpace
     BlockClusterTree
     Geometry
+    MassMatrix
+    LaplaceBeltrami
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
     LazyEigenSum
@@ -21,12 +23,16 @@ set(CIFILES
     )
 
 foreach(file IN LISTS CIFILES)
-  add_executable(${file}.out ${file})
-  target_link_libraries(${file}.out Eigen3::Eigen)
-  add_test(${file}Example ${file}.out)
+  add_executable(${file} ${file}.cpp)
+  target_link_libraries(${file} Eigen3::Eigen)
+  add_test(${file}Example ${file})
+  set_tests_properties(${file}Example PROPERTIES LABELS "E2Etests")
 endforeach()
 
 enable_testing()
+
+add_custom_target(E2Etests)
+add_dependencies(E2Etests ${CIFILES})
 
 ###############################################################################
 # examples not being run from CI
@@ -40,6 +46,6 @@ set(NOCIFILES
     )
 
   foreach(file IN LISTS NOCIFILES)
-  add_executable(${file}.out ${file})
-  target_link_libraries(${file}.out Eigen3::Eigen)
+  add_executable(${file} ${file}.cpp)
+  target_link_libraries(${file} Eigen3::Eigen)
 endforeach()
