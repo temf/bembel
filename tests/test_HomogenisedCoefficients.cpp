@@ -1,17 +1,21 @@
-/*
- * test_HomogenisedCoefficients.cpp
- *
- *  Created on: 5 Jan 2023
- *      Author: ricrem00
- */
-
-#include <iostream>
-#include <functional>
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
 
 #include <Bembel/HomogenisedLaplace>
 #include <Eigen/Dense>
 
-#include "Test.hpp"
+#include <iostream>
+#include <functional>
+
+#include "./Test.hpp"
 
 inline double k_per(Eigen::Vector3d in, Eigen::VectorXd coeffs,
     unsigned int deg);

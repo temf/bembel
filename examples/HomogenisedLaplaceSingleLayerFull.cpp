@@ -1,9 +1,13 @@
-/*
- * example_HomogenisedLaplaceSingleLayerH2Matrix.cpp
- *
- *  Created on: 10 Jan 2023
- *      Author: ricrem00
- */
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
 
 #include <Eigen/Dense>
 
@@ -25,7 +29,7 @@ int main() {
 
   using Eigen::Vector3d;
   using Eigen::VectorXd;
-  using Eigen::H2Matrix;
+  using Eigen::MatrixXd;
 
   // Load geometry from file "sphere.dat", which must be placed in the same
   // directory as the executable
@@ -33,7 +37,7 @@ int main() {
 
   // Define evaluation points for potential field, a tensor product grid of
   // 10*10*10 points in [0, 0.25]^3
-  Eigen::MatrixXd gridpoints = Bembel::Util::makeTensorProductGrid(
+  MatrixXd gridpoints = Bembel::Util::makeTensorProductGrid(
       VectorXd::LinSpaced(10, 0.05, 0.20), VectorXd::LinSpaced(10, 0.05, 0.20),
       VectorXd::LinSpaced(10, 0.05, 0.20));
 
@@ -67,15 +71,14 @@ int main() {
       disc_lf.compute();
 
       // Set up and compute discrete operator
-      Bembel::DiscreteOperator<H2Matrix<double>,
-          HomogenisedLaplaceSingleLayerOperator> disc_op(ansatz_space);
+      Bembel::DiscreteOperator<MatrixXd, HomogenisedLaplaceSingleLayerOperator>
+        disc_op(ansatz_space);
       disc_op.compute();
 
       // solve system
-      Eigen::ConjugateGradient<H2Matrix<double>, Eigen::Lower | Eigen::Upper,
-          Eigen::IdentityPreconditioner> cg;
-      cg.compute(disc_op.get_discrete_operator());
-      VectorXd rho = cg.solve(disc_lf.get_discrete_linear_form());
+      Eigen::LLT<MatrixXd> llt;
+      llt.compute(disc_op.get_discrete_operator());
+      VectorXd rho = llt.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       Bembel::DiscretePotential<
@@ -96,3 +99,4 @@ int main() {
 
   return 0;
 }
+
