@@ -5,11 +5,13 @@
  *      Author: ricrem00
  */
 
+#include <iostream>
+#include <functional>
+
 #include <Bembel/HomogenisedLaplace>
 #include <Eigen/Dense>
 
-#include <iostream>
-#include <functional>
+#include "Test.hpp"
 
 inline double k_per(Eigen::Vector3d in, Eigen::VectorXd coeffs,
     unsigned int deg);
@@ -67,7 +69,8 @@ int main() {
 
   err /= (6 * Npoints * Npoints);
 
-  std::cout << "Average Pointwise Error is\t" << err << std::endl;
+  /* test the average pointwise error */
+  assert(Bembel::Constants::isAlmostZero(err));
 
   /* test the gradient with the differential quotient */
 
@@ -78,7 +81,8 @@ int main() {
   double dq = (k_per(t, cs, deg) - k_per(p, cs, deg)) / h;
   double gr = Dk_per(p, cs, deg).dot(dir);
 
-  std::cout << "Error in difference quotient is\t" << abs(dq - gr) << std::endl;
+  /* test the error between the function and the difference quotient */
+  assert(Bembel::Constants::isAlmostZero(dq - gr));
 
   return 0;
 }
