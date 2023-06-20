@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -8,6 +11,13 @@
 
 #ifndef BEMBEL_HELMHOLTZOPERATOR_MODULE_
 #define BEMBEL_HELMHOLTZOPERATOR_MODULE_
+
+/**
+ *  \ingroup Modules
+ *  \defgroup Helmholtz Helmholtz
+ *  \brief The Helmholtz module provides some specializations to solve Helmholtz
+ *problems.
+ **/
 
 #include <functional>
 
@@ -19,4 +29,4 @@
 #include "src/Helmholtz/SingleLayerOperator.hpp"
 #include "src/Helmholtz/SingleLayerPotential.hpp"
 
-#endif
+#endif  // BEMBEL_HELMHOLTZOPERATOR_MODULE_

@@ -1,0 +1,44 @@
+name: Build and Test
+
+on:
+  workflow_call:
+    inputs:
+      target:
+        required: true
+        type: string
+
+env:
+  # Customize the CMake build type here (Release, Debug, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build-n-test:
+    # The CMake configure and build commands are platform agnostic and should work equally
+    # well on Windows or Mac.  You can convert this to a matrix build if you need
+    # cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Configure system
+      run: sudo apt-get update
+    
+    - name: Install Eigen3
+      run: sudo apt-get install --yes libeigen3-dev
+
+    - name: Configure CMake
+      # Use a bash shell so we can use the same syntax for environment variable
+      # access regardless of the host operating system
+      shell: bash
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -B build
+
+    - name: Build
+      shell: bash
+      run: cmake --build build --config $BUILD_TYPE --target ${{ inputs.target }} -j 2
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      shell: bash
+      run: ctest -C $BUILD_TYPE -L ${{ inputs.target }} --output-on-failure

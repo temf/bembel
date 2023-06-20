@@ -1,26 +1,27 @@
-version: 2
+version: 2.0
 jobs:
   build:
     filters:
       branches:
         only:
           - master
-    docker:
-      - image: ubuntu:18.04
+    machine:
+      image: ubuntu-2004:current
+    resource_class: large
     steps:
-      - checkout
       - run:
-          name: "Uptdating"
+          name: "Updating"
           command: |
-            apt-get update
+            sudo apt-get update && sudo apt-get install -y openssh-client git
+      - checkout
       - run:
           name: "Getting Eigen"
           command: |
-            apt-get install --yes  libeigen3-dev
+            export DEBIAN_FRONTEND=noninteractive && sudo apt-get install --yes  libeigen3-dev
       - run:
           name: "Getting build-essential"
           command: |
-            apt-get install --yes  gcc-8 make cmake;
+            sudo apt-get install --yes build-essential make cmake;
       - run:
           name: "Calling CMake"
           command: |
@@ -64,7 +65,7 @@ jobs:
           name: Install and configure dependencies
           command: |
             npm install gh-pages@3.0.0
-            git config user.email "flx-wlf@users.noreply.github.com"
+            git config user.email "mx-nlte@users.noreply.github.com"
             git config user.name "ci-build"
       - run:
           name: Deploy docs to gh-pages branch

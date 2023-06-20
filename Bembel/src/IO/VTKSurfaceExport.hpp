@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_IO_VTKSURFACEEXPORT_H_
-#define BEMBEL_IO_VTKSURFACEEXPORT_H_
+#ifndef BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_
+#define BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_
 
 namespace Bembel {
 
@@ -15,21 +18,23 @@ namespace Bembel {
 class VTKSurfaceExport {
  public:
   /**
-  * \ingroup IO
-  * \brief Provides export routines to the VTK file format.
-  *
-  * The constructor wants a geometetry and a refinement level. This choice is
-  * deliberately not a mesh, since the visualization will often be on a finer
-  * mesh then that of a computation.
-  **/
-  VTKSurfaceExport(const Geometry& geo, int M) { init_VTKSurfaceExport(geo, M); }
+   * \ingroup IO
+   * \brief Provides export routines to the VTK file format.
+   *
+   * The constructor wants a geometetry and a refinement level. This choice is
+   * deliberately not a mesh, since the visualization will often be on a finer
+   * mesh then that of a computation.
+   **/
+  VTKSurfaceExport(const Geometry& geo, int M) {
+    init_VTKSurfaceExport(geo, M);
+  }
   inline void init_VTKSurfaceExport(const Geometry& geo, int M) {
     msh.init_ClusterTree(geo, M);
     points = msh.get_element_tree().generatePointList().transpose();
     cells = msh.get_element_tree().generateElementList().transpose();
     normals = Eigen::MatrixXd(cells.rows(), 3);
     patch_number = Eigen::VectorXi(cells.rows());
-    
+
     for (auto e = msh.get_element_tree().cpbegin();
          e != msh.get_element_tree().cpend(); ++e) {
       normals.row(e->id_) = msh.get_geometry()[e->patch_]
@@ -50,8 +55,9 @@ class VTKSurfaceExport {
   // std::function<Eigen::Vector3d(int, Eigen::Vector2d)>
   // std::function<double(Eigen::Vector3d)>
   // std::function<Eigen::Vector3d(Eigen::Vector3d)>
-  inline void addDataSet(const std::string& name,
-                         std::function<double(int, const Eigen::Vector2d&)> fun) {
+  inline void addDataSet(
+      const std::string& name,
+      std::function<double(int, const Eigen::Vector2d&)> fun) {
     Eigen::MatrixXd data(cells.rows(), 1);
     for (auto e = msh.get_element_tree().cpbegin();
          e != msh.get_element_tree().cpend(); ++e) {
@@ -72,8 +78,9 @@ class VTKSurfaceExport {
     addDataSet_(name, data);
     return;
   }
-  inline void addDataSet(const std::string& name,
-                         std::function<Eigen::Vector3d(const Eigen::Vector3d&)> fun) {
+  inline void addDataSet(
+      const std::string& name,
+      std::function<Eigen::Vector3d(const Eigen::Vector3d&)> fun) {
     Eigen::MatrixXd data(cells.rows(), 3);
     for (auto e = msh.get_element_tree().cpbegin();
          e != msh.get_element_tree().cpend(); ++e) {
@@ -162,9 +169,14 @@ class VTKSurfaceExport {
                              "\" NumberOfComponents=\"" +
                              std::to_string(mat.cols()) +
                              "\" format=\"ascii\">\n";
+    std::ostringstream out;
+    out.precision(6);
     for (int i = 0; i < mat.rows(); ++i) {
       for (int j = 0; j < cols; ++j) {
-        data_ascii.append(std::to_string(mat(i, j)) + " ");
+        out << std::scientific << mat(i, j);
+        data_ascii.append(std::move(out).str() + " ");
+        out.str("");
+        out.clear();
       }
       data_ascii.append("\n");
     }
@@ -182,4 +194,4 @@ class VTKSurfaceExport {
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_

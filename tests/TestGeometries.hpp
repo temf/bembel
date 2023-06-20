@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,10 +9,10 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_TEST_TESTGEOMETRIES_H_
-#define BEMBEL_TEST_TESTGEOMETRIES_H_
+#ifndef TESTS_TESTGEOMETRIES_HPP_
+#define TESTS_TESTGEOMETRIES_HPP_
 
-#include "Test.hpp"
+#include "tests/Test.hpp"
 
 namespace Test {
 
@@ -503,4 +506,4 @@ struct TestGeometryWriter {
 };
 
 }  // namespace Test
-#endif
+#endif  // TESTS_TESTGEOMETRIES_HPP_

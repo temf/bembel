@@ -1,41 +1,50 @@
-add_executable(example_Spline.out example_Spline)
-target_link_libraries(example_Spline.out Eigen3::Eigen)
 
-add_executable(example_Geometry.out example_Geometry)
-target_link_libraries(example_Geometry.out Eigen3::Eigen)
+# copy geometry files for testing
+configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/geo/torus.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
-add_executable(example_AnsatzSpace.out example_AnsatzSpace)
-target_link_libraries(example_AnsatzSpace.out Eigen3::Eigen)
+###############################################################################
+# examples being run from CI
+###############################################################################
 
-add_executable(example_Quadrature.out example_Quadrature)
-target_link_libraries(example_Quadrature.out Eigen3::Eigen)
+set(CIFILES
+    AnsatzSpace
+    BlockClusterTree
+    Geometry
+    MassMatrix
+    LaplaceBeltrami
+    LaplaceSingleLayerFull
+    LaplaceSingleLayerH2
+    HelmholtzSingleLayerFull
+    HelmholtzSingleLayerH2
+    MaxwellSingleLayerFull
+    MaxwellSingleLayerH2
+    )
 
-add_executable(example_BlockClusterTree.out example_BlockClusterTree)
-target_link_libraries(example_BlockClusterTree.out Eigen3::Eigen)
+foreach(file IN LISTS CIFILES)
+  add_executable(${file} ${file}.cpp)
+  target_link_libraries(${file} Eigen3::Eigen)
+  add_test(${file}Example ${file})
+  set_tests_properties(${file}Example PROPERTIES LABELS "E2Etests")
+endforeach()
 
-add_executable(example_LaplaceSingleLayerFull.out example_LaplaceSingleLayerFull)
-target_link_libraries(example_LaplaceSingleLayerFull.out Eigen3::Eigen)
+enable_testing()
 
-add_executable(example_LaplaceSingleLayerH2Matrix.out example_LaplaceSingleLayerH2Matrix)
-target_link_libraries(example_LaplaceSingleLayerH2Matrix.out Eigen3::Eigen)
+add_custom_target(E2Etests)
+add_dependencies(E2Etests ${CIFILES})
 
-add_executable(example_HelmholtzSingleLayerFull.out example_HelmholtzSingleLayerFull)
-target_link_libraries(example_HelmholtzSingleLayerFull.out Eigen3::Eigen)
+###############################################################################
+# examples not being run from CI
+###############################################################################
 
-add_executable(example_HelmholtzSingleLayerH2Matrix.out example_HelmholtzSingleLayerH2Matrix)
-target_link_libraries(example_HelmholtzSingleLayerH2Matrix.out Eigen3::Eigen)
+set(NOCIFILES
+    Quadrature
+    VTKSurfaceExport
+    VTKDomainExport
+    FullLaplaceWorkflow
+    )
 
-add_executable(example_MaxwellSingleLayerFull.out example_MaxwellSingleLayerFull)
-target_link_libraries(example_MaxwellSingleLayerFull.out Eigen3::Eigen)
-
-add_executable(example_MaxwellSingleLayerH2Matrix.out example_MaxwellSingleLayerH2Matrix)
-target_link_libraries(example_MaxwellSingleLayerH2Matrix.out Eigen3::Eigen)
-
-add_executable(example_VTKSurfaceExport.out example_VTKSurfaceExport)
-target_link_libraries(example_VTKSurfaceExport.out Eigen3::Eigen)
-
-add_executable(example_VTKDomainExport.out example_VTKDomainExport)
-target_link_libraries(example_VTKDomainExport.out Eigen3::Eigen)
-
-add_executable(example_FullLaplaceWorkflow.out example_FullLaplaceWorkflow)
-target_link_libraries(example_FullLaplaceWorkflow.out Eigen3::Eigen)
+  foreach(file IN LISTS NOCIFILES)
+  add_executable(${file} ${file}.cpp)
+  target_link_libraries(${file} Eigen3::Eigen)
+endforeach()
