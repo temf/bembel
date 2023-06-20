@@ -209,6 +209,7 @@ Contributors include (alphabetically):
 *   [H. Harbrecht](#HeHa), 
 *   [M. Multerer](#MM), 
 *   [M. Nolte](#MN), 
+*   [R. von Rickenbach](#RvR),
 *   [F. Wolf](#FW).
 
 ## 10. About the People <a name="people"></a>
@@ -239,6 +240,10 @@ He may also be found [on GitHub](https://github.com/muchip).
 )<a name="SSc"></a> currently holds a professorship at the 
 [Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
 at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
+
+* [Remo von Rickenbach](https://dmi.unibas.ch/de/personen/remo-von-rickenbach/) 
+<a name="RvR"></a>is currently a PhD student at the 
+[Departement Mathematik und Informatik](https://dmi.unibas.ch/de/home/) at the University of Basel.
 
 * [Felix Wolf](https://www.cem.tu-darmstadt.de/cem/group/wolf.en.jsp) 
 <a name="FW"></a>is currently a lecturer at the 
