@@ -169,9 +169,14 @@ class VTKSurfaceExport {
                              "\" NumberOfComponents=\"" +
                              std::to_string(mat.cols()) +
                              "\" format=\"ascii\">\n";
+    std::ostringstream out;
+    out.precision(6);
     for (int i = 0; i < mat.rows(); ++i) {
       for (int j = 0; j < cols; ++j) {
-        data_ascii.append(std::to_string(mat(i, j)) + " ");
+        out << std::scientific << mat(i, j);
+        data_ascii.append(std::move(out).str() + " ");
+        out.str("");
+        out.clear();
       }
       data_ascii.append("\n");
     }
