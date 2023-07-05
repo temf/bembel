@@ -1,7 +1,8 @@
 name: Build and Deploy
 
-on: [push]
-  branches: [ "**" ]
+on:
+  push:
+    branches: [ "**" ]
 
 permissions:
   contents: write
