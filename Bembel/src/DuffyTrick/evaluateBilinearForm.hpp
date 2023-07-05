@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_DUFFYTRICK_EVALUATEBILINEARFORM_H_
-#define BEMBEL_DUFFYTRICK_EVALUATEBILINEARFORM_H_
+#ifndef BEMBEL_SRC_DUFFYTRICK_EVALUATEBILINEARFORM_HPP_
+#define BEMBEL_SRC_DUFFYTRICK_EVALUATEBILINEARFORM_HPP_
 
 namespace Bembel {
 namespace DuffyTrick {
@@ -19,7 +22,8 @@ template <typename Derived, class T, class CubatureVector>
 void evaluateBilinearForm(
     const LinearOperatorBase<Derived>& linOp, const T& super_space,
     const ElementTreeNode& e1, const ElementTreeNode& e2,
-    const CubatureVector& GS, const Eigen::MatrixXd& ffield_qnodes,
+    const CubatureVector& GS, const ElementSurfacePoints& ffield_qnodes1,
+    const ElementSurfacePoints& ffield_qnodes2,
     Eigen::Matrix<typename LinearOperatorTraits<Derived>::Scalar,
                   Eigen::Dynamic, Eigen::Dynamic>* intval) {
   //////////////////////////////////////////////////////////////////////////////
@@ -38,24 +42,27 @@ void evaluateBilinearForm(
   switch (cp(2)) {
     case 0:
       if (nfield_deg == ffield_deg) {
-        integrate0(linOp, super_space, e1, 0, e2, 0, ffield_qnodes, Q, intval);
+        integrate0(linOp, super_space, e1, 0, e2, 0, ffield_qnodes1,
+                   ffield_qnodes2, Q, intval);
         return;
       } else {
-        integrate1(linOp, super_space, e1, 0, e2, 0, ffield_qnodes, Q, intval);
+        integrate1(linOp, super_space, e1, 0, e2, 0, ffield_qnodes1,
+                   ffield_qnodes2, Q, intval);
         return;
       }
     case 1:
       assert(!"you should not have ended up here!");
     case 2:
-      integrate2(linOp, super_space, e1, 0, e2, 0, ffield_qnodes, Q, intval);
+      integrate2(linOp, super_space, e1, 0, e2, 0, ffield_qnodes1,
+                 ffield_qnodes2, Q, intval);
       return;
     case 3:
-      integrate3(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes, Q,
-                 intval);
+      integrate3(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes1,
+                 ffield_qnodes2, Q, intval);
       return;
     case 4:
-      integrate4(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes, Q,
-                 intval);
+      integrate4(linOp, super_space, e1, cp(0), e2, cp(1), ffield_qnodes1,
+                 ffield_qnodes2, Q, intval);
       return;
     default:
       assert(!"you should not have ended up here!");
@@ -64,4 +71,4 @@ void evaluateBilinearForm(
 }
 }  // namespace DuffyTrick
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_DUFFYTRICK_EVALUATEBILINEARFORM_HPP_

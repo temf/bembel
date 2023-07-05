@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_H2MATRIX_BLOCKCLUSTERTREE_H_
-#define BEMBEL_H2MATRIX_BLOCKCLUSTERTREE_H_
+#ifndef BEMBEL_SRC_H2MATRIX_BLOCKCLUSTERTREE_HPP_
+#define BEMBEL_SRC_H2MATRIX_BLOCKCLUSTERTREE_HPP_
 
 namespace Bembel {
 
@@ -287,8 +290,9 @@ class BlockClusterTree {
       for (auto j = 0; j < child.sons_.cols(); ++j)
         for (auto i = 0; i < child.sons_.rows(); ++i)
           updateLeafPointers_recursion(child.sons_(i, j));
-    } else
+    } else {
       leaf_pointers_->push_back(std::addressof(child));
+    }
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -308,4 +312,4 @@ class BlockClusterTree {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_BLOCKCLUSTERTREE_HPP_

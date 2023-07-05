@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -9,6 +12,19 @@
 #ifndef BEMBEL_GEOMETRY_MODULE_
 #define BEMBEL_GEOMETRY_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup Geometry Geometry
+ *  \brief This module handles all geometry related concerns.
+ *
+ *  The Geometry class is the interface between geometry description and the
+ * remainder of the code. We provide an implementation of NURBS discretized
+ * patches via the Patch class, but the code is easily extensible to other
+ * parametric descriptions mapping from [0,1]2 to parts of the geometry, as long
+ * as the corresponding methods for point evaluation and evaluation of the
+ * pointwise Jacobian are implemented
+ **/
+ 
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -21,11 +37,11 @@
 
 #include "Spline"
 
+#include "src/Geometry/SurfacePoint.hpp"
+
 #include "src/Geometry/Patch.hpp"
 #include "src/Geometry/PatchVector.hpp"
 #include "src/Geometry/GeometryIO.hpp"
 #include "src/Geometry/Geometry.hpp"
-#include "src/Geometry/SurfacePoint.hpp"
-#include "src/Geometry/Geometry.hpp"
 
-#endif
+#endif  // BEMBEL_GEOMETRY_MODULE_

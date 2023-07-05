@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_ANSATZSPACE_PROJECTOR_H_
-#define BEMBEL_ANSATZSPACE_PROJECTOR_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_
 
 namespace Bembel {
 namespace ProjectorRoutines {
@@ -96,7 +99,6 @@ template <typename Derived>
 inline _proj_info makeLocalProjectionTriplets(
     const SuperSpace<Derived>& super_space, const int pp1x, const int pp1y,
     const int knotrepetition_in) {
-  using namespace Spl;
   const int M = super_space.get_refinement_level();
   const int maximal_polynomial_degree = std::max(pp1x, pp1y);
   assert(maximal_polynomial_degree == super_space.get_polynomial_degree() + 1 &&
@@ -117,9 +119,9 @@ inline _proj_info makeLocalProjectionTriplets(
   // projector. n-1 is passed, since n = number_elements but n-1 = number of
   // interior knots.
   std::vector<double> c_space_knot_x =
-      MakeUniformKnotVector(pp1x, n - 1, knotrepetition);
+      Spl::MakeUniformKnotVector(pp1x, n - 1, knotrepetition);
   std::vector<double> c_space_knot_y =
-      MakeUniformKnotVector(pp1y, n - 1, knotrepetition);
+      Spl::MakeUniformKnotVector(pp1y, n - 1, knotrepetition);
   const int c_space_dim_x = c_space_knot_x.size() - pp1x;
   const int c_space_dim_y = c_space_knot_y.size() - pp1y;
   const int c_space_dim = c_space_dim_x * c_space_dim_y;
@@ -133,7 +135,8 @@ inline _proj_info makeLocalProjectionTriplets(
   out.rows.reserve(c_space_dim * maximal_polynomial_degree *
                    maximal_polynomial_degree * patch_number);
 
-  std::vector<double> mask = MakeInterpolationMask(maximal_polynomial_degree);
+  std::vector<double> mask =
+      Spl::MakeInterpolationMask(maximal_polynomial_degree);
   const int masksize = mask.size();
 
   // Now we assemble our system which we use for the interpolation
@@ -224,9 +227,9 @@ inline _proj_info makeLocalProjectionTriplets(
 
         // evaluate rhs for interpolation problem
         std::vector<double> vals_x =
-            DeBoor(c_coefs_x, c_space_knot_x, local_mask_x);
+            Spl::DeBoor(c_coefs_x, c_space_knot_x, local_mask_x);
         std::vector<double> vals_y =
-            DeBoor(c_coefs_y, c_space_knot_y, local_mask_y);
+            Spl::DeBoor(c_coefs_y, c_space_knot_y, local_mask_y);
 
         // assemble and solve interpolation problem
         Eigen::VectorXd rhs(masksize * masksize);
@@ -344,4 +347,4 @@ struct projector_matrixmaker_<Derived, DifferentialForm::Discontinuous> {
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_

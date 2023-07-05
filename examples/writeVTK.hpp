@@ -1,5 +1,16 @@
-#ifndef __WRITEMESH2VTK__
-#define __WRITEMESH2VTK__
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
+#ifndef EXAMPLES_WRITEVTK_HPP_
+#define EXAMPLES_WRITEVTK_HPP_
 
 #include <Eigen/Dense>
 #include <fstream>
@@ -55,15 +66,17 @@ void writeMesh2vtk(const std::string &fileName,
   }
   myfile.close();
 #if 0
-/* print z-values of the geometry and solved density for visualization        */
+// print z-values of the geometry and solved density for visualization
+/*
 fprintf (f, "POINT_DATA %d\n", np);
 fprintf (f, "SCALARS Solution FLOAT\n");
 fprintf (f, "LOOKUP_TABLE default\n");
 for (i = 0 ; i < np ; ++i)
    fprintf (f, "%20.16f\n", u[i]);
 fprintf (f, "\n");
+*/
 #endif
   return;
 }
 }  // namespace Eigen
-#endif
+#endif  // EXAMPLES_WRITEVTK_HPP_
