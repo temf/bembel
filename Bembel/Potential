@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -9,7 +12,16 @@
 #ifndef BEMBEL_POTENTIAL_MODULE_
 #define BEMBEL_POTENTIAL_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup Potential Potential
+ *  \brief The Potential module introduces means to evaluate the solution to a
+ *PDE via a suitable integral operator taking the unknown of the linear system
+ *as input. It relies on a suitable specialization corresponding of the
+ *LinearOperatorBase class.
+ **/
+
 #include "src/Potential/Potential.hpp"
 #include "src/Potential/DiscretePotential.hpp"
 
-#endif
+#endif  // BEMBEL_POTENTIAL_MODULE_

@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_DUFFYTRICK_INTGRATE3_H_
-#define BEMBEL_DUFFYTRICK_INTGRATE3_H_
+#ifndef BEMBEL_SRC_DUFFYTRICK_INTEGRATE3_HPP_
+#define BEMBEL_SRC_DUFFYTRICK_INTEGRATE3_HPP_
 
 namespace Bembel {
 namespace DuffyTrick {
@@ -24,8 +27,8 @@ namespace DuffyTrick {
 template <typename Derived, class T>
 void integrate3(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
                 const ElementTreeNode &e1, int rot1, const ElementTreeNode &e2,
-                int rot2, const Eigen::MatrixXd &ffield_qnodes,
-                const Cubature &Q,
+                int rot2, const ElementSurfacePoints &ffield_qnodes1,
+                const ElementSurfacePoints &ffield_qnodes2, const Cubature &Q,
                 Eigen::Matrix<typename LinearOperatorTraits<Derived>::Scalar,
                               Eigen::Dynamic, Eigen::Dynamic> *intval) {
   intval->setZero();
@@ -71,10 +74,11 @@ void integrate3(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
       LinOp.evaluateIntegrand(super_space, qp1, qp2, intval);
     }
   }
-  BEMBEL_UNUSED_(ffield_qnodes);
+  BEMBEL_UNUSED_(ffield_qnodes1);
+  BEMBEL_UNUSED_(ffield_qnodes2);
   return;
 }
-}  // namespace Duffy
+}  // namespace DuffyTrick
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_DUFFYTRICK_INTEGRATE3_HPP_

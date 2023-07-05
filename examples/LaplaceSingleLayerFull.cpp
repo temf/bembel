@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -15,9 +18,49 @@
 #include <Eigen/Dense>
 #include <iostream>
 
-#include "Data.hpp"
-#include "Error.hpp"
-#include "Grids.hpp"
+#include "examples/Data.hpp"
+#include "examples/Error.hpp"
+#include "examples/Grids.hpp"
+
+/**
+ *  \ingroup Examples
+ *  \defgroup LaplaceSingleLayerFull Laplace Single Layer Full
+ *  \brief This example computes the solution of a Laplace problem.
+ *
+ *  Consider the following Dirichlet problem.
+ *  Let \f$\Omega\f$ be a compact domain with boundary \f$\Gamma\f$.
+ *  Given a function \f$g\f$ on \f$\Gamma\f$, find a function \f$u\f$ on
+ *  \f$\Omega\f$ such that,
+ *
+ *  \f{aligned}{
+ *    \Delta u &= 0\quad\mathrm{in}\, \Omega \\
+ *    u &= f\quad\mathrm{on}\, \Gamma.
+ *  \f}
+ *
+ *  The solution can be computed with the representation formulae
+ *
+ *  \f{aligned}{
+ *    u(x) = \tilde V(\omega)(x)\quad\mathrm{in}\,\Omega,
+ *  \f}
+ *
+ *  where
+ *
+ *  \f{aligned}{
+ *    \tilde V(\mu)(x) = \int_\Gamma \frac{\mu(y)}{4\pi\|x - y\|}\,\mathrm{d}y
+ *  \f}
+ *
+ *  is the Laplace single layer potential with some density \f$\mu\f$.
+ *  Utilizing the trace operator \f$\gamma\f$, the single layer operator is
+ *  defined by \f$V = \gamma\circ\tilde V\f$. When discretized in a conformal
+ *  finite-dimensional function space \f$\mathbb{S}\f$, the variational
+ *  formulation is as follows: Find \f$\omega\in\mathbb{S}\f$, such that
+ *
+ *  \f{aligned}{
+ *    \int_\Gamma \mu \int_\Gamma V(\omega)(x)\,\mathrm{d}x = \int_\Gamma \mu
+ *  f\,\mathrm{d}x\quad\forall\mu\in \mathbb{S} \\ \f}
+ *
+ *holds, which is realized in this example.
+ */
 
 int main() {
   using namespace Bembel;

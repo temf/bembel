@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_DATA_
-#define __BEMBEL_DATA_
+#ifndef EXAMPLES_DATA_HPP_
+#define EXAMPLES_DATA_HPP_
 
 #include <Eigen/Dense>
 #include <cmath>
@@ -62,4 +65,4 @@ inline Eigen::Vector3cd Dipole(Eigen::Vector3d pt, std::complex<double> kappa,
 
 }  // namespace Data
 }  // namespace Bembel
-#endif
+#endif  // EXAMPLES_DATA_HPP_

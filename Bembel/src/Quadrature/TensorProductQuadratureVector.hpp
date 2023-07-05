@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,11 +9,10 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_QUADRATURE_TENSORPRODUCTQUADRATUREVECTOR_H_
-#define BEMBEL_QUADRATURE_TENSORPRODUCTQUADRATUREVECTOR_H_
+#ifndef BEMBEL_SRC_QUADRATURE_TENSORPRODUCTQUADRATUREVECTOR_HPP_
+#define BEMBEL_SRC_QUADRATURE_TENSORPRODUCTQUADRATUREVECTOR_HPP_
 
 namespace Bembel {
-
 
 /**
  *  \ingroup Quadrature
@@ -29,7 +31,8 @@ struct TensorProductQuadratureVector {
     }
   }
   Cubature Q_;
-  TensorProductQuadratureVector<QuadratureRule, Order - 1> remainingQuadratures_;
+  TensorProductQuadratureVector<QuadratureRule, Order - 1>
+      remainingQuadratures_;
   const Cubature &operator[](unsigned int i) const {
     return (i == Order) ? Q_ : remainingQuadratures_[i];
   }
@@ -55,4 +58,4 @@ struct TensorProductQuadratureVector<QuadratureRule, 0> {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_QUADRATURE_TENSORPRODUCTQUADRATUREVECTOR_HPP_
