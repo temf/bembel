@@ -1,0 +1,30 @@
+name: Build and Deploy
+
+on: [push]
+  branches: [ "**" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-n-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Test 🔧
+        uses: ./.github/workflows/build-n-test.yml
+        with:
+          target: unittests
+
+  deploy-docs:
+    needs: build-n-test
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      # - name: Deploy 🚀
+      #   needs: job1
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: build # The folder the action should deploy.
