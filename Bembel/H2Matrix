@@ -20,6 +20,8 @@
  * complexity of the matrix-vector multiplication.
  **/
 
+#include <Eigen/Sparse>
+//
 #include "DuffyTrick"
 #include "ClusterTree"
 #include "Quadrature"
