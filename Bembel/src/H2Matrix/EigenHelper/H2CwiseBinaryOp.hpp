@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
-// M. Multerer, S. Schoeps, and F. Wolf at Technische Universtaet Darmstadt,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_H__
-#define __BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_H__
+#ifndef BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_HPP_
+#define BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_HPP_
 
 // The contents of this file are a modification of the file
 // SparseCwiseBinaryOp.h from the Eigen library
@@ -31,6 +34,15 @@ class CwiseBinaryOpImpl<BinaryOp, Lhs, Rhs, H2>
 };
 
 namespace internal {
+
+// brute force solution to allow the use of CwiseBinaryOps in solvers
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct is_ref_compatible<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {
+  enum { value = false };
+};
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct is_ref_compatible<const CwiseBinaryOp<BinaryOp, Lhs, Rhs>>
+    : is_ref_compatible<CwiseBinaryOp<BinaryOp, Lhs, Rhs>> {};
 
 // allow H2+H2, H2-H2, etc.
 template <typename BinaryOp, typename Lhs, typename Rhs>
@@ -61,11 +73,19 @@ struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2>
   evaluator<Rhs> m_rhsImpl;
   const XprType& m_expr;
 };
+// interaction structs with dense
 template <typename BinaryOp, typename Lhs, typename Rhs>
 struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IndexBased, H2>
     : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
 template <typename BinaryOp, typename Lhs, typename Rhs>
 struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, IndexBased>
+    : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
+// interaction structs with sparse
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, IteratorBased, H2>
+    : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
+template <typename BinaryOp, typename Lhs, typename Rhs>
+struct binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, IteratorBased>
     : binary_evaluator<CwiseBinaryOp<BinaryOp, Lhs, Rhs>, H2, H2> {};
 
 }  // namespace internal
@@ -180,4 +200,4 @@ operator-(const H2MatrixBase<H2Derived>& a,
 
 }  // end namespace Eigen
 
-#endif
+#endif  // BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_HPP_
