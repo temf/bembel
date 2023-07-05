@@ -1,19 +1,17 @@
 name: Build and Deploy
 
-on: [push]
-  branches: [ "**" ]
+on:
+  push:
+    branches: [ "**" ]
 
 permissions:
   contents: write
 
 jobs:
   build-n-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build and Test 🔧
-        uses: ./.github/workflows/build-n-test.yml
-        with:
-          target: unittests
+    uses: ./.github/workflows/build-n-test.yml
+    with:
+      target: unittests
 
   deploy-docs:
     needs: build-n-test
