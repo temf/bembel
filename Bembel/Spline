@@ -1,0 +1,49 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
+#ifndef BEMBEL_SPLINE_MODULE_
+#define BEMBEL_SPLINE_MODULE_
+
+/**
+ *  \ingroup Modules
+ *  \defgroup Spline Spline
+ *  \brief The Spline module provides basic routines related to spline function
+ *	and local polynomials.
+ **/
+
+#include <array>
+#include <cassert>
+#include <cstdlib>
+#include <iostream>
+#include <vector>
+
+#include <Eigen/Dense>
+#include <Eigen/Sparse>
+
+#include "src/util/Constants.hpp"
+#include "src/LinearOperator/DifferentialFormEnum.hpp"
+
+#include "src/Spline/DeBoor.hpp"
+#include "src/Spline/DeBoorTP.hpp"
+
+#include "src/Spline/Pascal.hpp"
+#include "src/Spline/Bernstein.hpp"
+#include "src/Spline/ShapeFunctions.hpp"
+#include "src/Spline/Basis.hpp"
+
+#include "src/Spline/Localize.hpp"
+#include "src/Spline/Unroll.hpp"
+#include "src/Spline/Knots.hpp"
+
+#include "src/Spline/Bezierextraction.hpp"
+
+
+#endif  // BEMBEL_SPLINE_MODULE_

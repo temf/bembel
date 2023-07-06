@@ -1,0 +1,40 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
+#ifndef BEMBEL_QUADRATURE_MODULE_
+#define BEMBEL_QUADRATURE_MODULE_
+
+/**
+ *  \ingroup Modules
+ *  \defgroup Quadrature Quadrature
+ *  \brief The Quadrature module provides quadrature routines for the unit
+ *interval/square/cube/.... by means of template recursion.
+ **/
+
+// C++ std headers
+#include <cassert>
+#include <vector>
+
+// Eigen headers
+#include <Eigen/Dense>
+#include <Eigen/Eigenvalues>
+
+// Module headers
+#include "src/util/Macros.hpp"
+#include "src/Quadrature/Quadrature.hpp"
+#include "src/Quadrature/Cubature.hpp"
+#include "src/Quadrature/GaussLegendreRule.hpp"
+#include "src/Quadrature/QuadratureVector.hpp"
+#include "src/Quadrature/TensorProductQuadratureVector.hpp"
+#include "src/Quadrature/GaussLegendre.hpp"
+#include "src/Quadrature/GaussSquare.hpp"
+
+#endif  // BEMBEL_QUADRATURE_MODULE_

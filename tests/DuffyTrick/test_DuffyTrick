@@ -1,0 +1,27 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+#ifndef BEMBEL_TEST_DUFFYTRICK_MODULE_
+#define BEMBEL_TEST_DUFFYTRICK_MODULE_
+
+#include <Bembel/DummyOperator>
+#include <Bembel/Quadrature>
+#include <Bembel/DuffyTrick>
+
+#include "../Test.hpp"
+
+#include "test_testFunctions.hpp"
+#include "test_integrate0.hpp"
+#include "test_integrate1.hpp"
+#include "test_integrate2.hpp"
+#include "test_integrate3.hpp"
+#include "test_integrate4.hpp"
+
+#endif

@@ -1,0 +1,9 @@
+build
+eigen3
+.DS_Store
+*.swp
+*.vtk
+*.out
+# Important for a nice gh-pages branch
+node_modules/
+package-lock.json
