@@ -2,7 +2,7 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ "**" ]
+    branches: [ "master" ]
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ jobs:
   build-n-test:
     uses: ./.github/workflows/build-n-test.yml
     with:
-      target: unittests
+      target: E2Etests
 
   deploy-docs:
     needs: build-n-test
