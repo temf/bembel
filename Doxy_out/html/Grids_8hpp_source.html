@@ -141,24 +141,21 @@ $(document).ready(function(){initNavTree('Grids_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">inline</span> Eigen::Matrix&lt;double, Eigen::Dynamic, 3&gt; makeSphereGrid(</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> r, <span class="keyword">const</span> <span class="keywordtype">int</span> n,</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> Eigen::Vector3d center = Eigen::Vector3d(0, 0, 0)) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  Eigen::Matrix&lt;double, Eigen::Dynamic, 3&gt; out(n * n, 3);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> h = 1. / n;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; n; j++) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      out.row(j + i * n) =</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          (Eigen::Vector3d(</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               r * cos(3.141592653 * h * i) * sin(3.141592653 * h * (j + 0.5)),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;               r * sin(3.141592653 * h * i) * sin(3.141592653 * h * (j + 0.5)),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;               r * cos(3.141592653 * h * j)) +</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;           center);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace Util</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EXAMPLES_GRIDS_HPP_</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">int</span> nSample = n * n;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">double</span> goldenRatio = (1 + sqrt(5.0)) / 2.0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  Eigen::Matrix&lt;double, Eigen::Dynamic, 3&gt; out(nSample, 3);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nSample; ++i) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">double</span> phi = acos(1 - 2.0 * (i + 0.5) / nSample);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> theta = 2 * BEMBEL_PI * (i + 0.5) / goldenRatio;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    out.row(i) = (Eigen::Vector3d(r * cos(theta) * sin(phi),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                  r * sin(theta) * sin(phi), r * cos(phi)) +</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                  center);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace Util</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// EXAMPLES_GRIDS_HPP_</span></div>
 <div class="ttc" id="anamespaceBembel_html"><div class="ttname"><a href="namespaceBembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> AnsatzSpace.hpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -166,7 +163,7 @@ $(document).ready(function(){initNavTree('Grids_8hpp_source.html',''); initResiz
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><b>Grids.hpp</b></li>
-    <li class="footer">Generated on Fri Jul 7 2023 07:37:44 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 7 2023 08:02:57 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
