@@ -41,7 +41,7 @@ inline Eigen::Matrix<double, Eigen::Dynamic, 3> makeSphereGrid(
   for (int i = 0; i < nSample; ++i) {
     double phi = acos(1 - 2.0 * (i + 0.5) / nSample);
     double goldenRatio = (1 + sqrt(5.0)) / 2.0;
-    double theta = 2 * 3.141592653 * (i + 0.5) / goldenRatio;
+    double theta = 2 * BEMBEL_PI * (i + 0.5) / goldenRatio;
     out.row(i) = (Eigen::Vector3d(r * cos(theta) * sin(phi),
                                   r * sin(theta) * sin(phi), r * cos(phi)) +
                   center);
