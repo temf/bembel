@@ -49,6 +49,9 @@ template <typename ScalarT>
 struct is_ref_compatible<H2Matrix<ScalarT>> {
   enum { value = false };
 };
+template <typename ScalarT>
+struct is_ref_compatible<const H2Matrix<ScalarT>>
+    : is_ref_compatible<H2Matrix<ScalarT>> {};
 
 }  // namespace internal
 
