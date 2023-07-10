@@ -30,14 +30,18 @@ int main() {
   // directory as the executable
   Geometry geometry("torus.dat");
 
-  // Define evaluation points for potential field, a tensor product grid of
-  // 7*7*7 points in [-.1,.1]^3
-  MatrixXd gridpoints = Util::makeTensorProductGrid(
-      VectorXd::LinSpaced(10, -.1, .1), VectorXd::LinSpaced(10, -2.1, -1.9),
-      VectorXd::LinSpaced(10, -.1, .1));
+  // Define 100 evaluation points for potential field, on a circle in xy-plane
+  // in the middle of the torus
+  int n_gridpoints = 100;
+  double h = 2. * BEMBEL_PI / n_gridpoints;
+  Eigen::Matrix<double, Eigen::Dynamic, 3> gridpoints = MatrixXd::Zero(100, 3);
+  for (int i = 0; i < n_gridpoints; ++i) {
+    gridpoints(i, 0) = 2. * cos(h * i);
+    gridpoints(i, 1) = 2. * sin(h * i);
+  }
 
-  // Define analytical solution using lambda function, in this case a harmonic
-  // function, see Data.hpp
+  // Define analytical solution using lambda function, in this case a
+  // harmonic function, see Data.hpp
   std::function<double(Vector3d)> fun = [](Vector3d in) {
     return Data::HarmonicFunction(in);
   };
@@ -90,21 +94,25 @@ int main() {
 
       logger.both(polynomial_degree, refinement_level, error(refinement_level));
 
-      // we only need one visualization
-      if (refinement_level == 3 && polynomial_degree == 2) {
-        VTKSurfaceExport writer(geometry, 5);
-
+      // we only need one visualization per polynomial degree
+      if (refinement_level == 3) {
+        // export geometry with density
+        VTKSurfaceExport writer_geo(geometry, 5);
         FunctionEvaluator<LaplaceSingleLayerOperator> evaluator(ansatz_space);
         evaluator.set_function(rho);
-
         std::function<double(int, const Eigen::Vector2d &)> density =
             [&](int patch_number,
                 const Eigen::Vector2d &reference_domain_point) {
               return evaluator.evaluateOnPatch(patch_number,
                                                reference_domain_point)(0);
             };
-        writer.addDataSet("Density", density);
-        writer.writeToFile("LaplaceSingle.vtp");
+        writer_geo.addDataSet("Density", density);
+        writer_geo.writeToFile("LaplaceSingleDensity.vtp");
+
+        // export point evaluations, can be visualized using glyphs in paraview
+        VTKPointExport writer_points(gridpoints);
+        writer_points.addDataSet("Potential", pot);
+        writer_points.writeToFile("LaplaceSinglePoints.vtp");
       }
     }
 
