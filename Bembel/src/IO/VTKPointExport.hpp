@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2023 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,12 +9,12 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_IO_VTKPOINTEXPORT_H_
-#define BEMBEL_IO_VTKPOINTEXPORT_H_
+#ifndef BEMBEL_SRC_IO_VTKPOINTEXPORT_HPP_
+#define BEMBEL_SRC_IO_VTKPOINTEXPORT_HPP_
 
 namespace Bembel {
 
-// This class provides the possibilty to generate a vtk-visualization.
+// This class provides the possibility to generate a vtk-visualization.
 class VTKPointExport {
  public:
   /**
@@ -19,7 +22,8 @@ class VTKPointExport {
    * \brief Provides export routines to the VTK file format.
    **/
 
-  VTKPointExport(const Eigen::Matrix<double, Eigen::Dynamic, 3> &points) {
+  explicit VTKPointExport(
+      const Eigen::Matrix<double, Eigen::Dynamic, 3> &points) {
     init_VTKPointExport(points);
   }
 
@@ -74,11 +78,10 @@ class VTKPointExport {
     for (auto data : additionalData_) {
       output << data;
     }
-    output
-        << "</PointData>\n"
-           "</Piece>\n"
-           "</PolyData>\n"
-           "</VTKFile>";
+    output << "</PointData>\n"
+              "</Piece>\n"
+              "</PolyData>\n"
+              "</VTKFile>";
     output.close();
     return;
   }
@@ -97,4 +100,4 @@ class VTKPointExport {
 
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_IO_VTKPOINTEXPORT_HPP_
