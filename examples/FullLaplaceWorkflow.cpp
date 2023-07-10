@@ -94,19 +94,9 @@ int main() {
       logger.both(polynomial_degree, refinement_level, error(refinement_level));
 
       // we only need one visualization
-      if (refinement_level == 3 && polynomial_degree == 2) {
+      if (refinement_level == 3) {
         VTKSurfaceExport writer(geometry, 5);
-
-        FunctionEvaluator<LaplaceSingleLayerOperator> evaluator(ansatz_space);
-        evaluator.set_function(rho);
-
-        std::function<double(int, const Eigen::Vector2d &)> density =
-            [&](int patch_number,
-                const Eigen::Vector2d &reference_domain_point) {
-              return evaluator.evaluateOnPatch(patch_number,
-                                               reference_domain_point)(0);
-            };
-        writer.addDataSet("Density", density);
+        writer.addDataSet("Density", ansatz_space, rho);
         writer.writeToFile("LaplaceSingle.vtp");
       }
     }

@@ -14,17 +14,20 @@
 
 namespace Bembel {
 
-// This class provides the possibilty to generate a vtk-visualization.
+/**
+ * \ingroup IO
+ * \brief Provides export routines from functions on geometries to the VTK file
+ * format.
+ *
+ * One can add data to visualize via the addDataSet methods.
+ */
 class VTKSurfaceExport {
  public:
   /**
-   * \ingroup IO
-   * \brief Provides export routines to the VTK file format.
-   *
    * The constructor wants a geometetry and a refinement level. This choice is
    * deliberately not a mesh, since the visualization will often be on a finer
    * mesh then that of a computation.
-   **/
+   */
   VTKSurfaceExport(const Geometry& geo, int M) {
     init_VTKSurfaceExport(geo, M);
   }
@@ -48,13 +51,9 @@ class VTKSurfaceExport {
     }
     return;
   }
-  // One can add data to visualize via the addDataSet methods. They accept a
-  // std::function object of different types, and generate the data needed for
-  // the vtk file. Allowed formats are:
-  // std::function<double(int, Eigen::Vector2d)>& fun)
-  // std::function<Eigen::Vector3d(int, Eigen::Vector2d)>
-  // std::function<double(Eigen::Vector3d)>
-  // std::function<Eigen::Vector3d(Eigen::Vector3d)>
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(
       const std::string& name,
       std::function<double(int, const Eigen::Vector2d&)> fun) {
@@ -66,6 +65,9 @@ class VTKSurfaceExport {
     addDataSet_(name, data);
     return;
   }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(
       const std::string& name,
       std::function<Eigen::Vector3d(int, const Eigen::Vector2d&)> fun) {
@@ -78,6 +80,9 @@ class VTKSurfaceExport {
     addDataSet_(name, data);
     return;
   }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(
       const std::string& name,
       std::function<Eigen::Vector3d(const Eigen::Vector3d&)> fun) {
@@ -91,6 +96,9 @@ class VTKSurfaceExport {
     addDataSet_(name, data);
     return;
   }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(const std::string& name,
                          std::function<double(const Eigen::Vector3d&)> fun) {
     Eigen::MatrixXd data(cells.rows(), 1);
@@ -102,7 +110,35 @@ class VTKSurfaceExport {
     addDataSet_(name, data);
     return;
   }
+  /**
+   * \brief Add a function given through coefficients of an AnsatzSpace to the
+   * visualization.
+   */
+  template <typename LinOp>
+  inline void addDataSet(
+      const std::string& name, const AnsatzSpace<LinOp>& ansatz_space,
+      const Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar,
+                          Eigen::Dynamic, Eigen::Dynamic>& coefficients) {
+    // Initialize FunctionEvaluator
+    FunctionEvaluator<LinOp> evaluator(ansatz_space);
+    evaluator.set_function(coefficients);
 
+    typedef typename DifferentialFormTraits<
+        LinearOperatorTraits<LinOp>::Form,
+        typename LinearOperatorTraits<LinOp>::Scalar>::FunctionValueType
+        ReturnType;
+    std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
+        getEvaluatorFunction<LinOp, ReturnType>(evaluator);
+
+    // Define function for FunctionEvaluator
+    addDataSet(name, fun);
+
+    return;
+  }
+
+  /**
+   * \brief Write geometry with passed visualization data to file.
+   */
   inline void writeToFile(const std::string& filename) {
     std::ofstream output;
     output.open(filename);
@@ -182,6 +218,35 @@ class VTKSurfaceExport {
     }
     data_ascii.append("</DataArray>\n");
     additionalData.push_back(data_ascii);
+  }
+
+  // helper function for FunctionEvaluator based output
+  template <typename LinOp, typename ReturnType, int size>
+  std::function<ReturnType(int, const Eigen::Vector2d&)> getEvaluatorFunction(
+      const FunctionEvaluator<LinOp>& evaluator) const {
+    typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
+    std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
+        [&](int patch_number, const Eigen::Vector2d& reference_domain_point) {
+          return evaluator.evaluateOnPatch(patch_number,
+                                           reference_domain_point);
+        };
+    return fun;
+  }
+  template <typename LinOp, typename ReturnType>
+  std::function<
+      typename LinearOperatorTraits<LinOp>::Scalar(int, const Eigen::Vector2d&)>
+  getEvaluatorFunction(const FunctionEvaluator<LinOp>& evaluator) const {
+    typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
+    std::function<typename DifferentialFormTraits<
+        LinearOperatorTraits<LinOp>::Form,
+        typename LinearOperatorTraits<LinOp>::Scalar>::
+                      FunctionValueType(int, const Eigen::Vector2d&)>
+        fun = [&](int patch_number,
+                  const Eigen::Vector2d& reference_domain_point) {
+          return evaluator.evaluateOnPatch(patch_number,
+                                           reference_domain_point)(0);
+        };
+    return fun;
   }
 
   ClusterTree msh;
