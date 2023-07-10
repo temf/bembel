@@ -100,9 +100,15 @@ int main() {
 
       // we only need one visualization per polynomial degree
       if (refinement_level == 3) {
+        // export geometry with density
         VTKSurfaceExport writer(geometry, 5);
         writer.addDataSet("Density", ansatz_space, rho);
         writer.writeToFile("LaplaceSingle.vtp");
+
+        // export point evaluations, can be visualized using glyphs in paraview
+        VTKPointExport writer_points(gridpoints);
+        writer_points.addDataSet("Potential", pot);
+        writer_points.writeToFile("LaplaceSinglePoints.vtp");
       }
     }
 

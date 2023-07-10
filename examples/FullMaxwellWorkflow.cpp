@@ -15,8 +15,9 @@
 #include <Bembel/LinearForm>
 #include <Bembel/Maxwell>
 #include <Eigen/Dense>
-#include <iostream>
 #include <unsupported/Eigen/IterativeSolvers>
+//
+#include <iostream>
 
 #include "examples/Data.hpp"
 #include "examples/Error.hpp"
@@ -100,9 +101,15 @@ int main() {
 
       // we only need one visualization
       if (refinement_level == 3) {
+        // export geometry with surface current
         VTKSurfaceExport writer(geometry, 5);
         writer.addDataSet("SurfaceCurrent", ansatz_space, rho);
         writer.writeToFile("MaxwellSingle.vtp");
+
+        // export point evaluations, can be visualized using glyphs in paraview
+        VTKPointExport writer_points(gridpoints);
+        writer_points.addComplexDataSet("Potential", pot);
+        writer_points.writeToFile("MaxwellSinglePoints.vtp");
       }
     }
 
