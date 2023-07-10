@@ -33,14 +33,18 @@ int main() {
   // directory as the executable
   Geometry geometry("torus.dat");
 
-  // Define evaluation points for potential field, a tensor product grid of
-  // 7*7*7 points in [-.1,.1]^3
-  MatrixXd gridpoints = Util::makeTensorProductGrid(
-      VectorXd::LinSpaced(10, -.1, .1), VectorXd::LinSpaced(10, -2.1, -1.9),
-      VectorXd::LinSpaced(10, -.1, .1));
+  // Define 100 evaluation points for potential field, on a circle in xy-plane
+  // in the middle of the torus
+  int n_gridpoints = 100;
+  double h = 2. * BEMBEL_PI / n_gridpoints;
+  Eigen::Matrix<double, Eigen::Dynamic, 3> gridpoints = MatrixXd::Zero(100, 3);
+  for (int i = 0; i < n_gridpoints; ++i) {
+    gridpoints(i, 0) = 2. * cos(h * i);
+    gridpoints(i, 1) = 2. * sin(h * i);
+  }
 
-  // Define analytical solution using lambda function, in this case a harmonic
-  // function, see Data.hpp
+  // Define analytical solution using lambda function, in this case a
+  // harmonic function, see Data.hpp
   std::function<double(Vector3d)> fun = [](Vector3d in) {
     return Data::HarmonicFunction(in);
   };
@@ -94,7 +98,7 @@ int main() {
 
       logger.both(polynomial_degree, refinement_level, error(refinement_level));
 
-      // we only need one visualization
+      // we only need one visualization per polynomial degree
       if (refinement_level == 3) {
         VTKSurfaceExport writer(geometry, 5);
         writer.addDataSet("Density", ansatz_space, rho);
