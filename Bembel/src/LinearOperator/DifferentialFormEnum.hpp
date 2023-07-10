@@ -35,27 +35,26 @@ template <typename Scalar>
 struct DifferentialFormTraits<DifferentialForm::Continuous, Scalar> {
   enum { FunctionSpaceVectorDimension = 1, FunctionSpaceOutputDimension = 1 };
 
-  typedef Scalar FunctionValueType;
+  typedef Scalar FunctionSpaceValue;
 };
 
 template <typename Scalar>
 struct DifferentialFormTraits<DifferentialForm::DivConforming, Scalar> {
   enum { FunctionSpaceVectorDimension = 2, FunctionSpaceOutputDimension = 3 };
 
-  typedef Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>
-      FunctionValueType;
+  typedef Eigen::Matrix<Scalar, 3, 1> FunctionSpaceValue;
 };
 
 template <typename Scalar>
 struct DifferentialFormTraits<DifferentialForm::Discontinuous, Scalar> {
   enum { FunctionSpaceVectorDimension = 1, FunctionSpaceOutputDimension = 1 };
 
-  typedef Scalar FunctionValueType;
+  typedef Scalar FunctionSpaceValue;
 };
 
 /**
  * \deprecated Use DifferentialFormTraits instead.
-*/
+ */
 template <unsigned int DF>
 constexpr int getFunctionSpaceVectorDimension() {
   return DifferentialFormTraits<DF, double>::FunctionSpaceVectorDimension;
@@ -63,12 +62,11 @@ constexpr int getFunctionSpaceVectorDimension() {
 
 /**
  * \deprecated Use DifferentialFormTraits instead.
-*/
+ */
 template <unsigned int DF>
 constexpr int getFunctionSpaceOutputDimension() {
   return DifferentialFormTraits<DF, double>::FunctionSpaceOutputDimension;
 }
-
 
 }  // namespace Bembel
 

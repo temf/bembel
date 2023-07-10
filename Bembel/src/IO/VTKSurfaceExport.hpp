@@ -143,12 +143,17 @@ class VTKSurfaceExport {
     FunctionEvaluator<LinOp> evaluator(ansatz_space);
     evaluator.set_function(coefficients);
 
+    // Define function for FunctionEvaluator
     typedef typename DifferentialFormTraits<
         LinearOperatorTraits<LinOp>::Form,
-        typename LinearOperatorTraits<LinOp>::Scalar>::FunctionValueType
+        typename LinearOperatorTraits<LinOp>::Scalar>::FunctionSpaceValue
         ReturnType;
+    constexpr int dimension =
+        DifferentialFormTraits<LinearOperatorTraits<LinOp>::Form,
+                               typename LinearOperatorTraits<LinOp>::Scalar>::
+            FunctionSpaceOutputDimension;
     std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
-        getEvaluatorFunction_<LinOp, ReturnType>(evaluator);
+        getEvaluatorFunction_<LinOp, dimension>::get(evaluator);
 
     // Define function for FunctionEvaluator
     addDataSet(name, fun);
@@ -296,33 +301,44 @@ class VTKSurfaceExport {
   }
 
   // helper function for FunctionEvaluator based output
-  template <typename LinOp, typename ReturnType, int size>
-  std::function<ReturnType(int, const Eigen::Vector2d&)> getEvaluatorFunction_(
-      const FunctionEvaluator<LinOp>& evaluator) const {
-    typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
-    std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
-        [&](int patch_number, const Eigen::Vector2d& reference_domain_point) {
-          return evaluator.evaluateOnPatch(patch_number,
-                                           reference_domain_point);
-        };
-    return fun;
-  }
-  template <typename LinOp, typename ReturnType>
-  std::function<
-      typename LinearOperatorTraits<LinOp>::Scalar(int, const Eigen::Vector2d&)>
-  getEvaluatorFunction_(const FunctionEvaluator<LinOp>& evaluator) const {
-    typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
-    std::function<typename DifferentialFormTraits<
-        LinearOperatorTraits<LinOp>::Form,
-        typename LinearOperatorTraits<LinOp>::Scalar>::
-                      FunctionValueType(int, const Eigen::Vector2d&)>
-        fun = [&](int patch_number,
-                  const Eigen::Vector2d& reference_domain_point) {
-          return evaluator.evaluateOnPatch(patch_number,
-                                           reference_domain_point)(0);
-        };
-    return fun;
-  }
+  // template <typename LinOp, typename ReturnType>
+  template <typename LinOp, int size>
+  struct getEvaluatorFunction_ {
+    static std::function<
+        Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar, size, 1>(
+            int, const Eigen::Vector2d&)>
+    get(const FunctionEvaluator<LinOp>& evaluator) {
+      typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
+      typedef
+          typename Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar,
+                                 size, 1>
+              ReturnType;
+      std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
+          [&](int patch_number, const Eigen::Vector2d& reference_domain_point) {
+            return evaluator.evaluateOnPatch(patch_number,
+                                             reference_domain_point);
+          };
+      return fun;
+    }
+  };
+  template <typename LinOp>
+  struct getEvaluatorFunction_<LinOp, 1> {
+    static std::function<typename LinearOperatorTraits<LinOp>::Scalar(
+        int, const Eigen::Vector2d&)>
+    get(const FunctionEvaluator<LinOp>& evaluator) {
+      typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
+      std::function<typename DifferentialFormTraits<
+          LinearOperatorTraits<LinOp>::Form,
+          typename LinearOperatorTraits<LinOp>::Scalar>::
+                        FunctionSpaceValue(int, const Eigen::Vector2d&)>
+          fun = [&](int patch_number,
+                    const Eigen::Vector2d& reference_domain_point) {
+            return evaluator.evaluateOnPatch(patch_number,
+                                             reference_domain_point)(0);
+          };
+      return fun;
+    }
+  };
 
   ClusterTree msh;
   Eigen::MatrixXd points;
