@@ -54,7 +54,8 @@ class VTKPointExport {
     data_ascii.append("</DataArray>\n");
     additionalData_.push_back(data_ascii);
   }
-  inline void addComplexDataSet(const std::string &name, const Eigen::MatrixXcd &mat) {
+  inline void addComplexDataSet(const std::string &name,
+                                const Eigen::MatrixXcd &mat) {
     addDataSet(name + std::string("_real"), mat.real());
     addDataSet(name + std::string("_imag"), mat.imag());
   }
