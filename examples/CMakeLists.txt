@@ -42,6 +42,7 @@ set(NOCIFILES
     VTKSurfaceExport
     VTKDomainExport
     FullLaplaceWorkflow
+    FullMaxwellWorkflow
     )
 
   foreach(file IN LISTS NOCIFILES)
