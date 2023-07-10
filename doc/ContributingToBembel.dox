@@ -1,0 +1,67 @@
+/**
+\page contributing Contributing to Bembel
+
+\section secDevPrinciples Development Principles
+
+Contributions to the code base of Bembel need to follow the three development Principals.
+
+<table>
+<tr><th>Isogeometric Multipatch<br>Surfaces <th>Element-Wise<br>Assembly <th> Clean Code<br>Policy
+<tr><td>
+Bembel is a templated toolbox that solves boundary value problems with a boundary or finite element method on isogeometric multipatch surfaces.
+<td>
+Due to technical advantages, the quadrature and assembly of the system matrices is performed element-wise. In a separate step conforming ansatz spaces are created.
+<td>
+Further development of the code base should be consistent with the existing code style; duplicate code will not be accepted.
+</table>
+
+\section git Git Workflow
+
+For the development of new features or bug fixes we follow the mainline integration pattern.
+This pattern is originated by Martin Fowler and can be found in is blog [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html#mainline-integration).
+Our mainline is the master branch and defines the current state of the software.
+Each developer pulls from the master, implements the feature or bug fix in \ref FeatureBranches and creates \ref PullRequests back into mainline.
+
+\subsection FeatureBranches Feature Branches
+
+Feature branches are the working space for developing new features and are always branched of master.
+A detailed description may be found here in the blog post ["A successful Git branching model"](https://nvie.com/posts/a-successful-git-branching-model/#feature-branches).
+A success full feature implementation need to follow a good practice:
+
+1. Always branched from the last common state.
+2. A feature is considered to be the smallest possible and traceable change to the code.
+  - Dependent features and bug fixes thereof may be merged in individual cases.
+3. Every feature is added to the automated test suite before merged.
+  - Create either a [unit test](https://github.com/temf/bembel/tree/master/tests) or an [example test](https://github.com/temf/bembel/tree/master/examples) to the corresponding CMakeList file.
+
+
+\subsection gitCommit Git Commit Messages
+
+Writing meaningful commit messages and pull request messages is essential for comprehending your work.
+Commit messages need to fulfill the following rules:
+
+### Mandatory
+1. [Limit the subject line to 50 characters](https://cbea.ms/git-commit/#limit-50)
+2. [Capitalize the subject line](https://cbea.ms/git-commit/#capitalize)
+3. [Do not end the subject line with a period "."](https://cbea.ms/git-commit/#end)
+4. [Use the imperative mood in the subject line](https://cbea.ms/git-commit/#imperative)
+
+### Good Practice
+5. [Separate subject from body with a blank line](https://cbea.ms/git-commit/#separate)
+6. [Wrap the body at 72 characters](https://cbea.ms/git-commit/#wrap-72)
+7. [Use the body to explain what and why vs. how](https://cbea.ms/git-commit/#why-not-how)
+
+Otherwise the pull request may be rejected.
+
+\subsection PullRequests Pull Requests
+
+Contributions to the code base are tested automatically and reviewed by a developer.
+Each pull request need to follow the rules:
+
+1. The implementation is done according to the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+2. Unit tests and example tests are build and run error free.
+3. A minimal Doxygen documentation is provided for the test and utilized classes.
+
+If any of the above points are not fulfilled, the pull request may be rejected.
+
+*/
