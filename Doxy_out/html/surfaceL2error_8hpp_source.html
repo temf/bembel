@@ -119,51 +119,39 @@ $(document).ready(function(){initNavTree('surfaceL2error_8hpp_source.html',''); 
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceBembel.html">Bembel</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> AnsatzSpace, <span class="keyword">typename</span> Derived, <span class="keyword">typename</span> Functor&gt;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">double</span> surfaceL2error(<span class="keyword">const</span> AnsatzSpace &amp;ansatz_space,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Op, <span class="keyword">typename</span> Derived, <span class="keyword">typename</span> Functor&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">double</span> surfaceL2error(<span class="keyword">const</span> AnsatzSpace&lt;Op&gt; &amp;ansatz_space,</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                      <span class="keyword">const</span> Eigen::MatrixBase&lt;Derived&gt; &amp;vec,</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                      <span class="keyword">const</span> Functor &amp;functor, <span class="keywordtype">int</span> deg = 4) {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> Derived::Scalar Scalar;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  Scalar retval = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  GaussSquare&lt;Constants::maximum_quadrature_degree&gt; GS;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">auto</span> Q = GS[deg];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="group__Geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> qp;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> longvec =</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      (ansatz_space.get_transformation_matrix() * vec).eval();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  FunctionEvaluator&lt;Op&gt; fun_val(ansatz_space);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  fun_val.set_function(vec);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  Scalar retval = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  GaussSquare&lt;Constants::maximum_quadrature_degree&gt; GS;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">auto</span> Q = GS[deg];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="group__Geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> qp;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> &amp;super_space = ansatz_space.get_superspace();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">const</span> ElementTree &amp;et = super_space.get_mesh().get_element_tree();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> number_of_elements = et.get_number_of_elements();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> polynomial_degree = super_space.get_polynomial_degree();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> n_shape_fun =</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      (polynomial_degree + 1) * (polynomial_degree + 1);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> element = et.cpbegin(); element != et.cpend(); ++element) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; Q.w_.size(); ++i) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      super_space.map2surface(*element, Q.xi_.col(i), Q.w_(i), &amp;qp);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="comment">// get evaluation points on unit square</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;s = qp.segment&lt;2&gt;(0);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="comment">// get quadrature weights</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      Scalar ws = qp(2);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">// get points on geometry and tangential derivatives</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;x_f = qp.segment&lt;3&gt;(3);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;x_f_dx = qp.segment&lt;3&gt;(6);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;x_f_dy = qp.segment&lt;3&gt;(9);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;normal = x_f_dx.cross(x_f_dy);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// compute surface measures from tangential derivatives</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      Scalar x_kappa = normal.norm();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="comment">// integrand without basis functions</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">const</span> Scalar val =</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;          longvec.segment(n_shape_fun * element-&gt;id_, n_shape_fun).transpose() *</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          super_space.basis(s);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      retval += x_kappa * Q.w_(i) * element-&gt;get_h() * element-&gt;get_h() *</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                (functor(x_f) - val / element-&gt;get_h()) *</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                (functor(x_f) - val / element-&gt;get_h());</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> sqrt(retval);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_UTIL_SURFACEL2ERROR_HPP_</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> element = et.cpbegin(); element != et.cpend(); ++element) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; Q.w_.size(); ++i) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      super_space.map2surface(*element, Q.xi_.col(i), Q.w_(i), &amp;qp);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="comment">// get points on geometry and tangential derivatives</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;x_f = qp.segment&lt;3&gt;(3);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;x_f_dx = qp.segment&lt;3&gt;(6);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;x_f_dy = qp.segment&lt;3&gt;(9);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;normal = x_f_dx.cross(x_f_dy);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="comment">// compute surface measures from tangential derivatives</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      Scalar x_kappa = normal.norm();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keyword">const</span> Scalar val = fun_val.evaluate(*element, qp)(0);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      retval += x_kappa * Q.w_(i) * element-&gt;get_h() * element-&gt;get_h() *</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                (functor(x_f) - val) * (functor(x_f) - val);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">return</span> sqrt(retval);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_UTIL_SURFACEL2ERROR_HPP_</span></div>
 <div class="ttc" id="agroup__Geometry_html_ga7f3488fb214d75f08146ff31726428b4"><div class="ttname"><a href="group__Geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a></div><div class="ttdeci">Eigen::Matrix&lt; double, 12, 1 &gt; SurfacePoint</div><div class="ttdoc">typedef of SurfacePoint</div><div class="ttdef"><b>Definition:</b> SurfacePoint.hpp:42</div></div>
 <div class="ttc" id="anamespaceBembel_html"><div class="ttname"><a href="namespaceBembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> AnsatzSpace.hpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -172,7 +160,7 @@ $(document).ready(function(){initNavTree('surfaceL2error_8hpp_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_1879e71a94a345eac010056fcef60201.html">util</a></li><li class="navelem"><b>surfaceL2error.hpp</b></li>
-    <li class="footer">Generated on Fri Jul 7 2023 08:02:57 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Jul 10 2023 04:38:33 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
