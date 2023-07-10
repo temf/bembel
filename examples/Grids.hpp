@@ -34,9 +34,8 @@ inline Eigen::Matrix<double, Eigen::Dynamic, 3> makeTensorProductGrid(
 }
 
 inline Eigen::Matrix<double, Eigen::Dynamic, 3> makeSphereGrid(
-    const double r, const int n,
+    const double r, const int nSample,
     const Eigen::Vector3d center = Eigen::Vector3d(0, 0, 0)) {
-  int nSample = n * n;
   double goldenRatio = (1 + sqrt(5.0)) / 2.0;
   Eigen::Matrix<double, Eigen::Dynamic, 3> out(nSample, 3);
   for (int i = 0; i < nSample; ++i) {
