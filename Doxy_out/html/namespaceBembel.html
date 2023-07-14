@@ -132,6 +132,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBembel_1_1DifferentialForm.html">DifferentialForm</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides information about the discrete space required for the discretisation of a specific operator.  <a href="structBembel_1_1DifferentialForm.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBembel_1_1DifferentialFormTraits.html">DifferentialFormTraits</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">struct containing specifications on DifferentialForms, i.e., the function spaces.  <a href="structBembel_1_1DifferentialFormTraits.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBembel_1_1DirichletTrace.html">DirichletTrace</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides an implementation of the Dirichlet trace operator and a corresponding method to evaluate the linear form corresponding to the right hand side of the system via quadrature.  <a href="classBembel_1_1DirichletTrace.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,6 +230,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBembel_1_1TensorProductQuadratureVector_3_01QuadratureRule_00_010_01_4.html">TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBembel_1_1VTKSurfaceExport.html">VTKSurfaceExport</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides export routines from functions on geometries to the VTK file format.  <a href="classBembel_1_1VTKSurfaceExport.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -241,6 +247,12 @@ template&lt;typename Derived &gt; </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memTemplParams" colspan="2">template&lt;unsigned int DF&gt; </td></tr>
+<tr class="memitem:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a7ded4e643797e9e7f886a0e64ad643a9">getFunctionSpaceOutputDimension</a> ()</td></tr>
+<tr class="separator:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeae05c4d8cf11542222e8ce43f67e715"><td class="memTemplParams" colspan="2">template&lt;unsigned int DF&gt; </td></tr>
+<tr class="memitem:aeae05c4d8cf11542222e8ce43f67e715"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a> ()</td></tr>
+<tr class="separator:aeae05c4d8cf11542222e8ce43f67e715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1a1c30a1689c1bcb5d027628acb15100"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">LoadGeometryFile</a> (const std::string &amp;file_name) noexcept</td></tr>
 <tr class="memdesc:ga1a1c30a1689c1bcb5d027628acb15100"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consistent  <a href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">More...</a><br /></td></tr>
 <tr class="separator:ga1a1c30a1689c1bcb5d027628acb15100"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -254,6 +266,62 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Routines for the evalutation of pointwise errors. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a7ded4e643797e9e7f886a0e64ad643a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ded4e643797e9e7f886a0e64ad643a9">&#9670;&nbsp;</a></span>getFunctionSpaceOutputDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int DF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Bembel::getFunctionSpaceOutputDimension </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Use <a class="el" href="structBembel_1_1DifferentialFormTraits.html" title="struct containing specifications on DifferentialForms, i.e., the function spaces.">DifferentialFormTraits</a> instead. </dd></dl>
+
+</div>
+</div>
+<a id="aeae05c4d8cf11542222e8ce43f67e715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeae05c4d8cf11542222e8ce43f67e715">&#9670;&nbsp;</a></span>getFunctionSpaceVectorDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;unsigned int DF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int Bembel::getFunctionSpaceVectorDimension </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use <a class="el" href="structBembel_1_1DifferentialFormTraits.html" title="struct containing specifications on DifferentialForms, i.e., the function spaces.">DifferentialFormTraits</a> instead. </dd></dl>
+
+</div>
+</div>
 <a id="ae3e0d6a6e95643a5a2c447d75513d0d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3e0d6a6e95643a5a2c447d75513d0d5">&#9670;&nbsp;</a></span>MakeFile()</h2>
 
@@ -371,7 +439,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceBembel.html">Bembel</a></li>
-    <li class="footer">Generated on Mon Jul 10 2023 13:06:00 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 14 2023 15:02:12 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

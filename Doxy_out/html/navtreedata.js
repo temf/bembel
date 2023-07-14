@@ -26,6 +26,7 @@ var NAVTREE =
 [
   [ "Bembel", "index.html", [
     [ "Source Code", "modules.html", "modules" ],
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Class List", "annotated.html", "annotated" ]
   ] ]
 ];

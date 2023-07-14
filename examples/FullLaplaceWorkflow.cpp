@@ -49,6 +49,7 @@ int main() {
     return Data::HarmonicFunction(in);
   };
 
+  std::cout << "\n" << std::string(60, '=') << "\n";
   // Iterate over polynomial degree.
   for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
        ++polynomial_degree) {
@@ -80,7 +81,7 @@ int main() {
       ConjugateGradient<H2Matrix<double>, Lower | Upper, IdentityPreconditioner>
           cg;
       cg.compute(disc_op.get_discrete_operator());
-      auto rho = cg.solve(disc_lf.get_discrete_linear_form());
+      VectorXd rho = cg.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<LaplaceSingleLayerPotential<LaplaceSingleLayerOperator>,
@@ -100,17 +101,9 @@ int main() {
       // we only need one visualization per polynomial degree
       if (refinement_level == 3) {
         // export geometry with density
-        VTKSurfaceExport writer_geo(geometry, 5);
-        FunctionEvaluator<LaplaceSingleLayerOperator> evaluator(ansatz_space);
-        evaluator.set_function(rho);
-        std::function<double(int, const Eigen::Vector2d &)> density =
-            [&](int patch_number,
-                const Eigen::Vector2d &reference_domain_point) {
-              return evaluator.evaluateOnPatch(patch_number,
-                                               reference_domain_point)(0);
-            };
-        writer_geo.addDataSet("Density", density);
-        writer_geo.writeToFile("LaplaceSingleDensity.vtp");
+        VTKSurfaceExport writer(geometry, 5);
+        writer.addDataSet("Density", ansatz_space, rho);
+        writer.writeToFile("LaplaceSingle.vtp");
 
         // export point evaluations, can be visualized using glyphs in paraview
         VTKPointExport writer_points(gridpoints);
@@ -121,9 +114,7 @@ int main() {
 
     std::cout << std::endl;
   }
-  std::cout << "============================================================="
-               "=========="
-            << std::endl;
+  std::cout << std::string(60, '=') << std::endl;
 
   return 0;
 }

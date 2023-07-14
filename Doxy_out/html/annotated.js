@@ -20,6 +20,7 @@ var annotated =
       [ "AnsatzSpace", "classBembel_1_1AnsatzSpace.html", null ],
       [ "ClusterTree", "classBembel_1_1ClusterTree.html", "classBembel_1_1ClusterTree" ],
       [ "DifferentialForm", "structBembel_1_1DifferentialForm.html", null ],
+      [ "DifferentialFormTraits", "structBembel_1_1DifferentialFormTraits.html", null ],
       [ "DirichletTrace", "classBembel_1_1DirichletTrace.html", null ],
       [ "DiscreteLinearForm", "classBembel_1_1DiscreteLinearForm.html", "classBembel_1_1DiscreteLinearForm" ],
       [ "DiscreteLocalOperatorComputer", "structBembel_1_1DiscreteLocalOperatorComputer.html", null ],
@@ -52,7 +53,8 @@ var annotated =
       [ "static_assertKlessseqN", "structBembel_1_1static__assertKlessseqN.html", null ],
       [ "SuperSpace", "structBembel_1_1SuperSpace.html", "structBembel_1_1SuperSpace" ],
       [ "TensorProductQuadratureVector", "structBembel_1_1TensorProductQuadratureVector.html", null ],
-      [ "TensorProductQuadratureVector< QuadratureRule, 0 >", "structBembel_1_1TensorProductQuadratureVector_3_01QuadratureRule_00_010_01_4.html", null ]
+      [ "TensorProductQuadratureVector< QuadratureRule, 0 >", "structBembel_1_1TensorProductQuadratureVector_3_01QuadratureRule_00_010_01_4.html", null ],
+      [ "VTKSurfaceExport", "classBembel_1_1VTKSurfaceExport.html", "classBembel_1_1VTKSurfaceExport" ]
     ] ],
     [ "Eigen", null, [
       [ "H2Matrix", "classEigen_1_1H2Matrix.html", "classEigen_1_1H2Matrix" ]

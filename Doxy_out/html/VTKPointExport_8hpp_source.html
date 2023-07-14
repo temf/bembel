@@ -154,53 +154,58 @@ $(document).ready(function(){initNavTree('VTKPointExport_8hpp_source.html',''); 
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    data_ascii.append(<span class="stringliteral">&quot;&lt;/DataArray&gt;\n&quot;</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    additionalData_.push_back(data_ascii);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> writeToFile(<span class="keyword">const</span> std::string &amp;filename) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::ofstream output;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    output.open(filename);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;VTKFile type=\&quot;PolyData\&quot; version=\&quot;0.1\&quot; &quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;              <span class="stringliteral">&quot;byte_order=\&quot;LittleEndian\&quot;&gt;\n&quot;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;              <span class="stringliteral">&quot;&lt;PolyData&gt;\n&quot;</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;              <span class="stringliteral">&quot;&lt;Piece NumberOfPoints=\&quot; &quot;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;           &lt;&lt; points_.rows()</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;\&quot; NumberOfVerts=\&quot;0\&quot; NumberOfLines=\&quot;0\&quot; NumberOfStrips=\&quot;0\&quot; &quot;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;              <span class="stringliteral">&quot;NumberOfPolys=\&quot;0\&quot;&gt;\n&quot;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;              <span class="stringliteral">&quot;&lt;Points&gt;\n&quot;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;              <span class="stringliteral">&quot;&lt;DataArray type=\&quot;Float32\&quot; NumberOfComponents=\&quot;3\&quot; &quot;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;              <span class="stringliteral">&quot;format=\&quot;ascii\&quot;&gt;\n&quot;</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    output &lt;&lt; points_;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;\n&lt;/DataArray&gt;\n&lt;/Points&gt;\n&quot;</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;PointData Scalars=\&quot;number\&quot;&gt;\n&quot;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              <span class="stringliteral">&quot;&lt;DataArray type=\&quot;Int32\&quot; Name=\&quot;number\&quot; &quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> addComplexDataSet(<span class="keyword">const</span> std::string &amp;name,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                <span class="keyword">const</span> Eigen::MatrixXcd &amp;mat) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    addDataSet(name + std::string(<span class="stringliteral">&quot;_real&quot;</span>), mat.real());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    addDataSet(name + std::string(<span class="stringliteral">&quot;_imag&quot;</span>), mat.imag());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> writeToFile(<span class="keyword">const</span> std::string &amp;filename) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::ofstream output;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    output.open(filename);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;VTKFile type=\&quot;PolyData\&quot; version=\&quot;0.1\&quot; &quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;              <span class="stringliteral">&quot;byte_order=\&quot;LittleEndian\&quot;&gt;\n&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;              <span class="stringliteral">&quot;&lt;PolyData&gt;\n&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;              <span class="stringliteral">&quot;&lt;Piece NumberOfPoints=\&quot; &quot;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;           &lt;&lt; points_.rows()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;\&quot; NumberOfVerts=\&quot;0\&quot; NumberOfLines=\&quot;0\&quot; NumberOfStrips=\&quot;0\&quot; &quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;              <span class="stringliteral">&quot;NumberOfPolys=\&quot;0\&quot;&gt;\n&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;              <span class="stringliteral">&quot;&lt;Points&gt;\n&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              <span class="stringliteral">&quot;&lt;DataArray type=\&quot;Float32\&quot; NumberOfComponents=\&quot;3\&quot; &quot;</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              <span class="stringliteral">&quot;format=\&quot;ascii\&quot;&gt;\n&quot;</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    output &lt;&lt; point_number_;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;/DataArray&gt;\n&quot;</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> data : additionalData_) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      output &lt;&lt; data;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;/PointData&gt;\n&quot;</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;              <span class="stringliteral">&quot;&lt;/Piece&gt;\n&quot;</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;              <span class="stringliteral">&quot;&lt;/PolyData&gt;\n&quot;</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;              <span class="stringliteral">&quot;&lt;/VTKFile&gt;&quot;</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    output.close();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// can be used to clear the additional Data.</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> clearData() {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    additionalData_ = {};</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    additionalData_.shrink_to_fit();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  Eigen::Matrix&lt;double, Eigen::Dynamic, 3&gt; points_;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  Eigen::VectorXi point_number_;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  std::vector&lt;std::string&gt; additionalData_;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_IO_VTKPOINTEXPORT_HPP_</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    output &lt;&lt; points_;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;\n&lt;/DataArray&gt;\n&lt;/Points&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;PointData Scalars=\&quot;number\&quot;&gt;\n&quot;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;              <span class="stringliteral">&quot;&lt;DataArray type=\&quot;Int32\&quot; Name=\&quot;number\&quot; &quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;              <span class="stringliteral">&quot;format=\&quot;ascii\&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    output &lt;&lt; point_number_;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;/DataArray&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> data : additionalData_) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      output &lt;&lt; data;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    output &lt;&lt; <span class="stringliteral">&quot;&lt;/PointData&gt;\n&quot;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;              <span class="stringliteral">&quot;&lt;/Piece&gt;\n&quot;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;              <span class="stringliteral">&quot;&lt;/PolyData&gt;\n&quot;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;              <span class="stringliteral">&quot;&lt;/VTKFile&gt;&quot;</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    output.close();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">// can be used to clear the additional Data.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> clearData() {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    additionalData_ = {};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    additionalData_.shrink_to_fit();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  Eigen::Matrix&lt;double, Eigen::Dynamic, 3&gt; points_;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  Eigen::VectorXi point_number_;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  std::vector&lt;std::string&gt; additionalData_;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_IO_VTKPOINTEXPORT_HPP_</span></div>
 <div class="ttc" id="agroup__IO_html_ga53cd8c20cb501805ed146de32b476373"><div class="ttname"><a href="group__IO.html#ga53cd8c20cb501805ed146de32b476373">Bembel::VTKPointExport::VTKPointExport</a></div><div class="ttdeci">VTKPointExport(const Eigen::Matrix&lt; double, Eigen::Dynamic, 3 &gt; &amp;points)</div><div class="ttdoc">Provides export routines to the VTK file format.</div><div class="ttdef"><b>Definition:</b> VTKPointExport.hpp:25</div></div>
 <div class="ttc" id="anamespaceBembel_html"><div class="ttname"><a href="namespaceBembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> AnsatzSpace.hpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -209,7 +214,7 @@ $(document).ready(function(){initNavTree('VTKPointExport_8hpp_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_61d9a24c36dd48df595f57aad0a4696e.html">IO</a></li><li class="navelem"><b>VTKPointExport.hpp</b></li>
-    <li class="footer">Generated on Mon Jul 10 2023 13:06:00 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jul 14 2023 15:02:12 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
