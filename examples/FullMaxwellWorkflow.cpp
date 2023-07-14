@@ -81,7 +81,7 @@ int main() {
       GMRES<H2Matrix<std::complex<double>>, IdentityPreconditioner> gmres;
       gmres.compute(disc_op.get_discrete_operator());
       gmres.set_restart(2000);
-      auto rho = gmres.solve(disc_lf.get_discrete_linear_form());
+      VectorXcd rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<MaxwellSingleLayerPotential<MaxwellSingleLayerOperator>,
