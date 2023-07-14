@@ -58,12 +58,12 @@ class TangentialTrace : public LinearFormBase<TangentialTrace<Scalar>, Scalar> {
     Eigen::Vector3d x_n = x_f_dx.cross(x_f_dy).normalized();
 
     // tangential component + quadrature weights
-    Eigen::Vector3cd fun_x_f = function_(x_f);
-    Eigen::Vector3cd tangential_component = fun_x_f.cross(x_n) * ws;
+    Eigen::Matrix<Scalar, 3, 1> fun_x_f = function_(x_f);
+    Eigen::Matrix<Scalar, 3, 1> tangential_component = fun_x_f.cross(x_n) * ws;
 
     // extract tangential component
-    std::complex<double> component_x = x_f_dx.dot(tangential_component);
-    std::complex<double> component_y = x_f_dy.dot(tangential_component);
+    Scalar component_x = x_f_dx.dot(tangential_component);
+    Scalar component_y = x_f_dy.dot(tangential_component);
 
     // evaluate shape functions
     Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> phiPhiVec =
