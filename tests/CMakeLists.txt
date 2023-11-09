@@ -1,3 +1,7 @@
+
+# copy geometry files for testing
+configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+
 set(UNITTESTS
 		test_GeometryImportAndEval
 		test_SurfacePointUpdate
@@ -7,6 +11,7 @@ set(UNITTESTS
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
 		test_DuffyTrick
+		LazyEigenSum
 		)
 
 foreach(file IN LISTS UNITTESTS)
