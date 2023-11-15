@@ -43,7 +43,7 @@ If you utilise our code as part of a publication, we would appreciate it if you 
 
 ## 2. What is a Bembel?<a name="whatis"></a>
 
-A traditional German ceramic, as depicted in our logo. 
+A traditional Hessian ceramic, as depicted in our logo. 
 Quoting [Wikipedia](https://en.wikipedia.org/wiki/Apfelwein):
 
 > *Most establishments also serve Apfelwein by the Bembel (a specific Apfelwein
