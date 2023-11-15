@@ -12,10 +12,11 @@
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
 #include <Bembel/IO>
-#include <Bembel/Laplace>
 #include <Bembel/LinearForm>
+#include <Bembel/Maxwell>
 #include <Eigen/Dense>
-#include <Eigen/IterativeLinearSolvers>
+#include <unsupported/Eigen/IterativeSolvers>
+//
 #include <iostream>
 
 #include "examples/Data.hpp"
@@ -28,30 +29,26 @@ int main() {
 
   int polynomial_degree_max = 3;
   int refinement_level_max = 3;
+  std::complex<double> wavenumber(2., 0.);
 
   // Load geometry from file "sphere.dat", which must be placed in the same
   // directory as the executable
-  Geometry geometry("torus.dat");
+  Geometry geometry("sphere.dat");
 
-  // Define 100 evaluation points for potential field, on a circle in xy-plane
-  // in the middle of the torus
-  int n_gridpoints = 100;
-  double h = 2. * BEMBEL_PI / n_gridpoints;
-  Eigen::Matrix<double, Eigen::Dynamic, 3> gridpoints = MatrixXd::Zero(100, 3);
-  for (int i = 0; i < n_gridpoints; ++i) {
-    gridpoints(i, 0) = 2. * cos(h * i);
-    gridpoints(i, 1) = 2. * sin(h * i);
-  }
+  // Define evaluation points for scattered field, sphere of radius 2, 100
+  // equispaced points.
+  MatrixXd gridpoints = Util::makeSphereGrid(2., 100);
 
-  // Define analytical solution using lambda function, in this case a
-  // harmonic function, see Data.hpp
-  std::function<double(Vector3d)> fun = [](Vector3d in) {
-    return Data::HarmonicFunction(in);
+  // Define analytical solution using lambda function, in this case a dipole
+  // centered on 0, see Data.hpp
+  const std::function<VectorXcd(Vector3d)> fun = [wavenumber](Vector3d pt) {
+    return Data::Dipole(pt, wavenumber, Vector3d(0.2, 0.2, 0.2),
+                        Vector3d(0., 0.1, 0.1));
   };
 
   std::cout << "\n" << std::string(60, '=') << "\n";
   // Iterate over polynomial degree.
-  for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
+  for (int polynomial_degree = 1; polynomial_degree < polynomial_degree_max + 1;
        ++polynomial_degree) {
     VectorXd error(refinement_level_max + 1);
     IO::Logger<12> logger("log_LaplaceSingle_" +
@@ -63,52 +60,56 @@ int main() {
       std::cout << "Degree " << polynomial_degree << " Level "
                 << refinement_level << "\t\t";
       // Build ansatz space
-      AnsatzSpace<LaplaceSingleLayerOperator> ansatz_space(
+      AnsatzSpace<MaxwellSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
 
       // Set up load vector
-      DiscreteLinearForm<DirichletTrace<double>, LaplaceSingleLayerOperator>
+      DiscreteLinearForm<RotatedTangentialTrace<std::complex<double>>,
+                         MaxwellSingleLayerOperator>
           disc_lf(ansatz_space);
       disc_lf.get_linear_form().set_function(fun);
       disc_lf.compute();
 
       // Set up and compute discrete operator
-      DiscreteOperator<H2Matrix<double>, LaplaceSingleLayerOperator> disc_op(
-          ansatz_space);
+      DiscreteOperator<H2Matrix<std::complex<double>>,
+                       MaxwellSingleLayerOperator>
+          disc_op(ansatz_space);
+      disc_op.get_linear_operator().set_wavenumber(wavenumber);
       disc_op.compute();
 
       // solve system
-      ConjugateGradient<H2Matrix<double>, Lower | Upper, IdentityPreconditioner>
-          cg;
-      cg.compute(disc_op.get_discrete_operator());
-      VectorXd rho = cg.solve(disc_lf.get_discrete_linear_form());
+      GMRES<H2Matrix<std::complex<double>>, IdentityPreconditioner> gmres;
+      gmres.compute(disc_op.get_discrete_operator());
+      gmres.set_restart(2000);
+      VectorXcd rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
-      DiscretePotential<LaplaceSingleLayerPotential<LaplaceSingleLayerOperator>,
-                        LaplaceSingleLayerOperator>
+      DiscretePotential<MaxwellSingleLayerPotential<MaxwellSingleLayerOperator>,
+                        MaxwellSingleLayerOperator>
           disc_pot(ansatz_space);
+      disc_pot.get_potential().set_wavenumber(wavenumber);
       disc_pot.set_cauchy_data(rho);
       auto pot = disc_pot.evaluate(gridpoints);
 
-      // compute reference and compute error
-      VectorXd pot_ref(gridpoints.rows());
+      // compute reference, print time, and compute error
+      MatrixXcd pot_ref(gridpoints.rows(), 3);
       for (int i = 0; i < gridpoints.rows(); ++i)
-        pot_ref(i) = fun(gridpoints.row(i));
-      error(refinement_level) = (pot - pot_ref).cwiseAbs().maxCoeff();
+        pot_ref.row(i) = fun(gridpoints.row(i));
+      error(refinement_level) = (pot - pot_ref).rowwise().norm().maxCoeff();
 
       logger.both(polynomial_degree, refinement_level, error(refinement_level));
 
-      // we only need one visualization per polynomial degree
+      // we only need one visualization
       if (refinement_level == 3) {
-        // export geometry with density
+        // export geometry with surface current
         VTKSurfaceExport writer(geometry, 5);
-        writer.addDataSet("Density", ansatz_space, rho);
-        writer.writeToFile("LaplaceSingle.vtp");
+        writer.addDataSet("SurfaceCurrent", ansatz_space, rho);
+        writer.writeToFile("MaxwellSingle.vtp");
 
         // export point evaluations, can be visualized using glyphs in paraview
         VTKPointExport writer_points(gridpoints);
-        writer_points.addDataSet("Potential", pot);
-        writer_points.writeToFile("LaplaceSinglePoints.vtp");
+        writer_points.addComplexDataSet("Potential", pot);
+        writer_points.writeToFile("MaxwellSinglePoints.vtp");
       }
     }
 
