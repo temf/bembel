@@ -1,0 +1,102 @@
+/**
+\page codingGuidelines Coding Guidelines
+
+\section secDevPrinciples Development Principles
+
+Contributions to the code base of Bembel need to follow the three development Principals.
+
+<table>
+<tr><th>Isogeometric Multipatch<br>Surfaces <th>Element-Wise<br>Assembly <th> Clean Code<br>Policy
+<tr><td>
+Bembel is a templated toolbox that solves boundary value problems with a boundary or finite element method on isogeometric multipatch surfaces.
+<td>
+Due to technical advantages, the quadrature and assembly of the system matrices is performed element-wise. In a separate step conforming ansatz spaces are created.
+<td>
+Further development of the code base should be consistent with the existing code style; duplicate code will not be accepted.
+</table>
+
+\section secStyleGuide Style Guide
+
+In order to maintain high code quality, we have decided to follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+In the following we will list parts of the style guide that we consider particularly important.
+
+\subsection Formatting Formatting
+
+The external appearance of the code plays a major role in readability.
+As you should not think about formatting rules when programming or doing a code review, we use automation as much as possible.
+We check the code format with the [cpplint](https://github.com/cpplint/cpplint) on every push.
+
+### Recommendation:
+
+The formatting of the code can also be automated using useful helpers such as [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
+Many text editors can use clang-format by default.
+
+\ref FAQFormatting
+
+---
+\subsection Naming Naming
+
+During software development, more time is spent reading code than writing it.
+Therefore, names and descriptions should be chosen carefully in order to help other people reading your code, including your future self.
+
+### Recommendation:
+
+Citing Kent Beck: "you need to convey the purpose, type, and lifetime
+of the variable to readers, you need to pick a name that’s easy to read, you need
+to pick a name that’s easy to write and format."
+
+\ref FAQNaming
+
+---
+\section git Git Workflow
+
+The public [master branch](https://github.com/temf/bembel/tree/master) represents the current state of the software and is the origin for any new feature development or bug fixes.
+Each developer pulls from the master, implements the feature or bug fix in \ref FeatureBranches and creates \ref PullRequests back into the `master`.
+
+\subsection FeatureBranches Feature Branches
+
+Feature branches are the working space for developing new features and are always branched of master.
+A successful feature implementation need to follow a good practice:
+
+1. Always branched from the last common state.
+  - Otherwise, the `master` branch must be regularly merged into the feature branch.
+2. A feature is considered to be the smallest possible and traceable change to the code.
+  - Dependent features and bug fixes thereof may be merged in individual cases.\n
+  \ref FAQDependentFeatures
+3. Every feature is added to the automated test suite before merged.
+  - Create either a [unit test](https://github.com/temf/bembel/tree/master/tests) or an [example test](https://github.com/temf/bembel/tree/master/examples) to the corresponding `CMakeList.txt` file.
+
+\ref FAQFeatureBranches
+
+---
+\subsection gitCommit Git Commit Messages
+
+Meaningful commitment massages, including pull request descriptions, are part of constructive communication for understanding your work.
+In doing so, commit massages should briefly but completely describe your changes to the code.
+The formulation should be chosen as if the commit makes the described changes to the code itself, so please do not use the past tense.\n
+Commit messages need to fulfill the following rules:
+
+1. Limit the subject line to 50 characters
+2. Capitalize the subject line
+3. Do not end with a period "."
+4. Use the imperative mood in the subject line
+
+If the 50 characters are not sufficient, this is a good indicator to split your commit into two separate commits.
+For pull requests, it can be helpful to add a text body that is separated from the title of the commit message by a blank line and describes all changes.
+
+\ref FAQCommitMessages
+
+---
+\subsection PullRequests Pull Requests
+
+Contributions to the code base are tested automatically and reviewed by a developer.
+Each pull request need to follow the rules:
+
+1. The implementation is done according to the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+2. Unit tests and example tests are build and run error free.
+3. A minimal Doxygen documentation is provided for the test and utilized classes.
+
+If any of the above points are not fulfilled, the pull request may be rejected.
+
+---
+*/

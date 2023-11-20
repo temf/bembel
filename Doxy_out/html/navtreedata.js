@@ -26,6 +26,29 @@ var NAVTREE =
 [
   [ "Bembel", "index.html", [
     [ "Source Code", "modules.html", "modules" ],
+    [ "Coding Guidelines", "codingGuidelines.html", [
+      [ "Development Principles", "codingGuidelines.html#secDevPrinciples", null ],
+      [ "Style Guide", "codingGuidelines.html#secStyleGuide", [
+        [ "Formatting", "codingGuidelines.html#Formatting", null ],
+        [ "Naming", "codingGuidelines.html#Naming", null ]
+      ] ],
+      [ "Git Workflow", "codingGuidelines.html#git", [
+        [ "Feature Branches", "codingGuidelines.html#FeatureBranches", null ],
+        [ "Git Commit Messages", "codingGuidelines.html#gitCommit", null ],
+        [ "Pull Requests", "codingGuidelines.html#PullRequests", null ]
+      ] ]
+    ] ],
+    [ "Frequently Asked Questions", "FAQs.html", [
+      [ "Style Guide", "FAQs.html#FAQStyleGuide", [
+        [ "How do I format my code with clang-format?", "FAQs.html#FAQFormatting", null ],
+        [ "Where do I find naming rules?", "FAQs.html#FAQNaming", null ]
+      ] ],
+      [ "Git Workflow", "FAQs.html#FAQGitWorkflow", [
+        [ "Where do I find more information about feature branches?", "FAQs.html#FAQFeatureBranches", null ],
+        [ "What if I need other features?", "FAQs.html#FAQDependentFeatures", null ],
+        [ "Why good commit messages matter?", "FAQs.html#FAQCommitMessages", null ]
+      ] ]
+    ] ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Class List", "annotated.html", "annotated" ]
   ] ]
@@ -33,7 +56,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"FAQs.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
