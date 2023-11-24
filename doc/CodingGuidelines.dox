@@ -8,11 +8,11 @@ Contributions to the code base of Bembel need to follow the three development pr
 <table>
 <tr><th>Isogeometric Multipatch<br>Surfaces <th>Element-Wise<br>Assembly <th> Clean Code<br>Policy
 <tr><td>
-Bembel is a templated toolbox that solves boundary value problems with a boundary or finite element method on isogeometric multipatch surfaces.
+Bembel is a templated toolbox that offers functionality to solve boundary value problems with a boundary or finite element method on isogeometric multipatch surfaces.
 <td>
 Due to technical advantages, the quadrature and assembly of the system matrices is performed element-wise. In a separate step conforming ansatz spaces are created.
 <td>
-Further development of the code base should be consistent with the existing code style; duplicate code will not be accepted.
+Further development of the code base should be consistent with the existing code style; code duplication should be avoided if possible.
 </table>
 
 \section secStyleGuide Style Guide
@@ -53,12 +53,12 @@ Each developer pulls from the master, implements the feature or bug fix in \ref 
 
 \subsection FeatureBranches Feature Branches
 
-Feature branches are the working space for developing new features and are always branched of master.
-A successful feature implementation need to follow a good practice:
+Feature branches are the working space for developing new features and should always be branched of master.
+A successful feature implementation should comply with the following practices:
 
 1. Always branched from the last common state.
   - Otherwise, the `master` branch must be regularly merged into the feature branch.
-2. A feature is considered to be the smallest possible and traceable change to the code.
+2. A feature is considered to be the smallest possible and traceable complete change to the code that does not break it.
   - Dependent features and bug fixes thereof may be merged in individual cases.\n
   \ref FAQDependentFeatures
 3. Every feature is added to the automated test suite before merged.
