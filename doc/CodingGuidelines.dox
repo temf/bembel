@@ -3,7 +3,7 @@
 
 \section secDevPrinciples Development Principles
 
-Contributions to the code base of Bembel need to follow the three development Principals.
+Contributions to the code base of Bembel need to follow the three development principles.
 
 <table>
 <tr><th>Isogeometric Multipatch<br>Surfaces <th>Element-Wise<br>Assembly <th> Clean Code<br>Policy
@@ -18,13 +18,13 @@ Further development of the code base should be consistent with the existing code
 \section secStyleGuide Style Guide
 
 In order to maintain high code quality, we have decided to follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
-In the following we will list parts of the style guide that we consider particularly important.
+In the following, we will list parts of the style guide that we consider particularly important.
 
 \subsection Formatting Formatting
 
 The external appearance of the code plays a major role in readability.
 As you should not think about formatting rules when programming or doing a code review, we use automation as much as possible.
-We check the code format with the [cpplint](https://github.com/cpplint/cpplint) on every push.
+We check the code format with [cpplint](https://github.com/cpplint/cpplint) on every push.
 
 ### Recommendation:
 
@@ -41,9 +41,7 @@ Therefore, names and descriptions should be chosen carefully in order to help ot
 
 ### Recommendation:
 
-Citing Kent Beck: "you need to convey the purpose, type, and lifetime
-of the variable to readers, you need to pick a name that’s easy to read, you need
-to pick a name that’s easy to write and format."
+Citing Kent Beck: "You need to convey the purpose, type, and lifetime of the variable to readers, you need to pick a name that’s easy to read, you need to pick a name that’s easy to write and format."
 
 \ref FAQNaming
 
@@ -71,8 +69,8 @@ A successful feature implementation need to follow a good practice:
 ---
 \subsection gitCommit Git Commit Messages
 
-Meaningful commitment massages, including pull request descriptions, are part of constructive communication for understanding your work.
-In doing so, commit massages should briefly but completely describe your changes to the code.
+Meaningful commitment messages, including pull request descriptions, are part of constructive communication for understanding your work.
+In doing so, commit messages should briefly but completely describe your changes to the code.
 The formulation should be chosen as if the commit makes the described changes to the code itself, so please do not use the past tense.\n
 Commit messages need to fulfill the following rules:
 
