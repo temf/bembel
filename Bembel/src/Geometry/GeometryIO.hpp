@@ -1,6 +1,6 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
 //
-// Copyright (C) 2022 see <http://www.bembel.eu>
+// Copyright (C) 2024 see <http://www.bembel.eu>
 //
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
@@ -21,7 +21,7 @@ namespace Bembel {
  * \param name path/filename pointing to the geometry file
  * \return std::vector of NURBS::Patch describing geometry
  */
-inline std::vector<Patch> LoadGeometryFile(
+inline std::vector<Patch> LoadGeometryFileDAT(
     const std::string &file_name) noexcept {
   std::vector<Bembel::Patch> out;
   std::stringstream iss;
@@ -118,6 +118,13 @@ inline std::vector<Patch> LoadGeometryFile(
 
   file.close();
   return out;
+}
+
+inline std::vector<Patch> LoadGeometryFileIGS(
+    const std::string &file_name) noexcept {
+  assert(!"Not implemented yet!");
+  std::vector<Patch> ret;
+  return ret;
 }
 
 /**
