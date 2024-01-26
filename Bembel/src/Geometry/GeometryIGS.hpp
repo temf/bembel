@@ -14,8 +14,14 @@
 
 namespace Bembel {
 
-std::vector<Patch> LoadGeometryFileIGS(
-    const std::string &file_name) noexcept {
+/**
+ * \ingroup Geometry
+ * \brief loads  geometry from IGES file. Note that the direction
+ *        of the normals must be consistent.
+ * \param name path/filename pointing to the geometry file
+ * \return std::vector of NURBS::Patch describing geometry
+ */
+std::vector<Patch> LoadGeometryFileIGS(const std::string &file_name) noexcept {
   std::ifstream file;
   std::vector<int> patch_lines;
   file.open(file_name);
