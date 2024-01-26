@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('codingGuidelines.html',''); initResiza
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="secDevPrinciples"></a>
 Development Principles</h1>
-<p>Contributions to the code base of <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> need to follow the three development Principals.</p>
+<p>Contributions to the code base of <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> need to follow the three development principles.</p>
 <table class="doxtable">
 <tr>
 <th>Isogeometric Multipatch<br  />
@@ -113,14 +113,14 @@ Surfaces </th><th>Element-Wise<br  />
 Assembly </th><th>Clean Code<br  />
 Policy </th></tr>
 <tr>
-<td><a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> is a templated toolbox that solves boundary value problems with a boundary or finite element method on isogeometric multipatch surfaces. </td><td>Due to technical advantages, the quadrature and assembly of the system matrices is performed element-wise. In a separate step conforming ansatz spaces are created. </td><td>Further development of the code base should be consistent with the existing code style; duplicate code will not be accepted. </td></tr>
+<td><a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> is a templated toolbox that offers functionality to solve boundary value problems with a boundary or finite element method on isogeometric multipatch surfaces. </td><td>Due to technical advantages, the quadrature and assembly of the system matrices is performed element-wise. In a separate step conforming ansatz spaces are created. </td><td>Further development of the code base should be consistent with the existing code style; code duplication should be avoided if possible. </td></tr>
 </table>
 <h1><a class="anchor" id="secStyleGuide"></a>
 Style Guide</h1>
-<p>In order to maintain high code quality, we have decided to follow the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>. In the following we will list parts of the style guide that we consider particularly important.</p>
+<p>In order to maintain high code quality, we have decided to follow the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>. In the following, we will list parts of the style guide that we consider particularly important.</p>
 <h2><a class="anchor" id="Formatting"></a>
 Formatting</h2>
-<p>The external appearance of the code plays a major role in readability. As you should not think about formatting rules when programming or doing a code review, we use automation as much as possible. We check the code format with the <a href="https://github.com/cpplint/cpplint">cpplint</a> on every push.</p>
+<p>The external appearance of the code plays a major role in readability. As you should not think about formatting rules when programming or doing a code review, we use automation as much as possible. We check the code format with <a href="https://github.com/cpplint/cpplint">cpplint</a> on every push.</p>
 <h3>Recommendation:</h3>
 <p>The formatting of the code can also be automated using useful helpers such as <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>. Many text editors can use clang-format by default.</p>
 <p><a class="el" href="FAQs.html#FAQFormatting">How do I format my code with clang-format?</a></p>
@@ -129,7 +129,7 @@ Formatting</h2>
 Naming</h2>
 <p>During software development, more time is spent reading code than writing it. Therefore, names and descriptions should be chosen carefully in order to help other people reading your code, including your future self.</p>
 <h3>Recommendation:</h3>
-<p>Citing Kent Beck: "you need to convey the purpose, type, and lifetime of the variable to readers, you need to pick a name that’s easy to read, you need to pick a name that’s easy to write and format."</p>
+<p>Citing Kent Beck: "You need to convey the purpose, type, and lifetime of the variable to readers, you need to pick a name that’s easy to read, you need to pick a name that’s easy to write and format."</p>
 <p><a class="el" href="FAQs.html#FAQNaming">Where do I find naming rules?</a></p>
 <hr  />
  <h1><a class="anchor" id="git"></a>
@@ -137,13 +137,13 @@ Git Workflow</h1>
 <p>The public <a href="https://github.com/temf/bembel/tree/master">master branch</a> represents the current state of the software and is the origin for any new feature development or bug fixes. Each developer pulls from the master, implements the feature or bug fix in <a class="el" href="codingGuidelines.html#FeatureBranches">Feature Branches</a> and creates <a class="el" href="codingGuidelines.html#PullRequests">Pull Requests</a> back into the <code>master</code>.</p>
 <h2><a class="anchor" id="FeatureBranches"></a>
 Feature Branches</h2>
-<p>Feature branches are the working space for developing new features and are always branched of master. A successful feature implementation need to follow a good practice:</p>
+<p>Feature branches are the working space for developing new features and should always be branched of master. A successful feature implementation should comply with the following practices:</p>
 <ol type="1">
 <li>Always branched from the last common state.<ul>
 <li>Otherwise, the <code>master</code> branch must be regularly merged into the feature branch.</li>
 </ul>
 </li>
-<li>A feature is considered to be the smallest possible and traceable change to the code.<ul>
+<li>A feature is considered to be the smallest possible and traceable complete change to the code that does not break it.<ul>
 <li>Dependent features and bug fixes thereof may be merged in individual cases.<br  />
  <a class="el" href="FAQs.html#FAQDependentFeatures">What if I need other features?</a></li>
 </ul>
@@ -157,7 +157,7 @@ Feature Branches</h2>
 <hr  />
  <h2><a class="anchor" id="gitCommit"></a>
 Git Commit Messages</h2>
-<p>Meaningful commitment massages, including pull request descriptions, are part of constructive communication for understanding your work. In doing so, commit massages should briefly but completely describe your changes to the code. The formulation should be chosen as if the commit makes the described changes to the code itself, so please do not use the past tense.<br  />
+<p>Meaningful commitment messages, including pull request descriptions, are part of constructive communication for understanding your work. In doing so, commit messages should briefly but completely describe your changes to the code. The formulation should be chosen as if the commit makes the described changes to the code itself, so please do not use the past tense.<br  />
 Commit messages need to fulfill the following rules:</p>
 <ol type="1">
 <li>Limit the subject line to 50 characters</li>
@@ -184,7 +184,7 @@ Pull Requests</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 20 2023 13:14:17 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Jan 26 2024 09:26:06 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
