@@ -21,7 +21,8 @@ namespace Bembel {
  * \param name path/filename pointing to the geometry file
  * \return std::vector of NURBS::Patch describing geometry
  */
-std::vector<Patch> LoadGeometryFileIGS(const std::string &file_name) noexcept {
+
+std::vector<Patch> LoadGeometryFileIGS(const std::string& file_name) noexcept {
   std::ifstream file;
   std::vector<int> patch_lines;
   file.open(file_name);
@@ -139,14 +140,17 @@ std::vector<Patch> LoadGeometryFileIGS(const std::string &file_name) noexcept {
   return out;
 }
 
-void writeIGSHeader(std::string file_name) {
-  std::ofstream file;
-  file.open(file_name);
-
-  file << "\r\n";
-  file << "IGES obtained from Bembel.\r\n";
-  file << "See <http://www.bembel.eu>\r\n";
-  file << "\r\n";
+void writeSection(std::string file_name,
+                  const std::vector<std::string>& section,
+                  const char section_char) {
+  std::ofstream file(file_name, std::ios::app);
+  for (auto it = section.begin(); it != section.end(); ++it) {
+    const int index = std::distance(section.begin(), it);
+    file << std::left << std::setw(72) << *it << section_char << std::right
+         << std::setw(7) << index + 1 << "\n";
+  }
+  file.close();
+  return;
 }
 
 std::vector<std::string> makeSection(std::vector<std::string> data,
@@ -174,6 +178,18 @@ std::vector<std::string> makeSection(std::vector<std::string> data,
   out.push_back(line);
   return out;
 }
+
+void writeIGSHeader(std::string file_name) {
+  std::vector<std::string> section(4);
+  section[0] = "";
+  section[1] = "IGES obtained from Bembel.";
+  section[2] = "See <http://www.bembel.eu>";
+  section[3] = "";
+
+  writeSection(file_name, section, 'S');
+  return;
+}
+
 void writeGlobalSection(std::string file_name) {
   std::vector<std::string> out(24);
   std::time_t now = std::time(nullptr);
