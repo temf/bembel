@@ -204,6 +204,12 @@ void writeIGSHeader(std::string file_name) {
   return;
 }
 
+std::string double_to_string(double d) {
+  std::ostringstream stm;
+  stm << std::setprecision(15) << d;
+  return stm.str();
+}
+
 int writeGlobalSection(std::string file_name) {
   std::vector<std::string> out(24);
   std::time_t now = std::time(nullptr);
@@ -361,23 +367,23 @@ std::vector<std::string> writePatchData(const Patch& patch) {
   patch_data[9] = "0";
 
   for (auto i = 0; i < knots_x.size(); ++i) {
-    patch_data[10 + i] = std::to_string(knots_x[i]);
+    patch_data[10 + i] = double_to_string(knots_x[i]);
   }
 
   const int idx_knots_y = 10 + knots_x.size();
   for (auto i = 0; i < knots_y.size(); ++i) {
-    patch_data[idx_knots_y + i] = std::to_string(knots_y[i]);
+    patch_data[idx_knots_y + i] = double_to_string(knots_y[i]);
   }
 
   const int idx_weights = 10 + knots_x.size() + knots_y.size();
   for (auto i = 0; i < size; ++i) {
-    patch_data[idx_weights + i] = std::to_string(weights[i]);
+    patch_data[idx_weights + i] = double_to_string(weights[i]);
 
-    patch_data[idx_weights + size + i * 3] = std::to_string(coordinates_x[i]);
+    patch_data[idx_weights + size + i * 3] = double_to_string(coordinates_x[i]);
     patch_data[idx_weights + size + i * 3 + 1] =
-        std::to_string(coordinates_y[i]);
+        double_to_string(coordinates_y[i]);
     patch_data[idx_weights + size + i * 3 + 2] =
-        std::to_string(coordinates_z[i]);
+        double_to_string(coordinates_z[i]);
   }
   patch_data[idx_weights + 4 * size] = std::to_string(span_x[0]);
   patch_data[idx_weights + 4 * size + 1] = std::to_string(span_x[1]);
