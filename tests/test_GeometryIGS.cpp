@@ -27,7 +27,8 @@ int main() {
   BEMBEL_TEST_IF(patches[0].polynomial_degree_x_ == 5);
   BEMBEL_TEST_IF(patches[0].polynomial_degree_y_ == 6);
 
-  writeIGSFile(patches, "test_Screen_Export.igs");
+  const int precision = 15;
+  writeIGSFile(patches, "test_Screen_Export.igs", precision);
 
   BEMBEL_TEST_IF(
       Test::compareFiles("test_Screen.igs", "test_Screen_Export.igs"));
