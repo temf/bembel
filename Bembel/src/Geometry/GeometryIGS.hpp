@@ -329,12 +329,19 @@ std::vector<std::string> writePatchData(const Patch& patch) {
   std::vector<double> coordinates_y(size);
   std::vector<double> coordinates_z(size);
   // transform from wx, wy, wz to x, y, z
+  // further more switch row major and column major
   for (auto i = 0; i < size; ++i) {
+    const int rowIndex = i % number_of_points_y;
+    const int colIndex = i / number_of_points_y;
+
+    // Calculate the index for the corresponding element in row-major order
+    const int j = rowIndex * number_of_points_x + colIndex;
+
     double weight = patch.data_[i * 4 + 3];
-    weights[i] = weight;
-    coordinates_x[i] = patch.data_[i * 4] / weight;
-    coordinates_y[i] = patch.data_[i * 4 + 1] / weight;
-    coordinates_z[i] = patch.data_[i * 4 + 2] / weight;
+    weights[j] = weight;
+    coordinates_x[j] = patch.data_[i * 4] / weight;
+    coordinates_y[j] = patch.data_[i * 4 + 1] / weight;
+    coordinates_z[j] = patch.data_[i * 4 + 2] / weight;
   }
 
   const int number_of_data_entries = 16;
