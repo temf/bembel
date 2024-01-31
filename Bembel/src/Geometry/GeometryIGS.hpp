@@ -153,6 +153,21 @@ void writeSection(std::string file_name,
   return;
 }
 
+int writeParameterSection(std::string file_name,
+                          const std::vector<std::string>& section,
+                          const int patch_idx, const int start_count) {
+  std::ofstream file(file_name, std::ios::app);
+  int last_line = start_count;
+  for (auto it = section.begin(); it != section.end(); ++it) {
+    file << std::left << std::setw(64) << *it
+         << std::right << std::setw(8) << patch_idx << "P"
+         << std::right << std::setw(7) << last_line << "\n";
+    ++last_line;
+  }
+  file.close();
+  return last_line;
+}
+
 std::vector<std::string> makeSection(std::vector<std::string> data,
                                      const int linewidth = 72) {
   std::vector<std::string> out;
@@ -171,9 +186,8 @@ std::vector<std::string> makeSection(std::vector<std::string> data,
     if (line_length > linewidth) {
       out.push_back(line);
       line = "";
-    } else {
-      line += item;
     }
+    line += item;
   }
   out.push_back(line);
   return out;
@@ -190,7 +204,7 @@ void writeIGSHeader(std::string file_name) {
   return;
 }
 
-void writeGlobalSection(std::string file_name) {
+int writeGlobalSection(std::string file_name) {
   std::vector<std::string> out(24);
   std::time_t now = std::time(nullptr);
 
@@ -249,14 +263,15 @@ void writeGlobalSection(std::string file_name) {
   std::vector<std::string> section = makeSection(out);
 
   writeSection(file_name, section, 'G');
-  return;
+  return section.size();
 }
 
-void writeDirectory(std::string file_name, std::vector<int> start_idx,
+int writeDirectory(std::string file_name, std::vector<int> start_idx,
                     std::vector<int> number_of_lines) {
   assert(start_idx.size() == number_of_lines.size());
 
   std::ofstream fid(file_name, std::ios::app);
+  int tot_number_of_lines = 0;
   const int number_of_patches = start_idx.size();
   for (auto i = 0; i < number_of_patches; ++i) {
     fid << std::setw(8) << "128"
@@ -282,10 +297,90 @@ void writeDirectory(std::string file_name, std::vector<int> start_idx,
         << std::setw(8) << 0
         << "D"
         << std::setw(7) << (i + 1) * 2 << "\n";
+
+    tot_number_of_lines += 2;
   }
-  return;
+  return tot_number_of_lines;
 }
 
+std::vector<std::string> writePatchData(const Patch& patch) {
+  const int degree_x = patch.polynomial_degree_x_;
+  const int degree_y = patch.polynomial_degree_y_;
+
+  assert(patch.unique_knots_x_.size() == 2 &&
+         "We can not handle internal knots");
+  assert(patch.unique_knots_y_.size() == 2 &&
+         "We can not handle internal knots");
+
+  std::vector<double> knots_x(2 * degree_x, 0);
+  for (auto i = 0; i <= degree_x; ++i) knots_x[degree_x + i] = 1;
+  std::vector<double> knots_y(2 * degree_y, 0);
+  for (auto i = 0; i <= degree_y; ++i) knots_y[degree_y + i] = 1;
+
+  const std::array<double, 2> span_x = {0, 1};
+  const std::array<double, 2> span_y = {0, 1};
+
+  const int number_of_points_x = knots_x.size() - degree_x;
+  const int number_of_points_y = knots_y.size() - degree_y;
+
+  const int size = patch.data_.size() / 4;
+  std::vector<double> weights(size);
+  std::vector<double> coordinates_x(size);
+  std::vector<double> coordinates_y(size);
+  std::vector<double> coordinates_z(size);
+  // transform from wx, wy, wz to x, y, z
+  for (auto i = 0; i < size; ++i) {
+    double weight = patch.data_[i * 4 + 3];
+    weights[i] = weight;
+    coordinates_x[i] = patch.data_[i * 4] / weight;
+    coordinates_y[i] = patch.data_[i * 4 + 1] / weight;
+    coordinates_z[i] = patch.data_[i * 4 + 2] / weight;
+  }
+
+  const int number_of_data_entries = 16;
+  const int size_data =
+      number_of_data_entries + 4 * size + knots_x.size() + knots_y.size();
+  std::vector<std::string> patch_data(size_data);
+
+  patch_data[0] = "128";
+  patch_data[1] = std::to_string(number_of_points_x - 1);
+  patch_data[2] = std::to_string(number_of_points_y - 1);
+  patch_data[3] = std::to_string(degree_x - 1);
+  patch_data[4] = std::to_string(degree_y - 1);
+  patch_data[5] = "0";
+  patch_data[6] = "0";
+  patch_data[7] = "0";
+  patch_data[8] = "0";
+  patch_data[9] = "0";
+
+  for (auto i = 0; i < knots_x.size(); ++i) {
+    patch_data[10 + i] = std::to_string(knots_x[i]);
+  }
+
+  const int idx_knots_y = 10 + knots_x.size();
+  for (auto i = 0; i < knots_y.size(); ++i) {
+    patch_data[idx_knots_y + i] = std::to_string(knots_y[i]);
+  }
+
+  const int idx_weights = 10 + knots_x.size() + knots_y.size();
+  for (auto i = 0; i < size; ++i) {
+    patch_data[idx_weights + i] = std::to_string(weights[i]);
+
+    patch_data[idx_weights + size + i * 3] = std::to_string(coordinates_x[i]);
+    patch_data[idx_weights + size + i * 3 + 1] =
+        std::to_string(coordinates_y[i]);
+    patch_data[idx_weights + size + i * 3 + 2] =
+        std::to_string(coordinates_z[i]);
+  }
+  patch_data[idx_weights + 4 * size] = std::to_string(span_x[0]);
+  patch_data[idx_weights + 4 * size + 1] = std::to_string(span_x[1]);
+  patch_data[idx_weights + 4 * size + 2] = std::to_string(span_y[0]);
+  patch_data[idx_weights + 4 * size + 3] = std::to_string(span_y[1]);
+  patch_data[idx_weights + 4 * size + 4] = "0";
+  patch_data[idx_weights + 4 * size + 5] = "0";
+
+  return patch_data;
+}
 /**
  * \ingroup Geometry
  * \brief Writes Geometry into an IGES file format.
@@ -293,9 +388,51 @@ void writeDirectory(std::string file_name, std::vector<int> start_idx,
  * \param name path/filename for the file to be written.
  */
 
-void writeIGSFile(std::vector<Patch> geometry, std::string file_name) {
+void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name) {
+  std::ofstream out(file_name);
+  out.close();
   writeIGSHeader(file_name);
-  writeGlobalSection(file_name);
+  const int size_global = writeGlobalSection(file_name);
+
+  const int number_of_patches = geometry.size();
+  std::vector<int> start_idx(number_of_patches);
+  std::vector<int> end_idx(number_of_patches);
+  std::vector<std::vector<std::string>> patch_sections(number_of_patches);
+  int start_line = 1;
+  for (auto i = 0; i < number_of_patches; ++i) {
+    const std::vector<std::string> patch_data = writePatchData(geometry[i]);
+    patch_sections[i] = makeSection(patch_data, 64);
+
+    start_idx[i] = start_line;
+    start_line += patch_sections[i].size();
+    end_idx[i] = start_line - 1;
+  }
+  const int size_directory = writeDirectory(file_name, start_idx, end_idx);
+
+  int first_line = 1;
+  int size_parameter = 0;
+  for (auto it = patch_sections.begin(); it != patch_sections.end(); ++it) {
+    const int i = std::distance(patch_sections.begin(), it);
+    const int last_idx =
+        writeParameterSection(file_name, *it, 1 + 2 * i, first_line);
+    first_line = last_idx + 1;
+    size_parameter += (*it).size();
+  }
+
+  // Terminate Section
+  std::stringstream last_section;
+  last_section << std::setw(7) << 4 << "S"
+               << std::setw(7) << size_global << "G"
+               << std::setw(7) << size_directory << "D"
+               << std::setw(7) << size_parameter << "P";
+
+
+  std::ofstream file(file_name, std::ios::app);
+  file << std::left << std::setw(72) << last_section.str()
+       << "T"
+       << std::right << std::setw(7) << 1 << "\n";
+  file.close();
+
   return;
 }
 }  // namespace Bembel
