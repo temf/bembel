@@ -248,12 +248,42 @@ void writeGlobalSection(std::string file_name) {
 
   std::vector<std::string> section = makeSection(out);
 
-  std::ofstream file(file_name, std::ios::app);
-  for (auto it = section.begin(); it != section.end(); ++it) {
-    const int index = std::distance(section.begin(), it);
-    file << std::left << std::setw(72) << *it << "G" << std::setw(7) << index
-         << "\n";
+  writeSection(file_name, section, 'G');
+  return;
+}
+
+void writeDirectory(std::string file_name, std::vector<int> start_idx,
+                    std::vector<int> number_of_lines) {
+  assert(start_idx.size() == number_of_lines.size());
+
+  std::ofstream fid(file_name, std::ios::app);
+  const int number_of_patches = start_idx.size();
+  for (auto i = 0; i < number_of_patches; ++i) {
+    fid << std::setw(8) << "128"
+        << std::setw(8) << start_idx[i]
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << "D"
+        << std::setw(7) << (i + 1) * 2 - 1<< "\n";
+
+    fid << std::setw(8) << "128"
+        << std::setw(8) << 0
+        << std::setw(8) << 0
+        << std::setw(8) << number_of_lines[i]
+        << std::setw(8) << 0
+        << std::setw(8) << " "
+        << std::setw(8) << " "
+        << std::setw(8) << " "
+        << std::setw(8) << 0
+        << "D"
+        << std::setw(7) << (i + 1) * 2 << "\n";
   }
+  return;
 }
 
 /**
