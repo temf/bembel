@@ -140,6 +140,14 @@ std::vector<Patch> LoadGeometryFileIGS(const std::string& file_name) noexcept {
   return out;
 }
 
+/**
+ * \ingroup Geometry
+ * \brief This function writes a given section to the specified file.
+ *
+ * \param file_name path/filename pointing to the geometry file
+ * \param section vector containing the lines to be written to the file
+ * \param section_char char to describe the section. Use 'S', 'G' or 'D'
+ */
 void writeSection(std::string file_name,
                   const std::vector<std::string>& section,
                   const char section_char) {
@@ -153,6 +161,16 @@ void writeSection(std::string file_name,
   return;
 }
 
+/**
+ * \ingroup Geometry
+ * \brief This function writes a the parameter section of the IGES file.
+ *
+ * \param file_name path/filename pointing to the geometry file
+ * \param section vector containing the lines to be written to the file
+ * \param patch_idx index counting in uneven number
+ * \param start_count Start counting the lines with this index
+ * \return Last index of the line 
+ */
 int writeParameterSection(std::string file_name,
                           const std::vector<std::string>& section,
                           const int patch_idx, const int start_count) {
@@ -168,6 +186,15 @@ int writeParameterSection(std::string file_name,
   return last_line;
 }
 
+/**
+ * \ingroup Geometry
+ * \brief Transform a vector of Data in a vector of lines with a specific
+ *        length.
+ *
+ * \param data vector containing the entries written to the section
+ * \param linewidth Maximum length of the lines
+ * \return Vector with strings of each line.
+ */
 std::vector<std::string> makeSection(std::vector<std::string> data,
                                      const int linewidth = 72) {
   std::vector<std::string> out;
@@ -204,9 +231,9 @@ void writeIGSHeader(std::string file_name) {
   return;
 }
 
-std::string double_to_string(double d) {
+std::string double_to_string(double d, const int precision) {
   std::ostringstream stm;
-  stm << std::setprecision(15) << d;
+  stm << std::setprecision(precision) << d;
   return stm.str();
 }
 
@@ -309,7 +336,20 @@ int writeDirectory(std::string file_name, std::vector<int> start_idx,
   return tot_number_of_lines;
 }
 
-std::vector<std::string> writePatchData(const Patch& patch) {
+/**
+ * \ingroup Geometry
+ * \brief This Function writes the patch from Bembel into a vector which can be
+ *        written into an IGES file.
+ *
+ * This function assumes that the patch knot vectors do not contains internal
+ * nodes.
+ * 
+ * \param patch Bembel patch containing all information
+ * \param precision Number of significant digits to save floats
+ * \return Vector with patch data in IGES format.
+ */
+std::vector<std::string> writePatchData(const Patch& patch,
+                                        const int precision) {
   const int degree_x = patch.polynomial_degree_x_;
   const int degree_y = patch.polynomial_degree_y_;
 
@@ -367,23 +407,24 @@ std::vector<std::string> writePatchData(const Patch& patch) {
   patch_data[9] = "0";
 
   for (auto i = 0; i < knots_x.size(); ++i) {
-    patch_data[10 + i] = double_to_string(knots_x[i]);
+    patch_data[10 + i] = double_to_string(knots_x[i], precision);
   }
 
   const int idx_knots_y = 10 + knots_x.size();
   for (auto i = 0; i < knots_y.size(); ++i) {
-    patch_data[idx_knots_y + i] = double_to_string(knots_y[i]);
+    patch_data[idx_knots_y + i] = double_to_string(knots_y[i], precision);
   }
 
   const int idx_weights = 10 + knots_x.size() + knots_y.size();
   for (auto i = 0; i < size; ++i) {
-    patch_data[idx_weights + i] = double_to_string(weights[i]);
+    patch_data[idx_weights + i] = double_to_string(weights[i], precision);
 
-    patch_data[idx_weights + size + i * 3] = double_to_string(coordinates_x[i]);
+    patch_data[idx_weights + size + i * 3] =
+        double_to_string(coordinates_x[i], precision);
     patch_data[idx_weights + size + i * 3 + 1] =
-        double_to_string(coordinates_y[i]);
+        double_to_string(coordinates_y[i], precision);
     patch_data[idx_weights + size + i * 3 + 2] =
-        double_to_string(coordinates_z[i]);
+        double_to_string(coordinates_z[i], precision);
   }
   patch_data[idx_weights + 4 * size] = std::to_string(span_x[0]);
   patch_data[idx_weights + 4 * size + 1] = std::to_string(span_x[1]);
@@ -394,14 +435,16 @@ std::vector<std::string> writePatchData(const Patch& patch) {
 
   return patch_data;
 }
+
 /**
  * \ingroup Geometry
  * \brief Writes Geometry into an IGES file format.
  *
- * \param name path/filename for the file to be written.
+ * \param geometry PatchVector which is written to the file.
+ * \param precision Significant number of digits for writing floats.
  */
-
-void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name) {
+void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name,
+                  const int precision = 6) {
   std::ofstream out(file_name);
   out.close();
   writeIGSHeader(file_name);
@@ -413,7 +456,8 @@ void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name) {
   std::vector<std::vector<std::string>> patch_sections(number_of_patches);
   int start_line = 1;
   for (auto i = 0; i < number_of_patches; ++i) {
-    const std::vector<std::string> patch_data = writePatchData(geometry[i]);
+    const std::vector<std::string> patch_data =
+        writePatchData(geometry[i], precision);
     patch_sections[i] = makeSection(patch_data, 64);
 
     start_idx[i] = start_line;
