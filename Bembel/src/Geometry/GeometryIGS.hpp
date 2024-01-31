@@ -412,7 +412,7 @@ void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name) {
 
     start_idx[i] = start_line;
     start_line += patch_sections[i].size();
-    end_idx[i] = start_line - 1;
+    end_idx[i] = patch_sections[i].size();
   }
   const int size_directory = writeDirectory(file_name, start_idx, end_idx);
 
@@ -422,7 +422,7 @@ void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name) {
     const int i = std::distance(patch_sections.begin(), it);
     const int last_idx =
         writeParameterSection(file_name, *it, 1 + 2 * i, first_line);
-    first_line = last_idx + 1;
+    first_line = last_idx;
     size_parameter += (*it).size();
   }
 
