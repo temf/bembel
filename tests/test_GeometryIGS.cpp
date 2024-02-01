@@ -12,7 +12,44 @@
 #include <Bembel/Geometry>
 
 #include "tests/Test.hpp"
-#include "tests/TestHelpers.hpp"
+
+bool compareIGESFiles(const std::string& file_name1,
+                      const std::string& file_name2) {
+  std::ifstream file1(file_name1);
+  std::ifstream file2(file_name2);
+
+  if (!file1.is_open() || !file2.is_open()) {
+    std::cerr << "Error opening files." << std::endl;
+    return false;
+  }
+
+  std::string line1, line2;
+  int line_count = 0;
+
+  while (std::getline(file1, line1) && std::getline(file2, line2)) {
+    // line 5 contains the date and need to be treated different
+    if (line_count == 5) {
+      if (line1.substr(0, 35).compare(line2.substr(0, 35)) != 0 ||
+          line1.substr(54).compare(line2.substr(54)) != 0) {
+        return false;
+      }
+      ++line_count;
+      continue;
+    }
+    if (line1.compare(line2) != 0) {
+      return false;
+    }
+
+    ++line_count;
+  }
+
+  // Check if one file has more lines than the other
+  if (std::getline(file1, line1) || std::getline(file2, line2)) {
+    return false;
+  }
+
+  return true;
+}
 
 int main() {
   using namespace Bembel;
@@ -30,8 +67,7 @@ int main() {
   const int precision = 15;
   writeIGSFile(patches, "test_Screen_Export.igs", precision);
 
-  BEMBEL_TEST_IF(
-      Test::compareFiles("test_Screen.igs", "test_Screen_Export.igs"));
+  BEMBEL_TEST_IF(compareIGESFiles("test_Screen.igs", "test_Screen_Export.igs"));
 
   for (auto x : Test::Constants::eq_points) {
     for (auto y : Test::Constants::eq_points) {
