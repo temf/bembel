@@ -33,9 +33,15 @@ std::vector<Patch> LoadGeometryFileIGS(const std::string& file_name) noexcept {
   std::string row;
   getline(file, row);
 
+  if (row[72] != 'S') {
+    std::cerr << "Format of the file not supported! I assume that character 72 "
+                 "denotes the section";
+    exit(1);
+  }
   // character 72 denotes the section and the information starts in Section D
   while (row[72] != 'D') {
     getline(file, row);
+    assert(!file.eof() && "End of file should not be found here!");
   }
 
   // collect two lines info of each patch from Directory section
@@ -59,6 +65,7 @@ std::vector<Patch> LoadGeometryFileIGS(const std::string& file_name) noexcept {
     getline(file, row);
     // This entry denotes how many lines correspond to a patch
     patch_lines.push_back(info2[3]);
+    assert(!file.eof() && "End of file should not be found here!");
   }
 
   // main loop over patches
