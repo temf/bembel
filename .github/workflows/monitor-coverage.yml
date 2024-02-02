@@ -1,6 +1,8 @@
 name: Coverage Monitor
 
 on:
+  push:
+    branches: [ "**" ]
   pull_request:
     branches: [ "**" ]
 
@@ -16,7 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
     
     - name: Configure system
       run: sudo apt-get update
@@ -25,7 +31,7 @@ jobs:
       run: sudo apt-get install --yes libeigen3-dev
 
     - name: Install Gcovr
-      run: sudo apt install gcovr
+      run: sudo pip install gcovr
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
@@ -45,4 +51,11 @@ jobs:
     - name: Create Coverage Report
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: gcovr -f ../Bembel -r ../ 
+      run: |
+        mkdir ../coverage-report
+        gcovr -r ../ -f ../Bembel --html --html-details --output ../coverage-report/coverage.html
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: coverage-report
