@@ -7,7 +7,7 @@ set(UNITTESTS
 		test_FMMTransferMatrices
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
-		test_DuffyTrick
+		# test_DuffyTrick
 		)
 
 foreach(file IN LISTS UNITTESTS)

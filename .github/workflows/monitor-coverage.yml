@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "**" ]
 
+permissions:
+  contents: write
+
 env:
   BUILD_TYPE: Coverage
 
@@ -41,7 +44,7 @@ jobs:
 
     - name: Build
       shell: bash
-      run: cmake --build build --config $BUILD_TYPE -j 2
+      run: cmake --build build --config $BUILD_TYPE -j 2 --target unittests
 
     - name: Run Unittests
       working-directory: ${{github.workspace}}/build
