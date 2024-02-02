@@ -1,6 +1,6 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
 //
-// Copyright (C) 2022 see <http://www.bembel.eu>
+// Copyright (C) 2024 see <http://www.bembel.eu>
 //
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
@@ -47,7 +47,17 @@ class Geometry {
     // to be chosen higher than the smoothness of the NÙRBS mappings. Thus, we
     // need to shredder the geometry mappings to have Bezier patches. You can
     // achieve the higher regularity by changing coefficients in the projector.
-    auto tmp = Bembel::PatchShredder(Bembel::LoadGeometryFile(filename));
+
+    std::string file_suffix = filename.substr(filename.find('.') + 1);
+    PatchVector tmp;
+
+    if (file_suffix.compare("dat") == 0)
+      tmp = PatchShredder(LoadGeometryFileDAT(filename));
+    else if (file_suffix.compare("igs") == 0)
+      tmp = PatchShredder(LoadGeometryFileIGS(filename));
+    else
+      assert(!"File type unknown!");
+
     geometry_ = std::make_shared<PatchVector>();
     *geometry_ = tmp;
   }

@@ -135,9 +135,27 @@ typedef std::vector&lt; <a class="el" href="group__Geometry.html#ga7f3488fb214d7
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga1a1c30a1689c1bcb5d027628acb15100"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">Bembel::LoadGeometryFile</a> (const std::string &amp;file_name) noexcept</td></tr>
-<tr class="memdesc:ga1a1c30a1689c1bcb5d027628acb15100"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consistent  <a href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">More...</a><br /></td></tr>
-<tr class="separator:ga1a1c30a1689c1bcb5d027628acb15100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6cca6243499deb03e7fb6a7c450870e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">Bembel::LoadGeometryFileDAT</a> (const std::string &amp;file_name) noexcept</td></tr>
+<tr class="memdesc:gab6cca6243499deb03e7fb6a7c450870e"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consistent  <a href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">More...</a><br /></td></tr>
+<tr class="separator:gab6cca6243499deb03e7fb6a7c450870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa18e14e95262340034d0b41f2ebc075"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gaaa18e14e95262340034d0b41f2ebc075">Bembel::LoadGeometryFileIGS</a> (const std::string &amp;file_name) noexcept</td></tr>
+<tr class="memdesc:gaaa18e14e95262340034d0b41f2ebc075"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from IGES file. Note that the direction of the normals must be consistent.  <a href="group__Geometry.html#gaaa18e14e95262340034d0b41f2ebc075">More...</a><br /></td></tr>
+<tr class="separator:gaaa18e14e95262340034d0b41f2ebc075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">Bembel::makeSection</a> (std::vector&lt; std::string &gt; data, const int linewidth=72)</td></tr>
+<tr class="memdesc:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector of Data in a vector of lines with a specific length.  <a href="group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">More...</a><br /></td></tr>
+<tr class="separator:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">Bembel::writeIGSFile</a> (const std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt; &amp;geometry, std::string file_name, const int precision=6)</td></tr>
+<tr class="memdesc:gac59b3f15b6352069bc49b9c3b73e2658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="classBembel_1_1Geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> into an IGES file format.  <a href="group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">More...</a><br /></td></tr>
+<tr class="separator:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46aa1c9d9f6c91c896de8bd7415ae06e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">Bembel::writeParameterSection</a> (std::string file_name, const std::vector&lt; std::string &gt; &amp;section, const int patch_idx, const int start_count)</td></tr>
+<tr class="memdesc:ga46aa1c9d9f6c91c896de8bd7415ae06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function writes a the parameter section of the IGES file.  <a href="group__Geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">More...</a><br /></td></tr>
+<tr class="separator:ga46aa1c9d9f6c91c896de8bd7415ae06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0557fb935922723f44d095d43c96c93"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gab0557fb935922723f44d095d43c96c93">Bembel::writePatchData</a> (const <a class="el" href="classBembel_1_1Patch.html">Patch</a> &amp;patch, const int precision)</td></tr>
+<tr class="memdesc:gab0557fb935922723f44d095d43c96c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">This Function writes the patch from <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> into a vector which can be written into an IGES file.  <a href="group__Geometry.html#gab0557fb935922723f44d095d43c96c93">More...</a><br /></td></tr>
+<tr class="separator:gab0557fb935922723f44d095d43c96c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fe7dcd5113abedbe0c26bc8d30638ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">Bembel::writeSection</a> (std::string file_name, const std::vector&lt; std::string &gt; &amp;section, const char section_char)</td></tr>
+<tr class="memdesc:ga7fe7dcd5113abedbe0c26bc8d30638ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function writes a given section to the specified file.  <a href="group__Geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">More...</a><br /></td></tr>
+<tr class="separator:ga7fe7dcd5113abedbe0c26bc8d30638ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This module handles all geometry related concerns. </p>
@@ -178,8 +196,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga1a1c30a1689c1bcb5d027628acb15100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1a1c30a1689c1bcb5d027628acb15100">&#9670;&nbsp;</a></span>LoadGeometryFile()</h2>
+<a id="gab6cca6243499deb03e7fb6a7c450870e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab6cca6243499deb03e7fb6a7c450870e">&#9670;&nbsp;</a></span>LoadGeometryFileDAT()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +206,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classBembel_1_1Patch.html">Patch</a>&gt; Bembel::LoadGeometryFile </td>
+          <td class="memname">std::vector&lt;<a class="el" href="classBembel_1_1Patch.html">Patch</a>&gt; Bembel::LoadGeometryFileDAT </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>file_name</em></td><td>)</td>
@@ -213,12 +231,263 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gaaa18e14e95262340034d0b41f2ebc075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa18e14e95262340034d0b41f2ebc075">&#9670;&nbsp;</a></span>LoadGeometryFileIGS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classBembel_1_1Patch.html">Patch</a>&gt; Bembel::LoadGeometryFileIGS </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>loads geometry from IGES file. Note that the direction of the normals must be consistent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>path/filename pointing to the geometry file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector of NURBS::Patch describing geometry </dd></dl>
+
+</div>
+</div>
+<a id="gaaf2c0a5ad28e3c0abc4e3db7a85ab977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">&#9670;&nbsp;</a></span>makeSection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; Bembel::makeSection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>linewidth</em> = <code>72</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transform a vector of Data in a vector of lines with a specific length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>vector containing the entries written to the section </td></tr>
+    <tr><td class="paramname">linewidth</td><td>Maximum length of the lines </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector with strings of each line. </dd></dl>
+
+</div>
+</div>
+<a id="gac59b3f15b6352069bc49b9c3b73e2658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac59b3f15b6352069bc49b9c3b73e2658">&#9670;&nbsp;</a></span>writeIGSFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bembel::writeIGSFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geometry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>precision</em> = <code>6</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes <a class="el" href="classBembel_1_1Geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> into an IGES file format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">geometry</td><td>PatchVector which is written to the file. </td></tr>
+    <tr><td class="paramname">precision</td><td>Significant number of digits for writing floats. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga46aa1c9d9f6c91c896de8bd7415ae06e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46aa1c9d9f6c91c896de8bd7415ae06e">&#9670;&nbsp;</a></span>writeParameterSection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Bembel::writeParameterSection </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>section</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>patch_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>start_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function writes a the parameter section of the IGES file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>path/filename pointing to the geometry file </td></tr>
+    <tr><td class="paramname">section</td><td>vector containing the lines to be written to the file </td></tr>
+    <tr><td class="paramname">patch_idx</td><td>index counting in uneven number </td></tr>
+    <tr><td class="paramname">start_count</td><td>Start counting the lines with this index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Last index of the line </dd></dl>
+
+</div>
+</div>
+<a id="gab0557fb935922723f44d095d43c96c93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0557fb935922723f44d095d43c96c93">&#9670;&nbsp;</a></span>writePatchData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; Bembel::writePatchData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBembel_1_1Patch.html">Patch</a> &amp;&#160;</td>
+          <td class="paramname"><em>patch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>precision</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This Function writes the patch from <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> into a vector which can be written into an IGES file. </p>
+<p>This function assumes that the patch knot vectors do not contains internal nodes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">patch</td><td><a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> patch containing all information </td></tr>
+    <tr><td class="paramname">precision</td><td>Number of significant digits to save floats </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector with patch data in IGES format. </dd></dl>
+
+</div>
+</div>
+<a id="ga7fe7dcd5113abedbe0c26bc8d30638ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7fe7dcd5113abedbe0c26bc8d30638ac">&#9670;&nbsp;</a></span>writeSection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bembel::writeSection </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>section</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>section_char</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function writes a given section to the specified file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>path/filename pointing to the geometry file </td></tr>
+    <tr><td class="paramname">section</td><td>vector containing the lines to be written to the file </td></tr>
+    <tr><td class="paramname">section_char</td><td>char to describe the section. Use 'S', 'G' or 'D' </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 26 2024 09:26:06 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 2 2024 07:34:33 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('GeometryIO_8hpp_source.html',''); init
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2024 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,</span></div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('GeometryIO_8hpp_source.html',''); init
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceBembel.html">Bembel</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">   24</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;Patch&gt; <a class="code" href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">LoadGeometryFile</a>(</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">   24</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;Patch&gt; <a class="code" href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">LoadGeometryFileDAT</a>(</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> std::string &amp;file_name) noexcept {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::vector&lt;Bembel::Patch&gt; out;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  std::stringstream iss;</div>
@@ -277,7 +277,7 @@ $(document).ready(function(){initNavTree('GeometryIO_8hpp_source.html',''); init
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_GEOMETRY_GEOMETRYIO_HPP_</span></div>
 <div class="ttc" id="aclassBembel_1_1Patch_html"><div class="ttname"><a href="classBembel_1_1Patch.html">Bembel::Patch</a></div><div class="ttdoc">handles a single patch</div><div class="ttdef"><b>Definition:</b> Patch.hpp:20</div></div>
 <div class="ttc" id="aclassBembel_1_1Patch_html_a94e90e693ae9764675d67ea9b1755252"><div class="ttname"><a href="classBembel_1_1Patch.html#a94e90e693ae9764675d67ea9b1755252">Bembel::Patch::init_Patch</a></div><div class="ttdeci">void init_Patch(const std::vector&lt; Eigen::Matrix&lt; double, -1, -1 &gt;&gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;x_knots, const std::vector&lt; double &gt; &amp;y_knots)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> Patch.hpp:34</div></div>
-<div class="ttc" id="agroup__Geometry_html_ga1a1c30a1689c1bcb5d027628acb15100"><div class="ttname"><a href="group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100">Bembel::LoadGeometryFile</a></div><div class="ttdeci">std::vector&lt; Patch &gt; LoadGeometryFile(const std::string &amp;file_name) noexcept</div><div class="ttdoc">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consisten...</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:24</div></div>
+<div class="ttc" id="agroup__Geometry_html_gab6cca6243499deb03e7fb6a7c450870e"><div class="ttname"><a href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">Bembel::LoadGeometryFileDAT</a></div><div class="ttdeci">std::vector&lt; Patch &gt; LoadGeometryFileDAT(const std::string &amp;file_name) noexcept</div><div class="ttdoc">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consisten...</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:24</div></div>
 <div class="ttc" id="anamespaceBembel_html"><div class="ttname"><a href="namespaceBembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> AnsatzSpace.hpp:14</div></div>
 <div class="ttc" id="anamespaceBembel_html_a939c4394ad2b21a15e7e6494d7dc1221"><div class="ttname"><a href="namespaceBembel.html#a939c4394ad2b21a15e7e6494d7dc1221">Bembel::WritePatch</a></div><div class="ttdeci">void WritePatch(const std::string &amp;file_name, int current_patch_number, const std::vector&lt; Eigen::MatrixXd &gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;knt1, const std::vector&lt; double &gt; &amp;knt2) noexcept</div><div class="ttdoc">method to write Patch information into textfile</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:153</div></div>
 <div class="ttc" id="anamespaceBembel_html_ae3e0d6a6e95643a5a2c447d75513d0d5"><div class="ttname"><a href="namespaceBembel.html#ae3e0d6a6e95643a5a2c447d75513d0d5">Bembel::MakeFile</a></div><div class="ttdeci">void MakeFile(const std::string &amp;file_name, int number_of_patches) noexcept</div><div class="ttdoc">method to generate textfile for the geometry</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:129</div></div>
@@ -287,7 +287,7 @@ $(document).ready(function(){initNavTree('GeometryIO_8hpp_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_38d2fb450630d24c975db6d9582a3ac9.html">Geometry</a></li><li class="navelem"><b>GeometryIO.hpp</b></li>
-    <li class="footer">Generated on Fri Jan 26 2024 09:26:06 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 2 2024 07:34:33 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['h2matrix_364',['H2Matrix',['../group__H2Matrix.html',1,'']]],
-  ['helmholtz_365',['Helmholtz',['../group__Helmholtz.html',1,'']]]
+  ['h2matrix_376',['H2Matrix',['../group__H2Matrix.html',1,'']]],
+  ['helmholtz_377',['Helmholtz',['../group__Helmholtz.html',1,'']]]
 ];

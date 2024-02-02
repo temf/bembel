@@ -18,7 +18,8 @@ var searchData=
   ['linearoperatorbase_3c_20maxwellsinglelayeroperator_20_3e_121',['LinearOperatorBase&lt; MaxwellSingleLayerOperator &gt;',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
   ['linearoperatortraits_122',['LinearOperatorTraits',['../structBembel_1_1LinearOperatorTraits.html',1,'Bembel']]],
   ['llc_5f_123',['llc_',['../classBembel_1_1ElementTreeNode.html#a7a846769f7d42f3c9d2448cf4e4d572d',1,'Bembel::ElementTreeNode']]],
-  ['loadgeometryfile_124',['LoadGeometryFile',['../group__Geometry.html#ga1a1c30a1689c1bcb5d027628acb15100',1,'Bembel']]],
-  ['localoperatorbase_125',['LocalOperatorBase',['../structBembel_1_1LocalOperatorBase.html',1,'Bembel']]],
-  ['logger_126',['Logger',['../classBembel_1_1IO_1_1Logger.html',1,'Bembel::IO']]]
+  ['loadgeometryfiledat_124',['LoadGeometryFileDAT',['../group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e',1,'Bembel']]],
+  ['loadgeometryfileigs_125',['LoadGeometryFileIGS',['../group__Geometry.html#gaaa18e14e95262340034d0b41f2ebc075',1,'Bembel']]],
+  ['localoperatorbase_126',['LocalOperatorBase',['../structBembel_1_1LocalOperatorBase.html',1,'Bembel']]],
+  ['logger_127',['Logger',['../classBembel_1_1IO_1_1Logger.html',1,'Bembel::IO']]]
 ];
