@@ -54,5 +54,4 @@ jobs:
     - name: Upload Report
       uses: actions/upload-artifact@v4
       with:
-        name: Coverage Report
         path: coverage-report
