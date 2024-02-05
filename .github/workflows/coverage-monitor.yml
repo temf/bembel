@@ -48,10 +48,11 @@ jobs:
       working-directory: ${{github.workspace}}/build
       shell: bash
       run: |
-        mkdir ../coverage-report
-        gcovr -r ../ -f ../Bembel --html --html-details --output ../coverage-report/coverage.html
+        mkdir ../coverage
+        gcovr -r ../ -f ../Bembel --html --html-details --output ../coverage/report.html
 
     - name: Upload Report
       uses: actions/upload-artifact@v4
       with:
-        path: coverage-report
+        name: report
+        path: coverage
