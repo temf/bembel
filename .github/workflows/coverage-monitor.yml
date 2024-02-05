@@ -1,10 +1,7 @@
 name: Coverage Monitor
 
 on:
-  push:
-    branches: [ "**" ]
-  pull_request:
-    branches: [ "**" ]
+  workflow_call:
 
 permissions:
   contents: write
@@ -14,10 +11,6 @@ env:
 
 jobs:
   coverage-monitor:
-    # The CMake configure and build commands are platform agnostic and should work equally
-    # well on Windows or Mac.  You can convert this to a matrix build if you need
-    # cross-platform coverage.
-    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: ubuntu-latest
 
     steps:
@@ -58,8 +51,8 @@ jobs:
         mkdir ../coverage-report
         gcovr -r ../ -f ../Bembel --html --html-details --output ../coverage-report/coverage.html
 
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
+    - uses: actions/upload-artifact@v4
+    - name: Upload Report
       with:
-        branch: coverage
-        folder: coverage-report
+        name: Coverage Report
+        path: coverage-report

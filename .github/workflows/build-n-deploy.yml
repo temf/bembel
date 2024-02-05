@@ -13,8 +13,11 @@ jobs:
     with:
       target: E2Etests
 
+  coverage-monitor:
+    uses: ./.github/workflows/coverage-monitor.yml
+
   deploy-docs:
-    needs: build-n-test
+    needs: [coverage-monitor, build-n-test]
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
@@ -32,6 +35,11 @@ jobs:
       - name: Creating Documentation
         run: |
           doxygen Doxyfile
+
+      - name: Download Coverage Report
+        uses: actions/download-artifact@v4
+        with:
+          path: coverage-report
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
