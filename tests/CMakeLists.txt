@@ -7,6 +7,7 @@ set(UNITTESTS
 		test_FMMTransferMatrices
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
+		test_Laplace
 		test_DuffyTrick
 		)
 
