@@ -8,6 +8,7 @@ set(UNITTESTS
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
 		test_Laplace
+		test_Helmholtz
 		test_DuffyTrick
 		)
 
