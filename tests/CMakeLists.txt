@@ -22,6 +22,7 @@ endforeach()
 enable_testing()
 
 add_subdirectory(examples_as_unittests)
+set(EXAMPLES_CACHE ${EXAMPLES} CACHE INTERNAL "My set")
 
 add_custom_target(unittests)
-add_dependencies(unittests ${UNITTESTS} ${EXAMPLES})
+add_dependencies(unittests ${UNITTESTS} ${EXAMPLES_CACHE})

@@ -7,6 +7,7 @@ set(EXAMPLES
     test_HelmholtzSingleLayerH2
 		test_MaxwellSingleLayerFull
     test_MaxwellSingleLayerH2
+    CACHE INTERNAL "Examples as Unittests"
 		)
 
 foreach(file IN LISTS EXAMPLES)
