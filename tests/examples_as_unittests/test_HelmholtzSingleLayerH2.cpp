@@ -16,8 +16,8 @@
 #include <Bembel/IO>
 #include <Bembel/LinearForm>
 #include <Eigen/Dense>
-#include <iostream>
 #include <unsupported/Eigen/IterativeSolvers>
+#include <iostream>
 
 #include "examples/Data.hpp"
 #include "examples/Error.hpp"
