@@ -2,6 +2,7 @@ configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ C
 
 set(EXAMPLES
     test_MassMatrix
+    test_LaplaceSingleLayerH2
 		test_MaxwellSingleLayerFull
 		)
 
