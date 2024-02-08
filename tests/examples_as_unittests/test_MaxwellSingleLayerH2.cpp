@@ -30,7 +30,7 @@ int main() {
   Bembel::IO::Stopwatch sw;
 
   int polynomial_degree = 1;
-  int refinement_level = 0;
+  int refinement_level = 2;
   std::complex<double> wavenumber(2., 0.);
 
   // Load geometry from file "sphere.dat", which must be placed in the same
