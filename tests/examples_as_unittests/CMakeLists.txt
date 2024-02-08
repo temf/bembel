@@ -1,6 +1,7 @@
 configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
 set(EXAMPLES
+    test_MassMatrix
 		test_MaxwellSingleLayerFull
 		)
 
