@@ -190,5 +190,48 @@ void WritePatch(const std::string &file_name, int current_patch_number,
   file.close();
 }
 
+void WriteDATFile(const std::vector<Patch> &Geometry,
+                  const std::string &file_name) {
+  const int number_of_patches = Geometry.size();
+  MakeFile(file_name, number_of_patches);
+
+  int patch_count = 0;
+  for (auto &patch : Geometry) {
+    assert(patch.unique_knots_x_.size() == 2 &&
+           "I assume 0 and 1 as unique knots!");
+    assert(patch.unique_knots_y_.size() == 2 &&
+           "I assume 0 and 1 as unique knots!");
+
+    const int polynomial_degree_x = patch.polynomial_degree_x_;
+    const int polynomial_degree_y = patch.polynomial_degree_y_;
+
+    std::vector<double> knt_x(2 * polynomial_degree_x, 1.0);
+    std::vector<double> knt_y(2 * polynomial_degree_y, 1.0);
+    for (auto i = 0; i < polynomial_degree_x; ++i) knt_x[i] = 0.0;
+    for (auto i = 0; i < polynomial_degree_y; ++i) knt_y[i] = 0.0;
+
+    const int number_of_points_x = knt_x.size() - polynomial_degree_x;
+    const int number_of_points_y = knt_y.size() - polynomial_degree_y;
+
+    std::vector<Eigen::MatrixXd> data(
+        4, Eigen::MatrixXd::Zero(number_of_points_y, number_of_points_x));
+
+    const int matrix_size = number_of_points_x * number_of_points_y;
+    for (auto i = 0; i < matrix_size; ++i) {
+      const int rowIndex = i % number_of_points_y;
+      const int colIndex = i / number_of_points_y;
+      data[0](rowIndex, colIndex) = patch.data_[4 * i];
+      data[1](rowIndex, colIndex) = patch.data_[4 * i + 1];
+      data[2](rowIndex, colIndex) = patch.data_[4 * i + 2];
+      data[3](rowIndex, colIndex) = patch.data_[4 * i + 3];
+    }
+
+    WritePatch(file_name, patch_count, data, knt_x, knt_y);
+    ++patch_count;
+  }
+
+  return;
+}
+
 }  // namespace Bembel
 #endif  // BEMBEL_SRC_GEOMETRY_GEOMETRYIO_HPP_

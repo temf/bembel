@@ -1,6 +1,7 @@
 set(UNITTESTS
 		test_GeometryImportAndEval
 		test_GeometryIGS
+		test_GeometryIO
 		test_Bezierextraction
 		test_SurfacePointUpdate
 		test_Projector
@@ -10,7 +11,7 @@ set(UNITTESTS
 		test_FMMBackwardTransformation
 		test_Laplace
 		test_Helmholtz
-		# test_DuffyTrick
+		test_DuffyTrick
 		)
 
 foreach(file IN LISTS UNITTESTS)
