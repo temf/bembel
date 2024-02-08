@@ -21,5 +21,7 @@ endforeach()
 
 enable_testing()
 
+add_subdirectory(examples_as_unittests)
+
 add_custom_target(unittests)
-add_dependencies(unittests ${UNITTESTS})
+add_dependencies(unittests ${UNITTESTS} ${EXAMPLES})
