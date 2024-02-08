@@ -6,6 +6,7 @@ set(EXAMPLES
     test_LaplaceSingleLayerH2
     test_HelmholtzSingleLayerH2
 		test_MaxwellSingleLayerFull
+    test_MaxwellSingleLayerH2
 		)
 
 foreach(file IN LISTS EXAMPLES)
