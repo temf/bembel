@@ -4,6 +4,7 @@ set(EXAMPLES
     test_MassMatrix
     test_LaplaceBeltrami
     test_LaplaceSingleLayerH2
+    test_HelmholtzSingleLayerH2
 		test_MaxwellSingleLayerFull
 		)
 
