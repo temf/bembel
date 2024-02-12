@@ -4,6 +4,7 @@ set(UNITTESTS
 		test_GeometryIO
 		test_Bezierextraction
 		test_SurfacePointUpdate
+		test_Spline
 		test_Projector
 		test_Glue
 		test_FMMTransferMatrices

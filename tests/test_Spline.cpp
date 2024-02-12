@@ -17,10 +17,12 @@ int main() {
   using namespace Bembel;
 
   // We test the Bernstein Basis of the BasisHandler against the deBoor code
-  for (int p = 0; p < 18; ++p) {
+  for (int p = 0; p < Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       Eigen::VectorXd result1 = Eigen::VectorXd::Zero(p + 1);
+      Eigen::VectorXcd result1_complex = Eigen::VectorXcd::Zero(p + 1);
       Basis::BasisHandler<double>::phi(p, &result1, 1, x);
+      Basis::BasisHandler<std::complex<double>>::phi(p, &result1_complex, 1, x);
 
       Eigen::VectorXd result2 = Eigen::VectorXd::Zero(p + 1);
       Eigen::MatrixXd coef = Eigen::VectorXd::Zero(p + 1).transpose();
@@ -32,14 +34,19 @@ int main() {
       }
       BEMBEL_TEST_IF((result1 - result2).norm() <
                      Test::Constants::coefficient_accuracy);
+      BEMBEL_TEST_IF((result1_complex - result2).norm() <
+                     Test::Constants::coefficient_accuracy);
     }
   }
 
   // Now, we do the same for the derivatives
-  for (int p = 1; p < 18; ++p) {
+  for (int p = 1; p < Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       Eigen::VectorXd result1 = Eigen::VectorXd::Zero(p + 1);
+      Eigen::VectorXcd result1_complex = Eigen::VectorXcd::Zero(p + 1);
       Basis::BasisHandler<double>::phiDx(p, &result1, 1, x);
+      Basis::BasisHandler<std::complex<double>>::phiDx(p, &result1_complex, 1,
+                                                       x);
 
       Eigen::VectorXd result2 = Eigen::VectorXd::Zero(p + 1);
       Eigen::MatrixXd coef = Eigen::VectorXd::Zero(p + 1).transpose();
