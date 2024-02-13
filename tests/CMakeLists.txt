@@ -7,6 +7,7 @@ set(UNITTESTS
 		test_Spline
 		test_Projector
 		test_Glue
+		test_TangentialTrace
 		test_FMMTransferMatrices
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
