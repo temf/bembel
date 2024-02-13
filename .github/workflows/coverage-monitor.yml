@@ -51,6 +51,14 @@ jobs:
         mkdir ../coverage
         gcovr -r ../ -f ../Bembel --html --html-details --output ../coverage/report.html
 
+    - name: Create Coverage Badge
+      working-directory: ${{github.workspace}}/build
+      shell: bash
+      run: |
+        npm install -g badge-maker
+        gcovr -r ../ -f ../Bembel > coverage.txt
+        badge coverage "$(cat coverage.txt | grep "TOTAL" | awk '{print $(NF-0)}')" :green > ../coverage/coverage.svg
+
     - name: Upload Report
       uses: actions/upload-artifact@v4
       with:
