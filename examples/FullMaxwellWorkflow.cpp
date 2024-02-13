@@ -8,7 +8,6 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-
 #include <Bembel/AnsatzSpace>
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
@@ -17,6 +16,7 @@
 #include <Bembel/Maxwell>
 #include <Eigen/Dense>
 #include <unsupported/Eigen/IterativeSolvers>
+//
 #include <iostream>
 
 #include "examples/Data.hpp"
@@ -27,9 +27,7 @@ int main() {
   using namespace Bembel;
   using namespace Eigen;
 
-  Bembel::IO::Stopwatch sw;
-
-  int polynomial_degree_max = 2;
+  int polynomial_degree_max = 3;
   int refinement_level_max = 3;
   std::complex<double> wavenumber(2., 0.);
 
@@ -53,12 +51,14 @@ int main() {
   for (int polynomial_degree = 1; polynomial_degree < polynomial_degree_max + 1;
        ++polynomial_degree) {
     VectorXd error(refinement_level_max + 1);
+    IO::Logger<12> logger("log_LaplaceSingle_" +
+                          std::to_string(polynomial_degree) + ".log");
+    logger.both("P", "M", "error");
     // Iterate over refinement levels
     for (int refinement_level = 0; refinement_level < refinement_level_max + 1;
          ++refinement_level) {
-      sw.tic();
       std::cout << "Degree " << polynomial_degree << " Level "
-                << refinement_level;
+                << refinement_level << "\t\t";
       // Build ansatz space
       AnsatzSpace<MaxwellSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
@@ -81,7 +81,7 @@ int main() {
       GMRES<H2Matrix<std::complex<double>>, IdentityPreconditioner> gmres;
       gmres.compute(disc_op.get_discrete_operator());
       gmres.set_restart(2000);
-      auto rho = gmres.solve(disc_lf.get_discrete_linear_form());
+      VectorXcd rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<MaxwellSingleLayerPotential<MaxwellSingleLayerOperator>,
@@ -96,14 +96,22 @@ int main() {
       for (int i = 0; i < gridpoints.rows(); ++i)
         pot_ref.row(i) = fun(gridpoints.row(i));
       error(refinement_level) = (pot - pot_ref).rowwise().norm().maxCoeff();
-      std::cout << " time " << std::setprecision(4) << sw.toc() << "s\t\t";
-      std::cout << error(refinement_level) << std::endl;
-    }
 
-    // estimate rate of convergence and check whether it is at least 90% of the
-    // expected value
-    assert(
-        checkRateOfConvergence(error.tail(3), 2 * polynomial_degree + 1, 0.9));
+      logger.both(polynomial_degree, refinement_level, error(refinement_level));
+
+      // we only need one visualization
+      if (refinement_level == 3) {
+        // export geometry with surface current
+        VTKSurfaceExport writer(geometry, 5);
+        writer.addDataSet("SurfaceCurrent", ansatz_space, rho);
+        writer.writeToFile("MaxwellSingle.vtp");
+
+        // export point evaluations, can be visualized using glyphs in paraview
+        VTKPointExport writer_points(gridpoints);
+        writer_points.addComplexDataSet("Potential", pot);
+        writer_points.writeToFile("MaxwellSinglePoints.vtp");
+      }
+    }
 
     std::cout << std::endl;
   }

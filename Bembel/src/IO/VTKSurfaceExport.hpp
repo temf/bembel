@@ -14,17 +14,20 @@
 
 namespace Bembel {
 
-// This class provides the possibilty to generate a vtk-visualization.
+/**
+ * \ingroup IO
+ * \brief Provides export routines from functions on geometries to the VTK file
+ * format.
+ *
+ * One can add data to visualize via the addDataSet methods.
+ */
 class VTKSurfaceExport {
  public:
   /**
-   * \ingroup IO
-   * \brief Provides export routines to the VTK file format.
-   *
    * The constructor wants a geometetry and a refinement level. This choice is
    * deliberately not a mesh, since the visualization will often be on a finer
    * mesh then that of a computation.
-   **/
+   */
   VTKSurfaceExport(const Geometry& geo, int M) {
     init_VTKSurfaceExport(geo, M);
   }
@@ -48,61 +51,119 @@ class VTKSurfaceExport {
     }
     return;
   }
-  // One can add data to visualize via the addDataSet methods. They accept a
-  // std::function object of different types, and generate the data needed for
-  // the vtk file. Allowed formats are:
-  // std::function<double(int, Eigen::Vector2d)>& fun)
-  // std::function<Eigen::Vector3d(int, Eigen::Vector2d)>
-  // std::function<double(Eigen::Vector3d)>
-  // std::function<Eigen::Vector3d(Eigen::Vector3d)>
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(
       const std::string& name,
       std::function<double(int, const Eigen::Vector2d&)> fun) {
-    Eigen::MatrixXd data(cells.rows(), 1);
-    for (auto e = msh.get_element_tree().cpbegin();
-         e != msh.get_element_tree().cpend(); ++e) {
-      data(e->id_) = fun(e->patch_, e->referenceMidpoint());
-    }
-    addDataSet_(name, data);
+    addDataSet_(name, getData_<double>(fun));
     return;
   }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
+  inline void addDataSet(
+      const std::string& name,
+      std::function<std::complex<double>(int, const Eigen::Vector2d&)> fun) {
+    Eigen::VectorXcd data = getData_<std::complex<double>>(fun);
+    addDataSet_(name + std::string("_real"), data.real());
+    addDataSet_(name + std::string("_imag"), data.imag());
+    return;
+  }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(
       const std::string& name,
       std::function<Eigen::Vector3d(int, const Eigen::Vector2d&)> fun) {
-    Eigen::MatrixXd data(cells.rows(), 3);
-    int k = 0;
-    for (auto e = msh.get_element_tree().cpbegin();
-         e != msh.get_element_tree().cpend(); ++e) {
-      data.row(e->id_) = fun(e->patch_, e->referenceMidpoint()).transpose();
-    }
-    addDataSet_(name, data);
+    addDataSet_(name, getData_<double, 3>(fun));
     return;
   }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
+  inline void addDataSet(
+      const std::string& name,
+      std::function<Eigen::Vector3cd(int, const Eigen::Vector2d&)> fun) {
+    Eigen::MatrixXcd data = getData_<std::complex<double>, 3>(fun);
+    addDataSet_(name + std::string("_real"), data.real());
+    addDataSet_(name + std::string("_imag"), data.imag());
+    return;
+  }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(
       const std::string& name,
       std::function<Eigen::Vector3d(const Eigen::Vector3d&)> fun) {
-    Eigen::MatrixXd data(cells.rows(), 3);
-    for (auto e = msh.get_element_tree().cpbegin();
-         e != msh.get_element_tree().cpend(); ++e) {
-      data.row(e->id_) =
-          fun(msh.get_geometry()[e->patch_].eval(e->referenceMidpoint()))
-              .transpose();
-    }
-    addDataSet_(name, data);
+    addDataSet_(name, getData_<double, 3>(fun));
     return;
   }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
+  inline void addDataSet(
+      const std::string& name,
+      std::function<Eigen::Vector3cd(const Eigen::Vector3d&)> fun) {
+    Eigen::MatrixXcd data = getData_<std::complex<double>, 3>(fun);
+    addDataSet_(name + std::string("_real"), data.real());
+    addDataSet_(name + std::string("_imag"), data.imag());
+    return;
+  }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
   inline void addDataSet(const std::string& name,
                          std::function<double(const Eigen::Vector3d&)> fun) {
-    Eigen::MatrixXd data(cells.rows(), 1);
-    for (auto e = msh.get_element_tree().cpbegin();
-         e != msh.get_element_tree().cpend(); ++e) {
-      data(e->id_) =
-          fun(msh.get_geometry()[e->patch_].eval(e->referenceMidpoint()));
-    }
-    addDataSet_(name, data);
+    addDataSet_(name, getData_<double>(fun));
+    return;
+  }
+  /**
+   * \brief Add a function of the given type to the visualization.
+   */
+  inline void addDataSet(
+      const std::string& name,
+      std::function<std::complex<double>(const Eigen::Vector3d&)> fun) {
+    Eigen::VectorXcd data = getData_<std::complex<double>>(fun);
+    addDataSet_(name + std::string("_real"), data.real());
+    addDataSet_(name + std::string("_imag"), data.imag());
+    return;
+  }
+  /**
+   * \brief Add a function given through coefficients of an AnsatzSpace to the
+   * visualization.
+   */
+  template <typename LinOp>
+  inline void addDataSet(
+      const std::string& name, const AnsatzSpace<LinOp>& ansatz_space,
+      const Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar,
+                          Eigen::Dynamic, Eigen::Dynamic>& coefficients) {
+    // Initialize FunctionEvaluator
+    FunctionEvaluator<LinOp> evaluator(ansatz_space);
+    evaluator.set_function(coefficients);
+
+    // Define function for FunctionEvaluator
+    typedef typename DifferentialFormTraits<
+        LinearOperatorTraits<LinOp>::Form,
+        typename LinearOperatorTraits<LinOp>::Scalar>::FunctionSpaceValue
+        ReturnType;
+    constexpr int dimension =
+        DifferentialFormTraits<LinearOperatorTraits<LinOp>::Form,
+                               typename LinearOperatorTraits<LinOp>::Scalar>::
+            FunctionSpaceOutputDimension;
+    std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
+        getEvaluatorFunction_<LinOp, dimension>::get(evaluator);
+
+    // Define function for FunctionEvaluator
+    addDataSet(name, fun);
+
     return;
   }
 
+  /**
+   * \brief Write geometry with passed visualization data to file.
+   */
   inline void writeToFile(const std::string& filename) {
     std::ofstream output;
     output.open(filename);
@@ -183,6 +244,101 @@ class VTKSurfaceExport {
     data_ascii.append("</DataArray>\n");
     additionalData.push_back(data_ascii);
   }
+
+  // generate data for functions living in spatial domains
+  template <typename Scalar, int dim>
+  inline Eigen::Matrix<Scalar, Eigen::Dynamic, dim> getData_(
+      const std::function<
+          Eigen::Matrix<Scalar, dim, 1>(const Eigen::Vector3d&)>& fun) {
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> data(cells.rows(),
+                                                               dim);
+    int k = 0;
+    for (auto e = msh.get_element_tree().cpbegin();
+         e != msh.get_element_tree().cpend(); ++e) {
+      data.row(e->id_) =
+          fun(msh.get_geometry()[e->patch_].eval(e->referenceMidpoint()))
+              .transpose();
+    }
+    return data;
+  }
+  template <typename Scalar>
+  inline Eigen::Matrix<Scalar, Eigen::Dynamic, 1> getData_(
+      std::function<Scalar(const Eigen::Vector3d&)>& fun) {
+    Eigen::Matrix<Scalar, Eigen::Dynamic, 1> data(cells.rows());
+    int k = 0;
+    for (auto e = msh.get_element_tree().cpbegin();
+         e != msh.get_element_tree().cpend(); ++e) {
+      data(e->id_) =
+          fun(msh.get_geometry()[e->patch_].eval(e->referenceMidpoint()));
+    }
+    return data;
+  }
+
+  // generate data for functions living on patches
+  template <typename Scalar, int dim>
+  inline Eigen::Matrix<Scalar, Eigen::Dynamic, dim> getData_(
+      const std::function<
+          Eigen::Matrix<Scalar, dim, 1>(int, const Eigen::Vector2d&)>& fun) {
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> data(cells.rows(),
+                                                               dim);
+    int k = 0;
+    for (auto e = msh.get_element_tree().cpbegin();
+         e != msh.get_element_tree().cpend(); ++e) {
+      data.row(e->id_) = fun(e->patch_, e->referenceMidpoint()).transpose();
+    }
+    return data;
+  }
+  template <typename Scalar>
+  inline Eigen::Matrix<Scalar, Eigen::Dynamic, 1> getData_(
+      std::function<Scalar(int, const Eigen::Vector2d&)>& fun) {
+    Eigen::Matrix<Scalar, Eigen::Dynamic, 1> data(cells.rows());
+    int k = 0;
+    for (auto e = msh.get_element_tree().cpbegin();
+         e != msh.get_element_tree().cpend(); ++e) {
+      data(e->id_) = fun(e->patch_, e->referenceMidpoint());
+    }
+    return data;
+  }
+
+  // helper function for FunctionEvaluator based output
+  // template <typename LinOp, typename ReturnType>
+  template <typename LinOp, int size>
+  struct getEvaluatorFunction_ {
+    static std::function<
+        Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar, size, 1>(
+            int, const Eigen::Vector2d&)>
+    get(const FunctionEvaluator<LinOp>& evaluator) {
+      typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
+      typedef
+          typename Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar,
+                                 size, 1>
+              ReturnType;
+      std::function<ReturnType(int, const Eigen::Vector2d&)> fun =
+          [&](int patch_number, const Eigen::Vector2d& reference_domain_point) {
+            return evaluator.evaluateOnPatch(patch_number,
+                                             reference_domain_point);
+          };
+      return fun;
+    }
+  };
+  template <typename LinOp>
+  struct getEvaluatorFunction_<LinOp, 1> {
+    static std::function<typename LinearOperatorTraits<LinOp>::Scalar(
+        int, const Eigen::Vector2d&)>
+    get(const FunctionEvaluator<LinOp>& evaluator) {
+      typedef typename LinearOperatorTraits<LinOp>::Scalar Scalar;
+      std::function<typename DifferentialFormTraits<
+          LinearOperatorTraits<LinOp>::Form,
+          typename LinearOperatorTraits<LinOp>::Scalar>::
+                        FunctionSpaceValue(int, const Eigen::Vector2d&)>
+          fun = [&](int patch_number,
+                    const Eigen::Vector2d& reference_domain_point) {
+            return evaluator.evaluateOnPatch(patch_number,
+                                             reference_domain_point)(0);
+          };
+      return fun;
+    }
+  };
 
   ClusterTree msh;
   Eigen::MatrixXd points;

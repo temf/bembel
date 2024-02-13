@@ -36,9 +36,9 @@ int main() {
   // directory as the executable
   Geometry geometry("sphere.dat");
 
-  // Define evaluation points for scattered field, sphere of radius 2, 10*10
-  // points.
-  MatrixXd gridpoints = Util::makeSphereGrid(2., 10);
+  // Define evaluation points for scattered field, sphere of radius 2, 100
+  // equispaced points.
+  MatrixXd gridpoints = Util::makeSphereGrid(2., 100);
 
   // Define analytical solution using lambda function, in this case the
   // Helmholtz fundamental solution centered on 0, see Data.hpp
@@ -49,7 +49,7 @@ int main() {
       };
 
   std::cout << "\n" << std::string(60, '=') << "\n";
-  // Iterate over polynomial degree.
+  // Iterate over polynomial degree
   for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
        ++polynomial_degree) {
     VectorXd error(refinement_level_max + 1);

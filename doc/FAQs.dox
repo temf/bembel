@@ -1,0 +1,56 @@
+/**
+\page FAQs Frequently Asked Questions
+
+\section FAQStyleGuide Style Guide
+
+\subsection FAQFormatting How do I format my code with clang-format?
+
+Since [clang-format](https://clang.llvm.org/docs/ClangFormat.html) can not handle recursive file search one need a manual file search and use this as input.
+
+<pre><code>$ find Bembel/ -iname *.hpp | xargs clang-format -style=google -i
+</code></pre>
+
+This command searches in the directory `Bembel/` for all files with ending `.hpp` and applies inline formatting according to the Google style guide.
+
+---
+\subsection FAQNaming Where do I find naming rules?
+
+On the one hand, an attempt can be made to imitate the local style of the existing code (this is a good guideline, no matter which project you are
+contributing to).
+In doubt, specific rules can also be found in the style guide:\n
+[https://google.github.io/styleguide/cppguide.html#Naming](https://google.github.io/styleguide/cppguide.html#Naming).
+
+---
+\section FAQGitWorkflow Git Workflow
+
+\subsection FAQFeatureBranches Where do I find more information about feature branches?
+
+We decided to follow the mainline integration pattern by Martin Fowler.
+Additional information can be found here:\n
+[1] [https://martinfowler.com/articles/branching-patterns.html#mainline-integration](https://martinfowler.com/articles/branching-patterns.html#mainline-integration)\n
+[2] [https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
+
+---
+\subsection FAQDependentFeatures What if I need other features?
+
+If your features depends on other features you can merge them into your branch.
+By doing this use a special flag
+
+<pre><code>$ git merge --no-ff FeatureA
+</code></pre>
+
+This flag allows to trace individual branches in the commit history.
+
+---
+\subsection FAQCommitMessages Why good commit messages matter?
+
+It is all about communicating with others about changes.
+Consider the following example:
+A change breaks down another feature of the code and it is necessary to trace back what have been changed.
+Small commits with informative commit messages significantly simplify the search for errors and possible reverts of changes.\n
+Further information may be found here:\n
+[https://cbea.ms/git-commit/](https://cbea.ms/git-commit/)
+
+---
+
+*/

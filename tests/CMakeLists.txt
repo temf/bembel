@@ -1,5 +1,6 @@
 set(UNITTESTS
 		test_GeometryImportAndEval
+		test_GeometryIGS
 		test_SurfacePointUpdate
 		test_Projector
 		test_Glue
