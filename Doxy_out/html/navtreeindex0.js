@@ -61,6 +61,7 @@ var NAVTREEINDEX0 =
 "classBembel_1_1Projector.html#a3bf72a255d274bb53d48ab122e0fdc47":[0,0,0,3,2],
 "classBembel_1_1Projector.html#a77c9379585d6bffdd544028cc670fa4c":[0,0,0,3,1],
 "classBembel_1_1RotatedTangentialTrace.html":[4,0,35],
+"classBembel_1_1TangentialTrace.html":[4,0,38],
 "classBembel_1_1VTKSurfaceExport.html":[0,0,6,2],
 "classBembel_1_1VTKSurfaceExport.html#a12509899eb072a07e584a7d9f820b0f0":[0,0,6,2,7],
 "classBembel_1_1VTKSurfaceExport.html#a3d404f7d706a4fa9c7d3abf3e8ab3db6":[0,0,6,2,10],

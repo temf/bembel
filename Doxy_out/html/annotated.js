@@ -52,6 +52,7 @@ var annotated =
       [ "RotatedTangentialTrace", "classBembel_1_1RotatedTangentialTrace.html", null ],
       [ "static_assertKlessseqN", "structBembel_1_1static__assertKlessseqN.html", null ],
       [ "SuperSpace", "structBembel_1_1SuperSpace.html", "structBembel_1_1SuperSpace" ],
+      [ "TangentialTrace", "classBembel_1_1TangentialTrace.html", null ],
       [ "TensorProductQuadratureVector", "structBembel_1_1TensorProductQuadratureVector.html", null ],
       [ "TensorProductQuadratureVector< QuadratureRule, 0 >", "structBembel_1_1TensorProductQuadratureVector_3_01QuadratureRule_00_010_01_4.html", null ],
       [ "VTKSurfaceExport", "classBembel_1_1VTKSurfaceExport.html", "classBembel_1_1VTKSurfaceExport" ]

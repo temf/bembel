@@ -4,6 +4,7 @@ set(UNITTESTS
 		test_SurfacePointUpdate
 		test_Projector
 		test_Glue
+		test_TangentialTrace
 		test_FMMTransferMatrices
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
