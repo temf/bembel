@@ -31,9 +31,9 @@ int main() {
   using Eigen::VectorXd;
   using Eigen::MatrixXd;
 
-  // Load geometry from file "sphere.dat", which must be placed in the same
+  // Load geometry from file "cube_small.dat", which must be placed in the same
   // directory as the executable
-  Bembel::Geometry geometry("../geo/cube_small.dat");
+  Bembel::Geometry geometry("cube_small.dat");
 
   // Define evaluation points for potential field, a tensor product grid of
   // 10*10*10 points in [0, 0.25]^3
