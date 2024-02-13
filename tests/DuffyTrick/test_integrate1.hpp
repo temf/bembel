@@ -20,7 +20,7 @@ bool test_integrate1(const Bembel::AnsatzSpace<Derived> &ansatz_space,
                      const Bembel::LinearOperatorBase<Derived> &linOp) {
   Bembel::GaussSquare<maxqdeg + 1> GS;
   auto Q = GS[maxqdeg];
-  Eigen::MatrixXd ffield_qnodes(0, 0);
+  ElementSurfacePoints ffield_qnodes;
   Eigen::MatrixXd intval;
   Eigen::MatrixXd axis;
   intval.resize(1, 1);
@@ -38,7 +38,8 @@ bool test_integrate1(const Bembel::AnsatzSpace<Derived> &ansatz_space,
       intval.setZero();
       error = 0;
       Bembel::DuffyTrick::integrate1(linOp, ansatz_space.get_superspace(), *it,
-                                     0, *it2, 0, ffield_qnodes, Q, &intval);
+                                     0, *it2, 0, ffield_qnodes, ffield_qnodes,
+                                     Q, &intval);
       axis.col(0) << it->llc_(0), it->llc_(0) + h;
       axis.col(1) << it->llc_(1), it->llc_(1) + h;
       axis.col(2) << it2->llc_(0), it2->llc_(0) + h;

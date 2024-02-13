@@ -209,7 +209,7 @@ class Patch {
 
   // This is a combination of eval und evalJacobian, to avoid duplication of
   // work. See SurfacePoint.hpp
-  void updateSurfacePoint(Eigen::Matrix<double, 12, 1> *srf_pt,
+  void updateSurfacePoint(SurfacePoint *srf_pt,
                           const Eigen::Vector2d &ref_pt, double w,
                           const Eigen::Vector2d &xi) const {
     const int x_location =

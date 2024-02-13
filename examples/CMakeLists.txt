@@ -11,6 +11,8 @@ set(CIFILES
     AnsatzSpace
     BlockClusterTree
     Geometry
+    MassMatrix
+    LaplaceBeltrami
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
     HelmholtzSingleLayerFull
@@ -40,6 +42,7 @@ set(NOCIFILES
     VTKSurfaceExport
     VTKDomainExport
     FullLaplaceWorkflow
+    FullMaxwellWorkflow
     )
 
   foreach(file IN LISTS NOCIFILES)

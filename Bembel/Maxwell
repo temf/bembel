@@ -12,6 +12,12 @@
 #ifndef BEMBEL_MAXWELLOPERATOR_MODULE_
 #define BEMBEL_MAXWELLOPERATOR_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup Maxwell Maxwell
+ *  \brief The Maxwell module provides specializations to solve Maxwell problems
+ **/
+
 #include <functional>
 
 #include <Eigen/Dense>

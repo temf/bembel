@@ -12,6 +12,13 @@
 #ifndef BEMBEL_LINEARFORM_MODULE_
 #define BEMBEL_LINEARFORM_MODULE_
 
+/**
+ *  \ingroup Modules
+ *  \defgroup LinearForm LinearForm
+ *  \brief The LinearForm template class must be specialized for the assembly of
+ *the right hand side.
+ **/
+
 #include "Quadrature"
 
 #include "src/LinearForm/LinearForm.hpp"

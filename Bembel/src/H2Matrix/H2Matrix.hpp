@@ -134,7 +134,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
     Bembel::GaussSquare<Bembel::Constants::maximum_quadrature_degree> GS;
     auto super_space = ansatz_space.get_superspace();
     auto ffield_deg = linOp.get_FarfieldQuadratureDegree(polynomial_degree);
-    auto ffield_qnodes =
+    std::vector<ElementSurfacePoints> ffield_qnodes =
         Bembel::DuffyTrick::computeFfieldQnodes(super_space, GS[ffield_deg]);
     const int NumberOfFMMComponents =
         Bembel::LinearOperatorTraits<Derived>::NumberOfFMMComponents;
@@ -186,7 +186,8 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
                     // do integration
                     Bembel::DuffyTrick::evaluateBilinearForm(
                         linOp, super_space, element1, element2, GS,
-                        ffield_qnodes, &intval);
+                        ffield_qnodes[element1.id_],
+                        ffield_qnodes[element2.id_], &intval);
                     // insert into dense matrices of all block cluster trees
                     for (int i = 0; i < vector_dimension; ++i)
                       for (int j = 0; j < vector_dimension; ++j)
