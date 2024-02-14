@@ -40,9 +40,9 @@ int main() {
 
   // Define evaluation points for potential field, a tensor product grid of
   // 10*10*10 points in [0, 0.25]^3
-  MatrixXd gridpoints = Bembel::Util::makeTensorProductGrid(
-      VectorXd::LinSpaced(10, 0.05, 0.20), VectorXd::LinSpaced(10, 0.05, 0.20),
-      VectorXd::LinSpaced(10, 0.05, 0.20));
+  Eigen::MatrixXd gridpoints = Bembel::Util::makeTensorProductGrid(
+      VectorXd::LinSpaced(10, 0.11, 0.14), VectorXd::LinSpaced(10, 0.11, 0.14),
+      VectorXd::LinSpaced(10, 0.11, 0.14));
 
   // Define analytical solution using lambda function, in this case a harmonic
   // function, see Data.hpp
