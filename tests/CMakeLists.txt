@@ -5,6 +5,7 @@ set(UNITTESTS
 		test_Bezierextraction
 		test_SurfacePointUpdate
 		test_Spline
+		test_Bernstein
 		test_Projector
 		test_Glue
 		test_TangentialTrace
