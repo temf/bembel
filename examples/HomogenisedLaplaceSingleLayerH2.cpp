@@ -60,8 +60,8 @@ int main() {
   // Iterate over polynomial degree.
   for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
       polynomial_degree++) {
-    // Iterate over refinement levels
     VectorXd error(refinement_level_max + 1);
+    // Iterate over refinement levels
     for (int refinement_level = 0; refinement_level < refinement_level_max + 1;
         refinement_level++) {
       std::cout << "Degree " << polynomial_degree << " Level "
@@ -97,14 +97,14 @@ int main() {
 
       // print error
       error(refinement_level) = Bembel::maxPointwiseError<double>(pot,
-        gridpoints, fun);
+          gridpoints, fun);
       std::cout << error(refinement_level) << std::endl;
     }
 
     // estimate the rate of convergence and check whether it is at least
     // 90% of the expected value
     assert(Bembel::checkRateOfConvergence(error.tail(2),
-      2*polynomial_degree + 3, 0.9));
+        2*polynomial_degree + 3, 0.9));
 
     std::cout << std::endl;
   }
