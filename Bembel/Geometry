@@ -13,7 +13,6 @@
 #define BEMBEL_GEOMETRY_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup Geometry Geometry
  *  \brief This module handles all geometry related concerns.
  *
