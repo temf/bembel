@@ -40,6 +40,21 @@ int main() {
     }
   }
 
+  // Now, we do the same for the derivatives
+  for (int p = 1; p < Bembel::Constants::MaxP; ++p) {
+    for (auto x : Test::Constants::eq_points) {
+      double result1 = Basis::ShapeFunctionHandler::evalDerCoef(p, coefs, x);
+
+      std::vector<double> v = {x};
+      double result2 =
+          Spl::DeBoorDer(Eigen::MatrixXd(coefs_vector.leftCols(p + 1)),
+                         Spl::MakeBezierKnotVector(p + 1), v)(0);
+
+      BEMBEL_TEST_IF(std::abs(result1 - result2) <
+                     Test::Constants::coefficient_accuracy);
+    }
+  }
+
   delete[] coefs;
   return 0;
 }
