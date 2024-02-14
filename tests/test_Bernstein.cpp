@@ -26,7 +26,7 @@ int main() {
 
   Eigen::Map<Eigen::MatrixXd> coefs_vector(coefs, 1, P + 1);
 
-  for (int p = 0; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       double result1 = Basis::ShapeFunctionHandler::evalCoef(p, coefs, x);
 
@@ -41,7 +41,7 @@ int main() {
   }
 
   // Now, we do the same for the derivatives
-  for (int p = 1; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 1; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       double result1 = Basis::ShapeFunctionHandler::evalDerCoef(p, coefs, x);
 
