@@ -249,12 +249,68 @@ template&lt;typename Derived &gt; </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac4aa0b663a4af4c45b2d2039e572097a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#ac4aa0b663a4af4c45b2d2039e572097a">calculateFirstCoefficient</a> (Eigen::VectorXd cs, unsigned int deg, Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f, Eigen::MatrixXd ps_b)</td></tr>
+<tr class="memdesc:ac4aa0b663a4af4c45b2d2039e572097a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the first coefficient such that the mean of the kernel vanishes.  <a href="namespaceBembel.html#ac4aa0b663a4af4c45b2d2039e572097a">More...</a><br /></td></tr>
+<tr class="separator:ac4aa0b663a4af4c45b2d2039e572097a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583748b8805c69985b1bdd112bed4a56"><td class="memItemLeft" align="right" valign="top"><a id="a583748b8805c69985b1bdd112bed4a56"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a583748b8805c69985b1bdd112bed4a56">constant</a> (int m, unsigned int n)</td></tr>
+<tr class="memdesc:a583748b8805c69985b1bdd112bed4a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the norming factor of the spherical polynomials <br /></td></tr>
+<tr class="separator:a583748b8805c69985b1bdd112bed4a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6932f556898129252682b4bbf4823f8b"><td class="memItemLeft" align="right" valign="top"><a id="a6932f556898129252682b4bbf4823f8b"></a>
+Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a6932f556898129252682b4bbf4823f8b">Dk_mod</a> (Eigen::Vector3d in)</td></tr>
+<tr class="memdesc:a6932f556898129252682b4bbf4823f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the gradient of the modified kernel \( - \sum_{m \in \{-1, 0, 1\}^3} \frac{x-m}{|x-m|^3} + \frac{x}{3} \). <br /></td></tr>
+<tr class="separator:a6932f556898129252682b4bbf4823f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997d908407f8a4c0b874fcc4c687c9dc"><td class="memItemLeft" align="right" valign="top"><a id="a997d908407f8a4c0b874fcc4c687c9dc"></a>
+Eigen::Matrix&lt; double, 3, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a997d908407f8a4c0b874fcc4c687c9dc">Dsolid_harmonics_full</a> (Eigen::Vector3d x, unsigned int N, Eigen::MatrixXd spherical_val)</td></tr>
+<tr class="memdesc:a997d908407f8a4c0b874fcc4c687c9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates all gradients of the solid harmonics, given the Legendre Coefficients L. <br /></td></tr>
+<tr class="separator:a997d908407f8a4c0b874fcc4c687c9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38bccc29943da2ba8056951ecf04129d"><td class="memItemLeft" align="right" valign="top"><a id="a38bccc29943da2ba8056951ecf04129d"></a>
+Eigen::Matrix&lt; double, 3, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a38bccc29943da2ba8056951ecf04129d">dsolid_spherical_prev</a> (Eigen::Vector3d y, int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im)</td></tr>
+<tr class="memdesc:a38bccc29943da2ba8056951ecf04129d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the derivative of the solid harmonics function \( \phi_n^m \) at the point \( y \) with the spherical values. <br /></td></tr>
+<tr class="separator:a38bccc29943da2ba8056951ecf04129d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebeae9a65184e35201205697138af49b"><td class="memItemLeft" align="right" valign="top"><a id="aebeae9a65184e35201205697138af49b"></a>
+Eigen::Matrix&lt; double, 3, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#aebeae9a65184e35201205697138af49b">dspherical_prev</a> (Eigen::Vector3d x, int m, unsigned int n, Eigen::VectorXd L)</td></tr>
+<tr class="memdesc:aebeae9a65184e35201205697138af49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates \( \nabla Y_m^n(x) \) based on the Legendre Coefficients L. <br /></td></tr>
+<tr class="separator:aebeae9a65184e35201205697138af49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239a9ac3e7ba2cf89e53cc77fd0c9581"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a239a9ac3e7ba2cf89e53cc77fd0c9581">evaluate_dsolid_sphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg)</td></tr>
+<tr class="memdesc:a239a9ac3e7ba2cf89e53cc77fd0c9581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n |x|^{n-3} c_m^n (\nabla Y_m^n)(\frac{x}{|x|}) \) for real coefficients.  <a href="namespaceBembel.html#a239a9ac3e7ba2cf89e53cc77fd0c9581">More...</a><br /></td></tr>
+<tr class="separator:a239a9ac3e7ba2cf89e53cc77fd0c9581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12c19ba24bda56f4c0f1c98c7904526"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#ab12c19ba24bda56f4c0f1c98c7904526">evaluate_dsphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg)</td></tr>
+<tr class="memdesc:ab12c19ba24bda56f4c0f1c98c7904526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n \nabla Y_m^n(x) \) for real coefficients.  <a href="namespaceBembel.html#ab12c19ba24bda56f4c0f1c98c7904526">More...</a><br /></td></tr>
+<tr class="separator:ab12c19ba24bda56f4c0f1c98c7904526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6706b6f0cd21815a1901d3dc1f6c2a6d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d">evaluate_solid_sphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg, bool grad)</td></tr>
+<tr class="memdesc:a6706b6f0cd21815a1901d3dc1f6c2a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n |x|^n c_m^n Y_m^n( \frac{x}{|x|}) \) for real coefficients cs if grad is false, and \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n n |x|^{n-1} c_m^n Y_m^n(\frac{x}{|x|}) \) for real coefficients cs if grad is true.  <a href="namespaceBembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d">More...</a><br /></td></tr>
+<tr class="separator:a6706b6f0cd21815a1901d3dc1f6c2a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2159b56b4c9d2ca4155fddb827381866"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a2159b56b4c9d2ca4155fddb827381866">evaluate_sphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg)</td></tr>
+<tr class="memdesc:a2159b56b4c9d2ca4155fddb827381866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n Y_m^n(x) \) for real coefficients, with the convenction that \( Y_{-m}^n := \overline{Y_m^n} \).  <a href="namespaceBembel.html#a2159b56b4c9d2ca4155fddb827381866">More...</a><br /></td></tr>
+<tr class="separator:a2159b56b4c9d2ca4155fddb827381866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ebf2e12945b8344cae3089a46de58e"><td class="memItemLeft" align="right" valign="top"><a id="ad0ebf2e12945b8344cae3089a46de58e"></a>
+Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#ad0ebf2e12945b8344cae3089a46de58e">functionalMatrix</a> (Eigen::Vector3d z)</td></tr>
+<tr class="memdesc:ad0ebf2e12945b8344cae3089a46de58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives \( |z|^3 \) times the Jacobi Matrix of the transformation \( z \mapsto \frac{z}{|z|} \) <br /></td></tr>
+<tr class="separator:ad0ebf2e12945b8344cae3089a46de58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de4db012915c44203a104745baecd63"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a1de4db012915c44203a104745baecd63">getCoefficients</a> (double precision)</td></tr>
+<tr class="memdesc:a1de4db012915c44203a104745baecd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the coefficients for the solid harmonics expansion of the periodic kernel \( k(x) = \sum_{m \in \{-1, 0, 1\}^3} \frac{1}{4 \pi |x-m|} + \frac{|x|^2}{6} + \sum_{n = 0}^{N} \sum_{m = -n}^n c_m^n \phi_n^m(x) \).  <a href="namespaceBembel.html#a1de4db012915c44203a104745baecd63">More...</a><br /></td></tr>
+<tr class="separator:a1de4db012915c44203a104745baecd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51992cce07c8ea2b5d530f4e91769025"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a51992cce07c8ea2b5d530f4e91769025">getDegree</a> (double precision)</td></tr>
+<tr class="memdesc:a51992cce07c8ea2b5d530f4e91769025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the degree of the sphericals expansion given a precision. Can be extended, use even numbers only!  <a href="namespaceBembel.html#a51992cce07c8ea2b5d530f4e91769025">More...</a><br /></td></tr>
+<tr class="separator:a51992cce07c8ea2b5d530f4e91769025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5757d50530bf1fef207bbe3aff7231"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a5d5757d50530bf1fef207bbe3aff7231">getDisplacement</a> (Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f, Eigen::MatrixXd ps_b)</td></tr>
+<tr class="memdesc:a5d5757d50530bf1fef207bbe3aff7231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the right-hand side for the homogenised coefficient calculation.  <a href="namespaceBembel.html#a5d5757d50530bf1fef207bbe3aff7231">More...</a><br /></td></tr>
+<tr class="separator:a5d5757d50530bf1fef207bbe3aff7231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memTemplParams" colspan="2">template&lt;unsigned int DF&gt; </td></tr>
 <tr class="memitem:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a7ded4e643797e9e7f886a0e64ad643a9">getFunctionSpaceOutputDimension</a> ()</td></tr>
 <tr class="separator:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeae05c4d8cf11542222e8ce43f67e715"><td class="memTemplParams" colspan="2">template&lt;unsigned int DF&gt; </td></tr>
 <tr class="memitem:aeae05c4d8cf11542222e8ce43f67e715"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a> ()</td></tr>
 <tr class="separator:aeae05c4d8cf11542222e8ce43f67e715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ce1dde12efc081c0ffbf42b76018f48"><td class="memItemLeft" align="right" valign="top"><a id="a7ce1dde12efc081c0ffbf42b76018f48"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a7ce1dde12efc081c0ffbf42b76018f48">k_mod</a> (Eigen::Vector3d in)</td></tr>
+<tr class="memdesc:a7ce1dde12efc081c0ffbf42b76018f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the modified kernel \( \sum_{m \in \{-1, 0, 1 \}^3} \frac{1}{4 \pi |x-m|} + \frac{|x|^2}{6} \). <br /></td></tr>
+<tr class="separator:a7ce1dde12efc081c0ffbf42b76018f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272b65592bd5c21fea7ff48a082b4f71"><td class="memItemLeft" align="right" valign="top"><a id="a272b65592bd5c21fea7ff48a082b4f71"></a>
+Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a272b65592bd5c21fea7ff48a082b4f71">legendreFull</a> (unsigned int N, double t)</td></tr>
+<tr class="memdesc:a272b65592bd5c21fea7ff48a082b4f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the values of the spherical polynomials \( P_n^m(t) \). <br /></td></tr>
+<tr class="separator:a272b65592bd5c21fea7ff48a082b4f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab6cca6243499deb03e7fb6a7c450870e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">LoadGeometryFileDAT</a> (const std::string &amp;file_name) noexcept</td></tr>
 <tr class="memdesc:gab6cca6243499deb03e7fb6a7c450870e"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consistent  <a href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">More...</a><br /></td></tr>
 <tr class="separator:gab6cca6243499deb03e7fb6a7c450870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,6 +323,17 @@ Functions</h2></td></tr>
 <tr class="memitem:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">makeSection</a> (std::vector&lt; std::string &gt; data, const int linewidth=72)</td></tr>
 <tr class="memdesc:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector of Data in a vector of lines with a specific length.  <a href="group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">More...</a><br /></td></tr>
 <tr class="separator:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bbb376e15f98ecc3cd80dcd5c011959"><td class="memItemLeft" align="right" valign="top"><a id="a4bbb376e15f98ecc3cd80dcd5c011959"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#a4bbb376e15f98ecc3cd80dcd5c011959">pow_int</a> (double x, int n)</td></tr>
+<tr class="memdesc:a4bbb376e15f98ecc3cd80dcd5c011959"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the \( n \)-th power of \( x \) without using pow. <br /></td></tr>
+<tr class="separator:a4bbb376e15f98ecc3cd80dcd5c011959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac471d8ce3c1bed1faa03d1a234b9044d"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, Eigen::Dynamic, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#ac471d8ce3c1bed1faa03d1a234b9044d">spherical_harmonics_full</a> (Eigen::Vector3d x, unsigned int N)</td></tr>
+<tr class="memdesc:ac471d8ce3c1bed1faa03d1a234b9044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the the spherical harmonics \( Y_n^m(\frac{x}{|x|}) \), ordered by \( [Y_0^0, \, Y_1^{-1}, \, Y_1^0, \, Y_1^1, \, Y_2^{-2}, ..., Y_N^N] \).  <a href="namespaceBembel.html#ac471d8ce3c1bed1faa03d1a234b9044d">More...</a><br /></td></tr>
+<tr class="separator:ac471d8ce3c1bed1faa03d1a234b9044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf21aded2538756462f6ea3631dc909"><td class="memItemLeft" align="right" valign="top"><a id="aeaf21aded2538756462f6ea3631dc909"></a>
+Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceBembel.html#aeaf21aded2538756462f6ea3631dc909">spherical_prev</a> (Eigen::Vector3d x, int m, int n, Eigen::Vector2d y1, Eigen::Vector2d y2)</td></tr>
+<tr class="memdesc:aeaf21aded2538756462f6ea3631dc909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the spherical harmonic \( Y_n^m(x) \) based on previous values. <br /></td></tr>
+<tr class="separator:aeaf21aded2538756462f6ea3631dc909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">writeIGSFile</a> (const std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt; &amp;geometry, std::string file_name, const int precision=6)</td></tr>
 <tr class="memdesc:gac59b3f15b6352069bc49b9c3b73e2658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="classBembel_1_1Geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> into an IGES file format.  <a href="group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">More...</a><br /></td></tr>
 <tr class="separator:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -286,6 +353,355 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Routines for the evalutation of pointwise errors. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac4aa0b663a4af4c45b2d2039e572097a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4aa0b663a4af4c45b2d2039e572097a">&#9670;&nbsp;</a></span>calculateFirstCoefficient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Bembel::calculateFirstCoefficient </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::VectorXd&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>deg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>ps_l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>ps_f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>ps_b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the first coefficient such that the mean of the kernel vanishes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cs</td><td>The already calculated other coefficients </td></tr>
+    <tr><td class="paramname">deg</td><td>The degree </td></tr>
+    <tr><td class="paramname">ps_l</td><td>Gauss quadrature points on the left side of the cube </td></tr>
+    <tr><td class="paramname">ps_f</td><td>Gauss quadrature points on the front side of the cube </td></tr>
+    <tr><td class="paramname">ps_b</td><td>Gauss quadrature points on the bottom side of the cube </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a239a9ac3e7ba2cf89e53cc77fd0c9581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239a9ac3e7ba2cf89e53cc77fd0c9581">&#9670;&nbsp;</a></span>evaluate_dsolid_sphericals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d Bembel::evaluate_dsolid_sphericals </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3d&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::VectorXd&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>deg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n |x|^{n-3} c_m^n (\nabla Y_m^n)(\frac{x}{|x|}) \) for real coefficients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The point of evaluation </td></tr>
+    <tr><td class="paramname">cs</td><td>The coefficients stored in the order \( [(0, 0), (1, -1), (1, 0), (1, 1) (2, -2), (2, -1), ... (n, n)] \) </td></tr>
+    <tr><td class="paramname">deg</td><td>The degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab12c19ba24bda56f4c0f1c98c7904526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12c19ba24bda56f4c0f1c98c7904526">&#9670;&nbsp;</a></span>evaluate_dsphericals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3d Bembel::evaluate_dsphericals </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3d&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::VectorXd&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>deg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n \nabla Y_m^n(x) \) for real coefficients. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The point of evaluation, a vector with length 1 </td></tr>
+    <tr><td class="paramname">cs</td><td>The coefficients stored in the order \( [(0, 0), (1, -1), (1, 0), (1, 1) (2, -2), (2, -1), ... (n, n)] \) </td></tr>
+    <tr><td class="paramname">deg</td><td>The degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6706b6f0cd21815a1901d3dc1f6c2a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6706b6f0cd21815a1901d3dc1f6c2a6d">&#9670;&nbsp;</a></span>evaluate_solid_sphericals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Bembel::evaluate_solid_sphericals </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3d&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::VectorXd&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>deg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>grad</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n |x|^n c_m^n Y_m^n( \frac{x}{|x|}) \) for real coefficients cs if grad is false, and \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n n |x|^{n-1} c_m^n Y_m^n(\frac{x}{|x|}) \) for real coefficients cs if grad is true. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The point of evaluation </td></tr>
+    <tr><td class="paramname">cs</td><td>The coefficients stored in the order \( [(0, 0), (1, -1), (1, 0), (1, 1) (2, -2), (2, -1), ... (n, n)] \) </td></tr>
+    <tr><td class="paramname">deg</td><td>The degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2159b56b4c9d2ca4155fddb827381866"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2159b56b4c9d2ca4155fddb827381866">&#9670;&nbsp;</a></span>evaluate_sphericals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Bembel::evaluate_sphericals </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3d&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::VectorXd&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>deg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n Y_m^n(x) \) for real coefficients, with the convenction that \( Y_{-m}^n := \overline{Y_m^n} \). </p>
+<dl class="section see"><dt>See also</dt><dd>K. Giebermann. <em>Schnelle Summationsverfahren zur numerischen Lösung von Integralgleichungen für Streuprobleme im</em> \( \mathbb{R}^3 \). PhD thesis, Universität Karlsruhe (TH), Germany, 1997. </dd>
+<dd>
+R. von Rickenbach. <em>Boundary Element Methods for Shape Optimisation in Homogenisation</em>. MSc thesis, Universität Basel, Switzerland, 2021.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The point of evaluation, a vector with length 1 </td></tr>
+    <tr><td class="paramname">cs</td><td>The coefficients stored in the order \( [(0, 0), (1, -1), (1, 0), (1, 1) (2, -2), (2, -1), ... (n, n)] \) </td></tr>
+    <tr><td class="paramname">deg</td><td>The degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1de4db012915c44203a104745baecd63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de4db012915c44203a104745baecd63">&#9670;&nbsp;</a></span>getCoefficients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXd Bembel::getCoefficients </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>precision</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the coefficients for the solid harmonics expansion of the periodic kernel \( k(x) = \sum_{m \in \{-1, 0, 1\}^3} \frac{1}{4 \pi |x-m|} + \frac{|x|^2}{6} + \sum_{n = 0}^{N} \sum_{m = -n}^n c_m^n \phi_n^m(x) \). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>The desired mean error from periodicity.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>A. Barnett and L. Greengard. A new integral representation for quasi-periodic fields and its application to two-dimensional band structure calculations. <em>Journal of Computational Physics</em>, 229(19):6898&ndash;6914, 2010.</dd>
+<dd>
+P. Cazeaux and O. Zahm. A fast boundary element method for the solution of periodic many-inclusion problems via hierarchical matrix techniques. <em>ESAIM: Proceedings and Surveys</em>, 48:156&ndash;168, 2015.</dd>
+<dd>
+R. von Rickenbach. <em>Boundary Element Methods for Shape Optimisation in Homogenisation</em>. MSc thesis, Universität Basel, 2021. </dd></dl>
+
+</div>
+</div>
+<a id="a51992cce07c8ea2b5d530f4e91769025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51992cce07c8ea2b5d530f4e91769025">&#9670;&nbsp;</a></span>getDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Bembel::getDegree </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>precision</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the degree of the sphericals expansion given a precision. Can be extended, use even numbers only! </p>
+<dl class="section see"><dt>See also</dt><dd>P. Cazeaux and O. Zahm. A fast boundary element method for the solution of periodic many-inclusion problems via hierarchical matrix techniques. <em>ESAIM: Proceedings and Surveys</em>, 48:156&ndash;168, 2015.</dd>
+<dd>
+R. von Rickenbach. <em>Boundary Element Methods for Shape Optimisation in Homogenisation</em>. MSc thesis, Universität Basel, 2021. </dd></dl>
+
+</div>
+</div>
+<a id="a5d5757d50530bf1fef207bbe3aff7231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5757d50530bf1fef207bbe3aff7231">&#9670;&nbsp;</a></span>getDisplacement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::VectorXd Bembel::getDisplacement </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>ps_l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>ps_f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Eigen::MatrixXd&#160;</td>
+          <td class="paramname"><em>ps_b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the right-hand side for the homogenised coefficient calculation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ps_l</td><td>Points on the left side, i.e. \( \subseteq \{-0.5\} \times [-0.5, 0.5] \times [-0.5, 0.5] \). </td></tr>
+    <tr><td class="paramname">ps_f</td><td>Points on the front side, i.e. \( \subseteq [-0.5, 0.5] \times \{-0.5\} \times [-0.5, 0.5] \). </td></tr>
+    <tr><td class="paramname">ps_b</td><td>Points on the bottom side, i.e. \( \subseteq [-0.5, 0.5] \times [-0.5, 0.5] \times \{-0.5\} \). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7ded4e643797e9e7f886a0e64ad643a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ded4e643797e9e7f886a0e64ad643a9">&#9670;&nbsp;</a></span>getFunctionSpaceOutputDimension()</h2>
 
@@ -387,6 +803,43 @@ template&lt;unsigned int DF&gt; </div>
 
 </div>
 </div>
+<a id="ac471d8ce3c1bed1faa03d1a234b9044d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac471d8ce3c1bed1faa03d1a234b9044d">&#9670;&nbsp;</a></span>spherical_harmonics_full()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Matrix&lt; double, Eigen::Dynamic, 2 &gt; Bembel::spherical_harmonics_full </td>
+          <td>(</td>
+          <td class="paramtype">Eigen::Vector3d&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the the spherical harmonics \( Y_n^m(\frac{x}{|x|}) \), ordered by \( [Y_0^0, \, Y_1^{-1}, \, Y_1^0, \, Y_1^1, \, Y_2^{-2}, ..., Y_N^N] \). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the point of evaluation </td></tr>
+    <tr><td class="paramname">N</td><td>the maximal degree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a939c4394ad2b21a15e7e6494d7dc1221"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a939c4394ad2b21a15e7e6494d7dc1221">&#9670;&nbsp;</a></span>WritePatch()</h2>
 
@@ -459,7 +912,7 @@ template&lt;unsigned int DF&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceBembel.html">Bembel</a></li>
-    <li class="footer">Generated on Tue Feb 13 2024 13:30:25 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Feb 14 2024 13:39:47 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

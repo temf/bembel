@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rotatedtangentialtrace_166',['RotatedTangentialTrace',['../classBembel_1_1RotatedTangentialTrace.html',1,'Bembel']]]
+  ['quadrature_183',['Quadrature',['../group__Quadrature.html',1,'']]],
+  ['quadraturevector_184',['QuadratureVector',['../structBembel_1_1QuadratureVector.html',1,'Bembel']]]
 ];

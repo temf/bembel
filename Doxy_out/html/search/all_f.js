@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['tangentialtrace_174',['TangentialTrace',['../classBembel_1_1TangentialTrace.html',1,'Bembel']]],
-  ['tau_175',['tau',['../group__DuffyTrick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a',1,'Bembel::DuffyTrick']]],
-  ['tensorproductquadraturevector_176',['TensorProductQuadratureVector',['../structBembel_1_1TensorProductQuadratureVector.html',1,'Bembel']]],
-  ['tensorproductquadraturevector_3c_20constants_3a_3amaximum_5fquadrature_5fdegree_20_3e_177',['TensorProductQuadratureVector&lt; Constants::maximum_quadrature_degree &gt;',['../structBembel_1_1TensorProductQuadratureVector.html',1,'Bembel']]],
-  ['tensorproductquadraturevector_3c_20quadraturerule_2c_200_20_3e_178',['TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;',['../structBembel_1_1TensorProductQuadratureVector_3_01QuadratureRule_00_010_01_4.html',1,'Bembel']]]
+  ['scalar_186',['Scalar',['../classEigen_1_1H2Matrix.html#a883fb6e69f36b96e83392f0204bd174a',1,'Eigen::H2Matrix']]],
+  ['sons_5f_187',['sons_',['../classBembel_1_1ElementTreeNode.html#ae3b0c9c48996599cfcbc6a538aa92e9d',1,'Bembel::ElementTreeNode']]],
+  ['spherical_5fharmonics_5ffull_188',['spherical_harmonics_full',['../namespaceBembel.html#ac471d8ce3c1bed1faa03d1a234b9044d',1,'Bembel']]],
+  ['spherical_5fprev_189',['spherical_prev',['../namespaceBembel.html#aeaf21aded2538756462f6ea3631dc909',1,'Bembel']]],
+  ['spline_190',['Spline',['../group__Spline.html',1,'']]],
+  ['static_5fassertklessseqn_191',['static_assertKlessseqN',['../structBembel_1_1static__assertKlessseqN.html',1,'Bembel']]],
+  ['stopwatch_192',['Stopwatch',['../classBembel_1_1IO_1_1Stopwatch.html',1,'Bembel::IO']]],
+  ['superspace_193',['SuperSpace',['../structBembel_1_1SuperSpace.html',1,'Bembel']]],
+  ['surfacepoint_194',['SurfacePoint',['../group__Geometry.html#ga7f3488fb214d75f08146ff31726428b4',1,'SurfacePoint.hpp']]]
 ];

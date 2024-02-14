@@ -9,6 +9,7 @@ set(UNITTESTS
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
 		test_DuffyTrick
+		test_HomogenisedCoefficients
 		)
 
 foreach(file IN LISTS UNITTESTS)
