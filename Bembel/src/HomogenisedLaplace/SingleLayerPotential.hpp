@@ -28,16 +28,10 @@ struct PotentialTraits<HomogenisedLaplaceSingleLayerPotential<LinOp>> {
  * \ingroup HomogenisedLaplace
  */
 template<typename LinOp>
-class HomogenisedLaplaceSingleLayerPotential: public PotentialBase<
+class HomogenisedLaplaceSingleLayerPotential : public PotentialBase<
     HomogenisedLaplaceSingleLayerPotential<LinOp>, LinOp> {
   // implementation of the kernel evaluation, which may be based on the
   // information available from the superSpace
-
- private:
-  /** The degree of the spherical harmonics expansion */
-  unsigned int deg;
-  /** The coefficients of the spherical harmonics expansion */
-  Eigen::VectorXd cs;
 
  public:
   /**
@@ -90,6 +84,12 @@ class HomogenisedLaplaceSingleLayerPotential: public PotentialBase<
     return k_mod(x - y)
         + evaluate_solid_sphericals(x - y, this->cs, this->deg, false);
   }
+
+ private:
+  /** The degree of the spherical harmonics expansion */
+  unsigned int deg;
+  /** The coefficients of the spherical harmonics expansion */
+  Eigen::VectorXd cs;
 };
 
 }  // namespace Bembel

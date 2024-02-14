@@ -16,10 +16,6 @@
 #define POINT_DEGREE 20 /** the number of points on the surface of the cube */
 #endif
 
-#ifndef PI
-#define PI M_PI
-#endif
-
 #include <Eigen/Dense>
 #include <Bembel/HomogenisedLaplace>
 #include <Bembel/Quadrature>
@@ -301,7 +297,7 @@ inline double k_mod(Eigen::Vector3d in) {
     }
   }
 
-  r /= (4 * PI);
+  r /= (4 * M_PI);
 
   /* the part to ensure the vanishing mean on the Laplacian */
   r += (in.dot(in)) / 6.0;
@@ -329,7 +325,7 @@ inline Eigen::Vector3d Dk_mod(Eigen::Vector3d in) {
     }
   }
 
-  r /= (4.0 * PI);
+  r /= (4.0 * M_PI);
 
   /* the part to ensure the vanishing mean on the Laplacian */
   r += in / 3.0;
@@ -382,7 +378,7 @@ double calculateFirstCoefficient(Eigen::VectorXd cs, unsigned int deg,
 
   res += (1.0 / 24);
 
-  return -2.0 * sqrt(PI) * res;
+  return -2.0 * sqrt(M_PI) * res;
 }
 
 } /* namespace Bembel */

@@ -31,18 +31,10 @@ struct LinearOperatorTraits<HomogenisedLaplaceSingleLayerOperator> {
 /**
  * \ingroup HomogenisedLaplace
  */
-class HomogenisedLaplaceSingleLayerOperator: public LinearOperatorBase<
+class HomogenisedLaplaceSingleLayerOperator : public LinearOperatorBase<
     HomogenisedLaplaceSingleLayerOperator> {
   // implementation of the kernel evaluation, which may be based on the
   // information available from the superSpace
- private:
-  /** The degree of the spherical harmonics expansion */
-  unsigned int deg;
-  /** The coefficients of the spherical harmonics expansion */
-  Eigen::VectorXd cs;
-  /** The precision of the periodicity of the kernel */
-  static double precision;
-
  public:
   /**
    * \brief Constructs an object initialising the coefficients and the degree
@@ -143,6 +135,14 @@ class HomogenisedLaplaceSingleLayerOperator: public LinearOperatorBase<
   static double getPrecision() {
     return HomogenisedLaplaceSingleLayerOperator::precision;
   }
+
+ private:
+  /** The degree of the spherical harmonics expansion */
+  unsigned int deg;
+  /** The coefficients of the spherical harmonics expansion */
+  Eigen::VectorXd cs;
+  /** The precision of the periodicity of the kernel */
+  static double precision;
 };
 
 double HomogenisedLaplaceSingleLayerOperator::precision = 0;

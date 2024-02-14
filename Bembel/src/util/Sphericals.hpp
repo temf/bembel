@@ -14,7 +14,7 @@
 #include <Eigen/Dense>
 
 #if !defined pi
-#define pi 3.1415926535897932385
+#define pi BEMBEL_PI
 #endif
 
 namespace Bembel {
@@ -71,7 +71,7 @@ double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
   double z1[2], z2[2], z3[2], z1_start[2];
   double r, fac, rootTimesZ, root_2, root_3;
 
-  assert(abs(x.norm() - 1) < 1e-14);
+  assert(abs(x.norm() - 1) < Constants::generic_tolerance);
 
   r = z1[1] = 0;
   z1[0] = 0.5 / sqrt(pi);
@@ -216,7 +216,7 @@ Eigen::Vector3d evaluate_dsphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
   Eigen::Vector3d dr;
   double fac, rootTimesZ, root_2, root_3;
 
-  assert(abs(x.norm() - 1) < 1e-14);
+  assert(abs(x.norm() - 1) < Constants::generic_tolerance);
 
   z1[0] = sqrt(0.375 / pi);
   z1[1] = 0;

@@ -15,7 +15,7 @@
 #include <iostream>
 #include <functional>
 
-#include "./Test.hpp"
+#include "tests/Test.hpp"
 
 inline double k_per(Eigen::Vector3d in, Eigen::VectorXd coeffs,
     unsigned int deg);

@@ -18,8 +18,8 @@ set(CIFILES
     LaplaceSingleLayerH2
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
-	HomogenisedLaplaceSingleLayerFull
-	HomogenisedLaplaceSingleLayerH2
+    HomogenisedLaplaceSingleLayerFull
+    HomogenisedLaplaceSingleLayerH2
     MaxwellSingleLayerFull
     MaxwellSingleLayerH2
     )
