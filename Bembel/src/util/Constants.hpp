@@ -19,7 +19,7 @@ namespace Constants {
 ////////////////////////////////////////////////////////////////////////////////
 constexpr double generic_tolerance = 1e-6;
 // some not further specified constant
-constexpr int MaxP = 18;
+constexpr int MaxP = 20;
 
 // some not further specified constant
 constexpr int maximum_quadrature_degree = 50;
