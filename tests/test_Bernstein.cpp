@@ -26,7 +26,7 @@ int main() {
 
   Eigen::Map<Eigen::MatrixXd> coefs_vector(coefs, 1, P + 1);
 
-  for (int p = 0; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       double result1 = Basis::ShapeFunctionHandler::evalCoef(p, coefs, x);
 
@@ -34,6 +34,21 @@ int main() {
       double result2 =
           Spl::DeBoor(Eigen::MatrixXd(coefs_vector.leftCols(p + 1)),
                       Spl::MakeBezierKnotVector(p + 1), v)(0);
+
+      BEMBEL_TEST_IF(std::abs(result1 - result2) <
+                     Test::Constants::coefficient_accuracy);
+    }
+  }
+
+  // Now, we do the same for the derivatives
+  for (int p = 1; p <= Bembel::Constants::MaxP; ++p) {
+    for (auto x : Test::Constants::eq_points) {
+      double result1 = Basis::ShapeFunctionHandler::evalDerCoef(p, coefs, x);
+
+      std::vector<double> v = {x};
+      double result2 =
+          Spl::DeBoorDer(Eigen::MatrixXd(coefs_vector.leftCols(p + 1)),
+                         Spl::MakeBezierKnotVector(p + 1), v)(0);
 
       BEMBEL_TEST_IF(std::abs(result1 - result2) <
                      Test::Constants::coefficient_accuracy);

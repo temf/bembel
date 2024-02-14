@@ -17,7 +17,7 @@ int main() {
   using namespace Bembel;
 
   // We test the Bernstein Basis of the BasisHandler against the deBoor code
-  for (int p = 0; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       Eigen::VectorXd result1 = Eigen::VectorXd::Zero(p + 1);
       Eigen::VectorXcd result1_complex = Eigen::VectorXcd::Zero(p + 1);
@@ -40,7 +40,7 @@ int main() {
   }
 
   // Now, we do the same for the derivatives
-  for (int p = 1; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 1; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       Eigen::VectorXd result1 = Eigen::VectorXd::Zero(p + 1);
       Eigen::VectorXcd result1_complex = Eigen::VectorXcd::Zero(p + 1);
@@ -66,7 +66,7 @@ int main() {
 
   // We test the tensor product Bernstein Basis of the BasisHandler against the
   // deBoor code
-  for (int p = 0; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points)
       for (auto y : Test::Constants::eq_points) {
         Eigen::VectorXd result1 = Eigen::VectorXd::Zero((p + 1) * (p + 1));
@@ -113,7 +113,7 @@ int main() {
   const double x2 = Test::Constants::eq_points[2];
   const double y2 = Test::Constants::eq_points[8];
   // We test the interactions of two phiphis at exemplary points
-  for (int p = 0; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     Eigen::MatrixXd result1 =
         Eigen::MatrixXd::Zero((p + 1) * (p + 1), (p + 1) * (p + 1));
 
@@ -180,7 +180,7 @@ int main() {
   }
 
   // We test the interactions of the div of two phiphis at exemplary points
-  for (int p = 1; p < Bembel::Constants::MaxP; ++p) {
+  for (int p = 1; p <= Bembel::Constants::MaxP; ++p) {
     Eigen::MatrixXd result1 =
         Eigen::MatrixXd::Zero(2 * (p + 1) * (p + 1), 2 * (p + 1) * (p + 1));
 
