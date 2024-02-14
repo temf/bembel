@@ -31,6 +31,9 @@ int main() {
   using Eigen::VectorXd;
   using Eigen::H2Matrix;
 
+  int polynomial_degree_max = 3;
+  int refinement_level_max = 3;
+
   // Load geometry from file "cube_small.dat", which must be placed in the same
   // directory as the executable
   Bembel::Geometry geometry("cube_small.dat");
@@ -38,8 +41,8 @@ int main() {
   // Define evaluation points for potential field, a tensor product grid of
   // 10*10*10 points in [0, 0.25]^3
   Eigen::MatrixXd gridpoints = Bembel::Util::makeTensorProductGrid(
-      VectorXd::LinSpaced(10, 0.05, 0.20), VectorXd::LinSpaced(10, 0.05, 0.20),
-      VectorXd::LinSpaced(10, 0.05, 0.20));
+      VectorXd::LinSpaced(10, 0.11, 0.14), VectorXd::LinSpaced(10, 0.11, 0.14),
+      VectorXd::LinSpaced(10, 0.11, 0.14));
 
   // Define analytical solution using lambda function, in this case a harmonic
   // function, see Data.hpp
@@ -55,9 +58,12 @@ int main() {
   std::cout << "\n============================================================="
       "==========\n";
   // Iterate over polynomial degree.
-  for (unsigned int polynomial_degree : { 0, 1, 2, 3 }) {
+  for (int polynomial_degree = 0; polynomial_degree < polynomial_degree_max + 1;
+      polynomial_degree++) {
     // Iterate over refinement levels
-    for (unsigned int refinement_level : { 0, 1, 2, 3 }) {
+    VectorXd error(refinement_level_max + 1);
+    for (int refinement_level = 0; refinement_level < refinement_level_max + 1;
+        refinement_level++) {
       std::cout << "Degree " << polynomial_degree << " Level "
           << refinement_level << "\t\t";
       // Build ansatz space
@@ -66,33 +72,40 @@ int main() {
 
       // Set up load vector
       Bembel::DiscreteLinearForm<Bembel::DirichletTrace<double>,
-          HomogenisedLaplaceSingleLayerOperator> disc_lf(ansatz_space);
+      HomogenisedLaplaceSingleLayerOperator> disc_lf(ansatz_space);
       disc_lf.get_linear_form().set_function(fun);
       disc_lf.compute();
 
       // Set up and compute discrete operator
       Bembel::DiscreteOperator<H2Matrix<double>,
-          HomogenisedLaplaceSingleLayerOperator> disc_op(ansatz_space);
+      HomogenisedLaplaceSingleLayerOperator> disc_op(ansatz_space);
       disc_op.compute();
 
       // solve system
       Eigen::ConjugateGradient<H2Matrix<double>, Eigen::Lower | Eigen::Upper,
-          Eigen::IdentityPreconditioner> cg;
+      Eigen::IdentityPreconditioner> cg;
       cg.compute(disc_op.get_discrete_operator());
       VectorXd rho = cg.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       Bembel::DiscretePotential<
-          HomogenisedLaplaceSingleLayerPotential<
-              HomogenisedLaplaceSingleLayerOperator>,
-          HomogenisedLaplaceSingleLayerOperator> disc_pot(ansatz_space);
+      HomogenisedLaplaceSingleLayerPotential<
+      HomogenisedLaplaceSingleLayerOperator>,
+      HomogenisedLaplaceSingleLayerOperator> disc_pot(ansatz_space);
       disc_pot.set_cauchy_data(rho);
       VectorXd pot = disc_pot.evaluate(gridpoints);
 
       // print error
-      std::cout << Bembel::maxPointwiseError<double>(pot, gridpoints, fun)
-          << std::endl;
+      error(refinement_level) = Bembel::maxPointwiseError<double>(pot,
+        gridpoints, fun);
+      std::cout << error(refinement_level) << std::endl;
     }
+
+    // estimate the rate of convergence and check whether it is at least
+    // 90% of the expected value
+    assert(Bembel::checkRateOfConvergence(error.tail(2),
+      2*polynomial_degree + 3, 0.9));
+
     std::cout << std::endl;
   }
   std::cout << "============================================================="
