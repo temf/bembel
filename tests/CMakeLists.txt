@@ -15,6 +15,7 @@ set(UNITTESTS
 		test_Laplace
 		test_Helmholtz
 		test_DuffyTrick
+		test_HomogenisedCoefficients
 		)
 
 foreach(file IN LISTS UNITTESTS)

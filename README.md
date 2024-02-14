@@ -131,6 +131,7 @@ design of the Eigen library. If Bembel is used, only these module files should b
     * `H2Matrix` handles the compression of the large, densely populated matrices.
     The algorithm was introduced in [[5]](#5) and was generalized to the Maxwell case in [[8]](#8).
     * `Helmholtz` provides the necessary specializations to solve Helmholtz problems.
+    * `HomogenisedLaplace` provides the necessary specialisations to solve the homogensied Laplace problem.
     * `IO` provides input-output functionality, including routines for VTK file export, timing, and writing log files.
     * `Laplace`  provides the necessary specializations to solve Laplace problems.
     * `LinearForm` implements trace operators, i.e., routines to generate the right hand side of the linear systems. Currently, only a Dirichlet trace and a rotated tangential trace are provided.
@@ -227,6 +228,7 @@ Contributors include (alphabetically):
 *   [H. Harbrecht](#HeHa), 
 *   [M. Multerer](#MM), 
 *   [M. Nolte](#MN), 
+*   [R. von Rickenbach](#RvR),
 *   [F. Wolf](#FW).
 
 ## 11. About the People <a name="people"></a>
@@ -257,6 +259,10 @@ He may also be found [on GitHub](https://github.com/muchip).
 )<a name="SSc"></a> currently holds a professorship at the 
 [Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
 at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
+
+* [Remo von Rickenbach](https://dmi.unibas.ch/de/personen/remo-von-rickenbach/) 
+<a name="RvR"></a>is currently a PhD student at the 
+[Departement Mathematik und Informatik](https://dmi.unibas.ch/de/home/) at the University of Basel.
 
 * [Felix Wolf](https://www.cem.tu-darmstadt.de/cem/group/wolf.en.jsp) 
 <a name="FW"></a>is currently a lecturer at the 
