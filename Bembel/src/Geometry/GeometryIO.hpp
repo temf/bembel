@@ -190,6 +190,16 @@ void WritePatch(const std::string &file_name, int current_patch_number,
   file.close();
 }
 
+/**
+ * \ingroup Geometry
+ * \brief exports a geometry from Bembel to a .dat file.
+ *
+ * Limitation: This functions assumes a p-open knot vector without internal
+ * knots.
+ *
+ * \param std::vector of NURBS::Patch describing geometry
+ * \param name path/filename to be written to
+ */
 void WriteDATFile(const std::vector<Patch> &Geometry,
                   const std::string &file_name) {
   const int number_of_patches = Geometry.size();
