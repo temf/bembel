@@ -1,4 +1,5 @@
 configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/geo/cube_small.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
 set(EXAMPLES
     test_MassMatrix
@@ -7,6 +8,8 @@ set(EXAMPLES
     test_HelmholtzSingleLayerH2
 		test_MaxwellSingleLayerFull
     test_MaxwellSingleLayerH2
+    test_HomogenisedLaplaceSingleLayerFull
+    test_HomogenisedLaplaceSingleLayerH2
     CACHE INTERNAL "Examples as Unittests"
 		)
 
