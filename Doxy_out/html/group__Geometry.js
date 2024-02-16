@@ -12,6 +12,7 @@ var group__Geometry =
     [ "LoadGeometryFileDAT", "group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e", null ],
     [ "LoadGeometryFileIGS", "group__Geometry.html#gaaa18e14e95262340034d0b41f2ebc075", null ],
     [ "makeSection", "group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977", null ],
+    [ "WriteDATFile", "group__Geometry.html#ga9290c96b302fce4ec7c3b194f328db4a", null ],
     [ "writeIGSFile", "group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658", null ],
     [ "writeParameterSection", "group__Geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e", null ],
     [ "writePatchData", "group__Geometry.html#gab0557fb935922723f44d095d43c96c93", null ],

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html class="theme-green">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>GCC Code Coverage Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="report.css"/>
+  </head>
+
+  <body>
+    <header>
+      <h1>GCC Code Coverage Report</h1>
+
+      <hr/>
+
+      <div class="summary">
+<div>
+  <table class="legend">
+    <tr>
+      <th scope="row">Directory:</th>
+      <td>Bembel/src/</td>
+    </tr>
+    <tr>
+      <th scope="row">File:</th>
+      <td>Bembel/src/AnsatzSpace/AnsatzSpace.hpp</td>
+    </tr>
+    <tr>
+      <th scope="row">Date:</th>
+      <td>2024-02-16 08:23:50</td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="coverage">
+    <tr>
+      <th></th>
+      <th scope="col">Exec</th>
+      <th scope="col">Total</th>
+      <th scope="col">Coverage</th>
+    </tr>
+    <tr>
+      <th scope="row">Lines:</th>
+      <td>32</td>
+      <td>33</td>
+      <td class="coverage-high">97.0%</td>
+    </tr>
+    <tr>
+      <th scope="row">Functions:</th>
+      <td>70</td>
+      <td>70</td>
+      <td class="coverage-high">100.0%</td>
+    </tr>
+    <tr>
+      <th scope="row">Branches:</th>
+      <td>8</td>
+      <td>16</td>
+      <td class="coverage-low">50.0%</td>
+    </tr>
+  </table>
+</div>
+      </div>
+
+      <hr/>
+    </header>
+
+    <nav>
+<details>
+  <summary>List of functions</summary>
+  <table class="listOfFunctions">
+    <tr>
+      <th>Function (Line)</th>
+      <th>Call count</th>
+      <th>Block coverage</th>
+    </tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::DummyOperator&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 4 times, returned 4 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::DummyOperator&gt;::get_superspace() const (line 71)</a></td><td>called 630 times, returned 630 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::DummyOperator&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 4 times, returned 4 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::AnsatzSpace() (line 31)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 32)</a></td><td>called 6 times, returned 6 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 5 times, returned 5 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::get_superspace() const (line 71)</a></td><td>called 38411 times, returned 38411 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 4 times, returned 4 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 2 times, returned 2 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;::operator=(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt;) (line 42)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::AnsatzSpace() (line 31)</a></td><td>called 10 times, returned 10 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 32)</a></td><td>called 10 times, returned 10 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 7 times, returned 7 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::get_superspace() const (line 71)</a></td><td>called 480011 times, returned 480011 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 2 times, returned 2 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::operator=(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;) (line 42)</a></td><td>called 10 times, returned 10 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::AnsatzSpace() (line 31)</a></td><td>called 4 times, returned 4 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;) (line 32)</a></td><td>called 4 times, returned 4 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 1 time, returned 1 time</td><td>67.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 3 times, returned 3 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::get_superspace() const (line 71)</a></td><td>called 155 times, returned 155 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 4 times, returned 4 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 1 time, returned 1 time</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;::operator=(Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt;) (line 42)</a></td><td>called 4 times, returned 4 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::AnsatzSpace() (line 31)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 32)</a></td><td>called 6 times, returned 6 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 5 times, returned 5 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::get_superspace() const (line 71)</a></td><td>called 384011 times, returned 384011 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 4 times, returned 4 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 2 times, returned 2 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;::operator=(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt;) (line 42)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::AnsatzSpace() (line 31)</a></td><td>called 3 times, returned 3 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;) (line 32)</a></td><td>called 3 times, returned 3 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 1 time, returned 1 time</td><td>67.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::get_superspace() const (line 71)</a></td><td>called 154 times, returned 154 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 3 times, returned 3 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 1 time, returned 1 time</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;::operator=(Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt;) (line 42)</a></td><td>called 3 times, returned 3 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::AnsatzSpace() (line 31)</a></td><td>called 10 times, returned 10 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 32)</a></td><td>called 10 times, returned 10 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 7 times, returned 7 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::get_superspace() const (line 71)</a></td><td>called 183611 times, returned 183611 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 2 times, returned 2 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;::operator=(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt;) (line 42)</a></td><td>called 10 times, returned 10 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::AnsatzSpace() (line 31)</a></td><td>called 64 times, returned 64 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;TestOperatorC&gt; const&amp;) (line 32)</a></td><td>called 64 times, returned 64 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 64 times, returned 64 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l85">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::get_number_of_dofs() const (line 85)</a></td><td>called 16 times, returned 16 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 64 times, returned 64 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l73">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::get_refinement_level() const (line 73)</a></td><td>called 1920 times, returned 1920 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::get_superspace() const (line 71)</a></td><td>called 5824 times, returned 5824 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 64 times, returned 64 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;TestOperatorC&gt;::operator=(Bembel::AnsatzSpace&lt;TestOperatorC&gt;) (line 42)</a></td><td>called 64 times, returned 64 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l31">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::AnsatzSpace() (line 31)</a></td><td>called 65 times, returned 65 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l32">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::AnsatzSpace(Bembel::AnsatzSpace&lt;TestOperatorDivC&gt; const&amp;) (line 32)</a></td><td>called 65 times, returned 65 times</td><td>73.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 49)</a></td><td>called 65 times, returned 65 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l85">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::get_number_of_dofs() const (line 85)</a></td><td>called 16 times, returned 16 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l76">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::get_polynomial_degree() const (line 76)</a></td><td>called 65 times, returned 65 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l73">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::get_refinement_level() const (line 73)</a></td><td>called 1920 times, returned 1920 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l71">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::get_superspace() const (line 71)</a></td><td>called 5825 times, returned 5825 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l89">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::get_transformation_matrix() const (line 89)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l58">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::init_AnsatzSpace(Bembel::Geometry const&amp;, int, int, int) (line 58)</a></td><td>called 65 times, returned 65 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;::operator=(Bembel::AnsatzSpace&lt;TestOperatorDivC&gt;) (line 42)</a></td><td>called 65 times, returned 65 times</td><td>100.0%</td></tr>
+  </table>
+</details>
+
+    </nav>
+
+    <main>
+<div class="file-source">
+  <table>
+    <tr>
+      <th align="right">Line</th>
+      <th align="right">Branch</th>
+      <th align="right">Exec</th>
+      <th align="left">Source</th>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l1" href="#l1">1</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// This file is part of Bembel, the higher order C++ boundary element library.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l2" href="#l2">2</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">//</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l3" href="#l3">3</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l4" href="#l4">4</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">//</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l5" href="#l5">5</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l6" href="#l6">6</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l7" href="#l7">7</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l8" href="#l8">8</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// source code is subject to the GNU General Public License version 3 and</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l9" href="#l9">9</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// provided WITHOUT ANY WARRANTY, see &lt;http://www.bembel.eu&gt; for further</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l10" href="#l10">10</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// information.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l11" href="#l11">11</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cp">#ifndef BEMBEL_SRC_ANSATZSPACE_ANSATZSPACE_HPP_</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l12" href="#l12">12</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cp">#define BEMBEL_SRC_ANSATZSPACE_ANSATZSPACE_HPP_</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l13" href="#l13">13</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l14" href="#l14">14</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">namespace</span><span class="w"> </span><span class="nn">Bembel</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l15" href="#l15">15</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm">/**</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l16" href="#l16">16</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *  \ingroup AnsatzSpace</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l17" href="#l17">17</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *  \brief The AnsatzSpace is the class that handles the assembly of the</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l18" href="#l18">18</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *discrete basis.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l19" href="#l19">19</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l20" href="#l20">20</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *	It invokes a superspace and uses the Glue and Projektor class to</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l21" href="#l21">21</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *assemble a transformation matrix, which relates the superspace to the desired</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l22" href="#l22">22</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *basis.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l23" href="#l23">23</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> */</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l24" href="#l24">24</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l25" href="#l25">25</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">class</span><span class="w"> </span><span class="nc">AnsatzSpace</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l26" href="#l26">26</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w"> </span><span class="k">public</span><span class="o">:</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l27" href="#l27">27</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinearOperatorTraits</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;::</span><span class="n">Form</span><span class="w"> </span><span class="p">};</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l28" href="#l28">28</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l29" href="#l29">29</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//    constructors</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l30" href="#l30">30</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l31" href="#l31">31</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="n">AnsatzSpace</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l32" href="#l32">32</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="n">AnsatzSpace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AnsatzSpace</span><span class="w"> </span><span class="o">&amp;</span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l33" href="#l33">33</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">super_space_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">super_space_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l34" href="#l34">34</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">knot_repetition_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">knot_repetition_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l35" href="#l35">35</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">1/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 168 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">296</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">transformation_matrix_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">transformation_matrix_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l36" href="#l36">36</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l37" href="#l37">37</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="n">AnsatzSpace</span><span class="p">(</span><span class="n">AnsatzSpace</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l38" href="#l38">38</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="n">super_space_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">super_space_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l39" href="#l39">39</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="n">knot_repetition_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">knot_repetition_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l40" href="#l40">40</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="n">transformation_matrix_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">transformation_matrix_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l41" href="#l41">41</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l42" href="#l42">42</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="n">AnsatzSpace</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">AnsatzSpace</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l43" href="#l43">43</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">super_space_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">super_space_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l44" href="#l44">44</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">knot_repetition_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">knot_repetition_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l45" href="#l45">45</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">transformation_matrix_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">transformation_matrix_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l46" href="#l46">46</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">296</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l47" href="#l47">47</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l48" href="#l48">48</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l49" href="#l49">49</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">271</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="n">AnsatzSpace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Geometry</span><span class="w"> </span><span class="o">&amp;</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">refinement_level</span><span class="p">,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l50" href="#l50">50</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">271</td>
+      <td class="src coveredLine"><span class="w">              </span><span class="kt">int</span><span class="w"> </span><span class="n">polynomial_degree</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">knot_repetition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l51" href="#l51">51</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">1/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">271</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">init_AnsatzSpace</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="n">refinement_level</span><span class="p">,</span><span class="w"> </span><span class="n">polynomial_degree</span><span class="p">,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l52" href="#l52">52</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">                     </span><span class="n">knot_repetition</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l53" href="#l53">53</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">271</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l54" href="#l54">54</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount uncoveredLine">&cross;</td>
+      <td class="src uncoveredLine"><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l55" href="#l55">55</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l56" href="#l56">56</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//    init_Ansatzspace</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l57" href="#l57">57</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l58" href="#l58">58</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">271</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">init_AnsatzSpace</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Geometry</span><span class="w"> </span><span class="o">&amp;</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">refinement_level</span><span class="p">,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l59" href="#l59">59</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">                        </span><span class="kt">int</span><span class="w"> </span><span class="n">polynomial_degree</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">knot_repetition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l60" href="#l60">60</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">271</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">knot_repetition_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knot_repetition</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l61" href="#l61">61</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">1/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">271</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">super_space_</span><span class="p">.</span><span class="n">init_SuperSpace</span><span class="p">(</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="n">refinement_level</span><span class="p">,</span><span class="w"> </span><span class="n">polynomial_degree</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l62" href="#l62">62</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">1/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">271</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">Projector</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"> </span><span class="n">proj</span><span class="p">(</span><span class="n">super_space_</span><span class="p">,</span><span class="w"> </span><span class="n">knot_repetition_</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l63" href="#l63">63</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">1/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">271</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">Glue</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"> </span><span class="n">glue</span><span class="p">(</span><span class="n">super_space_</span><span class="p">,</span><span class="w"> </span><span class="n">proj</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l64" href="#l64">64</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">1/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">271</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">transformation_matrix_</span><span class="w"> </span><span class="o">=</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l65" href="#l65">65</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">2/4</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 1 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          <div class="takenBranch">&check; Branch 5 taken 143 times.</div>
+          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount partialCoveredLine">542</td>
+      <td class="src partialCoveredLine"><span class="w">        </span><span class="n">proj</span><span class="p">.</span><span class="n">get_projection_matrix</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">glue</span><span class="p">.</span><span class="n">get_glue_matrix</span><span class="p">();</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l66" href="#l66">66</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">542</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l67" href="#l67">67</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">271</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l68" href="#l68">68</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l69" href="#l69">69</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//    getters</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l70" href="#l70">70</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l71" href="#l71">71</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">1110280</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">SuperSpace</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">get_superspace</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">super_space_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l72" href="#l72">72</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_knot_repetition</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">knot_repetition_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l73" href="#l73">73</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">7680</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_refinement_level</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l74" href="#l74">74</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">7680</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">super_space_</span><span class="p">.</span><span class="n">get_refinement_level</span><span class="p">();</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l75" href="#l75">75</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l76" href="#l76">76</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">286</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_polynomial_degree</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l77" href="#l77">77</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">286</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">super_space_</span><span class="p">.</span><span class="n">get_polynomial_degree</span><span class="p">();</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l78" href="#l78">78</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l79" href="#l79">79</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_number_of_elements</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l80" href="#l80">80</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">super_space_</span><span class="p">.</span><span class="n">get_number_of_elements</span><span class="p">();</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l81" href="#l81">81</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l82" href="#l82">82</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_number_of_patches</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l83" href="#l83">83</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">super_space_</span><span class="p">.</span><span class="n">get_number_of_patches</span><span class="p">();</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l84" href="#l84">84</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l85" href="#l85">85</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">64</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">get_number_of_dofs</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">transformation_matrix_</span><span class="p">.</span><span class="n">cols</span><span class="p">();</span><span class="w"> </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l86" href="#l86">86</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PatchVector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">get_geometry</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l87" href="#l87">87</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">super_space_</span><span class="p">.</span><span class="n">get_geometry</span><span class="p">();</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l88" href="#l88">88</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l89" href="#l89">89</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">156</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">get_transformation_matrix</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l90" href="#l90">90</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">156</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">transformation_matrix_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l91" href="#l91">91</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l92" href="#l92">92</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l93" href="#l93">93</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//    private member variables</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l94" href="#l94">94</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="c1">//////////////////////////////////////////////////////////////////////////////</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l95" href="#l95">95</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w"> </span><span class="k">private</span><span class="o">:</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l96" href="#l96">96</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="n">Eigen</span><span class="o">::</span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transformation_matrix_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l97" href="#l97">97</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="n">SuperSpace</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="w"> </span><span class="n">super_space_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l98" href="#l98">98</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">knot_repetition_</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l99" href="#l99">99</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="p">};</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l100" href="#l100">100</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="p">}</span><span class="w">  </span><span class="c1">// namespace Bembel</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l101" href="#l101">101</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cp">#endif  </span><span class="c1">// BEMBEL_SRC_ANSATZSPACE_ANSATZSPACE_HPP_</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l102" href="#l102">102</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+  </table>
+</div>
+      <hr/>
+    </main>
+
+    <footer>
+      Generated by: <a href="http://gcovr.com/en/7.0">GCOVR (Version 7.0)</a>
+    </footer>
+  </body>
+</html>

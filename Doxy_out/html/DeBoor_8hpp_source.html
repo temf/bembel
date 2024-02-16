@@ -145,8 +145,8 @@ $(document).ready(function(){initNavTree('DeBoor_8hpp_source.html',''); initResi
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    Eigen::Matrix&lt;T, -1, -1&gt; temp = control_points.block(</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        0, l - polynomial_degree, rows_control_points, polynomial_degree + 1);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    assert(polynomial_degree &lt;= 18);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">double</span> ws[18];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    assert(polynomial_degree &lt;= Bembel::Constants::MaxP);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">double</span> ws[Bembel::Constants::MaxP];</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Iterators remain the same size, order is correct</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = polynomial_degree; 0 != k; k--) {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
@@ -242,8 +242,8 @@ $(document).ready(function(){initNavTree('DeBoor_8hpp_source.html',''); initResi
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          0, l - polynomial_degree, rows_control_points, polynomial_degree + 1);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">// ISO C++ forbids variable length array</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    assert(polynomial_degree &lt;= 18);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">double</span> ws[18];</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    assert(polynomial_degree &lt;= Bembel::Constants::MaxP);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">double</span> ws[Bembel::Constants::MaxP];</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">// Iterators remain the same size, order is correct</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = polynomial_degree; 0 != k; k--) {</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
@@ -274,7 +274,7 @@ $(document).ready(function(){initNavTree('DeBoor_8hpp_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_f87942f3275a3b9667546b80bbc45e25.html">Spline</a></li><li class="navelem"><b>DeBoor.hpp</b></li>
-    <li class="footer">Generated on Wed Feb 14 2024 13:39:47 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 16 2024 08:26:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

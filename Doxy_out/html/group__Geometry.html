@@ -144,6 +144,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">Bembel::makeSection</a> (std::vector&lt; std::string &gt; data, const int linewidth=72)</td></tr>
 <tr class="memdesc:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector of Data in a vector of lines with a specific length.  <a href="group__Geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">More...</a><br /></td></tr>
 <tr class="separator:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9290c96b302fce4ec7c3b194f328db4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">Bembel::WriteDATFile</a> (const std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt; &amp;<a class="el" href="classBembel_1_1Geometry.html">Geometry</a>, const std::string &amp;file_name)</td></tr>
+<tr class="memdesc:ga9290c96b302fce4ec7c3b194f328db4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">exports a geometry from <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> to a .dat file.  <a href="group__Geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">More...</a><br /></td></tr>
+<tr class="separator:ga9290c96b302fce4ec7c3b194f328db4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">Bembel::writeIGSFile</a> (const std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt; &amp;geometry, std::string file_name, const int precision=6)</td></tr>
 <tr class="memdesc:gac59b3f15b6352069bc49b9c3b73e2658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="classBembel_1_1Geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> into an IGES file format.  <a href="group__Geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">More...</a><br /></td></tr>
 <tr class="separator:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,6 +304,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector with strings of each line. </dd></dl>
+
+</div>
+</div>
+<a id="ga9290c96b302fce4ec7c3b194f328db4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9290c96b302fce4ec7c3b194f328db4a">&#9670;&nbsp;</a></span>WriteDATFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bembel::WriteDATFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classBembel_1_1Patch.html">Patch</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Geometry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>exports a geometry from <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> to a .dat file. </p>
+<p>Limitation: This functions assumes a p-open knot vector without internal knots.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">std::vector</td><td>of NURBS::Patch describing geometry </td></tr>
+    <tr><td class="paramname">name</td><td>path/filename to be written to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -487,7 +528,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 14 2024 13:39:47 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 16 2024 08:26:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

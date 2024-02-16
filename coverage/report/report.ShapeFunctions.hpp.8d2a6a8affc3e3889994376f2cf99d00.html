@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html class="theme-green">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>GCC Code Coverage Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="report.css"/>
+  </head>
+
+  <body>
+    <header>
+      <h1>GCC Code Coverage Report</h1>
+
+      <hr/>
+
+      <div class="summary">
+<div>
+  <table class="legend">
+    <tr>
+      <th scope="row">Directory:</th>
+      <td>Bembel/src/</td>
+    </tr>
+    <tr>
+      <th scope="row">File:</th>
+      <td>Bembel/src/Spline/ShapeFunctions.hpp</td>
+    </tr>
+    <tr>
+      <th scope="row">Date:</th>
+      <td>2024-02-16 08:23:50</td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="coverage">
+    <tr>
+      <th></th>
+      <th scope="col">Exec</th>
+      <th scope="col">Total</th>
+      <th scope="col">Coverage</th>
+    </tr>
+    <tr>
+      <th scope="row">Lines:</th>
+      <td>16</td>
+      <td>20</td>
+      <td class="coverage-medium">80.0%</td>
+    </tr>
+    <tr>
+      <th scope="row">Functions:</th>
+      <td>82</td>
+      <td>84</td>
+      <td class="coverage-high">97.6%</td>
+    </tr>
+    <tr>
+      <th scope="row">Branches:</th>
+      <td>8</td>
+      <td>8</td>
+      <td class="coverage-high">100.0%</td>
+    </tr>
+  </table>
+</div>
+      </div>
+
+      <hr/>
+    </header>
+
+    <nav>
+<details>
+  <summary>List of functions</summary>
+  <table class="listOfFunctions">
+    <tr>
+      <th>Function (Line)</th>
+      <th>Call count</th>
+      <th>Block coverage</th>
+    </tr>
+    <tr><td><a href="#l81">Bembel::Basis::PSpecificShapeFunctionHandler&lt;0&gt;::evalBasis(int, double*, double) (line 81)</a></td><td>called 11330670 times, returned 11330670 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l75">Bembel::Basis::PSpecificShapeFunctionHandler&lt;0&gt;::evalCoef(int, double*, double) (line 75)</a></td><td>called 11 times, returned 11 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l84">Bembel::Basis::PSpecificShapeFunctionHandler&lt;0&gt;::evalDerBasis(int, double*, double) (line 84)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l78">Bembel::Basis::PSpecificShapeFunctionHandler&lt;0&gt;::evalDerCoef(int, double*, double) (line 78)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;10&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;10&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 377 times, returned 377 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;10&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;10&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 110 times, returned 110 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;11&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;11&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 388 times, returned 388 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;11&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;11&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 121 times, returned 121 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;12&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;12&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 399 times, returned 399 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;12&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;12&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 132 times, returned 132 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;13&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;13&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 410 times, returned 410 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;13&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;13&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 143 times, returned 143 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;14&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;14&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 421 times, returned 421 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;14&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;14&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 154 times, returned 154 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;15&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;15&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 432 times, returned 432 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;15&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;15&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 165 times, returned 165 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;16&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;16&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 443 times, returned 443 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;16&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;16&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 176 times, returned 176 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;17&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;17&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 454 times, returned 454 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;17&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;17&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 187 times, returned 187 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;18&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;18&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 465 times, returned 465 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;18&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;18&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 198 times, returned 198 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;19&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;19&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 476 times, returned 476 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;19&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;19&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 209 times, returned 209 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;1&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 198765400 times, returned 198765400 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;1&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 278 times, returned 278 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;1&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 188165414 times, returned 188165414 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;1&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 11 times, returned 11 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;20&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;20&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 487 times, returned 487 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;20&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;20&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 220 times, returned 220 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;2&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 177886678 times, returned 177886678 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;2&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 289 times, returned 289 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;2&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 177727082 times, returned 177727082 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;2&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 22 times, returned 22 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;3&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 177887878 times, returned 177887878 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;3&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 300 times, returned 300 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;3&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 177727082 times, returned 177727082 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;3&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 33 times, returned 33 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;4&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190926308 times, returned 190926308 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;4&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 311 times, returned 311 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;4&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760227 times, returned 190760227 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;4&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 44 times, returned 44 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;5&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;5&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 322 times, returned 322 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;5&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;5&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 55 times, returned 55 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;6&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;6&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 333 times, returned 333 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;6&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;6&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 66 times, returned 66 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;7&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;7&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 344 times, returned 344 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;7&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;7&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 77 times, returned 77 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;8&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;8&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 355 times, returned 355 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;8&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;8&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 88 times, returned 88 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Bembel::Basis::PSpecificShapeFunctionHandler&lt;9&gt;::evalBasis(int, double*, double) (line 38)</a></td><td>called 190924630 times, returned 190924630 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l30">Bembel::Basis::PSpecificShapeFunctionHandler&lt;9&gt;::evalCoef(int, double*, double) (line 30)</a></td><td>called 366 times, returned 366 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l42">Bembel::Basis::PSpecificShapeFunctionHandler&lt;9&gt;::evalDerBasis(int, double*, double) (line 42)</a></td><td>called 190760348 times, returned 190760348 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::Basis::PSpecificShapeFunctionHandler&lt;9&gt;::evalDerCoef(int, double*, double) (line 34)</a></td><td>called 99 times, returned 99 times</td><td>100.0%</td></tr>
+  </table>
+</details>
+
+    </nav>
+
+    <main>
+<div class="file-source">
+  <table>
+    <tr>
+      <th align="right">Line</th>
+      <th align="right">Branch</th>
+      <th align="right">Exec</th>
+      <th align="left">Source</th>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l1" href="#l1">1</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// This file is part of Bembel, the higher order C++ boundary element library.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l2" href="#l2">2</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">//</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l3" href="#l3">3</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l4" href="#l4">4</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">//</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l5" href="#l5">5</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l6" href="#l6">6</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l7" href="#l7">7</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l8" href="#l8">8</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// source code is subject to the GNU General Public License version 3 and</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l9" href="#l9">9</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// provided WITHOUT ANY WARRANTY, see &lt;http://www.bembel.eu&gt; for further</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l10" href="#l10">10</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">// information.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l11" href="#l11">11</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="c1">//</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l12" href="#l12">12</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cp">#ifndef BEMBEL_SRC_SPLINE_SHAPEFUNCTIONS_HPP_</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l13" href="#l13">13</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cp">#define BEMBEL_SRC_SPLINE_SHAPEFUNCTIONS_HPP_</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l14" href="#l14">14</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l15" href="#l15">15</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">namespace</span><span class="w"> </span><span class="nn">Bembel</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l16" href="#l16">16</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">namespace</span><span class="w"> </span><span class="nn">Basis</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l17" href="#l17">17</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l18" href="#l18">18</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">using</span><span class="w"> </span><span class="n">funptr_doubleOut_doubleptrDoubleIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l19" href="#l19">19</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">using</span><span class="w"> </span><span class="n">funptr_voidOut_doubleptrDoubleIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">double</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l20" href="#l20">20</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l21" href="#l21">21</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm">/**</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l22" href="#l22">22</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *  \ingroup Spline</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l23" href="#l23">23</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *  \brief These routines implement a template recursion that allows to choose a</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l24" href="#l24">24</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *compile time instantiation of a basis-evaluation routine with a runtime p. To</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l25" href="#l25">25</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> *replace the underlying basis, only these routines should be changed.</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l26" href="#l26">26</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cm"> **/</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l27" href="#l27">27</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l28" href="#l28">28</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">class</span><span class="w"> </span><span class="nc">PSpecificShapeFunctionHandler</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l29" href="#l29">29</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w"> </span><span class="k">public</span><span class="o">:</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l30" href="#l30">30</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">15300</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">evalCoef</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l31" href="#l31">31</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">2/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 0 taken 476 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 7174 times.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount coveredLine">15300</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernstein</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l32" href="#l32">32</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">15300</td>
+      <td class="src coveredLine"><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">evalCoef</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l33" href="#l33">33</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l34" href="#l34">34</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">4620</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">evalDerCoef</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l35" href="#l35">35</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">2/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 0 taken 220 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2090 times.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount coveredLine">4620</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDer</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l36" href="#l36">36</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">4620</td>
+      <td class="src coveredLine"><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">evalDerCoef</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l37" href="#l37">37</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l38" href="#l38">38</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">7600520688</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">evalBasis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l39" href="#l39">39</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">2/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 0 taken 211821650 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 3588438694 times.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount coveredLine">7600520688</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l40" href="#l40">40</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">7600520688</td>
+      <td class="src coveredLine"><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">evalBasis</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l41" href="#l41">41</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l42" href="#l42">42</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">7573090746</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">evalDerBasis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l43" href="#l43">43</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l44" href="#l44">44</a></td>
+      <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">2/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 0 taken 201199250 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 3585346123 times.</div>
+        </div>
+        </details>
+      </td>
+      <td class="linecount coveredLine">7573090746</td>
+      <td class="src coveredLine"><span class="w">               </span><span class="o">?</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDerBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l45" href="#l45">45</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">7573090746</td>
+      <td class="src coveredLine"><span class="w">               </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">evalDerBasis</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l46" href="#l46">46</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l47" href="#l47">47</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_doubleOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalCoef</span><span class="p">(</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l48" href="#l48">48</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l49" href="#l49">49</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernstein</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l50" href="#l50">50</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">ptrEvalCoef</span><span class="p">(</span><span class="n">p</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l51" href="#l51">51</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l52" href="#l52">52</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_doubleOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalDerCoef</span><span class="p">(</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l53" href="#l53">53</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l54" href="#l54">54</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDer</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l55" href="#l55">55</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">ptrEvalDerCoef</span><span class="p">(</span><span class="n">p</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l56" href="#l56">56</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l57" href="#l57">57</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_voidOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalBasis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l58" href="#l58">58</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l59" href="#l59">59</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">ptrEvalBasis</span><span class="p">(</span><span class="n">p</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l60" href="#l60">60</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l61" href="#l61">61</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_voidOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalDerBasis</span><span class="p">(</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l62" href="#l62">62</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l63" href="#l63">63</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDerBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l64" href="#l64">64</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">                  </span><span class="o">:</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">ptrEvalDerBasis</span><span class="p">(</span><span class="n">p</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l65" href="#l65">65</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l66" href="#l66">66</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">checkP</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l67" href="#l67">67</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">P</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Polynomial degree must be larger than zero&quot;</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l68" href="#l68">68</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Constants</span><span class="o">::</span><span class="n">MaxP</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l69" href="#l69">69</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l70" href="#l70">70</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="p">};</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l71" href="#l71">71</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l72" href="#l72">72</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l73" href="#l73">73</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">class</span><span class="w"> </span><span class="nc">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l74" href="#l74">74</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w"> </span><span class="k">public</span><span class="o">:</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l75" href="#l75">75</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">11</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">evalCoef</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l76" href="#l76">76</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">11</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernstein</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l77" href="#l77">77</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l78" href="#l78">78</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount uncoveredLine">&cross;</td>
+      <td class="src uncoveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">evalDerCoef</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l79" href="#l79">79</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount uncoveredLine">&cross;</td>
+      <td class="src uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDer</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l80" href="#l80">80</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l81" href="#l81">81</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">11330670</td>
+      <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">evalBasis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l82" href="#l82">82</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount coveredLine">11330670</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l83" href="#l83">83</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l84" href="#l84">84</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount uncoveredLine">&cross;</td>
+      <td class="src uncoveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">evalDerBasis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l85" href="#l85">85</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount uncoveredLine">&cross;</td>
+      <td class="src uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDerBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l86" href="#l86">86</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l87" href="#l87">87</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_doubleOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalCoef</span><span class="p">(</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l88" href="#l88">88</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l89" href="#l89">89</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernstein</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l90" href="#l90">90</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l91" href="#l91">91</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_doubleOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalDerCoef</span><span class="p">(</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l92" href="#l92">92</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l93" href="#l93">93</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDer</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l94" href="#l94">94</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l95" href="#l95">95</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_voidOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalBasis</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l96" href="#l96">96</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l97" href="#l97">97</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l98" href="#l98">98</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">funptr_voidOut_doubleptrDoubleIn</span><span class="w"> </span><span class="n">ptrEvalDerBasis</span><span class="p">(</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l99" href="#l99">99</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l100" href="#l100">100</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Bembel</span><span class="o">::</span><span class="n">Basis</span><span class="o">::</span><span class="n">EvalBernsteinDerBasis</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l101" href="#l101">101</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l102" href="#l102">102</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">checkP</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Constants</span><span class="o">::</span><span class="n">MaxP</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l103" href="#l103">103</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="p">};</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l104" href="#l104">104</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l105" href="#l105">105</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="k">using</span><span class="w"> </span><span class="n">ShapeFunctionHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PSpecificShapeFunctionHandler</span><span class="o">&lt;</span><span class="n">Constants</span><span class="o">::</span><span class="n">MaxP</span><span class="o">&gt;</span><span class="p">;</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l106" href="#l106">106</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l107" href="#l107">107</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="p">}</span><span class="w">  </span><span class="c1">// namespace Basis</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l108" href="#l108">108</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="p">}</span><span class="w">  </span><span class="c1">// namespace Bembel</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l109" href="#l109">109</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "><span class="cp">#endif  </span><span class="c1">// BEMBEL_SRC_SPLINE_SHAPEFUNCTIONS_HPP_</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l110" href="#l110">110</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount "></td>
+      <td class="src "></td>
+    </tr>
+  </table>
+</div>
+      <hr/>
+    </main>
+
+    <footer>
+      Generated by: <a href="http://gcovr.com/en/7.0">GCOVR (Version 7.0)</a>
+    </footer>
+  </body>
+</html>

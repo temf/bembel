@@ -273,10 +273,55 @@ $(document).ready(function(){initNavTree('GeometryIO_8hpp_source.html',''); init
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  file.close();</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;}</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_GEOMETRY_GEOMETRYIO_HPP_</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="group__Geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">  203</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__Geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">WriteDATFile</a>(<span class="keyword">const</span> std::vector&lt;Patch&gt; &amp;<a class="code" href="classBembel_1_1Geometry.html">Geometry</a>,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                  <span class="keyword">const</span> std::string &amp;file_name) {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_patches = <a class="code" href="classBembel_1_1Geometry.html">Geometry</a>.size();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <a class="code" href="namespaceBembel.html#ae3e0d6a6e95643a5a2c447d75513d0d5">MakeFile</a>(file_name, number_of_patches);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordtype">int</span> patch_count = 0;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;patch : <a class="code" href="classBembel_1_1Geometry.html">Geometry</a>) {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    assert(patch.unique_knots_x_.size() == 2 &amp;&amp;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;           <span class="stringliteral">&quot;I assume 0 and 1 as unique knots!&quot;</span>);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    assert(patch.unique_knots_y_.size() == 2 &amp;&amp;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;           <span class="stringliteral">&quot;I assume 0 and 1 as unique knots!&quot;</span>);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> polynomial_degree_x = patch.polynomial_degree_x_;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> polynomial_degree_y = patch.polynomial_degree_y_;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    std::vector&lt;double&gt; knt_x(2 * polynomial_degree_x, 1.0);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    std::vector&lt;double&gt; knt_y(2 * polynomial_degree_y, 1.0);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; polynomial_degree_x; ++i) knt_x[i] = 0.0;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; polynomial_degree_y; ++i) knt_y[i] = 0.0;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_points_x = knt_x.size() - polynomial_degree_x;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_points_y = knt_y.size() - polynomial_degree_y;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    std::vector&lt;Eigen::MatrixXd&gt; data(</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        4, Eigen::MatrixXd::Zero(number_of_points_y, number_of_points_x));</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> matrix_size = number_of_points_x * number_of_points_y;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; matrix_size; ++i) {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> rowIndex = i % number_of_points_y;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> colIndex = i / number_of_points_y;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      data[0](rowIndex, colIndex) = patch.data_[4 * i];</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      data[1](rowIndex, colIndex) = patch.data_[4 * i + 1];</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      data[2](rowIndex, colIndex) = patch.data_[4 * i + 2];</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      data[3](rowIndex, colIndex) = patch.data_[4 * i + 3];</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="namespaceBembel.html#a939c4394ad2b21a15e7e6494d7dc1221">WritePatch</a>(file_name, patch_count, data, knt_x, knt_y);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    ++patch_count;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_GEOMETRY_GEOMETRYIO_HPP_</span></div>
+<div class="ttc" id="aclassBembel_1_1Geometry_html"><div class="ttname"><a href="classBembel_1_1Geometry.html">Bembel::Geometry</a></div><div class="ttdoc">this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files</div><div class="ttdef"><b>Definition:</b> Geometry.hpp:20</div></div>
 <div class="ttc" id="aclassBembel_1_1Patch_html"><div class="ttname"><a href="classBembel_1_1Patch.html">Bembel::Patch</a></div><div class="ttdoc">handles a single patch</div><div class="ttdef"><b>Definition:</b> Patch.hpp:20</div></div>
 <div class="ttc" id="aclassBembel_1_1Patch_html_a94e90e693ae9764675d67ea9b1755252"><div class="ttname"><a href="classBembel_1_1Patch.html#a94e90e693ae9764675d67ea9b1755252">Bembel::Patch::init_Patch</a></div><div class="ttdeci">void init_Patch(const std::vector&lt; Eigen::Matrix&lt; double, -1, -1 &gt;&gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;x_knots, const std::vector&lt; double &gt; &amp;y_knots)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> Patch.hpp:34</div></div>
+<div class="ttc" id="agroup__Geometry_html_ga9290c96b302fce4ec7c3b194f328db4a"><div class="ttname"><a href="group__Geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">Bembel::WriteDATFile</a></div><div class="ttdeci">void WriteDATFile(const std::vector&lt; Patch &gt; &amp;Geometry, const std::string &amp;file_name)</div><div class="ttdoc">exports a geometry from Bembel to a .dat file.</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:203</div></div>
 <div class="ttc" id="agroup__Geometry_html_gab6cca6243499deb03e7fb6a7c450870e"><div class="ttname"><a href="group__Geometry.html#gab6cca6243499deb03e7fb6a7c450870e">Bembel::LoadGeometryFileDAT</a></div><div class="ttdeci">std::vector&lt; Patch &gt; LoadGeometryFileDAT(const std::string &amp;file_name) noexcept</div><div class="ttdoc">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consisten...</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:24</div></div>
 <div class="ttc" id="anamespaceBembel_html"><div class="ttname"><a href="namespaceBembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> AnsatzSpace.hpp:14</div></div>
 <div class="ttc" id="anamespaceBembel_html_a939c4394ad2b21a15e7e6494d7dc1221"><div class="ttname"><a href="namespaceBembel.html#a939c4394ad2b21a15e7e6494d7dc1221">Bembel::WritePatch</a></div><div class="ttdeci">void WritePatch(const std::string &amp;file_name, int current_patch_number, const std::vector&lt; Eigen::MatrixXd &gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;knt1, const std::vector&lt; double &gt; &amp;knt2) noexcept</div><div class="ttdoc">method to write Patch information into textfile</div><div class="ttdef"><b>Definition:</b> GeometryIO.hpp:153</div></div>
@@ -287,7 +332,7 @@ $(document).ready(function(){initNavTree('GeometryIO_8hpp_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_38d2fb450630d24c975db6d9582a3ac9.html">Geometry</a></li><li class="navelem"><b>GeometryIO.hpp</b></li>
-    <li class="footer">Generated on Wed Feb 14 2024 13:39:47 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 16 2024 08:26:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
