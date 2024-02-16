@@ -1,0 +1,25 @@
+<doxygenlayout version="1.0">
+  <navindex>
+    <tab type="mainpage" visible="yes" title=""/>
+    <tab type="pages" visible="yes" title="" intro=""/>
+    <tab type="modules" visible="yes" title="" intro=""/>
+  </navindex>
+  <class>
+    ...
+  </class>
+  <namespace>
+    ...
+  </namespace>
+  <concept>
+    ...
+  </concept>
+  <file>
+    ...
+  </file>
+  <group>
+    ...
+  </group>
+  <directory>
+    ...
+  </directory>
+</doxygenlayout>
