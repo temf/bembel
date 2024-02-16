@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5.0)
 project(Bembel CXX)
 
 message(STATUS "
@@ -102,7 +102,7 @@ message(STATUS "Found -fopenmp, adding option to builds of type >Release< only")
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fopenmp")
 endif()
 
-set(CMAKE_CXX_FLAGS_COVERAGE "-g --coverage -fprofile-abs-path" CACHE STRING
+set(CMAKE_CXX_FLAGS_COVERAGE "-g -fPIC -fprofile-arcs -ftest-coverage" CACHE STRING
     "Flags used by the coverage test."
     FORCE)
 

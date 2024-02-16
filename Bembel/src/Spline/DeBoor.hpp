@@ -46,8 +46,8 @@ Eigen::Matrix<T, -1, -1> DeBoor(
         0, l - polynomial_degree, rows_control_points, polynomial_degree + 1);
 
     /// ISO C++ forbids variable length array
-    assert(polynomial_degree <= 18);
-    double ws[18];
+    assert(polynomial_degree <= Bembel::Constants::MaxP);
+    double ws[Bembel::Constants::MaxP];
     // Iterators remain the same size, order is correct
     for (int k = polynomial_degree; 0 != k; k--) {
       for (int i = 0; i < k; i++) {
@@ -143,8 +143,8 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoor(
           0, l - polynomial_degree, rows_control_points, polynomial_degree + 1);
 
     // ISO C++ forbids variable length array
-    assert(polynomial_degree <= 18);
-    double ws[18];
+    assert(polynomial_degree <= Bembel::Constants::MaxP);
+    double ws[Bembel::Constants::MaxP];
     // Iterators remain the same size, order is correct
     for (int k = polynomial_degree; 0 != k; k--) {
       for (int i = 0; i < k; i++) {
