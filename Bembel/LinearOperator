@@ -13,6 +13,7 @@
 #define BEMBEL_LINEAROPERATOR_MODULE_
 
 /**
+ *  \ingroup Modules
  *  \defgroup LinearOperator LinearOperator
  *  \brief Specializations of the LinearOperatorBase class govern the behaviour
  *of most other modules.

@@ -13,6 +13,7 @@
 #define BEMBEL_DUFFYTRICK_MODULE_
 
 /**
+ *  \ingroup Modules
  *  \defgroup DuffyTrick DuffyTrick
  *  \brief The DuffyTrick module provides quadrature routines for (nearly)
  * singular integrals.

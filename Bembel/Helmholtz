@@ -13,6 +13,7 @@
 #define BEMBEL_HELMHOLTZOPERATOR_MODULE_
 
 /**
+ *  \ingroup Modules
  *  \defgroup Helmholtz Helmholtz
  *  \brief The Helmholtz module provides some specializations to solve Helmholtz
  *problems.

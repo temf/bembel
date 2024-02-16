@@ -13,6 +13,7 @@
 #define BEMBEL_VISUALIZE_MODULE_
 
 /**
+ *  \ingroup Modules
  *  \defgroup IO IO
  *  \brief The IO module provides input-output functionality.
  **/

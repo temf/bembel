@@ -13,6 +13,7 @@
 #define BEMBEL_ANSATZSPACE_MODULE_
 
 /**
+ * \ingroup Modules
  * \defgroup AnsatzSpace AnsatzSpace
  * \brief The AnsatzSpace module contains the routines managing the discrete
  * space on the surface of the geometry.
