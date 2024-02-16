@@ -1,9 +1,0 @@
-<map id="Bembel::LinearOperatorBase&lt; Derived &gt;" name="Bembel::LinearOperatorBase&lt; Derived &gt;">
-<area shape="rect" id="node1" title="linear operator base class. this serves as a common interface for existing linear operators" alt="" coords="512,5,759,185"/>
-<area shape="rect" id="node2" href="$structBembel_1_1LocalOperatorBase.html" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="534,233,737,325"/>
-<area shape="rect" id="node3" href="$classBembel_1_1IdentityOperatorBase.html" title=" " alt="" coords="5,373,233,480"/>
-<area shape="rect" id="node4" href="$classBembel_1_1IdentityOperatorBase.html" title=" " alt="" coords="257,373,488,480"/>
-<area shape="rect" id="node5" href="$classBembel_1_1LaplaceBeltramiOperatorBase.html" title=" " alt="" coords="512,373,759,480"/>
-<area shape="rect" id="node6" href="$classBembel_1_1IdentityOperatorBase.html" title="This class is the base for all mass matrices." alt="" coords="783,373,986,480"/>
-<area shape="rect" id="node7" href="$classBembel_1_1LaplaceBeltramiOperatorBase.html" title="This class is the base for Laplace Beltrami operator." alt="" coords="1010,373,1253,480"/>
-</map>

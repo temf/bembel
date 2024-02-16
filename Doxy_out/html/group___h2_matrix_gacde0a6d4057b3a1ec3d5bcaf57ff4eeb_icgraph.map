@@ -1,0 +1,4 @@
+<map id="Bembel::H2Multipole::computeTransferMatrices" name="Bembel::H2Multipole::computeTransferMatrices">
+<area shape="rect" id="node1" title="Computes transfer matrices in required order to apply them all&#45;at&#45;once in a matrix&#45;vector&#45;product,..." alt="" coords="208,5,403,47"/>
+<area shape="rect" id="node2" href="$class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="5,5,160,47"/>
+</map>

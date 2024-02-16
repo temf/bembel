@@ -1,0 +1,4 @@
+var struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01std_1_1complex_3_01double_01_4_01_4 =
+[
+    [ "Scalar", "struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01std_1_1complex_3_01double_01_4_01_4.html#abb174ab047acf3469e626629d456347d", null ]
+];

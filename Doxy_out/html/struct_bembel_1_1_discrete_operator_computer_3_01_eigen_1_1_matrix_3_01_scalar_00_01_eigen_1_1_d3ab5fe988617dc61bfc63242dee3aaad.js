@@ -1,0 +1,5 @@
+var struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad =
+[
+    [ "DiscreteOperatorComputer", "struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#ab6321e5c1e4cb4bf8cafd85f0e89e488", null ],
+    [ "compute", "struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8", null ]
+];

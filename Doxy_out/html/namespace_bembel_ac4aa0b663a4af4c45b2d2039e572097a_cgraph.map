@@ -1,0 +1,5 @@
+<map id="Bembel::calculateFirstCoefficient" name="Bembel::calculateFirstCoefficient">
+<area shape="rect" id="node1" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="5,31,243,57"/>
+<area shape="rect" id="node2" href="$namespace_bembel.html#a2159b56b4c9d2ca4155fddb827381866" title="Evaluates the series &#160;for real coefficients, with the convenction that ." alt="" coords="291,5,501,32"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="334,56,458,83"/>
+</map>

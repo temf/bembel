@@ -1,0 +1,9 @@
+<map id="Bembel::HomogenisedLaplaceSingleLayerPotential::evaluateIntegrand_impl" name="Bembel::HomogenisedLaplaceSingleLayerPotential::evaluateIntegrand_impl">
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,227,91"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_function_evaluator.html#afc84feb7f45fbfcfc2570083a5a16b4e" title=" " alt="" coords="287,5,484,47"/>
+<area shape="rect" id="node4" href="$class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a8407937952d4b69ca7123048c08209cc" title="Fundamental solution of the homogenised Laplace problem." alt="" coords="275,71,496,127"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715" title=" " alt="" coords="544,5,739,47"/>
+<area shape="rect" id="node5" href="$namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="554,75,729,116"/>
+<area shape="rect" id="node7" href="$namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="579,141,703,167"/>
+<area shape="rect" id="node6" href="$namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="787,82,917,109"/>
+</map>

@@ -13,7 +13,6 @@
 #define BEMBEL_QUADRATURE_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup Quadrature Quadrature
  *  \brief The Quadrature module provides quadrature routines for the unit
  *interval/square/cube/.... by means of template recursion.

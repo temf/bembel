@@ -1,0 +1,5 @@
+var struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319 =
+[
+    [ "DiscreteOperatorComputer", "struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html#aba168b6d5d43e61a17baedad9b9eada7", null ],
+    [ "compute", "struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html#a09b5e7c4f79531878a400a2c282f7806", null ]
+];

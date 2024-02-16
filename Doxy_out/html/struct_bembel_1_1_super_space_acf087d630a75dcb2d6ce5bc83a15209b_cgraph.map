@@ -1,0 +1,4 @@
+<map id="Bembel::SuperSpace::addScaledVectorBasisInteraction" name="Bembel::SuperSpace::addScaledVectorBasisInteraction">
+<area shape="rect" id="node1" title="Compute all scalar products of vector valued local shape functions on the surface points with referen..." alt="" coords="5,5,248,47"/>
+<area shape="rect" id="node2" href="$struct_bembel_1_1_super_space.html#a6ba5bbc27c394bf6f21b26a1d88d5838" title="Compute all products of local shape functions on the unit square at coordinates s,..." alt="" coords="296,5,452,47"/>
+</map>

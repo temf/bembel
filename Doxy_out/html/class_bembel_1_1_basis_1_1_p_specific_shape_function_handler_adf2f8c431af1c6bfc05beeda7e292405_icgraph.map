@@ -1,0 +1,18 @@
+<map id="Bembel::Basis::PSpecificShapeFunctionHandler::evalBasis" name="Bembel::Basis::PSpecificShapeFunctionHandler::evalBasis">
+<area shape="rect" id="node1" title=" " alt="" coords="773,285,955,341"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_patch.html#ad5fae946174996738c5e8ba25778d40c" title=" " alt="" coords="541,16,692,43"/>
+<area shape="rect" id="node4" href="$class_bembel_1_1_patch.html#a4e68f5e893b2be0b67130f5cdfc01944" title=" " alt="" coords="513,88,720,115"/>
+<area shape="rect" id="node8" href="$group___spline.html#ga0c98aa7e939d5d199b75e867257f942b" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="509,139,724,181"/>
+<area shape="rect" id="node10" href="$namespace_bembel_1_1_projector_routines.html#a66bc5b1efce385b9f29ad1f47ce37ea9" title=" " alt="" coords="511,205,723,246"/>
+<area shape="rect" id="node11" href="$group___spline.html#gad90833bf929ec28aabfe8aedc59f63c3" title="evaluates the 1D basis at x weighted with a quadrature weight w" alt="" coords="541,271,692,297"/>
+<area shape="rect" id="node12" href="$group___spline.html#gabaf5c3305a82d32e8af024c33efab117" title="evaluates the interaction of two phiphis, one at xi and one at eta. Used for e.g. gram matrices." alt="" coords="545,322,688,363"/>
+<area shape="rect" id="node13" href="$group___spline.html#ga1ebe02002265f8b7d7d61a32956f4751" title="evaluates the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="531,388,702,415"/>
+<area shape="rect" id="node14" href="$group___spline.html#gab678c79d14a00c03513126b48fc37449" title="evaluates the x&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="520,439,713,465"/>
+<area shape="rect" id="node15" href="$group___spline.html#gaa12be803e27738b1612ec4917f55aecd" title="evaluates the y&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="520,489,713,516"/>
+<area shape="rect" id="node16" href="$class_bembel_1_1_patch.html#ae33252985226bd18c29ca05749553ada" title=" " alt="" coords="508,541,725,582"/>
+<area shape="rect" id="node3" href="$class_bembel_1_1_patch.html#ad0331b6d8f22db8074e6821bb8ded5bd" title=" " alt="" coords="281,5,431,32"/>
+<area shape="rect" id="node5" href="$class_bembel_1_1_patch.html#a425d4cc97f11344f1c1d8ce481e25281" title=" " alt="" coords="253,56,459,83"/>
+<area shape="rect" id="node6" href="$class_bembel_1_1_patch.html#a839327eaea60f8007fee75ac480853fb" title=" " alt="" coords="257,107,455,133"/>
+<area shape="rect" id="node7" href="$class_bembel_1_1_patch.html#a3580acec79763e60c1d514dc5aa36fa3" title=" " alt="" coords="5,107,204,133"/>
+<area shape="rect" id="node9" href="$group___spline.html#gae358ed2987505a76b9fa0be94ed8b19c" title="this solves a generic interpolation problem." alt="" coords="252,157,460,184"/>
+</map>

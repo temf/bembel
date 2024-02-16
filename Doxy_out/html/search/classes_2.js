@@ -1,15 +1,10 @@
 var searchData=
 [
-  ['differentialform_218',['DifferentialForm',['../structBembel_1_1DifferentialForm.html',1,'Bembel']]],
-  ['differentialformtraits_219',['DifferentialFormTraits',['../structBembel_1_1DifferentialFormTraits.html',1,'Bembel']]],
-  ['dirichlettrace_220',['DirichletTrace',['../classBembel_1_1DirichletTrace.html',1,'Bembel']]],
-  ['discretelinearform_221',['DiscreteLinearForm',['../classBembel_1_1DiscreteLinearForm.html',1,'Bembel']]],
-  ['discretelocaloperatorcomputer_222',['DiscreteLocalOperatorComputer',['../structBembel_1_1DiscreteLocalOperatorComputer.html',1,'Bembel']]],
-  ['discreteoperator_223',['DiscreteOperator',['../classBembel_1_1DiscreteOperator.html',1,'Bembel']]],
-  ['discreteoperatorcomputer_224',['DiscreteOperatorComputer',['../structBembel_1_1DiscreteOperatorComputer.html',1,'Bembel']]],
-  ['discreteoperatorcomputer_3c_20eigen_3a_3ah2matrix_3c_20typename_20linearoperatortraits_3c_20derived_20_3e_3a_3ascalar_20_3e_2c_20derived_20_3e_225',['DiscreteOperatorComputer&lt; Eigen::H2Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;',['../structBembel_1_1DiscreteOperatorComputer_3_01Eigen_1_1H2Matrix_3_01typename_01LinearOperatorTraiccf65971befdda469358581b2f20e9b4.html',1,'Bembel']]],
-  ['discreteoperatorcomputer_3c_20eigen_3a_3amatrix_3c_20scalar_2c_20eigen_3a_3adynamic_2c_20eigen_3a_3adynamic_20_3e_2c_20derived_20_3e_226',['DiscreteOperatorComputer&lt; Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;, Derived &gt;',['../structBembel_1_1DiscreteOperatorComputer_3_01Eigen_1_1Matrix_3_01Scalar_00_01Eigen_1_1Dynamic_00527110715b0b35db4cd782ac0d8eee90.html',1,'Bembel']]],
-  ['discreteoperatorcomputer_3c_20eigen_3a_3asparsematrix_3c_20typename_20linearoperatortraits_3c_20derived_20_3e_3a_3ascalar_20_3e_2c_20derived_20_3e_227',['DiscreteOperatorComputer&lt; Eigen::SparseMatrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;',['../structBembel_1_1DiscreteOperatorComputer_3_01Eigen_1_1SparseMatrix_3_01typename_01LinearOperator811693c9486949b41aebca19315f95cc.html',1,'Bembel']]],
-  ['discretepotential_228',['DiscretePotential',['../classBembel_1_1DiscretePotential.html',1,'Bembel']]],
-  ['dummyoperator_229',['DummyOperator',['../classBembel_1_1DummyOperator.html',1,'Bembel']]]
+  ['binomial_714',['Binomial',['../struct_bembel_1_1_binomial.html',1,'Bembel']]],
+  ['binomial_3c_200_2c_200_20_3e_715',['Binomial&lt; 0, 0 &gt;',['../struct_bembel_1_1_binomial_3_010_00_010_01_4.html',1,'Bembel']]],
+  ['binomial_3c_200_2c_20n_20_3e_716',['Binomial&lt; 0, N &gt;',['../struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html',1,'Bembel']]],
+  ['binomial_3c_20n_2c_20n_20_3e_717',['Binomial&lt; N, N &gt;',['../struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html',1,'Bembel']]],
+  ['blockclusteradmissibility_718',['BlockClusterAdmissibility',['../struct_bembel_1_1_block_cluster_admissibility.html',1,'Bembel']]],
+  ['blockclustertree_719',['BlockClusterTree',['../class_bembel_1_1_block_cluster_tree.html',1,'Bembel']]],
+  ['blockclustertreeparameters_720',['BlockClusterTreeParameters',['../struct_bembel_1_1_block_cluster_tree_parameters.html',1,'Bembel']]]
 ];

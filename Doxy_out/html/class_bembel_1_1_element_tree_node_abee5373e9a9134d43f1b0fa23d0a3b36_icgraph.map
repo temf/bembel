@@ -1,0 +1,20 @@
+<map id="Bembel::ElementTreeNode::get_h" name="Bembel::ElementTreeNode::get_h">
+<area shape="rect" id="node1" title="getter" alt="" coords="796,425,991,466"/>
+<area shape="rect" id="node2" href="$struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_continuous_00_01_lin_op_01_4.html#a35fb1d49ba99355468cd487476a675a8" title=" " alt="" coords="515,5,734,61"/>
+<area shape="rect" id="node3" href="$struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_discontinuous_00_01_lin_op_01_4.html#a698c05dc1fd19c20af06da1894db025b" title=" " alt="" coords="515,85,734,141"/>
+<area shape="rect" id="node4" href="$struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#af3b37d399d7327b283360499560f3d2c" title=" " alt="" coords="513,165,737,221"/>
+<area shape="rect" id="node5" href="$struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#ad146e74022a55e95c86692e5f09e8fb9" title=" " alt="" coords="501,245,748,301"/>
+<area shape="rect" id="node6" href="$class_bembel_1_1_maxwell_single_layer_potential.html#a59facc4a5f6645515b51e94f06ba1459" title=" " alt="" coords="503,326,746,367"/>
+<area shape="rect" id="node7" href="$group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9" title="no&#45;problem quadrature routine, elements are sufficiently far away from each other,..." alt="" coords="552,391,697,433"/>
+<area shape="rect" id="node11" href="$group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39" title="quadrature routine for identical elements" alt="" coords="552,457,697,498"/>
+<area shape="rect" id="node12" href="$group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd" title="quadrature routine for the common edge case" alt="" coords="552,522,697,563"/>
+<area shape="rect" id="node13" href="$group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334" title="quadrature routine for identical elements" alt="" coords="552,587,697,629"/>
+<area shape="rect" id="node14" href="$struct_bembel_1_1_super_space.html#afb46395178178b0d82d14ba3dfeb806e" title=" " alt="" coords="547,653,703,694"/>
+<area shape="rect" id="node16" href="$class_bembel_1_1_element_tree_node.html#abb52690ebac4df925982bdae798f5528" title=" " alt="" coords="527,718,722,759"/>
+<area shape="rect" id="node18" href="$class_bembel_1_1_element_tree_node.html#ae3631bf2aa5cb9919af47bc751a4cf8c" title=" " alt="" coords="527,783,722,825"/>
+<area shape="rect" id="node8" href="$group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="269,490,440,531"/>
+<area shape="rect" id="node9" href="$struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,424,208,509"/>
+<area shape="rect" id="node10" href="$class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,534,184,575"/>
+<area shape="rect" id="node15" href="$group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699" title="Interpolate kernel function on reference domain for FMM." alt="" coords="275,653,434,694"/>
+<area shape="rect" id="node17" href="$class_bembel_1_1_function_evaluator.html#acff68ebfa96dcc8cda3f2247c65fbc7a" title=" " alt="" coords="256,718,453,759"/>
+</map>

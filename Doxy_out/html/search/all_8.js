@@ -1,21 +1,15 @@
 var searchData=
 [
-  ['id_5f_102',['id_',['../classBembel_1_1ElementTreeNode.html#a030b4d2002ceeeeabf90a3874f9e94b3',1,'Bembel::ElementTreeNode']]],
-  ['identityoperatorbase_103',['IdentityOperatorBase',['../classBembel_1_1IdentityOperatorBase.html',1,'Bembel']]],
-  ['identityoperatorbase_3c_20massmatrixscalarcont_20_3e_104',['IdentityOperatorBase&lt; MassMatrixScalarCont &gt;',['../classBembel_1_1IdentityOperatorBase.html',1,'Bembel']]],
-  ['identityoperatorbase_3c_20massmatrixscalardisc_20_3e_105',['IdentityOperatorBase&lt; MassMatrixScalarDisc &gt;',['../classBembel_1_1IdentityOperatorBase.html',1,'Bembel']]],
-  ['init_5fclustertree_106',['init_ClusterTree',['../classBembel_1_1ClusterTree.html#a284130d61b3dab43656991820ee4ed40',1,'Bembel::ClusterTree']]],
-  ['init_5fdiscretepotential_107',['init_DiscretePotential',['../classBembel_1_1DiscretePotential.html#acf272dd1b282d27f2ca6acd22fce80d6',1,'Bembel::DiscretePotential']]],
-  ['init_5felementtree_108',['init_ElementTree',['../classBembel_1_1ElementTree.html#aa3769979afc7295c56ce721659d83b93',1,'Bembel::ElementTree']]],
-  ['init_5fh2matrix_109',['init_H2Matrix',['../classEigen_1_1H2Matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b',1,'Eigen::H2Matrix']]],
-  ['init_5fpatch_110',['init_Patch',['../classBembel_1_1Patch.html#a94e90e693ae9764675d67ea9b1755252',1,'Bembel::Patch']]],
-  ['init_5fprojector_111',['init_Projector',['../classBembel_1_1Projector.html#a3bf72a255d274bb53d48ab122e0fdc47',1,'Bembel::Projector']]],
-  ['integrate0_112',['integrate0',['../group__DuffyTrick.html#ga36f1765af6834d692ebc93f71750ce62',1,'Bembel::DuffyTrick']]],
-  ['integrate1_113',['integrate1',['../group__DuffyTrick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9',1,'Bembel::DuffyTrick']]],
-  ['integrate2_114',['integrate2',['../group__DuffyTrick.html#ga2a96bf79e6357a8465e7feedffc27b39',1,'Bembel::DuffyTrick']]],
-  ['integrate3_115',['integrate3',['../group__DuffyTrick.html#ga1a2ace5d00944aa5a991084c252a2fcd',1,'Bembel::DuffyTrick']]],
-  ['integrate4_116',['integrate4',['../group__DuffyTrick.html#ga4159560d18ac51da0f9f8b9a1cd3c334',1,'Bembel::DuffyTrick']]],
-  ['interpolatekernel_117',['interpolateKernel',['../group__H2Matrix.html#ga4915ea94de2db58772fd15d5acbc6699',1,'Bembel::H2Multipole']]],
-  ['interpolationpoints2d_118',['interpolationPoints2D',['../group__H2Matrix.html#ga41fd2374858ae6bf7cbac5a7a5c2013a',1,'Bembel::H2Multipole']]],
-  ['io_119',['IO',['../group__IO.html',1,'']]]
+  ['h2matrix_370',['H2Matrix',['../class_eigen_1_1_h2_matrix.html',1,'Eigen::H2Matrix&lt; ScalarT &gt;'],['../class_h2_matrix.html',1,'H2Matrix'],['../class_eigen_1_1_h2_matrix.html#a209f290dd1eba6ccac66f8f69f9e8b2d',1,'Eigen::H2Matrix::H2Matrix()'],['../group___h2_matrix.html',1,'(Global Namespace)'],['../_h2_matrix.html',1,'(Global Namespace)']]],
+  ['h2matrix_2ehpp_371',['H2Matrix.hpp',['../_h2_matrix_8hpp.html',1,'']]],
+  ['h2multipole_2ehpp_372',['H2Multipole.hpp',['../_h2_multipole_8hpp.html',1,'']]],
+  ['helmholtz_373',['Helmholtz',['../group___helmholtz.html',1,'(Global Namespace)'],['../_helmholtz.html',1,'(Global Namespace)']]],
+  ['helmholtzsinglelayeroperator_374',['HelmholtzSingleLayerOperator',['../class_bembel_1_1_helmholtz_single_layer_operator.html',1,'Bembel::HelmholtzSingleLayerOperator'],['../class_bembel_1_1_helmholtz_single_layer_operator.html#a49640c5c0decadfa4a4be1954e549b08',1,'Bembel::HelmholtzSingleLayerOperator::HelmholtzSingleLayerOperator()']]],
+  ['helmholtzsinglelayerpotential_375',['HelmholtzSingleLayerPotential',['../class_bembel_1_1_helmholtz_single_layer_potential.html',1,'Bembel::HelmholtzSingleLayerPotential&lt; LinOp &gt;'],['../class_bembel_1_1_helmholtz_single_layer_potential.html#aa2dd7b8523f355748f268ce0406ab19a',1,'Bembel::HelmholtzSingleLayerPotential::HelmholtzSingleLayerPotential()']]],
+  ['hiddenbernsteinclass_376',['HiddenBernsteinClass',['../class_bembel_1_1_basis_1_1_hidden_bernstein_class.html',1,'Bembel::Basis']]],
+  ['hiddenbernsteinclass_3c_20t_2c_20_2d1_2c_20p_20_3e_377',['HiddenBernsteinClass&lt; T, -1, P &gt;',['../class_bembel_1_1_basis_1_1_hidden_bernstein_class_3_01_t_00_01-1_00_01_p_01_4.html',1,'Bembel::Basis']]],
+  ['hiddenbernsteinclass_3c_20t_2c_200_2c_20p_20_3e_378',['HiddenBernsteinClass&lt; T, 0, P &gt;',['../class_bembel_1_1_basis_1_1_hidden_bernstein_class_3_01_t_00_010_00_01_p_01_4.html',1,'Bembel::Basis']]],
+  ['homogenisedlaplace_379',['HomogenisedLaplace',['../group___homogenised_laplace.html',1,'(Global Namespace)'],['../_homogenised_laplace.html',1,'(Global Namespace)']]],
+  ['homogenisedlaplacesinglelayeroperator_380',['HomogenisedLaplaceSingleLayerOperator',['../class_bembel_1_1_homogenised_laplace_single_layer_operator.html',1,'Bembel::HomogenisedLaplaceSingleLayerOperator'],['../class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684',1,'Bembel::HomogenisedLaplaceSingleLayerOperator::HomogenisedLaplaceSingleLayerOperator()']]],
+  ['homogenisedlaplacesinglelayerpotential_381',['HomogenisedLaplaceSingleLayerPotential',['../class_bembel_1_1_homogenised_laplace_single_layer_potential.html',1,'Bembel::HomogenisedLaplaceSingleLayerPotential&lt; LinOp &gt;'],['../class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f',1,'Bembel::HomogenisedLaplaceSingleLayerPotential::HomogenisedLaplaceSingleLayerPotential()']]]
 ];

@@ -1,0 +1,5 @@
+var struct_bembel_1_1_potential_traits_3_01_homogenised_laplace_single_layer_potential_3_01_lin_op_01_4_01_4 =
+[
+    [ "Scalar", "struct_bembel_1_1_potential_traits_3_01_homogenised_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html#acf0f25e666825b402ea1a806362e4262", null ],
+    [ "OutputSpaceDimension", "struct_bembel_1_1_potential_traits_3_01_homogenised_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html#a84336f1c18ebaa2cc67ab3b44682e5d3", null ]
+];

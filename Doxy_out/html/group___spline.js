@@ -1,0 +1,47 @@
+var group___spline =
+[
+    [ "PSpecificBasisHandler", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html", [
+      [ "divPhiTimesDivPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a0deb702c74e7ba911aa41ad85e488495", null ],
+      [ "funPtrDivPhiTimesDivPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#af857c13ba5b305b33a7b626fce57428c", null ],
+      [ "funPtrPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a01390502e31be8f61d2ae9e44738b973", null ],
+      [ "funPtrPhiDx", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#abb765e3af374e6cfa109cb70c39a3bf2", null ],
+      [ "funPtrPhiPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a9fc3e116d266863b2c578332ec47e034", null ],
+      [ "funPtrPhiPhiDx", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a0538ded16c31faf648fa311f487141f7", null ],
+      [ "funPtrPhiPhiDy", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#ade7dd2d37da64f2c0fb03f5f88bd07aa", null ],
+      [ "funPtrPhiTimesPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#ab0c51babba67e04439cfcfb1c544e9e8", null ],
+      [ "phi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a6b1763ee9c65bcda01aef0452e38b397", null ],
+      [ "phiDx", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#af337e73fe0adaef5ba1edca97c0a6ab7", null ],
+      [ "phiPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a09f29aa712983b23fbbe03e7223c99dc", null ],
+      [ "phiPhiDx", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#a2f9fa2af872a502b4e2438ece493d9d4", null ],
+      [ "phiPhiDy", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#af3a929dff1cfbcbe798899f9c6ee3882", null ],
+      [ "phiTimesPhi", "class_bembel_1_1_basis_1_1_p_specific_basis_handler.html#abe468e10c446d954dba7e0aa6c84d5bb", null ]
+    ] ],
+    [ "static_assertKlessseqN", "struct_bembel_1_1static__assert_klessseq_n.html", null ],
+    [ "PSpecificShapeFunctionHandler", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html", [
+      [ "checkP", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a151b589e892aabad30ae922cbc225e9d", null ],
+      [ "evalBasis", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405", null ],
+      [ "evalCoef", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab0d60a0b9e034bd8e1843da043d2307a", null ],
+      [ "evalDerBasis", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a0a1673d8eca8cf9a795dc0a17e56f06f", null ],
+      [ "evalDerCoef", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a238e4efbd7c314ef647fcd5f3402f271", null ],
+      [ "ptrEvalBasis", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab2645388fe55c1cd9221da460e3c830a", null ],
+      [ "ptrEvalCoef", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ac81bff236cd502e3f8375c93481dc939", null ],
+      [ "ptrEvalDerBasis", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ac1c9e2df1b2a5ec8073741b0ac62220c", null ],
+      [ "ptrEvalDerCoef", "class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a4e1d3cefdf7e7e2c686bd218ac2befb3", null ]
+    ] ],
+    [ "BernsteinX", "group___spline.html#gab9ad832bc55e1f2854be5baba2d6c8b6", null ],
+    [ "DeBoor", "group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191", null ],
+    [ "DeBoorDer", "group___spline.html#ga621f5699277e6781e3ee025e386022f9", null ],
+    [ "Div_Phi_times_Div_Phi_", "group___spline.html#gabf6101aa4553adf841708c4b208af2b2", null ],
+    [ "GetCoefficients", "group___spline.html#gae358ed2987505a76b9fa0be94ed8b19c", null ],
+    [ "GetCoefficients", "group___spline.html#ga5e3d56241476339b1cd6f6f67397c455", null ],
+    [ "GetInterpolationMatrix", "group___spline.html#ga0c98aa7e939d5d199b75e867257f942b", null ],
+    [ "MakeBezierKnotVector", "group___spline.html#gae8f152599fef9cc558caa39a0cfe5237", null ],
+    [ "MakeInterpolationPoints", "group___spline.html#gad40828354c5de3057dce2c485b434415", null ],
+    [ "MakeProjection", "group___spline.html#gaedbab2805662ec55aede9e429b384756", null ],
+    [ "phi_", "group___spline.html#gad90833bf929ec28aabfe8aedc59f63c3", null ],
+    [ "phi_dx_", "group___spline.html#ga6df93e4cb47305d8468d609a392ef84d", null ],
+    [ "Phi_times_Phi_", "group___spline.html#gabaf5c3305a82d32e8af024c33efab117", null ],
+    [ "phiphi_", "group___spline.html#ga1ebe02002265f8b7d7d61a32956f4751", null ],
+    [ "phiphi_dx_", "group___spline.html#gab678c79d14a00c03513126b48fc37449", null ],
+    [ "phiphi_dy_", "group___spline.html#gaa12be803e27738b1612ec4917f55aecd", null ]
+];

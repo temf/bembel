@@ -1,0 +1,4 @@
+<map id="Bembel::Spl::GetInterpolationMatrix" name="Bembel::Spl::GetInterpolationMatrix">
+<area shape="rect" id="node1" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="5,13,220,54"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="268,5,449,61"/>
+</map>

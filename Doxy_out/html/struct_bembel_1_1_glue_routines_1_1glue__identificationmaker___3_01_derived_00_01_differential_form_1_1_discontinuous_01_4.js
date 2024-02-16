@@ -1,0 +1,4 @@
+var struct_bembel_1_1_glue_routines_1_1glue__identificationmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4 =
+[
+    [ "makeIdentification", "struct_bembel_1_1_glue_routines_1_1glue__identificationmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html#af5a9df0dd1fa39aa49d5eef1e240892d", null ]
+];

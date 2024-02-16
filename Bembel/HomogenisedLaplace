@@ -12,6 +12,12 @@
 #ifndef BEMBEL_HOMOGENISEDLAPLACEOPERATOR_MODULE_
 #define BEMBEL_HOMOGENISEDLAPLACEOPERATOR_MODULE_
 
+/**
+ *  \defgroup HomogenisedLaplace HomogenisedLaplace
+ *  \brief The HomogenisedLaplace module provides some specializations to solve
+ *  a homogenised Laplace problem.
+ **/
+
 #include <functional>
 
 #include <Eigen/Dense>

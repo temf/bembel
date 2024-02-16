@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$struct_bembel_1_1_linear_operator_base.html" title="linear operator base class. this serves as a common interface for existing linear operators" alt="" coords="5,136,215,177"/>
+<area shape="rect" id="node2" href="$struct_bembel_1_1_local_operator_base.html" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="263,136,465,177"/>
+<area shape="rect" id="node3" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="523,5,751,47"/>
+<area shape="rect" id="node5" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="521,71,752,112"/>
+<area shape="rect" id="node7" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title=" " alt="" coords="513,136,760,177"/>
+<area shape="rect" id="node9" href="$class_bembel_1_1_identity_operator_base.html" title="This class is the base for all mass matrices." alt="" coords="543,201,730,243"/>
+<area shape="rect" id="node10" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title="This class is the base for Laplace Beltrami operator." alt="" coords="515,267,758,308"/>
+<area shape="rect" id="node4" href="$class_bembel_1_1_mass_matrix_scalar_disc.html" title=" " alt="" coords="817,13,1041,39"/>
+<area shape="rect" id="node6" href="$class_bembel_1_1_mass_matrix_scalar_cont.html" title=" " alt="" coords="816,78,1043,105"/>
+<area shape="rect" id="node8" href="$class_bembel_1_1_laplace_beltrami_operator.html" title=" " alt="" coords="808,143,1051,170"/>
+</map>

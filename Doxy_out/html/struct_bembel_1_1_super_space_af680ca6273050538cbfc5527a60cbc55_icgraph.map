@@ -1,0 +1,4 @@
+<map id="Bembel::SuperSpace::addScaledBasis1D" name="Bembel::SuperSpace::addScaledBasis1D">
+<area shape="rect" id="node1" title="Evaluate local shape functions on the unit interval at coordinate s, scale by w and add to intval." alt="" coords="292,5,448,47"/>
+<area shape="rect" id="node2" href="$struct_bembel_1_1_h2_multipole_1_1_moment1_d.html#a645c5e59c4d28eca10453539ceef22b9" title=" " alt="" coords="5,5,244,47"/>
+</map>

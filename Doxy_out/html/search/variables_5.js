@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['patch_5f_409',['patch_',['../classBembel_1_1ElementTreeNode.html#abce8406f0f90d030f3207622af590040',1,'Bembel::ElementTreeNode']]],
-  ['prev_5f_410',['prev_',['../classBembel_1_1ElementTreeNode.html#a9f26e0cfe6ff5ec3c1a9e67ce5f9578d',1,'Bembel::ElementTreeNode']]]
+  ['ffield_5fdeg_5f_1358',['ffield_deg_',['../struct_bembel_1_1_block_cluster_tree_parameters.html#a2b5e58b0be7a13b5ee6cacae1e047e9d',1,'Bembel::BlockClusterTreeParameters']]],
+  ['ffield_5fqnodes_5f_1359',['ffield_qnodes_',['../struct_bembel_1_1_block_cluster_tree_parameters.html#a659ed0606cb958fdd90ab8330d40f9ae',1,'Bembel::BlockClusterTreeParameters']]]
 ];

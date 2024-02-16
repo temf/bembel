@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Bembel: Source Code</title>
+<title>Bembel: Modules</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,11 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -41,21 +36,6 @@
    <div id="projectname">Bembel
    </div>
   </td>
-   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.svg"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -67,6 +47,16 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -100,28 +90,26 @@ $(document).ready(function(){initNavTree('modules.html',''); initResizable(); })
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Source Code</div>  </div>
+<div class="title">Modules</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here is a list of all modules:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><a class="el" href="group__Modules.html" target="_self">Modules</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__AnsatzSpace.html" target="_self">AnsatzSpace</a></td><td class="desc">The AnsatzSpace module contains the routines managing the discrete space on the surface of the geometry </td></tr>
-<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__ClusterTree.html" target="_self">ClusterTree</a></td><td class="desc">The ClusterTree module introduces a structure onto the parametric surfaces </td></tr>
-<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__DuffyTrick.html" target="_self">DuffyTrick</a></td><td class="desc">The DuffyTrick module provides quadrature routines for (nearly) singular integrals </td></tr>
-<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Geometry.html" target="_self">Geometry</a></td><td class="desc">This module handles all geometry related concerns </td></tr>
-<tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__H2Matrix.html" target="_self">H2Matrix</a></td><td class="desc">The <a class="el" href="classH2Matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a> module provides functionality for an efficient compression of the system matrix and reduction of the computational complexity of the matrix-vector multiplication </td></tr>
-<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Helmholtz.html" target="_self">Helmholtz</a></td><td class="desc">The Helmholtz module provides some specializations to solve Helmholtz problems </td></tr>
-<tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__IO.html" target="_self">IO</a></td><td class="desc">The IO module provides input-output functionality </td></tr>
-<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Laplace.html" target="_self">Laplace</a></td><td class="desc">The Laplace module provides some specializations to solve Laplace problems </td></tr>
-<tr id="row_0_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__LinearForm.html" target="_self">LinearForm</a></td><td class="desc">The LinearForm template class must be specialized for the assembly of the right hand side </td></tr>
-<tr id="row_0_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__LinearOperator.html" target="_self">LinearOperator</a></td><td class="desc">Specializations of the LinearOperatorBase class govern the behaviour of most other modules </td></tr>
-<tr id="row_0_10_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Maxwell.html" target="_self">Maxwell</a></td><td class="desc">The Maxwell module provides specializations to solve Maxwell problems </td></tr>
-<tr id="row_0_11_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Potential.html" target="_self">Potential</a></td><td class="desc">The Potential module introduces means to evaluate the solution to a PDE via a suitable integral operator taking the unknown of the linear system as input. It relies on a suitable specialization corresponding of the LinearOperatorBase class </td></tr>
-<tr id="row_0_12_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Quadrature.html" target="_self">Quadrature</a></td><td class="desc">The Quadrature module provides quadrature routines for the unit interval/square/cube/.... by means of template recursion </td></tr>
-<tr id="row_0_13_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__Spline.html" target="_self">Spline</a></td><td class="desc">The Spline module provides basic routines related to spline function and local polynomials </td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9660;</span><a class="el" href="group__Examples.html" target="_self">Examples</a></td><td class="desc"></td></tr>
-<tr id="row_1_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__LaplaceSingleLayerFull.html" target="_self">Laplace Single Layer Full</a></td><td class="desc">This example computes the solution of a Laplace problem </td></tr>
+<table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___ansatz_space.html" target="_self">AnsatzSpace</a></td><td class="desc">The AnsatzSpace module contains the routines managing the discrete space on the surface of the geometry </td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___cluster_tree.html" target="_self">ClusterTree</a></td><td class="desc">The ClusterTree module introduces a structure onto the parametric surfaces </td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___duffy_trick.html" target="_self">DuffyTrick</a></td><td class="desc">The DuffyTrick module provides quadrature routines for (nearly) singular integrals </td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___geometry.html" target="_self">Geometry</a></td><td class="desc">This module handles all geometry related concerns </td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___h2_matrix.html" target="_self">H2Matrix</a></td><td class="desc">The <a class="el" href="class_h2_matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a> module provides functionality for an efficient compression of the system matrix and reduction of the computational complexity of the matrix-vector multiplication </td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___helmholtz.html" target="_self">Helmholtz</a></td><td class="desc">The Helmholtz module provides some specializations to solve Helmholtz problems </td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___homogenised_laplace.html" target="_self">HomogenisedLaplace</a></td><td class="desc">The HomogenisedLaplace module provides some specializations to solve a homogenised Laplace problem </td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___i_o.html" target="_self">IO</a></td><td class="desc">The IO module provides input-output functionality </td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___laplace.html" target="_self">Laplace</a></td><td class="desc">The Laplace module provides some specializations to solve Laplace problems </td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___linear_form.html" target="_self">LinearForm</a></td><td class="desc">The LinearForm template class must be specialized for the assembly of the right hand side </td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___linear_operator.html" target="_self">LinearOperator</a></td><td class="desc">Specializations of the LinearOperatorBase class govern the behaviour of most other modules </td></tr>
+<tr id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___maxwell.html" target="_self">Maxwell</a></td><td class="desc">The Maxwell module provides specializations to solve Maxwell problems </td></tr>
+<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___potential.html" target="_self">Potential</a></td><td class="desc">The Potential module introduces means to evaluate the solution to a PDE via a suitable integral operator taking the unknown of the linear system as input. It relies on a suitable specialization corresponding of the LinearOperatorBase class </td></tr>
+<tr id="row_13_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___quadrature.html" target="_self">Quadrature</a></td><td class="desc">The Quadrature module provides quadrature routines for the unit interval/square/cube/.... by means of template recursion </td></tr>
+<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___spline.html" target="_self">Spline</a></td><td class="desc">The Spline module provides basic routines related to spline function and local polynomials </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
@@ -129,7 +117,7 @@ $(document).ready(function(){initNavTree('modules.html',''); initResizable(); })
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Feb 16 2024 08:26:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 16 2024 09:02:13 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,0 +1,4 @@
+<map id="Bembel::writePatchData" name="Bembel::writePatchData">
+<area shape="rect" id="node1" title="This Function writes the patch from Bembel into a vector which can be written into an IGES file." alt="" coords="212,5,391,32"/>
+<area shape="rect" id="node2" href="$group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658" title="Writes Geometry into an IGES file format." alt="" coords="5,5,164,32"/>
+</map>

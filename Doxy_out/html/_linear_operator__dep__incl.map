@@ -1,0 +1,11 @@
+<map id="Bembel/LinearOperator" name="Bembel/LinearOperator">
+<area shape="rect" id="node1" title=" " alt="" coords="599,5,773,32"/>
+<area shape="rect" id="node2" href="$_dummy_operator.html" title=" " alt="" coords="5,80,191,107"/>
+<area shape="rect" id="node3" href="$_helmholtz.html" title=" " alt="" coords="215,80,357,107"/>
+<area shape="rect" id="node4" href="$_homogenised_laplace.html" title=" " alt="" coords="382,80,598,107"/>
+<area shape="rect" id="node6" href="$_identity.html" title=" " alt="" coords="623,80,749,107"/>
+<area shape="rect" id="node7" href="$_laplace.html" title=" " alt="" coords="773,80,900,107"/>
+<area shape="rect" id="node8" href="$_laplace_beltrami.html" title=" " alt="" coords="924,80,1107,107"/>
+<area shape="rect" id="node9" href="$_maxwell.html" title=" " alt="" coords="1131,80,1262,107"/>
+<area shape="rect" id="node5" href="$_coefficients_8hpp.html" title=" " alt="" coords="371,155,609,196"/>
+</map>

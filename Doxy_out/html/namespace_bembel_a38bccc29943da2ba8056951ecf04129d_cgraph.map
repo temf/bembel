@@ -1,0 +1,6 @@
+<map id="Bembel::dsolid_spherical_prev" name="Bembel::dsolid_spherical_prev">
+<area shape="rect" id="node1" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="5,31,227,57"/>
+<area shape="rect" id="node2" href="$namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="277,5,459,32"/>
+<area shape="rect" id="node4" href="$namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="275,56,461,83"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="509,5,645,32"/>
+</map>

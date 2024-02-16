@@ -1,0 +1,4 @@
+var struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4 =
+[
+    [ "makeMatrix", "struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html#a2455881f13fa88d0d6357f654251fadb", null ]
+];

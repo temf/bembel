@@ -1,0 +1,16 @@
+<map id="Bembel::Geometry::init_Geometry" name="Bembel::Geometry::init_Geometry">
+<area shape="rect" id="node1" title=" " alt="" coords="5,213,179,254"/>
+<area shape="rect" id="node2" href="$group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e" title="loads geometry from file with GEOPDE&#45;format. Note that the direction of the normals must be consisten..." alt="" coords="227,169,452,196"/>
+<area shape="rect" id="node13" href="$group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075" title="loads geometry from IGES file. Note that the direction of the normals must be consistent." alt="" coords="229,220,450,247"/>
+<area shape="rect" id="node14" href="$namespace_bembel.html#a4964bb4906731ef7ac920f39216a2fc8" title=" " alt="" coords="253,271,426,297"/>
+<area shape="rect" id="node3" href="$class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252" title="init" alt="" coords="500,187,644,229"/>
+<area shape="rect" id="node4" href="$namespace_bembel_1_1_spl.html#a5a9d9cd6f78e5d54f4a89905378d9374" title=" " alt="" coords="696,129,896,170"/>
+<area shape="rect" id="node5" href="$group___spline.html#gaedbab2805662ec55aede9e429b384756" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="692,195,900,221"/>
+<area shape="rect" id="node12" href="$namespace_bembel_1_1_spl.html#afe8b940b8c20a2b4efe8850f853bf5c5" title="Tiny helper functions." alt="" coords="1005,304,1152,331"/>
+<area shape="rect" id="node6" href="$namespace_bembel_1_1_spl.html#ad0cf5f62596d46c750b189c0ef35980e" title="Simple TP Bsplines." alt="" coords="993,5,1165,32"/>
+<area shape="rect" id="node8" href="$class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab0d60a0b9e034bd8e1843da043d2307a" title=" " alt="" coords="988,56,1169,112"/>
+<area shape="rect" id="node9" href="$namespace_bembel_1_1_spl.html#a3a58c86e1147b0087815020b43d06d63" title=" " alt="" coords="948,136,1209,163"/>
+<area shape="rect" id="node10" href="$group___spline.html#gad40828354c5de3057dce2c485b434415" title="Creates a T&#45;vector of equidistant itnerpolation points for a given knot vector without any repetition..." alt="" coords="965,187,1192,229"/>
+<area shape="rect" id="node11" href="$namespace_bembel_1_1_spl.html#aff0011d9cba5053388899d445558f1fe" title=" " alt="" coords="999,253,1158,280"/>
+<area shape="rect" id="node7" href="$group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191" title="&quot;By the book&quot; implementations of the Cox&#45;DeBoor formula. Inefficient, do not use at bottlenecks." alt="" coords="1257,5,1413,32"/>
+</map>

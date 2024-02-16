@@ -1,0 +1,13 @@
+<map id="Bembel::LoadGeometryFileDAT" name="Bembel::LoadGeometryFileDAT">
+<area shape="rect" id="node1" title="loads geometry from file with GEOPDE&#45;format. Note that the direction of the normals must be consisten..." alt="" coords="5,195,231,221"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252" title="init" alt="" coords="279,187,423,229"/>
+<area shape="rect" id="node3" href="$namespace_bembel_1_1_spl.html#a5a9d9cd6f78e5d54f4a89905378d9374" title=" " alt="" coords="475,129,675,170"/>
+<area shape="rect" id="node4" href="$group___spline.html#gaedbab2805662ec55aede9e429b384756" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="471,195,679,221"/>
+<area shape="rect" id="node11" href="$namespace_bembel_1_1_spl.html#afe8b940b8c20a2b4efe8850f853bf5c5" title="Tiny helper functions." alt="" coords="784,304,931,331"/>
+<area shape="rect" id="node5" href="$namespace_bembel_1_1_spl.html#ad0cf5f62596d46c750b189c0ef35980e" title="Simple TP Bsplines." alt="" coords="771,5,943,32"/>
+<area shape="rect" id="node7" href="$class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab0d60a0b9e034bd8e1843da043d2307a" title=" " alt="" coords="767,56,948,112"/>
+<area shape="rect" id="node8" href="$namespace_bembel_1_1_spl.html#a3a58c86e1147b0087815020b43d06d63" title=" " alt="" coords="727,136,988,163"/>
+<area shape="rect" id="node9" href="$group___spline.html#gad40828354c5de3057dce2c485b434415" title="Creates a T&#45;vector of equidistant itnerpolation points for a given knot vector without any repetition..." alt="" coords="744,187,971,229"/>
+<area shape="rect" id="node10" href="$namespace_bembel_1_1_spl.html#aff0011d9cba5053388899d445558f1fe" title=" " alt="" coords="778,253,937,280"/>
+<area shape="rect" id="node6" href="$group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191" title="&quot;By the book&quot; implementations of the Cox&#45;DeBoor formula. Inefficient, do not use at bottlenecks." alt="" coords="1036,5,1192,32"/>
+</map>

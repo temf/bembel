@@ -1,0 +1,4 @@
+var struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4 =
+[
+    [ "FunctionSpaceValue", "struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html#a011519d296722b3158023bf3c5471a4c", null ]
+];

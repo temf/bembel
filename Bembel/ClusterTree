@@ -13,7 +13,6 @@
 #define BEMBEL_CLUSTERTREE_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup ClusterTree ClusterTree
  * \brief The ClusterTree module introduces a structure onto the parametric
  * surfaces.

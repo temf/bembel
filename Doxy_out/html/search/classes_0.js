@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ansatzspace_214',['AnsatzSpace',['../classBembel_1_1AnsatzSpace.html',1,'Bembel']]],
-  ['ansatzspace_3c_20linop_20_3e_215',['AnsatzSpace&lt; LinOp &gt;',['../classBembel_1_1AnsatzSpace.html',1,'Bembel']]]
+  ['_5fproj_5finfo_711',['_proj_info',['../struct_bembel_1_1_projector_routines_1_1__proj__info.html',1,'Bembel::ProjectorRoutines']]]
 ];

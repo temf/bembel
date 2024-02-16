@@ -16,11 +16,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -41,21 +36,6 @@
    <div id="projectname">Bembel
    </div>
   </td>
-   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.svg"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -67,6 +47,16 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -104,7 +94,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<h1><a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a></h1>
+<h1><a class="el" href="namespace_bembel.html">Bembel</a></h1>
 <p><a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" style="pointer-events: none;" class="inline"/></a> <img src="https://img.shields.io/github/v/release/temf/bembel" alt="GitHub release (latest by date)" class="inline"/> <a href="https://zenodo.org/badge/latestdoi/173278911"><img src="https://zenodo.org/badge/173278911.svg" alt="DOI" style="pointer-events: none;" class="inline"/></a> <a href="https://temf.github.io/bembel/coverage/report/report.html"><img src="https://temf.github.io/bembel/coverage/report/coverage.svg" alt="coverage report" style="pointer-events: none;" class="inline"/></a> </p><h2>Table of contents</h2>
 <ol type="1">
 <li><a href="#introduction">Introduction</a></li>
@@ -120,11 +110,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><a href="#funding">Funding</a></li>
 </ol>
 <h2>1. Introduction <a class="anchor" id="introduction"></a></h2>
-<p><a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> is the Boundary Element Method Based Engineering Library written in C++ to solve boundary value problems governed by the Laplace, Helmholtz or electric wave equation within the isogeometric framework [<a href="#6">6</a>,<a href="#7">7</a>,<a href="#8">8</a>,<a href="#9">9</a>]. It was developed as part of a cooperation between the TU Darmstadt and the University of Basel, coordinated by <a href="#HeHa">H. Harbrecht</a>, <a href="#SK">S. Kurz</a> and <a href="#SSc">S. Schöps</a>. The code is based on the Laplace BEM of <a href="#JD">J. Dölz</a>, <a href="#HeHa">H. Harbrecht</a>, and <a href="#MM">M. Multerer</a>, [<a href="#5">5</a>,<a href="#13">13</a>] as well as the spline and geometry framework of <a href="#FW">F. Wolf</a>. The code was extended by <a href="#JD">J. Dölz</a> and <a href="#FW">F. Wolf</a> in early 2018 to cover electromagnetic applications [<a href="#8">8</a>,<a href="#9">9</a>]. An introduction to the code has been published in <a href="#6">[6]</a>. If you utilise our code as part of a publication, we would appreciate it if you cite <a href="#6">[6]</a>.</p>
-<h2>2. What is a <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a>?<a class="anchor" id="whatis"></a></h2>
+<p><a class="el" href="namespace_bembel.html">Bembel</a> is the Boundary Element Method Based Engineering Library written in C++ to solve boundary value problems governed by the Laplace, Helmholtz or electric wave equation within the isogeometric framework [<a href="#6">6</a>,<a href="#7">7</a>,<a href="#8">8</a>,<a href="#9">9</a>]. It was developed as part of a cooperation between the TU Darmstadt and the University of Basel, coordinated by <a href="#HeHa">H. Harbrecht</a>, <a href="#SK">S. Kurz</a> and <a href="#SSc">S. Schöps</a>. The code is based on the Laplace BEM of <a href="#JD">J. Dölz</a>, <a href="#HeHa">H. Harbrecht</a>, and <a href="#MM">M. Multerer</a>, [<a href="#5">5</a>,<a href="#13">13</a>] as well as the spline and geometry framework of <a href="#FW">F. Wolf</a>. The code was extended by <a href="#JD">J. Dölz</a> and <a href="#FW">F. Wolf</a> in early 2018 to cover electromagnetic applications [<a href="#8">8</a>,<a href="#9">9</a>]. An introduction to the code has been published in <a href="#6">[6]</a>. If you utilise our code as part of a publication, we would appreciate it if you cite <a href="#6">[6]</a>.</p>
+<h2>2. What is a <a class="el" href="namespace_bembel.html">Bembel</a>?<a class="anchor" id="whatis"></a></h2>
 <p>A traditional Hessian ceramic, as depicted in our logo. Quoting <a href="https://en.wikipedia.org/wiki/Apfelwein">Wikipedia</a>:</p>
 <blockquote class="doxtable">
-<p><em>Most establishments also serve Apfelwein by the <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> (a specific Apfelwein jug), much like how beer can be purchased by the pitcher in many countries. The paunchy <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> (made from salt-glazed stoneware) usually has a basic grey colour with blue-painted detailing.</em> </p>
+<p><em>Most establishments also serve Apfelwein by the <a class="el" href="namespace_bembel.html">Bembel</a> (a specific Apfelwein jug), much like how beer can be purchased by the pitcher in many countries. The paunchy <a class="el" href="namespace_bembel.html">Bembel</a> (made from salt-glazed stoneware) usually has a basic grey colour with blue-painted detailing.</em> </p>
 </blockquote>
 <h2>3. Features <a class="anchor" id="features"></a></h2>
 <p>Current key features include</p>
@@ -138,11 +128,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>Full compatibility with the <a href="http://eigen.tuxfamily.org/">Eigen</a> linear algebra library. If you are not familiar with Eigen3, we emphasize that you can use it similarly to Matlab or Octave, see <a href="http://eigen.tuxfamily.org/dox/AsciiQuickReference.txt">here</a>.</li>
 </ul>
 <h2>4. How to Run our Code <a class="anchor" id="example"></a></h2>
-<p>You need to install the Eigen3 library, see <a href="https://eigen.tuxfamily.org/dox/GettingStarted.html">Eigen's Documentation</a> for help. We do not rely on any other external libraries, except for the standard template library. Thus, having installed Eigen, <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> should run out of the box. If you want to use <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> as part of your application, simply add the <code>Bembel/</code> directory to your includes.</p>
+<p>You need to install the Eigen3 library, see <a href="https://eigen.tuxfamily.org/dox/GettingStarted.html">Eigen's Documentation</a> for help. We do not rely on any other external libraries, except for the standard template library. Thus, having installed <a class="el" href="namespace_eigen.html">Eigen</a>, <a class="el" href="namespace_bembel.html">Bembel</a> should run out of the box. If you want to use <a class="el" href="namespace_bembel.html">Bembel</a> as part of your application, simply add the <code>Bembel/</code> directory to your includes.</p>
 <p>If you want to run the provided examples and tests, you can utilize the provided <code>CMakeLists.txt</code>. Compile the code with: </p><div class="fragment"><div class="line">$ cmake -B build .</div>
 <div class="line">$ cmake --build build --config release</div>
 </div><!-- fragment --><p> There also exist a <code>debug</code> config.</p>
-<p>The CMake-File checks for installations of Eigen via the corresponding <code>Eigen3Config.cmake</code>. On Unix you may run <code>apt install libeigen3-dev</code>, or on Mac with Homebrew <code>brew install eigen</code>, and everything should work. Alternatively, you can delete the line <code>find_package (Eigen3 3.3 REQUIRED NO_MODULE)</code> and all lines of the type <code>target_link_librarires(... Eigen3::Eigen)</code> from <code>CMakeLists.txt</code>, and give a path to the eigen headers as an include directory manually.</p>
+<p>The CMake-File checks for installations of <a class="el" href="namespace_eigen.html">Eigen</a> via the corresponding <code>Eigen3Config.cmake</code>. On Unix you may run <code>apt install libeigen3-dev</code>, or on Mac with Homebrew <code>brew install eigen</code>, and everything should work. Alternatively, you can delete the line <code>find_package (Eigen3 3.3 REQUIRED NO_MODULE)</code> and all lines of the type <code>target_link_librarires(... Eigen3::Eigen)</code> from <code>CMakeLists.txt</code>, and give a path to the eigen headers as an include directory manually.</p>
 <p>Then, the examples and tests should compile without any issues. You may run all tests by calling <code>ctest</code> from the <code>build/</code> directory after a successful compilation.</p>
 <p>The geometry files required to run the examples can be found in the <code>geo/</code> folder.</p>
 <h2>5. Structure of the Repository <a class="anchor" id="structure"></a></h2>
@@ -154,13 +144,13 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><code>geo/octave_example/</code> includes <code>.m</code> files that showcase how geometries can be constructed using the <a href="https://octave.sourceforge.io/nurbs/">NURBS package</a> of octave.</li>
 </ul>
 </li>
-<li><code>Bembel/</code> contains the library. In <code>Bembel/</code>, module files have been created analogously to the design of the Eigen library. If <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> is used, only these module files should be included. These modules are the following:<ul>
+<li><code>Bembel/</code> contains the library. In <code>Bembel/</code>, module files have been created analogously to the design of the <a class="el" href="namespace_eigen.html">Eigen</a> library. If <a class="el" href="namespace_bembel.html">Bembel</a> is used, only these module files should be included. These modules are the following:<ul>
 <li><code>AnsatzSpace</code> contains the files whose routines manage the discrete space on the surface of the geometry. Specifically, this is realised through the four classes <code>Superspace</code>, <code>Projector</code>, <code>Glue</code>, and <code>AnsatzSpace</code>. Therein, the <code>Superspace</code> manages local polynomial bases on every element. Through a transformation matrix generated by the template class <code>Projector</code> which depends on the <code>LinearOperator</code> and its defined traits, the <code>Superspace</code> can be related to B-Spline bases on every patch. To build conforming spaces (in the case of <code>DifferentialForm::DivergenceConforming</code> through continuity of the normal component across patch interfaces, and in the case of <code>DifferentialForm::Continuous</code> through global C0-continuity), the template class <code>Glue</code> assembles another transformation matrix to identify degrees of freedom across edges. Then, a coefficient vector in the <code>Superspace</code> can be related to one of the smooth B-Spline basis, as explained in [<a href="#7">7</a>,<a href="#8">8</a>].</li>
 <li><code>ClusterTree</code> implements an element structure for refinement. Currently, only uniform refinement has been implemented. A <code>ClusterTree</code> object itself is comprised of a <code>Geometry</code> object and an <code>ElementTree</code>. The <code>ElementTree</code> provides routines for the extraction of topological information, refinement, as well as iterators to effortlessly loop over elements.</li>
 <li><code>DuffyTrick</code> provides quadrature routines for (nearly) singular integrals. Therein, quadrature routines for 4 cases are implemented: Separated elements, elements sharing a corner, elements sharing an edge, and identical elements.</li>
 <li><code>DummyOperator</code> provides a <code>LinearOperator</code> for testing.</li>
 <li><code>Geometry</code> implements the handling of the geometry.</li>
-<li><code><a class="el" href="classH2Matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a></code> handles the compression of the large, densely populated matrices. The algorithm was introduced in <a href="#5">[5]</a> and was generalized to the Maxwell case in <a href="#8">[8]</a>.</li>
+<li><code><a class="el" href="class_h2_matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a></code> handles the compression of the large, densely populated matrices. The algorithm was introduced in <a href="#5">[5]</a> and was generalized to the Maxwell case in <a href="#8">[8]</a>.</li>
 <li><code>Helmholtz</code> provides the necessary specializations to solve Helmholtz problems.</li>
 <li><code>HomogenisedLaplace</code> provides the necessary specialisations to solve the homogensied Laplace problem.</li>
 <li><code>IO</code> provides input-output functionality, including routines for VTK file export, timing, and writing log files.</li>
@@ -174,21 +164,21 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 </li>
 </ul>
-<p>The <code>Bembel/src/</code> directory leads to folders corresponding to these modules, which include the actual implementation. The folder <code>examples/</code> contains short and <em>well documented</em> examples for Bembels functionality and <code>tests/</code> contains the tests for <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a>.</p>
+<p>The <code>Bembel/src/</code> directory leads to folders corresponding to these modules, which include the actual implementation. The folder <code>examples/</code> contains short and <em>well documented</em> examples for Bembels functionality and <code>tests/</code> contains the tests for <a class="el" href="namespace_bembel.html">Bembel</a>.</p>
 <h2>6. Documentation <a class="anchor" id="doc"></a></h2>
 <p>A good place to start are the examples in the <code>examples/</code> folder, together with publication <a href="#6">[6]</a>. Apart from that, a <a href="https://temf.github.io/bembel/Doxy_out/html/index.html">Doxygen documentation</a> is available.</p>
 <h2>7. Known Bugs and Upcoming Features <a class="anchor" id="bugs"></a></h2>
 <p>For a list of known bugs and upcoming features, please have a look at the issue tracker on github.</p>
-<h2>8. Contributing to <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> <a class="anchor" id="contributing"></a></h2>
+<h2>8. Contributing to <a class="el" href="namespace_bembel.html">Bembel</a> <a class="anchor" id="contributing"></a></h2>
 <p>Any contribution to this project in fixing a bug or implementing a feature is welcome. Create a fork of this repository and create a pull request after your finished the implementation of the feature. To successfully merge your pull request you should follow our <a href="https://temf.github.io/bembel/Doxy_out/html/codingGuidelines.html">Coding Guidelines</a></p>
 <h2>9. Publications, Preprints, and how to cite <a class="anchor" id="publications"></a></h2>
-<p>The following articles and preprints influenced the development of <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a>. We appreciate a citation of <a href="#6">[6]</a> if you use it in one of your articles.</p>
+<p>The following articles and preprints influenced the development of <a class="el" href="namespace_bembel.html">Bembel</a>. We appreciate a citation of <a href="#6">[6]</a> if you use it in one of your articles.</p>
 <p><a class="anchor" id="1"></a>[1] A. Buffa, J. Dölz, S. Kurz, S. Schöps, R. Vázques, and F. Wolf. <em>Multipatch approximation of the de Rham sequence and its traces in isogeometric analysis.</em> In: Numer. Math., 144, 201-236, 2020. <a href="https://link.springer.com/article/10.1007/s00211-019-01079-x">To the paper</a>. <a href="https://arxiv.org/abs/1806.01062">To the preprint</a>.</p>
 <p><a class="anchor" id="2"></a>[2] J. Dölz. <em>A Higher Order Perturbation Approach for Electromagnetic Scattering Problems on Random Domains</em>. In: SIAM/ASA J. UQ, 2020, 8(2). <a href="https://epubs.siam.org/doi/abs/10.1137/19M1274365">To the paper</a>.</p>
 <p><a class="anchor" id="3"></a>[3] J. Dölz. <em>Data sparse multilevel covariance estimation in optimal complexity</em>. Preprint available, 2023. <a href="https://arxiv.org/abs/2301.11992">To the preprint</a>.</p>
 <p><a class="anchor" id="4"></a>[4] J. Dölz, H. Harbrecht, C. Jerez-Hanckes and M. Multerer. <em>Isogeometric multilevel quadrature for forward and inverse random acoustic scattering</em>. In: Comput. Methods Appl. Mech. Engrg., 388, 114242, 2022. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0045782521005648">To the paper</a>.</p>
 <p><a class="anchor" id="5"></a>[5] J. Dölz, H. Harbrecht, and M. Peters. <em>An interpolation-based fast multipole method for higher-order boundary elements on parametric surfaces</em>. In: Int. J. Numer. Meth. Eng., 108(13):1705-1728, 2016. <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.5274">To the paper</a>.</p>
-<p><a class="anchor" id="6"></a>[6] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. <em><a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a>: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation</em>. In: SoftwareX, 11, 10476. <a href="https://doi.org/10.1016/j.softx.2020.100476">To the paper</a>.</p>
+<p><a class="anchor" id="6"></a>[6] J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. <em><a class="el" href="namespace_bembel.html">Bembel</a>: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation</em>. In: SoftwareX, 11, 10476. <a href="https://doi.org/10.1016/j.softx.2020.100476">To the paper</a>.</p>
 <p><a class="anchor" id="7"></a>[7] J. Dölz, H. Harbrecht, S. Kurz, S. Schöps, and F. Wolf. <em>A fast isogeometric BEM for the three dimensional Laplace- and Helmholtz problems</em>. In: Comput. Methods Appl. Mech. Engrg., 330:83-101, 2018. <a href="https://www.sciencedirect.com/science/article/pii/S0045782517306916">To the paper</a>. <a href="https://arxiv.org/abs/1708.09162">To the preprint</a>.</p>
 <p><a class="anchor" id="8"></a>[8] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. <em>Isogeometric Boundary Elements in Electromagnetism: Rigorous Analysis, Fast Methods, and Examples</em>. In: SIAM J. Sci. Comput., 41(5), B983-B1010, 2019. <a href="https://epubs.siam.org/doi/abs/10.1137/18M1227251">To the paper</a>. <a href="https://arxiv.org/abs/1807.03097">To the preprint</a>.</p>
 <p><a class="anchor" id="9"></a>[9] J. Dölz, S. Kurz, S. Schöps, and F. Wolf. <em>A Numerical Comparison of an Isogeometric and a Parametric Higher Order Raviart–Thomas Approach to the Electric Field Integral Equation</em>. In: IEEE Trans. Antenn. Prop., 68(1), 593–597, 2020. <a href="https://ieeexplore.ieee.org/abstract/document/8809890">To the paper</a>. <a href="https://arxiv.org/abs/1807.03628">To the preprint</a>.</p>
@@ -223,7 +213,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><a href="https://www.cem.tu-darmstadt.de/cem/group/wolf.en.jsp">Felix Wolf</a> <a class="anchor" id="FW"></a>is currently a lecturer at the <a href="https://www.temf.tu-darmstadt.de/temf/index.en.jsp">Institute TEMF</a> at TU Darmstadt. He may also be found <a href="https://github.com/flx-wlf">on GitHub</a>.</li>
 </ul>
 <h2>12. Funding <a class="anchor" id="funding"></a></h2>
-<p>Work on <a class="el" href="namespaceBembel.html" title="Routines for the evalutation of pointwise errors.">Bembel</a> was conducted with the following financial support (alphabetically):</p><ul>
+<p>Work on <a class="el" href="namespace_bembel.html">Bembel</a> was conducted with the following financial support (alphabetically):</p><ul>
 <li>DFG Grant KU1553/4-1,</li>
 <li>DFG Grant SCHO1562/3-1,</li>
 <li>DFG Grant SCHO1562/7,</li>
@@ -238,7 +228,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Feb 16 2024 08:26:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Feb 16 2024 09:02:13 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

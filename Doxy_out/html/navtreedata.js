@@ -25,38 +25,50 @@
 var NAVTREE =
 [
   [ "Bembel", "index.html", [
-    [ "Source Code", "modules.html", "modules" ],
-    [ "Coding Guidelines", "codingGuidelines.html", [
-      [ "Development Principles", "codingGuidelines.html#secDevPrinciples", null ],
-      [ "Style Guide", "codingGuidelines.html#secStyleGuide", [
-        [ "Formatting", "codingGuidelines.html#Formatting", null ],
-        [ "Naming", "codingGuidelines.html#Naming", null ]
-      ] ],
-      [ "Git Workflow", "codingGuidelines.html#git", [
-        [ "Feature Branches", "codingGuidelines.html#FeatureBranches", null ],
-        [ "Git Commit Messages", "codingGuidelines.html#gitCommit", null ],
-        [ "Pull Requests", "codingGuidelines.html#PullRequests", null ]
-      ] ]
-    ] ],
-    [ "Frequently Asked Questions", "FAQs.html", [
-      [ "Style Guide", "FAQs.html#FAQStyleGuide", [
-        [ "How do I format my code with clang-format?", "FAQs.html#FAQFormatting", null ],
-        [ "Where do I find naming rules?", "FAQs.html#FAQNaming", null ]
-      ] ],
-      [ "Git Workflow", "FAQs.html#FAQGitWorkflow", [
-        [ "Where do I find more information about feature branches?", "FAQs.html#FAQFeatureBranches", null ],
-        [ "What if I need other features?", "FAQs.html#FAQDependentFeatures", null ],
-        [ "Why good commit messages matter?", "FAQs.html#FAQCommitMessages", null ]
-      ] ]
-    ] ],
+    [ "Todo List", "todo.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
-    [ "Class List", "annotated.html", "annotated" ]
+    [ "Modules", "modules.html", "modules" ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ]
+      ] ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerator", "functions_eval.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"FAQs.html"
+"_ansatz_space.html",
+"_macros_8hpp.html#a5d06ae12acc0d70f33e90388d551295a",
+"class_bembel_1_1_element_tree.html",
+"class_bembel_1_1_v_t_k_surface_export.html",
+"namespace_bembel.html#a4964bb4906731ef7ac920f39216a2fc8",
+"struct_bembel_1_1_gauss_legendre_rule_3_016_01_4.html#ac3cb5d4db94f5672a7716416ed0ada70"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,11 @@
+<map id="Bembel::writeIGSFile" name="Bembel::writeIGSFile">
+<area shape="rect" id="node1" title="Writes Geometry into an IGES file format." alt="" coords="5,115,164,142"/>
+<area shape="rect" id="node2" href="$group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977" title="Transform a vector of Data in a vector of lines with a specific length." alt="" coords="500,27,664,54"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#a13ec0a7ecedd0f45845efd7afeb228b7" title=" " alt="" coords="239,39,413,66"/>
+<area shape="rect" id="node4" href="$namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65" title=" " alt="" coords="225,90,427,116"/>
+<area shape="rect" id="node6" href="$namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1" title=" " alt="" coords="235,140,417,167"/>
+<area shape="rect" id="node7" href="$group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e" title="This function writes a the parameter section of the IGES file." alt="" coords="212,191,440,218"/>
+<area shape="rect" id="node8" href="$group___geometry.html#gab0557fb935922723f44d095d43c96c93" title="This Function writes the patch from Bembel into a vector which can be written into an IGES file." alt="" coords="237,242,415,268"/>
+<area shape="rect" id="node5" href="$group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac" title="This function writes a given section to the specified file." alt="" coords="501,115,663,142"/>
+<area shape="rect" id="node9" href="$namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9" title=" " alt="" coords="488,242,676,268"/>
+</map>

@@ -1,19 +1,11 @@
 var searchData=
 [
-  ['laplacebeltramioperatorbase_242',['LaplaceBeltramiOperatorBase',['../classBembel_1_1LaplaceBeltramiOperatorBase.html',1,'Bembel']]],
-  ['laplacebeltramioperatorbase_3c_20laplacebeltramioperator_20_3e_243',['LaplaceBeltramiOperatorBase&lt; LaplaceBeltramiOperator &gt;',['../classBembel_1_1LaplaceBeltramiOperatorBase.html',1,'Bembel']]],
-  ['linearformbase_244',['LinearFormBase',['../structBembel_1_1LinearFormBase.html',1,'Bembel']]],
-  ['linearformbase_3c_20dirichlettrace_3c_20scalar_20_3e_2c_20scalar_20_3e_245',['LinearFormBase&lt; DirichletTrace&lt; Scalar &gt;, Scalar &gt;',['../structBembel_1_1LinearFormBase.html',1,'Bembel']]],
-  ['linearformbase_3c_20rotatedtangentialtrace_3c_20scalar_20_3e_2c_20scalar_20_3e_246',['LinearFormBase&lt; RotatedTangentialTrace&lt; Scalar &gt;, Scalar &gt;',['../structBembel_1_1LinearFormBase.html',1,'Bembel']]],
-  ['linearformbase_3c_20tangentialtrace_3c_20scalar_20_3e_2c_20scalar_20_3e_247',['LinearFormBase&lt; TangentialTrace&lt; Scalar &gt;, Scalar &gt;',['../structBembel_1_1LinearFormBase.html',1,'Bembel']]],
-  ['linearformtraits_248',['LinearFormTraits',['../structBembel_1_1LinearFormTraits.html',1,'Bembel']]],
-  ['linearoperatorbase_249',['LinearOperatorBase',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
-  ['linearoperatorbase_3c_20dummyoperator_20_3e_250',['LinearOperatorBase&lt; DummyOperator &gt;',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
-  ['linearoperatorbase_3c_20helmholtzsinglelayeroperator_20_3e_251',['LinearOperatorBase&lt; HelmholtzSingleLayerOperator &gt;',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
-  ['linearoperatorbase_3c_20homogenisedlaplacesinglelayeroperator_20_3e_252',['LinearOperatorBase&lt; HomogenisedLaplaceSingleLayerOperator &gt;',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
-  ['linearoperatorbase_3c_20laplacesinglelayeroperator_20_3e_253',['LinearOperatorBase&lt; LaplaceSingleLayerOperator &gt;',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
-  ['linearoperatorbase_3c_20maxwellsinglelayeroperator_20_3e_254',['LinearOperatorBase&lt; MaxwellSingleLayerOperator &gt;',['../structBembel_1_1LinearOperatorBase.html',1,'Bembel']]],
-  ['linearoperatortraits_255',['LinearOperatorTraits',['../structBembel_1_1LinearOperatorTraits.html',1,'Bembel']]],
-  ['localoperatorbase_256',['LocalOperatorBase',['../structBembel_1_1LocalOperatorBase.html',1,'Bembel']]],
-  ['logger_257',['Logger',['../classBembel_1_1IO_1_1Logger.html',1,'Bembel::IO']]]
+  ['h2matrix_782',['H2Matrix',['../class_eigen_1_1_h2_matrix.html',1,'Eigen::H2Matrix&lt; ScalarT &gt;'],['../class_h2_matrix.html',1,'H2Matrix']]],
+  ['helmholtzsinglelayeroperator_783',['HelmholtzSingleLayerOperator',['../class_bembel_1_1_helmholtz_single_layer_operator.html',1,'Bembel']]],
+  ['helmholtzsinglelayerpotential_784',['HelmholtzSingleLayerPotential',['../class_bembel_1_1_helmholtz_single_layer_potential.html',1,'Bembel']]],
+  ['hiddenbernsteinclass_785',['HiddenBernsteinClass',['../class_bembel_1_1_basis_1_1_hidden_bernstein_class.html',1,'Bembel::Basis']]],
+  ['hiddenbernsteinclass_3c_20t_2c_20_2d1_2c_20p_20_3e_786',['HiddenBernsteinClass&lt; T, -1, P &gt;',['../class_bembel_1_1_basis_1_1_hidden_bernstein_class_3_01_t_00_01-1_00_01_p_01_4.html',1,'Bembel::Basis']]],
+  ['hiddenbernsteinclass_3c_20t_2c_200_2c_20p_20_3e_787',['HiddenBernsteinClass&lt; T, 0, P &gt;',['../class_bembel_1_1_basis_1_1_hidden_bernstein_class_3_01_t_00_010_00_01_p_01_4.html',1,'Bembel::Basis']]],
+  ['homogenisedlaplacesinglelayeroperator_788',['HomogenisedLaplaceSingleLayerOperator',['../class_bembel_1_1_homogenised_laplace_single_layer_operator.html',1,'Bembel']]],
+  ['homogenisedlaplacesinglelayerpotential_789',['HomogenisedLaplaceSingleLayerPotential',['../class_bembel_1_1_homogenised_laplace_single_layer_potential.html',1,'Bembel']]]
 ];

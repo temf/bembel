@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_5f_404',['data_',['../classBembel_1_1Patch.html#ae08d87745c6c2fc4770add4b6c16cb97',1,'Bembel::Patch']]]
+  ['bembel_5falloc_5fsize_1348',['Bembel_alloc_size',['../namespace_bembel_1_1_constants.html#a611d6c4c43cbe342c79175ae3e90edcd',1,'Bembel::Constants']]]
 ];

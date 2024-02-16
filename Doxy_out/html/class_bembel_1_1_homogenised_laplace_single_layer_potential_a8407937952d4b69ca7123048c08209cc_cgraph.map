@@ -1,0 +1,6 @@
+<map id="Bembel::HomogenisedLaplaceSingleLayerPotential::evaluateKernel" name="Bembel::HomogenisedLaplaceSingleLayerPotential::evaluateKernel">
+<area shape="rect" id="node1" title="Fundamental solution of the homogenised Laplace problem." alt="" coords="5,27,227,83"/>
+<area shape="rect" id="node2" href="$namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="275,5,449,47"/>
+<area shape="rect" id="node4" href="$namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="300,71,424,98"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="497,13,628,39"/>
+</map>

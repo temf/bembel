@@ -1,0 +1,8 @@
+<map id="Bembel::Dsolid_harmonics_full" name="Bembel::Dsolid_harmonics_full">
+<area shape="rect" id="node1" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="5,56,229,83"/>
+<area shape="rect" id="node2" href="$namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="277,31,499,57"/>
+<area shape="rect" id="node6" href="$namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71" title="Returns the values of the spherical polynomials ." alt="" coords="308,81,468,108"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="549,5,731,32"/>
+<area shape="rect" id="node5" href="$namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="547,56,733,83"/>
+<area shape="rect" id="node4" href="$namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="781,5,917,32"/>
+</map>

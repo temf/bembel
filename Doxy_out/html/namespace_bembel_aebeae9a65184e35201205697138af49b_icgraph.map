@@ -1,0 +1,8 @@
+<map id="Bembel::dspherical_prev" name="Bembel::dspherical_prev">
+<area shape="rect" id="node1" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="1076,60,1259,87"/>
+<area shape="rect" id="node2" href="$namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="807,60,1028,87"/>
+<area shape="rect" id="node3" href="$namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
+<area shape="rect" id="node4" href="$namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
+<area shape="rect" id="node5" href="$class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
+<area shape="rect" id="node6" href="$class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
+</map>

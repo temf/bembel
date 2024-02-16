@@ -1,0 +1,4 @@
+<map id="Bembel::Basis::PSpecificBasisHandler&lt; P, Scalar &gt;" name="Bembel::Basis::PSpecificBasisHandler&lt; P, Scalar &gt;">
+<area shape="rect" id="node1" title="The functions above have a fixed compile time polynomial degree. The PSpecificBasis handler is used t..." alt="" coords="11,95,206,136"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html" title="These routines implement a template recursion that allows to choose a compile time instantiation of a..." alt="" coords="5,5,212,47"/>
+</map>

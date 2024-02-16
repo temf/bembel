@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ansatzspace_419',['AnsatzSpace',['../group__AnsatzSpace.html',1,'']]]
+  ['ansatzspace_1475',['AnsatzSpace',['../group___ansatz_space.html',1,'']]]
 ];

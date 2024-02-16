@@ -1,0 +1,4 @@
+<map id="Bembel::Spl::DeBoorTP" name="Bembel::Spl::DeBoorTP">
+<area shape="rect" id="node1" title="Simple TP Bsplines." alt="" coords="5,5,177,32"/>
+<area shape="rect" id="node2" href="$group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191" title="&quot;By the book&quot; implementations of the Cox&#45;DeBoor formula. Inefficient, do not use at bottlenecks." alt="" coords="225,5,381,32"/>
+</map>

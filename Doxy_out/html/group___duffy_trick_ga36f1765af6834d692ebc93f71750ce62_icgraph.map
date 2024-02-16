@@ -1,0 +1,6 @@
+<map id="Bembel::DuffyTrick::integrate0" name="Bembel::DuffyTrick::integrate0">
+<area shape="rect" id="node1" title="far&#45;field quadrature routine, which is based on precomputed values in order to quickly evaluate the i..." alt="" coords="475,71,620,113"/>
+<area shape="rect" id="node2" href="$group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
+<area shape="rect" id="node3" href="$struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
+<area shape="rect" id="node4" href="$class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
+</map>
