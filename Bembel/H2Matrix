@@ -13,7 +13,6 @@
 #define BEMBEL_H2MATRIX_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup H2Matrix H2Matrix
  *  \brief The H2Matrix module provides functionality for an efficient
  * compression of the system matrix and reduction of the computational
