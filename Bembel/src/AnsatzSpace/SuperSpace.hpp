@@ -12,9 +12,11 @@
 #define BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
 namespace Bembel {
 /**
- *  \ingroup AnsatzSpace
- *  \brief The superspace manages local polynomial bases on each element of the
- * mesh and provides an itnerface to evaluate them.
+ * \ingroup AnsatzSpace
+ * \brief The superspace manages local polynomial bases on each element of the
+ * mesh and provides an interface to evaluate them.
+ * 
+ * 
  */
 template <typename Derived>
 struct SuperSpace {
@@ -22,8 +24,31 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Default constructor for the SuperSpace class.
+   * 
+   * This constructor creates a SuperSpace object with default parameters.
+   */
   SuperSpace() {}
+  /**
+   * \brief Parameterized constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object with the provided
+   * parameters.
+   *
+   * \param geom The geometry object defining the space.
+   * \param M The refinement level of the space.
+   * \param P The degree of polynomials used in the space.
+   */
   SuperSpace(Geometry& geom, int M, int P) { init_SuperSpace(geom, M, P); }
+  /**
+   * \brief Copy constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object by copying another
+   * SuperSpace object.
+   *
+   * \param other The SuperSpace object to copy from.
+   */
   SuperSpace(const SuperSpace& other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -38,6 +63,14 @@ struct SuperSpace {
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
   }
+  /**
+   * \brief Move constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object by moving from another
+   * SuperSpace object.
+   *
+   * \param other The SuperSpace object to move from.
+   */
   SuperSpace(SuperSpace&& other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -52,6 +85,15 @@ struct SuperSpace {
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
   }
+  /**
+   * \brief Assignment operator for the SuperSpace class.
+   *
+   * This operator assigns the contents of another SuperSpace object to this
+   * one.
+   *
+   * \param other The SuperSpace object to copy from.
+   * \return A reference to the updated SuperSpace object.
+   */
   SuperSpace& operator=(SuperSpace other) {
     mesh_ = other.mesh_;
     phi = other.phi;
