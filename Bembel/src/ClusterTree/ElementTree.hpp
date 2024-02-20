@@ -14,29 +14,94 @@
 
 namespace Bembel {
 /**
- *  \ingroup ClusterTree
- *  \brief This class organizes an element structure on a Geometry object and
+ * \ingroup ClusterTree
+ * \brief This class organizes an element structure on a Geometry object and
  * handles refinement.
  *
- * \todo Describe the ElementTree
+ * This class implements a tree which realizes the refinement of the geometry.
+ * On the first level of refinement the leafs/elements are all patches of the
+ * geometry. Currently, the construction of the tree allows uniform refinement.
+ * In the refinement process each element get four sons and the neighborhood
+ * relations get updated.
+ *
+ * The heart of the ElementTree is the leaf iterator which implements a Morton
+ * Z-curve. If an element get refined it gets replaced by it four sons element.
+ * This core routine can handle adaptive refinement but with some limitations in
+ * the resolution of neighborhood relations.
  */
 class ElementTree {
  public:
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Deleted copy constructor for the ElementTree class.
+   *
+   * This copy constructor is explicitly deleted to prevent copying of
+   * ElementTree objects.
+   */
   ElementTree(const ElementTree &) = delete;
+
+  /**
+   * \brief Deleted move constructor for the ElementTree class.
+   *
+   * This move constructor is explicitly deleted to prevent moving of
+   * ElementTree objects.
+   */
   ElementTree(ElementTree &&) = delete;
+
+  /**
+   * \brief Deleted copy assignment operator for the ElementTree class.
+   *
+   * This copy assignment operator is explicitly deleted to prevent copying of
+   * ElementTree objects.
+   *
+   * \return A reference to the updated ElementTree object.
+   */
   ElementTree &operator=(const ElementTree &) = delete;
+
+  /**
+   * \brief Deleted move assignment operator for the ElementTree class.
+   *
+   * This move assignment operator is explicitly deleted to prevent moving of
+   * ElementTree objects.
+   *
+   * \return A reference to the updated ElementTree object.
+   */
   ElementTree &operator=(ElementTree &&) = delete;
   //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Default constructor for the ElementTree class.
+   */
   ElementTree() {}
+  /**
+   * \brief Explicit constructor for the ElementTree class.
+   *
+   * This constructor initializes an ElementTree object for the provided
+   * geometry and maximum level. Currently this constructor is implemented for
+   * uniform refinement.
+   *
+   * \param g The geometry object defining the patches.
+   * \param max_level (optional) The maximum level of the ElementTree. Default
+   * is 0.
+   */
   explicit ElementTree(const Geometry &g, unsigned int max_level = 0) {
     init_ElementTree(g, max_level);
   }
   //////////////////////////////////////////////////////////////////////////////
   /// init
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief This function initializes the ElementTree
+   *
+   * First Each Patch becomes an ElementTreeNode. After resolving the patch
+   * neighborhood relations each patch gets refined to the common maximum level
+   * of refinement.
+   *
+   * \param g The geometry object defining the patches.
+   * \param max_level (optional) The maximum level of the ElementTree. Default
+   * is 0.
+   */
   void init_ElementTree(const Geometry &g, unsigned int max_level) {
     // initialise the data fields
     geometry_ = g.get_geometry_ptr();
@@ -95,6 +160,12 @@ class ElementTree {
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Refine the given element or it's sons.
+   *
+   * This function refines an element recursively. If the given element is
+   * already refined than iterate all sons and refine them and so on.
+   */
   void refineUniformly_recursion(ElementTreeNode &el) {
     if (el.sons_.size()) {
       for (auto i = 0; i < el.sons_.size(); ++i)
@@ -105,16 +176,33 @@ class ElementTree {
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Refine all patches uniformly
+   */
   void refineUniformly() {
     refineUniformly_recursion(root_);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Refine a given patch.
+   */
   void refinePatch(int patch) {
     refineUniformly_recursion(root_.sons_[patch]);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return the coordinates of all points of the elements.
+   *
+   * This function iterates all elements and returns the coordinates of the
+   * vertices.
+   *
+   * \param idct Pointer to an Eigen::VectorXi to count how often a vertex is
+   *        part of all elements.
+   *
+   * \return A 3xN Matrix where N is the number of all vertices in the geometry.
+   */
   Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct = nullptr) const {
     Eigen::MatrixXd pts(3, number_of_points_);
     if (idct != nullptr) {
@@ -141,6 +229,14 @@ class ElementTree {
     return pts;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return list of elements containing the indices of the vertices.
+   *
+   * This function stores all indices of an element in the column of the
+   * returned matrix.
+   * 
+   * \return A 4xN integer Matrix where N is the number elements.
+   */
   Eigen::MatrixXi generateElementList() const {
     unsigned int elID = 0;
     Eigen::MatrixXi retval(4, number_of_elements_);
