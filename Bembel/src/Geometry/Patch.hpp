@@ -22,6 +22,10 @@ class Patch {
   //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \todo I need to do this
+   * 
+   */
   Patch() {}
   Patch(const std::vector<Eigen::Matrix<double, -1, -1>> &control_points,
         const std::vector<double> &knots_x,

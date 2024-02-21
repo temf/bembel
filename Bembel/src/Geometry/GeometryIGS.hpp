@@ -19,7 +19,7 @@ namespace Bembel {
  * \brief loads  geometry from IGES file. Note that the direction
  *of the normals must be consistent.
  *
- * \param name path/filename pointing to the geometry file
+ * \param file_name path/filename pointing to the geometry file
  * \return std::vector of NURBS::Patch describing geometry
  */
 std::vector<Patch> LoadGeometryFileIGS(const std::string& file_name) noexcept {
@@ -330,7 +330,7 @@ int writeGlobalSection(std::string file_name) {
  *
  * \param file_name File name to write the section in.
  * \param start_idx Vector containing the start lines of the sections.
- * \param start_idx Vector containing the lengths of the sections.
+ * \param number_of_lines Vector containing the lengths of the sections.
  * \return Number of lines of this section.
  */
 int writeDirectory(std::string file_name, std::vector<int> start_idx,
@@ -475,6 +475,7 @@ std::vector<std::string> writePatchData(const Patch& patch,
  * \brief Writes Geometry into an IGES file format.
  *
  * \param geometry PatchVector which is written to the file.
+ * \param file_name File name to write to.
  * \param precision Significant number of digits for writing floats.
  */
 void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name,

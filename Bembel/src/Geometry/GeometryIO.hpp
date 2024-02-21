@@ -18,7 +18,8 @@ namespace Bembel {
  * \ingroup Geometry
  * \brief loads geometry from file with GEOPDE-format. Note that the direction
  *        of the normals must be consistent
- * \param name path/filename pointing to the geometry file
+ *
+ * \param file_name path/filename pointing to the geometry file
  * \return std::vector of NURBS::Patch describing geometry
  */
 inline std::vector<Patch> LoadGeometryFileDAT(
@@ -197,8 +198,8 @@ void WritePatch(const std::string &file_name, int current_patch_number,
  * Limitation: This functions assumes a p-open knot vector without internal
  * knots.
  *
- * \param std::vector of NURBS::Patch describing geometry
- * \param name path/filename to be written to
+ * \param Geometry std::vector of NURBS::Patch describing geometry
+ * \param file_name path/filename to be written to
  */
 void WriteDATFile(const std::vector<Patch> &Geometry,
                   const std::string &file_name) {
