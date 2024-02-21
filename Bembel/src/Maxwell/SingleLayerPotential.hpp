@@ -16,7 +16,9 @@ namespace Bembel {
 // traits
 template <typename LinOp>
 class MaxwellSingleLayerPotential;
-
+/**
+ * \brief Specification of the PotentialTraits for Maxwell.
+ */
 template <typename LinOp>
 struct PotentialTraits<MaxwellSingleLayerPotential<LinOp>> {
   typedef Eigen::VectorXcd::Scalar Scalar;
@@ -25,6 +27,8 @@ struct PotentialTraits<MaxwellSingleLayerPotential<LinOp>> {
 
 /**
  * \ingroup Maxwell
+ * \brief This class implements the specification of the integration for the
+ * single layer potential for Maxwell.
  */
 template <typename LinOp>
 class MaxwellSingleLayerPotential

@@ -33,6 +33,8 @@ struct LinearOperatorTraits<HomogenisedLaplaceSingleLayerOperator> {
 
 /**
  * \ingroup HomogenisedLaplace
+ * \brief This class implements the specification of the integration for the
+ * single layer operator for the homogenised Laplace.
  */
 class HomogenisedLaplaceSingleLayerOperator : public LinearOperatorBase<
     HomogenisedLaplaceSingleLayerOperator> {

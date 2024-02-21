@@ -14,7 +14,9 @@
 namespace Bembel {
 
 class DummyOperator;
-
+/**
+ * \brief Specification of the LinearOperatorTraits for the DummyOperator.
+ */
 template <>
 struct LinearOperatorTraits<DummyOperator> {
   typedef Eigen::VectorXd EigenType;

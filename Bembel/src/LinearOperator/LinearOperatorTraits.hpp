@@ -28,7 +28,10 @@ struct LinearOperatorTraits {
 
 template <typename Derived>
 class ContinuousView : public Derived {};
-
+/**
+ * \brief Helper specification of the LinearOperatorTraits for the export of
+ * data.
+ */
 template <typename Derived>
 struct LinearOperatorTraits<ContinuousView<Derived>>
     : LinearOperatorTraits<Derived> {

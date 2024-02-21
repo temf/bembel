@@ -29,6 +29,8 @@ struct PotentialTraits<HomogenisedLaplaceSingleLayerPotential<LinOp>> {
 
 /**
  * \ingroup HomogenisedLaplace
+ * \brief This class implements the specification of the integration for the
+ * single layer potential for the homogenised Laplace.
  */
 template<typename LinOp>
 class HomogenisedLaplaceSingleLayerPotential : public PotentialBase<
