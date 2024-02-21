@@ -13,10 +13,10 @@
 namespace Bembel {
 
 /**
- *  \ingroup Geometry
- *  \class Patch
- *  \brief handles a single patch
- **/
+ * \ingroup Geometry
+ * \class Patch
+ * \brief handles a single patch
+ */
 class Patch {
  public:
   //////////////////////////////////////////////////////////////////////////////

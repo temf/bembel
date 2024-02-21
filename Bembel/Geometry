@@ -13,16 +13,16 @@
 #define BEMBEL_GEOMETRY_MODULE_
 
 /**
- *  \ingroup Modules
- *  \defgroup Geometry Geometry
- *  \brief This module handles all geometry related concerns.
+ * \ingroup Modules
+ * \defgroup Geometry Geometry
+ * \brief This module handles all geometry related concerns.
  *
- *  The Geometry class is the interface between geometry description and the
+ * The Geometry class is the interface between geometry description and the
  * remainder of the code. We provide an implementation of NURBS discretized
  * patches via the Patch class, but the code is easily extensible to other
  * parametric descriptions mapping from [0,1]2 to parts of the geometry, as long
  * as the corresponding methods for point evaluation and evaluation of the
- * pointwise Jacobian are implemented
+ * point wise Jacobian are implemented.
  **/
  
 #include <fstream>
