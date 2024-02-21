@@ -94,7 +94,7 @@ class H2Matrix : public EigenBase<H2Matrix<ScalarT>> {
     // get transformation matrix from ansatz space
     transformation_matrix_ = ansatz_space.get_transformation_matrix();
     /**
-     * \todo @Juergen Discuss with Michael where to initialize the parameters:
+     * \todo Juergen Discuss with Michael where to initialize the parameters:
      * min_cluster_level depends on number_of_points, but this is not
      * implemented yet, also, what do the parameter mean?
      */

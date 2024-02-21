@@ -502,8 +502,8 @@ class ElementTree {
   /// static members
   //////////////////////////////////////////////////////////////////////////////
   /**
-   *  \brief computes a ball enclosing the union of B_r1(mp1) and B_r2(mp2),
-   * i.e B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)
+   *  \brief computes a ball enclosing the union of \f$B_r1(mp1)\f$ and \f$B_r2(mp2)\f$,
+   * i.e \f$B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)\f$.
    */
   static void computeEnclosingBall(Eigen::Vector3d *mp, double *r,
                                    const Eigen::Vector3d &mp1, double r1,
@@ -511,15 +511,15 @@ class ElementTree {
     // compute distance vector of the two spheres
     auto z = mp1 - mp2;
     auto norm = (mp1 - mp2).norm();
-    /// B(d2,r2) \subset B(d1,r1)
+    // B(d2,r2) subset B(d1,r1)
     if (norm + r2 <= r1) {
       *mp = mp1;
       *r = r1;
-      /// B(d1,r1) \subset B(d2,r2)
+      // B(d1,r1) subset B(d2,r2)
     } else if (norm + r1 <= r2) {
       *mp = mp2;
       *r = r2;
-      /// the union is not a ball
+      // the union is not a ball
     } else {
       *mp = 0.5 * (mp1 + mp2 + (r1 - r2) / norm * z);
       *r = 0.5 * (r1 + r2 + norm);
