@@ -17,6 +17,11 @@ namespace Bembel {
 // traits
 class MassMatrixScalarDisc;
 
+/**
+ * \brief Specification of the LinerOperatorTraits for the MassMatrix.
+ * 
+ * With a discontinuous Basis. 
+ */
 template <>
 struct LinearOperatorTraits<MassMatrixScalarDisc> {
   typedef Eigen::VectorXd EigenType;
