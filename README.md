@@ -116,10 +116,6 @@ The general structure of the repository looks as follows.
   of octave.
 * `Bembel/` contains the library. In `Bembel/`, module files have been created analogously to the 
 design of the Eigen library. If Bembel is used, only these module files should be included. These modules are the following:
-    * `ClusterTree` implements an element structure for refinement.
-    Currently, only uniform refinement has been implemented.
-    A `ClusterTree` object itself is comprised of a `Geometry` object and an `ElementTree`.
-    The `ElementTree` provides routines for the extraction of topological information, refinement, as well as iterators to effortlessly loop over elements.
     * `DuffyTrick` provides quadrature routines for (nearly) singular integrals.
     Therein, quadrature routines for 4 cases are implemented: Separated elements, elements sharing a corner, elements sharing an edge, and identical elements. 
     * `DummyOperator` provides a `LinearOperator` for testing.
