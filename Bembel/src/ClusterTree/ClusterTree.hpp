@@ -21,8 +21,6 @@ namespace Bembel {
  */
 class ClusterTree {
  public:
-  // we declare functionality which has not been implemented (yet)
-  // to be private
   /**
    * \brief Copy constructor (deleted).
    *
