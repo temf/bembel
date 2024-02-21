@@ -17,6 +17,9 @@ namespace Bembel {
 // in order to define traits
 class HomogenisedLaplaceSingleLayerOperator;
 
+/**
+ * \brief Specification of the LinerOperatorTraits for the Homogenised Laplace.
+ */
 template<>
 struct LinearOperatorTraits<HomogenisedLaplaceSingleLayerOperator> {
   typedef Eigen::VectorXd EigenType;

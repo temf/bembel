@@ -18,6 +18,9 @@ namespace Bembel {
 template<typename LinOp>
 class HomogenisedLaplaceSingleLayerPotential;
 
+/**
+ * \brief Specification of the PotentialTraits for the Homogenised Laplace.
+ */
 template<typename LinOp>
 struct PotentialTraits<HomogenisedLaplaceSingleLayerPotential<LinOp>> {
   typedef Eigen::VectorXd::Scalar Scalar;
