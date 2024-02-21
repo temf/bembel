@@ -250,31 +250,107 @@ class ElementTree {
   //////////////////////////////////////////////////////////////////////////////
   /// getter
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return number of points in the ElementTree.
+   *
+   * \return Number of points.
+   */
   int get_number_of_points() const { return number_of_points_; }
+  /**
+   * \brief Return number of elements in the ElementTree.
+   *
+   * \return Number of elements.
+   */
   int get_number_of_elements() const { return number_of_elements_; }
+  /**
+   * \brief Return maximum level of refinement.
+   *
+   * \return Level of refinement.
+   */
   int get_max_level() const { return max_level_; }
+  /**
+   * \brief Return reference to the root ElementTreeNode.
+   *
+   * \return Reference to the root ElementTreeNode.
+   */
   ElementTreeNode &root() { return root_; }
+  /**
+   * \brief Return const reference to the root ElementTreeNode.
+   *
+   * \return Const Reference to the root ElementTreeNode.
+   */
   const ElementTreeNode &root() const { return root_; }
+  /**
+   * \brief Return const reference to the Geometry.
+   *
+   * \return Const Reference to the PatchVector.
+   */
   const PatchVector &get_geometry() const { return *geometry_; }
   //////////////////////////////////////////////////////////////////////////////
   /// iterators
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Returns an iterator to the beginning of the sequence represented by
+   * the leafs as ElementTreeNodes of the ElementTree.
+   *
+   * \return Returns a ElementTreeNode::const_iterator object.
+   */
   ElementTreeNode::const_iterator pbegin() const {
     return ElementTreeNode::const_iterator(pfirst_);
   }
+  /**
+   * \brief Returns an iterator one past the end of the sequence represented by
+   * the leafs as ElementTreeNodes of the ElementTree.
+   *
+   * \return Returns a ElementTreeNode::const_iterator object.
+   */
   ElementTreeNode::const_iterator pend() const {
     return ElementTreeNode::const_iterator(plast_->next_);
   }
+  /**
+   * \brief Returns an iterator to the beginning of the sequence represented by
+   * the leafs as ElementTreeNodes of the ElementTree.
+   *
+   * \return Returns a ElementTreeNode::const_iterator object.
+   */
   ElementTreeNode::const_iterator cpbegin() const { return pbegin(); }
+  /**
+   * \brief Returns an iterator one past the end of the sequence represented by
+   * the leafs as ElementTreeNodes of the ElementTree.
+   *
+   * \return Returns a ElementTreeNode::const_iterator object.
+   */
   ElementTreeNode::const_iterator cpend() const { return pend(); }
+  /**
+   * \brief Returns a cluster iterator to the beginning of the sequence
+   * represented by the the given ElementTreeNode.
+   *
+   * \param cl Const reference to the ElementTreeNode to start the iterator.
+   * \return Returns a ElementTreeNode::const_iterator object.
+   */
   ElementTreeNode::const_iterator cluster_begin(
       const ElementTreeNode &cl) const {
     return cl.cbegin();
   }
+  /**
+   * \brief Returns a cluster iterator one past the end of the sequence
+   * represented by the the given ElementTreeNode.
+   *
+   * \param cl Const reference to the ElementTreeNode to start the iterator.
+   * \return Returns a ElementTreeNode::const_iterator object.
+   */
   ElementTreeNode::const_iterator cluster_end(const ElementTreeNode &cl) const {
     return cl.cend();
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Computes enclosing balls surrounding all elements.
+   *
+   * This functions sets the parameters midpoint_ radius_ of the ElementTreeNode
+   * objects stored in the tree.
+   *
+   * \return The point list as 3xN matrix with N the number of points.
+   */
   Eigen::MatrixXd computeElementEnclosings() {
     // compute point list
     Eigen::MatrixXd P = generatePointList();
@@ -283,6 +359,12 @@ class ElementTree {
     return P;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Computes enclosing balls of one element and all its sons.
+   *
+   * \param el ElementTreeNode to start the recursion.
+   * \param P Point list of the vertices.
+   */
   void computeElementEnclosings_recursion(ElementTreeNode &el,
                                           const Eigen::MatrixXd &P) {
     Eigen::Vector3d mp1, mp2;
@@ -311,6 +393,9 @@ class ElementTree {
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Prints all Elements of the Tree.
+   */
   void printPanels() const {
     auto i = 0;
     for (auto it = pbegin(); it != pend(); ++it) {
@@ -322,6 +407,11 @@ class ElementTree {
   //////////////////////////////////////////////////////////////////////////////
   /// other Stuff
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return a matrix with all midpoints of the elements.
+   *
+   * \return The midpoint list as 3xN matrix with N the number of points.
+   */
   Eigen::MatrixXd generateMidpointList() const {
     Eigen::MatrixXd retval(3, number_of_elements_);
     unsigned int i = 0;
@@ -332,6 +422,11 @@ class ElementTree {
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return a matrix with all radii of the element enclosing.
+   *
+   * \return A vector containing the radii of the element enclosing.
+   */
   Eigen::MatrixXd generateRadiusList() const {
     Eigen::VectorXd retval(number_of_elements_);
     unsigned int i = 0;
@@ -342,6 +437,11 @@ class ElementTree {
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return a vector with computed global indices of the elements.
+   *
+   * \return A vector with global indices of the elements.
+   */
   Eigen::VectorXi generateElementLabels() const {
     Eigen::VectorXi retval(number_of_elements_);
     unsigned int i = 0;
@@ -352,6 +452,16 @@ class ElementTree {
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Generate list of labels if elements are on the patch boundary or at
+   * the boundary of the geometry.
+   *
+   * The value at the index of the element is 1 if the element is at the patch
+   * boundary and there is a neighbor patch. If there is no neighbor patch then
+   * the value is -1.
+   *
+   * \return A vector of integers of size N with N the number of elements.
+   */
   Eigen::VectorXi generatePatchBoundaryLabels() const {
     Eigen::VectorXi retval(number_of_elements_);
     retval.setZero();
@@ -369,6 +479,14 @@ class ElementTree {
     return retval;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Generate list of labels if elements contained within a given patch.
+   *
+   * The value at the index of the element is 1 if the element is contained
+   * within the given patch. Otherwise its zero.
+   *
+   * \return A vector of integers of size N with N the number of elements.
+   */
   Eigen::VectorXi identifyPatch(unsigned int pn) const {
     Eigen::VectorXi retval(number_of_elements_);
     retval.setZero();
@@ -410,7 +528,10 @@ class ElementTree {
     return;
   }
   /**
-   *  \brief
+   * \brief Resolves neighborhood relations of the patches.
+   *
+   * \return A vector where each entry defines a patch interface or boundary.
+   * The entries correspond to [patchIndex1, edgeCase1, patchIndex2, edgeCase2].
    */
   //////////////////////////////////////////////////////////////////////////////
   std::vector<std::array<int, 4>> patchTopologyInfo() const {
@@ -437,10 +558,15 @@ class ElementTree {
     }
     return retval;
   }
-  // The ordering of elements in the element tree does not correspond to the
-  // element order underlying the coefficient vector. This reordering can be
-  // computed for look ups by this function.
-  // TODO(Max) This function assumes that everything is refined uniformly!
+  /**
+   * \brief The ordering of elements in the element tree does not correspond to
+   * the element order underlying the coefficient vector. This reordering can be
+   * computed for look ups by this function.
+   *
+   * Limitation to the uniform case!
+   *
+   * \return Vector with the tensor product index of the elements.
+   */
   //////////////////////////////////////////////////////////////////////////////
   std::vector<int> computeReorderingVector() const {
     std::vector<int> out(number_of_elements_);
@@ -478,9 +604,9 @@ class ElementTree {
     }
   };
   /**
-   * \brief function to set up the local topology, i.e. the adjacents_
+   * \brief function to set up the local topology, i.e. the adjacents
    *        of a refined element
-   **/
+   */
   //////////////////////////////////////////////////////////////////////////////
   void updateTopology(const std::vector<ElementTreeNode *> &elements) {
     std::map<std::array<int, 2>, ElementTreeNode *> edges;
@@ -515,6 +641,13 @@ class ElementTree {
     return;
   }
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief This function refines the given ElementTreeNode.
+   *
+   * The function introduces 4 new elements and takes care of the newly
+   * introduces vertices. Furthermore, all the neighborhood relation of all
+   * surrounding elements are resolved.
+   */
   void refineLeaf(ElementTreeNode &cur_el) {
     // check if we have actually a panel
     if (cur_el.sons_.size()) return;
