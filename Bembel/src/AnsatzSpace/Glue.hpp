@@ -36,12 +36,16 @@ Every edge has an index between 0 and 3, where
 */
 
 namespace GlueRoutines {
-
+/**
+ * \brief Helper struct.
+ */
 struct dofIdentification {
   std::vector<int> dofs;
   int coef;
 };
-
+/**
+ * \brief Helper struct for assembling the Glue for the different cases.
+ */
 template <typename Derived, unsigned int DF>
 struct glue_identificationmaker_ {
   static std::vector<dofIdentification> makeIdentification(
@@ -61,12 +65,12 @@ struct glue_identificationmaker_ {
  *
  * The Glue class has routines to assemble continuous B-splines across patch
  *boundaries depending on the template parameter
- *`LinearOperatorTraits<Derived>::Form`. If this template parameter is equal to
- *`DifferentialForm::Continuous`, the B-splines are globally glued continuously.
- *Otherwise, it can also be `DifferentialForm::DivConforming`, in which case the
+ *LinearOperatorTraits<Derived>::Form. If this template parameter is equal to
+ *DifferentialForm::Continuous, the B-splines are globally glued continuously.
+ *Otherwise, it can also be DifferentialForm::DivConforming, in which case the
  *normal component is glued continuously. Finally, there is the option of not
  *gluing the B-splines at all if the parameter is
- *`DifferentialForm::Discontinuous`.
+ *DifferentialForm::Discontinuous.
  **/
 template <typename Derived>
 class Glue {
@@ -119,7 +123,7 @@ class Glue {
    *
    * This function creates a list of degrees of freedom (DOFs) identifications
    * which need to be glued together. The return type is a std::vector of
-   * `GlueRoutines::dofIdentification` which collects the DOFs to be glued.
+   * GlueRoutines::dofIdentification which collects the DOFs to be glued.
    * Furthermore, the coef in this struct denotes the orientation.
    *
    * \param superspace The SuperSpace reference to handle basis functions.

@@ -13,6 +13,9 @@
 
 namespace Bembel {
 namespace ProjectorRoutines {
+/**
+ * \brief Helper struct for assembling the Projector for the different cases.
+ */
 template <typename Derived, unsigned int DF>
 struct projector_matrixmaker_ {
   static Eigen::SparseMatrix<double> makeMatrix(
@@ -128,7 +131,11 @@ class Projector {
 
 namespace ProjectorRoutines {
 
-// Local helper struct
+/**
+ * \brief Helper struct
+ * 
+ * \todo Use Eigen::Triplets.
+ */
 struct _proj_info {
   std::vector<double> vals;
   std::vector<int> rows;
