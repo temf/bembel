@@ -14,9 +14,9 @@
 namespace Bembel {
 namespace DuffyTrick {
 /**
- *  \ingroup DuffyTrick
- *  \brief  This function wraps the quadrature routines for the duffy trick
- *          and returns all integrals for the given pair of elements
+ * \ingroup DuffyTrick
+ * \brief This function wraps the quadrature routines for the DuffyTrick and
+ *returns all integrals for the given pair of elements.
  */
 template <typename Derived, class T, class CubatureVector>
 void evaluateBilinearForm(
