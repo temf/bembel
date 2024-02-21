@@ -29,22 +29,41 @@ struct PotentialTraits {
   enum { YOU_DID_NOT_SPECIFY_POTENTIAL_TRAITS = 1 };
 };
 
+/**
+ * \brief Base case for specifying the return type of the potential.
+ */
 template <typename S, typename T>
 struct PotentialReturnScalar {
   enum { RETURN_TYPE_ONLY_SPECIFIED_FOR_DOUBLE_OR_COMPLEX_DOUBLE = 1 };
 };
+/**
+ * \brief Potential return type if the scalar type in both the
+ * LinearOperatorTraits and the PotentialTraits is a double.
+ */
 template <>
 struct PotentialReturnScalar<double, double> {
   typedef double Scalar;
 };
+/**
+ * \brief Potential return type if the scalar type in the LinearOperatorTraits
+ * is complex and in the PotentialTraits is a double.
+ */
 template <>
 struct PotentialReturnScalar<std::complex<double>, double> {
   typedef std::complex<double> Scalar;
 };
+/**
+ * \brief Potential return type if the scalar type in the LinearOperatorTraits
+ * is double and the PotentialTraits is a complex.
+ */
 template <>
 struct PotentialReturnScalar<double, std::complex<double>> {
   typedef std::complex<double> Scalar;
 };
+/**
+ * \brief Potential return type if the scalar type in both LinearOperatorTraits
+ * and the PotentialTraits is a complex.
+ */
 template <>
 struct PotentialReturnScalar<std::complex<double>, std::complex<double>> {
   typedef std::complex<double> Scalar;
