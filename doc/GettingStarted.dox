@@ -1,7 +1,72 @@
 /**
 \page GettingStarted Getting Started
 
-\section compile How to run our code
+\section secStart How to Compile and Run Our Code
 
+You need to install the Eigen3 library, see [Eigen's Documentation](https://eigen.tuxfamily.org/dox/GettingStarted.html) for help. 
+We do not rely on any other external libraries, except for the standard template library.
+Thus, having installed Eigen, Bembel should run out of the box.
+If you want to use Bembel as part of your application, simply add the `Bembel/` directory to your includes.
+
+If you want to run the provided examples and tests, you can utilize the provided `CMakeLists.txt`.
+
+\subsection subsecCompile Compile the Code
+
+On Unix-based systems run:
+<pre><code>$ cmake -B build .
+$ cmake --build build --config release
+</code></pre>
+
+There also exist a `debug` config.
+
+The CMake-File checks for installations of Eigen via the corresponding `Eigen3Config.cmake`.
+You can include the source code of Eigen directly byEigen can be integrated as a module.
+Alternatively, include the source code from Eigen with `include_directory(path/to/eigen)` and delete the following lines
+
+<pre><code>find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+target_link_librarires(... Eigen3::Eigen)
+</code></pre>
+
+from the `CMakeLists.txt` files.
+
+\subsection subsecRun Run the Tests
+
+On Unix-based systems run:
+Run the tests in the `build/` directory with
+
+<pre><code>$ ctest
+</code></pre>
+
+The geometry files required to run the examples can be found in the `geo/` folder.
+
+\section Repository Structure of the Repository
+
+The general structure of the repository looks as follows.
+
+- `Bembel/` contains the library. In `Bembel/`, module files have been created analogously to the 
+  design of the Eigen library. If Bembel is used, only these module files should be included. These modules are the following:
+  - [AnsatzSpace](\ref AnsatzSpace)
+  - [ClusterTree](\ref ClusterTree)
+  - [DuffyTrick](\ref DuffyTrick)
+  - [DummyOperator](\ref DummyOperator)
+  - [Geometry](\ref Geometry)
+  - [H2Matrix](\ref H2Matrix)
+  - [Helmholtz](\ref Helmholtz)
+  - [HomogenisedLaplace](\ref HomogenisedLaplace)
+  - [IO](\ref IO)
+  - [Laplace](\ref Laplace)
+  - [LinearForm](\ref LinearForm)
+  - [LinearOperator](\ref LinearOperator)
+  - [Maxwell](\ref Maxwell)
+  - [Potential](\ref Potential)
+  - [Quadrature](\ref Quadrature)
+  - [Spline](\ref Spline)
+- `Bembel/src/` contains the folders corresponding to these modules, which include the actual implementation.
+- `geo/` contains geometry files in the format of the octave [NURBS package](https://octave.sourceforge.io/nurbs/).
+  They can be utilized for computations. Note that <b>the normal vector must be outward directed</b> on all patches!
+- `geo/octave_example/` includes `.m` files that showcase how geometries can be constructed using the NURBS package.
+- `assets/` only contains things relevant for GitHub pages.
+- `examples/` contains short examples for Bembel's functionality
+- `tests/` contains the unit tests for Bembel.
 
 */

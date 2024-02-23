@@ -1,6 +1,6 @@
 <!-- This file is part of Bembel, the higher order C++ boundary element library.
 
-Copyright (C) 2022 see <http://www.bembel.eu>
+Copyright (C) 2024 see <http://www.bembel.eu>
 
 It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
@@ -18,14 +18,12 @@ information. -->
 1. [Introduction](#introduction)
 2. [What is a Bembel?](#whatis)
 3. [Features](#features)
-4. [How to Run our Code](#example)
-5. [Structure of the Repository](#structure)
-6. [Documentation](#doc)
-7. [Known Bugs and Upcoming Features](#bugs)
-8. [Publications, Preprints, and how to cite](#publications)
-9. [Contributers](#contributors)
-10. [About the People](#people)
-11. [Funding](#funding)
+4. [Documentation](#doc)
+5. [Known Bugs and Upcoming Features](#bugs)
+6. [Publications, Preprints, and how to cite](#publications)
+7. [Contributers](#contributors)
+8. [About the People](#people)
+9. [Funding](#funding)
 
 ## 1. Introduction <a name="introduction"></a>
 
@@ -73,70 +71,23 @@ If you are not familiar with Eigen3, we emphasize that you can use it similarly
 to Matlab or Octave, 
 see [here](http://eigen.tuxfamily.org/dox/AsciiQuickReference.txt).
 
-## 4. How to Run our Code <a name="example"></a>
-
-You need to install the Eigen3 library, see [Eigen's Documentation](https://eigen.tuxfamily.org/dox/GettingStarted.html) for help. 
-We do not rely on any other external libraries, except for the standard template
-library. Thus, having installed Eigen, Bembel should run out of the box. If you want to use
-Bembel as part of your application, simply add the `Bembel/` directory to your includes.
-
-If you want to run the provided examples and tests, you can utilize the provided  `CMakeLists.txt`. Compile the code with:
-```console
-$ cmake -B build .
-$ cmake --build build --config release
-```
-There also exist a `debug` config.
-
-The CMake-File checks for installations of Eigen via the 
-corresponding `Eigen3Config.cmake`. On Unix you may 
-run `apt install libeigen3-dev`, or on Mac with 
-Homebrew `brew install eigen`, and everything should work. 
-Alternatively, you can delete the line
-`find_package (Eigen3 3.3 REQUIRED NO_MODULE)`
-and all lines of the type
-`target_link_librarires(... Eigen3::Eigen)`
-from `CMakeLists.txt`, and give a path to the eigen headers as an include directory manually.
-
-Then, the examples and tests should compile without any issues. You may run all tests by calling
-`ctest` from the `build/` directory after a successful compilation.
-
-The geometry files required to run the examples can be found in the `geo/` folder.
-
-## 5. Structure of the Repository <a name="structure"></a>
-
-The general structure of the repository looks as follows.
-
-* The root directory contains some helpful shell scripts.
-* `assets/` only contains things relevant for GitHub pages.
-* `geo/` contains geometry files in the format of the octave 
-[NURBS package](https://octave.sourceforge.io/nurbs/). They can be utilized for computations. Note that 
-**the normal vector must be outward directed** on all patches!
-  * `geo/octave_example/` includes `.m` files that showcase how geometries can be
-  constructed using the [NURBS package](https://octave.sourceforge.io/nurbs/) 
-  of octave.
-* `Bembel/` contains the library. In `Bembel/`, module files have been created analogously to the 
-design of the Eigen library. If Bembel is used, only these module files should be included. These modules are the following:
-    
-The `Bembel/src/` directory leads to folders corresponding to these modules, which include the actual implementation.
-The folder `examples/` contains short and *well documented* examples for Bembels functionality and `tests/` contains the tests for Bembel.
-
-## 6. Documentation <a name="doc"></a>
+## 4. Documentation <a name="doc"></a>
 
 A good place to start are the examples in the `examples/` folder, together with publication [[6]](#6). Apart from that, a [Doxygen documentation](https://temf.github.io/bembel/Doxy_out/html/index.html) is available.
 
-## 7. Known Bugs and Upcoming Features <a name="bugs"></a>
+## 5. Known Bugs and Upcoming Features <a name="bugs"></a>
 
 For a list of known bugs and upcoming features, please have a look at 
 the issue tracker on github.
 
-## 8. Contributing to Bembel <a name="contributing"></a>
+## 6. Contributing to Bembel <a name="contributing"></a>
 
 Any contribution to this project in fixing a bug or implementing a feature is welcome.
 Create a fork of this repository and create a pull request after your finished the implementation of the feature.
 To successfully merge your pull request you should follow our [Coding Guidelines](https://temf.github.io/bembel/Doxy_out/html/codingGuidelines.html)
 
 
-## 9. Publications, Preprints, and how to cite <a name="publications"></a>
+## 7. Publications, Preprints, and how to cite <a name="publications"></a>
 
 The following articles and preprints influenced the development of Bembel. We appreciate a citation of [[6]](#6) if you use it in one of your articles.
 
@@ -194,7 +145,7 @@ parametric surfaces*. In: Comput. Methods Appl. Mech. Engrg., 261-262:39-55, 201
 <a name="17">[17]</a> R. Torchio, M. Nolte, S. Schöps and A. E. Ruehli. *A spline-based partial element equivalent circuit method for electrostatics*. In: IEEE Trans. Dielectr. Electr. Insul., 2022, forthcoming. 
 [To the paper](https://ieeexplore.ieee.org/abstract/document/9963965).
 
-## 10. Contributors <a name="contributors"></a>
+## 8. Contributors <a name="contributors"></a>
 
 Contributors include (alphabetically): 
 *   D. Andric, 
@@ -206,7 +157,7 @@ Contributors include (alphabetically):
 *   [R. von Rickenbach](#RvR),
 *   [F. Wolf](#FW).
 
-## 11. About the People <a name="people"></a>
+## 9. About the People <a name="people"></a>
 
 * [Jürgen Dölz](https://ins.uni-bonn.de/staff/doelz) 
 <a name="JD"></a> currently holds a professorship at the [University of Bonn](https://www.uni-bonn.de/). He may also be found 
@@ -245,7 +196,7 @@ at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
 [on GitHub](https://github.com/flx-wlf).
 
 
-## 12. Funding <a name="funding"></a>
+## 10. Funding <a name="funding"></a>
 
 Work on Bembel was conducted with the following financial support (alphabetically):
 *  DFG Grant KU1553/4-1,
