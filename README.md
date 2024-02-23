@@ -12,7 +12,7 @@ information. -->
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/temf/bembel)
 [![DOI](https://zenodo.org/badge/173278911.svg)](https://zenodo.org/badge/latestdoi/173278911)
-[![Documentation](https://img.shields.io/badge/Documentation-Doxygen-blue)](https://mx-nlte.github.io/bembel/Doxy_out/html/index.html)
+[![Documentation](https://img.shields.io/badge/Documentation-Doxygen-blue)](https://temf.github.io/bembel/Doxy_out/html/index.html)
 [![coverage report](https://temf.github.io/bembel/coverage/report/coverage.svg)](https://temf.github.io/bembel/coverage/report/report.html)
 ## Table of contents
 1. [Introduction](#introduction)
