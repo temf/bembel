@@ -116,19 +116,6 @@ The general structure of the repository looks as follows.
   of octave.
 * `Bembel/` contains the library. In `Bembel/`, module files have been created analogously to the 
 design of the Eigen library. If Bembel is used, only these module files should be included. These modules are the following:
-    * `H2Matrix` handles the compression of the large, densely populated matrices.
-    The algorithm was introduced in [[5]](#5) and was generalized to the Maxwell case in [[8]](#8).
-    * `Helmholtz` provides the necessary specializations to solve Helmholtz problems.
-    * `HomogenisedLaplace` provides the necessary specialisations to solve the homogensied Laplace problem.
-    * `IO` provides input-output functionality, including routines for VTK file export, timing, and writing log files.
-    * `Laplace`  provides the necessary specializations to solve Laplace problems.
-    * `LinearForm` implements trace operators, i.e., routines to generate the right hand side of the linear systems. Currently, only a Dirichlet trace and a rotated tangential trace are provided.
-    * `LinearOperator` provides a framework to implement linear operators that can be used to solve PDEs.
-    Therein, the kernel function, a routine for the evaluation, and certain traits (like the scalar type, the operator order, and the `DifferentialForm`, i.e., weather the basis must be discontinuous, vector-valued and divergence conforming, or globally continuous) required for discretization must be provided.
-    * `Maxwell` provides the necessary specializations to solve Maxwell problems.
-    * `Potential` provides routines for the evaluation of the `Potential`, i.e., the solution to the PDE via the solution of (non-singular) integrals based on the `LinearOperator`s. 
-    * `Quadrature`
-    * `Spline` provided basic routines related to spline function and local polynomials.
     
 The `Bembel/src/` directory leads to folders corresponding to these modules, which include the actual implementation.
 The folder `examples/` contains short and *well documented* examples for Bembels functionality and `tests/` contains the tests for Bembel.
