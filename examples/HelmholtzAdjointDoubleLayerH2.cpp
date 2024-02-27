@@ -96,7 +96,7 @@ int main() {
       // solve system
       GMRES<typeof(system_matrix), IdentityPreconditioner> gmres;
       gmres.compute(system_matrix);
-      auto rho = gmres.solve(disc_lf.get_discrete_linear_form());
+      VectorXcd rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<
@@ -105,7 +105,7 @@ int main() {
           disc_pot(ansatz_space_helm);
       disc_pot.get_potential().set_wavenumber(wavenumber);
       disc_pot.set_cauchy_data(rho);
-      auto pot = disc_pot.evaluate(gridpoints);
+      VectorXcd pot = disc_pot.evaluate(gridpoints);
 
       // compute reference, print time, and compute error
       VectorXcd pot_ref(gridpoints.rows());
