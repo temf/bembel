@@ -13,7 +13,6 @@
 #define BEMBEL_LAPLACEOPERATOR_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup Laplace Laplace
  *  \brief The Laplace module provides some specializations to solve Laplace
  *problems.

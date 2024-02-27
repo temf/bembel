@@ -13,7 +13,6 @@
 #define BEMBEL_VISUALIZE_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup IO IO
  *  \brief The IO module provides input-output functionality.
  **/
@@ -35,6 +34,7 @@
 #include "src/IO/Stopwatch.hpp"
 #include "src/IO/VTKDomainExport.hpp"
 #include "src/IO/VTKSurfaceExport.hpp"
+#include "src/IO/VTKPointExport.hpp"
 #include "src/IO/print2file.hpp"
 
 #endif  // BEMBEL_VISUALIZE_MODULE_
