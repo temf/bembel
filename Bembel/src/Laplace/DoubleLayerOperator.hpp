@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_LINEAROPERATOR_HELMHOLTZ_HELMHOLTZDOUBLELAYEROPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_HELMHOLTZ_HELMHOLTZDOUBLELAYEROPERATOR_H_
+#ifndef BEMBEL_SRC_LAPLACE_DOUBLELAYEROPERATOR_HPP_
+#define BEMBEL_SRC_LAPLACE_DOUBLELAYEROPERATOR_HPP_
 
 namespace Bembel {
 // forward declaration of class LaplaceDoubleLayerOperator in order to define
@@ -117,4 +117,4 @@ class LaplaceDoubleLayerOperator
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LAPLACE_DOUBLELAYEROPERATOR_HPP_

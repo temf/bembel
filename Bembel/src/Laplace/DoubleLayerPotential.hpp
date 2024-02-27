@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACEDOUBLELAYERPOTENTIAL_H_
-#define BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACEDOUBLELAYERPOTENTIAL_H_
+#ifndef BEMBEL_SRC_LAPLACE_DOUBLELAYERPOTENTIAL_HPP_
+#define BEMBEL_SRC_LAPLACE_DOUBLELAYERPOTENTIAL_HPP_
 
 namespace Bembel {
 // forward declaration of class LaplaceDoubleLayerPotential in order to define
@@ -75,4 +75,4 @@ class LaplaceDoubleLayerPotential
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LAPLACE_DOUBLELAYERPOTENTIAL_HPP_

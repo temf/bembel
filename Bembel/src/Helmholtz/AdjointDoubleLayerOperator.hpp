@@ -6,8 +6,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_LINEAROPERATOR_HELMHOLTZ_HELMHOLTZADJOINTDOUBLELAYEROPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_HELMHOLTZ_HELMHOLTZADJOINTDOUBLELAYEROPERATOR_H_
+#ifndef BEMBEL_SRC_HELMHOLTZ_ADJOINTDOUBLELAYEROPERATOR_HPP_
+#define BEMBEL_SRC_HELMHOLTZ_ADJOINTDOUBLELAYEROPERATOR_HPP_
 
 namespace Bembel {
 // forward declaration of class HelmholtzAdjointDoubleLayerOperator in order to
@@ -131,4 +131,4 @@ class HelmholtzAdjointDoubleLayerOperator
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_HELMHOLTZ_ADJOINTDOUBLELAYEROPERATOR_HPP_

@@ -5,8 +5,8 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACESINGLELAYERPOTENTIALGRADIENT_H_
-#define BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACESINGLELAYERPOTENTIALGRADIENT_H_
+#ifndef BEMBEL_SRC_LAPLACE_SINGLELAYERPOTENTIALGRADIENT_HPP_
+#define BEMBEL_SRC_LAPLACE_SINGLELAYERPOTENTIALGRADIENT_HPP_
 
 namespace Bembel {
 // forward declaration of class LaplaceSingleLayerPotentialGradient in order
@@ -77,4 +77,4 @@ class LaplaceSingleLayerPotentialGradient
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LAPLACE_SINGLELAYERPOTENTIALGRADIENT_HPP_
