@@ -1,6 +1,6 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
 //
-// Copyright (C) 2022 see <http://www.bembel.eu>
+// Copyright (C) 2024 see <http://www.bembel.eu>
 //
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
