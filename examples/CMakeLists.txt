@@ -16,8 +16,12 @@ set(CIFILES
     LaplaceBeltrami
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
+    LazyEigenSum
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
+    HelmholtzDoubleLayerH2
+    HelmholtzAdjointDoubleLayerH2
+    HelmholtzHypersingularH2
     HomogenisedLaplaceSingleLayerFull
     HomogenisedLaplaceSingleLayerH2
     MaxwellSingleLayerFull
