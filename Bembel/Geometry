@@ -13,7 +13,6 @@
 #define BEMBEL_GEOMETRY_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup Geometry Geometry
  *  \brief This module handles all geometry related concerns.
  *
@@ -31,6 +30,8 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <ctime>
 
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
@@ -42,6 +43,7 @@
 #include "src/Geometry/Patch.hpp"
 #include "src/Geometry/PatchVector.hpp"
 #include "src/Geometry/GeometryIO.hpp"
+#include "src/Geometry/GeometryIGS.hpp"
 #include "src/Geometry/Geometry.hpp"
 
 #endif  // BEMBEL_GEOMETRY_MODULE_

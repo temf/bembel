@@ -2,6 +2,7 @@
 # copy geometry files for testing
 configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/geo/torus.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/geo/cube_small.dat ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
 ###############################################################################
 # examples being run from CI
@@ -17,6 +18,8 @@ set(CIFILES
     LaplaceSingleLayerH2
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
+    HomogenisedLaplaceSingleLayerFull
+    HomogenisedLaplaceSingleLayerH2
     MaxwellSingleLayerFull
     MaxwellSingleLayerH2
     )
@@ -42,6 +45,7 @@ set(NOCIFILES
     VTKSurfaceExport
     VTKDomainExport
     FullLaplaceWorkflow
+    FullMaxwellWorkflow
     )
 
   foreach(file IN LISTS NOCIFILES)

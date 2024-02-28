@@ -13,7 +13,6 @@
 #define BEMBEL_LINEARFORM_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup LinearForm LinearForm
  *  \brief The LinearForm template class must be specialized for the assembly of
  *the right hand side.
@@ -26,5 +25,6 @@
 #include "src/LinearForm/DirichletTrace.hpp"
 #include "src/LinearForm/DiscreteLinearForm.hpp"
 #include "src/LinearForm/RotatedTangentialTrace.hpp"
+#include "src/LinearForm/TangentialTrace.hpp"
 
 #endif  // BEMBEL_LINEARFORM_MODULE_

@@ -13,7 +13,6 @@
 #define BEMBEL_POTENTIAL_MODULE_
 
 /**
- *  \ingroup Modules
  *  \defgroup Potential Potential
  *  \brief The Potential module introduces means to evaluate the solution to a
  *PDE via a suitable integral operator taking the unknown of the linear system

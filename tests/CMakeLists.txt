@@ -4,14 +4,23 @@ configure_file(${CMAKE_SOURCE_DIR}/geo/sphere.dat ${CMAKE_CURRENT_BINARY_DIR}/ C
 
 set(UNITTESTS
 		test_GeometryImportAndEval
+		test_GeometryIGS
+		test_GeometryIO
+		test_Bezierextraction
 		test_SurfacePointUpdate
+		test_Spline
+		test_Bernstein
 		test_Projector
 		test_Glue
+		test_TangentialTrace
 		test_FMMTransferMatrices
 		test_FMMForwardTransformation
 		test_FMMBackwardTransformation
+		test_Laplace
+		test_Helmholtz
 		test_DuffyTrick
-		LazyEigenSum
+		test_LazyEigenSum
+		test_HomogenisedCoefficients
 		)
 
 foreach(file IN LISTS UNITTESTS)
@@ -23,5 +32,8 @@ endforeach()
 
 enable_testing()
 
+add_subdirectory(examples_as_unittests)
+set(EXAMPLES_CACHE ${EXAMPLES} CACHE INTERNAL "My set")
+
 add_custom_target(unittests)
-add_dependencies(unittests ${UNITTESTS})
+add_dependencies(unittests ${UNITTESTS} ${EXAMPLES_CACHE})
