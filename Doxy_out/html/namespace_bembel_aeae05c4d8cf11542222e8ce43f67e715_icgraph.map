@@ -1,13 +1,16 @@
 <map id="Bembel::getFunctionSpaceVectorDimension" name="Bembel::getFunctionSpaceVectorDimension">
-<area shape="rect" id="node1" title=" " alt="" coords="541,343,736,384"/>
-<area shape="rect" id="node2" href="$class_bembel_1_1_function_evaluator.html#afc84feb7f45fbfcfc2570083a5a16b4e" title=" " alt="" coords="296,217,493,259"/>
-<area shape="rect" id="node9" href="$class_bembel_1_1_function_evaluator.html#a4860bab603e20018c83f54965d362fb4" title=" " alt="" coords="296,309,493,351"/>
-<area shape="rect" id="node10" href="$class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="317,375,472,416"/>
-<area shape="rect" id="node11" href="$group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699" title="Interpolate kernel function on reference domain for FMM." alt="" coords="315,440,474,481"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_helmholtz_single_layer_potential.html#a02d1b310b3e4773297cf07a75ea6356b" title=" " alt="" coords="5,5,248,47"/>
-<area shape="rect" id="node4" href="$class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a202e7872c229f6cd0e5ef1ef72c2b5df" title=" " alt="" coords="16,71,237,127"/>
-<area shape="rect" id="node5" href="$class_bembel_1_1_laplace_single_layer_potential.html#a99b0ec0045eea9702993623552e83848" title=" " alt="" coords="5,152,248,193"/>
-<area shape="rect" id="node6" href="$class_bembel_1_1_maxwell_single_layer_potential.html#a59facc4a5f6645515b51e94f06ba1459" title=" " alt="" coords="5,335,248,376"/>
-<area shape="rect" id="node7" href="$class_bembel_1_1_function_evaluator.html#acff68ebfa96dcc8cda3f2247c65fbc7a" title=" " alt="" coords="28,217,225,259"/>
-<area shape="rect" id="node8" href="$namespace_bembel.html#a5d75608ee7079ac7c9100764ab6a81be" title=" " alt="" coords="39,283,214,310"/>
+<area shape="rect" id="node1" title=" " alt="" coords="597,505,792,547"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_function_evaluator.html#afc84feb7f45fbfcfc2570083a5a16b4e" title=" " alt="" coords="352,316,549,357"/>
+<area shape="rect" id="node12" href="$class_bembel_1_1_function_evaluator.html#a4860bab603e20018c83f54965d362fb4" title=" " alt="" coords="352,472,549,513"/>
+<area shape="rect" id="node13" href="$class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="373,537,528,579"/>
+<area shape="rect" id="node14" href="$group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699" title="Interpolate kernel function on reference domain for FMM." alt="" coords="371,603,530,644"/>
+<area shape="rect" id="node3" href="$class_bembel_1_1_helmholtz_double_layer_potential.html#a5f6c8766f0f6decc714cb64e4d07442e" title=" " alt="" coords="33,5,276,47"/>
+<area shape="rect" id="node4" href="$class_bembel_1_1_helmholtz_single_layer_potential.html#a02d1b310b3e4773297cf07a75ea6356b" title=" " alt="" coords="33,71,276,112"/>
+<area shape="rect" id="node5" href="$class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a202e7872c229f6cd0e5ef1ef72c2b5df" title=" " alt="" coords="44,137,265,193"/>
+<area shape="rect" id="node6" href="$class_bembel_1_1_laplace_double_layer_potential.html#aaa5f5d19e09ed2694a57e2a7d6a4cc8e" title=" " alt="" coords="33,217,276,259"/>
+<area shape="rect" id="node7" href="$class_bembel_1_1_laplace_single_layer_potential.html#a99b0ec0045eea9702993623552e83848" title=" " alt="" coords="33,283,276,324"/>
+<area shape="rect" id="node8" href="$class_bembel_1_1_laplace_single_layer_potential_gradient.html#af1925b4c2bf5bfddf334e24d49c73d3d" title=" " alt="" coords="5,348,304,389"/>
+<area shape="rect" id="node9" href="$class_bembel_1_1_maxwell_single_layer_potential.html#a59facc4a5f6645515b51e94f06ba1459" title=" " alt="" coords="33,531,276,572"/>
+<area shape="rect" id="node10" href="$class_bembel_1_1_function_evaluator.html#acff68ebfa96dcc8cda3f2247c65fbc7a" title=" " alt="" coords="56,413,253,455"/>
+<area shape="rect" id="node11" href="$namespace_bembel.html#a5d75608ee7079ac7c9100764ab6a81be" title=" " alt="" coords="67,479,242,506"/>
 </map>

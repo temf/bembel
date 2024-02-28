@@ -1,0 +1,5 @@
+<map id="Bembel::HelmholtzAdjointDoubleLayerOperator::evaluateKernelGrad" name="Bembel::HelmholtzAdjointDoubleLayerOperator::evaluateKernelGrad">
+<area shape="rect" id="node1" title="Gradient of fundamental solution of Helmholtz problem." alt="" coords="280,45,507,101"/>
+<area shape="rect" id="node2" href="$class_bembel_1_1_helmholtz_adjoint_double_layer_operator.html#a057edd9a49ad19fb663e1773bef1c5db" title=" " alt="" coords="5,5,232,61"/>
+<area shape="rect" id="node3" href="$class_bembel_1_1_helmholtz_adjoint_double_layer_operator.html#a77cb8799812ba208ccec3f6d234a253c" title=" " alt="" coords="5,85,232,141"/>
+</map>

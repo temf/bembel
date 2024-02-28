@@ -124,6 +124,9 @@ var hierarchy =
     [ "Bembel::LinearFormBase< DirichletTrace< Scalar >, Scalar >", "struct_bembel_1_1_linear_form_base.html", [
       [ "Bembel::DirichletTrace< Scalar >", "class_bembel_1_1_dirichlet_trace.html", null ]
     ] ],
+    [ "Bembel::LinearFormBase< NeumannTrace< Scalar >, Scalar >", "struct_bembel_1_1_linear_form_base.html", [
+      [ "Bembel::NeumannTrace< Scalar >", "class_bembel_1_1_neumann_trace.html", null ]
+    ] ],
     [ "Bembel::LinearFormBase< RotatedTangentialTrace< Scalar >, Scalar >", "struct_bembel_1_1_linear_form_base.html", [
       [ "Bembel::RotatedTangentialTrace< Scalar >", "class_bembel_1_1_rotated_tangential_trace.html", null ]
     ] ],
@@ -132,6 +135,7 @@ var hierarchy =
     ] ],
     [ "Bembel::LinearFormTraits< Derived >", "struct_bembel_1_1_linear_form_traits.html", null ],
     [ "Bembel::LinearFormTraits< DirichletTrace< ScalarT > >", "struct_bembel_1_1_linear_form_traits_3_01_dirichlet_trace_3_01_scalar_t_01_4_01_4.html", null ],
+    [ "Bembel::LinearFormTraits< NeumannTrace< ScalarT > >", "struct_bembel_1_1_linear_form_traits_3_01_neumann_trace_3_01_scalar_t_01_4_01_4.html", null ],
     [ "Bembel::LinearFormTraits< RotatedTangentialTrace< ScalarT > >", "struct_bembel_1_1_linear_form_traits_3_01_rotated_tangential_trace_3_01_scalar_t_01_4_01_4.html", null ],
     [ "Bembel::LinearFormTraits< TangentialTrace< ScalarT > >", "struct_bembel_1_1_linear_form_traits_3_01_tangential_trace_3_01_scalar_t_01_4_01_4.html", null ],
     [ "Bembel::LinearOperatorBase< Derived >", "struct_bembel_1_1_linear_operator_base.html", [
@@ -152,11 +156,23 @@ var hierarchy =
     [ "Bembel::LinearOperatorBase< DummyOperator >", "struct_bembel_1_1_linear_operator_base.html", [
       [ "Bembel::DummyOperator", "class_bembel_1_1_dummy_operator.html", null ]
     ] ],
+    [ "Bembel::LinearOperatorBase< HelmholtzAdjointDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_base.html", [
+      [ "Bembel::HelmholtzAdjointDoubleLayerOperator", "class_bembel_1_1_helmholtz_adjoint_double_layer_operator.html", null ]
+    ] ],
+    [ "Bembel::LinearOperatorBase< HelmholtzDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_base.html", [
+      [ "Bembel::HelmholtzDoubleLayerOperator", "class_bembel_1_1_helmholtz_double_layer_operator.html", null ]
+    ] ],
+    [ "Bembel::LinearOperatorBase< HelmholtzHypersingularOperator >", "struct_bembel_1_1_linear_operator_base.html", [
+      [ "Bembel::HelmholtzHypersingularOperator", "class_bembel_1_1_helmholtz_hypersingular_operator.html", null ]
+    ] ],
     [ "Bembel::LinearOperatorBase< HelmholtzSingleLayerOperator >", "struct_bembel_1_1_linear_operator_base.html", [
       [ "Bembel::HelmholtzSingleLayerOperator", "class_bembel_1_1_helmholtz_single_layer_operator.html", null ]
     ] ],
     [ "Bembel::LinearOperatorBase< HomogenisedLaplaceSingleLayerOperator >", "struct_bembel_1_1_linear_operator_base.html", [
       [ "Bembel::HomogenisedLaplaceSingleLayerOperator", "class_bembel_1_1_homogenised_laplace_single_layer_operator.html", null ]
+    ] ],
+    [ "Bembel::LinearOperatorBase< LaplaceDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_base.html", [
+      [ "Bembel::LaplaceDoubleLayerOperator", "class_bembel_1_1_laplace_double_layer_operator.html", null ]
     ] ],
     [ "Bembel::LinearOperatorBase< LaplaceSingleLayerOperator >", "struct_bembel_1_1_linear_operator_base.html", [
       [ "Bembel::LaplaceSingleLayerOperator", "class_bembel_1_1_laplace_single_layer_operator.html", null ]
@@ -168,9 +184,13 @@ var hierarchy =
       [ "Bembel::LinearOperatorTraits< ContinuousView< Derived > >", "struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4.html", null ]
     ] ],
     [ "Bembel::LinearOperatorTraits< DummyOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html", null ],
+    [ "Bembel::LinearOperatorTraits< HelmholtzAdjointDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_adjoint_double_layer_operator_01_4.html", null ],
+    [ "Bembel::LinearOperatorTraits< HelmholtzDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_double_layer_operator_01_4.html", null ],
+    [ "Bembel::LinearOperatorTraits< HelmholtzHypersingularOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_hypersingular_operator_01_4.html", null ],
     [ "Bembel::LinearOperatorTraits< HelmholtzSingleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_single_layer_operator_01_4.html", null ],
     [ "Bembel::LinearOperatorTraits< HomogenisedLaplaceSingleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_homogenised_laplace_single_layer_operator_01_4.html", null ],
     [ "Bembel::LinearOperatorTraits< LaplaceBeltramiOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_beltrami_operator_01_4.html", null ],
+    [ "Bembel::LinearOperatorTraits< LaplaceDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_double_layer_operator_01_4.html", null ],
     [ "Bembel::LinearOperatorTraits< LaplaceSingleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_single_layer_operator_01_4.html", null ],
     [ "Bembel::LinearOperatorTraits< MassMatrixScalarCont >", "struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_cont_01_4.html", null ],
     [ "Bembel::LinearOperatorTraits< MassMatrixScalarDisc >", "struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_disc_01_4.html", null ],
@@ -179,17 +199,27 @@ var hierarchy =
     [ "Bembel::H2Multipole::Moment1D< InterpolationPoints, LinOp >", "struct_bembel_1_1_h2_multipole_1_1_moment1_d.html", null ],
     [ "Bembel::H2Multipole::Moment1DDerivative< InterpolationPoints, LinOp >", "struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative.html", null ],
     [ "Bembel::H2Multipole::Moment2D< InterpolationPoints, LinOp >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d.html", null ],
+    [ "Bembel::H2Multipole::Moment2D< InterpolationPoints, HelmholtzHypersingularOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_helmholtz_hypersingular_operator_01_4.html", null ],
     [ "Bembel::H2Multipole::Moment2D< InterpolationPoints, MaxwellSingleLayerOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_maxwell_single_layer_operator_01_4.html", null ],
     [ "Bembel::Patch", "class_bembel_1_1_patch.html", null ],
     [ "Bembel::PotentialBase< Derived, LinOp >", "struct_bembel_1_1_potential_base.html", null ],
+    [ "Bembel::PotentialBase< HelmholtzDoubleLayerPotential< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
+      [ "Bembel::HelmholtzDoubleLayerPotential< LinOp >", "class_bembel_1_1_helmholtz_double_layer_potential.html", null ]
+    ] ],
     [ "Bembel::PotentialBase< HelmholtzSingleLayerPotential< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
       [ "Bembel::HelmholtzSingleLayerPotential< LinOp >", "class_bembel_1_1_helmholtz_single_layer_potential.html", null ]
     ] ],
     [ "Bembel::PotentialBase< HomogenisedLaplaceSingleLayerPotential< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
       [ "Bembel::HomogenisedLaplaceSingleLayerPotential< LinOp >", "class_bembel_1_1_homogenised_laplace_single_layer_potential.html", null ]
     ] ],
+    [ "Bembel::PotentialBase< LaplaceDoubleLayerPotential< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
+      [ "Bembel::LaplaceDoubleLayerPotential< LinOp >", "class_bembel_1_1_laplace_double_layer_potential.html", null ]
+    ] ],
     [ "Bembel::PotentialBase< LaplaceSingleLayerPotential< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
       [ "Bembel::LaplaceSingleLayerPotential< LinOp >", "class_bembel_1_1_laplace_single_layer_potential.html", null ]
+    ] ],
+    [ "Bembel::PotentialBase< LaplaceSingleLayerPotentialGradient< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
+      [ "Bembel::LaplaceSingleLayerPotentialGradient< LinOp >", "class_bembel_1_1_laplace_single_layer_potential_gradient.html", null ]
     ] ],
     [ "Bembel::PotentialBase< MaxwellSingleLayerPotential< LinOp >, LinOp >", "struct_bembel_1_1_potential_base.html", [
       [ "Bembel::MaxwellSingleLayerPotential< LinOp >", "class_bembel_1_1_maxwell_single_layer_potential.html", null ]
@@ -200,9 +230,12 @@ var hierarchy =
     [ "Bembel::PotentialReturnScalar< std::complex< double >, double >", "struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01double_01_4.html", null ],
     [ "Bembel::PotentialReturnScalar< std::complex< double >, std::complex< double > >", "struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01std_1_1complex_3_01double_01_4_01_4.html", null ],
     [ "Bembel::PotentialTraits< Derived >", "struct_bembel_1_1_potential_traits.html", null ],
+    [ "Bembel::PotentialTraits< HelmholtzDoubleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_helmholtz_double_layer_potential_3_01_lin_op_01_4_01_4.html", null ],
     [ "Bembel::PotentialTraits< HelmholtzSingleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_helmholtz_single_layer_potential_3_01_lin_op_01_4_01_4.html", null ],
     [ "Bembel::PotentialTraits< HomogenisedLaplaceSingleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_homogenised_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html", null ],
+    [ "Bembel::PotentialTraits< LaplaceDoubleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_laplace_double_layer_potential_3_01_lin_op_01_4_01_4.html", null ],
     [ "Bembel::PotentialTraits< LaplaceSingleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html", null ],
+    [ "Bembel::PotentialTraits< LaplaceSingleLayerPotentialGradient< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_laplace_single_layer_potential_gradient_3_01_lin_op_01_4_01_4.html", null ],
     [ "Bembel::PotentialTraits< MaxwellSingleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_maxwell_single_layer_potential_3_01_lin_op_01_4_01_4.html", null ],
     [ "Bembel::Projector< Derived >", "class_bembel_1_1_projector.html", null ],
     [ "Bembel::ProjectorRoutines::projector_matrixmaker_< Derived, DF >", "struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html", null ],

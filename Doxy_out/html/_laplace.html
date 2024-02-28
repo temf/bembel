@@ -99,63 +99,66 @@ $(document).ready(function(){initNavTree('_laplace.html',''); initResizable(); }
 <code>#include &lt;Eigen/Dense&gt;</code><br />
 <code>#include &quot;<a class="el" href="_linear_operator_source.html">LinearOperator</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_potential_source.html">Potential</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_laplace_2_double_layer_operator_8hpp_source.html">src/Laplace/DoubleLayerOperator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_laplace_2_double_layer_potential_8hpp_source.html">src/Laplace/DoubleLayerPotential.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_laplace_2_single_layer_operator_8hpp_source.html">src/Laplace/SingleLayerOperator.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">src/Laplace/SingleLayerPotential.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_single_layer_potential_gradient_8hpp_source.html">src/Laplace/SingleLayerPotentialGradient.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Laplace:</div>
 <div class="dyncontent">
 <div class="center"><img src="_laplace__incl.png" border="0" usemap="#a_bembel_2_laplace" alt=""/></div>
 <map name="a_bembel_2_laplace" id="a_bembel_2_laplace">
-<area shape="rect" title=" " alt="" coords="992,5,1119,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,92,107"/>
-<area shape="rect" title=" " alt="" coords="1133,669,1236,695"/>
-<area shape="rect" href="_linear_operator.html" title=" " alt="" coords="1408,80,1527,107"/>
-<area shape="rect" href="_potential.html" title=" " alt="" coords="494,251,574,278"/>
-<area shape="rect" href="_laplace_2_single_layer_operator_8hpp.html" title=" " alt="" coords="1550,80,1809,107"/>
-<area shape="rect" href="_laplace_2_single_layer_potential_8hpp.html" title=" " alt="" coords="1833,80,2094,107"/>
-<area shape="rect" href="_ansatz_space.html" title=" " alt="" coords="3535,341,3640,367"/>
-<area shape="rect" href="_differential_form_enum_8hpp.html" title=" " alt="" coords="3139,661,3337,703"/>
-<area shape="rect" href="_surface_point_8hpp.html" title=" " alt="" coords="4119,587,4343,613"/>
-<area shape="rect" href="_linear_operator_traits_8hpp.html" title=" " alt="" coords="622,423,809,464"/>
-<area shape="rect" href="_duffy_trick.html" title=" " alt="" coords="1955,251,2041,278"/>
-<area shape="rect" href="_quadrature.html" title=" " alt="" coords="757,341,852,367"/>
-<area shape="rect" href="_linear_operator_base_8hpp.html" title=" " alt="" coords="3225,333,3408,375"/>
-<area shape="rect" href="_h2_matrix.html" title=" " alt="" coords="2790,162,2873,189"/>
-<area shape="rect" href="_h2_matrix_8hpp.html" title=" " alt="" coords="3585,251,3782,278"/>
-<area shape="rect" href="_discrete_operator_8hpp.html" title=" " alt="" coords="843,155,1007,196"/>
-<area shape="rect" href="_local_operator_base_8hpp.html" title=" " alt="" coords="1031,155,1208,196"/>
-<area shape="rect" href="_discrete_local_operator_8hpp.html" title=" " alt="" coords="1232,155,1431,196"/>
-<area shape="rect" title=" " alt="" coords="3299,587,3377,613"/>
-<area shape="rect" title=" " alt="" coords="3451,587,3537,613"/>
-<area shape="rect" title=" " alt="" coords="3361,669,3467,695"/>
-<area shape="rect" href="_geometry.html" title=" " alt="" coords="3300,512,3387,539"/>
-<area shape="rect" href="_spline.html" title=" " alt="" coords="3148,587,3211,613"/>
-<area shape="rect" href="_cluster_tree.html" title=" " alt="" coords="3097,430,3192,457"/>
-<area shape="rect" href="_macros_8hpp.html" title=" " alt="" coords="1237,430,1383,457"/>
-<area shape="rect" href="_super_space_8hpp.html" title=" " alt="" coords="3469,430,3705,457"/>
-<area shape="rect" href="_projector_8hpp.html" title=" " alt="" coords="3729,430,3947,457"/>
-<area shape="rect" href="_glue_8hpp.html" title=" " alt="" coords="3971,430,4161,457"/>
-<area shape="rect" href="_ansatz_space_8hpp.html" title=" " alt="" coords="4186,430,4429,457"/>
-<area shape="rect" href="_function_evaluator_eval_8hpp.html" title=" " alt="" coords="4453,423,4639,464"/>
-<area shape="rect" href="_function_evaluator_8hpp.html" title=" " alt="" coords="4663,423,4850,464"/>
-<area shape="rect" title=" " alt="" coords="1587,669,1657,695"/>
-<area shape="rect" href="util_2_constants_8hpp.html" title=" " alt="" coords="2953,669,3115,695"/>
-<area shape="rect" href="compare_elements_8hpp.html" title=" " alt="" coords="2840,341,3100,367"/>
-<area shape="rect" href="far_field_quadrature_nodes_8hpp.html" title=" " alt="" coords="876,333,1112,375"/>
-<area shape="rect" href="tau_8hpp.html" title=" " alt="" coords="1137,341,1299,367"/>
-<area shape="rect" href="integrate0_8hpp.html" title=" " alt="" coords="1324,341,1533,367"/>
-<area shape="rect" href="integrate1_8hpp.html" title=" " alt="" coords="1660,341,1869,367"/>
-<area shape="rect" href="integrate2_8hpp.html" title=" " alt="" coords="1893,341,2103,367"/>
-<area shape="rect" href="integrate3_8hpp.html" title=" " alt="" coords="2127,341,2336,367"/>
-<area shape="rect" href="integrate4_8hpp.html" title=" " alt="" coords="2360,341,2569,367"/>
-<area shape="rect" href="evaluate_bilinear_form_8hpp.html" title=" " alt="" coords="2594,333,2815,375"/>
-<area shape="rect" href="_generic_matrix_8hpp.html" title=" " alt="" coords="2629,251,2820,278"/>
-<area shape="rect" href="_h2_matrix_2_eigen_helper_2_constants_8hpp.html" title=" " alt="" coords="2844,244,3032,285"/>
-<area shape="rect" href="_xpr_helper_8hpp.html" title=" " alt="" coords="3056,244,3244,285"/>
-<area shape="rect" href="_tree_leaf_8hpp.html" title=" " alt="" coords="3268,251,3459,278"/>
-<area shape="rect" href="_block_cluster_tree_8hpp.html" title=" " alt="" coords="2363,244,2553,285"/>
-<area shape="rect" href="_potential_8hpp.html" title=" " alt="" coords="437,341,631,367"/>
-<area shape="rect" href="_discrete_potential_8hpp.html" title=" " alt="" coords="167,341,413,367"/>
+<area shape="rect" title=" " alt="" coords="3851,5,3977,32"/>
+<area shape="rect" title=" " alt="" coords="5,87,92,114"/>
+<area shape="rect" title=" " alt="" coords="2075,683,2177,710"/>
+<area shape="rect" href="_linear_operator.html" title=" " alt="" coords="1525,87,1644,114"/>
+<area shape="rect" href="_potential.html" title=" " alt="" coords="3730,266,3810,293"/>
+<area shape="rect" href="_laplace_2_double_layer_operator_8hpp.html" title=" " alt="" coords="3781,87,4047,114"/>
+<area shape="rect" href="_laplace_2_double_layer_potential_8hpp.html" title=" " alt="" coords="4071,87,4338,114"/>
+<area shape="rect" href="_laplace_2_single_layer_operator_8hpp.html" title=" " alt="" coords="4362,87,4621,114"/>
+<area shape="rect" href="_laplace_2_single_layer_potential_8hpp.html" title=" " alt="" coords="4645,87,4906,114"/>
+<area shape="rect" href="_single_layer_potential_gradient_8hpp.html" title=" " alt="" coords="4931,80,5164,121"/>
+<area shape="rect" href="_ansatz_space.html" title=" " alt="" coords="788,355,893,382"/>
+<area shape="rect" href="_differential_form_enum_8hpp.html" title=" " alt="" coords="3625,676,3822,717"/>
+<area shape="rect" href="_surface_point_8hpp.html" title=" " alt="" coords="522,601,746,628"/>
+<area shape="rect" href="_linear_operator_traits_8hpp.html" title=" " alt="" coords="2521,437,2707,479"/>
+<area shape="rect" href="_duffy_trick.html" title=" " alt="" coords="1621,266,1708,293"/>
+<area shape="rect" href="_quadrature.html" title=" " alt="" coords="969,355,1064,382"/>
+<area shape="rect" href="_linear_operator_base_8hpp.html" title=" " alt="" coords="3284,348,3467,389"/>
+<area shape="rect" href="_h2_matrix.html" title=" " alt="" coords="774,177,857,203"/>
+<area shape="rect" href="_h2_matrix_8hpp.html" title=" " alt="" coords="985,266,1182,293"/>
+<area shape="rect" href="_discrete_operator_8hpp.html" title=" " alt="" coords="1308,169,1472,211"/>
+<area shape="rect" href="_local_operator_base_8hpp.html" title=" " alt="" coords="1496,169,1673,211"/>
+<area shape="rect" href="_discrete_local_operator_8hpp.html" title=" " alt="" coords="1697,169,1896,211"/>
+<area shape="rect" title=" " alt="" coords="981,601,1058,628"/>
+<area shape="rect" title=" " alt="" coords="770,601,855,628"/>
+<area shape="rect" title=" " alt="" coords="665,683,771,710"/>
+<area shape="rect" href="_geometry.html" title=" " alt="" coords="769,527,856,553"/>
+<area shape="rect" href="_spline.html" title=" " alt="" coords="2060,601,2123,628"/>
+<area shape="rect" href="_cluster_tree.html" title=" " alt="" coords="421,445,516,471"/>
+<area shape="rect" href="_macros_8hpp.html" title=" " alt="" coords="2351,445,2496,471"/>
+<area shape="rect" href="_super_space_8hpp.html" title=" " alt="" coords="903,445,1139,471"/>
+<area shape="rect" href="_projector_8hpp.html" title=" " alt="" coords="1163,445,1380,471"/>
+<area shape="rect" href="_glue_8hpp.html" title=" " alt="" coords="1404,445,1595,471"/>
+<area shape="rect" href="_ansatz_space_8hpp.html" title=" " alt="" coords="1619,445,1862,471"/>
+<area shape="rect" href="_function_evaluator_eval_8hpp.html" title=" " alt="" coords="1886,437,2073,479"/>
+<area shape="rect" href="_function_evaluator_8hpp.html" title=" " alt="" coords="591,437,778,479"/>
+<area shape="rect" title=" " alt="" coords="2329,683,2398,710"/>
+<area shape="rect" href="util_2_constants_8hpp.html" title=" " alt="" coords="251,683,414,710"/>
+<area shape="rect" href="compare_elements_8hpp.html" title=" " alt="" coords="2740,355,3000,382"/>
+<area shape="rect" href="far_field_quadrature_nodes_8hpp.html" title=" " alt="" coords="3024,348,3260,389"/>
+<area shape="rect" href="tau_8hpp.html" title=" " alt="" coords="1089,355,1251,382"/>
+<area shape="rect" href="integrate0_8hpp.html" title=" " alt="" coords="1327,355,1536,382"/>
+<area shape="rect" href="integrate1_8hpp.html" title=" " alt="" coords="1560,355,1769,382"/>
+<area shape="rect" href="integrate2_8hpp.html" title=" " alt="" coords="1793,355,2003,382"/>
+<area shape="rect" href="integrate3_8hpp.html" title=" " alt="" coords="2027,355,2236,382"/>
+<area shape="rect" href="integrate4_8hpp.html" title=" " alt="" coords="2260,355,2469,382"/>
+<area shape="rect" href="evaluate_bilinear_form_8hpp.html" title=" " alt="" coords="2494,348,2715,389"/>
+<area shape="rect" href="_generic_matrix_8hpp.html" title=" " alt="" coords="507,266,697,293"/>
+<area shape="rect" href="_h2_matrix_2_eigen_helper_2_constants_8hpp.html" title=" " alt="" coords="721,259,909,300"/>
+<area shape="rect" href="_potential_8hpp.html" title=" " alt="" coords="3543,355,3736,382"/>
+<area shape="rect" href="_discrete_potential_8hpp.html" title=" " alt="" coords="3861,355,4108,382"/>
 </map>
 </div>
 </div>
@@ -189,7 +192,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="_laplace.html">Laplace</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 08:12:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

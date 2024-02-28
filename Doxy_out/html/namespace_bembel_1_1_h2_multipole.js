@@ -4,6 +4,7 @@ var namespace_bembel_1_1_h2_multipole =
     [ "Moment1D", "struct_bembel_1_1_h2_multipole_1_1_moment1_d.html", "struct_bembel_1_1_h2_multipole_1_1_moment1_d" ],
     [ "Moment1DDerivative", "struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative.html", "struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative" ],
     [ "Moment2D", "struct_bembel_1_1_h2_multipole_1_1_moment2_d.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d" ],
+    [ "Moment2D< InterpolationPoints, HelmholtzHypersingularOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_helmholtz_hypersingular_operator_01_4.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_helmholtz_hypersingular_operator_01_4" ],
     [ "Moment2D< InterpolationPoints, MaxwellSingleLayerOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_maxwell_single_layer_operator_01_4.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_maxwell_single_layer_operator_01_4" ],
     [ "backwardTransformation", "group___h2_matrix.html#ga4dafafe2155a1976f270f22ff35c5ea2", null ],
     [ "computeLagrangePolynomials", "group___h2_matrix.html#ga0203377e94e1ce20cfdea64eeb049b60", null ],

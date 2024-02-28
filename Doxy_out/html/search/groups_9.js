@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quadrature_1644',['Quadrature',['../group___quadrature.html',1,'']]]
+  ['quadrature_1712',['Quadrature',['../group___quadrature.html',1,'']]]
 ];
