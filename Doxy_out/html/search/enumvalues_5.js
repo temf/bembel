@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maxcolsatcompiletime_1439',['MaxColsAtCompileTime',['../class_eigen_1_1_h2_matrix.html#ae7a09c25b3a886746c3851b0692218d6a571b70715c29f7d4e76b1775954557ca',1,'Eigen::H2Matrix']]]
+  ['lowrank_1590',['LowRank',['../struct_bembel_1_1_block_cluster_admissibility.html#a015b9ccb366649033cd399edc72dd84ba36495537f408ec1a8cc0b6d346330940',1,'Bembel::BlockClusterAdmissibility']]]
 ];

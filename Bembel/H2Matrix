@@ -19,16 +19,29 @@
  * complexity of the matrix-vector multiplication.
  **/
 
+#include <Eigen/Sparse>
+//
 #include "DuffyTrick"
 #include "ClusterTree"
 #include "Quadrature"
-
+//
 #include "src/util/Constants.hpp"
 #include "src/util/GenericMatrix.hpp"
-
+//
+#include "src/H2Matrix/EigenHelper/Constants.hpp"
+#include "src/H2Matrix/EigenHelper/XprHelper.hpp"
+//
 #include "src/H2Matrix/TreeLeaf.hpp"
-
 #include "src/H2Matrix/BlockClusterTree.hpp"
 #include "src/H2Matrix/H2Multipole.hpp"
+//
+#include "src/H2Matrix/H2MatrixBase.hpp"
+//
+#include "src/H2Matrix/H2Matrix.hpp"
+//
+#include "src/H2Matrix/EigenHelper/H2Assign.hpp"
+#include "src/H2Matrix/EigenHelper/H2CwiseBinaryOp.hpp"
+#include "src/H2Matrix/EigenHelper/H2DenseProduct.hpp"
+#include "src/H2Matrix/EigenHelper/H2Util.hpp"
 
 #endif  // BEMBEL_H2MATRIX_MODULE_

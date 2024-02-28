@@ -107,34 +107,55 @@ $(document).ready(function(){initNavTree('_h2_matrix_source.html',''); initResiz
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef BEMBEL_H2MATRIX_MODULE_</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_h2_matrix.html#a151c785f118f04c7cda8064c14f64f13">   13</a></span>&#160;<span class="preprocessor">#define BEMBEL_H2MATRIX_MODULE_</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_duffy_trick.html">DuffyTrick</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cluster_tree.html">ClusterTree</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quadrature.html">Quadrature</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_constants_8hpp.html">src/util/Constants.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_generic_matrix_8hpp.html">src/util/GenericMatrix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_tree_leaf_8hpp.html">src/H2Matrix/TreeLeaf.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_block_cluster_tree_8hpp.html">src/H2Matrix/BlockClusterTree.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_multipole_8hpp.html">src/H2Matrix/H2Multipole.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_H2MATRIX_MODULE_</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;Eigen/Sparse&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_duffy_trick.html">DuffyTrick</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_cluster_tree.html">ClusterTree</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quadrature.html">Quadrature</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="util_2_constants_8hpp.html">src/util/Constants.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_generic_matrix_8hpp.html">src/util/GenericMatrix.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_matrix_2_eigen_helper_2_constants_8hpp.html">src/H2Matrix/EigenHelper/Constants.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_xpr_helper_8hpp.html">src/H2Matrix/EigenHelper/XprHelper.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_tree_leaf_8hpp.html">src/H2Matrix/TreeLeaf.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_block_cluster_tree_8hpp.html">src/H2Matrix/BlockClusterTree.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_multipole_8hpp.html">src/H2Matrix/H2Multipole.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_matrix_base_8hpp.html">src/H2Matrix/H2MatrixBase.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_matrix_8hpp.html">src/H2Matrix/H2Matrix.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_assign_8hpp.html">src/H2Matrix/EigenHelper/H2Assign.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_cwise_binary_op_8hpp.html">src/H2Matrix/EigenHelper/H2CwiseBinaryOp.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_dense_product_8hpp.html">src/H2Matrix/EigenHelper/H2DenseProduct.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_util_8hpp.html">src/H2Matrix/EigenHelper/H2Util.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_H2MATRIX_MODULE_</span></div>
 <div class="ttc" id="a_block_cluster_tree_8hpp_html"><div class="ttname"><a href="_block_cluster_tree_8hpp.html">BlockClusterTree.hpp</a></div></div>
 <div class="ttc" id="a_cluster_tree_html"><div class="ttname"><a href="_cluster_tree.html">ClusterTree</a></div></div>
-<div class="ttc" id="a_constants_8hpp_html"><div class="ttname"><a href="_constants_8hpp.html">Constants.hpp</a></div></div>
 <div class="ttc" id="a_duffy_trick_html"><div class="ttname"><a href="_duffy_trick.html">DuffyTrick</a></div></div>
 <div class="ttc" id="a_generic_matrix_8hpp_html"><div class="ttname"><a href="_generic_matrix_8hpp.html">GenericMatrix.hpp</a></div></div>
+<div class="ttc" id="a_h2_assign_8hpp_html"><div class="ttname"><a href="_h2_assign_8hpp.html">H2Assign.hpp</a></div></div>
+<div class="ttc" id="a_h2_cwise_binary_op_8hpp_html"><div class="ttname"><a href="_h2_cwise_binary_op_8hpp.html">H2CwiseBinaryOp.hpp</a></div></div>
+<div class="ttc" id="a_h2_dense_product_8hpp_html"><div class="ttname"><a href="_h2_dense_product_8hpp.html">H2DenseProduct.hpp</a></div></div>
+<div class="ttc" id="a_h2_matrix_2_eigen_helper_2_constants_8hpp_html"><div class="ttname"><a href="_h2_matrix_2_eigen_helper_2_constants_8hpp.html">Constants.hpp</a></div></div>
+<div class="ttc" id="a_h2_matrix_8hpp_html"><div class="ttname"><a href="_h2_matrix_8hpp.html">H2Matrix.hpp</a></div></div>
+<div class="ttc" id="a_h2_matrix_base_8hpp_html"><div class="ttname"><a href="_h2_matrix_base_8hpp.html">H2MatrixBase.hpp</a></div></div>
 <div class="ttc" id="a_h2_multipole_8hpp_html"><div class="ttname"><a href="_h2_multipole_8hpp.html">H2Multipole.hpp</a></div></div>
+<div class="ttc" id="a_h2_util_8hpp_html"><div class="ttname"><a href="_h2_util_8hpp.html">H2Util.hpp</a></div></div>
 <div class="ttc" id="a_quadrature_html"><div class="ttname"><a href="_quadrature.html">Quadrature</a></div></div>
 <div class="ttc" id="a_tree_leaf_8hpp_html"><div class="ttname"><a href="_tree_leaf_8hpp.html">TreeLeaf.hpp</a></div></div>
+<div class="ttc" id="a_xpr_helper_8hpp_html"><div class="ttname"><a href="_xpr_helper_8hpp.html">XprHelper.hpp</a></div></div>
+<div class="ttc" id="autil_2_constants_8hpp_html"><div class="ttname"><a href="util_2_constants_8hpp.html">Constants.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="_h2_matrix.html">H2Matrix</a></li>
-    <li class="footer">Generated on Fri Feb 16 2024 09:02:13 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Feb 28 2024 08:12:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

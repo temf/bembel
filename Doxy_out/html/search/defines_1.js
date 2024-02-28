@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pi_1473',['pi',['../_sphericals_8hpp.html#a1daf785e3f68d293c7caa1c756d5cb74',1,'Sphericals.hpp']]],
-  ['point_5fdegree_1474',['POINT_DEGREE',['../_coefficients_8hpp.html#ae80077496093d9cfa0ee6b96bede08f8',1,'Coefficients.hpp']]]
+  ['eigen_5fcurrent_5fstorage_5fbase_5fclass_1628',['EIGEN_CURRENT_STORAGE_BASE_CLASS',['../_h2_matrix_base_8hpp.html#a140b988ffa480af0799d873ce22898f2',1,'H2MatrixBase.hpp']]]
 ];

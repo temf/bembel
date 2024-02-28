@@ -1,0 +1,4 @@
+<map id="Eigen::internal::generic_product_impl&lt; CwiseBinaryOp&lt; scalar_product_op&lt; ProdLhsScalar, ProdRhsScalar &gt;, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;" name="Eigen::internal::generic_product_impl&lt; CwiseBinaryOp&lt; scalar_product_op&lt; ProdLhsScalar, ProdRhsScalar &gt;, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;">
+<area shape="rect" id="node1" title="overwrite eigen implementation by using associative law to compute a*(H*x) instead of (a*H)*x" alt="" coords="384,35,671,120"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,336,149"/>
+</map>

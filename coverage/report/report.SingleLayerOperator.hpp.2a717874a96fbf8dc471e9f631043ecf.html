@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-02-16 08:59:45</td>
+      <td>2024-02-28 08:12:08</td>
     </tr>
   </table>
 </div>
@@ -73,11 +73,11 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l39">Bembel::HelmholtzSingleLayerOperator::HelmholtzSingleLayerOperator() (line 39)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l83">Bembel::HelmholtzSingleLayerOperator::evaluateFMMInterpolation_impl(Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 83)</a></td><td>called 1259712 times, returned 1259712 times</td><td>79.0%</td></tr>
-    <tr><td><a href="#l111">Bembel::HelmholtzSingleLayerOperator::evaluateKernel(Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;, Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;) const (line 111)</a></td><td>called 2054809 times, returned 2054809 times</td><td>72.0%</td></tr>
+    <tr><td><a href="#l39">Bembel::HelmholtzSingleLayerOperator::HelmholtzSingleLayerOperator() (line 39)</a></td><td>called 4 times, returned 4 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l83">Bembel::HelmholtzSingleLayerOperator::evaluateFMMInterpolation_impl(Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 83)</a></td><td>called 2519424 times, returned 2519424 times</td><td>79.0%</td></tr>
+    <tr><td><a href="#l111">Bembel::HelmholtzSingleLayerOperator::evaluateKernel(Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;, Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; const&amp;) const (line 111)</a></td><td>called 9126745 times, returned 9126745 times</td><td>72.0%</td></tr>
     <tr><td><a href="#l120">Bembel::HelmholtzSingleLayerOperator::set_wavenumber(std::complex&lt;double&gt;) (line 120)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l41">void Bembel::HelmholtzSingleLayerOperator::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, -1, 0, -1, -1&gt;*) const (line 41)</a></td><td>called 795097 times, returned 795097 times</td><td>83.0%</td></tr>
+    <tr><td><a href="#l41">void Bembel::HelmholtzSingleLayerOperator::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, -1, 0, -1, -1&gt;*) const (line 41)</a></td><td>called 6607321 times, returned 6607321 times</td><td>83.0%</td></tr>
   </table>
 </details>
 
@@ -362,7 +362,7 @@
       <td class="lineno"><a id="l39" href="#l39">39</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2</td>
+      <td class="linecount coveredLine">4</td>
       <td class="src coveredLine"><span class="w">  </span><span class="n">HelmholtzSingleLayerOperator</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span></td>
     </tr>
     <tr class="source-line">
@@ -376,7 +376,7 @@
       <td class="lineno"><a id="l41" href="#l41">41</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">795097</td>
+      <td class="linecount coveredLine">6607321</td>
       <td class="src coveredLine"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">evaluateIntegrand_impl</span><span class="p">(</span></td>
     </tr>
     <tr class="source-line">
@@ -411,21 +411,21 @@
       <td class="lineno"><a id="l46" href="#l46">46</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">795097</td>
+      <td class="linecount coveredLine">6607321</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">polynomial_degree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">super_space</span><span class="p">.</span><span class="n">get_polynomial_degree</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l47" href="#l47">47</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">795097</td>
+      <td class="linecount coveredLine">6607321</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">polynomial_degree_plus_one_squared</span><span class="w"> </span><span class="o">=</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l48" href="#l48">48</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">795097</td>
+      <td class="linecount coveredLine">6607321</td>
       <td class="src coveredLine"><span class="w">        </span><span class="p">(</span><span class="n">polynomial_degree</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">polynomial_degree</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -448,12 +448,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -462,12 +462,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -490,12 +490,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -504,12 +504,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">wt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -532,12 +532,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -546,12 +546,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_f_dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -560,12 +560,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_f_dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -574,12 +574,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -588,12 +588,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_f_dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -602,12 +602,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_f_dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -630,14 +630,14 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/4</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_kappa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_f_dx</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">x_f_dy</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
@@ -646,14 +646,14 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/4</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_kappa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y_f_dx</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">y_f_dy</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
@@ -676,16 +676,16 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">3/6</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-          <div class="takenBranch">&check; Branch 7 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 7 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">integrand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evaluateKernel</span><span class="p">(</span><span class="n">x_f</span><span class="p">,</span><span class="w"> </span><span class="n">y_f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x_kappa</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y_kappa</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wt</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -736,16 +736,16 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">3/6</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-          <div class="takenBranch">&check; Branch 7 taken 795097 times.</div>
+          <div class="takenBranch">&check; Branch 7 taken 6607321 times.</div>
           <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">795097</td>
+      <td class="linecount partialCoveredLine">6607321</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="n">super_space</span><span class="p">.</span><span class="n">addScaledBasisInteraction</span><span class="p">(</span><span class="n">intval</span><span class="p">,</span><span class="w"> </span><span class="n">integrand</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -759,7 +759,7 @@
       <td class="lineno"><a id="l80" href="#l80">80</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1590194</td>
+      <td class="linecount coveredLine">13214642</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -780,7 +780,7 @@
       <td class="lineno"><a id="l83" href="#l83">83</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1259712</td>
+      <td class="linecount coveredLine">2519424</td>
       <td class="src coveredLine"><span class="w">  </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">evaluateFMMInterpolation_impl</span><span class="p">(</span></td>
     </tr>
     <tr class="source-line">
@@ -803,12 +803,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -817,12 +817,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -845,12 +845,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -859,12 +859,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_f_dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -873,12 +873,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_f_dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -887,12 +887,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -901,12 +901,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_f_dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -915,12 +915,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_f_dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -943,14 +943,14 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/4</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x_kappa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_f_dx</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">x_f_dy</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
@@ -959,14 +959,14 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/4</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y_kappa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y_f_dx</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">y_f_dy</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
@@ -989,12 +989,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intval</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -1003,18 +1003,18 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">4/8</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-          <div class="takenBranch">&check; Branch 7 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 7 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
-          <div class="takenBranch">&check; Branch 11 taken 1259712 times.</div>
+          <div class="takenBranch">&check; Branch 11 taken 2519424 times.</div>
           <div class="notTakenBranch">&cross; Branch 12 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1259712</td>
+      <td class="linecount partialCoveredLine">2519424</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="n">intval</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evaluateKernel</span><span class="p">(</span><span class="n">x_f</span><span class="p">,</span><span class="w"> </span><span class="n">y_f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x_kappa</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y_kappa</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -1028,7 +1028,7 @@
       <td class="lineno"><a id="l105" href="#l105">105</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2519424</td>
+      <td class="linecount coveredLine">5038848</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">intval</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -1070,7 +1070,7 @@
       <td class="lineno"><a id="l111" href="#l111">111</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2054809</td>
+      <td class="linecount coveredLine">9126745</td>
       <td class="src coveredLine"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">evaluateKernel</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span></td>
     </tr>
     <tr class="source-line">
@@ -1086,14 +1086,14 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/4</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 2054809 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 9126745 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 2054809 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 9126745 times.</div>
           <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">2054809</td>
+      <td class="linecount partialCoveredLine">9126745</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
@@ -1102,19 +1102,19 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 2054809 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 9126745 times.</div>
           <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">2054809</td>
+      <td class="linecount partialCoveredLine">9126745</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="mf">1.</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wavenumber_</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4.</span><span class="w"> </span><span class="o">/</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l115" href="#l115">115</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">4109618</td>
+      <td class="linecount coveredLine">18253490</td>
       <td class="src coveredLine"><span class="w">           </span><span class="n">BEMBEL_PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -1256,7 +1256,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.0">GCOVR (Version 7.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>

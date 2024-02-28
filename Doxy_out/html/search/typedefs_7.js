@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['patchvector_1418',['PatchVector',['../group___geometry.html#ga2a0fac9275fef7f9601b40a644585cec',1,'Bembel']]],
-  ['pointer_1419',['pointer',['../struct_bembel_1_1_element_tree_node_1_1const__iterator.html#ae4d3686af4f7a908f1fe0e210bf89b85',1,'Bembel::ElementTreeNode::const_iterator']]]
+  ['h2matrixtype_1552',['H2MatrixType',['../struct_eigen_1_1internal_1_1evaluator_3_01_h2_matrix_3_01_scalar_01_4_01_4.html#af6e028d21597859b5157cdf8887c961c',1,'Eigen::internal::evaluator&lt; H2Matrix&lt; Scalar &gt; &gt;']]]
 ];

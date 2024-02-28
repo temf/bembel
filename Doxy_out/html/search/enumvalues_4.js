@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lowrank_1438',['LowRank',['../struct_bembel_1_1_block_cluster_admissibility.html#a015b9ccb366649033cd399edc72dd84ba36495537f408ec1a8cc0b6d346330940',1,'Bembel::BlockClusterAdmissibility']]]
+  ['isrowmajor_1588',['IsRowMajor',['../class_eigen_1_1_h2_matrix.html#a73cc029d9bff09e0d3e1401a63695b67a7eae07c0a62755614caacd0e7ee5116a',1,'Eigen::H2Matrix']]],
+  ['isvectoratcompiletime_1589',['IsVectorAtCompileTime',['../class_eigen_1_1_h2_matrix_base.html#ab7bfe23786d2bb36dc71676d2f64385fa8e829111d7ac233dafc5a83fd1ec37c1',1,'Eigen::H2MatrixBase']]]
 ];

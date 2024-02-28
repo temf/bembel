@@ -64,11 +64,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_ansatz_space.html",
-"_macros_8hpp.html#a5d06ae12acc0d70f33e90388d551295a",
-"class_bembel_1_1_element_tree.html",
-"class_bembel_1_1_v_t_k_surface_export.html",
-"namespace_bembel.html#a4964bb4906731ef7ac920f39216a2fc8",
-"struct_bembel_1_1_gauss_legendre_rule_3_016_01_4.html#ac3cb5d4db94f5672a7716416ed0ada70"
+"_localize_8hpp.html#aff0011d9cba5053388899d445558f1fe",
+"class_bembel_1_1_discrete_potential.html",
+"class_bembel_1_1_v_t_k_domain_export.html",
+"hierarchy.html",
+"struct_bembel_1_1_gauss_legendre_rule_3_0118_01_4.html",
+"struct_eigen_1_1internal_1_1evaluator_3_01_h2_matrix_3_01_scalar_01_4_01_4.html#a84badfc09f08ddaa257beaebed6fc295"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

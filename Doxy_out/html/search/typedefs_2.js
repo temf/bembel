@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['difference_5ftype_1398',['difference_type',['../struct_bembel_1_1_element_tree_node_1_1const__iterator.html#a46925b59a619b33eb6878ef9c11978ad',1,'Bembel::ElementTreeNode::const_iterator']]],
-  ['discretelocaloperator_1399',['DiscreteLocalOperator',['../namespace_bembel.html#a9ea8dc2d29fd3b1bf3d0d04a212e93f1',1,'Bembel']]]
+  ['coeffreturntype_1529',['CoeffReturnType',['../class_eigen_1_1_h2_matrix_base.html#a07e83dbb0d3d6d87cdee025b051bd85e',1,'Eigen::H2MatrixBase']]],
+  ['colindex_1530',['colIndex',['../class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7',1,'Bembel::GenericMatrix']]],
+  ['cubature_1531',['Cubature',['../namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c',1,'Bembel']]]
 ];

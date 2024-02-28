@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,130,205,157"/>
+<area shape="rect" id="node2" href="$struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01_binary_op_00_01_bindee96f1c7e248fc6a07c919bd232bde5.html" title="overwrite eigen implementation by using distributive law, i.e., compute A*c+B*c instead of (A+B)*c" alt="" coords="253,5,540,76"/>
+<area shape="rect" id="node4" href="$struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01scalar__product__op_8073476bfed0796179dbc9c15930626c.html" title="overwrite eigen implementation by using associative law to compute a*(H*x) instead of (a*H)*x" alt="" coords="253,101,540,186"/>
+<area shape="rect" id="node5" href="$struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html" title=" " alt="" coords="279,210,514,266"/>
+<area shape="rect" id="node3" href="$struct_eigen_1_1internal_1_1generic__product__impl_3_01const_01_cwise_binary_op_3_01_binary_op_0e7b496b837ebe1c67f10940e816ae408.html" title=" " alt="" coords="588,5,875,76"/>
+</map>

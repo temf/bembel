@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-02-16 08:59:45</td>
+      <td>2024-02-28 08:12:08</td>
     </tr>
   </table>
 </div>
@@ -73,10 +73,10 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l26">Bembel::Geometry::Geometry(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (line 26)</a></td><td>called 26 times, returned 26 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l26">Bembel::Geometry::Geometry(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (line 26)</a></td><td>called 27 times, returned 27 times</td><td>80.0%</td></tr>
     <tr><td><a href="#l68">Bembel::Geometry::get_geometry() (line 68)</a></td><td>called 3280 times, returned 3280 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l69">Bembel::Geometry::get_geometry_ptr() const (line 69)</a></td><td>called 167 times, returned 167 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l45">Bembel::Geometry::init_Geometry(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (line 45)</a></td><td>called 26 times, returned 26 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l69">Bembel::Geometry::get_geometry_ptr() const (line 69)</a></td><td>called 168 times, returned 168 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l45">Bembel::Geometry::init_Geometry(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (line 45)</a></td><td>called 27 times, returned 27 times</td><td>67.0%</td></tr>
   </table>
 </details>
 
@@ -272,12 +272,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 26 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 27 times.</div>
           <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">26</td>
+      <td class="linecount partialCoveredLine">27</td>
       <td class="src partialCoveredLine"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">Geometry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">init_Geometry</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span><span class="w"> </span><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -410,7 +410,7 @@
       <td class="lineno"><a id="l45" href="#l45">45</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">26</td>
+      <td class="linecount coveredLine">27</td>
       <td class="src coveredLine"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">init_Geometry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
@@ -454,19 +454,19 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 26 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 27 times.</div>
           <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">26</td>
+      <td class="linecount partialCoveredLine">27</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">file_suffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filename</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l52" href="#l52">52</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">26</td>
+      <td class="linecount coveredLine">27</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">PatchVector</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -482,19 +482,19 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 25 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 26 times.</div>
           <div class="takenBranch">&check; Branch 2 taken 1 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">26</td>
+      <td class="linecount coveredLine">27</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">file_suffix</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="s">&quot;dat&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l55" href="#l55">55</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">25</td>
+      <td class="linecount coveredLine">26</td>
       <td class="src coveredLine"><span class="w">      </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PatchShredder</span><span class="p">(</span><span class="n">LoadGeometryFileDAT</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span></td>
     </tr>
     <tr class="source-line">
@@ -545,12 +545,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 26 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 27 times.</div>
           <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">26</td>
+      <td class="linecount partialCoveredLine">27</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="n">geometry_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">PatchVector</span><span class="o">&gt;</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
@@ -559,19 +559,19 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 26 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 27 times.</div>
           <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
         </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">26</td>
+      <td class="linecount partialCoveredLine">27</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="o">*</span><span class="n">geometry_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l63" href="#l63">63</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">26</td>
+      <td class="linecount coveredLine">27</td>
       <td class="src coveredLine"><span class="w">  </span><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -613,14 +613,14 @@
       <td class="lineno"><a id="l69" href="#l69">69</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">167</td>
+      <td class="linecount coveredLine">168</td>
       <td class="src coveredLine"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">PatchVector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_geometry_ptr</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l70" href="#l70">70</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">167</td>
+      <td class="linecount coveredLine">168</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">geometry_</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -713,7 +713,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.0">GCOVR (Version 7.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>
