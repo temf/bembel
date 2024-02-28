@@ -24,6 +24,7 @@
 #include "src/LinearForm/LinearForm.hpp"
 
 #include "src/LinearForm/DirichletTrace.hpp"
+#include "src/LinearForm/NeumannTrace.hpp"
 #include "src/LinearForm/DiscreteLinearForm.hpp"
 #include "src/LinearForm/RotatedTangentialTrace.hpp"
 #include "src/LinearForm/TangentialTrace.hpp"
