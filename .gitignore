@@ -4,6 +4,7 @@ eigen3
 *.swp
 *.vtk
 *.out
+.vscode
 # Important for a nice gh-pages branch
 node_modules/
 package-lock.json
