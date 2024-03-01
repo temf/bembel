@@ -1,0 +1,31 @@
+# This is a file which is not shown in the documentation but which is necessary
+# to generate a valid citelist.html
+#
+# Order does not matter. You need a field url for a valid link which is placed
+# underneath the title.
+namespace Bembel {
+/**
+\page Publications Publications Featuring Bembel
+
+\cite Buffa_2019ac
+\cite Dolz_2016aa
+\cite Dolz_2018aa
+\cite Dolz_2019ad
+\cite Dolz_2020aa
+\cite Dolz_2020ac
+\cite Dolz_2020ae
+\cite Dolz_2022aa
+\cite Dolz_2022ab
+\cite Dolz_2023aa
+\cite Dolz_2023ab
+\cite Dolz_2023ac
+\cite Elasmi_2021aa
+\cite Harbrecht_2013ac
+\cite Harbrecht_2022ab
+\cite Huang_2022aa
+\cite Kurz_2021aa
+\cite Liebsch_2022aa
+\cite Nolte_2024aa
+\cite Torchio_2023aa
+*/
+}  // namespace Bembel

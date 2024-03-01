@@ -8,6 +8,9 @@
       <tab type="user" url="@ref codingGuidelines" title="Coding Guidelines"/>
       <tab type="user" url="@ref FAQs" title="Frequently Asked Questions"/>
     </tab>
+    <tab type="usergroup" title="Further Information">
+      <tab type="user" url="citelist.html" title="Publications Featuring Bembel"/>
+    </tab>
     <tab type="modules" visible="yes" title="Source Code" intro=""/>
     <tab type="classlist" visible="yes" title="" intro=""/>
     <tab type="namespacelist" visible="yes" title=""/>
