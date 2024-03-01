@@ -27,19 +27,9 @@ information. -->
 
 ## 1. Introduction <a name="introduction"></a>
 
-Bembel is the 
-Boundary Element Method Based Engineering Library 
-written in C++ to solve boundary value problems governed by the Laplace,
-Helmholtz or electric wave equation within the isogeometric framework [[5](#5),[6](#6),[10](#10),[11](#11)]. 
-It was developed as part of a cooperation between the TU Darmstadt and the 
-University of Basel, coordinated by [H. Harbrecht](#HeHa), [S. Kurz](#SK) 
-and [S. Schöps](#SSc). The code is based on the Laplace BEM of [J. Dölz](#JD),
- [H. Harbrecht](#HeHa), and [M. Multerer](#MM), [[7](#7),[15](#15)] as well as the spline 
-and geometry framework of [F. Wolf](#FW). The code was extended by 
-[J. Dölz](#JD) and [F. Wolf](#FW) in early 2018 to cover electromagnetic 
-applications [[10](#10),[11](#11)]. 
-An introduction to the code has been published in [[5]](#5). 
-If you utilise our code as part of a publication, we would appreciate it if you cite [[5]](#5). 
+Bembel is the *Boundary Element Method Based Engineering Library* written in C++ library featuring higher order isogeometric Galerkin boundary element methods for Laplace, Helmholtz, and Maxwell problems.
+Bembel is compatible with geometries from the Octave NURBS package, and provides an interface to the Eigen template library for linear algebra operations.
+For computational efficiency, it applies an embedded fast multipole method tailored to the isogeometric analysis framework and a parallel matrix assembly based on OpenMP.
 
 ## 2. What is a Bembel?<a name="whatis"></a>
 
