@@ -72,6 +72,16 @@ Create a fork of this repository and create a pull request after your finished t
 To successfully merge your pull request you should follow our [Coding Guidelines](https://temf.github.io/bembel/Doxy_out/html/codingGuidelines.html)
 
 
-## 7. Publications, Preprints, and how to cite <a name="publications"></a>
+## 7. How to cite <a name="publications"></a>
 
 <a name="1">[1]</a> J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476. [To the paper](https://doi.org/10.1016/j.softx.2020.100476).
+
+```bib
+@article{Bembel2020,
+doi = {https://doi.org/10.1016/j.softx.2020.100476},
+year = {2020}, volume = {11}, pages = {100476},
+issn = {2352-7110},
+author = {J. Dölz and H. Harbrecht and S. Kurz and M. Multerer and S. Schöps and F. Wolf},
+title = {{Bembel}: The fast isogeometric boundary element {C++} library for {Laplace}, {Helmholtz}, and electric wave equation},
+journal = {Software {X}}}
+```
