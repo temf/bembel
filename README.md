@@ -74,7 +74,8 @@ To successfully merge your pull request you should follow our [Coding Guidelines
 
 ## 7. How to cite <a name="publications"></a>
 
-<a name="1">[1]</a> J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476. [To the paper](https://doi.org/10.1016/j.softx.2020.100476).
+<a name="1">[1]</a> J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476.
+[![doi badge](https://img.shields.io/badge/DOI-10.1016/j.softx.2020.100476-blue)](https://doi.org/10.1016/j.softx.2020.100476)
 
 ```bib
 @article{Bembel2020,
