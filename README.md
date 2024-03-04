@@ -18,16 +18,17 @@ information. -->
 1. [Introduction](#introduction)
 2. [What is a Bembel?](#whatis)
 3. [Features](#features)
-4. [Documentation](#doc)
-5. [Known Bugs and Upcoming Features](#bugs)
-6. [Contributing to Bembel](#contributing)
-7. [Publications, Preprints, and how to cite](#publications)
+4. [Known Bugs and Upcoming Features](#bugs)
+5. [Contributing to Bembel](#contributing)
+6. [How to cite](#cite)
 
 ## 1. Introduction <a name="introduction"></a>
 
 Bembel is the *Boundary Element Method Based Engineering Library* written in C++ library featuring higher order isogeometric Galerkin boundary element methods for Laplace, Helmholtz, and Maxwell problems.
 Bembel is compatible with geometries from the Octave NURBS package, and provides an interface to the Eigen template library for linear algebra operations.
 For computational efficiency, it applies an embedded fast multipole method tailored to the isogeometric analysis framework and a parallel matrix assembly based on OpenMP.
+
+A good place to start are the examples in the `examples/` folder, together with publication [[1]](#1). Apart from that, a [Doxygen documentation](https://temf.github.io/bembel/Doxy_out/html/index.html) is available.
 
 ## 2. What is a Bembel?<a name="whatis"></a>
 
@@ -56,23 +57,18 @@ equivalent to the H2 matrix format,
 * openMP parallelized matrix assembly,
 * Full compatibility with the [Eigen](http://eigen.tuxfamily.org/) linear algebra library.
 
-## 4. Documentation <a name="doc"></a>
+## 4. Known Bugs and Upcoming Features <a name="bugs"></a>
 
-A good place to start are the examples in the `examples/` folder, together with publication [[1]](#1). Apart from that, a [Doxygen documentation](https://temf.github.io/bembel/Doxy_out/html/index.html) is available.
+Please send bug reports and feature requests via [issue tracker](https://github.com/temf/bembel/issues) on GitHub.
 
-## 5. Known Bugs and Upcoming Features <a name="bugs"></a>
-
-For a list of known bugs and upcoming features, please have a look at 
-the issue tracker on github.
-
-## 6. Contributing to Bembel <a name="contributing"></a>
+## 5. Contributing to Bembel <a name="contributing"></a>
 
 Any contribution to this project in fixing a bug or implementing a feature is welcome.
-Create a fork of this repository and create a pull request after your finished the implementation of the feature.
+Create a fork of this repository and create a [pull request](https://github.com/temf/bembel/pulls).
 To successfully merge your pull request you should follow our [Coding Guidelines](https://temf.github.io/bembel/Doxy_out/html/codingGuidelines.html)
 
 
-## 7. How to cite <a name="publications"></a>
+## 6. How to cite <a name="cite"></a>
 
 <a name="1">[1]</a> J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476.
 [![doi badge](https://img.shields.io/badge/DOI-10.1016/j.softx.2020.100476-blue)](https://doi.org/10.1016/j.softx.2020.100476)
