@@ -22,7 +22,6 @@ information. -->
 5. [Known Bugs and Upcoming Features](#bugs)
 6. [Contributing to Bembel](#contributing)
 7. [Publications, Preprints, and how to cite](#publications)
-8. [Funding](#funding)
 
 ## 1. Introduction <a name="introduction"></a>
 
@@ -76,14 +75,3 @@ To successfully merge your pull request you should follow our [Coding Guidelines
 ## 7. Publications, Preprints, and how to cite <a name="publications"></a>
 
 <a name="1">[1]</a> J. Dölz, H. Harbrecht, S. Kurz, M. Multerer, S. Schöps, and F. Wolf. *Bembel: The Fast Isogeometric Boundary Element C++ Library for Laplace, Helmholtz, and Electric Wave Equation*. In: SoftwareX, 11, 10476. [To the paper](https://doi.org/10.1016/j.softx.2020.100476).
-
-## 8. Funding <a name="funding"></a>
-
-Work on Bembel was conducted with the following financial support (alphabetically):
-*  DFG Grant KU1553/4-1,
-*  DFG Grant SCHO1562/3-1,
-*  DFG Grant SCHO1562/7,
-*  The Graduate School of Computational Engineering at TU Darmstadt and the Excellence Initiative of the German Federal and State Governments and the Graduate School of Computational Engineering at TU Darmstadt,
-*  SNSF Grant 137669,
-*  SNSF Grant 156101,
-*  SNSF Grant 174987. 
