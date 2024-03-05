@@ -10,9 +10,8 @@ If you want to use Bembel as part of your application, simply add the `Bembel/` 
 
 If you want to run the provided examples and tests, you can utilize the provided `CMakeLists.txt`.
 
-\subsection subsecCompile Compile the Code
+\subsection subsecUnix Unix-Based Systems
 
-On Unix-based systems run:
 <pre><code>$ cmake -B build .
 $ cmake --build build --config release
 </code></pre>
