@@ -79,6 +79,6 @@ doi = {https://doi.org/10.1016/j.softx.2020.100476},
 year = {2020}, volume = {11}, pages = {100476},
 issn = {2352-7110},
 author = {J. Dölz and H. Harbrecht and S. Kurz and M. Multerer and S. Schöps and F. Wolf},
-title = {{Bembel}: The fast isogeometric boundary element {C++} library for {Laplace}, {Helmholtz}, and electric wave equation},
-journal = {Software {X}}}
+title = {Bembel: The fast isogeometric boundary element C++ library for Laplace, Helmholtz, and electric wave equation},
+journal = {Software X}}
 ```
