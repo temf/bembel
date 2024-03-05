@@ -84,4 +84,3 @@ title = {{Bembel}: The fast isogeometric boundary element {C++} library for {Lap
 journal = {Software {X}}}
 ```
 <!-- {% endraw %} -->
-{% endraw %}
