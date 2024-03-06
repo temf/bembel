@@ -18,18 +18,9 @@ If you want to add an implementation of an [LinearOperator](\ref LinearOperator)
 ### Linear Operator Traits
 
 The LinearOperatorTraits are explained using the example of the LaplaceSingleLayerOperator. These traits are passed to the implementation via template parameters and fundamentally define the properties of the software.
-\code
-template <>
-struct LinearOperatorTraits<LaplaceSingleLayerOperator> {
-  typedef Eigen::VectorXd EigenType;
-  typedef Eigen::VectorXd::Scalar Scalar;
-  enum {
-    OperatorOrder = -1,
-    Form = DifferentialForm::Discontinuous,
-    NumberOfFMMComponents = 1
-  };
-};
-\endcode
+
+\snippet traits.cpp operator
+
 The explanation of the traits is
 
  - `EigenType` defines the type of the vectors.
