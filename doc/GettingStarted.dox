@@ -46,6 +46,12 @@ where \f$f\f$ is a linear form incorporating the boundary data \f$g\f$.
 This equation is solved by a Galerkin method to compute the unknown density \f$\rho\f$.
 See \cite Dolz_2018aa for details.
 
+\subsection subsecExample Example Program
+
+\snippet example.cpp main
+
+\subsection subsecBasicExtending Implement Your Own Operator
+
 The three components [LinearOperator](@ref LinearOperator) \f$\mathcal{V}\f$, [LinearForm](\ref LinearForm) \f$f\f$ and [Potential](\ref Potential) \f$\tilde{\mathcal{V}}\f$ utilized in this procedure are classes in the Bembel library which follow the same design principle.
 Main idea is to define traits which fundamentally define the behavior of the class.
 Whilst the Base class provides a framework, the Operator classes provide contrete implementations of computing the integrals.
