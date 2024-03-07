@@ -28,7 +28,9 @@ Bembel is the *Boundary Element Method Based Engineering Library* written in C++
 Bembel is compatible with geometries from the Octave NURBS package, and provides an interface to the Eigen template library for linear algebra operations.
 For computational efficiency, it applies an embedded fast multipole method tailored to the isogeometric analysis framework and a parallel matrix assembly based on OpenMP.
 
-A good place to start are the examples in the `examples/` folder, together with publication [[1]](#1). Apart from that, a [Doxygen documentation](https://temf.github.io/bembel/Doxy_out/html/index.html) is available.
+A good place to start is the introduction here: [Getting Started](https://temf.github.io/bembel/Doxy_out/html/_getting_started.html).
+Furthermore, examples are provided in the `examples/` folder, where details can be found in the publication [[1]](#1).
+Apart from that, a [Doxygen documentation](https://temf.github.io/bembel/Doxy_out/html/index.html) is available.
 
 ## 2. What is a Bembel?<a name="whatis"></a>
 
