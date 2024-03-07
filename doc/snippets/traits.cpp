@@ -21,3 +21,18 @@ struct LinearOperatorTraits<LaplaceSingleLayerOperator> {
   };
 };
 // [operator]
+
+// [potential]
+template <typename LinOp>
+struct PotentialTraits<LaplaceSingleLayerPotential<LinOp>> {
+  typedef Eigen::VectorXd::Scalar Scalar;
+  static constexpr int OutputSpaceDimension = 1;
+};
+// [potential]
+
+// [linearform]
+template <typename ScalarT>
+struct LinearFormTraits<DirichletTrace<ScalarT>> {
+  typedef ScalarT Scalar;
+};
+// [linearform]
