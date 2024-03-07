@@ -29,7 +29,10 @@ struct LinearFormTraits {
 /**
  * \ingroup LinearForm
  * \brief This class provides a blueprint for the class that needs to be
- *specialized for assembly of the right hand side of the linear system.
+ * specialized for assembly of the right hand side of the linear system.
+ * 
+ * Take a look at the [Design Considerations](\ref CRTPLinearForm) for
+ * details.
  */
 template <typename Derived, typename Scalar>
 struct LinearFormBase {

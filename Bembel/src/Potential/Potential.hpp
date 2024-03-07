@@ -23,7 +23,7 @@ namespace Bembel {
  *    \brief struct containing specifications on the functional
  *           has to be specialized or derived for any particular operator
  *           under consideration
- **/
+ */
 template <typename Derived>
 struct PotentialTraits {
   enum { YOU_DID_NOT_SPECIFY_POTENTIAL_TRAITS = 1 };
@@ -70,8 +70,12 @@ struct PotentialReturnScalar<std::complex<double>, std::complex<double>> {
 };
 
 /**
- *    \brief functional base class. this serves as a common interface for
- *           existing functionals
+ * \ingroup Potential
+ * \brief functional base class. this serves as a common interface for
+ * existing functionals.
+ * 
+ * Take a look at the [Design Considerations](\ref CRTPPotential) for
+ * details.
  **/
 template <typename Derived, typename LinOp>
 struct PotentialBase {
