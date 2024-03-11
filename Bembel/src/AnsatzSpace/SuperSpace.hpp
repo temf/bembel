@@ -152,10 +152,10 @@ struct SuperSpace {
    * This function performs the affine transformation of an element to the
    * reference domain of the patch and returns the output in a surface point.
    *
-   * \param e      : Element to be evaluated,
-   * \param xi     : Point in [0, 1]^2 of the element
-   * \param w      : Quadrature weight
-   * \param suf_pt : Evaluated point and its jacobian
+   * \param e       : Element to be evaluated,
+   * \param xi      : Point in [0, 1]^2 of the element
+   * \param w       : Quadrature weight
+   * \param surf_pt : Evaluated point and its jacobian
    */
   void map2surface(const ElementTreeNode& e, const Eigen::Vector2d& xi,
                    double w, SurfacePoint* surf_pt) const {

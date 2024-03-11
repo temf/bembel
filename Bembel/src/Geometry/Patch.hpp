@@ -54,11 +54,11 @@ class Patch {
    * y directions. It is used to create complex surfaces in computer graphics
    * and CAD applications.
    *
-   * \param control_points std::vector<Eigen::MatrixXd> {x, y, z, w} where the
+   * \param xyzw std::vector<Eigen::MatrixXd> {x, y, z, w} where the
    * rows are the control points in x direction.
-   * \param knots_x The knot vector
+   * \param x_knots The knot vector
    * in the x direction.
-   * \param knots_y The knot vector in the y direction.
+   * \param y_knots The knot vector in the y direction.
    */
   inline void init_Patch(const std::vector<Eigen::Matrix<double, -1, -1>> &xyzw,
                          const std::vector<double> &x_knots,

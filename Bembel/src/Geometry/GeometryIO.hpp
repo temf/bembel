@@ -124,8 +124,8 @@ inline std::vector<Patch> LoadGeometryFileDAT(
 /**
  * \ingroup Gemetry
  * \brief method to generate textfile for the geometry
- * \param name name of new textfile
- * \param patchnumber overall number of patches
+ * \param file_name name of new textfile
+ * \param number_of_patches overall number of patches
  **/
 inline void MakeFile(const std::string &file_name,
                      int number_of_patches) noexcept {
@@ -147,9 +147,9 @@ inline void MakeFile(const std::string &file_name,
  * \brief method to write Patch information into textfile
  * \param knt1 knotVector1
  * \param knt2 knotVector2
- * \param tmp Vector with x,y,z,w Matices
- * \param name filename
- * \param patchnumberCurr current patch number
+ * \param xyzw Vector with x,y,z,w Matices
+ * \param file_name filename
+ * \param current_patch_number current patch number
  **/
 void WritePatch(const std::string &file_name, int current_patch_number,
                 const std::vector<Eigen::MatrixXd> &xyzw,
