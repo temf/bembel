@@ -24,6 +24,13 @@ namespace Data {
 inline double HarmonicFunction(Eigen::Vector3d in) {
   return (4 * in(0) * in(0) - 3 * in(1) * in(1) - in(2) * in(2));
 }
+/*  @brief This function implements the gradient of a harmonic function,
+ * which, in the interior dormain, satisfies the Laplace equation.
+ *
+ */
+inline Eigen::Vector3d HarmonicFunctionGrad(Eigen::Vector3d in) {
+  return Eigen::Vector3d(8 * in(0), -6 * in(1), -2 * in(2));
+}
 
 /*	@brief This function implements the Helmholtz fundamental solution,
  * which, if center is placed in the interior domain, satisfies the Helmholtz
