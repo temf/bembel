@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -89,9 +100,6 @@ $(document).ready(function(){initNavTree('namespace_eigen_1_1internal.html','');
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Eigen::internal Namespace Reference</div>  </div>
 </div><!--header-->
@@ -99,144 +107,15 @@ $(document).ready(function(){initNavTree('namespace_eigen_1_1internal.html','');
 
 <p>small modification of internal traits of SparseMatrix  
 <a href="namespace_eigen_1_1internal.html#details">More...</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1storage__kind__to__evaluator__kind_3_01_h2_01_4.html">storage_kind_to_evaluator_kind&lt; H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1storage__kind__to__shape_3_01_h2_01_4.html">storage_kind_to_shape&lt; H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_01_rhs_01_4_01_4.html">is_ref_compatible&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01const_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_01_rhs_01_4_01_4.html">is_ref_compatible&lt; const CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html">binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_094d7085e16ec6f5c59616c044fb1ed0a.html">binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, IndexBased, H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_07844db242e78d493ececb06eddc8ad7a.html">binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, IndexBased &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0e20e24b49f6868a5f994afbcb553d278.html">binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, IteratorBased, H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_02380796a39ed8f8fbeef465401aaf2fd.html">binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, IteratorBased &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1_h2__time__dense__product__impl.html">H2_time_dense_product_impl</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1_h2__time__dense__product__impl_3_01_h2_matrix_3_01_scalar_h2_01_4_0f1d1c81968359341aeb97e05aa1942b0.html">H2_time_dense_product_impl&lt; H2Matrix&lt; ScalarH2 &gt;, DenseRhsType, DenseResType, AlphaType, ColMajor, true &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">H2-matrix-vector multiplication, works also for matrices by iterating over the columns.  <a href="struct_eigen_1_1internal_1_1_h2__time__dense__product__impl_3_01_h2_matrix_3_01_scalar_h2_01_4_0f1d1c81968359341aeb97e05aa1942b0.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01_binary_op_00_01_bindee96f1c7e248fc6a07c919bd232bde5.html">generic_product_impl&lt; CwiseBinaryOp&lt; BinaryOp, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">overwrite eigen implementation by using distributive law, i.e., compute A*c+B*c instead of (A+B)*c  <a href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01_binary_op_00_01_bindee96f1c7e248fc6a07c919bd232bde5.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01scalar__product__op_8073476bfed0796179dbc9c15930626c.html">generic_product_impl&lt; CwiseBinaryOp&lt; scalar_product_op&lt; ProdLhsScalar, ProdRhsScalar &gt;, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">overwrite eigen implementation by using associative law to compute a*(H*x) instead of (a*H)*x  <a href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01scalar__product__op_8073476bfed0796179dbc9c15930626c.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01const_01_cwise_binary_op_3_01_binary_op_0e7b496b837ebe1c67f10940e816ae408.html">generic_product_impl&lt; const CwiseBinaryOp&lt; BinaryOp, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html">generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1product__evaluator_3_01_product_3_01_lhs_00_01_rhs_00_01_options_01_2de1040df5c447c624cdd69bc0dd7bde.html">product_evaluator&lt; Product&lt; Lhs, Rhs, Options &gt;, ProductTag, H2, DenseShape &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1_h2__eval.html">H2_eval</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1plain__object__eval_3_01_t_00_01_h2_01_4.html">plain_object_eval&lt; T, H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_h2_00_01_dense_00_01_functor_01_4.html">cwise_promote_storage_type&lt; H2, Dense, Functor &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_dense_00_01_h2_00_01_functor_01_4.html">cwise_promote_storage_type&lt; Dense, H2, Functor &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_h2_00_01_sparse_00_01_functor_01_4.html">cwise_promote_storage_type&lt; H2, Sparse, Functor &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_sparse_00_01_h2_00_01_functor_01_4.html">cwise_promote_storage_type&lt; Sparse, H2, Functor &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html">traits&lt; H2Matrix&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html">is_ref_compatible&lt; H2Matrix&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01const_01_h2_matrix_3_01_scalar_t_01_4_01_4.html">is_ref_compatible&lt; const H2Matrix&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1evaluator_3_01_h2_matrix_3_01_scalar_01_4_01_4.html">evaluator&lt; H2Matrix&lt; Scalar &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1evaluator_3_01_h2_matrix_base_3_01_derived_01_4_01_4.html">evaluator&lt; H2MatrixBase&lt; Derived &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a16e2879945059db9c07b96e6095d9d2d"><td class="memTemplParams" colspan="2">template&lt;typename H2LhsType , typename DenseRhsType , typename DenseResType , typename AlphaType &gt; </td></tr>
-<tr class="memitem:a16e2879945059db9c07b96e6095d9d2d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen_1_1internal.html#a16e2879945059db9c07b96e6095d9d2d">H2_time_dense_product</a> (const H2LhsType &amp;lhs, const DenseRhsType &amp;rhs, DenseResType &amp;res, const AlphaType &amp;alpha)</td></tr>
-<tr class="separator:a16e2879945059db9c07b96e6095d9d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>small modification of internal traits of SparseMatrix </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a16e2879945059db9c07b96e6095d9d2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16e2879945059db9c07b96e6095d9d2d">&#9670;&nbsp;</a></span>H2_time_dense_product()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename H2LhsType , typename DenseRhsType , typename DenseResType , typename AlphaType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Eigen::internal::H2_time_dense_product </td>
-          <td>(</td>
-          <td class="paramtype">const H2LhsType &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const DenseRhsType &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DenseResType &amp;&#160;</td>
-          <td class="paramname"><em>res</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const AlphaType &amp;&#160;</td>
-          <td class="paramname"><em>alpha</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_dense_product_8hpp_source.html#l00169">169</a> of file <a class="el" href="_h2_dense_product_8hpp_source.html">H2DenseProduct.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_1_1internal_a16e2879945059db9c07b96e6095d9d2d_icgraph.png" border="0" usemap="#anamespace_eigen_1_1internal_a16e2879945059db9c07b96e6095d9d2d_icgraph" alt=""/></div>
-<map name="anamespace_eigen_1_1internal_a16e2879945059db9c07b96e6095d9d2d_icgraph" id="anamespace_eigen_1_1internal_a16e2879945059db9c07b96e6095d9d2d_icgraph">
-<area shape="rect" title=" " alt="" coords="273,20,435,61"/>
-<area shape="rect" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#a5ba67db0ebee20b79c4e8ef1377166b9" title=" " alt="" coords="5,5,225,76"/>
-</map>
-</div>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_eigen.html">Eigen</a></li><li class="navelem"><a class="el" href="namespace_eigen_1_1internal.html">internal</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_v_t_k_surface_export_8hpp_source.html
 <div class="title">VTKSurfaceExport.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_v_t_k_surface_export_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -112,9 +123,9 @@ $(document).ready(function(){initNavTree('_v_t_k_surface_export_8hpp_source.html
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_bembel_1_1_v_t_k_surface_export.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_v_t_k_surface_export.html">VTKSurfaceExport</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_bembel_1_1_v_t_k_surface_export.html#a890038717bae737f964fd030b7deb4ed">   31</a></span>&#160;  <a class="code" href="class_bembel_1_1_v_t_k_surface_export.html#a890038717bae737f964fd030b7deb4ed">VTKSurfaceExport</a>(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_geometry.html">Geometry</a>&amp; geo, <span class="keywordtype">int</span> M) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_bembel_1_1_v_t_k_surface_export.html#a9a28ff9434c44eb51145ad6e7b8d6a32">init_VTKSurfaceExport</a>(geo, M);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    init_VTKSurfaceExport(geo, M);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  }</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_bembel_1_1_v_t_k_surface_export.html#a9a28ff9434c44eb51145ad6e7b8d6a32">   34</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_v_t_k_surface_export.html#a9a28ff9434c44eb51145ad6e7b8d6a32">init_VTKSurfaceExport</a>(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_geometry.html">Geometry</a>&amp; geo, <span class="keywordtype">int</span> M) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> init_VTKSurfaceExport(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_geometry.html">Geometry</a>&amp; geo, <span class="keywordtype">int</span> M) {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    msh.<a class="code" href="class_bembel_1_1_cluster_tree.html#a284130d61b3dab43656991820ee4ed40">init_ClusterTree</a>(geo, M);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    points = msh.<a class="code" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">get_element_tree</a>().<a class="code" href="class_bembel_1_1_element_tree.html#abebcceb563b798b9e06d4cc7f290af0e">generatePointList</a>().transpose();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    cells = msh.<a class="code" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">get_element_tree</a>().<a class="code" href="class_bembel_1_1_element_tree.html#adbd44db6cc7ad2caf32cdafb7f7e54ef">generateElementList</a>().transpose();</div>
@@ -196,7 +207,7 @@ $(document).ready(function(){initNavTree('_v_t_k_surface_export_8hpp_source.html
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                          Eigen::Dynamic, Eigen::Dynamic&gt;&amp; coefficients) {</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">// Initialize FunctionEvaluator</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="class_bembel_1_1_function_evaluator.html">FunctionEvaluator&lt;LinOp&gt;</a> evaluator(ansatz_space);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    evaluator.<a class="code" href="class_bembel_1_1_function_evaluator.html#a335d3de2569dd975a42a2cc2c306e07c">set_function</a>(coefficients);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    evaluator.set_function(coefficients);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">// Define function for FunctionEvaluator</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_differential_form_traits.html">DifferentialFormTraits</a>&lt;</div>
@@ -265,7 +276,7 @@ $(document).ready(function(){initNavTree('_v_t_k_surface_export_8hpp_source.html
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  }</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="comment">// can be used to clear the additional Data.</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="class_bembel_1_1_v_t_k_surface_export.html#a1cc659e92630afcd0f8c9f1cecde8e4e">  216</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_v_t_k_surface_export.html#a1cc659e92630afcd0f8c9f1cecde8e4e">clearData</a>() {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> clearData() {</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    additionalData = {};</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    additionalData.shrink_to_fit();</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  }</div>
@@ -404,31 +415,28 @@ $(document).ready(function(){initNavTree('_v_t_k_surface_export_8hpp_source.html
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_IO_VTKSURFACEEXPORT_HPP_</span></div>
 <div class="ttc" id="aclass_bembel_1_1_ansatz_space_html"><div class="ttname"><a href="class_bembel_1_1_ansatz_space.html">Bembel::AnsatzSpace&lt; LinOp &gt;</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a284130d61b3dab43656991820ee4ed40"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a284130d61b3dab43656991820ee4ed40">Bembel::ClusterTree::init_ClusterTree</a></div><div class="ttdeci">void init_ClusterTree(const Geometry &amp;geom, int M)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00038">ClusterTree.hpp:38</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a7035a5474c52fb02cb9ca666b8ba5dd5"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a7035a5474c52fb02cb9ca666b8ba5dd5">Bembel::ClusterTree::get_geometry</a></div><div class="ttdeci">const PatchVector &amp; get_geometry() const</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00049">ClusterTree.hpp:49</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a89a1247815b5ab0e2da43bd8a66c10ff"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">Bembel::ClusterTree::get_element_tree</a></div><div class="ttdeci">ElementTree &amp; get_element_tree()</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00046">ClusterTree.hpp:46</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a0096ebfa5f958d558ed6bff82927ceb8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">Bembel::ElementTree::cpbegin</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpbegin() const</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00172">ElementTree.hpp:172</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a47c786a6da606f54e61ea599d1ae8856"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856">Bembel::ElementTree::cpend</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpend() const</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00173">ElementTree.hpp:173</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_abebcceb563b798b9e06d4cc7f290af0e"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#abebcceb563b798b9e06d4cc7f290af0e">Bembel::ElementTree::generatePointList</a></div><div class="ttdeci">Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct=nullptr) const</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00118">ElementTree.hpp:118</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_adbd44db6cc7ad2caf32cdafb7f7e54ef"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#adbd44db6cc7ad2caf32cdafb7f7e54ef">Bembel::ElementTree::generateElementList</a></div><div class="ttdeci">Eigen::MatrixXi generateElementList() const</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00144">ElementTree.hpp:144</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a284130d61b3dab43656991820ee4ed40"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a284130d61b3dab43656991820ee4ed40">Bembel::ClusterTree::init_ClusterTree</a></div><div class="ttdeci">void init_ClusterTree(const Geometry &amp;geom, int M)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00082">ClusterTree.hpp:82</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a7035a5474c52fb02cb9ca666b8ba5dd5"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a7035a5474c52fb02cb9ca666b8ba5dd5">Bembel::ClusterTree::get_geometry</a></div><div class="ttdeci">const PatchVector &amp; get_geometry() const</div><div class="ttdoc">Return const reference to the Geometry.</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00113">ClusterTree.hpp:113</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a89a1247815b5ab0e2da43bd8a66c10ff"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">Bembel::ClusterTree::get_element_tree</a></div><div class="ttdeci">ElementTree &amp; get_element_tree()</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00095">ClusterTree.hpp:95</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a0096ebfa5f958d558ed6bff82927ceb8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">Bembel::ElementTree::cpbegin</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpbegin() const</div><div class="ttdoc">Returns an iterator to the beginning of the sequence represented by the leafs as ElementTreeNodes of ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00316">ElementTree.hpp:316</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a47c786a6da606f54e61ea599d1ae8856"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856">Bembel::ElementTree::cpend</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpend() const</div><div class="ttdoc">Returns an iterator one past the end of the sequence represented by the leafs as ElementTreeNodes of ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00323">ElementTree.hpp:323</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_abebcceb563b798b9e06d4cc7f290af0e"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#abebcceb563b798b9e06d4cc7f290af0e">Bembel::ElementTree::generatePointList</a></div><div class="ttdeci">Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct=nullptr) const</div><div class="ttdoc">Return the coordinates of all points of the elements.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00206">ElementTree.hpp:206</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_adbd44db6cc7ad2caf32cdafb7f7e54ef"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#adbd44db6cc7ad2caf32cdafb7f7e54ef">Bembel::ElementTree::generateElementList</a></div><div class="ttdeci">Eigen::MatrixXi generateElementList() const</div><div class="ttdoc">Return list of elements containing the indices of the vertices.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00240">ElementTree.hpp:240</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_function_evaluator_html"><div class="ttname"><a href="class_bembel_1_1_function_evaluator.html">Bembel::FunctionEvaluator&lt; LinOp &gt;</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_function_evaluator_html_a335d3de2569dd975a42a2cc2c306e07c"><div class="ttname"><a href="class_bembel_1_1_function_evaluator.html#a335d3de2569dd975a42a2cc2c306e07c">Bembel::FunctionEvaluator::set_function</a></div><div class="ttdeci">void set_function(Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, Eigen::Dynamic, 1 &gt; fun)</div><div class="ttdef"><b>Definition:</b> <a href="_function_evaluator_8hpp_source.html#l00131">FunctionEvaluator.hpp:131</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_geometry_html"><div class="ttname"><a href="class_bembel_1_1_geometry.html">Bembel::Geometry</a></div><div class="ttdoc">this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_8hpp_source.html#l00020">Geometry.hpp:20</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html">Bembel::VTKSurfaceExport</a></div><div class="ttdoc">Provides export routines from functions on geometries to the VTK file format.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00024">VTKSurfaceExport.hpp:24</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a12509899eb072a07e584a7d9f820b0f0"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a12509899eb072a07e584a7d9f820b0f0">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; Eigen::Vector3d(int, const Eigen::Vector2d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00077">VTKSurfaceExport.hpp:77</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a1cc659e92630afcd0f8c9f1cecde8e4e"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a1cc659e92630afcd0f8c9f1cecde8e4e">Bembel::VTKSurfaceExport::clearData</a></div><div class="ttdeci">void clearData()</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00216">VTKSurfaceExport.hpp:216</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a3d404f7d706a4fa9c7d3abf3e8ab3db6"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a3d404f7d706a4fa9c7d3abf3e8ab3db6">Bembel::VTKSurfaceExport::writeToFile</a></div><div class="ttdeci">void writeToFile(const std::string &amp;filename)</div><div class="ttdoc">Write geometry with passed visualization data to file.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00167">VTKSurfaceExport.hpp:167</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a45d1fdbb0057eb01b297d9fe0b0a8f1b"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a45d1fdbb0057eb01b297d9fe0b0a8f1b">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; std::complex&lt; double &gt;(const Eigen::Vector3d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00125">VTKSurfaceExport.hpp:125</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a613cf1cd3772ad7cc03df7358b83fc4b"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a613cf1cd3772ad7cc03df7358b83fc4b">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; Eigen::Vector3cd(int, const Eigen::Vector2d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00086">VTKSurfaceExport.hpp:86</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a8091dd8fc8ac6e055f297be934b0687d"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a8091dd8fc8ac6e055f297be934b0687d">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, const AnsatzSpace&lt; LinOp &gt; &amp;ansatz_space, const Eigen::Matrix&lt; typename LinearOperatorTraits&lt; LinOp &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;coefficients)</div><div class="ttdoc">Add a function given through coefficients of an AnsatzSpace to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00138">VTKSurfaceExport.hpp:138</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a890038717bae737f964fd030b7deb4ed"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a890038717bae737f964fd030b7deb4ed">Bembel::VTKSurfaceExport::VTKSurfaceExport</a></div><div class="ttdeci">VTKSurfaceExport(const Geometry &amp;geo, int M)</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00031">VTKSurfaceExport.hpp:31</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a8dfbf386c3ecf2504f5c93abf1a1b191"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a8dfbf386c3ecf2504f5c93abf1a1b191">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; Eigen::Vector3d(const Eigen::Vector3d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00097">VTKSurfaceExport.hpp:97</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_a9a28ff9434c44eb51145ad6e7b8d6a32"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#a9a28ff9434c44eb51145ad6e7b8d6a32">Bembel::VTKSurfaceExport::init_VTKSurfaceExport</a></div><div class="ttdeci">void init_VTKSurfaceExport(const Geometry &amp;geo, int M)</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00034">VTKSurfaceExport.hpp:34</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_aa246747853af02d8df0d92210d754bf3"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#aa246747853af02d8df0d92210d754bf3">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; Eigen::Vector3cd(const Eigen::Vector3d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00106">VTKSurfaceExport.hpp:106</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_ad9eeb0559aaec952b749fe083173f7a4"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#ad9eeb0559aaec952b749fe083173f7a4">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; double(int, const Eigen::Vector2d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00057">VTKSurfaceExport.hpp:57</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_ada64802365264786ea96bc6fff6efc38"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#ada64802365264786ea96bc6fff6efc38">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; double(const Eigen::Vector3d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00117">VTKSurfaceExport.hpp:117</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_v_t_k_surface_export_html_ae35c33708357bd97deef649bb85ecfd4"><div class="ttname"><a href="class_bembel_1_1_v_t_k_surface_export.html#ae35c33708357bd97deef649bb85ecfd4">Bembel::VTKSurfaceExport::addDataSet</a></div><div class="ttdeci">void addDataSet(const std::string &amp;name, std::function&lt; std::complex&lt; double &gt;(int, const Eigen::Vector2d &amp;)&gt; fun)</div><div class="ttdoc">Add a function of the given type to the visualization.</div><div class="ttdef"><b>Definition:</b> <a href="_v_t_k_surface_export_8hpp_source.html#l00066">VTKSurfaceExport.hpp:66</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_differential_form_traits_html"><div class="ttname"><a href="struct_bembel_1_1_differential_form_traits.html">Bembel::DifferentialFormTraits</a></div><div class="ttdoc">struct containing specifications on DifferentialForms, i.e., the function spaces.</div><div class="ttdef"><b>Definition:</b> <a href="_differential_form_enum_8hpp_source.html#l00030">DifferentialFormEnum.hpp:30</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits.html">Bembel::LinearOperatorTraits</a></div><div class="ttdoc">struct containing specifications on the linear operator has to be specialized or derived for any part...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_traits_8hpp_source.html#l00022">LinearOperatorTraits.hpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -436,8 +444,8 @@ $(document).ready(function(){initNavTree('_v_t_k_surface_export_8hpp_source.html
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_61d9a24c36dd48df595f57aad0a4696e.html">IO</a></li><li class="navelem"><a class="el" href="_v_t_k_surface_export_8hpp.html">VTKSurfaceExport.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_61d9a24c36dd48df595f57aad0a4696e.html">IO</a></li><li class="navelem"><b>VTKSurfaceExport.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

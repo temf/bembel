@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_tree_leaf_8hpp_source.html',''); init
 <div class="title">TreeLeaf.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_tree_leaf_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -108,127 +119,116 @@ $(document).ready(function(){initNavTree('_tree_leaf_8hpp_source.html',''); init
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_bembel.html">Bembel</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="comment">//    Constructors</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">   25</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">TreeLeaf</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      : F_(Derived(0, 0)),</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        L_(Derived(0, 0)),</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        R_(Derived(0, 0)),</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        is_low_rank_(false) {}</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">   33</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">TreeLeaf</a>(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;other)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      : F_(other.F_),</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        L_(other.L_),</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        R_(other.R_),</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        is_low_rank_(other.is_low_rank_) {}</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">   41</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">TreeLeaf</a>(<a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;&amp;other)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      : F_(std::move(other.F_)),</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        L_(std::move(other.L_)),</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        R_(std::move(other.R_)),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        is_low_rank_(other.is_low_rank_) {}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> otherDerived&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">   51</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">TreeLeaf</a>(<span class="keyword">const</span> Eigen::MatrixBase&lt;otherDerived&gt; &amp;L,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;           <span class="keyword">const</span> Eigen::MatrixBase&lt;otherDerived&gt; &amp;R)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      : F_(Derived(0, 0)), L_(L), R_(R), is_low_rank_(true) {}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> otherDerived&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">   59</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">TreeLeaf</a>(<span class="keyword">const</span> Eigen::MatrixBase&lt;otherDerived&gt; &amp;F)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      : F_(F), L_(Derived(0, 0)), R_(Derived(0, 0)), is_low_rank_(false) {}</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">   64</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">TreeLeaf</a>(Derived &amp;&amp;L, Derived &amp;&amp;R)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      : F_(Derived(0, 0)), L_(L), R_(R), is_low_rank_(true) {}</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">   69</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">TreeLeaf</a>(Derived &amp;&amp;F)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      : F_(F), L_(Derived(0, 0)), R_(Derived(0, 0)), is_low_rank_(false) {}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">//    getter</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#aa03a169bac2828a07b0a0b94c45882ed">   74</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">bool</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#aa03a169bac2828a07b0a0b94c45882ed">is_low_rank</a>() { <span class="keywordflow">return</span> is_low_rank_; }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a30f6b18d270b7326665560fb6dc5571b">   76</a></span>&#160;      &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a30f6b18d270b7326665560fb6dc5571b">get_F</a>() {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> F_;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#af3e98b7be0a60486dedab4292f647dab">   80</a></span>&#160;      &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#af3e98b7be0a60486dedab4292f647dab">get_L</a>() {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> L_;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a74b0fd65075c89ad9879efabbdb63bdd">   84</a></span>&#160;      &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a74b0fd65075c89ad9879efabbdb63bdd">get_R</a>() {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> R_;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">const</span> Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a86121b24b157f31e4460e37e0bcfcbc0">   88</a></span>&#160;      &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a86121b24b157f31e4460e37e0bcfcbc0">get_F</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> F_;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">const</span> Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a3737d50bab3c6d445793fc85a24542a0">   92</a></span>&#160;      &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a3737d50bab3c6d445793fc85a24542a0">get_L</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> L_;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a49e351e787ce8815ee5b23979b7c75f6">   96</a></span>&#160;      &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a49e351e787ce8815ee5b23979b7c75f6">get_R</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> R_;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">//    setter</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a421d5f1588acbdff41d3d52e7d3ccbe4">  102</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#a421d5f1588acbdff41d3d52e7d3ccbe4">set_low_rank_flag</a>(<span class="keywordtype">bool</span> flag) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    is_low_rank_ = flag;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  }</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#ae75a52027d82e6210a3484532027fba2">  106</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#ae75a52027d82e6210a3484532027fba2">set_F</a>(<span class="keyword">const</span> Eigen::Matrix&lt;<span class="keyword">typename</span> Derived::Scalar, Eigen::Dynamic,</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                 Eigen::Dynamic&gt; &amp;F) {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    F_ = F;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a27d95091672314986a0cad097a8dda46">  110</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#a27d95091672314986a0cad097a8dda46">set_L</a>(<span class="keyword">const</span> Eigen::Matrix&lt;<span class="keyword">typename</span> Derived::Scalar, Eigen::Dynamic,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                 Eigen::Dynamic&gt; &amp;L) {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    L_ = L;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a21c524a935e0122c0ce5957ede55569c">  114</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#a21c524a935e0122c0ce5957ede55569c">set_R</a>(<span class="keyword">const</span> Eigen::Matrix&lt;<span class="keyword">typename</span> Derived::Scalar, Eigen::Dynamic,</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                 Eigen::Dynamic&gt; &amp;R) {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    R_ = R;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">//    Operators</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">  124</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">operator=</a>(<a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> other) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    F_.swap(other.F_);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    L_.swap(other.L_);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    R_.swap(other.R_);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    std::swap(is_low_rank_, other.is_low_rank_);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="comment">// independently how the leave is instatiated, it will always be casted to</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="comment">// an actual matrix</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; F_,</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      L_, R_;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">bool</span> is_low_rank_;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_</span></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a></div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00017">TreeLeaf.hpp:17</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a0e27ec900aa372b8fd20bcd9d720b2f6"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">Bembel::TreeLeaf::operator=</a></div><div class="ttdeci">TreeLeaf &amp; operator=(TreeLeaf other)</div><div class="ttdoc">assignment operator, works for copy and move assignment</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00124">TreeLeaf.hpp:124</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a21c524a935e0122c0ce5957ede55569c"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a21c524a935e0122c0ce5957ede55569c">Bembel::TreeLeaf::set_R</a></div><div class="ttdeci">void set_R(const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;R)</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00114">TreeLeaf.hpp:114</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a23b3b6a0b86a2a4761ef289db113fd87"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(Derived &amp;&amp;F)</div><div class="ttdoc">full move constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00069">TreeLeaf.hpp:69</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a27d95091672314986a0cad097a8dda46"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a27d95091672314986a0cad097a8dda46">Bembel::TreeLeaf::set_L</a></div><div class="ttdeci">void set_L(const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;L)</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00110">TreeLeaf.hpp:110</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a2a24739e694ad57d8df9755c4f75fb6a"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(Derived &amp;&amp;L, Derived &amp;&amp;R)</div><div class="ttdoc">lowRank move constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00064">TreeLeaf.hpp:64</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a30f6b18d270b7326665560fb6dc5571b"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a30f6b18d270b7326665560fb6dc5571b">Bembel::TreeLeaf::get_F</a></div><div class="ttdeci">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp; get_F()</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00076">TreeLeaf.hpp:76</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a3737d50bab3c6d445793fc85a24542a0"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a3737d50bab3c6d445793fc85a24542a0">Bembel::TreeLeaf::get_L</a></div><div class="ttdeci">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp; get_L() const</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00092">TreeLeaf.hpp:92</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a37d64902f934440fe267b9cdfca256f0"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(const TreeLeaf &amp;other)</div><div class="ttdoc">copy constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00033">TreeLeaf.hpp:33</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a421d5f1588acbdff41d3d52e7d3ccbe4"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a421d5f1588acbdff41d3d52e7d3ccbe4">Bembel::TreeLeaf::set_low_rank_flag</a></div><div class="ttdeci">void set_low_rank_flag(bool flag)</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00102">TreeLeaf.hpp:102</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a49e351e787ce8815ee5b23979b7c75f6"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a49e351e787ce8815ee5b23979b7c75f6">Bembel::TreeLeaf::get_R</a></div><div class="ttdeci">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp; get_R() const</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00096">TreeLeaf.hpp:96</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a5fc78cbaf513afb47c5bd87766a49854"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(TreeLeaf &amp;&amp;other)</div><div class="ttdoc">move constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00041">TreeLeaf.hpp:41</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a74b0fd65075c89ad9879efabbdb63bdd"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a74b0fd65075c89ad9879efabbdb63bdd">Bembel::TreeLeaf::get_R</a></div><div class="ttdeci">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp; get_R()</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00084">TreeLeaf.hpp:84</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a86121b24b157f31e4460e37e0bcfcbc0"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a86121b24b157f31e4460e37e0bcfcbc0">Bembel::TreeLeaf::get_F</a></div><div class="ttdeci">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp; get_F() const</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00088">TreeLeaf.hpp:88</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a9565e3bfaa3cee339b541a38d60d1fc3"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(const Eigen::MatrixBase&lt; otherDerived &gt; &amp;L, const Eigen::MatrixBase&lt; otherDerived &gt; &amp;R)</div><div class="ttdoc">lowRank constructor whatever Eigen object is put in here will be evaluated</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00051">TreeLeaf.hpp:51</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_aa03a169bac2828a07b0a0b94c45882ed"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#aa03a169bac2828a07b0a0b94c45882ed">Bembel::TreeLeaf::is_low_rank</a></div><div class="ttdeci">bool is_low_rank()</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00074">TreeLeaf.hpp:74</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_adbd97a46cff8f7b258de1f005a87363b"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(void)</div><div class="ttdoc">void constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00025">TreeLeaf.hpp:25</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_ae75a52027d82e6210a3484532027fba2"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#ae75a52027d82e6210a3484532027fba2">Bembel::TreeLeaf::set_F</a></div><div class="ttdeci">void set_F(const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;F)</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00106">TreeLeaf.hpp:106</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_af3e98b7be0a60486dedab4292f647dab"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#af3e98b7be0a60486dedab4292f647dab">Bembel::TreeLeaf::get_L</a></div><div class="ttdeci">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp; get_L()</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00080">TreeLeaf.hpp:80</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_af44413eb5337f59c51250f5ade151358"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(const Eigen::MatrixBase&lt; otherDerived &gt; &amp;F)</div><div class="ttdoc">full constructor whatever Eigen object is put in here will be evaluated</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00059">TreeLeaf.hpp:59</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">//    Constructors</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">   28</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">TreeLeaf</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      : F_(Derived(0, 0)),</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        L_(Derived(0, 0)),</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        R_(Derived(0, 0)),</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        is_low_rank_(false) {}</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">   36</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">TreeLeaf</a>(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;other)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      : F_(other.F_),</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        L_(other.L_),</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        R_(other.R_),</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        is_low_rank_(other.is_low_rank_) {}</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">   44</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">TreeLeaf</a>(<a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;&amp;other)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      : F_(std::move(other.F_)),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        L_(std::move(other.L_)),</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        R_(std::move(other.R_)),</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        is_low_rank_(other.is_low_rank_) {}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> otherDerived&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">   54</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">TreeLeaf</a>(<span class="keyword">const</span> Eigen::MatrixBase&lt;otherDerived&gt; &amp;L,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;           <span class="keyword">const</span> Eigen::MatrixBase&lt;otherDerived&gt; &amp;R)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      : F_(Derived(0, 0)), L_(L), R_(R), is_low_rank_(true) {}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> otherDerived&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">   62</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">TreeLeaf</a>(<span class="keyword">const</span> Eigen::MatrixBase&lt;otherDerived&gt; &amp;F)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      : F_(F), L_(Derived(0, 0)), R_(Derived(0, 0)), is_low_rank_(false) {}</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">   67</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">TreeLeaf</a>(Derived &amp;&amp;L, Derived &amp;&amp;R)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      : F_(Derived(0, 0)), L_(L), R_(R), is_low_rank_(true) {}</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">   72</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">TreeLeaf</a>(Derived &amp;&amp;F)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      : F_(F), L_(Derived(0, 0)), R_(Derived(0, 0)), is_low_rank_(false) {}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">//    getter</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span>  <span class="keywordtype">bool</span> is_low_rank() { <span class="keywordflow">return</span> is_low_rank_; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      &amp;get_F() {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> F_;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      &amp;get_L() {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> L_;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      &amp;get_R() {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> R_;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">const</span> Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      &amp;get_F()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> F_;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">const</span> Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      &amp;get_L()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> L_;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      &amp;get_R()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> R_;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">//    setter</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> set_low_rank_flag(<span class="keywordtype">bool</span> flag) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    is_low_rank_ = flag;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">void</span> set_F(<span class="keyword">const</span> Eigen::Matrix&lt;<span class="keyword">typename</span> Derived::Scalar, Eigen::Dynamic,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                 Eigen::Dynamic&gt; &amp;F) {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    F_ = F;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordtype">void</span> set_L(<span class="keyword">const</span> Eigen::Matrix&lt;<span class="keyword">typename</span> Derived::Scalar, Eigen::Dynamic,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                 Eigen::Dynamic&gt; &amp;L) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    L_ = L;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">void</span> set_R(<span class="keyword">const</span> Eigen::Matrix&lt;<span class="keyword">typename</span> Derived::Scalar, Eigen::Dynamic,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                 Eigen::Dynamic&gt; &amp;R) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    R_ = R;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">//    Operators</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">  127</a></span>&#160;  <a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;<a class="code" href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">operator=</a>(<a class="code" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> other) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    F_.swap(other.F_);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    L_.swap(other.L_);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    R_.swap(other.R_);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    std::swap(is_low_rank_, other.is_low_rank_);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="comment">// independently how the leave is instatiated, it will always be casted to</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="comment">// an actual matrix</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; F_,</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      L_, R_;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordtype">bool</span> is_low_rank_;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;};</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_</span></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a></div><div class="ttdoc">This class is managing the leafs of the H2Matrix BlockClusterTree.</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00020">TreeLeaf.hpp:20</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a0e27ec900aa372b8fd20bcd9d720b2f6"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">Bembel::TreeLeaf::operator=</a></div><div class="ttdeci">TreeLeaf &amp; operator=(TreeLeaf other)</div><div class="ttdoc">assignment operator, works for copy and move assignment</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00127">TreeLeaf.hpp:127</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a23b3b6a0b86a2a4761ef289db113fd87"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(Derived &amp;&amp;F)</div><div class="ttdoc">full move constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00072">TreeLeaf.hpp:72</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a2a24739e694ad57d8df9755c4f75fb6a"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(Derived &amp;&amp;L, Derived &amp;&amp;R)</div><div class="ttdoc">lowRank move constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00067">TreeLeaf.hpp:67</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a37d64902f934440fe267b9cdfca256f0"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(const TreeLeaf &amp;other)</div><div class="ttdoc">copy constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00036">TreeLeaf.hpp:36</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a5fc78cbaf513afb47c5bd87766a49854"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(TreeLeaf &amp;&amp;other)</div><div class="ttdoc">move constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00044">TreeLeaf.hpp:44</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_a9565e3bfaa3cee339b541a38d60d1fc3"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(const Eigen::MatrixBase&lt; otherDerived &gt; &amp;L, const Eigen::MatrixBase&lt; otherDerived &gt; &amp;R)</div><div class="ttdoc">lowRank constructor whatever Eigen object is put in here will be evaluated</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00054">TreeLeaf.hpp:54</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_adbd97a46cff8f7b258de1f005a87363b"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(void)</div><div class="ttdoc">void constructor</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00028">TreeLeaf.hpp:28</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_tree_leaf_html_af44413eb5337f59c51250f5ade151358"><div class="ttname"><a href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">Bembel::TreeLeaf::TreeLeaf</a></div><div class="ttdeci">TreeLeaf(const Eigen::MatrixBase&lt; otherDerived &gt; &amp;F)</div><div class="ttdoc">full constructor whatever Eigen object is put in here will be evaluated</div><div class="ttdef"><b>Definition:</b> <a href="_tree_leaf_8hpp_source.html#l00062">TreeLeaf.hpp:62</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_fcfb69fcd3eeb628c913b3d64af8b861.html">H2Matrix</a></li><li class="navelem"><a class="el" href="_tree_leaf_8hpp.html">TreeLeaf.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_fcfb69fcd3eeb628c913b3d64af8b861.html">H2Matrix</a></li><li class="navelem"><b>TreeLeaf.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

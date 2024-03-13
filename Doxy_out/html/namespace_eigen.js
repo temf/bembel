@@ -12,5 +12,6 @@ var namespace_eigen =
     [ "operator-", "namespace_eigen.html#a83fd91cd0ace8deafe535549fb94073f", null ],
     [ "operator-", "namespace_eigen.html#ad292b392b5429db747ad822ff3e53d46", null ],
     [ "operator-", "namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887", null ],
-    [ "operator-", "namespace_eigen.html#a7e5703fa93c3019ff6c872e23d21116d", null ]
+    [ "operator-", "namespace_eigen.html#a7e5703fa93c3019ff6c872e23d21116d", null ],
+    [ "writeMesh2vtk", "namespace_eigen.html#aa47bc8785e2f1e39538627b16d30f71e", null ]
 ];

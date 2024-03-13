@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_tensor_product_quadrature_vector_8hpp
 <div class="title">TensorProductQuadratureVector.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_tensor_product_quadrature_vector_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -112,59 +123,50 @@ $(document).ready(function(){initNavTree('_tensor_product_quadrature_vector_8hpp
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qrOrder&gt; <span class="keyword">class </span>QuadratureRule,</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Order&gt;</div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">   23</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a7dd6192ffc869946afb9ac5dba730f42">   24</a></span>&#160;  <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a7dd6192ffc869946afb9ac5dba730f42">TensorProductQuadratureVector</a>() {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a>() {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QuadratureRule&lt;Order + 1&gt; GL;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>.resize(2, GL.xi_.size() * GL.xi_.size());</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>.resize(GL.w_.size() * GL.w_.size());</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>.cols(); ++k) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>.col(k) &lt;&lt; GL.xi_[k / GL.xi_.size()], GL.xi_[k % GL.xi_.size()];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>(k) = GL.w_[k / GL.w_.size()] * GL.w_[k % GL.w_.size()];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_.xi_.resize(2, GL.xi_.size() * GL.xi_.size());</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_.w_.resize(GL.w_.size() * GL.w_.size());</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; Q_.xi_.cols(); ++k) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      Q_.xi_.col(k) &lt;&lt; GL.xi_[k / GL.xi_.size()], GL.xi_[k % GL.xi_.size()];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      Q_.w_(k) = GL.w_[k / GL.w_.size()] * GL.w_[k % GL.w_.size()];</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  }</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">   33</a></span>&#160;  <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> Q_;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a>&lt;QuadratureRule, Order - 1&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a5e9f5579625c2534ae9be1798eee993b">   35</a></span>&#160;      <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a5e9f5579625c2534ae9be1798eee993b">remainingQuadratures_</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a3d25ef4affe86a738b3126ce8c633678">   36</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;<a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a3d25ef4affe86a738b3126ce8c633678">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> (i == Order) ? <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a> : <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a5e9f5579625c2534ae9be1798eee993b">remainingQuadratures_</a>[i];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      remainingQuadratures_;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;operator[](<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> (i == Order) ? Q_ : remainingQuadratures_[i];</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> qrOrder&gt; <span class="keyword">class </span>QuadratureRule&gt;</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html">   46</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a>&lt;QuadratureRule, 0&gt; {</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a6981bf2b9d9b16c5997b0fce0964885a">   47</a></span>&#160;  <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a6981bf2b9d9b16c5997b0fce0964885a">TensorProductQuadratureVector</a>() {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a>() {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QuadratureRule&lt;1&gt; GL;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>.resize(2, GL.xi_.size() * GL.xi_.size());</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>.resize(GL.w_.size() * GL.w_.size());</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>.cols(); ++k) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>.col(k) &lt;&lt; GL.xi_[k / GL.xi_.size()], GL.xi_[k % GL.xi_.size()];</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>(k) = GL.w_[k / GL.w_.size()] * GL.w_[k % GL.w_.size()];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    Q_.xi_.resize(2, GL.xi_.size() * GL.xi_.size());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    Q_.w_.resize(GL.w_.size() * GL.w_.size());</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; Q_.xi_.cols(); ++k) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      Q_.xi_.col(k) &lt;&lt; GL.xi_[k / GL.xi_.size()], GL.xi_[k % GL.xi_.size()];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      Q_.w_(k) = GL.w_[k / GL.w_.size()] * GL.w_[k % GL.w_.size()];</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a25760d00388c121d743771dbdfa0c02f">   56</a></span>&#160;  <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a25760d00388c121d743771dbdfa0c02f">Q_</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#ad7313c60b048679c4a632b6d8abb5009">   57</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;<a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#ad7313c60b048679c4a632b6d8abb5009">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Q_</a>; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> Q_;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;operator[](<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Q_; }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_QUADRATURE_TENSORPRODUCTQUADRATUREVECTOR_HPP_</span></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_quadrature_html"><div class="ttname"><a href="struct_bembel_1_1_quadrature.html">Bembel::Quadrature&lt; 2 &gt;</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_quadrature_html_a33cc6f7938e54cc930d76a7e9cd3b0bf"><div class="ttname"><a href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">Bembel::Quadrature::xi_</a></div><div class="ttdeci">Eigen::Matrix&lt; double, Dimension, Eigen::Dynamic &gt; xi_</div><div class="ttdef"><b>Definition:</b> <a href="_quadrature_8hpp_source.html#l00019">Quadrature.hpp:19</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_quadrature_html_ae7d8c17098d5b6086024db2b844b111a"><div class="ttname"><a href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">Bembel::Quadrature::w_</a></div><div class="ttdeci">Eigen::VectorXd w_</div><div class="ttdef"><b>Definition:</b> <a href="_quadrature_8hpp_source.html#l00020">Quadrature.hpp:20</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4_html_a25760d00388c121d743771dbdfa0c02f"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a25760d00388c121d743771dbdfa0c02f">Bembel::TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;::Q_</a></div><div class="ttdeci">Cubature Q_</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00056">TensorProductQuadratureVector.hpp:56</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4_html_a6981bf2b9d9b16c5997b0fce0964885a"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a6981bf2b9d9b16c5997b0fce0964885a">Bembel::TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;::TensorProductQuadratureVector</a></div><div class="ttdeci">TensorProductQuadratureVector()</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00047">TensorProductQuadratureVector.hpp:47</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4_html_ad7313c60b048679c4a632b6d8abb5009"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#ad7313c60b048679c4a632b6d8abb5009">Bembel::TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;::operator[]</a></div><div class="ttdeci">const Cubature &amp; operator[](unsigned int i) const</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00057">TensorProductQuadratureVector.hpp:57</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_html"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector.html">Bembel::TensorProductQuadratureVector</a></div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00023">TensorProductQuadratureVector.hpp:23</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_html_a3d25ef4affe86a738b3126ce8c633678"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a3d25ef4affe86a738b3126ce8c633678">Bembel::TensorProductQuadratureVector::operator[]</a></div><div class="ttdeci">const Cubature &amp; operator[](unsigned int i) const</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00036">TensorProductQuadratureVector.hpp:36</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_html_a5e9f5579625c2534ae9be1798eee993b"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a5e9f5579625c2534ae9be1798eee993b">Bembel::TensorProductQuadratureVector::remainingQuadratures_</a></div><div class="ttdeci">TensorProductQuadratureVector&lt; QuadratureRule, Order - 1 &gt; remainingQuadratures_</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00035">TensorProductQuadratureVector.hpp:35</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_html_a7dd6192ffc869946afb9ac5dba730f42"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector.html#a7dd6192ffc869946afb9ac5dba730f42">Bembel::TensorProductQuadratureVector::TensorProductQuadratureVector</a></div><div class="ttdeci">TensorProductQuadratureVector()</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00024">TensorProductQuadratureVector.hpp:24</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_tensor_product_quadrature_vector_html_aaccee329d38ba87f10fda96976a9e093"><div class="ttname"><a href="struct_bembel_1_1_tensor_product_quadrature_vector.html#aaccee329d38ba87f10fda96976a9e093">Bembel::TensorProductQuadratureVector::Q_</a></div><div class="ttdeci">Cubature Q_</div><div class="ttdef"><b>Definition:</b> <a href="_tensor_product_quadrature_vector_8hpp_source.html#l00033">TensorProductQuadratureVector.hpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_99697c08ed80dfbc0fa9fcf033ed3311.html">Quadrature</a></li><li class="navelem"><a class="el" href="_tensor_product_quadrature_vector_8hpp.html">TensorProductQuadratureVector.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_99697c08ed80dfbc0fa9fcf033ed3311.html">Quadrature</a></li><li class="navelem"><b>TensorProductQuadratureVector.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

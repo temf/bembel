@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_linear_operator_source.html',''); ini
 <div class="title">LinearOperator</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_linear_operator.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -105,42 +116,30 @@ $(document).ready(function(){initNavTree('_linear_operator_source.html',''); ini
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// information.</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef BEMBEL_LINEAROPERATOR_MODULE_</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_linear_operator.html#a7051c9dcd581cbcd4482a78efe4485aa">   13</a></span>&#160;<span class="preprocessor">#define BEMBEL_LINEAROPERATOR_MODULE_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define BEMBEL_LINEAROPERATOR_MODULE_</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_ansatz_space.html">AnsatzSpace</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_duffy_trick.html">DuffyTrick</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_matrix.html">H2Matrix</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quadrature.html">Quadrature</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_surface_point_8hpp.html">src/Geometry/SurfacePoint.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_h2_matrix_8hpp.html">src/H2Matrix/H2Matrix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_differential_form_enum_8hpp.html">src/LinearOperator/DifferentialFormEnum.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_discrete_operator_8hpp.html">src/LinearOperator/DiscreteOperator.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_linear_operator_base_8hpp.html">src/LinearOperator/LinearOperatorBase.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_linear_operator_traits_8hpp.html">src/LinearOperator/LinearOperatorTraits.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_local_operator_base_8hpp.html">src/LinearOperator/LocalOperatorBase.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_discrete_local_operator_8hpp.html">src/LinearOperator/DiscreteLocalOperator.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_LINEAROPERATOR_MODULE_</span></div>
-<div class="ttc" id="a_ansatz_space_html"><div class="ttname"><a href="_ansatz_space.html">AnsatzSpace</a></div></div>
-<div class="ttc" id="a_differential_form_enum_8hpp_html"><div class="ttname"><a href="_differential_form_enum_8hpp.html">DifferentialFormEnum.hpp</a></div></div>
-<div class="ttc" id="a_discrete_local_operator_8hpp_html"><div class="ttname"><a href="_discrete_local_operator_8hpp.html">DiscreteLocalOperator.hpp</a></div></div>
-<div class="ttc" id="a_discrete_operator_8hpp_html"><div class="ttname"><a href="_discrete_operator_8hpp.html">DiscreteOperator.hpp</a></div></div>
-<div class="ttc" id="a_duffy_trick_html"><div class="ttname"><a href="_duffy_trick.html">DuffyTrick</a></div></div>
-<div class="ttc" id="a_h2_matrix_8hpp_html"><div class="ttname"><a href="_h2_matrix_8hpp.html">H2Matrix.hpp</a></div></div>
-<div class="ttc" id="a_h2_matrix_html"><div class="ttname"><a href="_h2_matrix.html">H2Matrix</a></div></div>
-<div class="ttc" id="a_linear_operator_base_8hpp_html"><div class="ttname"><a href="_linear_operator_base_8hpp.html">LinearOperatorBase.hpp</a></div></div>
-<div class="ttc" id="a_linear_operator_traits_8hpp_html"><div class="ttname"><a href="_linear_operator_traits_8hpp.html">LinearOperatorTraits.hpp</a></div></div>
-<div class="ttc" id="a_local_operator_base_8hpp_html"><div class="ttname"><a href="_local_operator_base_8hpp.html">LocalOperatorBase.hpp</a></div></div>
-<div class="ttc" id="a_quadrature_html"><div class="ttname"><a href="_quadrature.html">Quadrature</a></div></div>
-<div class="ttc" id="a_surface_point_8hpp_html"><div class="ttname"><a href="_surface_point_8hpp.html">SurfacePoint.hpp</a></div></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;AnsatzSpace&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;DuffyTrick&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;H2Matrix&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;Quadrature&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;src/Geometry/SurfacePoint.hpp&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;src/H2Matrix/H2Matrix.hpp&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;src/LinearOperator/DifferentialFormEnum.hpp&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;src/LinearOperator/DiscreteOperator.hpp&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;src/LinearOperator/LinearOperatorBase.hpp&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;src/LinearOperator/LinearOperatorTraits.hpp&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;src/LinearOperator/LocalOperatorBase.hpp&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;src/LinearOperator/DiscreteLocalOperator.hpp&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_LINEAROPERATOR_MODULE_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="_linear_operator.html">LinearOperator</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><b>LinearOperator</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

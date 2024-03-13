@@ -1,8 +1,0 @@
-<map id="Bembel/Potential" name="Bembel/Potential">
-<area shape="rect" id="node1" title=" " alt="" coords="311,5,445,32"/>
-<area shape="rect" id="node2" href="$_helmholtz.html" title=" " alt="" coords="5,80,148,107"/>
-<area shape="rect" id="node3" href="$_homogenised_laplace.html" title=" " alt="" coords="173,80,389,107"/>
-<area shape="rect" id="node5" href="$_laplace.html" title=" " alt="" coords="413,80,540,107"/>
-<area shape="rect" id="node6" href="$_maxwell.html" title=" " alt="" coords="565,80,695,107"/>
-<area shape="rect" id="node4" href="$_coefficients_8hpp.html" title=" " alt="" coords="161,155,400,196"/>
-</map>

@@ -17,11 +17,11 @@ namespace Bembel {
 /**
  * \ingroup Geometry
  * \brief loads  geometry from IGES file. Note that the direction
- *        of the normals must be consistent.
- * \param name path/filename pointing to the geometry file
+ *of the normals must be consistent.
+ *
+ * \param file_name path/filename pointing to the geometry file
  * \return std::vector of NURBS::Patch describing geometry
  */
-
 std::vector<Patch> LoadGeometryFileIGS(const std::string& file_name) noexcept {
   std::ifstream file;
   std::vector<int> patch_lines;
@@ -196,7 +196,7 @@ int writeParameterSection(std::string file_name,
 /**
  * \ingroup Geometry
  * \brief Transform a vector of Data in a vector of lines with a specific
- *        length.
+ *length.
  *
  * \param data vector containing the entries written to the section
  * \param linewidth Maximum length of the lines
@@ -227,6 +227,12 @@ std::vector<std::string> makeSection(std::vector<std::string> data,
   return out;
 }
 
+/**
+ * \ingroup Geometry
+ * \brief Write the IGES header into the given file.
+ * 
+ * \param file_name File name to write the header in.
+ */
 void writeIGSHeader(std::string file_name) {
   std::vector<std::string> section(4);
   section[0] = "";
@@ -238,12 +244,24 @@ void writeIGSHeader(std::string file_name) {
   return;
 }
 
+/**
+ * \brief Convert a double to a string with given precision.
+ * 
+ * \param d double to be converted.
+ * \param precision Precision of the conversion.
+ */
 std::string double_to_string(double d, const int precision) {
   std::ostringstream stm;
   stm << std::setprecision(precision) << d;
   return stm.str();
 }
 
+/** * \ingroup Geometry
+ * \brief Write the IGES Global section into the given file.
+ *
+ * \param file_name File name to write the section in.
+ * \return Number of lines of this section.
+ */
 int writeGlobalSection(std::string file_name) {
   std::vector<std::string> out(24);
   std::time_t now = std::time(nullptr);
@@ -306,6 +324,15 @@ int writeGlobalSection(std::string file_name) {
   return section.size();
 }
 
+/**
+ * \ingroup Geometry
+ * \brief Write the IGES Directory section into the given file.
+ *
+ * \param file_name File name to write the section in.
+ * \param start_idx Vector containing the start lines of the sections.
+ * \param number_of_lines Vector containing the lengths of the sections.
+ * \return Number of lines of this section.
+ */
 int writeDirectory(std::string file_name, std::vector<int> start_idx,
                     std::vector<int> number_of_lines) {
   assert(start_idx.size() == number_of_lines.size());
@@ -346,7 +373,7 @@ int writeDirectory(std::string file_name, std::vector<int> start_idx,
 /**
  * \ingroup Geometry
  * \brief This Function writes the patch from Bembel into a vector which can be
- *        written into an IGES file.
+ *written into an IGES file.
  *
  * This function assumes that the patch knot vectors do not contains internal
  * nodes.
@@ -448,6 +475,7 @@ std::vector<std::string> writePatchData(const Patch& patch,
  * \brief Writes Geometry into an IGES file format.
  *
  * \param geometry PatchVector which is written to the file.
+ * \param file_name File name to write to.
  * \param precision Significant number of digits for writing floats.
  */
 void writeIGSFile(const std::vector<Patch>& geometry, std::string file_name,

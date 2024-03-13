@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -96,8 +107,6 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_basis_1_1_p_specific_
 <div class="title">Bembel::Basis::PSpecificBasisHandler&lt; 0, Scalar &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Bembel::Basis::PSpecificBasisHandler&lt; 0, Scalar &gt;:</div>
 <div class="dyncontent">
@@ -116,650 +125,86 @@ Collaboration diagram for Bembel::Basis::PSpecificBasisHandler&lt; 0, Scalar &gt
 <area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html" title=" " alt="" coords="5,5,212,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:abb285a8c0b01f678c9ece00c39ac7f82"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#abb285a8c0b01f678c9ece00c39ac7f82">phi</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, double x)</td></tr>
-<tr class="separator:abb285a8c0b01f678c9ece00c39ac7f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe58149f265152933001a4fa42233a6c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#abe58149f265152933001a4fa42233a6c">phiDx</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, double x)</td></tr>
-<tr class="separator:abe58149f265152933001a4fa42233a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27d9140d23adbe0e860f1b4464b9963"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#af27d9140d23adbe0e860f1b4464b9963">phiPhi</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
-<tr class="separator:af27d9140d23adbe0e860f1b4464b9963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a526419f6fe74208f32d131e63bc849b5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#a526419f6fe74208f32d131e63bc849b5">phiPhiDx</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
-<tr class="separator:a526419f6fe74208f32d131e63bc849b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00defa7bd04d632d299a936fa6bc96b8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#a00defa7bd04d632d299a936fa6bc96b8">phiPhiDy</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
-<tr class="separator:a00defa7bd04d632d299a936fa6bc96b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbba5f2740f1c40f07ada07a763529ec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#afbba5f2740f1c40f07ada07a763529ec">phiTimesPhi</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *c, Scalar w, Eigen::Vector2d xi, Eigen::Vector2d eta)</td></tr>
-<tr class="separator:afbba5f2740f1c40f07ada07a763529ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8482aa6e7658f0f9be45919e19c9a1dd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#a8482aa6e7658f0f9be45919e19c9a1dd">divPhiTimesDivPhi</a> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *c, Scalar weight, Eigen::Vector2d xi, Eigen::Vector2d eta)</td></tr>
-<tr class="separator:a8482aa6e7658f0f9be45919e19c9a1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7dedb07afdbf8c69b1caf19ff2cb22b"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a5ea690532170c1c3532cc85b61240c7d">funptr_phi</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#ac7dedb07afdbf8c69b1caf19ff2cb22b">funPtrPhi</a> (int p)</td></tr>
-<tr class="separator:ac7dedb07afdbf8c69b1caf19ff2cb22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08fcd21d7ef583033225be179495f957"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a6e6fa0604727b3f19d15a58e0d132801">funptr_phidx</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#a08fcd21d7ef583033225be179495f957">funPtrPhiDx</a> (int p)</td></tr>
-<tr class="separator:a08fcd21d7ef583033225be179495f957"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1dac2f9b5dd462f3c6120f9820d105c"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a82f3fbc74a9ca6e2658cf18ee4df7021">funptr_phiphi</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#ad1dac2f9b5dd462f3c6120f9820d105c">funPtrPhiPhi</a> (int p)</td></tr>
-<tr class="separator:ad1dac2f9b5dd462f3c6120f9820d105c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1dc27ce4fdecf3dbc72d0de010f201b"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a85568ce19435de37ebd259206ebab5b9">funptr_phiphidx</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#ad1dc27ce4fdecf3dbc72d0de010f201b">funPtrPhiPhiDx</a> (int p)</td></tr>
-<tr class="separator:ad1dc27ce4fdecf3dbc72d0de010f201b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc2d2f0c5d988882ce82a5d2e8035fd6"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac5c35b6e32440ded660c72963c08bdc7">funptr_phiphidy</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#adc2d2f0c5d988882ce82a5d2e8035fd6">funPtrPhiPhiDy</a> (int p)</td></tr>
-<tr class="separator:adc2d2f0c5d988882ce82a5d2e8035fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57711d06239be9d91c2878418bfcf37"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a6aeb8956fbac254cbdd51304953605ed">funptr_phitimesphi</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#ad57711d06239be9d91c2878418bfcf37">funPtrPhiTimesPhi</a> (int p)</td></tr>
-<tr class="separator:ad57711d06239be9d91c2878418bfcf37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a237a8e501eaee18954063947cecd6905"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#aa0d60881a84c8ab93a2c146aa7807cb7">funptr_divphitimesdivphi</a>&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html#a237a8e501eaee18954063947cecd6905">funPtrDivPhiTimesDivPhi</a> (int p)</td></tr>
-<tr class="separator:a237a8e501eaee18954063947cecd6905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html">Bembel::Basis::PSpecificShapeFunctionHandler&lt; 0 &gt;</a></td></tr>
-<tr class="memitem:acc4a4b86ce8e1130c0fbeb74fa6f85f8 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#acc4a4b86ce8e1130c0fbeb74fa6f85f8">evalCoef</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:acc4a4b86ce8e1130c0fbeb74fa6f85f8 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3d01e296924270b41d1480db48fcd97 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#ac3d01e296924270b41d1480db48fcd97">evalDerCoef</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:ac3d01e296924270b41d1480db48fcd97 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9676968c09fcc53d0ed06672ecf1448 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#ab9676968c09fcc53d0ed06672ecf1448">evalBasis</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:ab9676968c09fcc53d0ed06672ecf1448 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40867a492412afb68faa6786ecbc4b72 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#a40867a492412afb68faa6786ecbc4b72">evalDerBasis</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:a40867a492412afb68faa6786ecbc4b72 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40ef6e2e59a781776bfe6d606e6451fa inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac29818f73740cc9cabf101d6eb7b8718">funptr_doubleOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#a40ef6e2e59a781776bfe6d606e6451fa">ptrEvalCoef</a> (int p)</td></tr>
-<tr class="separator:a40ef6e2e59a781776bfe6d606e6451fa inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bbfc901f2df0b7cc3b0c251b36c00eb inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac29818f73740cc9cabf101d6eb7b8718">funptr_doubleOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#a4bbfc901f2df0b7cc3b0c251b36c00eb">ptrEvalDerCoef</a> (int p)</td></tr>
-<tr class="separator:a4bbfc901f2df0b7cc3b0c251b36c00eb inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a066e6684126f9d5c8eaae5055580b77d inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a27961bd2cc3596cb6ee85e2e50f5c4b6">funptr_voidOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#a066e6684126f9d5c8eaae5055580b77d">ptrEvalBasis</a> (int p)</td></tr>
-<tr class="separator:a066e6684126f9d5c8eaae5055580b77d inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9583a53da0097349609a547382af8fcf inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a27961bd2cc3596cb6ee85e2e50f5c4b6">funptr_voidOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#a9583a53da0097349609a547382af8fcf">ptrEvalDerBasis</a> (int p)</td></tr>
-<tr class="separator:a9583a53da0097349609a547382af8fcf inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa25f1db7ed234052206794e49328bec inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html#afa25f1db7ed234052206794e49328bec">checkP</a> (int p)</td></tr>
-<tr class="separator:afa25f1db7ed234052206794e49328bec inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Scalar&gt;<br />
 class Bembel::Basis::PSpecificBasisHandler&lt; 0, Scalar &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00290">290</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8482aa6e7658f0f9be45919e19c9a1dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8482aa6e7658f0f9be45919e19c9a1dd">&#9670;&nbsp;</a></span>divPhiTimesDivPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::divPhiTimesDivPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>weight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>xi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>eta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:abb285a8c0b01f678c9ece00c39ac7f82"><td class="memItemLeft" align="right" valign="top"><a id="abb285a8c0b01f678c9ece00c39ac7f82"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>phi</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, double x)</td></tr>
+<tr class="separator:abb285a8c0b01f678c9ece00c39ac7f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe58149f265152933001a4fa42233a6c"><td class="memItemLeft" align="right" valign="top"><a id="abe58149f265152933001a4fa42233a6c"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>phiDx</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, double x)</td></tr>
+<tr class="separator:abe58149f265152933001a4fa42233a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27d9140d23adbe0e860f1b4464b9963"><td class="memItemLeft" align="right" valign="top"><a id="af27d9140d23adbe0e860f1b4464b9963"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>phiPhi</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
+<tr class="separator:af27d9140d23adbe0e860f1b4464b9963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a526419f6fe74208f32d131e63bc849b5"><td class="memItemLeft" align="right" valign="top"><a id="a526419f6fe74208f32d131e63bc849b5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>phiPhiDx</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
+<tr class="separator:a526419f6fe74208f32d131e63bc849b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00defa7bd04d632d299a936fa6bc96b8"><td class="memItemLeft" align="right" valign="top"><a id="a00defa7bd04d632d299a936fa6bc96b8"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>phiPhiDy</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
+<tr class="separator:a00defa7bd04d632d299a936fa6bc96b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbba5f2740f1c40f07ada07a763529ec"><td class="memItemLeft" align="right" valign="top"><a id="afbba5f2740f1c40f07ada07a763529ec"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>phiTimesPhi</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *c, Scalar w, Eigen::Vector2d xi, Eigen::Vector2d eta)</td></tr>
+<tr class="separator:afbba5f2740f1c40f07ada07a763529ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8482aa6e7658f0f9be45919e19c9a1dd"><td class="memItemLeft" align="right" valign="top"><a id="a8482aa6e7658f0f9be45919e19c9a1dd"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>divPhiTimesDivPhi</b> (int p, Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *c, Scalar weight, Eigen::Vector2d xi, Eigen::Vector2d eta)</td></tr>
+<tr class="separator:a8482aa6e7658f0f9be45919e19c9a1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7dedb07afdbf8c69b1caf19ff2cb22b"><td class="memItemLeft" align="right" valign="top"><a id="ac7dedb07afdbf8c69b1caf19ff2cb22b"></a>
+static constexpr funptr_phi&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrPhi</b> (int p)</td></tr>
+<tr class="separator:ac7dedb07afdbf8c69b1caf19ff2cb22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08fcd21d7ef583033225be179495f957"><td class="memItemLeft" align="right" valign="top"><a id="a08fcd21d7ef583033225be179495f957"></a>
+static constexpr funptr_phidx&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrPhiDx</b> (int p)</td></tr>
+<tr class="separator:a08fcd21d7ef583033225be179495f957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1dac2f9b5dd462f3c6120f9820d105c"><td class="memItemLeft" align="right" valign="top"><a id="ad1dac2f9b5dd462f3c6120f9820d105c"></a>
+static constexpr funptr_phiphi&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrPhiPhi</b> (int p)</td></tr>
+<tr class="separator:ad1dac2f9b5dd462f3c6120f9820d105c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1dc27ce4fdecf3dbc72d0de010f201b"><td class="memItemLeft" align="right" valign="top"><a id="ad1dc27ce4fdecf3dbc72d0de010f201b"></a>
+static constexpr funptr_phiphidx&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrPhiPhiDx</b> (int p)</td></tr>
+<tr class="separator:ad1dc27ce4fdecf3dbc72d0de010f201b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc2d2f0c5d988882ce82a5d2e8035fd6"><td class="memItemLeft" align="right" valign="top"><a id="adc2d2f0c5d988882ce82a5d2e8035fd6"></a>
+static constexpr funptr_phiphidy&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrPhiPhiDy</b> (int p)</td></tr>
+<tr class="separator:adc2d2f0c5d988882ce82a5d2e8035fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad57711d06239be9d91c2878418bfcf37"><td class="memItemLeft" align="right" valign="top"><a id="ad57711d06239be9d91c2878418bfcf37"></a>
+static constexpr funptr_phitimesphi&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrPhiTimesPhi</b> (int p)</td></tr>
+<tr class="separator:ad57711d06239be9d91c2878418bfcf37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a237a8e501eaee18954063947cecd6905"><td class="memItemLeft" align="right" valign="top"><a id="a237a8e501eaee18954063947cecd6905"></a>
+static constexpr funptr_divphitimesdivphi&lt; Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>funPtrDivPhiTimesDivPhi</b> (int p)</td></tr>
+<tr class="separator:a237a8e501eaee18954063947cecd6905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4.html">Bembel::Basis::PSpecificShapeFunctionHandler&lt; 0 &gt;</a></td></tr>
+<tr class="memitem:acc4a4b86ce8e1130c0fbeb74fa6f85f8 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="acc4a4b86ce8e1130c0fbeb74fa6f85f8"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>evalCoef</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:acc4a4b86ce8e1130c0fbeb74fa6f85f8 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d01e296924270b41d1480db48fcd97 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="ac3d01e296924270b41d1480db48fcd97"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>evalDerCoef</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:ac3d01e296924270b41d1480db48fcd97 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9676968c09fcc53d0ed06672ecf1448 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="ab9676968c09fcc53d0ed06672ecf1448"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>evalBasis</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:ab9676968c09fcc53d0ed06672ecf1448 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40867a492412afb68faa6786ecbc4b72 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="a40867a492412afb68faa6786ecbc4b72"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>evalDerBasis</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:a40867a492412afb68faa6786ecbc4b72 inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ef6e2e59a781776bfe6d606e6451fa inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="a40ef6e2e59a781776bfe6d606e6451fa"></a>
+static constexpr funptr_doubleOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalCoef</b> (int p)</td></tr>
+<tr class="separator:a40ef6e2e59a781776bfe6d606e6451fa inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bbfc901f2df0b7cc3b0c251b36c00eb inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="a4bbfc901f2df0b7cc3b0c251b36c00eb"></a>
+static constexpr funptr_doubleOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalDerCoef</b> (int p)</td></tr>
+<tr class="separator:a4bbfc901f2df0b7cc3b0c251b36c00eb inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066e6684126f9d5c8eaae5055580b77d inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="a066e6684126f9d5c8eaae5055580b77d"></a>
+static constexpr funptr_voidOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalBasis</b> (int p)</td></tr>
+<tr class="separator:a066e6684126f9d5c8eaae5055580b77d inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9583a53da0097349609a547382af8fcf inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="a9583a53da0097349609a547382af8fcf"></a>
+static constexpr funptr_voidOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalDerBasis</b> (int p)</td></tr>
+<tr class="separator:a9583a53da0097349609a547382af8fcf inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa25f1db7ed234052206794e49328bec inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memItemLeft" align="right" valign="top"><a id="afa25f1db7ed234052206794e49328bec"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkP</b> (int p)</td></tr>
+<tr class="separator:afa25f1db7ed234052206794e49328bec inherit pub_static_methods_class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_3_010_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00320">320</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a237a8e501eaee18954063947cecd6905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a237a8e501eaee18954063947cecd6905">&#9670;&nbsp;</a></span>funPtrDivPhiTimesDivPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#aa0d60881a84c8ab93a2c146aa7807cb7">funptr_divphitimesdivphi</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrDivPhiTimesDivPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00344">344</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac7dedb07afdbf8c69b1caf19ff2cb22b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7dedb07afdbf8c69b1caf19ff2cb22b">&#9670;&nbsp;</a></span>funPtrPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a5ea690532170c1c3532cc85b61240c7d">funptr_phi</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00326">326</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a08fcd21d7ef583033225be179495f957"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08fcd21d7ef583033225be179495f957">&#9670;&nbsp;</a></span>funPtrPhiDx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a6e6fa0604727b3f19d15a58e0d132801">funptr_phidx</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrPhiDx </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00329">329</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad1dac2f9b5dd462f3c6120f9820d105c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1dac2f9b5dd462f3c6120f9820d105c">&#9670;&nbsp;</a></span>funPtrPhiPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a82f3fbc74a9ca6e2658cf18ee4df7021">funptr_phiphi</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrPhiPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00332">332</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad1dc27ce4fdecf3dbc72d0de010f201b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1dc27ce4fdecf3dbc72d0de010f201b">&#9670;&nbsp;</a></span>funPtrPhiPhiDx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a85568ce19435de37ebd259206ebab5b9">funptr_phiphidx</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrPhiPhiDx </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00335">335</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="adc2d2f0c5d988882ce82a5d2e8035fd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2d2f0c5d988882ce82a5d2e8035fd6">&#9670;&nbsp;</a></span>funPtrPhiPhiDy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac5c35b6e32440ded660c72963c08bdc7">funptr_phiphidy</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrPhiPhiDy </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00338">338</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad57711d06239be9d91c2878418bfcf37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad57711d06239be9d91c2878418bfcf37">&#9670;&nbsp;</a></span>funPtrPhiTimesPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a6aeb8956fbac254cbdd51304953605ed">funptr_phitimesphi</a>&lt;Scalar&gt; <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::funPtrPhiTimesPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00341">341</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abb285a8c0b01f678c9ece00c39ac7f82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb285a8c0b01f678c9ece00c39ac7f82">&#9670;&nbsp;</a></span>phi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::phi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00293">293</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abe58149f265152933001a4fa42233a6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe58149f265152933001a4fa42233a6c">&#9670;&nbsp;</a></span>phiDx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::phiDx </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00297">297</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af27d9140d23adbe0e860f1b4464b9963"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af27d9140d23adbe0e860f1b4464b9963">&#9670;&nbsp;</a></span>phiPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::phiPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00301">301</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a526419f6fe74208f32d131e63bc849b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a526419f6fe74208f32d131e63bc849b5">&#9670;&nbsp;</a></span>phiPhiDx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::phiPhiDx </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00305">305</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a00defa7bd04d632d299a936fa6bc96b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00defa7bd04d632d299a936fa6bc96b8">&#9670;&nbsp;</a></span>phiPhiDy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::phiPhiDy </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00310">310</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="afbba5f2740f1c40f07ada07a763529ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbba5f2740f1c40f07ada07a763529ec">&#9670;&nbsp;</a></span>phiTimesPhi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html">Bembel::Basis::PSpecificBasisHandler</a>&lt; 0, Scalar &gt;::phiTimesPhi </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>xi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>eta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00315">315</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/Spline/<a class="el" href="_basis_8hpp_source.html">Basis.hpp</a></li>
 </ul>
@@ -769,7 +214,7 @@ template&lt;typename Scalar &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="namespace_bembel_1_1_basis.html">Basis</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler_3_010_00_01_scalar_01_4.html">PSpecificBasisHandler&lt; 0, Scalar &gt;</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,9 +104,12 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_helmholtz_single_laye
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_helmholtz_single_layer_operator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::HelmholtzSingleLayerOperator Class Reference<div class="ingroups"><a class="el" href="group___helmholtz.html">Helmholtz</a></div></div>  </div>
+<div class="title">Bembel::HelmholtzSingleLayerOperator Class Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___helmholtz.html">Helmholtz</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class implements the specification of the integration for the single layer potential for Helmholtz.  
+ <a href="class_bembel_1_1_helmholtz_single_layer_operator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -103,7 +117,7 @@ Inheritance diagram for Bembel::HelmholtzSingleLayerOperator:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_helmholtz_single_layer_operator__inherit__graph.png" border="0" usemap="#a_bembel_1_1_helmholtz_single_layer_operator_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_bembel_1_1_helmholtz_single_layer_operator_inherit__map" id="a_bembel_1_1_helmholtz_single_layer_operator_inherit__map">
-<area shape="rect" title=" " alt="" coords="20,95,243,136"/>
+<area shape="rect" title="This class implements the specification of the integration for the single layer potential for Helmhol..." alt="" coords="20,95,243,136"/>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,257,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -112,289 +126,54 @@ Collaboration diagram for Bembel::HelmholtzSingleLayerOperator:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_helmholtz_single_layer_operator__coll__graph.png" border="0" usemap="#a_bembel_1_1_helmholtz_single_layer_operator_coll__map" alt="Collaboration graph"/></div>
 <map name="a_bembel_1_1_helmholtz_single_layer_operator_coll__map" id="a_bembel_1_1_helmholtz_single_layer_operator_coll__map">
-<area shape="rect" title=" " alt="" coords="20,95,243,136"/>
+<area shape="rect" title="This class implements the specification of the integration for the single layer potential for Helmhol..." alt="" coords="20,95,243,136"/>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,257,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class implements the specification of the integration for the single layer potential for Helmholtz. </p>
+
+<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00038">38</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a49640c5c0decadfa4a4be1954e549b08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a49640c5c0decadfa4a4be1954e549b08">HelmholtzSingleLayerOperator</a> ()</td></tr>
-<tr class="separator:a49640c5c0decadfa4a4be1954e549b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6206eb9d86ccd585ae01182dbabe6774"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a6206eb9d86ccd585ae01182dbabe6774"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a6206eb9d86ccd585ae01182dbabe6774">evaluateIntegrand_impl</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="memitem:a6206eb9d86ccd585ae01182dbabe6774"><td class="memTemplParams" colspan="2"><a id="a6206eb9d86ccd585ae01182dbabe6774"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a6206eb9d86ccd585ae01182dbabe6774"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>evaluateIntegrand_impl</b> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
 <tr class="separator:a6206eb9d86ccd585ae01182dbabe6774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a659688c0c5d962fca63a9decf9ad9b6c"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; std::complex&lt; double &gt;, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a659688c0c5d962fca63a9decf9ad9b6c">evaluateFMMInterpolation_impl</a> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memitem:a659688c0c5d962fca63a9decf9ad9b6c"><td class="memItemLeft" align="right" valign="top"><a id="a659688c0c5d962fca63a9decf9ad9b6c"></a>
+Eigen::Matrix&lt; std::complex&lt; double &gt;, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFMMInterpolation_impl</b> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
 <tr class="separator:a659688c0c5d962fca63a9decf9ad9b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9326dcd942dd455e6fccb09a0ce03aae"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a9326dcd942dd455e6fccb09a0ce03aae">evaluateKernel</a> (const Eigen::Vector3d &amp;x, const Eigen::Vector3d &amp;y) const</td></tr>
-<tr class="memdesc:a9326dcd942dd455e6fccb09a0ce03aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundamental solution of Helmholtz problem.  <a href="class_bembel_1_1_helmholtz_single_layer_operator.html#a9326dcd942dd455e6fccb09a0ce03aae">More...</a><br /></td></tr>
+<tr class="memitem:a9326dcd942dd455e6fccb09a0ce03aae"><td class="memItemLeft" align="right" valign="top"><a id="a9326dcd942dd455e6fccb09a0ce03aae"></a>
+std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a9326dcd942dd455e6fccb09a0ce03aae">evaluateKernel</a> (const Eigen::Vector3d &amp;x, const Eigen::Vector3d &amp;y) const</td></tr>
+<tr class="memdesc:a9326dcd942dd455e6fccb09a0ce03aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundamental solution of Helmholtz problem. <br /></td></tr>
 <tr class="separator:a9326dcd942dd455e6fccb09a0ce03aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a417dbf1a8f9b9f53fcb75d31d3adbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a8a417dbf1a8f9b9f53fcb75d31d3adbf">set_wavenumber</a> (std::complex&lt; double &gt; wavenumber)</td></tr>
+<tr class="memitem:a8a417dbf1a8f9b9f53fcb75d31d3adbf"><td class="memItemLeft" align="right" valign="top"><a id="a8a417dbf1a8f9b9f53fcb75d31d3adbf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_wavenumber</b> (std::complex&lt; double &gt; wavenumber)</td></tr>
 <tr class="separator:a8a417dbf1a8f9b9f53fcb75d31d3adbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab66227b4e0c7ec1fae39d6b6a968c690"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html#ab66227b4e0c7ec1fae39d6b6a968c690">get_wavenumber</a> ()</td></tr>
+<tr class="memitem:ab66227b4e0c7ec1fae39d6b6a968c690"><td class="memItemLeft" align="right" valign="top"><a id="ab66227b4e0c7ec1fae39d6b6a968c690"></a>
+std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_wavenumber</b> ()</td></tr>
 <tr class="separator:ab66227b4e0c7ec1fae39d6b6a968c690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_bembel_1_1_linear_operator_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_bembel_1_1_linear_operator_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; HelmholtzSingleLayerOperator &gt;</a></td></tr>
-<tr class="memitem:a3014433275b18ffad85c73cb1eec22f1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">LinearOperatorBase</a> ()</td></tr>
-<tr class="separator:a3014433275b18ffad85c73cb1eec22f1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a0f7bbdf4c5de7ceff53e60cce7748630"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateIntegrand</b> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
 <tr class="separator:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">evaluateFMMInterpolation</a> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="ad616d64eccfb9cbde9ff8208f473e6a0"></a>
+Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFMMInterpolation</b> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
 <tr class="separator:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">get_FarfieldQuadratureDegree</a> (int ansatz_degree) const</td></tr>
+<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a564ca07e65785b8f8bb8882524d5f1d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_FarfieldQuadratureDegree</b> (int ansatz_degree) const</td></tr>
 <tr class="separator:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a> (int ansatz_degree, double distance, int level) const</td></tr>
 <tr class="memdesc:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute quadrature degree for numerical integretation close to the singularity based on distance, refinement level, degree of ansatz functions and operator_order.  <a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">More...</a><br /></td></tr>
 <tr class="separator:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">derived</a> ()</td></tr>
+<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a4363f27d775bc3e8b2364272f89650b1"></a>
+<a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> ()</td></tr>
 <tr class="separator:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">derived</a> () const</td></tr>
+<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a46d1663265d35d3db4c8041ba5693bd1"></a>
+const <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> () const</td></tr>
 <tr class="separator:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00034">34</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a49640c5c0decadfa4a4be1954e549b08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49640c5c0decadfa4a4be1954e549b08">&#9670;&nbsp;</a></span>HelmholtzSingleLayerOperator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Bembel::HelmholtzSingleLayerOperator::HelmholtzSingleLayerOperator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00039">39</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a659688c0c5d962fca63a9decf9ad9b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a659688c0c5d962fca63a9decf9ad9b6c">&#9670;&nbsp;</a></span>evaluateFMMInterpolation_impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;std::complex&lt;double&gt;, 1, 1&gt; Bembel::HelmholtzSingleLayerOperator::evaluateFMMInterpolation_impl </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00083">83</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_helmholtz_single_layer_operator_a659688c0c5d962fca63a9decf9ad9b6c_cgraph.png" border="0" usemap="#aclass_bembel_1_1_helmholtz_single_layer_operator_a659688c0c5d962fca63a9decf9ad9b6c_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_helmholtz_single_layer_operator_a659688c0c5d962fca63a9decf9ad9b6c_cgraph" id="aclass_bembel_1_1_helmholtz_single_layer_operator_a659688c0c5d962fca63a9decf9ad9b6c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,300,47"/>
-<area shape="rect" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a9326dcd942dd455e6fccb09a0ce03aae" title="Fundamental solution of Helmholtz problem." alt="" coords="348,5,571,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a6206eb9d86ccd585ae01182dbabe6774"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6206eb9d86ccd585ae01182dbabe6774">&#9670;&nbsp;</a></span>evaluateIntegrand_impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::HelmholtzSingleLayerOperator::evaluateIntegrand_impl </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>intval</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00041">41</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_helmholtz_single_layer_operator_a6206eb9d86ccd585ae01182dbabe6774_cgraph.png" border="0" usemap="#aclass_bembel_1_1_helmholtz_single_layer_operator_a6206eb9d86ccd585ae01182dbabe6774_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_helmholtz_single_layer_operator_a6206eb9d86ccd585ae01182dbabe6774_cgraph" id="aclass_bembel_1_1_helmholtz_single_layer_operator_a6206eb9d86ccd585ae01182dbabe6774_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,248,47"/>
-<area shape="rect" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a9326dcd942dd455e6fccb09a0ce03aae" title="Fundamental solution of Helmholtz problem." alt="" coords="296,5,519,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9326dcd942dd455e6fccb09a0ce03aae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9326dcd942dd455e6fccb09a0ce03aae">&#9670;&nbsp;</a></span>evaluateKernel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::complex&lt;double&gt; Bembel::HelmholtzSingleLayerOperator::evaluateKernel </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fundamental solution of Helmholtz problem. </p>
-
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00111">111</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_helmholtz_single_layer_operator_a9326dcd942dd455e6fccb09a0ce03aae_icgraph.png" border="0" usemap="#aclass_bembel_1_1_helmholtz_single_layer_operator_a9326dcd942dd455e6fccb09a0ce03aae_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_helmholtz_single_layer_operator_a9326dcd942dd455e6fccb09a0ce03aae_icgraph" id="aclass_bembel_1_1_helmholtz_single_layer_operator_a9326dcd942dd455e6fccb09a0ce03aae_icgraph">
-<area shape="rect" title="Fundamental solution of Helmholtz problem." alt="" coords="348,39,571,80"/>
-<area shape="rect" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a659688c0c5d962fca63a9decf9ad9b6c" title=" " alt="" coords="5,5,300,47"/>
-<area shape="rect" href="class_bembel_1_1_helmholtz_single_layer_operator.html#a6206eb9d86ccd585ae01182dbabe6774" title=" " alt="" coords="31,71,274,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ab66227b4e0c7ec1fae39d6b6a968c690"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab66227b4e0c7ec1fae39d6b6a968c690">&#9670;&nbsp;</a></span>get_wavenumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::complex&lt;double&gt; Bembel::HelmholtzSingleLayerOperator::get_wavenumber </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00126">126</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8a417dbf1a8f9b9f53fcb75d31d3adbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a417dbf1a8f9b9f53fcb75d31d3adbf">&#9670;&nbsp;</a></span>set_wavenumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::HelmholtzSingleLayerOperator::set_wavenumber </td>
-          <td>(</td>
-          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>wavenumber</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html#l00120">120</a> of file <a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/Helmholtz/<a class="el" href="_helmholtz_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a></li>
 </ul>
@@ -404,7 +183,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

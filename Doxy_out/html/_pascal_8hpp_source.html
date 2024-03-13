@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_pascal_8hpp_source.html',''); initRes
 <div class="title">Pascal.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_pascal_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -112,44 +123,43 @@ $(document).ready(function(){initNavTree('_pascal_8hpp_source.html',''); initRes
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_bembel_1_1static__assert_klessseq_n.html">   23</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1static__assert_klessseq_n.html">static_assertKlessseqN</a> {};</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="struct_bembel_1_1static__assert_klessseq_n_3_01true_01_4.html">   25</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1static__assert_klessseq_n.html">static_assertKlessseqN</a>&lt;true&gt; {</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="struct_bembel_1_1static__assert_klessseq_n_3_01true_01_4.html#a5b97a04bc8538d86d5158c43c8c1279cace86949d8042102b2f7d517ee494a412">   26</a></span>&#160;  <span class="keyword">enum</span> { YOU_CALLED_BINOMIAL_WITH_KgtrN_OR_NEGATIVE_VALUES = 1 };</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">enum</span> { YOU_CALLED_BINOMIAL_WITH_KgtrN_OR_NEGATIVE_VALUES = 1 };</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> K, <span class="keywordtype">int</span> N&gt;</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial.html">   30</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a> {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">value</a> = <a class="code" href="struct_bembel_1_1static__assert_klessseq_n.html">static_assertKlessseqN</a>&lt;(K &gt;= 0 &amp;&amp; N &gt;= 0 &amp;&amp; K &lt;= N)&gt;::</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    value = <a class="code" href="struct_bembel_1_1static__assert_klessseq_n.html">static_assertKlessseqN</a>&lt;(K &gt;= 0 &amp;&amp; N &gt;= 0 &amp;&amp; K &lt;= N)&gt;::</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                    YOU_CALLED_BINOMIAL_WITH_KgtrN_OR_NEGATIVE_VALUES</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                ? <a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;K - 1, N - 1&gt;<a class="code" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">::value</a> + <a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;K, N - 1&gt;<a class="code" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">::value</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                ? <a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;K - 1, N - 1&gt;::value + <a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;K, N - 1&gt;::value</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                : 0</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">   36</a></span>&#160;  };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial_3_010_00_010_01_4.html">   39</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;0, 0&gt; {</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial_3_010_00_010_01_4.html#a988531573be35c32b34628cb094f684baf4dbb1c7075ad15155009f915c24d573">   40</a></span>&#160;  <span class="keyword">enum</span> { <a class="code" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">value</a> = 1 };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">enum</span> { value = 1 };</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> N&gt;</div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html">   43</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;N, N&gt; {</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html#a40385c1977aea39abadb140e96962bbaa8bf6d84d3c8fe33d83337b6c1fe91be1">   44</a></span>&#160;  <span class="keyword">enum</span> { <a class="code" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">value</a> = 1 };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">enum</span> { value = 1 };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> N&gt;</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html">   47</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_binomial.html">Binomial</a>&lt;0, N&gt; {</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html#a8c007928dcdf2a67892ea4b353de4fa7a50e892f90e3514cb2a8ba4f2accb908a">   48</a></span>&#160;  <span class="keyword">enum</span> { <a class="code" href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">value</a> = 1 };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">enum</span> { value = 1 };</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_SPLINE_PASCAL_HPP_</span></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_binomial_html"><div class="ttname"><a href="struct_bembel_1_1_binomial.html">Bembel::Binomial</a></div><div class="ttdef"><b>Definition:</b> <a href="_pascal_8hpp_source.html#l00030">Pascal.hpp:30</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_binomial_html_a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad"><div class="ttname"><a href="struct_bembel_1_1_binomial.html#a112f8eb4500c540d894c8d474fa05e63a5024103d5317ccf45da5cbafc09a78ad">Bembel::Binomial::value</a></div><div class="ttdeci">@ value</div><div class="ttdef"><b>Definition:</b> <a href="_pascal_8hpp_source.html#l00036">Pascal.hpp:32</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1static__assert_klessseq_n_html"><div class="ttname"><a href="struct_bembel_1_1static__assert_klessseq_n.html">Bembel::static_assertKlessseqN</a></div><div class="ttdoc">Here we hardcode the binomial coefficients through template recursion and perform bounds checking,...</div><div class="ttdef"><b>Definition:</b> <a href="_pascal_8hpp_source.html#l00023">Pascal.hpp:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_f87942f3275a3b9667546b80bbc45e25.html">Spline</a></li><li class="navelem"><a class="el" href="_pascal_8hpp.html">Pascal.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_f87942f3275a3b9667546b80bbc45e25.html">Spline</a></li><li class="navelem"><b>Pascal.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

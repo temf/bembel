@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('integrate2_8hpp_source.html',''); init
 <div class="title">integrate2.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="integrate2_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -124,55 +135,51 @@ $(document).ready(function(){initNavTree('integrate2_8hpp_source.html',''); init
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  Eigen::Matrix&lt;double, 2, 8&gt; pts;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> qp1, qp2;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// llc of the element wrt [0,1]^2</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; Q.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>.size(); ++i) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> w = h * h * Q.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>(i) * Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i) * (1 - Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i)) *</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               (1 - Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i) * Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(1, i));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; Q.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>.size(); ++j) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      t1 = Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, j) * (1 - Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      t2 = Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(1, j) * (1 - Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i) * Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(1, i));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      t3 = Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, j) * (1 - Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i)) + Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      t4 = Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(1, j) * (1 - Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i) * Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(1, i)) +</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;           Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(0, i) * Q.<a class="code" href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">xi_</a>(1, i);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; Q.w_.size(); ++i) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> w = h * h * Q.w_(i) * Q.xi_(0, i) * (1 - Q.xi_(0, i)) *</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               (1 - Q.xi_(0, i) * Q.xi_(1, i));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; Q.w_.size(); ++j) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      t1 = Q.xi_(0, j) * (1 - Q.xi_(0, i));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      t2 = Q.xi_(1, j) * (1 - Q.xi_(0, i) * Q.xi_(1, i));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      t3 = Q.xi_(0, j) * (1 - Q.xi_(0, i)) + Q.xi_(0, i);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      t4 = Q.xi_(1, j) * (1 - Q.xi_(0, i) * Q.xi_(1, i)) +</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;           Q.xi_(0, i) * Q.xi_(1, i);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      pts &lt;&lt; t1, t3, t1, t3, t2, t4, t2, t4, t2, t4, t4, t2, t1, t3, t3, t1;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; 4; ++k) {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        super_space.map2surface(e1, pts.col(2 * k), w, &amp;qp1);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        super_space.map2surface(e1, pts.col(2 * k + 1), Q.<a class="code" href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">w_</a>(j), &amp;qp2);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        LinOp.<a class="code" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a>(super_space, qp1, qp2, intval);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        LinOp.<a class="code" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a>(super_space, qp2, qp1, intval);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        super_space.map2surface(e1, pts.col(2 * k + 1), Q.w_(j), &amp;qp2);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        LinOp.evaluateIntegrand(super_space, qp1, qp2, intval);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        LinOp.evaluateIntegrand(super_space, qp2, qp1, intval);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="_macros_8hpp.html#ae8a01e0a8ec110eb00334f616f4c060b">BEMBEL_UNUSED_</a>(e2);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="_macros_8hpp.html#ae8a01e0a8ec110eb00334f616f4c060b">BEMBEL_UNUSED_</a>(rot1);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="_macros_8hpp.html#ae8a01e0a8ec110eb00334f616f4c060b">BEMBEL_UNUSED_</a>(rot2);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="_macros_8hpp.html#ae8a01e0a8ec110eb00334f616f4c060b">BEMBEL_UNUSED_</a>(ffield_qnodes1);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="_macros_8hpp.html#ae8a01e0a8ec110eb00334f616f4c060b">BEMBEL_UNUSED_</a>(ffield_qnodes2);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  BEMBEL_UNUSED_(e2);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  BEMBEL_UNUSED_(rot1);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  BEMBEL_UNUSED_(rot2);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  BEMBEL_UNUSED_(ffield_qnodes1);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  BEMBEL_UNUSED_(ffield_qnodes2);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}  <span class="comment">// namespace DuffyTrick</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_DUFFYTRICK_INTEGRATE2_HPP_</span></div>
-<div class="ttc" id="a_macros_8hpp_html_ae8a01e0a8ec110eb00334f616f4c060b"><div class="ttname"><a href="_macros_8hpp.html#ae8a01e0a8ec110eb00334f616f4c060b">BEMBEL_UNUSED_</a></div><div class="ttdeci">#define BEMBEL_UNUSED_(x)</div><div class="ttdef"><b>Definition:</b> <a href="_macros_8hpp_source.html#l00020">Macros.hpp:20</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_node_html"><div class="ttname"><a href="class_bembel_1_1_element_tree_node.html">Bembel::ElementTreeNode</a></div><div class="ttdoc">The ElementTreeNode correposnds to an element in the element tree.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_node_8hpp_source.html#l00021">ElementTreeNode.hpp:21</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_node_html_abee5373e9a9134d43f1b0fa23d0a3b36"><div class="ttname"><a href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36">Bembel::ElementTreeNode::get_h</a></div><div class="ttdeci">double get_h() const</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_node_8hpp_source.html#l00127">ElementTreeNode.hpp:127</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_node_html"><div class="ttname"><a href="class_bembel_1_1_element_tree_node.html">Bembel::ElementTreeNode</a></div><div class="ttdoc">The ElementTreeNode corresponds to an element in the element tree.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_node_8hpp_source.html#l00021">ElementTreeNode.hpp:21</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_node_html_abee5373e9a9134d43f1b0fa23d0a3b36"><div class="ttname"><a href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36">Bembel::ElementTreeNode::get_h</a></div><div class="ttdeci">double get_h() const</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_node_8hpp_source.html#l00193">ElementTreeNode.hpp:193</a></div></div>
 <div class="ttc" id="agroup___duffy_trick_html_ga2a96bf79e6357a8465e7feedffc27b39"><div class="ttname"><a href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39">Bembel::DuffyTrick::integrate2</a></div><div class="ttdeci">void integrate2(const LinearOperatorBase&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const ElementTreeNode &amp;e1, int rot1, const ElementTreeNode &amp;e2, int rot2, const ElementSurfacePoints &amp;ffield_qnodes1, const ElementSurfacePoints &amp;ffield_qnodes2, const Cubature &amp;Q, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</div><div class="ttdoc">quadrature routine for identical elements</div><div class="ttdef"><b>Definition:</b> <a href="integrate2_8hpp_source.html#l00028">integrate2.hpp:28</a></div></div>
 <div class="ttc" id="agroup___geometry_html_ga7f3488fb214d75f08146ff31726428b4"><div class="ttname"><a href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a></div><div class="ttdeci">Eigen::Matrix&lt; double, 12, 1 &gt; SurfacePoint</div><div class="ttdoc">typedef of SurfacePoint</div><div class="ttdef"><b>Definition:</b> <a href="_surface_point_8hpp_source.html#l00042">SurfacePoint.hpp:42</a></div></div>
 <div class="ttc" id="agroup___geometry_html_gabc1f8e94e141fc00501462d78c030071"><div class="ttname"><a href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a></div><div class="ttdeci">std::vector&lt; SurfacePoint, Eigen::aligned_allocator&lt; SurfacePoint &gt; &gt; ElementSurfacePoints</div><div class="ttdoc">typedef std::vector&lt;SurfacePoint&gt; with aligned allocator of Eigen for compatibility with older compil...</div><div class="ttdef"><b>Definition:</b> <a href="_surface_point_8hpp_source.html#l00050">SurfacePoint.hpp:50</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a></div><div class="ttdoc">linear operator base class. this serves as a common interface for existing linear operators</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00021">LinearOperatorBase.hpp:21</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a0f7bbdf4c5de7ceff53e60cce7748630"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">Bembel::LinearOperatorBase::evaluateIntegrand</a></div><div class="ttdeci">void evaluateIntegrand(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00029">LinearOperatorBase.hpp:29</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a></div><div class="ttdoc">linear operator base class. this serves as a common interface for existing linear operators.</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00024">LinearOperatorBase.hpp:24</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits.html">Bembel::LinearOperatorTraits</a></div><div class="ttdoc">struct containing specifications on the linear operator has to be specialized or derived for any part...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_traits_8hpp_source.html#l00022">LinearOperatorTraits.hpp:22</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_quadrature_html"><div class="ttname"><a href="struct_bembel_1_1_quadrature.html">Bembel::Quadrature&lt; 2 &gt;</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_quadrature_html_a33cc6f7938e54cc930d76a7e9cd3b0bf"><div class="ttname"><a href="struct_bembel_1_1_quadrature.html#a33cc6f7938e54cc930d76a7e9cd3b0bf">Bembel::Quadrature::xi_</a></div><div class="ttdeci">Eigen::Matrix&lt; double, Dimension, Eigen::Dynamic &gt; xi_</div><div class="ttdef"><b>Definition:</b> <a href="_quadrature_8hpp_source.html#l00019">Quadrature.hpp:19</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_quadrature_html_ae7d8c17098d5b6086024db2b844b111a"><div class="ttname"><a href="struct_bembel_1_1_quadrature.html#ae7d8c17098d5b6086024db2b844b111a">Bembel::Quadrature::w_</a></div><div class="ttdeci">Eigen::VectorXd w_</div><div class="ttdef"><b>Definition:</b> <a href="_quadrature_8hpp_source.html#l00020">Quadrature.hpp:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_6baa067cc6d3b8c00528001a11d73c5f.html">DuffyTrick</a></li><li class="navelem"><a class="el" href="integrate2_8hpp.html">integrate2.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_6baa067cc6d3b8c00528001a11d73c5f.html">DuffyTrick</a></li><li class="navelem"><b>integrate2.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_geometry_i_g_s_8hpp_source.html','');
 <div class="title">GeometryIGS.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_geometry_i_g_s_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2024 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -287,286 +298,282 @@ $(document).ready(function(){initNavTree('_geometry_i_g_s_8hpp_source.html','');
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1">  230</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1">writeIGSHeader</a>(std::string file_name) {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  std::vector&lt;std::string&gt; section(4);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  section[0] = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  section[1] = <span class="stringliteral">&quot;IGES obtained from Bembel.&quot;</span>;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  section[2] = <span class="stringliteral">&quot;See &lt;http://www.bembel.eu&gt;&quot;</span>;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  section[3] = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <a class="code" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">writeSection</a>(file_name, section, <span class="charliteral">&#39;S&#39;</span>);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">  241</a></span>&#160;std::string <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(<span class="keywordtype">double</span> d, <span class="keyword">const</span> <span class="keywordtype">int</span> precision) {</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  std::ostringstream stm;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  stm &lt;&lt; std::setprecision(precision) &lt;&lt; d;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keywordflow">return</span> stm.str();</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="group___geometry.html#ga6c17c87ff88511abb7cf6a47970e2aa1">  236</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___geometry.html#ga6c17c87ff88511abb7cf6a47970e2aa1">writeIGSHeader</a>(std::string file_name) {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  std::vector&lt;std::string&gt; section(4);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  section[0] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  section[1] = <span class="stringliteral">&quot;IGES obtained from Bembel.&quot;</span>;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  section[2] = <span class="stringliteral">&quot;See &lt;http://www.bembel.eu&gt;&quot;</span>;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  section[3] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">writeSection</a>(file_name, section, <span class="charliteral">&#39;S&#39;</span>);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65">  247</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65">writeGlobalSection</a>(std::string file_name) {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  std::vector&lt;std::string&gt; out(24);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  std::time_t now = std::time(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  std::tm* localTime = std::localtime(&amp;now);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keywordtype">char</span> dateString[11];  <span class="comment">// &quot;YYYY-MM-DD\0&quot;</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  std::strftime(dateString, <span class="keyword">sizeof</span>(dateString), <span class="stringliteral">&quot;%Y-%m-%d&quot;</span>, localTime);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="comment">// Parameter Deliminator Character</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  out[0] = <span class="stringliteral">&quot;1H,&quot;</span>;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="comment">// Record Delimiter Character</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  out[1] = <span class="stringliteral">&quot;1H;&quot;</span>;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="comment">// Product ID from Sender</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  out[2] = <span class="stringliteral">&quot;Bembel&quot;</span>;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="comment">// File Name</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  out[3] = file_name;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="comment">// System ID</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  out[4] = <span class="stringliteral">&quot;Bembel&quot;</span>;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="comment">// Pre-processor Version</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  out[5] = <span class="stringliteral">&quot;writeIGSFile&quot;</span>;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="comment">// Number of Bits for Integers</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  out[6] = <span class="stringliteral">&quot;32&quot;</span>;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="comment">// Single Precision Magnitude</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  out[7] = <span class="stringliteral">&quot;75&quot;</span>;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="comment">// Single Precision Significance</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  out[8] = <span class="stringliteral">&quot;6&quot;</span>;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="comment">// Double Precision Magnitude</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  out[9] = <span class="stringliteral">&quot;75&quot;</span>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="comment">// Double Precision Significance</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  out[10] = <span class="stringliteral">&quot;15&quot;</span>;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="comment">// Product ID for Receiver</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  out[11] = <span class="stringliteral">&quot;Nurbs from Bembel&quot;</span>;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="comment">// Model Space Scale</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  out[12] = <span class="stringliteral">&quot;1.0&quot;</span>;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="comment">// Unit Flag (6 = metres)</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  out[13] = <span class="stringliteral">&quot;6&quot;</span>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="comment">// Units  (metres = &quot;M&quot;)</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  out[14] = <span class="stringliteral">&quot;M&quot;</span>;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="comment">// Maximum Number of Line Weights</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  out[15] = <span class="stringliteral">&quot;1000&quot;</span>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="comment">// Size of Maximum Line Width</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  out[16] = <span class="stringliteral">&quot;1.0&quot;</span>;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">// Date and Time of file generation</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  out[17] = dateString;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="comment">// Minimum User-intended Resolution</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  out[18] = <span class="stringliteral">&quot;0.000001&quot;</span>;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="comment">// Approximate Maximum Coordinate</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  out[19] = <span class="stringliteral">&quot;10000.0&quot;</span>;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="comment">// Name of Author</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  out[20] = <span class="stringliteral">&quot;Maximilian Nolte&quot;</span>;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="comment">// Author&#39;s Organization</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  out[21] = <span class="stringliteral">&quot;CEM - TU Darmstadt&quot;</span>;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="comment">// IGES Version Number (3 = IGES version 2.0)</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  out[22] = <span class="stringliteral">&quot;3&quot;</span>;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="comment">// Drafting Standard Code (0 = no standard)</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  out[23] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  std::vector&lt;std::string&gt; section = <a class="code" href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">makeSection</a>(out);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <a class="code" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">writeSection</a>(file_name, section, <span class="charliteral">&#39;G&#39;</span>);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordflow">return</span> section.size();</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;}</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="namespace_bembel.html#a13ec0a7ecedd0f45845efd7afeb228b7">  309</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespace_bembel.html#a13ec0a7ecedd0f45845efd7afeb228b7">writeDirectory</a>(std::string file_name, std::vector&lt;int&gt; start_idx,</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                    std::vector&lt;int&gt; number_of_lines) {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  assert(start_idx.size() == number_of_lines.size());</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  std::ofstream fid(file_name, std::ios::app);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keywordtype">int</span> tot_number_of_lines = 0;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_patches = start_idx.size();</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; number_of_patches; ++i) {</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    fid &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot;128&quot;</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; start_idx[i]</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;D&quot;</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        &lt;&lt; std::setw(7) &lt;&lt; (i + 1) * 2 - 1&lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    fid &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot;128&quot;</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; number_of_lines[i]</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;D&quot;</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        &lt;&lt; std::setw(7) &lt;&lt; (i + 1) * 2 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    tot_number_of_lines += 2;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  }</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="keywordflow">return</span> tot_number_of_lines;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;}</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno"><a class="line" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">  358</a></span>&#160;std::vector&lt;std::string&gt; <a class="code" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">writePatchData</a>(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_patch.html">Patch</a>&amp; patch,</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                                        <span class="keyword">const</span> <span class="keywordtype">int</span> precision) {</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> degree_x = patch.<a class="code" href="class_bembel_1_1_patch.html#a5535635d648515cfa43bf4d05d795744">polynomial_degree_x_</a>;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> degree_y = patch.<a class="code" href="class_bembel_1_1_patch.html#aae63b07be99aee55011627725e4320e8">polynomial_degree_y_</a>;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  assert(patch.<a class="code" href="class_bembel_1_1_patch.html#a0dbb4d0b4fbf84369314ce72f4c728cb">unique_knots_x_</a>.size() == 2 &amp;&amp;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;         <span class="stringliteral">&quot;We can not handle internal knots&quot;</span>);</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  assert(patch.<a class="code" href="class_bembel_1_1_patch.html#af3d9420422cd9668b9503c2eb73a2f9f">unique_knots_y_</a>.size() == 2 &amp;&amp;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;         <span class="stringliteral">&quot;We can not handle internal knots&quot;</span>);</div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">  253</a></span>&#160;std::string <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(<span class="keywordtype">double</span> d, <span class="keyword">const</span> <span class="keywordtype">int</span> precision) {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  std::ostringstream stm;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  stm &lt;&lt; std::setprecision(precision) &lt;&lt; d;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="keywordflow">return</span> stm.str();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;}</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="group___geometry.html#gae7a32044fa9c3c1ea7475ba5595aec65">  265</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group___geometry.html#gae7a32044fa9c3c1ea7475ba5595aec65">writeGlobalSection</a>(std::string file_name) {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  std::vector&lt;std::string&gt; out(24);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  std::time_t now = std::time(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  std::tm* localTime = std::localtime(&amp;now);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keywordtype">char</span> dateString[11];  <span class="comment">// &quot;YYYY-MM-DD\0&quot;</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  std::strftime(dateString, <span class="keyword">sizeof</span>(dateString), <span class="stringliteral">&quot;%Y-%m-%d&quot;</span>, localTime);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="comment">// Parameter Deliminator Character</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  out[0] = <span class="stringliteral">&quot;1H,&quot;</span>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="comment">// Record Delimiter Character</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  out[1] = <span class="stringliteral">&quot;1H;&quot;</span>;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="comment">// Product ID from Sender</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  out[2] = <span class="stringliteral">&quot;Bembel&quot;</span>;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="comment">// File Name</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  out[3] = file_name;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="comment">// System ID</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  out[4] = <span class="stringliteral">&quot;Bembel&quot;</span>;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="comment">// Pre-processor Version</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  out[5] = <span class="stringliteral">&quot;writeIGSFile&quot;</span>;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="comment">// Number of Bits for Integers</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  out[6] = <span class="stringliteral">&quot;32&quot;</span>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="comment">// Single Precision Magnitude</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  out[7] = <span class="stringliteral">&quot;75&quot;</span>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">// Single Precision Significance</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  out[8] = <span class="stringliteral">&quot;6&quot;</span>;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="comment">// Double Precision Magnitude</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  out[9] = <span class="stringliteral">&quot;75&quot;</span>;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="comment">// Double Precision Significance</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  out[10] = <span class="stringliteral">&quot;15&quot;</span>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="comment">// Product ID for Receiver</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  out[11] = <span class="stringliteral">&quot;Nurbs from Bembel&quot;</span>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="comment">// Model Space Scale</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  out[12] = <span class="stringliteral">&quot;1.0&quot;</span>;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="comment">// Unit Flag (6 = metres)</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  out[13] = <span class="stringliteral">&quot;6&quot;</span>;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="comment">// Units  (metres = &quot;M&quot;)</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  out[14] = <span class="stringliteral">&quot;M&quot;</span>;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="comment">// Maximum Number of Line Weights</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  out[15] = <span class="stringliteral">&quot;1000&quot;</span>;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="comment">// Size of Maximum Line Width</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  out[16] = <span class="stringliteral">&quot;1.0&quot;</span>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="comment">// Date and Time of file generation</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  out[17] = dateString;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="comment">// Minimum User-intended Resolution</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  out[18] = <span class="stringliteral">&quot;0.000001&quot;</span>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// Approximate Maximum Coordinate</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  out[19] = <span class="stringliteral">&quot;10000.0&quot;</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="comment">// Name of Author</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  out[20] = <span class="stringliteral">&quot;Maximilian Nolte&quot;</span>;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="comment">// Author&#39;s Organization</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  out[21] = <span class="stringliteral">&quot;CEM - TU Darmstadt&quot;</span>;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="comment">// IGES Version Number (3 = IGES version 2.0)</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  out[22] = <span class="stringliteral">&quot;3&quot;</span>;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="comment">// Drafting Standard Code (0 = no standard)</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  out[23] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  std::vector&lt;std::string&gt; section = <a class="code" href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">makeSection</a>(out);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <a class="code" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">writeSection</a>(file_name, section, <span class="charliteral">&#39;G&#39;</span>);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keywordflow">return</span> section.size();</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;}</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="group___geometry.html#ga13ec0a7ecedd0f45845efd7afeb228b7">  336</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="group___geometry.html#ga13ec0a7ecedd0f45845efd7afeb228b7">writeDirectory</a>(std::string file_name, std::vector&lt;int&gt; start_idx,</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                    std::vector&lt;int&gt; number_of_lines) {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  assert(start_idx.size() == number_of_lines.size());</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  std::ofstream fid(file_name, std::ios::app);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <span class="keywordtype">int</span> tot_number_of_lines = 0;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_patches = start_idx.size();</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; number_of_patches; ++i) {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    fid &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot;128&quot;</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; start_idx[i]</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;D&quot;</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        &lt;&lt; std::setw(7) &lt;&lt; (i + 1) * 2 - 1&lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    fid &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot;128&quot;</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; number_of_lines[i]</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        &lt;&lt; std::setw(8) &lt;&lt; 0</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;D&quot;</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        &lt;&lt; std::setw(7) &lt;&lt; (i + 1) * 2 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  std::vector&lt;double&gt; knots_x(2 * degree_x, 0);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt;= degree_x; ++i) knots_x[degree_x + i] = 1;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  std::vector&lt;double&gt; knots_y(2 * degree_y, 0);</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt;= degree_y; ++i) knots_y[degree_y + i] = 1;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    tot_number_of_lines += 2;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  }</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  <span class="keywordflow">return</span> tot_number_of_lines;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;}</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keyword">const</span> std::array&lt;double, 2&gt; span_x = {0, 1};</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="keyword">const</span> std::array&lt;double, 2&gt; span_y = {0, 1};</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_points_x = knots_x.size() - degree_x;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_points_y = knots_y.size() - degree_y;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>.size() / 4;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  std::vector&lt;double&gt; weights(size);</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  std::vector&lt;double&gt; coordinates_x(size);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  std::vector&lt;double&gt; coordinates_y(size);</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  std::vector&lt;double&gt; coordinates_z(size);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  <span class="comment">// transform from wx, wy, wz to x, y, z</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  <span class="comment">// further more switch row major and column major</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; size; ++i) {</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> rowIndex = i % number_of_points_y;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> colIndex = i / number_of_points_y;</div>
+<div class="line"><a name="l00385"></a><span class="lineno"><a class="line" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">  385</a></span>&#160;std::vector&lt;std::string&gt; <a class="code" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">writePatchData</a>(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_patch.html">Patch</a>&amp; patch,</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                        <span class="keyword">const</span> <span class="keywordtype">int</span> precision) {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> degree_x = patch.polynomial_degree_x_;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> degree_y = patch.polynomial_degree_y_;</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="comment">// Calculate the index for the corresponding element in row-major order</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> j = rowIndex * number_of_points_x + colIndex;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordtype">double</span> weight = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4 + 3];</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    weights[j] = weight;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    coordinates_x[j] = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4] / weight;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    coordinates_y[j] = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4 + 1] / weight;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    coordinates_z[j] = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4 + 2] / weight;</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  assert(patch.unique_knots_x_.size() == 2 &amp;&amp;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;         <span class="stringliteral">&quot;We can not handle internal knots&quot;</span>);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  assert(patch.unique_knots_y_.size() == 2 &amp;&amp;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;         <span class="stringliteral">&quot;We can not handle internal knots&quot;</span>);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  std::vector&lt;double&gt; knots_x(2 * degree_x, 0);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt;= degree_x; ++i) knots_x[degree_x + i] = 1;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  std::vector&lt;double&gt; knots_y(2 * degree_y, 0);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt;= degree_y; ++i) knots_y[degree_y + i] = 1;</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_data_entries = 16;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size_data =</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      number_of_data_entries + 4 * size + knots_x.size() + knots_y.size();</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  std::vector&lt;std::string&gt; patch_data(size_data);</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  patch_data[0] = <span class="stringliteral">&quot;128&quot;</span>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  patch_data[1] = std::to_string(number_of_points_x - 1);</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  patch_data[2] = std::to_string(number_of_points_y - 1);</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  patch_data[3] = std::to_string(degree_x - 1);</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  patch_data[4] = std::to_string(degree_y - 1);</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  patch_data[5] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  patch_data[6] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  patch_data[7] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  patch_data[8] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  patch_data[9] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; knots_x.size(); ++i) {</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    patch_data[10 + i] = <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(knots_x[i], precision);</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  }</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <span class="keyword">const</span> std::array&lt;double, 2&gt; span_x = {0, 1};</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  <span class="keyword">const</span> std::array&lt;double, 2&gt; span_y = {0, 1};</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_points_x = knots_x.size() - degree_x;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_points_y = knots_y.size() - degree_y;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>.size() / 4;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  std::vector&lt;double&gt; weights(size);</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  std::vector&lt;double&gt; coordinates_x(size);</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  std::vector&lt;double&gt; coordinates_y(size);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  std::vector&lt;double&gt; coordinates_z(size);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  <span class="comment">// transform from wx, wy, wz to x, y, z</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  <span class="comment">// further more switch row major and column major</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; size; ++i) {</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> rowIndex = i % number_of_points_y;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> colIndex = i / number_of_points_y;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="comment">// Calculate the index for the corresponding element in row-major order</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> j = rowIndex * number_of_points_x + colIndex;</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> idx_knots_y = 10 + knots_x.size();</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; knots_y.size(); ++i) {</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    patch_data[idx_knots_y + i] = <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(knots_y[i], precision);</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  }</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> idx_weights = 10 + knots_x.size() + knots_y.size();</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; size; ++i) {</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    patch_data[idx_weights + i] = <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(weights[i], precision);</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    patch_data[idx_weights + size + i * 3] =</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(coordinates_x[i], precision);</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    patch_data[idx_weights + size + i * 3 + 1] =</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(coordinates_y[i], precision);</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    patch_data[idx_weights + size + i * 3 + 2] =</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(coordinates_z[i], precision);</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  }</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  patch_data[idx_weights + 4 * size] = std::to_string(span_x[0]);</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  patch_data[idx_weights + 4 * size + 1] = std::to_string(span_x[1]);</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  patch_data[idx_weights + 4 * size + 2] = std::to_string(span_y[0]);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  patch_data[idx_weights + 4 * size + 3] = std::to_string(span_y[1]);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  patch_data[idx_weights + 4 * size + 4] = <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  patch_data[idx_weights + 4 * size + 5] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordtype">double</span> weight = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4 + 3];</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    weights[j] = weight;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    coordinates_x[j] = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4] / weight;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    coordinates_y[j] = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4 + 1] / weight;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    coordinates_z[j] = patch.<a class="code" href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">data_</a>[i * 4 + 2] / weight;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  }</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_data_entries = 16;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size_data =</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      number_of_data_entries + 4 * size + knots_x.size() + knots_y.size();</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  std::vector&lt;std::string&gt; patch_data(size_data);</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  patch_data[0] = <span class="stringliteral">&quot;128&quot;</span>;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  patch_data[1] = std::to_string(number_of_points_x - 1);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  patch_data[2] = std::to_string(number_of_points_y - 1);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  patch_data[3] = std::to_string(degree_x - 1);</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  patch_data[4] = std::to_string(degree_y - 1);</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  patch_data[5] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  patch_data[6] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  patch_data[7] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  patch_data[8] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  patch_data[9] = <span class="stringliteral">&quot;0&quot;</span>;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <span class="keywordflow">return</span> patch_data;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;}</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
-<div class="line"><a name="l00453"></a><span class="lineno"><a class="line" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">  453</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">writeIGSFile</a>(<span class="keyword">const</span> std::vector&lt;Patch&gt;&amp; geometry, std::string file_name,</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">int</span> precision = 6) {</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  std::ofstream out(file_name);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  out.close();</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  <a class="code" href="namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1">writeIGSHeader</a>(file_name);</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size_global = <a class="code" href="namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65">writeGlobalSection</a>(file_name);</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_patches = geometry.size();</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  std::vector&lt;int&gt; start_idx(number_of_patches);</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  std::vector&lt;int&gt; end_idx(number_of_patches);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  std::vector&lt;std::vector&lt;std::string&gt;&gt; patch_sections(number_of_patches);</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  <span class="keywordtype">int</span> start_line = 1;</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; number_of_patches; ++i) {</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt; patch_data =</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        <a class="code" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">writePatchData</a>(geometry[i], precision);</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    patch_sections[i] = <a class="code" href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">makeSection</a>(patch_data, 64);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; knots_x.size(); ++i) {</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    patch_data[10 + i] = <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(knots_x[i], precision);</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;  }</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> idx_knots_y = 10 + knots_x.size();</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; knots_y.size(); ++i) {</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    patch_data[idx_knots_y + i] = <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(knots_y[i], precision);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;  }</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> idx_weights = 10 + knots_x.size() + knots_y.size();</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; size; ++i) {</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    patch_data[idx_weights + i] = <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(weights[i], precision);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    patch_data[idx_weights + size + i * 3] =</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(coordinates_x[i], precision);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    patch_data[idx_weights + size + i * 3 + 1] =</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(coordinates_y[i], precision);</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    patch_data[idx_weights + size + i * 3 + 2] =</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <a class="code" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a>(coordinates_z[i], precision);</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  }</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  patch_data[idx_weights + 4 * size] = std::to_string(span_x[0]);</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  patch_data[idx_weights + 4 * size + 1] = std::to_string(span_x[1]);</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  patch_data[idx_weights + 4 * size + 2] = std::to_string(span_y[0]);</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;  patch_data[idx_weights + 4 * size + 3] = std::to_string(span_y[1]);</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;  patch_data[idx_weights + 4 * size + 4] = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  patch_data[idx_weights + 4 * size + 5] = <span class="stringliteral">&quot;0&quot;</span>;</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    start_idx[i] = start_line;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    start_line += patch_sections[i].size();</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    end_idx[i] = patch_sections[i].size();</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  }</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size_directory = <a class="code" href="namespace_bembel.html#a13ec0a7ecedd0f45845efd7afeb228b7">writeDirectory</a>(file_name, start_idx, end_idx);</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  <span class="keywordtype">int</span> first_line = 1;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  <span class="keywordtype">int</span> size_parameter = 0;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = patch_sections.begin(); it != patch_sections.end(); ++it) {</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> i = std::distance(patch_sections.begin(), it);</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> last_idx =</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        <a class="code" href="group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">writeParameterSection</a>(file_name, *it, 1 + 2 * i, first_line);</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    first_line = last_idx;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    size_parameter += (*it).size();</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  }</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="comment">// Terminate Section</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;  std::stringstream last_section;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  last_section &lt;&lt; std::setw(7) &lt;&lt; 4 &lt;&lt; <span class="stringliteral">&quot;S&quot;</span></div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;               &lt;&lt; std::setw(7) &lt;&lt; size_global &lt;&lt; <span class="stringliteral">&quot;G&quot;</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;               &lt;&lt; std::setw(7) &lt;&lt; size_directory &lt;&lt; <span class="stringliteral">&quot;D&quot;</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;               &lt;&lt; std::setw(7) &lt;&lt; size_parameter &lt;&lt; <span class="stringliteral">&quot;P&quot;</span>;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  std::ofstream file(file_name, std::ios::app);</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  file &lt;&lt; std::left &lt;&lt; std::setw(72) &lt;&lt; last_section.str()</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;T&quot;</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;       &lt;&lt; std::right &lt;&lt; std::setw(7) &lt;&lt; 1 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  file.close();</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;}</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_GEOMETRY_GEOMETRYIGS_HPP_</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  <span class="keywordflow">return</span> patch_data;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;}</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00481"></a><span class="lineno"><a class="line" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">  481</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">writeIGSFile</a>(<span class="keyword">const</span> std::vector&lt;Patch&gt;&amp; geometry, std::string file_name,</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">int</span> precision = 6) {</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  std::ofstream out(file_name);</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  out.close();</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  <a class="code" href="group___geometry.html#ga6c17c87ff88511abb7cf6a47970e2aa1">writeIGSHeader</a>(file_name);</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size_global = <a class="code" href="group___geometry.html#gae7a32044fa9c3c1ea7475ba5595aec65">writeGlobalSection</a>(file_name);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> number_of_patches = geometry.size();</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  std::vector&lt;int&gt; start_idx(number_of_patches);</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  std::vector&lt;int&gt; end_idx(number_of_patches);</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;  std::vector&lt;std::vector&lt;std::string&gt;&gt; patch_sections(number_of_patches);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  <span class="keywordtype">int</span> start_line = 1;</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; number_of_patches; ++i) {</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt; patch_data =</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <a class="code" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">writePatchData</a>(geometry[i], precision);</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    patch_sections[i] = <a class="code" href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">makeSection</a>(patch_data, 64);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    start_idx[i] = start_line;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    start_line += patch_sections[i].size();</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    end_idx[i] = patch_sections[i].size();</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;  }</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size_directory = <a class="code" href="group___geometry.html#ga13ec0a7ecedd0f45845efd7afeb228b7">writeDirectory</a>(file_name, start_idx, end_idx);</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; </div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  <span class="keywordtype">int</span> first_line = 1;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;  <span class="keywordtype">int</span> size_parameter = 0;</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = patch_sections.begin(); it != patch_sections.end(); ++it) {</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> i = std::distance(patch_sections.begin(), it);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> last_idx =</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <a class="code" href="group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">writeParameterSection</a>(file_name, *it, 1 + 2 * i, first_line);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    first_line = last_idx;</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    size_parameter += (*it).size();</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;  }</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;  <span class="comment">// Terminate Section</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  std::stringstream last_section;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;  last_section &lt;&lt; std::setw(7) &lt;&lt; 4 &lt;&lt; <span class="stringliteral">&quot;S&quot;</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;               &lt;&lt; std::setw(7) &lt;&lt; size_global &lt;&lt; <span class="stringliteral">&quot;G&quot;</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;               &lt;&lt; std::setw(7) &lt;&lt; size_directory &lt;&lt; <span class="stringliteral">&quot;D&quot;</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;               &lt;&lt; std::setw(7) &lt;&lt; size_parameter &lt;&lt; <span class="stringliteral">&quot;P&quot;</span>;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;  std::ofstream file(file_name, std::ios::app);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;  file &lt;&lt; std::left &lt;&lt; std::setw(72) &lt;&lt; last_section.str()</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;T&quot;</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;       &lt;&lt; std::right &lt;&lt; std::setw(7) &lt;&lt; 1 &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;  file.close();</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;  <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;}</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_GEOMETRY_GEOMETRYIGS_HPP_</span></div>
 <div class="ttc" id="aclass_bembel_1_1_patch_html"><div class="ttname"><a href="class_bembel_1_1_patch.html">Bembel::Patch</a></div><div class="ttdoc">handles a single patch</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00020">Patch.hpp:20</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_patch_html_a0dbb4d0b4fbf84369314ce72f4c728cb"><div class="ttname"><a href="class_bembel_1_1_patch.html#a0dbb4d0b4fbf84369314ce72f4c728cb">Bembel::Patch::unique_knots_x_</a></div><div class="ttdeci">std::vector&lt; double &gt; unique_knots_x_</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00293">Patch.hpp:293</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_patch_html_a5535635d648515cfa43bf4d05d795744"><div class="ttname"><a href="class_bembel_1_1_patch.html#a5535635d648515cfa43bf4d05d795744">Bembel::Patch::polynomial_degree_x_</a></div><div class="ttdeci">int polynomial_degree_x_</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00290">Patch.hpp:290</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_patch_html_a94e90e693ae9764675d67ea9b1755252"><div class="ttname"><a href="class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252">Bembel::Patch::init_Patch</a></div><div class="ttdeci">void init_Patch(const std::vector&lt; Eigen::Matrix&lt; double, -1, -1 &gt;&gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;x_knots, const std::vector&lt; double &gt; &amp;y_knots)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00034">Patch.hpp:34</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_patch_html_aae63b07be99aee55011627725e4320e8"><div class="ttname"><a href="class_bembel_1_1_patch.html#aae63b07be99aee55011627725e4320e8">Bembel::Patch::polynomial_degree_y_</a></div><div class="ttdeci">int polynomial_degree_y_</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00291">Patch.hpp:291</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_patch_html_ae08d87745c6c2fc4770add4b6c16cb97"><div class="ttname"><a href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">Bembel::Patch::data_</a></div><div class="ttdeci">std::vector&lt; double &gt; data_</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00289">Patch.hpp:289</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_patch_html_af3d9420422cd9668b9503c2eb73a2f9f"><div class="ttname"><a href="class_bembel_1_1_patch.html#af3d9420422cd9668b9503c2eb73a2f9f">Bembel::Patch::unique_knots_y_</a></div><div class="ttdeci">std::vector&lt; double &gt; unique_knots_y_</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00295">Patch.hpp:295</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_patch_html_a94e90e693ae9764675d67ea9b1755252"><div class="ttname"><a href="class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252">Bembel::Patch::init_Patch</a></div><div class="ttdeci">void init_Patch(const std::vector&lt; Eigen::Matrix&lt; double, -1, -1 &gt;&gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;x_knots, const std::vector&lt; double &gt; &amp;y_knots)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00063">Patch.hpp:63</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_patch_html_ae08d87745c6c2fc4770add4b6c16cb97"><div class="ttname"><a href="class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97">Bembel::Patch::data_</a></div><div class="ttdeci">std::vector&lt; double &gt; data_</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_patch_8hpp_source.html#l00371">Patch.hpp:371</a></div></div>
+<div class="ttc" id="agroup___geometry_html_ga13ec0a7ecedd0f45845efd7afeb228b7"><div class="ttname"><a href="group___geometry.html#ga13ec0a7ecedd0f45845efd7afeb228b7">Bembel::writeDirectory</a></div><div class="ttdeci">int writeDirectory(std::string file_name, std::vector&lt; int &gt; start_idx, std::vector&lt; int &gt; number_of_lines)</div><div class="ttdoc">Write the IGES Directory section into the given file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00336">GeometryIGS.hpp:336</a></div></div>
 <div class="ttc" id="agroup___geometry_html_ga46aa1c9d9f6c91c896de8bd7415ae06e"><div class="ttname"><a href="group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">Bembel::writeParameterSection</a></div><div class="ttdeci">int writeParameterSection(std::string file_name, const std::vector&lt; std::string &gt; &amp;section, const int patch_idx, const int start_count)</div><div class="ttdoc">This function writes a the parameter section of the IGES file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00181">GeometryIGS.hpp:181</a></div></div>
+<div class="ttc" id="agroup___geometry_html_ga6c17c87ff88511abb7cf6a47970e2aa1"><div class="ttname"><a href="group___geometry.html#ga6c17c87ff88511abb7cf6a47970e2aa1">Bembel::writeIGSHeader</a></div><div class="ttdeci">void writeIGSHeader(std::string file_name)</div><div class="ttdoc">Write the IGES header into the given file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00236">GeometryIGS.hpp:236</a></div></div>
 <div class="ttc" id="agroup___geometry_html_ga7fe7dcd5113abedbe0c26bc8d30638ac"><div class="ttname"><a href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">Bembel::writeSection</a></div><div class="ttdeci">void writeSection(std::string file_name, const std::vector&lt; std::string &gt; &amp;section, const char section_char)</div><div class="ttdoc">This function writes a given section to the specified file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00158">GeometryIGS.hpp:158</a></div></div>
 <div class="ttc" id="agroup___geometry_html_gaaa18e14e95262340034d0b41f2ebc075"><div class="ttname"><a href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075">Bembel::LoadGeometryFileIGS</a></div><div class="ttdeci">std::vector&lt; Patch &gt; LoadGeometryFileIGS(const std::string &amp;file_name) noexcept</div><div class="ttdoc">loads geometry from IGES file. Note that the direction of the normals must be consistent.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00025">GeometryIGS.hpp:25</a></div></div>
 <div class="ttc" id="agroup___geometry_html_gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><div class="ttname"><a href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">Bembel::makeSection</a></div><div class="ttdeci">std::vector&lt; std::string &gt; makeSection(std::vector&lt; std::string &gt; data, const int linewidth=72)</div><div class="ttdoc">Transform a vector of Data in a vector of lines with a specific length.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00205">GeometryIGS.hpp:205</a></div></div>
-<div class="ttc" id="agroup___geometry_html_gab0557fb935922723f44d095d43c96c93"><div class="ttname"><a href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">Bembel::writePatchData</a></div><div class="ttdeci">std::vector&lt; std::string &gt; writePatchData(const Patch &amp;patch, const int precision)</div><div class="ttdoc">This Function writes the patch from Bembel into a vector which can be written into an IGES file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00358">GeometryIGS.hpp:358</a></div></div>
-<div class="ttc" id="agroup___geometry_html_gac59b3f15b6352069bc49b9c3b73e2658"><div class="ttname"><a href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">Bembel::writeIGSFile</a></div><div class="ttdeci">void writeIGSFile(const std::vector&lt; Patch &gt; &amp;geometry, std::string file_name, const int precision=6)</div><div class="ttdoc">Writes Geometry into an IGES file format.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00453">GeometryIGS.hpp:453</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
-<div class="ttc" id="anamespace_bembel_html_a13ec0a7ecedd0f45845efd7afeb228b7"><div class="ttname"><a href="namespace_bembel.html#a13ec0a7ecedd0f45845efd7afeb228b7">Bembel::writeDirectory</a></div><div class="ttdeci">int writeDirectory(std::string file_name, std::vector&lt; int &gt; start_idx, std::vector&lt; int &gt; number_of_lines)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00309">GeometryIGS.hpp:309</a></div></div>
-<div class="ttc" id="anamespace_bembel_html_a2a630a98b04cf9e1474891161b408bd9"><div class="ttname"><a href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">Bembel::double_to_string</a></div><div class="ttdeci">std::string double_to_string(double d, const int precision)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00241">GeometryIGS.hpp:241</a></div></div>
-<div class="ttc" id="anamespace_bembel_html_a6c17c87ff88511abb7cf6a47970e2aa1"><div class="ttname"><a href="namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1">Bembel::writeIGSHeader</a></div><div class="ttdeci">void writeIGSHeader(std::string file_name)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00230">GeometryIGS.hpp:230</a></div></div>
-<div class="ttc" id="anamespace_bembel_html_ae7a32044fa9c3c1ea7475ba5595aec65"><div class="ttname"><a href="namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65">Bembel::writeGlobalSection</a></div><div class="ttdeci">int writeGlobalSection(std::string file_name)</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00247">GeometryIGS.hpp:247</a></div></div>
+<div class="ttc" id="agroup___geometry_html_gab0557fb935922723f44d095d43c96c93"><div class="ttname"><a href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">Bembel::writePatchData</a></div><div class="ttdeci">std::vector&lt; std::string &gt; writePatchData(const Patch &amp;patch, const int precision)</div><div class="ttdoc">This Function writes the patch from Bembel into a vector which can be written into an IGES file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00385">GeometryIGS.hpp:385</a></div></div>
+<div class="ttc" id="agroup___geometry_html_gac59b3f15b6352069bc49b9c3b73e2658"><div class="ttname"><a href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">Bembel::writeIGSFile</a></div><div class="ttdeci">void writeIGSFile(const std::vector&lt; Patch &gt; &amp;geometry, std::string file_name, const int precision=6)</div><div class="ttdoc">Writes Geometry into an IGES file format.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00481">GeometryIGS.hpp:481</a></div></div>
+<div class="ttc" id="agroup___geometry_html_gae7a32044fa9c3c1ea7475ba5595aec65"><div class="ttname"><a href="group___geometry.html#gae7a32044fa9c3c1ea7475ba5595aec65">Bembel::writeGlobalSection</a></div><div class="ttdeci">int writeGlobalSection(std::string file_name)</div><div class="ttdoc">Write the IGES Global section into the given file.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00265">GeometryIGS.hpp:265</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html_a2a630a98b04cf9e1474891161b408bd9"><div class="ttname"><a href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">Bembel::double_to_string</a></div><div class="ttdeci">std::string double_to_string(double d, const int precision)</div><div class="ttdoc">Convert a double to a string with given precision.</div><div class="ttdef"><b>Definition:</b> <a href="_geometry_i_g_s_8hpp_source.html#l00253">GeometryIGS.hpp:253</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_38d2fb450630d24c975db6d9582a3ac9.html">Geometry</a></li><li class="navelem"><a class="el" href="_geometry_i_g_s_8hpp.html">GeometryIGS.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_38d2fb450630d24c975db6d9582a3ac9.html">Geometry</a></li><li class="navelem"><b>GeometryIGS.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

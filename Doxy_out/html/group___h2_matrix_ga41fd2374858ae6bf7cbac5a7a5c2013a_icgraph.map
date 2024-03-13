@@ -1,4 +1,0 @@
-<map id="Bembel::H2Multipole::interpolationPoints2D" name="Bembel::H2Multipole::interpolationPoints2D">
-<area shape="rect" id="node1" title="Compute tensor interpolation points on unit square from 1D interpolation points." alt="" coords="208,5,379,47"/>
-<area shape="rect" id="node2" href="$class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="5,5,160,47"/>
-</map>

@@ -38,7 +38,10 @@ var group___geometry =
     [ "LoadGeometryFileIGS", "group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075", null ],
     [ "makeSection", "group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977", null ],
     [ "WriteDATFile", "group___geometry.html#ga9290c96b302fce4ec7c3b194f328db4a", null ],
+    [ "writeDirectory", "group___geometry.html#ga13ec0a7ecedd0f45845efd7afeb228b7", null ],
+    [ "writeGlobalSection", "group___geometry.html#gae7a32044fa9c3c1ea7475ba5595aec65", null ],
     [ "writeIGSFile", "group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658", null ],
+    [ "writeIGSHeader", "group___geometry.html#ga6c17c87ff88511abb7cf6a47970e2aa1", null ],
     [ "writeParameterSection", "group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e", null ],
     [ "writePatchData", "group___geometry.html#gab0557fb935922723f44d095d43c96c93", null ],
     [ "writeSection", "group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac", null ]

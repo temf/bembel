@@ -25,51 +25,33 @@
 var NAVTREE =
 [
   [ "Bembel", "index.html", [
-    [ "Todo List", "todo.html", null ],
-    [ "Deprecated List", "deprecated.html", null ],
-    [ "Modules", "modules.html", "modules" ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
-      ] ]
+    [ "Getting started", "_getting_started.html", [
+      [ "Structure of the Repository", "_structure_repo.html", null ],
+      [ "Configurations", "_configurations.html", null ]
     ] ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerator", "functions_eval.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
-      ] ]
+    [ "Extending Bembel", "usergroup0.html", [
+      [ "Design Considerations", "_design_considerations.html", null ],
+      [ "Coding Guidelines", "coding_guidelines.html", null ],
+      [ "Frequently Asked Questions", "_f_a_qs.html", null ]
     ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
-    ] ]
+    [ "Further Information", "usergroup1.html", [
+      [ "Contributors", "_contributors.html", null ],
+      [ "Publications Featuring Bembel", "citelist.html", null ],
+      [ "Funding", "_funding.html", null ]
+    ] ],
+    [ "Source Code", "modules.html", "modules" ],
+    [ "Class List", "annotated.html", "annotated" ],
+    [ "Namespace List", "namespaces.html", "namespaces" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_adjoint_double_layer_operator_8hpp.html",
-"_linear_form_source.html",
-"class_bembel_1_1_discrete_linear_form.html",
-"class_bembel_1_1_maxwell_single_layer_potential.html#a59facc4a5f6645515b51e94f06ba1459",
-"group___h2_matrix.html#ga0203377e94e1ce20cfdea64eeb049b60",
-"struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html#a09b5e7c4f79531878a400a2c282f7806",
-"struct_bembel_1_1_quadrature_vector.html"
+"",
+"class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139",
+"class_bembel_1_1_v_t_k_surface_export.html#ad9eeb0559aaec952b749fe083173f7a4",
+"print2file_8hpp.html#ab5f2547db8b4d1e94d14f72e3c760d46",
+"struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01std_1_1complex_3_01double_01_4_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

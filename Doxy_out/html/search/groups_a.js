@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spline_1713',['Spline',['../group___spline.html',1,'']]]
+  ['quadrature_903',['Quadrature',['../group___quadrature.html',1,'']]]
 ];

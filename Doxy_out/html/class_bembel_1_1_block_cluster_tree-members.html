@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -98,37 +109,37 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_block_cluster_tree.ht
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9">appendSubtree</a>(const LinOp &amp;linear_operator, const AnsatzSpace &amp;ansatz_space, const ElementTreeNode *cluster1, const ElementTreeNode *cluster2)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a7b96acd7029af0031d07ee06867204c9">BlockClusterTree</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a65ca225b7538414ef885ffe25e706217">BlockClusterTree</a>(BlockClusterTree &amp;&amp;other) noexcept</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#ae3e928e94d47059e9fd9785c8696d791">BlockClusterTree</a>(const BlockClusterTree &amp;other) noexcept</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879">BlockClusterTree</a>(const LinOp &amp;linear_operator, const AnsatzSpace &amp;ansatz_space)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a91e90a08c1701dd9ecfd6829631e345f">clbegin</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a7592d3409c4c8ea0dbf9777f99ec6bea">clend</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a5ab903fa4453bfa9af0b51bcb90f96e5">cols</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>BlockClusterTree</b>(BlockClusterTree &amp;&amp;other) noexcept (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>BlockClusterTree</b>(const BlockClusterTree &amp;other) noexcept (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>BlockClusterTree</b>(const LinOp &amp;linear_operator, const AnsatzSpace &amp;ansatz_space) (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>clbegin</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>clend</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>cols</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a9d3e3a6636d8a578646c36e4c5481ba9">get_cc</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a8b8abc6e25227cb6493a0d2285beb19f">get_cluster1</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a73aa33736b94207c08431a7303d5d36e">get_cluster2</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#ab0314bd9541174723b14901687a909d4">get_col_end_index</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a1bb24acdd69e927e3a0a8e14fbb5cf0a">get_col_start_index</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a259059999d26bc8dd0963fe72f84002f">get_leaf</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a1191e3c4bad17a4f9175790f3a29516a">get_leaf</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#ab1d05aae27410cd7c381e47dcbdc09f0">get_level</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a3713084c8bd6103eaccfa4410190ded6">get_parameters</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a4615cd8dd2b23c679b2a84f58884b538">get_parameters</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#ae744460d917d77256c45c37107bb8c88">get_row_end_index</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a52b4291cd2d7729bdfd6d738b5f5229e">get_row_start_index</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0">init_BlockClusterTree</a>(const LinOp &amp;linOp, const AnsatzSpace &amp;ansatz_space)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a72463ffdedc49bbb54a2aca62cffc7f4">lbegin</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a28e8b855a13297d904c26ec86f0cb966">lend</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_cluster1</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_cluster2</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_col_end_index</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_col_start_index</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_leaf</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_leaf</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_level</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_parameters</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_parameters</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_row_end_index</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_row_start_index</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>init_BlockClusterTree</b>(const LinOp &amp;linOp, const AnsatzSpace &amp;ansatz_space) (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>lbegin</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>lend</b>() (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a024a7e739ae71ff2b92241a0c8bf34b7">operator=</a>(BlockClusterTree other) noexcept</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#ab86347928a70cdd0bb08c7bf9e904801">printNode</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a3c23c3c7a03896f3e9dc0ca665ba0350">rows</a>() const</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>printNode</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>rows</b>() const (defined in <a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html#a844108af0d77d0259d6ccf7e979b4d28">set_parameters</a>(double eta=1.6, int min_cluster_level=1)</td><td class="entry"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">Bembel::BlockClusterTree&lt; Scalar &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

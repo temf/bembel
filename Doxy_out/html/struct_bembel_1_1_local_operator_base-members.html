@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -96,20 +107,20 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_local_operator_base.
 
 <p>This is the complete list of members for <a class="el" href="struct_bembel_1_1_local_operator_base.html">Bembel::LocalOperatorBase&lt; Derived &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">derived</a>()</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">derived</a>() const</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">evaluateFMMInterpolation</a>(const SurfacePoint &amp;p1, const SurfacePoint &amp;p2) const</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a>(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">get_FarfieldQuadratureDegree</a>(int ansatz_degree) const</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>derived</b>() (defined in <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>derived</b>() const (defined in <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>evaluateFMMInterpolation</b>(const SurfacePoint &amp;p1, const SurfacePoint &amp;p2) const (defined in <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>evaluateIntegrand</b>(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const (defined in <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_FarfieldQuadratureDegree</b>(int ansatz_degree) const (defined in <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a>(int ansatz_degree, double distance, int level) const</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">LinearOperatorBase</a>()</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_bembel_1_1_local_operator_base.html#a64fe8d24712fdffe19964dc49f204a8f">LocalOperatorBase</a>()</td><td class="entry"><a class="el" href="struct_bembel_1_1_local_operator_base.html">Bembel::LocalOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>LinearOperatorBase</b>() (defined in <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>LocalOperatorBase</b>() (defined in <a class="el" href="struct_bembel_1_1_local_operator_base.html">Bembel::LocalOperatorBase&lt; Derived &gt;</a>)</td><td class="entry"><a class="el" href="struct_bembel_1_1_local_operator_base.html">Bembel::LocalOperatorBase&lt; Derived &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

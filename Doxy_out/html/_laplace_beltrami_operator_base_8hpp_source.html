@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_laplace_beltrami_operator_base_8hpp_s
 <div class="title">LaplaceBeltramiOperatorBase.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_laplace_beltrami_operator_base_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -112,9 +123,9 @@ $(document).ready(function(){initNavTree('_laplace_beltrami_operator_base_8hpp_s
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_bembel_1_1_laplace_beltrami_operator_base.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_laplace_beltrami_operator_base.html">LaplaceBeltramiOperatorBase</a> : <span class="keyword">public</span> <a class="code" href="struct_bembel_1_1_local_operator_base.html">LocalOperatorBase</a>&lt;Derived&gt; {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_bembel_1_1_laplace_beltrami_operator_base.html#a45a730e740465bd9f9034c367a8b269b">   24</a></span>&#160;  <a class="code" href="class_bembel_1_1_laplace_beltrami_operator_base.html#a45a730e740465bd9f9034c367a8b269b">LaplaceBeltramiOperatorBase</a>() {}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="class_bembel_1_1_laplace_beltrami_operator_base.html">LaplaceBeltramiOperatorBase</a>() {}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_bembel_1_1_laplace_beltrami_operator_base.html#a2bb61e507e4b760fa702bd057149f883">   26</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_laplace_beltrami_operator_base.html#a2bb61e507e4b760fa702bd057149f883">evaluateIntegrand_impl</a>(<span class="keyword">const</span> T &amp;super_space, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> evaluateIntegrand_impl(<span class="keyword">const</span> T &amp;super_space, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1,</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                              <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2,</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                              Eigen::MatrixXd *intval)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// get basic information</span></div>
@@ -137,18 +148,16 @@ $(document).ready(function(){initNavTree('_laplace_beltrami_operator_base_8hpp_s
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_LAPLACEBELTRAMI_LAPLACEBELTRAMIOPERATORBASE_HPP_</span></div>
 <div class="ttc" id="aclass_bembel_1_1_laplace_beltrami_operator_base_html"><div class="ttname"><a href="class_bembel_1_1_laplace_beltrami_operator_base.html">Bembel::LaplaceBeltramiOperatorBase</a></div><div class="ttdoc">This class is the base for Laplace Beltrami operator.</div><div class="ttdef"><b>Definition:</b> <a href="_laplace_beltrami_operator_base_8hpp_source.html#l00022">LaplaceBeltramiOperatorBase.hpp:22</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_laplace_beltrami_operator_base_html_a2bb61e507e4b760fa702bd057149f883"><div class="ttname"><a href="class_bembel_1_1_laplace_beltrami_operator_base.html#a2bb61e507e4b760fa702bd057149f883">Bembel::LaplaceBeltramiOperatorBase::evaluateIntegrand_impl</a></div><div class="ttdeci">void evaluateIntegrand_impl(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::MatrixXd *intval) const</div><div class="ttdef"><b>Definition:</b> <a href="_laplace_beltrami_operator_base_8hpp_source.html#l00026">LaplaceBeltramiOperatorBase.hpp:26</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_laplace_beltrami_operator_base_html_a45a730e740465bd9f9034c367a8b269b"><div class="ttname"><a href="class_bembel_1_1_laplace_beltrami_operator_base.html#a45a730e740465bd9f9034c367a8b269b">Bembel::LaplaceBeltramiOperatorBase::LaplaceBeltramiOperatorBase</a></div><div class="ttdeci">LaplaceBeltramiOperatorBase()</div><div class="ttdef"><b>Definition:</b> <a href="_laplace_beltrami_operator_base_8hpp_source.html#l00024">LaplaceBeltramiOperatorBase.hpp:24</a></div></div>
 <div class="ttc" id="agroup___geometry_html_ga7f3488fb214d75f08146ff31726428b4"><div class="ttname"><a href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a></div><div class="ttdeci">Eigen::Matrix&lt; double, 12, 1 &gt; SurfacePoint</div><div class="ttdoc">typedef of SurfacePoint</div><div class="ttdef"><b>Definition:</b> <a href="_surface_point_8hpp_source.html#l00042">SurfacePoint.hpp:42</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_local_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_local_operator_base.html">Bembel::LocalOperatorBase</a></div><div class="ttdoc">local operator base class. this serves as a common interface for existing local operators</div><div class="ttdef"><b>Definition:</b> <a href="_local_operator_base_8hpp_source.html#l00022">LocalOperatorBase.hpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_2caa5c151f6060c5ac8ea72368a42344.html">LaplaceBeltrami</a></li><li class="navelem"><a class="el" href="_laplace_beltrami_operator_base_8hpp.html">LaplaceBeltramiOperatorBase.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_2caa5c151f6060c5ac8ea72368a42344.html">LaplaceBeltrami</a></li><li class="navelem"><b>LaplaceBeltramiOperatorBase.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

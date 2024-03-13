@@ -1,5 +1,5 @@
 <map id="Bembel::LinearOperatorBase&lt; Derived &gt;" name="Bembel::LinearOperatorBase&lt; Derived &gt;">
-<area shape="rect" id="node1" title="linear operator base class. this serves as a common interface for existing linear operators" alt="" coords="5,136,215,177"/>
+<area shape="rect" id="node1" title="linear operator base class. this serves as a common interface for existing linear operators." alt="" coords="5,136,215,177"/>
 <area shape="rect" id="node2" href="$struct_bembel_1_1_local_operator_base.html" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="263,136,465,177"/>
 <area shape="rect" id="node3" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="523,5,751,47"/>
 <area shape="rect" id="node5" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="521,71,752,112"/>

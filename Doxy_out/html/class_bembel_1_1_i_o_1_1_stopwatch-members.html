@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -96,19 +107,19 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_i_o_1_1_stopwatch.htm
 
 <p>This is the complete list of members for <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#a8bfb79722ab224759e084b37206f0596">get_data</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#ad322667c36bceb65dcadb47f4671203f">lap</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#abddad17ce78cd5d633cc77ed9e575fda">start</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#a0e9e3b183de85c6bacb233d034dc0e1a">stop</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#adc073de20446b111b093cc9d9696c764">Stopwatch</a>()</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#a9a0e350248d9eaa12c8fa653cccca28e">tic</a>(void)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html#ab33e75a5feb47c5ab2b141738354ed3a">toc</a>(void)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>get_data</b>() (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>lap</b>() (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>start</b>() (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>stop</b>() (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Stopwatch</b>() (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>tic</b>(void) (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>toc</b>(void) (defined in <a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a>)</td><td class="entry"><a class="el" href="class_bembel_1_1_i_o_1_1_stopwatch.html">Bembel::IO::Stopwatch</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,0 @@
-<map id="Bembel::VTKSurfaceExport::addDataSet" name="Bembel::VTKSurfaceExport::addDataSet">
-<area shape="rect" id="node1" title="Add a function given through coefficients of an AnsatzSpace to the visualization." alt="" coords="5,39,203,80"/>
-<area shape="rect" id="node2" href="$class_bembel_1_1_v_t_k_surface_export.html#ad9eeb0559aaec952b749fe083173f7a4" title="Add a function of the given type to the visualization." alt="" coords="251,5,448,47"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_function_evaluator.html#a335d3de2569dd975a42a2cc2c306e07c" title=" " alt="" coords="251,71,448,112"/>
-</map>

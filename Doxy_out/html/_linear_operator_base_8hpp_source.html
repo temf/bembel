@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_linear_operator_base_8hpp_source.html
 <div class="title">LinearOperatorBase.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_linear_operator_base_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -107,90 +118,84 @@ $(document).ready(function(){initNavTree('_linear_operator_base_8hpp_source.html
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define BEMBEL_SRC_LINEAROPERATOR_LINEAROPERATORBASE_HPP_</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_bembel.html">Bembel</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html">   21</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="comment">// Constructors</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">   23</a></span>&#160;  <a class="code" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">LinearOperatorBase</a>() {}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// the user has to provide the implementation of this function, which</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">// is able to evaluate the integrand of the Galerkin formulation in a</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="comment">// pair of quadrature points represented as a</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="comment">// Surface point [xi; h * w; Chi(xi); dsChi(xi); dtChi(xi)]</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">   29</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a>(</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keyword">const</span> T &amp;super_space, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      Eigen::Matrix&lt;<span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Scalar</a>,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                    Eigen::Dynamic, Eigen::Dynamic&gt; *intval)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;evaluateIntegrand_impl(super_space, p1,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                                               p2, intval);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// the user has to provide the implementation of this function, which</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">// is able to evaluate the interpolation values of the Galerkin formulation on</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">// the reference domain in a pair of interpolation points represented as a</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// Surface point [xi; 1.; Chi(xi); dsChi(xi); dtChi(xi)]</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  Eigen::Matrix&lt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Scalar</a>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      getFunctionSpaceVectorDimension&lt;LinearOperatorTraits&lt;Derived&gt;::Form&gt;() *</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::NumberOfFMMComponents</a>,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt;<a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Form</a>&gt;() *</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::NumberOfFMMComponents</a>&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">   47</a></span>&#160;  <a class="code" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">evaluateFMMInterpolation</a>(<span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                           <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;evaluateFMMInterpolation_impl(</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        p1, p2);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// return the required quadrature degree for the far-field</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">   53</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">get_FarfieldQuadratureDegree</a>(<span class="keywordtype">int</span> ansatz_degree)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> ansatz_degree - <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::OperatorOrder</a> + 1;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// return the required quadrature degree for the near-field</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">   66</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a>(<span class="keywordtype">int</span> ansatz_degree, <span class="keywordtype">double</span> distance,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                   <span class="keywordtype">int</span> level)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// if farfield quadrature is computed: take log of distance</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// otherwise compute quadrature degree for Duffy trick</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">double</span> distance_log =</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        (distance * (1 &lt;&lt; level) &lt; 1) ? -(level * log(2.)) : log(distance);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// alpha/2 is the convergence rate of the corresponding Galerkin solution,</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// this ensures the correct convergence rate of the potential</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> alpha =</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        2 - <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::OperatorOrder</a> + 2 * ansatz_degree;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// compute numerator and denominator of quadrature degree</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">double</span> numerator =</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        (alpha + ansatz_degree) * level * log(2.) -</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        (2 - ansatz_degree + <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::OperatorOrder</a>) *</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            distance_log;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">double</span> denominator = (level + 2) * log(2.) + distance_log;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> 0.5 * numerator / denominator;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">// pointer to the derived object</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">   88</a></span>&#160;  Derived &amp;<a class="code" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">derived</a>() { <span class="keywordflow">return</span> *<span class="keyword">static_cast&lt;</span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>); }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// const pointer to the derived object</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">   90</a></span>&#160;  <span class="keyword">const</span> Derived &amp;<a class="code" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">derived</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>); }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_LINEAROPERATOR_LINEAROPERATORBASE_HPP_</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html">   24</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">// Constructors</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>() {}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="comment">// the user has to provide the implementation of this function, which</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="comment">// is able to evaluate the integrand of the Galerkin formulation in a</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">// pair of quadrature points represented as a</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// Surface point [xi; h * w; Chi(xi); dsChi(xi); dtChi(xi)]</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> evaluateIntegrand(</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="keyword">const</span> T &amp;super_space, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      Eigen::Matrix&lt;<span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Scalar</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    Eigen::Dynamic, Eigen::Dynamic&gt; *intval)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;evaluateIntegrand_impl(super_space, p1,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                                               p2, intval);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// the user has to provide the implementation of this function, which</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">// is able to evaluate the interpolation values of the Galerkin formulation on</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// the reference domain in a pair of interpolation points represented as a</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// Surface point [xi; 1.; Chi(xi); dsChi(xi); dtChi(xi)]</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  Eigen::Matrix&lt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Scalar</a>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      getFunctionSpaceVectorDimension&lt;LinearOperatorTraits&lt;Derived&gt;::Form&gt;() *</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::NumberOfFMMComponents</a>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <a class="code" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt;<a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Form</a>&gt;() *</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::NumberOfFMMComponents</a>&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  evaluateFMMInterpolation(<span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                           <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;evaluateFMMInterpolation_impl(</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        p1, p2);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// return the required quadrature degree for the far-field</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">int</span> get_FarfieldQuadratureDegree(<span class="keywordtype">int</span> ansatz_degree)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> ansatz_degree - <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::OperatorOrder</a> + 1;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// return the required quadrature degree for the near-field</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">   69</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a>(<span class="keywordtype">int</span> ansatz_degree, <span class="keywordtype">double</span> distance,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                   <span class="keywordtype">int</span> level)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// if farfield quadrature is computed: take log of distance</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// otherwise compute quadrature degree for Duffy trick</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">double</span> distance_log =</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        (distance * (1 &lt;&lt; level) &lt; 1) ? -(level * log(2.)) : log(distance);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// alpha/2 is the convergence rate of the corresponding Galerkin solution,</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// this ensures the correct convergence rate of the potential</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> alpha =</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        2 - <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::OperatorOrder</a> + 2 * ansatz_degree;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// compute numerator and denominator of quadrature degree</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">double</span> numerator =</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        (alpha + ansatz_degree) * level * log(2.) -</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        (2 - ansatz_degree + <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::OperatorOrder</a>) *</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            distance_log;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">double</span> denominator = (level + 2) * log(2.) + distance_log;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> 0.5 * numerator / denominator;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// pointer to the derived object</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  Derived &amp;derived() { <span class="keywordflow">return</span> *<span class="keyword">static_cast&lt;</span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>); }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment">// const pointer to the derived object</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">const</span> Derived &amp;derived()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>Derived *<span class="keyword">&gt;</span>(<span class="keyword">this</span>); }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_LINEAROPERATOR_LINEAROPERATORBASE_HPP_</span></div>
 <div class="ttc" id="agroup___geometry_html_ga7f3488fb214d75f08146ff31726428b4"><div class="ttname"><a href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a></div><div class="ttdeci">Eigen::Matrix&lt; double, 12, 1 &gt; SurfacePoint</div><div class="ttdoc">typedef of SurfacePoint</div><div class="ttdef"><b>Definition:</b> <a href="_surface_point_8hpp_source.html#l00042">SurfacePoint.hpp:42</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
-<div class="ttc" id="anamespace_bembel_html_aeae05c4d8cf11542222e8ce43f67e715"><div class="ttname"><a href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">Bembel::getFunctionSpaceVectorDimension</a></div><div class="ttdeci">constexpr int getFunctionSpaceVectorDimension()</div><div class="ttdef"><b>Definition:</b> <a href="_differential_form_enum_8hpp_source.html#l00059">DifferentialFormEnum.hpp:59</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a></div><div class="ttdoc">linear operator base class. this serves as a common interface for existing linear operators</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00021">LinearOperatorBase.hpp:21</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a0f7bbdf4c5de7ceff53e60cce7748630"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">Bembel::LinearOperatorBase::evaluateIntegrand</a></div><div class="ttdeci">void evaluateIntegrand(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00029">LinearOperatorBase.hpp:29</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a3014433275b18ffad85c73cb1eec22f1"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">Bembel::LinearOperatorBase::LinearOperatorBase</a></div><div class="ttdeci">LinearOperatorBase()</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00023">LinearOperatorBase.hpp:23</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a4363f27d775bc3e8b2364272f89650b1"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">Bembel::LinearOperatorBase::derived</a></div><div class="ttdeci">Derived &amp; derived()</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00088">LinearOperatorBase.hpp:88</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a46d1663265d35d3db4c8041ba5693bd1"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">Bembel::LinearOperatorBase::derived</a></div><div class="ttdeci">const Derived &amp; derived() const</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00090">LinearOperatorBase.hpp:90</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a564ca07e65785b8f8bb8882524d5f1d3"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">Bembel::LinearOperatorBase::get_FarfieldQuadratureDegree</a></div><div class="ttdeci">int get_FarfieldQuadratureDegree(int ansatz_degree) const</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00053">LinearOperatorBase.hpp:53</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a93eae80056713e449c452e86fe4f89eb"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">Bembel::LinearOperatorBase::getNearfieldQuadratureDegree</a></div><div class="ttdeci">int getNearfieldQuadratureDegree(int ansatz_degree, double distance, int level) const</div><div class="ttdoc">Compute quadrature degree for numerical integretation close to the singularity based on distance,...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00066">LinearOperatorBase.hpp:66</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_ad616d64eccfb9cbde9ff8208f473e6a0"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">Bembel::LinearOperatorBase::evaluateFMMInterpolation</a></div><div class="ttdeci">Eigen::Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar, getFunctionSpaceVectorDimension&lt; LinearOperatorTraits&lt; Derived &gt;::Form &gt;) *LinearOperatorTraits&lt; Derived &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; LinearOperatorTraits&lt; Derived &gt;::Form &gt;) *LinearOperatorTraits&lt; Derived &gt;::NumberOfFMMComponents &gt; evaluateFMMInterpolation(const SurfacePoint &amp;p1, const SurfacePoint &amp;p2) const</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00047">LinearOperatorBase.hpp:47</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html_aeae05c4d8cf11542222e8ce43f67e715"><div class="ttname"><a href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">Bembel::getFunctionSpaceVectorDimension</a></div><div class="ttdeci">constexpr int getFunctionSpaceVectorDimension()</div><div class="ttdef"><b>Definition:</b> <a href="_differential_form_enum_8hpp_source.html#l00067">DifferentialFormEnum.hpp:67</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a></div><div class="ttdoc">linear operator base class. this serves as a common interface for existing linear operators.</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00024">LinearOperatorBase.hpp:24</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html_a93eae80056713e449c452e86fe4f89eb"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">Bembel::LinearOperatorBase::getNearfieldQuadratureDegree</a></div><div class="ttdeci">int getNearfieldQuadratureDegree(int ansatz_degree, double distance, int level) const</div><div class="ttdoc">Compute quadrature degree for numerical integretation close to the singularity based on distance,...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00069">LinearOperatorBase.hpp:69</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits.html">Bembel::LinearOperatorTraits</a></div><div class="ttdoc">struct containing specifications on the linear operator has to be specialized or derived for any part...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_traits_8hpp_source.html#l00022">LinearOperatorTraits.hpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_645d27ead1d07aa3564cfdf7ff2d131a.html">LinearOperator</a></li><li class="navelem"><a class="el" href="_linear_operator_base_8hpp.html">LinearOperatorBase.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_645d27ead1d07aa3564cfdf7ff2d131a.html">LinearOperator</a></li><li class="navelem"><b>LinearOperatorBase.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

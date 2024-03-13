@@ -14,6 +14,7 @@ var group___linear_form =
       [ "init_DiscreteLinearForm", "class_bembel_1_1_discrete_linear_form.html#a3d13dbedc3aa1f72ae2168de40d9926a", null ],
       [ "set_degree", "class_bembel_1_1_discrete_linear_form.html#ab02a68c7dc41f68e7b8ce3766e6401fe", null ]
     ] ],
+    [ "LinearFormTraits", "struct_bembel_1_1_linear_form_traits.html", null ],
     [ "LinearFormBase", "struct_bembel_1_1_linear_form_base.html", [
       [ "LinearFormBase", "struct_bembel_1_1_linear_form_base.html#aabef19105d16b72b3087eb37a34f229a", null ],
       [ "derived", "struct_bembel_1_1_linear_form_base.html#adeda5ed6db36e7e8256b1df3454bdbe7", null ],

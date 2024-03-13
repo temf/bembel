@@ -1,0 +1,60 @@
+namespace Bembel {
+/**
+\page Contributors Contributors
+
+# Contributors (alphabetically): 
+- D. Andric,
+- J. Corno,
+- [J. Dölz](#JD),
+- [H. Harbrecht](#HeHa),
+- [W. Huang](#WH),
+- [M. Multerer](#MM),
+- [M. Nolte](#MN),
+- [R. von Rickenbach](#RvR),
+- [F. Wolf](#FW).
+
+# About the People
+
+* [Jürgen Dölz](https://ins.uni-bonn.de/staff/doelz) 
+<a name="JD"></a> currently holds a professorship at the [University of Bonn](https://www.uni-bonn.de/). He may also be found 
+[on GitHub](https://github.com/jdoelz).
+
+* [Helmut Harbrecht](https://cm.dmi.unibas.ch/) 
+<a name="HeHa"></a> currently holds a professorship at the 
+[Departement Mathematik und Informatik](https://dmi.unibas.ch/de/home/) 
+at the University of Basel.
+
+* [Wei Huang](http://usi.to/2ie) 
+<a name="MN"></a>is currently a PhD student
+at the Institute of Computational Science at the Università della Svizzera italiana in Lugano. He may also be found 
+[on GitHub](https://github.com/weiwongg).
+
+* [Stefan Kurz](https://gepris.dfg.de/gepris/person/1810768)
+<a name="SK"></a> currently holds a professorship at the University of Jyväskylä.
+
+* [Michael Multerer](http://usi.to/3ps) 
+<a name="MM"></a> currently holds a professorship 
+at the Institute of Computational Science at the Università della Svizzera italiana in Lugano.
+He may also be found [on GitHub](https://github.com/muchip).
+
+* [Maximilian Nolte](https://www.cem.tu-darmstadt.de/cem/group/nolte.en.jsp) 
+<a name="MN"></a>is currently a PhD student at the 
+[Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) at TU Darmstadt. He may also be found 
+[on GitHub](https://github.com/mx-nlte).
+
+* [Sebastian Schöps](https://www.cem.tu-darmstadt.de/cem/group/schops.en.jsp
+)<a name="SSc"></a> currently holds a professorship at the 
+[Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) 
+at TU Darmstadt. He may also be found [on GitHub](https://github.com/schoeps).
+
+* [Remo von Rickenbach](https://dmi.unibas.ch/de/personen/remo-von-rickenbach/) 
+<a name="RvR"></a>is currently a PhD student at the 
+[Departement Mathematik und Informatik](https://dmi.unibas.ch/de/home/) at the University of Basel.
+
+* [Felix Wolf](https://www.cem.tu-darmstadt.de/cem/group/wolf.en.jsp) 
+<a name="FW"></a>is currently a lecturer at the 
+[Institute TEMF](https://www.temf.tu-darmstadt.de/temf/index.en.jsp) at TU Darmstadt. He may also be found 
+[on GitHub](https://github.com/flx-wlf).
+
+*/
+}  // namespace Bembel

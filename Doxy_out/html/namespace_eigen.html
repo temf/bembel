@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -89,398 +100,19 @@ $(document).ready(function(){initNavTree('namespace_eigen.html',''); initResizab
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Eigen Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespace_eigen_1_1internal"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_eigen_1_1internal.html">internal</a></td></tr>
-<tr class="memdesc:namespace_eigen_1_1internal"><td class="mdescLeft">&#160;</td><td class="mdescRight">small modification of internal traits of SparseMatrix <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1_h2.html">H2</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html">CwiseBinaryOpImpl&lt; BinaryOp, Lhs, Rhs, H2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_h2_matrix.html">H2Matrix</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">forward definition of the <a class="el" href="class_eigen_1_1_h2_matrix.html" title="forward definition of the H2Matrix Class in order to define traits">H2Matrix</a> Class in order to define traits  <a href="class_eigen_1_1_h2_matrix.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a6ee81391daa8925032c8b61474ee43c3"><td class="memTemplParams" colspan="2">template&lt;typename DenseDerived , typename H2Derived &gt; </td></tr>
-<tr class="memitem:a6ee81391daa8925032c8b61474ee43c3"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_sum_op&lt; typename DenseDerived::Scalar, typename H2Derived::Scalar &gt;, const DenseDerived, const H2Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">operator+</a> (const MatrixBase&lt; DenseDerived &gt; &amp;a, const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;b)</td></tr>
-<tr class="separator:a6ee81391daa8925032c8b61474ee43c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7e7bf2bbef483cdd34c5ba714e0a500"><td class="memTemplParams" colspan="2">template&lt;typename H2Derived , typename DenseDerived &gt; </td></tr>
-<tr class="memitem:ae7e7bf2bbef483cdd34c5ba714e0a500"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_sum_op&lt; typename H2Derived::Scalar, typename DenseDerived::Scalar &gt;, const H2Derived, const DenseDerived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#ae7e7bf2bbef483cdd34c5ba714e0a500">operator+</a> (const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;a, const MatrixBase&lt; DenseDerived &gt; &amp;b)</td></tr>
-<tr class="separator:ae7e7bf2bbef483cdd34c5ba714e0a500"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af39d9442a5a8267f70d166ce490c2100"><td class="memTemplParams" colspan="2">template&lt;typename SparseDerived , typename H2Derived &gt; </td></tr>
-<tr class="memitem:af39d9442a5a8267f70d166ce490c2100"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_sum_op&lt; typename SparseDerived::Scalar, typename H2Derived::Scalar &gt;, const SparseDerived, const H2Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#af39d9442a5a8267f70d166ce490c2100">operator+</a> (const SparseMatrixBase&lt; SparseDerived &gt; &amp;a, const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;b)</td></tr>
-<tr class="separator:af39d9442a5a8267f70d166ce490c2100"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa079f690520187ae1c463997b82b122b"><td class="memTemplParams" colspan="2">template&lt;typename H2Derived , typename SparseDerived &gt; </td></tr>
-<tr class="memitem:aa079f690520187ae1c463997b82b122b"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_sum_op&lt; typename H2Derived::Scalar, typename SparseDerived::Scalar &gt;, const H2Derived, const SparseDerived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#aa079f690520187ae1c463997b82b122b">operator+</a> (const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;a, const SparseMatrixBase&lt; SparseDerived &gt; &amp;b)</td></tr>
-<tr class="separator:aa079f690520187ae1c463997b82b122b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc22dca7bb8e19ca5aec81159507b887"><td class="memTemplParams" colspan="2">template&lt;typename DenseDerived , typename H2Derived &gt; </td></tr>
-<tr class="memitem:afc22dca7bb8e19ca5aec81159507b887"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_difference_op&lt; typename DenseDerived::Scalar, typename H2Derived::Scalar &gt;, const DenseDerived, const H2Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">operator-</a> (const MatrixBase&lt; DenseDerived &gt; &amp;a, const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;b)</td></tr>
-<tr class="separator:afc22dca7bb8e19ca5aec81159507b887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83fd91cd0ace8deafe535549fb94073f"><td class="memTemplParams" colspan="2">template&lt;typename H2Derived , typename DenseDerived &gt; </td></tr>
-<tr class="memitem:a83fd91cd0ace8deafe535549fb94073f"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_difference_op&lt; typename H2Derived::Scalar, typename DenseDerived::Scalar &gt;, const H2Derived, const DenseDerived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#a83fd91cd0ace8deafe535549fb94073f">operator-</a> (const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;a, const MatrixBase&lt; DenseDerived &gt; &amp;b)</td></tr>
-<tr class="separator:a83fd91cd0ace8deafe535549fb94073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e5703fa93c3019ff6c872e23d21116d"><td class="memTemplParams" colspan="2">template&lt;typename SparseDerived , typename H2Derived &gt; </td></tr>
-<tr class="memitem:a7e5703fa93c3019ff6c872e23d21116d"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_difference_op&lt; typename SparseDerived::Scalar, typename H2Derived::Scalar &gt;, const SparseDerived, const H2Derived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#a7e5703fa93c3019ff6c872e23d21116d">operator-</a> (const SparseMatrixBase&lt; SparseDerived &gt; &amp;a, const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;b)</td></tr>
-<tr class="separator:a7e5703fa93c3019ff6c872e23d21116d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad292b392b5429db747ad822ff3e53d46"><td class="memTemplParams" colspan="2">template&lt;typename H2Derived , typename SparseDerived &gt; </td></tr>
-<tr class="memitem:ad292b392b5429db747ad822ff3e53d46"><td class="memTemplItemLeft" align="right" valign="top">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_difference_op&lt; typename H2Derived::Scalar, typename SparseDerived::Scalar &gt;, const H2Derived, const SparseDerived &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_eigen.html#ad292b392b5429db747ad822ff3e53d46">operator-</a> (const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;a, const SparseMatrixBase&lt; SparseDerived &gt; &amp;b)</td></tr>
-<tr class="separator:ad292b392b5429db747ad822ff3e53d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file mimicks Core/util/XprHelper.h of <a class="el" href="namespace_eigen.html">Eigen</a> </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae7e7bf2bbef483cdd34c5ba714e0a500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7e7bf2bbef483cdd34c5ba714e0a500">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename H2Derived , typename DenseDerived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_sum_op&lt;typename H2Derived::Scalar, typename DenseDerived::Scalar&gt;, const H2Derived, const DenseDerived&gt; Eigen::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const MatrixBase&lt; DenseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00115">115</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_ae7e7bf2bbef483cdd34c5ba714e0a500_cgraph.png" border="0" usemap="#anamespace_eigen_ae7e7bf2bbef483cdd34c5ba714e0a500_cgraph" alt=""/></div>
-<map name="anamespace_eigen_ae7e7bf2bbef483cdd34c5ba714e0a500_cgraph" id="anamespace_eigen_ae7e7bf2bbef483cdd34c5ba714e0a500_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,137,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="185,5,344,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa079f690520187ae1c463997b82b122b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa079f690520187ae1c463997b82b122b">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename H2Derived , typename SparseDerived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_sum_op&lt;typename H2Derived::Scalar, typename SparseDerived::Scalar&gt;, const H2Derived, const SparseDerived&gt; Eigen::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const SparseMatrixBase&lt; SparseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00141">141</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_aa079f690520187ae1c463997b82b122b_cgraph.png" border="0" usemap="#anamespace_eigen_aa079f690520187ae1c463997b82b122b_cgraph" alt=""/></div>
-<map name="anamespace_eigen_aa079f690520187ae1c463997b82b122b_cgraph" id="anamespace_eigen_aa079f690520187ae1c463997b82b122b_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,137,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="185,5,344,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a6ee81391daa8925032c8b61474ee43c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ee81391daa8925032c8b61474ee43c3">&#9670;&nbsp;</a></span>operator+() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename DenseDerived , typename H2Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_sum_op&lt;typename DenseDerived::Scalar, typename H2Derived::Scalar&gt;, const DenseDerived, const H2Derived&gt; Eigen::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const MatrixBase&lt; DenseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00102">102</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_a6ee81391daa8925032c8b61474ee43c3_cgraph.png" border="0" usemap="#anamespace_eigen_a6ee81391daa8925032c8b61474ee43c3_cgraph" alt=""/></div>
-<map name="anamespace_eigen_a6ee81391daa8925032c8b61474ee43c3_cgraph" id="anamespace_eigen_a6ee81391daa8925032c8b61474ee43c3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,137,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="185,5,344,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="af39d9442a5a8267f70d166ce490c2100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af39d9442a5a8267f70d166ce490c2100">&#9670;&nbsp;</a></span>operator+() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SparseDerived , typename H2Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_sum_op&lt;typename SparseDerived::Scalar, typename H2Derived::Scalar&gt;, const SparseDerived, const H2Derived&gt; Eigen::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const SparseMatrixBase&lt; SparseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00128">128</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_af39d9442a5a8267f70d166ce490c2100_cgraph.png" border="0" usemap="#anamespace_eigen_af39d9442a5a8267f70d166ce490c2100_cgraph" alt=""/></div>
-<map name="anamespace_eigen_af39d9442a5a8267f70d166ce490c2100_cgraph" id="anamespace_eigen_af39d9442a5a8267f70d166ce490c2100_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,137,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="185,5,344,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a83fd91cd0ace8deafe535549fb94073f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83fd91cd0ace8deafe535549fb94073f">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename H2Derived , typename DenseDerived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_difference_op&lt;typename H2Derived::Scalar, typename DenseDerived::Scalar&gt;, const H2Derived, const DenseDerived&gt; Eigen::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const MatrixBase&lt; DenseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00167">167</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_a83fd91cd0ace8deafe535549fb94073f_cgraph.png" border="0" usemap="#anamespace_eigen_a83fd91cd0ace8deafe535549fb94073f_cgraph" alt=""/></div>
-<map name="anamespace_eigen_a83fd91cd0ace8deafe535549fb94073f_cgraph" id="anamespace_eigen_a83fd91cd0ace8deafe535549fb94073f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,132,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="180,5,339,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ad292b392b5429db747ad822ff3e53d46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad292b392b5429db747ad822ff3e53d46">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename H2Derived , typename SparseDerived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_difference_op&lt;typename H2Derived::Scalar, typename SparseDerived::Scalar&gt;, const H2Derived, const SparseDerived&gt; Eigen::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const SparseMatrixBase&lt; SparseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00193">193</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_ad292b392b5429db747ad822ff3e53d46_cgraph.png" border="0" usemap="#anamespace_eigen_ad292b392b5429db747ad822ff3e53d46_cgraph" alt=""/></div>
-<map name="anamespace_eigen_ad292b392b5429db747ad822ff3e53d46_cgraph" id="anamespace_eigen_ad292b392b5429db747ad822ff3e53d46_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,132,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="180,5,339,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="afc22dca7bb8e19ca5aec81159507b887"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc22dca7bb8e19ca5aec81159507b887">&#9670;&nbsp;</a></span>operator-() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename DenseDerived , typename H2Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_difference_op&lt;typename DenseDerived::Scalar, typename H2Derived::Scalar&gt;, const DenseDerived, const H2Derived&gt; Eigen::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const MatrixBase&lt; DenseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00154">154</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_afc22dca7bb8e19ca5aec81159507b887_cgraph.png" border="0" usemap="#anamespace_eigen_afc22dca7bb8e19ca5aec81159507b887_cgraph" alt=""/></div>
-<map name="anamespace_eigen_afc22dca7bb8e19ca5aec81159507b887_cgraph" id="anamespace_eigen_afc22dca7bb8e19ca5aec81159507b887_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,132,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="180,5,339,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a7e5703fa93c3019ff6c872e23d21116d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e5703fa93c3019ff6c872e23d21116d">&#9670;&nbsp;</a></span>operator-() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SparseDerived , typename H2Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt;internal::scalar_difference_op&lt;typename SparseDerived::Scalar, typename H2Derived::Scalar&gt;, const SparseDerived, const H2Derived&gt; Eigen::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const SparseMatrixBase&lt; SparseDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt; H2Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_cwise_binary_op_8hpp_source.html#l00180">180</a> of file <a class="el" href="_h2_cwise_binary_op_8hpp_source.html">H2CwiseBinaryOp.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_eigen_a7e5703fa93c3019ff6c872e23d21116d_cgraph.png" border="0" usemap="#anamespace_eigen_a7e5703fa93c3019ff6c872e23d21116d_cgraph" alt=""/></div>
-<map name="anamespace_eigen_a7e5703fa93c3019ff6c872e23d21116d_cgraph" id="anamespace_eigen_a7e5703fa93c3019ff6c872e23d21116d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,132,39"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e" title=" " alt="" coords="180,5,339,47"/>
-</map>
-</div>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_eigen.html">Eigen</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

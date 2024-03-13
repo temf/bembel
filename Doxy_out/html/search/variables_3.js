@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['data_5f_1543',['data_',['../class_bembel_1_1_patch.html#ae08d87745c6c2fc4770add4b6c16cb97',1,'Bembel::Patch']]],
-  ['dofs_1544',['dofs',['../struct_bembel_1_1_glue_routines_1_1dof_identification.html#a0fce75b734a1a37a692cf0b25adc13b4',1,'Bembel::GlueRoutines::dofIdentification']]],
-  ['dummyoperator_5ftest_5ffunction_1545',['DummyOperator_test_function',['../namespace_bembel.html#a7a45a61be55ca86b8c57a2bf68356f50',1,'Bembel']]]
+  ['level_5f_871',['level_',['../class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f',1,'Bembel::ElementTreeNode']]],
+  ['llc_5f_872',['llc_',['../class_bembel_1_1_element_tree_node.html#a7a846769f7d42f3c9d2448cf4e4d572d',1,'Bembel::ElementTreeNode']]]
 ];

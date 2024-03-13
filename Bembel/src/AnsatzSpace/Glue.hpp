@@ -36,12 +36,16 @@ Every edge has an index between 0 and 3, where
 */
 
 namespace GlueRoutines {
-
+/**
+ * \brief Helper struct.
+ */
 struct dofIdentification {
   std::vector<int> dofs;
   int coef;
 };
-
+/**
+ * \brief Helper struct for assembling the Glue for the different cases.
+ */
 template <typename Derived, unsigned int DF>
 struct glue_identificationmaker_ {
   static std::vector<dofIdentification> makeIdentification(
@@ -55,9 +59,18 @@ struct glue_identificationmaker_ {
 }  // namespace GlueRoutines
 
 /**
- *  \ingroup AnsatzSpace
+ * \ingroup AnsatzSpace
  * \brief This class takes care of identifying DOFs on different edges, which
  *must be identified with one another.
+ *
+ * The Glue class has routines to assemble continuous B-splines across patch
+ *boundaries depending on the template parameter
+ *LinearOperatorTraits<Derived>::Form. If this template parameter is equal to
+ *DifferentialForm::Continuous, the B-splines are globally glued continuously.
+ *Otherwise, it can also be DifferentialForm::DivConforming, in which case the
+ *normal component is glued continuously. Finally, there is the option of not
+ *gluing the B-splines at all if the parameter is
+ *DifferentialForm::Discontinuous.
  **/
 template <typename Derived>
 class Glue {
@@ -66,18 +79,58 @@ class Glue {
   Eigen::SparseMatrix<double> glue_mat_;
 
  public:
+  /**
+   * \brief Constructor for the Glue class.
+   *
+   * This constructor initializes a Glue object with the provided SuperSpace and
+   * Projector objects.
+   *
+   * \param superspace The SuperSpace to handle the basis functions.
+   * \param proj The Projector which provides information on the dofs before
+   *        gluing.
+   */
   Glue(const SuperSpace<Derived> &superspace, const Projector<Derived> &proj) {
     init_Glue(superspace, proj);
   }
+  /**
+   * \brief Initializes the AnsatzSpace object.
+   *
+   * This function initializes the member variables of the Glue object.
+   *
+   * \param superspace The SuperSpace to handle the basis functions.
+   * \param proj The Projector which provides information on the dofs before
+   *        gluing.
+   */
   void init_Glue(const SuperSpace<Derived> &superspace,
                  const Projector<Derived> &proj) {
     edges_ = superspace.get_mesh().get_element_tree().patchTopologyInfo();
     glue_mat_ = assembleGlueMatrix(superspace, proj);
     return;
   }
-
+  /**
+   * \brief Returns Glue matrix to assemble continuous B-splines.
+   *
+   * This function returns the Glue matrix which transforms smooth B-splines to
+   * continuous shape functions across patch boundaries. If continuity is not
+   * needed this matrix is the identity. Other wise this matrix is a tall thin
+   * matrix combining degrees of freedom.
+   *
+   * \return Eigen::SparseMatrix<double> Glue matrix
+   */
   Eigen::SparseMatrix<double> get_glue_matrix() const { return glue_mat_; }
-
+  /**
+   * \brief Generates a list of degrees of freedom (DOFs) identifications.
+   *
+   * This function creates a list of degrees of freedom (DOFs) identifications
+   * which need to be glued together. The return type is a std::vector of
+   * GlueRoutines::dofIdentification which collects the DOFs to be glued.
+   * Furthermore, the coef in this struct denotes the orientation.
+   *
+   * \param superspace The SuperSpace reference to handle basis functions.
+   * \param proj The Projector contains the number of DOFs.
+   * \return A vector of GlueRoutines::dofIdentification containing the DOF
+   * identifications.
+   */
   inline std::vector<GlueRoutines::dofIdentification> makeDofIdentificationList(
       const SuperSpace<Derived> &superspace, const Projector<Derived> &proj) {
     return GlueRoutines::glue_identificationmaker_<
@@ -86,7 +139,17 @@ class Glue {
                                                                  superspace,
                                                                  proj);
   }
-
+  /**
+   * \brief Assembles the Glue matrix according to the DOF identification list.
+   *
+   * This function first sorts the DOFs in each identification list. Than the
+   * identification lists get sorted according to the first entries. After that
+   * the DOFs get stored in the Glue matrix.
+   *
+   * \param superspace The SuperSpace reference to handle basis functions.
+   * \param proj The Projector contains the number of DOFs.
+   * \return The Glue matrix.
+   */
   Eigen::SparseMatrix<double> assembleGlueMatrix(
       const SuperSpace<Derived> &superspace, const Projector<Derived> &proj) {
     const int pre_dofs = proj.get_dofs_after_projector();
@@ -161,10 +224,28 @@ class Glue {
 
 namespace GlueRoutines {
 
-// This routine collects the indices of DOFs with support on an edge in
-// dependence of the dimension of the space in each tensor product direction
-// and the edge. The shift parameter can be used to shift it to the correct
-// patch or vector component.
+/**
+ * \brief This routine collects the indices of DOFs with support on an edge.
+ *
+ * The indices are computed depending on the edge case and number of DOFs in the
+ * x and y direction of the tensor product. The shift parameter can be used to
+ * shift all dofs according to the patch index or vector component.
+ *
+ * Edge Case
+ *
+ * 0 = (0,0)->(1,0)
+ *
+ * 1 = (1,0)->(1,1)
+ *
+ * 2 = (1,1)->(0,1)
+ *
+ * 3 = (0,1)->(0,0)
+ *
+ * \param edgeCase Edge case of the patch to collect the DOFs.
+ * \param dimXdir Number of DOFs in the x direction of the tensor product.
+ * \param dimYdir Number of DOFs in the y direction of the tensor product.
+ * \param shift Offset of the DOFs.
+ */
 std::vector<int> getEdgeDofIndices(int edgeCase, int dimXdir, int dimYdir,
                                    int shift) {
   std::vector<int> out;
@@ -253,10 +334,11 @@ inline bool edgeToBeGluedInFirstComp(int edgeCase) {
   return (edgeCase == 0 || edgeCase == 2) ? false : true;
 }
 
-/*
-  The discontinuous scalar case: Nothing needs to be done
-*/
-
+/**
+ * \brief Specification of the struct for the discontinuous case.
+ *
+ * Nothing needs to be glued.
+ */
 template <typename Derived>
 struct glue_identificationmaker_<Derived, DifferentialForm::Discontinuous> {
   static std::vector<dofIdentification> makeIdentification(
@@ -266,14 +348,15 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Discontinuous> {
   }
 };
 
-/*
-  The scalar case: Here, we have only one vector component to worry about.
-  However, we need to take care of edges, since here multiple (more than 2) dofs
-  will be reduced to one. This is also the reason we we work with the
-  dofIdentification struct and not already with Eigen::Triplet. The function
-  builds upon the fact, that px == py == p.
-*/
-
+/**
+ * \brief Specification of the struct for the scalar continuous case.
+ *
+ * The scalar case: Here, we have only one vector component to worry about.
+ * However, we need to take care of edges, since here multiple (more than 2)
+ * dofs will be reduced to one. This is also the reason we we work with the
+ * dofIdentification struct and not already with Eigen::Triplet. The function
+ * builds upon the fact, that px == py == p.
+ */
 template <typename Derived>
 struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
   static std::vector<dofIdentification> makeIdentification(
@@ -408,12 +491,13 @@ struct glue_identificationmaker_<Derived, DifferentialForm::Continuous> {
   }
 };
 
-/*
-  The Maxwell case: Here, the identification is 1-to-1, but we need to take care
-  to glue the right vector component. The function builds upon the fact, that px
-  == py == p.
-*/
-
+/**
+ * \brief Specification of the struct for the vector Div conforming case.
+ *
+ * The Maxwell case: Here, the identification is 1-to-1, but we need to take
+ * care to glue the right vector component. The function builds upon the fact,
+ * that px == py == p.
+ */
 template <typename Derived>
 struct glue_identificationmaker_<Derived, DifferentialForm::DivConforming> {
   static std::vector<dofIdentification> makeIdentification(

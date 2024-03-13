@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('group___spline.html',''); initResizabl
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Spline</div>  </div>
+<div class="title">Spline<div class="ingroups"><a class="el" href="group___modules.html">Modules</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -114,37 +125,45 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gad90833bf929ec28aabfe8aedc59f63c3"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:gad90833bf929ec28aabfe8aedc59f63c3"><td class="memTemplParams" colspan="2"><a id="gad90833bf929ec28aabfe8aedc59f63c3"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:gad90833bf929ec28aabfe8aedc59f63c3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gad90833bf929ec28aabfe8aedc59f63c3">Bembel::Basis::phi_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, double x)</td></tr>
-<tr class="memdesc:gad90833bf929ec28aabfe8aedc59f63c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the 1D basis at x weighted with a quadrature weight w  <a href="group___spline.html#gad90833bf929ec28aabfe8aedc59f63c3">More...</a><br /></td></tr>
+<tr class="memdesc:gad90833bf929ec28aabfe8aedc59f63c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the 1D basis at x weighted with a quadrature weight w <br /></td></tr>
 <tr class="separator:gad90833bf929ec28aabfe8aedc59f63c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6df93e4cb47305d8468d609a392ef84d"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:ga6df93e4cb47305d8468d609a392ef84d"><td class="memTemplParams" colspan="2"><a id="ga6df93e4cb47305d8468d609a392ef84d"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:ga6df93e4cb47305d8468d609a392ef84d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#ga6df93e4cb47305d8468d609a392ef84d">Bembel::Basis::phi_dx_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, double x)</td></tr>
-<tr class="memdesc:ga6df93e4cb47305d8468d609a392ef84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the derivative of phi  <a href="group___spline.html#ga6df93e4cb47305d8468d609a392ef84d">More...</a><br /></td></tr>
+<tr class="memdesc:ga6df93e4cb47305d8468d609a392ef84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the derivative of phi <br /></td></tr>
 <tr class="separator:ga6df93e4cb47305d8468d609a392ef84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1ebe02002265f8b7d7d61a32956f4751"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:ga1ebe02002265f8b7d7d61a32956f4751"><td class="memTemplParams" colspan="2"><a id="ga1ebe02002265f8b7d7d61a32956f4751"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:ga1ebe02002265f8b7d7d61a32956f4751"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#ga1ebe02002265f8b7d7d61a32956f4751">Bembel::Basis::phiphi_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
-<tr class="memdesc:ga1ebe02002265f8b7d7d61a32956f4751"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the 2D tensor product basis at a point a in [0,1]^2  <a href="group___spline.html#ga1ebe02002265f8b7d7d61a32956f4751">More...</a><br /></td></tr>
+<tr class="memdesc:ga1ebe02002265f8b7d7d61a32956f4751"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the 2D tensor product basis at a point a in [0,1]^2 <br /></td></tr>
 <tr class="separator:ga1ebe02002265f8b7d7d61a32956f4751"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab678c79d14a00c03513126b48fc37449"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:gab678c79d14a00c03513126b48fc37449"><td class="memTemplParams" colspan="2"><a id="gab678c79d14a00c03513126b48fc37449"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:gab678c79d14a00c03513126b48fc37449"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gab678c79d14a00c03513126b48fc37449">Bembel::Basis::phiphi_dx_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
-<tr class="memdesc:gab678c79d14a00c03513126b48fc37449"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the x-derivative of the 2D tensor product basis at a point a in [0,1]^2  <a href="group___spline.html#gab678c79d14a00c03513126b48fc37449">More...</a><br /></td></tr>
+<tr class="memdesc:gab678c79d14a00c03513126b48fc37449"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the x-derivative of the 2D tensor product basis at a point a in [0,1]^2 <br /></td></tr>
 <tr class="separator:gab678c79d14a00c03513126b48fc37449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa12be803e27738b1612ec4917f55aecd"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:gaa12be803e27738b1612ec4917f55aecd"><td class="memTemplParams" colspan="2"><a id="gaa12be803e27738b1612ec4917f55aecd"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:gaa12be803e27738b1612ec4917f55aecd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gaa12be803e27738b1612ec4917f55aecd">Bembel::Basis::phiphi_dy_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *c, Scalar w, Eigen::Vector2d a)</td></tr>
-<tr class="memdesc:gaa12be803e27738b1612ec4917f55aecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the y-derivative of the 2D tensor product basis at a point a in [0,1]^2  <a href="group___spline.html#gaa12be803e27738b1612ec4917f55aecd">More...</a><br /></td></tr>
+<tr class="memdesc:gaa12be803e27738b1612ec4917f55aecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the y-derivative of the 2D tensor product basis at a point a in [0,1]^2 <br /></td></tr>
 <tr class="separator:gaa12be803e27738b1612ec4917f55aecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabaf5c3305a82d32e8af024c33efab117"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:gabaf5c3305a82d32e8af024c33efab117"><td class="memTemplParams" colspan="2"><a id="gabaf5c3305a82d32e8af024c33efab117"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:gabaf5c3305a82d32e8af024c33efab117"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gabaf5c3305a82d32e8af024c33efab117">Bembel::Basis::Phi_times_Phi_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *c, Scalar w, Eigen::Vector2d xi, Eigen::Vector2d eta)</td></tr>
-<tr class="memdesc:gabaf5c3305a82d32e8af024c33efab117"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the interaction of two phiphis, one at xi and one at eta. Used for e.g. gram matrices.  <a href="group___spline.html#gabaf5c3305a82d32e8af024c33efab117">More...</a><br /></td></tr>
+<tr class="memdesc:gabaf5c3305a82d32e8af024c33efab117"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates the interaction of two phiphis, one at xi and one at eta. Used for e.g. gram matrices. <br /></td></tr>
 <tr class="separator:gabaf5c3305a82d32e8af024c33efab117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabf6101aa4553adf841708c4b208af2b2"><td class="memTemplParams" colspan="2">template&lt;int P, typename Scalar &gt; </td></tr>
+<tr class="memitem:gabf6101aa4553adf841708c4b208af2b2"><td class="memTemplParams" colspan="2"><a id="gabf6101aa4553adf841708c4b208af2b2"></a>
+template&lt;int P, typename Scalar &gt; </td></tr>
 <tr class="memitem:gabf6101aa4553adf841708c4b208af2b2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gabf6101aa4553adf841708c4b208af2b2">Bembel::Basis::Div_Phi_times_Div_Phi_</a> (Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *c, Scalar weight, Eigen::Vector2d xi, Eigen::Vector2d eta)</td></tr>
-<tr class="memdesc:gabf6101aa4553adf841708c4b208af2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as above, just using the divergence  <a href="group___spline.html#gabf6101aa4553adf841708c4b208af2b2">More...</a><br /></td></tr>
+<tr class="memdesc:gabf6101aa4553adf841708c4b208af2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as above, just using the divergence <br /></td></tr>
 <tr class="separator:gabf6101aa4553adf841708c4b208af2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9ad832bc55e1f2854be5baba2d6c8b6"><td class="memTemplParams" colspan="2">template&lt;int N&gt; </td></tr>
+<tr class="memitem:gab9ad832bc55e1f2854be5baba2d6c8b6"><td class="memTemplParams" colspan="2"><a id="gab9ad832bc55e1f2854be5baba2d6c8b6"></a>
+template&lt;int N&gt; </td></tr>
 <tr class="memitem:gab9ad832bc55e1f2854be5baba2d6c8b6"><td class="memTemplItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gab9ad832bc55e1f2854be5baba2d6c8b6">Bembel::Basis::BernsteinX</a> (double evaluation_point) noexcept</td></tr>
-<tr class="memdesc:gab9ad832bc55e1f2854be5baba2d6c8b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template recursion to produce Bernstein polynomials. This is only limited by the binomial coefficient, see <a class="el" href="_pascal_8hpp.html">Pascal.hpp</a>.  <a href="group___spline.html#gab9ad832bc55e1f2854be5baba2d6c8b6">More...</a><br /></td></tr>
+<tr class="memdesc:gab9ad832bc55e1f2854be5baba2d6c8b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template recursion to produce Bernstein polynomials. This is only limited by the binomial coefficient, see <a class="el" href="_pascal_8hpp_source.html">Pascal.hpp</a>. <br /></td></tr>
 <tr class="separator:gab9ad832bc55e1f2854be5baba2d6c8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaedbab2805662ec55aede9e429b384756"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:gaedbab2805662ec55aede9e429b384756"><td class="memTemplItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gaedbab2805662ec55aede9e429b384756">Bembel::Spl::MakeProjection</a> (const std::vector&lt; T &gt; &amp;x_knots, const std::vector&lt; T &gt; &amp;y_knots, const std::vector&lt; T &gt; &amp;x_unique_knots, const std::vector&lt; T &gt; &amp;y_unique_knots, const int polynomial_degree_x, const int polynomial_degree_y) noexcept</td></tr>
@@ -154,75 +173,38 @@ Functions</h2></td></tr>
 <tr class="memitem:ga72fafe41754fc4ebeb6251b0819e6191"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, -1, -1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">Bembel::Spl::DeBoor</a> (Eigen::Matrix&lt; T, -1, -1 &gt; const &amp;control_points, const std::vector&lt; double &gt; &amp;knot_vector, const std::vector&lt; double &gt; &amp;evaluation_points) noexcept</td></tr>
 <tr class="memdesc:ga72fafe41754fc4ebeb6251b0819e6191"><td class="mdescLeft">&#160;</td><td class="mdescRight">"By the book" implementations of the Cox-DeBoor formula. Inefficient, do not use at bottlenecks.  <a href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">More...</a><br /></td></tr>
 <tr class="separator:ga72fafe41754fc4ebeb6251b0819e6191"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga621f5699277e6781e3ee025e386022f9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga621f5699277e6781e3ee025e386022f9"><td class="memTemplParams" colspan="2"><a id="ga621f5699277e6781e3ee025e386022f9"></a>
+template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga621f5699277e6781e3ee025e386022f9"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; T, -1, -1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#ga621f5699277e6781e3ee025e386022f9">Bembel::Spl::DeBoorDer</a> (Eigen::Matrix&lt; T, -1, -1 &gt; const &amp;control_points, std::vector&lt; double &gt; const &amp;knot, std::vector&lt; double &gt; const &amp;evaluation_points) noexcept</td></tr>
-<tr class="memdesc:ga621f5699277e6781e3ee025e386022f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A "by the book" implementation of the derivatives and TP-algos based on the DeBoor Recursion.  <a href="group___spline.html#ga621f5699277e6781e3ee025e386022f9">More...</a><br /></td></tr>
+<tr class="memdesc:ga621f5699277e6781e3ee025e386022f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A "by the book" implementation of the derivatives and TP-algos based on the DeBoor Recursion. <br /></td></tr>
 <tr class="separator:ga621f5699277e6781e3ee025e386022f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae8f152599fef9cc558caa39a0cfe5237"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___spline.html#gae8f152599fef9cc558caa39a0cfe5237">Bembel::Spl::MakeBezierKnotVector</a> (int polynomial_degree) noexcept</td></tr>
-<tr class="memdesc:gae8f152599fef9cc558caa39a0cfe5237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here, routines for the creation and processing of knot vectors are defined.  <a href="group___spline.html#gae8f152599fef9cc558caa39a0cfe5237">More...</a><br /></td></tr>
+<tr class="memitem:gae8f152599fef9cc558caa39a0cfe5237"><td class="memItemLeft" align="right" valign="top"><a id="gae8f152599fef9cc558caa39a0cfe5237"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___spline.html#gae8f152599fef9cc558caa39a0cfe5237">Bembel::Spl::MakeBezierKnotVector</a> (int polynomial_degree) noexcept</td></tr>
+<tr class="memdesc:gae8f152599fef9cc558caa39a0cfe5237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here, routines for the creation and processing of knot vectors are defined. <br /></td></tr>
 <tr class="separator:gae8f152599fef9cc558caa39a0cfe5237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad40828354c5de3057dce2c485b434415"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gad40828354c5de3057dce2c485b434415"><td class="memTemplParams" colspan="2"><a id="gad40828354c5de3057dce2c485b434415"></a>
+template&lt;typename T &gt; </td></tr>
 <tr class="memitem:gad40828354c5de3057dce2c485b434415"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gad40828354c5de3057dce2c485b434415">Bembel::Spl::MakeInterpolationPoints</a> (const std::vector&lt; T &gt; &amp;uniq, const std::vector&lt; T &gt; &amp;mask) noexcept</td></tr>
-<tr class="memdesc:gad40828354c5de3057dce2c485b434415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a T-vector of equidistant itnerpolation points for a given knot vector without any repetitions.  <a href="group___spline.html#gad40828354c5de3057dce2c485b434415">More...</a><br /></td></tr>
+<tr class="memdesc:gad40828354c5de3057dce2c485b434415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a T-vector of equidistant itnerpolation points for a given knot vector without any repetitions. <br /></td></tr>
 <tr class="separator:gad40828354c5de3057dce2c485b434415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0c98aa7e939d5d199b75e867257f942b"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, -1, -1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___spline.html#ga0c98aa7e939d5d199b75e867257f942b">Bembel::Spl::GetInterpolationMatrix</a> (int polynomial_degree, const std::vector&lt; double &gt; &amp;mask)</td></tr>
-<tr class="memdesc:ga0c98aa7e939d5d199b75e867257f942b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the coefficients to represent a function in the Bernstein basis on [0,1].  <a href="group___spline.html#ga0c98aa7e939d5d199b75e867257f942b">More...</a><br /></td></tr>
+<tr class="memitem:ga0c98aa7e939d5d199b75e867257f942b"><td class="memItemLeft" align="right" valign="top"><a id="ga0c98aa7e939d5d199b75e867257f942b"></a>
+Eigen::Matrix&lt; double, -1, -1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___spline.html#ga0c98aa7e939d5d199b75e867257f942b">Bembel::Spl::GetInterpolationMatrix</a> (int polynomial_degree, const std::vector&lt; double &gt; &amp;mask)</td></tr>
+<tr class="memdesc:ga0c98aa7e939d5d199b75e867257f942b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the coefficients to represent a function in the Bernstein basis on [0,1]. <br /></td></tr>
 <tr class="separator:ga0c98aa7e939d5d199b75e867257f942b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae358ed2987505a76b9fa0be94ed8b19c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gae358ed2987505a76b9fa0be94ed8b19c"><td class="memTemplParams" colspan="2"><a id="gae358ed2987505a76b9fa0be94ed8b19c"></a>
+template&lt;typename T &gt; </td></tr>
 <tr class="memitem:gae358ed2987505a76b9fa0be94ed8b19c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#gae358ed2987505a76b9fa0be94ed8b19c">Bembel::Spl::GetCoefficients</a> (const int incr, const std::vector&lt; double &gt; &amp;mask, const std::vector&lt; T &gt; &amp;values, T *coefs)</td></tr>
-<tr class="memdesc:gae358ed2987505a76b9fa0be94ed8b19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">this solves a generic interpolation problem.  <a href="group___spline.html#gae358ed2987505a76b9fa0be94ed8b19c">More...</a><br /></td></tr>
+<tr class="memdesc:gae358ed2987505a76b9fa0be94ed8b19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">this solves a generic interpolation problem. <br /></td></tr>
 <tr class="separator:gae358ed2987505a76b9fa0be94ed8b19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e3d56241476339b1cd6f6f67397c455"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga5e3d56241476339b1cd6f6f67397c455"><td class="memTemplParams" colspan="2"><a id="ga5e3d56241476339b1cd6f6f67397c455"></a>
+template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ga5e3d56241476339b1cd6f6f67397c455"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___spline.html#ga5e3d56241476339b1cd6f6f67397c455">Bembel::Spl::GetCoefficients</a> (const int increments, const std::vector&lt; double &gt; &amp;mask, const std::vector&lt; T &gt; &amp;values)</td></tr>
-<tr class="memdesc:ga5e3d56241476339b1cd6f6f67397c455"><td class="mdescLeft">&#160;</td><td class="mdescRight">this solves a generic interpolation problem.  <a href="group___spline.html#ga5e3d56241476339b1cd6f6f67397c455">More...</a><br /></td></tr>
+<tr class="memdesc:ga5e3d56241476339b1cd6f6f67397c455"><td class="mdescLeft">&#160;</td><td class="mdescRight">this solves a generic interpolation problem. <br /></td></tr>
 <tr class="separator:ga5e3d56241476339b1cd6f6f67397c455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The Spline module provides basic routines related to spline function and local polynomials. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gab9ad832bc55e1f2854be5baba2d6c8b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab9ad832bc55e1f2854be5baba2d6c8b6">&#9670;&nbsp;</a></span>BernsteinX()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double Bembel::Basis::BernsteinX </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>evaluation_point</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Template recursion to produce Bernstein polynomials. This is only limited by the binomial coefficient, see <a class="el" href="_pascal_8hpp.html">Pascal.hpp</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_bernstein_8hpp_source.html#l00023">23</a> of file <a class="el" href="_bernstein_8hpp_source.html">Bernstein.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gab9ad832bc55e1f2854be5baba2d6c8b6_icgraph.png" border="0" usemap="#agroup___spline_gab9ad832bc55e1f2854be5baba2d6c8b6_icgraph" alt=""/></div>
-<map name="agroup___spline_gab9ad832bc55e1f2854be5baba2d6c8b6_icgraph" id="agroup___spline_gab9ad832bc55e1f2854be5baba2d6c8b6_icgraph">
-<area shape="rect" title="Template recursion to produce Bernstein polynomials. This is only limited by the binomial coefficient..." alt="" coords="500,46,695,73"/>
-<area shape="rect" href="namespace_bembel_1_1_basis.html#af9819981f584aabe446e9ee282330caf" title=" " alt="" coords="267,46,452,73"/>
-<area shape="rect" href="namespace_bembel_1_1_basis.html#a9777e23a9212ed1ca55faaba0e8a5ae9" title=" " alt="" coords="5,5,219,47"/>
-<area shape="rect" href="namespace_bembel_1_1_basis.html#a84fa165310115d9c21d2c05ee4c663b6" title=" " alt="" coords="5,71,219,112"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="ga72fafe41754fc4ebeb6251b0819e6191"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga72fafe41754fc4ebeb6251b0819e6191">&#9670;&nbsp;</a></span>DeBoor()</h2>
 
@@ -269,394 +251,6 @@ template&lt;typename T &gt; </div>
 <p>ISO C++ forbids variable length array</p>
 
 <p class="definition">Definition at line <a class="el" href="_de_boor_8hpp_source.html#l00022">22</a> of file <a class="el" href="_de_boor_8hpp_source.html">DeBoor.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga72fafe41754fc4ebeb6251b0819e6191_icgraph.png" border="0" usemap="#agroup___spline_ga72fafe41754fc4ebeb6251b0819e6191_icgraph" alt=""/></div>
-<map name="agroup___spline_ga72fafe41754fc4ebeb6251b0819e6191_icgraph" id="agroup___spline_ga72fafe41754fc4ebeb6251b0819e6191_icgraph">
-<area shape="rect" title="&quot;By the book&quot; implementations of the Cox&#45;DeBoor formula. Inefficient, do not use at bottlenecks." alt="" coords="1473,81,1629,108"/>
-<area shape="rect" href="group___spline.html#ga621f5699277e6781e3ee025e386022f9" title="A &quot;by the book&quot; implementation of the derivatives and TP&#45;algos based on the DeBoor Recursion." alt="" coords="1230,5,1409,32"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#a872257712784134620cf1a3fb1b64367" title=" " alt="" coords="964,31,1159,57"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#ad0cf5f62596d46c750b189c0ef35980e" title="Simple TP Bsplines." alt="" coords="1233,107,1405,133"/>
-<area shape="rect" href="namespace_bembel_1_1_projector_routines.html#a66bc5b1efce385b9f29ad1f47ce37ea9" title=" " alt="" coords="1213,158,1425,199"/>
-<area shape="rect" href="group___spline.html#gaedbab2805662ec55aede9e429b384756" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="957,107,1165,133"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252" title="init" alt="" coords="765,99,909,141"/>
-<area shape="rect" href="group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e" title="loads geometry from file with GEOPDE&#45;format. Note that the direction of the normals must be consisten..." alt="" coords="492,56,717,83"/>
-<area shape="rect" href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075" title="loads geometry from IGES file. Note that the direction of the normals must be consistent." alt="" coords="494,107,715,133"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a9b3acf6880f6b657a3d6df49e68c4407" title=" " alt="" coords="525,157,684,184"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a02ce72f4229e168a5c56dd5f174baa8f" title=" " alt="" coords="271,74,444,115"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a4b577a308bc416d9cead1dae6694050f" title=" " alt="" coords="5,81,223,108"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga621f5699277e6781e3ee025e386022f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga621f5699277e6781e3ee025e386022f9">&#9670;&nbsp;</a></span>DeBoorDer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;T, -1, -1&gt; Bembel::Spl::DeBoorDer </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; T, -1, -1 &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>control_points</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>knot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>evaluation_points</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A "by the book" implementation of the derivatives and TP-algos based on the DeBoor Recursion. </p>
-
-<p class="definition">Definition at line <a class="el" href="_de_boor_t_p_8hpp_source.html#l00022">22</a> of file <a class="el" href="_de_boor_t_p_8hpp_source.html">DeBoorTP.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga621f5699277e6781e3ee025e386022f9_cgraph.png" border="0" usemap="#agroup___spline_ga621f5699277e6781e3ee025e386022f9_cgraph" alt=""/></div>
-<map name="agroup___spline_ga621f5699277e6781e3ee025e386022f9_cgraph" id="agroup___spline_ga621f5699277e6781e3ee025e386022f9_cgraph">
-<area shape="rect" title="A &quot;by the book&quot; implementation of the derivatives and TP&#45;algos based on the DeBoor Recursion." alt="" coords="5,5,184,32"/>
-<area shape="rect" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191" title="&quot;By the book&quot; implementations of the Cox&#45;DeBoor formula. Inefficient, do not use at bottlenecks." alt="" coords="232,5,388,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga621f5699277e6781e3ee025e386022f9_icgraph.png" border="0" usemap="#agroup___spline_ga621f5699277e6781e3ee025e386022f9_icgraph" alt=""/></div>
-<map name="agroup___spline_ga621f5699277e6781e3ee025e386022f9_icgraph" id="agroup___spline_ga621f5699277e6781e3ee025e386022f9_icgraph">
-<area shape="rect" title="A &quot;by the book&quot; implementation of the derivatives and TP&#45;algos based on the DeBoor Recursion." alt="" coords="248,5,427,32"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#a872257712784134620cf1a3fb1b64367" title=" " alt="" coords="5,5,200,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="gabf6101aa4553adf841708c4b208af2b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabf6101aa4553adf841708c4b208af2b2">&#9670;&nbsp;</a></span>Div_Phi_times_Div_Phi_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::Div_Phi_times_Div_Phi_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>weight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>xi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>eta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>same as above, just using the divergence </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00171">171</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-
-</div>
-</div>
-<a id="gae358ed2987505a76b9fa0be94ed8b19c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae358ed2987505a76b9fa0be94ed8b19c">&#9670;&nbsp;</a></span>GetCoefficients() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Spl::GetCoefficients </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>incr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>mask</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>values</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>coefs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>this solves a generic interpolation problem. </p>
-
-<p class="definition">Definition at line <a class="el" href="_localize_8hpp_source.html#l00088">88</a> of file <a class="el" href="_localize_8hpp_source.html">Localize.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gae358ed2987505a76b9fa0be94ed8b19c_cgraph.png" border="0" usemap="#agroup___spline_gae358ed2987505a76b9fa0be94ed8b19c_cgraph" alt=""/></div>
-<map name="agroup___spline_gae358ed2987505a76b9fa0be94ed8b19c_cgraph" id="agroup___spline_gae358ed2987505a76b9fa0be94ed8b19c_cgraph">
-<area shape="rect" title="this solves a generic interpolation problem." alt="" coords="5,20,213,47"/>
-<area shape="rect" href="group___spline.html#ga0c98aa7e939d5d199b75e867257f942b" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="261,13,476,54"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="524,5,705,61"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga5e3d56241476339b1cd6f6f67397c455"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5e3d56241476339b1cd6f6f67397c455">&#9670;&nbsp;</a></span>GetCoefficients() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;T&gt; Bembel::Spl::GetCoefficients </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>increments</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>mask</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>values</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>this solves a generic interpolation problem. </p>
-
-<p class="definition">Definition at line <a class="el" href="_localize_8hpp_source.html#l00117">117</a> of file <a class="el" href="_localize_8hpp_source.html">Localize.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ga0c98aa7e939d5d199b75e867257f942b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0c98aa7e939d5d199b75e867257f942b">&#9670;&nbsp;</a></span>GetInterpolationMatrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;double, -1, -1&gt; Bembel::Spl::GetInterpolationMatrix </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>polynomial_degree</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>returns the coefficients to represent a function in the Bernstein basis on [0,1]. </p>
-
-<p class="definition">Definition at line <a class="el" href="_localize_8hpp_source.html#l00067">67</a> of file <a class="el" href="_localize_8hpp_source.html">Localize.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga0c98aa7e939d5d199b75e867257f942b_cgraph.png" border="0" usemap="#agroup___spline_ga0c98aa7e939d5d199b75e867257f942b_cgraph" alt=""/></div>
-<map name="agroup___spline_ga0c98aa7e939d5d199b75e867257f942b_cgraph" id="agroup___spline_ga0c98aa7e939d5d199b75e867257f942b_cgraph">
-<area shape="rect" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="5,13,220,54"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="268,5,449,61"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga0c98aa7e939d5d199b75e867257f942b_icgraph.png" border="0" usemap="#agroup___spline_ga0c98aa7e939d5d199b75e867257f942b_icgraph" alt=""/></div>
-<map name="agroup___spline_ga0c98aa7e939d5d199b75e867257f942b_icgraph" id="agroup___spline_ga0c98aa7e939d5d199b75e867257f942b_icgraph">
-<area shape="rect" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="261,5,476,47"/>
-<area shape="rect" href="group___spline.html#gae358ed2987505a76b9fa0be94ed8b19c" title="this solves a generic interpolation problem." alt="" coords="5,13,213,39"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="gae8f152599fef9cc558caa39a0cfe5237"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae8f152599fef9cc558caa39a0cfe5237">&#9670;&nbsp;</a></span>MakeBezierKnotVector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;double&gt; Bembel::Spl::MakeBezierKnotVector </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>polynomial_degree</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Here, routines for the creation and processing of knot vectors are defined. </p>
-
-<p class="definition">Definition at line <a class="el" href="_knots_8hpp_source.html#l00021">21</a> of file <a class="el" href="_knots_8hpp_source.html">Knots.hpp</a>.</p>
-
-</div>
-</div>
-<a id="gad40828354c5de3057dce2c485b434415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad40828354c5de3057dce2c485b434415">&#9670;&nbsp;</a></span>MakeInterpolationPoints()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;T&gt; Bembel::Spl::MakeInterpolationPoints </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>uniq</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a T-vector of equidistant itnerpolation points for a given knot vector without any repetitions. </p>
-
-<p class="definition">Definition at line <a class="el" href="_localize_8hpp_source.html#l00047">47</a> of file <a class="el" href="_localize_8hpp_source.html">Localize.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gad40828354c5de3057dce2c485b434415_icgraph.png" border="0" usemap="#agroup___spline_gad40828354c5de3057dce2c485b434415_icgraph" alt=""/></div>
-<map name="agroup___spline_gad40828354c5de3057dce2c485b434415_icgraph" id="agroup___spline_gad40828354c5de3057dce2c485b434415_icgraph">
-<area shape="rect" title="Creates a T&#45;vector of equidistant itnerpolation points for a given knot vector without any repetition..." alt="" coords="1213,49,1440,90"/>
-<area shape="rect" href="group___spline.html#gaedbab2805662ec55aede9e429b384756" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="957,56,1165,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252" title="init" alt="" coords="765,49,909,90"/>
-<area shape="rect" href="group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e" title="loads geometry from file with GEOPDE&#45;format. Note that the direction of the normals must be consisten..." alt="" coords="492,5,717,32"/>
-<area shape="rect" href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075" title="loads geometry from IGES file. Note that the direction of the normals must be consistent." alt="" coords="494,56,715,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a9b3acf6880f6b657a3d6df49e68c4407" title=" " alt="" coords="525,107,684,133"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a02ce72f4229e168a5c56dd5f174baa8f" title=" " alt="" coords="271,23,444,65"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a4b577a308bc416d9cead1dae6694050f" title=" " alt="" coords="5,31,223,57"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -725,377 +319,6 @@ template&lt;typename T &gt; </div>
 <p>For each basisfunction phi_j solves for the right coeef such that \Sum</p>
 
 <p class="definition">Definition at line <a class="el" href="_bezierextraction_8hpp_source.html#l00023">23</a> of file <a class="el" href="_bezierextraction_8hpp_source.html">Bezierextraction.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gaedbab2805662ec55aede9e429b384756_cgraph.png" border="0" usemap="#agroup___spline_gaedbab2805662ec55aede9e429b384756_cgraph" alt=""/></div>
-<map name="agroup___spline_gaedbab2805662ec55aede9e429b384756_cgraph" id="agroup___spline_gaedbab2805662ec55aede9e429b384756_cgraph">
-<area shape="rect" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="5,165,213,192"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#ad0cf5f62596d46c750b189c0ef35980e" title="Simple TP Bsplines." alt="" coords="306,5,478,32"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab0d60a0b9e034bd8e1843da043d2307a" title=" " alt="" coords="301,56,483,112"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#a3a58c86e1147b0087815020b43d06d63" title=" " alt="" coords="261,136,523,163"/>
-<area shape="rect" href="group___spline.html#gad40828354c5de3057dce2c485b434415" title="Creates a T&#45;vector of equidistant itnerpolation points for a given knot vector without any repetition..." alt="" coords="279,187,505,229"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#aff0011d9cba5053388899d445558f1fe" title=" " alt="" coords="313,253,471,280"/>
-<area shape="rect" href="namespace_bembel_1_1_spl.html#afe8b940b8c20a2b4efe8850f853bf5c5" title="Tiny helper functions." alt="" coords="319,304,465,331"/>
-<area shape="rect" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191" title="&quot;By the book&quot; implementations of the Cox&#45;DeBoor formula. Inefficient, do not use at bottlenecks." alt="" coords="571,5,727,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gaedbab2805662ec55aede9e429b384756_icgraph.png" border="0" usemap="#agroup___spline_gaedbab2805662ec55aede9e429b384756_icgraph" alt=""/></div>
-<map name="agroup___spline_gaedbab2805662ec55aede9e429b384756_icgraph" id="agroup___spline_gaedbab2805662ec55aede9e429b384756_icgraph">
-<area shape="rect" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="957,56,1165,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252" title="init" alt="" coords="765,49,909,90"/>
-<area shape="rect" href="group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e" title="loads geometry from file with GEOPDE&#45;format. Note that the direction of the normals must be consisten..." alt="" coords="492,5,717,32"/>
-<area shape="rect" href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075" title="loads geometry from IGES file. Note that the direction of the normals must be consistent." alt="" coords="494,56,715,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a9b3acf6880f6b657a3d6df49e68c4407" title=" " alt="" coords="525,107,684,133"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a02ce72f4229e168a5c56dd5f174baa8f" title=" " alt="" coords="271,23,444,65"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a4b577a308bc416d9cead1dae6694050f" title=" " alt="" coords="5,31,223,57"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="gad90833bf929ec28aabfe8aedc59f63c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad90833bf929ec28aabfe8aedc59f63c3">&#9670;&nbsp;</a></span>phi_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::phi_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>evaluates the 1D basis at x weighted with a quadrature weight w </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00058">58</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gad90833bf929ec28aabfe8aedc59f63c3_cgraph.png" border="0" usemap="#agroup___spline_gad90833bf929ec28aabfe8aedc59f63c3_cgraph" alt=""/></div>
-<map name="agroup___spline_gad90833bf929ec28aabfe8aedc59f63c3_cgraph" id="agroup___spline_gad90833bf929ec28aabfe8aedc59f63c3_cgraph">
-<area shape="rect" title="evaluates the 1D basis at x weighted with a quadrature weight w" alt="" coords="5,20,156,47"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="204,5,385,61"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga6df93e4cb47305d8468d609a392ef84d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6df93e4cb47305d8468d609a392ef84d">&#9670;&nbsp;</a></span>phi_dx_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::phi_dx_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>evaluates the derivative of phi </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00072">72</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga6df93e4cb47305d8468d609a392ef84d_cgraph.png" border="0" usemap="#agroup___spline_ga6df93e4cb47305d8468d609a392ef84d_cgraph" alt=""/></div>
-<map name="agroup___spline_ga6df93e4cb47305d8468d609a392ef84d_cgraph" id="agroup___spline_ga6df93e4cb47305d8468d609a392ef84d_cgraph">
-<area shape="rect" title="evaluates the derivative of phi" alt="" coords="5,20,179,47"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a0a1673d8eca8cf9a795dc0a17e56f06f" title=" " alt="" coords="227,5,408,61"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="gabaf5c3305a82d32e8af024c33efab117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabaf5c3305a82d32e8af024c33efab117">&#9670;&nbsp;</a></span>Phi_times_Phi_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::Phi_times_Phi_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>xi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>eta</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>evaluates the interaction of two phiphis, one at xi and one at eta. Used for e.g. gram matrices. </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00142">142</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gabaf5c3305a82d32e8af024c33efab117_cgraph.png" border="0" usemap="#agroup___spline_gabaf5c3305a82d32e8af024c33efab117_cgraph" alt=""/></div>
-<map name="agroup___spline_gabaf5c3305a82d32e8af024c33efab117_cgraph" id="agroup___spline_gabaf5c3305a82d32e8af024c33efab117_cgraph">
-<area shape="rect" title="evaluates the interaction of two phiphis, one at xi and one at eta. Used for e.g. gram matrices." alt="" coords="5,13,148,54"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="196,5,377,61"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga1ebe02002265f8b7d7d61a32956f4751"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1ebe02002265f8b7d7d61a32956f4751">&#9670;&nbsp;</a></span>phiphi_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::phiphi_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>evaluates the 2D tensor product basis at a point a in [0,1]^2 </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00086">86</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_ga1ebe02002265f8b7d7d61a32956f4751_cgraph.png" border="0" usemap="#agroup___spline_ga1ebe02002265f8b7d7d61a32956f4751_cgraph" alt=""/></div>
-<map name="agroup___spline_ga1ebe02002265f8b7d7d61a32956f4751_cgraph" id="agroup___spline_ga1ebe02002265f8b7d7d61a32956f4751_cgraph">
-<area shape="rect" title="evaluates the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="5,20,176,47"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="224,5,405,61"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="gab678c79d14a00c03513126b48fc37449"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab678c79d14a00c03513126b48fc37449">&#9670;&nbsp;</a></span>phiphi_dx_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::phiphi_dx_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>evaluates the x-derivative of the 2D tensor product basis at a point a in [0,1]^2 </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00105">105</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gab678c79d14a00c03513126b48fc37449_cgraph.png" border="0" usemap="#agroup___spline_gab678c79d14a00c03513126b48fc37449_cgraph" alt=""/></div>
-<map name="agroup___spline_gab678c79d14a00c03513126b48fc37449_cgraph" id="agroup___spline_gab678c79d14a00c03513126b48fc37449_cgraph">
-<area shape="rect" title="evaluates the x&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="5,60,199,87"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="247,5,428,61"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a0a1673d8eca8cf9a795dc0a17e56f06f" title=" " alt="" coords="247,85,428,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="gaa12be803e27738b1612ec4917f55aecd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa12be803e27738b1612ec4917f55aecd">&#9670;&nbsp;</a></span>phiphi_dy_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P, typename Scalar &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::Basis::phiphi_dy_ </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, 1 &gt; *&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Scalar&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>evaluates the y-derivative of the 2D tensor product basis at a point a in [0,1]^2 </p>
-
-<p class="definition">Definition at line <a class="el" href="_basis_8hpp_source.html#l00124">124</a> of file <a class="el" href="_basis_8hpp_source.html">Basis.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___spline_gaa12be803e27738b1612ec4917f55aecd_cgraph.png" border="0" usemap="#agroup___spline_gaa12be803e27738b1612ec4917f55aecd_cgraph" alt=""/></div>
-<map name="agroup___spline_gaa12be803e27738b1612ec4917f55aecd_cgraph" id="agroup___spline_gaa12be803e27738b1612ec4917f55aecd_cgraph">
-<area shape="rect" title="evaluates the y&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="5,60,199,87"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="247,5,428,61"/>
-<area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a0a1673d8eca8cf9a795dc0a17e56f06f" title=" " alt="" coords="247,85,428,141"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1104,7 +327,7 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

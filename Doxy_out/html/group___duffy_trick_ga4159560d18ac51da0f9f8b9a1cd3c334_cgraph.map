@@ -1,6 +1,0 @@
-<map id="Bembel::DuffyTrick::integrate4" name="Bembel::DuffyTrick::integrate4">
-<area shape="rect" id="node1" title="quadrature routine for identical elements" alt="" coords="5,71,151,112"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="199,5,408,47"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="206,71,401,112"/>
-<area shape="rect" id="node4" href="$group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a" title="computes rotations for the Duffy trick" alt="" coords="216,137,391,163"/>
-</map>

@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -94,9 +105,12 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_homogenised_laplace_s
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_homogenised_laplace_single_layer_operator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::HomogenisedLaplaceSingleLayerOperator Class Reference<div class="ingroups"><a class="el" href="group___homogenised_laplace.html">HomogenisedLaplace</a></div></div>  </div>
+<div class="title">Bembel::HomogenisedLaplaceSingleLayerOperator Class Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___homogenised_laplace.html">HomogenisedLaplace</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class implements the specification of the integration for the single layer operator for the homogenised Laplace.  
+ <a href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -104,7 +118,7 @@ Inheritance diagram for Bembel::HomogenisedLaplaceSingleLayerOperator:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator__inherit__graph.png" border="0" usemap="#a_bembel_1_1_homogenised_laplace_single_layer_operator_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_bembel_1_1_homogenised_laplace_single_layer_operator_inherit__map" id="a_bembel_1_1_homogenised_laplace_single_layer_operator_inherit__map">
-<area shape="rect" title=" " alt="" coords="22,109,242,151"/>
+<area shape="rect" title="This class implements the specification of the integration for the single layer operator for the homo..." alt="" coords="22,109,242,151"/>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,259,61"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -113,350 +127,63 @@ Collaboration diagram for Bembel::HomogenisedLaplaceSingleLayerOperator:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator__coll__graph.png" border="0" usemap="#a_bembel_1_1_homogenised_laplace_single_layer_operator_coll__map" alt="Collaboration graph"/></div>
 <map name="a_bembel_1_1_homogenised_laplace_single_layer_operator_coll__map" id="a_bembel_1_1_homogenised_laplace_single_layer_operator_coll__map">
-<area shape="rect" title=" " alt="" coords="22,109,242,151"/>
+<area shape="rect" title="This class implements the specification of the integration for the single layer operator for the homo..." alt="" coords="22,109,242,151"/>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,259,61"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class implements the specification of the integration for the single layer operator for the homogenised Laplace. </p>
+
+<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00039">39</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abc5fd90d7c0cb6fc962aa0dc53b36684"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684">HomogenisedLaplaceSingleLayerOperator</a> ()</td></tr>
-<tr class="memdesc:abc5fd90d7c0cb6fc962aa0dc53b36684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an object initialising the coefficients and the degree via the static variable precision.  <a href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684">More...</a><br /></td></tr>
+<tr class="memitem:abc5fd90d7c0cb6fc962aa0dc53b36684"><td class="memItemLeft" align="right" valign="top"><a id="abc5fd90d7c0cb6fc962aa0dc53b36684"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684">HomogenisedLaplaceSingleLayerOperator</a> ()</td></tr>
+<tr class="memdesc:abc5fd90d7c0cb6fc962aa0dc53b36684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an object initialising the coefficients and the degree via the static variable precision. <br /></td></tr>
 <tr class="separator:abc5fd90d7c0cb6fc962aa0dc53b36684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680a12363310dcf57461c55a0022e0c3"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a680a12363310dcf57461c55a0022e0c3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a680a12363310dcf57461c55a0022e0c3">evaluateIntegrand_impl</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="memitem:a680a12363310dcf57461c55a0022e0c3"><td class="memTemplParams" colspan="2"><a id="a680a12363310dcf57461c55a0022e0c3"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a680a12363310dcf57461c55a0022e0c3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>evaluateIntegrand_impl</b> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
 <tr class="separator:a680a12363310dcf57461c55a0022e0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a127d103a953d767803074019536bddaa"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a127d103a953d767803074019536bddaa">evaluateFMMInterpolation_impl</a> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memitem:a127d103a953d767803074019536bddaa"><td class="memItemLeft" align="right" valign="top"><a id="a127d103a953d767803074019536bddaa"></a>
+Eigen::Matrix&lt; double, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFMMInterpolation_impl</b> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
 <tr class="separator:a127d103a953d767803074019536bddaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba608b188b016901090dfd63acc4e72"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72">evaluateKernel</a> (const Eigen::Vector3d &amp;x, const Eigen::Vector3d &amp;y) const</td></tr>
-<tr class="memdesc:a0ba608b188b016901090dfd63acc4e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundamental solution of the Homogenised Laplace problem.  <a href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72">More...</a><br /></td></tr>
+<tr class="memitem:a0ba608b188b016901090dfd63acc4e72"><td class="memItemLeft" align="right" valign="top"><a id="a0ba608b188b016901090dfd63acc4e72"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72">evaluateKernel</a> (const Eigen::Vector3d &amp;x, const Eigen::Vector3d &amp;y) const</td></tr>
+<tr class="memdesc:a0ba608b188b016901090dfd63acc4e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundamental solution of the Homogenised Laplace problem. <br /></td></tr>
 <tr class="separator:a0ba608b188b016901090dfd63acc4e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_bembel_1_1_linear_operator_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_bembel_1_1_linear_operator_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; HomogenisedLaplaceSingleLayerOperator &gt;</a></td></tr>
-<tr class="memitem:a3014433275b18ffad85c73cb1eec22f1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">LinearOperatorBase</a> ()</td></tr>
-<tr class="separator:a3014433275b18ffad85c73cb1eec22f1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a0f7bbdf4c5de7ceff53e60cce7748630"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateIntegrand</b> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
 <tr class="separator:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">evaluateFMMInterpolation</a> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="ad616d64eccfb9cbde9ff8208f473e6a0"></a>
+Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFMMInterpolation</b> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
 <tr class="separator:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">get_FarfieldQuadratureDegree</a> (int ansatz_degree) const</td></tr>
+<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a564ca07e65785b8f8bb8882524d5f1d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_FarfieldQuadratureDegree</b> (int ansatz_degree) const</td></tr>
 <tr class="separator:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a> (int ansatz_degree, double distance, int level) const</td></tr>
 <tr class="memdesc:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute quadrature degree for numerical integretation close to the singularity based on distance, refinement level, degree of ansatz functions and operator_order.  <a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">More...</a><br /></td></tr>
 <tr class="separator:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">derived</a> ()</td></tr>
+<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a4363f27d775bc3e8b2364272f89650b1"></a>
+<a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> ()</td></tr>
 <tr class="separator:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">derived</a> () const</td></tr>
+<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a46d1663265d35d3db4c8041ba5693bd1"></a>
+const <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> () const</td></tr>
 <tr class="separator:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aeaf41f93d8deed00877edaa4697ca4ad"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#aeaf41f93d8deed00877edaa4697ca4ad">setPrecision</a> (double p)</td></tr>
-<tr class="memdesc:aeaf41f93d8deed00877edaa4697ca4ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the precision of the periodicity of the kernel  <a href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#aeaf41f93d8deed00877edaa4697ca4ad">More...</a><br /></td></tr>
+<tr class="memitem:aeaf41f93d8deed00877edaa4697ca4ad"><td class="memItemLeft" align="right" valign="top"><a id="aeaf41f93d8deed00877edaa4697ca4ad"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#aeaf41f93d8deed00877edaa4697ca4ad">setPrecision</a> (double p)</td></tr>
+<tr class="memdesc:aeaf41f93d8deed00877edaa4697ca4ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the precision of the periodicity of the kernel <br /></td></tr>
 <tr class="separator:aeaf41f93d8deed00877edaa4697ca4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9a9fadcb260098f4495a74ebd812f6"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a7f9a9fadcb260098f4495a74ebd812f6">getPrecision</a> ()</td></tr>
-<tr class="memdesc:a7f9a9fadcb260098f4495a74ebd812f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the precision of the periodicity of the kernel  <a href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a7f9a9fadcb260098f4495a74ebd812f6">More...</a><br /></td></tr>
+<tr class="memitem:a7f9a9fadcb260098f4495a74ebd812f6"><td class="memItemLeft" align="right" valign="top"><a id="a7f9a9fadcb260098f4495a74ebd812f6"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a7f9a9fadcb260098f4495a74ebd812f6">getPrecision</a> ()</td></tr>
+<tr class="memdesc:a7f9a9fadcb260098f4495a74ebd812f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the precision of the periodicity of the kernel <br /></td></tr>
 <tr class="separator:a7f9a9fadcb260098f4495a74ebd812f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00034">34</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abc5fd90d7c0cb6fc962aa0dc53b36684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc5fd90d7c0cb6fc962aa0dc53b36684">&#9670;&nbsp;</a></span>HomogenisedLaplaceSingleLayerOperator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Bembel::HomogenisedLaplaceSingleLayerOperator::HomogenisedLaplaceSingleLayerOperator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs an object initialising the coefficients and the degree via the static variable precision. </p>
-
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00043">43</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator_abc5fd90d7c0cb6fc962aa0dc53b36684_cgraph.png" border="0" usemap="#aclass_bembel_1_1_homogenised_laplace_single_layer_operator_abc5fd90d7c0cb6fc962aa0dc53b36684_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_abc5fd90d7c0cb6fc962aa0dc53b36684_cgraph" id="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_abc5fd90d7c0cb6fc962aa0dc53b36684_cgraph">
-<area shape="rect" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="5,193,259,249"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="307,183,485,209"/>
-<area shape="rect" href="namespace_bembel.html#a51992cce07c8ea2b5d530f4e91769025" title="Returns the degree of the sphericals expansion given a precision. Can be extended,..." alt="" coords="581,259,729,285"/>
-<area shape="rect" href="namespace_bembel.html#ac4aa0b663a4af4c45b2d2039e572097a" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="536,157,773,184"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="543,107,767,133"/>
-<area shape="rect" href="namespace_bembel.html#a5d5757d50530bf1fef207bbe3aff7231" title="Returns the right&#45;hand side for the homogenised coefficient calculation." alt="" coords="559,208,750,235"/>
-<area shape="rect" href="namespace_bembel.html#ac471d8ce3c1bed1faa03d1a234b9044d" title="Calculates the the spherical harmonics , ordered by ." alt="" coords="533,31,776,57"/>
-<area shape="rect" href="namespace_bembel.html#a2159b56b4c9d2ca4155fddb827381866" title="Evaluates the series &#160;for real coefficients, with the convenction that ." alt="" coords="829,157,1040,184"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="873,208,997,235"/>
-<area shape="rect" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="824,56,1045,83"/>
-<area shape="rect" href="namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71" title="Returns the values of the spherical polynomials ." alt="" coords="855,107,1015,133"/>
-<area shape="rect" href="namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="1095,31,1278,57"/>
-<area shape="rect" href="namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="1093,81,1280,108"/>
-<area shape="rect" href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="1328,31,1464,57"/>
-<area shape="rect" href="namespace_bembel.html#a6932f556898129252682b4bbf4823f8b" title="Returns the gradient of the modified kernel ." alt="" coords="867,259,1002,285"/>
-<area shape="rect" href="namespace_bembel.html#aeaf21aded2538756462f6ea3631dc909" title="Calculates the spherical harmonic &#160;based on previous values." alt="" coords="847,5,1022,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a127d103a953d767803074019536bddaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a127d103a953d767803074019536bddaa">&#9670;&nbsp;</a></span>evaluateFMMInterpolation_impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;double, 1, 1&gt; Bembel::HomogenisedLaplaceSingleLayerOperator::evaluateFMMInterpolation_impl </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00091">91</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator_a127d103a953d767803074019536bddaa_cgraph.png" border="0" usemap="#aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a127d103a953d767803074019536bddaa_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a127d103a953d767803074019536bddaa_cgraph" id="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a127d103a953d767803074019536bddaa_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,376,76"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="424,35,685,76"/>
-<area shape="rect" href="namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="733,5,908,47"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="759,71,883,98"/>
-<area shape="rect" href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="956,13,1087,39"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a680a12363310dcf57461c55a0022e0c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680a12363310dcf57461c55a0022e0c3">&#9670;&nbsp;</a></span>evaluateIntegrand_impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::HomogenisedLaplaceSingleLayerOperator::evaluateIntegrand_impl </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>intval</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00050">50</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator_a680a12363310dcf57461c55a0022e0c3_cgraph.png" border="0" usemap="#aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a680a12363310dcf57461c55a0022e0c3_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a680a12363310dcf57461c55a0022e0c3_cgraph" id="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a680a12363310dcf57461c55a0022e0c3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,324,76"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="372,35,633,76"/>
-<area shape="rect" href="namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="681,5,856,47"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="707,71,831,98"/>
-<area shape="rect" href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="904,13,1035,39"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a0ba608b188b016901090dfd63acc4e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ba608b188b016901090dfd63acc4e72">&#9670;&nbsp;</a></span>evaluateKernel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::HomogenisedLaplaceSingleLayerOperator::evaluateKernel </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fundamental solution of the Homogenised Laplace problem. </p>
-
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00119">119</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_cgraph.png" border="0" usemap="#aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_cgraph" id="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_cgraph">
-<area shape="rect" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="5,35,267,76"/>
-<area shape="rect" href="namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="315,5,489,47"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="340,71,464,98"/>
-<area shape="rect" href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="537,13,668,39"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_icgraph.png" border="0" usemap="#aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_icgraph" id="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a0ba608b188b016901090dfd63acc4e72_icgraph">
-<area shape="rect" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="424,39,685,80"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a127d103a953d767803074019536bddaa" title=" " alt="" coords="5,5,376,47"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a680a12363310dcf57461c55a0022e0c3" title=" " alt="" coords="31,71,350,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a7f9a9fadcb260098f4495a74ebd812f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f9a9fadcb260098f4495a74ebd812f6">&#9670;&nbsp;</a></span>getPrecision()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static double Bembel::HomogenisedLaplaceSingleLayerOperator::getPrecision </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>returns the precision of the periodicity of the kernel </p>
-
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00135">135</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_homogenised_laplace_single_layer_operator_a7f9a9fadcb260098f4495a74ebd812f6_icgraph.png" border="0" usemap="#aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a7f9a9fadcb260098f4495a74ebd812f6_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a7f9a9fadcb260098f4495a74ebd812f6_icgraph" id="aclass_bembel_1_1_homogenised_laplace_single_layer_operator_a7f9a9fadcb260098f4495a74ebd812f6_icgraph">
-<area shape="rect" title="returns the precision of the periodicity of the kernel" alt="" coords="308,13,551,54"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,5,260,61"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aeaf41f93d8deed00877edaa4697ca4ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaf41f93d8deed00877edaa4697ca4ad">&#9670;&nbsp;</a></span>setPrecision()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Bembel::HomogenisedLaplaceSingleLayerOperator::setPrecision </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>sets the precision of the periodicity of the kernel </p>
-
-<p class="definition">Definition at line <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html#l00128">128</a> of file <a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/HomogenisedLaplace/<a class="el" href="_homogenised_laplace_2_single_layer_operator_8hpp_source.html">SingleLayerOperator.hpp</a></li>
 </ul>
@@ -466,7 +193,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

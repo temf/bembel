@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -96,135 +107,38 @@ $(document).ready(function(){initNavTree('struct_eigen_1_1internal_1_1traits_3_0
 <div class="title">Eigen::internal::traits&lt; H2Matrix&lt; ScalarT &gt; &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a009fc32823a15b6db5a035c4261e65a5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a009fc32823a15b6db5a035c4261e65a5af862e4bad4d1246c30f5947405078edf">RowsAtCompileTime</a> = Dynamic
-, <a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a009fc32823a15b6db5a035c4261e65a5ad60c4cb2cadf96a8fe7ae4daf68d84d4">ColsAtCompileTime</a> = Dynamic
-, <a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a009fc32823a15b6db5a035c4261e65a5a0cf9a65962014923cffebdf91948da69">MaxRowsAtCompileTime</a> = Dynamic
-, <a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a009fc32823a15b6db5a035c4261e65a5afba3aa6898f01a9efa0728af8e1a0d61">MaxColsAtCompileTime</a> = Dynamic
-, <br />
-&#160;&#160;<a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a009fc32823a15b6db5a035c4261e65a5ad5261979e1edae87d1694b7043d63599">Flags</a> = NestByRefBit
-<br />
- }</td></tr>
-<tr class="separator:a009fc32823a15b6db5a035c4261e65a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade300dbfa526ccd74f65702c5aa3ad1a"><td class="memItemLeft" align="right" valign="top">typedef ScalarT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#ade300dbfa526ccd74f65702c5aa3ad1a">Scalar</a></td></tr>
-<tr class="separator:ade300dbfa526ccd74f65702c5aa3ad1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e407a2c64058d1158a599595c458afd"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a4e407a2c64058d1158a599595c458afd">StorageIndex</a></td></tr>
-<tr class="separator:a4e407a2c64058d1158a599595c458afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8612cd53c590b909bc1962fc7655457"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_eigen_1_1_h2.html">H2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#ab8612cd53c590b909bc1962fc7655457">StorageKind</a></td></tr>
-<tr class="separator:ab8612cd53c590b909bc1962fc7655457"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a402ff842a76c9e092d0b6549455fc1"><td class="memItemLeft" align="right" valign="top">typedef MatrixXpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a1a402ff842a76c9e092d0b6549455fc1">XprKind</a></td></tr>
-<tr class="separator:a1a402ff842a76c9e092d0b6549455fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ScalarT&gt;<br />
 struct Eigen::internal::traits&lt; H2Matrix&lt; ScalarT &gt; &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="_h2_matrix_8hpp_source.html#l00033">33</a> of file <a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ade300dbfa526ccd74f65702c5aa3ad1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade300dbfa526ccd74f65702c5aa3ad1a">&#9670;&nbsp;</a></span>Scalar</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ScalarT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ScalarT Eigen::internal::traits&lt; <a class="el" href="class_eigen_1_1_h2_matrix.html">H2Matrix</a>&lt; ScalarT &gt; &gt;::<a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#ade300dbfa526ccd74f65702c5aa3ad1a">Scalar</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_matrix_8hpp_source.html#l00034">34</a> of file <a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4e407a2c64058d1158a599595c458afd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e407a2c64058d1158a599595c458afd">&#9670;&nbsp;</a></span>StorageIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ScalarT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef int Eigen::internal::traits&lt; <a class="el" href="class_eigen_1_1_h2_matrix.html">H2Matrix</a>&lt; ScalarT &gt; &gt;::<a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a4e407a2c64058d1158a599595c458afd">StorageIndex</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_matrix_8hpp_source.html#l00035">35</a> of file <a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab8612cd53c590b909bc1962fc7655457"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8612cd53c590b909bc1962fc7655457">&#9670;&nbsp;</a></span>StorageKind</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ScalarT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="struct_eigen_1_1_h2.html">H2</a> Eigen::internal::traits&lt; <a class="el" href="class_eigen_1_1_h2_matrix.html">H2Matrix</a>&lt; ScalarT &gt; &gt;::<a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#ab8612cd53c590b909bc1962fc7655457">StorageKind</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_matrix_8hpp_source.html#l00036">36</a> of file <a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1a402ff842a76c9e092d0b6549455fc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a402ff842a76c9e092d0b6549455fc1">&#9670;&nbsp;</a></span>XprKind</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ScalarT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef MatrixXpr Eigen::internal::traits&lt; <a class="el" href="class_eigen_1_1_h2_matrix.html">H2Matrix</a>&lt; ScalarT &gt; &gt;::<a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html#a1a402ff842a76c9e092d0b6549455fc1">XprKind</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_matrix_8hpp_source.html#l00037">37</a> of file <a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a009fc32823a15b6db5a035c4261e65a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a009fc32823a15b6db5a035c4261e65a5">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ScalarT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a009fc32823a15b6db5a035c4261e65a5af862e4bad4d1246c30f5947405078edf"></a>RowsAtCompileTime&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a009fc32823a15b6db5a035c4261e65a5ad60c4cb2cadf96a8fe7ae4daf68d84d4"></a>ColsAtCompileTime&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a009fc32823a15b6db5a035c4261e65a5a0cf9a65962014923cffebdf91948da69"></a>MaxRowsAtCompileTime&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a009fc32823a15b6db5a035c4261e65a5afba3aa6898f01a9efa0728af8e1a0d61"></a>MaxColsAtCompileTime&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a009fc32823a15b6db5a035c4261e65a5ad5261979e1edae87d1694b7043d63599"></a>Flags&#160;</td><td class="fielddoc"></td></tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a009fc32823a15b6db5a035c4261e65a5"><td class="memItemLeft" align="right" valign="top"><a id="a009fc32823a15b6db5a035c4261e65a5"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<b>RowsAtCompileTime</b> = Dynamic
+, <b>ColsAtCompileTime</b> = Dynamic
+, <b>MaxRowsAtCompileTime</b> = Dynamic
+, <b>MaxColsAtCompileTime</b> = Dynamic
+, <br />
+&#160;&#160;<b>Flags</b> = NestByRefBit
+<br />
+ }</td></tr>
+<tr class="separator:a009fc32823a15b6db5a035c4261e65a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade300dbfa526ccd74f65702c5aa3ad1a"><td class="memItemLeft" align="right" valign="top"><a id="ade300dbfa526ccd74f65702c5aa3ad1a"></a>
+typedef ScalarT&#160;</td><td class="memItemRight" valign="bottom"><b>Scalar</b></td></tr>
+<tr class="separator:ade300dbfa526ccd74f65702c5aa3ad1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e407a2c64058d1158a599595c458afd"><td class="memItemLeft" align="right" valign="top"><a id="a4e407a2c64058d1158a599595c458afd"></a>
+typedef int&#160;</td><td class="memItemRight" valign="bottom"><b>StorageIndex</b></td></tr>
+<tr class="separator:a4e407a2c64058d1158a599595c458afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8612cd53c590b909bc1962fc7655457"><td class="memItemLeft" align="right" valign="top"><a id="ab8612cd53c590b909bc1962fc7655457"></a>
+typedef <a class="el" href="struct_eigen_1_1_h2.html">H2</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StorageKind</b></td></tr>
+<tr class="separator:ab8612cd53c590b909bc1962fc7655457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a402ff842a76c9e092d0b6549455fc1"><td class="memItemLeft" align="right" valign="top"><a id="a1a402ff842a76c9e092d0b6549455fc1"></a>
+typedef MatrixXpr&#160;</td><td class="memItemRight" valign="bottom"><b>XprKind</b></td></tr>
+<tr class="separator:a1a402ff842a76c9e092d0b6549455fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_h2_matrix_8hpp_source.html#l00038">38</a> of file <a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Bembel/src/H2Matrix/<a class="el" href="_h2_matrix_8hpp_source.html">H2Matrix.hpp</a></li>
 </ul>
@@ -234,7 +148,7 @@ template&lt;typename ScalarT &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_eigen.html">Eigen</a></li><li class="navelem"><a class="el" href="namespace_eigen_1_1internal.html">internal</a></li><li class="navelem"><a class="el" href="struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html">traits&lt; H2Matrix&lt; ScalarT &gt; &gt;</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

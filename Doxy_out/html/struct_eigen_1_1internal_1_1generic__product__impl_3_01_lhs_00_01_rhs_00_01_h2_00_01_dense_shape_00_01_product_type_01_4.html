@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -97,8 +108,6 @@ $(document).ready(function(){initNavTree('struct_eigen_1_1internal_1_1generic__p
 <div class="title">Eigen::internal::generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_h2_dense_product_8hpp_source.html">H2DenseProduct.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Eigen::internal::generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt;:</div>
 <div class="dyncontent">
@@ -117,107 +126,26 @@ Collaboration diagram for Eigen::internal::generic_product_impl&lt; Lhs, Rhs, H2
 <area shape="rect" title=" " alt="" coords="5,5,256,76"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ae2b46db73d9369d4bc3f0a074a1a14b8"><td class="memItemLeft" align="right" valign="top">typedef Product&lt; Lhs, Rhs &gt;::<a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#ae2b46db73d9369d4bc3f0a074a1a14b8">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#ae2b46db73d9369d4bc3f0a074a1a14b8">Scalar</a></td></tr>
-<tr class="separator:ae2b46db73d9369d4bc3f0a074a1a14b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ba67db0ebee20b79c4e8ef1377166b9"><td class="memTemplParams" colspan="2">template&lt;typename Dest &gt; </td></tr>
-<tr class="memitem:a5ba67db0ebee20b79c4e8ef1377166b9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#a5ba67db0ebee20b79c4e8ef1377166b9">scaleAndAddTo</a> (Dest &amp;dst, const Lhs &amp;lhs, const Rhs &amp;rhs, const <a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#ae2b46db73d9369d4bc3f0a074a1a14b8">Scalar</a> &amp;alpha)</td></tr>
-<tr class="separator:a5ba67db0ebee20b79c4e8ef1377166b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Lhs, typename Rhs, int ProductType&gt;<br />
 struct Eigen::internal::generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="_h2_dense_product_8hpp_source.html#l00269">269</a> of file <a class="el" href="_h2_dense_product_8hpp_source.html">H2DenseProduct.hpp</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ae2b46db73d9369d4bc3f0a074a1a14b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2b46db73d9369d4bc3f0a074a1a14b8">&#9670;&nbsp;</a></span>Scalar</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Lhs , typename Rhs , int ProductType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Product&lt;Lhs, Rhs&gt;::<a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#ae2b46db73d9369d4bc3f0a074a1a14b8">Scalar</a> Eigen::internal::generic_product_impl&lt; Lhs, Rhs, <a class="el" href="struct_eigen_1_1_h2.html">H2</a>, DenseShape, ProductType &gt;::<a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#ae2b46db73d9369d4bc3f0a074a1a14b8">Scalar</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_dense_product_8hpp_source.html#l00273">273</a> of file <a class="el" href="_h2_dense_product_8hpp_source.html">H2DenseProduct.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5ba67db0ebee20b79c4e8ef1377166b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ba67db0ebee20b79c4e8ef1377166b9">&#9670;&nbsp;</a></span>scaleAndAddTo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Lhs , typename Rhs , int ProductType&gt; </div>
-<div class="memtemplate">
-template&lt;typename Dest &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Eigen::internal::generic_product_impl&lt; Lhs, Rhs, <a class="el" href="struct_eigen_1_1_h2.html">H2</a>, DenseShape, ProductType &gt;::scaleAndAddTo </td>
-          <td>(</td>
-          <td class="paramtype">Dest &amp;&#160;</td>
-          <td class="paramname"><em>dst</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Lhs &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Rhs &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html#ae2b46db73d9369d4bc3f0a074a1a14b8">Scalar</a> &amp;&#160;</td>
-          <td class="paramname"><em>alpha</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae2b46db73d9369d4bc3f0a074a1a14b8"><td class="memItemLeft" align="right" valign="top"><a id="ae2b46db73d9369d4bc3f0a074a1a14b8"></a>
+typedef Product&lt; Lhs, Rhs &gt;::Scalar&#160;</td><td class="memItemRight" valign="bottom"><b>Scalar</b></td></tr>
+<tr class="separator:ae2b46db73d9369d4bc3f0a074a1a14b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5ba67db0ebee20b79c4e8ef1377166b9"><td class="memTemplParams" colspan="2"><a id="a5ba67db0ebee20b79c4e8ef1377166b9"></a>
+template&lt;typename Dest &gt; </td></tr>
+<tr class="memitem:a5ba67db0ebee20b79c4e8ef1377166b9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>scaleAndAddTo</b> (Dest &amp;dst, const Lhs &amp;lhs, const Rhs &amp;rhs, const Scalar &amp;alpha)</td></tr>
+<tr class="separator:a5ba67db0ebee20b79c4e8ef1377166b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h2_dense_product_8hpp_source.html#l00278">278</a> of file <a class="el" href="_h2_dense_product_8hpp_source.html">H2DenseProduct.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4_a5ba67db0ebee20b79c4e8ef1377166b9_cgraph.png" border="0" usemap="#astruct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4_a5ba67db0ebee20b79c4e8ef1377166b9_cgraph" alt=""/></div>
-<map name="astruct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4_a5ba67db0ebee20b79c4e8ef1377166b9_cgraph" id="astruct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4_a5ba67db0ebee20b79c4e8ef1377166b9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,225,76"/>
-<area shape="rect" href="namespace_eigen_1_1internal.html#a16e2879945059db9c07b96e6095d9d2d" title=" " alt="" coords="273,20,435,61"/>
-</map>
-</div>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Bembel/src/H2Matrix/EigenHelper/<a class="el" href="_h2_dense_product_8hpp_source.html">H2DenseProduct.hpp</a></li>
 </ul>
@@ -227,7 +155,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_eigen.html">Eigen</a></li><li class="navelem"><a class="el" href="namespace_eigen_1_1internal.html">internal</a></li><li class="navelem"><a class="el" href="struct_eigen_1_1internal_1_1generic__product__impl_3_01_lhs_00_01_rhs_00_01_h2_00_01_dense_shape_00_01_product_type_01_4.html">generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt;</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:31 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

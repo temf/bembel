@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,11 +104,11 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_linear_operator_base
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="struct_bembel_1_1_linear_operator_base-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::LinearOperatorBase&lt; Derived &gt; Struct Template Reference<div class="ingroups"><a class="el" href="group___linear_operator.html">LinearOperator</a></div></div>  </div>
+<div class="title">Bembel::LinearOperatorBase&lt; Derived &gt; Struct Template Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___linear_operator.html">LinearOperator</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>linear operator base class. this serves as a common interface for existing linear operators  
+<p>linear operator base class. this serves as a common interface for existing linear operators.  
  <a href="struct_bembel_1_1_linear_operator_base.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>&gt;</code></p>
@@ -106,7 +117,7 @@ Inheritance diagram for Bembel::LinearOperatorBase&lt; Derived &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_bembel_1_1_linear_operator_base__inherit__graph.png" border="0" usemap="#a_bembel_1_1_linear_operator_base_3_01_derived_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_bembel_1_1_linear_operator_base_3_01_derived_01_4_inherit__map" id="a_bembel_1_1_linear_operator_base_3_01_derived_01_4_inherit__map">
-<area shape="rect" title="linear operator base class. this serves as a common interface for existing linear operators" alt="" coords="5,136,215,177"/>
+<area shape="rect" title="linear operator base class. this serves as a common interface for existing linear operators." alt="" coords="5,136,215,177"/>
 <area shape="rect" href="struct_bembel_1_1_local_operator_base.html" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="263,136,465,177"/>
 <area shape="rect" href="class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="523,5,751,47"/>
 <area shape="rect" href="class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="521,71,752,112"/>
@@ -118,273 +129,38 @@ Inheritance diagram for Bembel::LinearOperatorBase&lt; Derived &gt;:</div>
 <area shape="rect" href="class_bembel_1_1_laplace_beltrami_operator.html" title=" " alt="" coords="808,143,1051,170"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a3014433275b18ffad85c73cb1eec22f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">LinearOperatorBase</a> ()</td></tr>
-<tr class="separator:a3014433275b18ffad85c73cb1eec22f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
-<tr class="separator:a0f7bbdf4c5de7ceff53e60cce7748630"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, <a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::NumberOfFMMComponents, <a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">evaluateFMMInterpolation</a> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
-<tr class="separator:ad616d64eccfb9cbde9ff8208f473e6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">get_FarfieldQuadratureDegree</a> (int ansatz_degree) const</td></tr>
-<tr class="separator:a564ca07e65785b8f8bb8882524d5f1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93eae80056713e449c452e86fe4f89eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a> (int ansatz_degree, double distance, int level) const</td></tr>
-<tr class="memdesc:a93eae80056713e449c452e86fe4f89eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute quadrature degree for numerical integretation close to the singularity based on distance, refinement level, degree of ansatz functions and operator_order.  <a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">More...</a><br /></td></tr>
-<tr class="separator:a93eae80056713e449c452e86fe4f89eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1"><td class="memItemLeft" align="right" valign="top">Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">derived</a> ()</td></tr>
-<tr class="separator:a4363f27d775bc3e8b2364272f89650b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1"><td class="memItemLeft" align="right" valign="top">const Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">derived</a> () const</td></tr>
-<tr class="separator:a46d1663265d35d3db4c8041ba5693bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 struct Bembel::LinearOperatorBase&lt; Derived &gt;</h3>
 
-<p>linear operator base class. this serves as a common interface for existing linear operators </p>
+<p>linear operator base class. this serves as a common interface for existing linear operators. </p>
+<p>Take a look at the <a class="el" href="_design_considerations.html#CRTPLinearOperator">Design Considerations</a> for details. </p>
 
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00021">21</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3014433275b18ffad85c73cb1eec22f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3014433275b18ffad85c73cb1eec22f1">&#9670;&nbsp;</a></span>LinearOperatorBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a>&lt; Derived &gt;::<a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
+<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00024">24</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630"><td class="memTemplParams" colspan="2"><a id="a0f7bbdf4c5de7ceff53e60cce7748630"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>evaluateIntegrand</b> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="separator:a0f7bbdf4c5de7ceff53e60cce7748630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0"><td class="memItemLeft" align="right" valign="top"><a id="ad616d64eccfb9cbde9ff8208f473e6a0"></a>
+Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, <a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::NumberOfFMMComponents, <a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFMMInterpolation</b> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="separator:ad616d64eccfb9cbde9ff8208f473e6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3"><td class="memItemLeft" align="right" valign="top"><a id="a564ca07e65785b8f8bb8882524d5f1d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_FarfieldQuadratureDegree</b> (int ansatz_degree) const</td></tr>
+<tr class="separator:a564ca07e65785b8f8bb8882524d5f1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93eae80056713e449c452e86fe4f89eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a> (int ansatz_degree, double distance, int level) const</td></tr>
+<tr class="memdesc:a93eae80056713e449c452e86fe4f89eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute quadrature degree for numerical integretation close to the singularity based on distance, refinement level, degree of ansatz functions and operator_order.  <a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">More...</a><br /></td></tr>
+<tr class="separator:a93eae80056713e449c452e86fe4f89eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1"><td class="memItemLeft" align="right" valign="top"><a id="a4363f27d775bc3e8b2364272f89650b1"></a>
+Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> ()</td></tr>
+<tr class="separator:a4363f27d775bc3e8b2364272f89650b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1"><td class="memItemLeft" align="right" valign="top"><a id="a46d1663265d35d3db4c8041ba5693bd1"></a>
+const Derived &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> () const</td></tr>
+<tr class="separator:a46d1663265d35d3db4c8041ba5693bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00023">23</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4363f27d775bc3e8b2364272f89650b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4363f27d775bc3e8b2364272f89650b1">&#9670;&nbsp;</a></span>derived() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Derived&amp; <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a>&lt; Derived &gt;::derived </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00088">88</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a46d1663265d35d3db4c8041ba5693bd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46d1663265d35d3db4c8041ba5693bd1">&#9670;&nbsp;</a></span>derived() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Derived&amp; <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a>&lt; Derived &gt;::derived </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00090">90</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad616d64eccfb9cbde9ff8208f473e6a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad616d64eccfb9cbde9ff8208f473e6a0">&#9670;&nbsp;</a></span>evaluateFMMInterpolation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar, <a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt;<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Form&gt;) * <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::NumberOfFMMComponents, <a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a>&lt;<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Form&gt;) * <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::NumberOfFMMComponents&gt; <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a>&lt; Derived &gt;::evaluateFMMInterpolation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00047">47</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0f7bbdf4c5de7ceff53e60cce7748630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f7bbdf4c5de7ceff53e60cce7748630">&#9670;&nbsp;</a></span>evaluateIntegrand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a>&lt; Derived &gt;::evaluateIntegrand </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>intval</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00029">29</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_linear_operator_base_a0f7bbdf4c5de7ceff53e60cce7748630_icgraph.png" border="0" usemap="#astruct_bembel_1_1_linear_operator_base_a0f7bbdf4c5de7ceff53e60cce7748630_icgraph" alt=""/></div>
-<map name="astruct_bembel_1_1_linear_operator_base_a0f7bbdf4c5de7ceff53e60cce7748630_icgraph" id="astruct_bembel_1_1_linear_operator_base_a0f7bbdf4c5de7ceff53e60cce7748630_icgraph">
-<area shape="rect" title=" " alt="" coords="668,136,877,177"/>
-<area shape="rect" href="group___duffy_trick.html#ga36f1765af6834d692ebc93f71750ce62" title="far&#45;field quadrature routine, which is based on precomputed values in order to quickly evaluate the i..." alt="" coords="475,5,620,47"/>
-<area shape="rect" href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9" title="no&#45;problem quadrature routine, elements are sufficiently far away from each other,..." alt="" coords="475,71,620,112"/>
-<area shape="rect" href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39" title="quadrature routine for identical elements" alt="" coords="475,136,620,177"/>
-<area shape="rect" href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd" title="quadrature routine for the common edge case" alt="" coords="475,201,620,243"/>
-<area shape="rect" href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334" title="quadrature routine for identical elements" alt="" coords="475,267,620,308"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,136,427,177"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,70,208,155"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,180,184,221"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a564ca07e65785b8f8bb8882524d5f1d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a564ca07e65785b8f8bb8882524d5f1d3">&#9670;&nbsp;</a></span>get_FarfieldQuadratureDegree()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a>&lt; Derived &gt;::get_FarfieldQuadratureDegree </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ansatz_degree</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00053">53</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_linear_operator_base_a564ca07e65785b8f8bb8882524d5f1d3_icgraph.png" border="0" usemap="#astruct_bembel_1_1_linear_operator_base_a564ca07e65785b8f8bb8882524d5f1d3_icgraph" alt=""/></div>
-<map name="astruct_bembel_1_1_linear_operator_base_a564ca07e65785b8f8bb8882524d5f1d3_icgraph" id="astruct_bembel_1_1_linear_operator_base_a564ca07e65785b8f8bb8882524d5f1d3_icgraph">
-<area shape="rect" title=" " alt="" coords="475,71,700,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a93eae80056713e449c452e86fe4f89eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93eae80056713e449c452e86fe4f89eb">&#9670;&nbsp;</a></span>getNearfieldQuadratureDegree()</h2>
 
@@ -430,18 +206,7 @@ template&lt;typename Derived &gt; </div>
 <p>Compute quadrature degree for numerical integretation close to the singularity based on distance, refinement level, degree of ansatz functions and operator_order. </p>
 <p>See also WAVELET GALERKIN SCHEMES FOR BOUNDARY INTEGRAL EQUATIONS - IMPLEMENTATION AND QUADRATURE by Helmut Harbrecht and Reinhold Schneider for more details. </p>
 
-<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00066">66</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="struct_bembel_1_1_linear_operator_base_a93eae80056713e449c452e86fe4f89eb_icgraph.png" border="0" usemap="#astruct_bembel_1_1_linear_operator_base_a93eae80056713e449c452e86fe4f89eb_icgraph" alt=""/></div>
-<map name="astruct_bembel_1_1_linear_operator_base_a93eae80056713e449c452e86fe4f89eb_icgraph" id="astruct_bembel_1_1_linear_operator_base_a93eae80056713e449c452e86fe4f89eb_icgraph">
-<area shape="rect" title="Compute quadrature degree for numerical integretation close to the singularity based on distance,..." alt="" coords="475,71,705,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_linear_operator_base_8hpp_source.html#l00069">69</a> of file <a class="el" href="_linear_operator_base_8hpp_source.html">LinearOperatorBase.hpp</a>.</p>
 
 </div>
 </div>
@@ -454,7 +219,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

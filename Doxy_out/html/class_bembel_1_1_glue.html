@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_glue.html',''); initR
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_glue-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::Glue&lt; Derived &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___ansatz_space.html">AnsatzSpace</a></div></div>  </div>
+<div class="title">Bembel::Glue&lt; Derived &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___ansatz_space.html">AnsatzSpace</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -101,28 +112,34 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_glue.html',''); initR
  <a href="class_bembel_1_1_glue.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ad29754d21376d0109eb6dea5b21491ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#ad29754d21376d0109eb6dea5b21491ab">Glue</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
-<tr class="separator:ad29754d21376d0109eb6dea5b21491ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06ac73ca783d02f3445e3e4d87c880a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#a06ac73ca783d02f3445e3e4d87c880a0">init_Glue</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
-<tr class="separator:a06ac73ca783d02f3445e3e4d87c880a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2331bd268bc12cf2a8b264684258224e"><td class="memItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#a2331bd268bc12cf2a8b264684258224e">get_glue_matrix</a> () const</td></tr>
-<tr class="separator:a2331bd268bc12cf2a8b264684258224e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6d40d39d730399b9247fba7b11b2875"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_bembel_1_1_glue_routines_1_1dof_identification.html">GlueRoutines::dofIdentification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#aa6d40d39d730399b9247fba7b11b2875">makeDofIdentificationList</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
-<tr class="separator:aa6d40d39d730399b9247fba7b11b2875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8c88b12377f89b0b580faf597b3ceda"><td class="memItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#ae8c88b12377f89b0b580faf597b3ceda">assembleGlueMatrix</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
-<tr class="separator:ae8c88b12377f89b0b580faf597b3ceda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class Bembel::Glue&lt; Derived &gt;</h3>
 
 <p>This class takes care of identifying DOFs on different edges, which must be identified with one another. </p>
+<p>The <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> class has routines to assemble continuous B-splines across patch boundaries depending on the template parameter LinearOperatorTraits&lt;Derived&gt;::Form. If this template parameter is equal to DifferentialForm::Continuous, the B-splines are globally glued continuously. Otherwise, it can also be DifferentialForm::DivConforming, in which case the normal component is glued continuously. Finally, there is the option of not gluing the B-splines at all if the parameter is DifferentialForm::Discontinuous. </p>
 
-<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00063">63</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00076">76</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad29754d21376d0109eb6dea5b21491ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#ad29754d21376d0109eb6dea5b21491ab">Glue</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
+<tr class="memdesc:ad29754d21376d0109eb6dea5b21491ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> class.  <a href="class_bembel_1_1_glue.html#ad29754d21376d0109eb6dea5b21491ab">More...</a><br /></td></tr>
+<tr class="separator:ad29754d21376d0109eb6dea5b21491ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ac73ca783d02f3445e3e4d87c880a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#a06ac73ca783d02f3445e3e4d87c880a0">init_Glue</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
+<tr class="memdesc:a06ac73ca783d02f3445e3e4d87c880a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object.  <a href="class_bembel_1_1_glue.html#a06ac73ca783d02f3445e3e4d87c880a0">More...</a><br /></td></tr>
+<tr class="separator:a06ac73ca783d02f3445e3e4d87c880a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2331bd268bc12cf2a8b264684258224e"><td class="memItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#a2331bd268bc12cf2a8b264684258224e">get_glue_matrix</a> () const</td></tr>
+<tr class="memdesc:a2331bd268bc12cf2a8b264684258224e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix to assemble continuous B-splines.  <a href="class_bembel_1_1_glue.html#a2331bd268bc12cf2a8b264684258224e">More...</a><br /></td></tr>
+<tr class="separator:a2331bd268bc12cf2a8b264684258224e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d40d39d730399b9247fba7b11b2875"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_bembel_1_1_glue_routines_1_1dof_identification.html">GlueRoutines::dofIdentification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#aa6d40d39d730399b9247fba7b11b2875">makeDofIdentificationList</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
+<tr class="memdesc:aa6d40d39d730399b9247fba7b11b2875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a list of degrees of freedom (DOFs) identifications.  <a href="class_bembel_1_1_glue.html#aa6d40d39d730399b9247fba7b11b2875">More...</a><br /></td></tr>
+<tr class="separator:aa6d40d39d730399b9247fba7b11b2875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8c88b12377f89b0b580faf597b3ceda"><td class="memItemLeft" align="right" valign="top">Eigen::SparseMatrix&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html#ae8c88b12377f89b0b580faf597b3ceda">assembleGlueMatrix</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;superspace, const <a class="el" href="class_bembel_1_1_projector.html">Projector</a>&lt; Derived &gt; &amp;proj)</td></tr>
+<tr class="memdesc:ae8c88b12377f89b0b580faf597b3ceda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix according to the DOF identification list.  <a href="class_bembel_1_1_glue.html#ae8c88b12377f89b0b580faf597b3ceda">More...</a><br /></td></tr>
+<tr class="separator:ae8c88b12377f89b0b580faf597b3ceda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad29754d21376d0109eb6dea5b21491ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad29754d21376d0109eb6dea5b21491ab">&#9670;&nbsp;</a></span>Glue()</h2>
 
@@ -159,22 +176,17 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00069">69</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_ad29754d21376d0109eb6dea5b21491ab_cgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_ad29754d21376d0109eb6dea5b21491ab_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_ad29754d21376d0109eb6dea5b21491ab_cgraph" id="aclass_bembel_1_1_glue_ad29754d21376d0109eb6dea5b21491ab_cgraph">
-<area shape="rect" title=" " alt="" coords="5,141,153,167"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#a06ac73ca783d02f3445e3e4d87c880a0" title=" " alt="" coords="201,141,377,167"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#ae8c88b12377f89b0b580faf597b3ceda" title=" " alt="" coords="425,35,636,76"/>
-<area shape="rect" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff" title="getter" alt="" coords="454,100,607,141"/>
-<area shape="rect" href="struct_bembel_1_1_super_space.html#a14e5e60f4c5b98840f6457bcdf3b9376" title=" " alt="" coords="453,165,609,207"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c" title=" " alt="" coords="450,231,611,272"/>
-<area shape="rect" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2" title=" " alt="" coords="737,5,917,47"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#aa6d40d39d730399b9247fba7b11b2875" title=" " alt="" coords="684,71,969,98"/>
-</map>
-</div>
+<p>Constructor for the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> class. </p>
+<p>This constructor initializes a <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> object with the provided <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> and <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> objects.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">superspace</td><td>The <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> to handle the basis functions. </td></tr>
+    <tr><td class="paramname">proj</td><td>The <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> which provides information on the dofs before gluing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00092">92</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
 
 </div>
 </div>
@@ -215,27 +227,18 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00090">90</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_cgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_cgraph" id="aclass_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,216,76"/>
-<area shape="rect" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2" title=" " alt="" coords="317,5,497,47"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#aa6d40d39d730399b9247fba7b11b2875" title=" " alt="" coords="264,71,549,98"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_icgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_icgraph" id="aclass_bembel_1_1_glue_ae8c88b12377f89b0b580faf597b3ceda_icgraph">
-<area shape="rect" title=" " alt="" coords="425,5,636,47"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#a06ac73ca783d02f3445e3e4d87c880a0" title=" " alt="" coords="201,13,377,39"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#ad29754d21376d0109eb6dea5b21491ab" title=" " alt="" coords="5,13,153,39"/>
-</map>
-</div>
+<p>Assembles the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix according to the DOF identification list. </p>
+<p>This function first sorts the DOFs in each identification list. Than the identification lists get sorted according to the first entries. After that the DOFs get stored in the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">superspace</td><td>The <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> reference to handle basis functions. </td></tr>
+    <tr><td class="paramname">proj</td><td>The <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> contains the number of DOFs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00153">153</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
 
 </div>
 </div>
@@ -264,17 +267,11 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00079">79</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_a2331bd268bc12cf2a8b264684258224e_icgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_a2331bd268bc12cf2a8b264684258224e_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_a2331bd268bc12cf2a8b264684258224e_icgraph" id="aclass_bembel_1_1_glue_a2331bd268bc12cf2a8b264684258224e_icgraph">
-<area shape="rect" title=" " alt="" coords="427,5,601,47"/>
-<area shape="rect" href="class_bembel_1_1_ansatz_space.html#a4be284b540e0564403c48e997f352a8b" title=" " alt="" coords="216,5,379,47"/>
-<area shape="rect" href="class_bembel_1_1_ansatz_space.html#a212a649562467e3f8b74d808945e72e3" title=" " alt="" coords="5,5,168,47"/>
-</map>
-</div>
+<p>Returns <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix to assemble continuous B-splines. </p>
+<p>This function returns the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix which transforms smooth B-splines to continuous shape functions across patch boundaries. If continuity is not needed this matrix is the identity. Other wise this matrix is a tall thin matrix combining degrees of freedom.</p>
+<dl class="section return"><dt>Returns</dt><dd>Eigen::SparseMatrix&lt;double&gt; <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> matrix </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00120">120</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
 
 </div>
 </div>
@@ -314,30 +311,17 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00072">72</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_cgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_cgraph" id="aclass_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_cgraph">
-<area shape="rect" title=" " alt="" coords="5,141,181,167"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#ae8c88b12377f89b0b580faf597b3ceda" title=" " alt="" coords="229,35,440,76"/>
-<area shape="rect" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff" title="getter" alt="" coords="258,100,411,141"/>
-<area shape="rect" href="struct_bembel_1_1_super_space.html#a14e5e60f4c5b98840f6457bcdf3b9376" title=" " alt="" coords="257,165,413,207"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c" title=" " alt="" coords="254,231,415,272"/>
-<area shape="rect" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2" title=" " alt="" coords="541,5,721,47"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#aa6d40d39d730399b9247fba7b11b2875" title=" " alt="" coords="488,71,773,98"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_icgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_icgraph" id="aclass_bembel_1_1_glue_a06ac73ca783d02f3445e3e4d87c880a0_icgraph">
-<area shape="rect" title=" " alt="" coords="201,5,377,32"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#ad29754d21376d0109eb6dea5b21491ab" title=" " alt="" coords="5,5,153,32"/>
-</map>
-</div>
+<p>Initializes the <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object. </p>
+<p>This function initializes the member variables of the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">superspace</td><td>The <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> to handle the basis functions. </td></tr>
+    <tr><td class="paramname">proj</td><td>The <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> which provides information on the dofs before gluing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00104">104</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
 
 </div>
 </div>
@@ -377,18 +361,18 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00081">81</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_glue_aa6d40d39d730399b9247fba7b11b2875_icgraph.png" border="0" usemap="#aclass_bembel_1_1_glue_aa6d40d39d730399b9247fba7b11b2875_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_glue_aa6d40d39d730399b9247fba7b11b2875_icgraph" id="aclass_bembel_1_1_glue_aa6d40d39d730399b9247fba7b11b2875_icgraph">
-<area shape="rect" title=" " alt="" coords="684,13,969,39"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#ae8c88b12377f89b0b580faf597b3ceda" title=" " alt="" coords="425,5,636,47"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#a06ac73ca783d02f3445e3e4d87c880a0" title=" " alt="" coords="201,13,377,39"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#ad29754d21376d0109eb6dea5b21491ab" title=" " alt="" coords="5,13,153,39"/>
-</map>
-</div>
+<p>Generates a list of degrees of freedom (DOFs) identifications. </p>
+<p>This function creates a list of degrees of freedom (DOFs) identifications which need to be glued together. The return type is a std::vector of <a class="el" href="struct_bembel_1_1_glue_routines_1_1dof_identification.html" title="Helper struct.">GlueRoutines::dofIdentification</a> which collects the DOFs to be glued. Furthermore, the coef in this struct denotes the orientation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">superspace</td><td>The <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> reference to handle basis functions. </td></tr>
+    <tr><td class="paramname">proj</td><td>The <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> contains the number of DOFs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="struct_bembel_1_1_glue_routines_1_1dof_identification.html" title="Helper struct.">GlueRoutines::dofIdentification</a> containing the DOF identifications. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_glue_8hpp_source.html#l00134">134</a> of file <a class="el" href="_glue_8hpp_source.html">Glue.hpp</a>.</p>
 
 </div>
 </div>
@@ -401,7 +385,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_glue.html">Glue</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

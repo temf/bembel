@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,9 +104,12 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_laplace_single_layer_
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_laplace_single_layer_potential-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::LaplaceSingleLayerPotential&lt; LinOp &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___laplace.html">Laplace</a></div></div>  </div>
+<div class="title">Bembel::LaplaceSingleLayerPotential&lt; LinOp &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___laplace.html">Laplace</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class implements the specification of the integration for the single layer potential for Laplace.  
+ <a href="class_bembel_1_1_laplace_single_layer_potential.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -103,7 +117,7 @@ Inheritance diagram for Bembel::LaplaceSingleLayerPotential&lt; LinOp &gt;:</div
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_laplace_single_layer_potential__inherit__graph.png" border="0" usemap="#a_bembel_1_1_laplace_single_layer_potential_3_01_lin_op_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_bembel_1_1_laplace_single_layer_potential_3_01_lin_op_01_4_inherit__map" id="a_bembel_1_1_laplace_single_layer_potential_3_01_lin_op_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="13,109,219,151"/>
+<area shape="rect" title="This class implements the specification of the integration for the single layer potential for Laplace..." alt="" coords="13,109,219,151"/>
 <area shape="rect" href="struct_bembel_1_1_potential_base.html" title=" " alt="" coords="5,5,227,61"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -112,181 +126,38 @@ Collaboration diagram for Bembel::LaplaceSingleLayerPotential&lt; LinOp &gt;:</d
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_laplace_single_layer_potential__coll__graph.png" border="0" usemap="#a_bembel_1_1_laplace_single_layer_potential_3_01_lin_op_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="a_bembel_1_1_laplace_single_layer_potential_3_01_lin_op_01_4_coll__map" id="a_bembel_1_1_laplace_single_layer_potential_3_01_lin_op_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="13,109,219,151"/>
+<area shape="rect" title="This class implements the specification of the integration for the single layer potential for Laplace..." alt="" coords="13,109,219,151"/>
 <area shape="rect" href="struct_bembel_1_1_potential_base.html" title=" " alt="" coords="5,5,227,61"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a7bda2ff7bf341da18f70e23078088780"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html#a7bda2ff7bf341da18f70e23078088780">LaplaceSingleLayerPotential</a> ()</td></tr>
-<tr class="separator:a7bda2ff7bf341da18f70e23078088780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99b0ec0045eea9702993623552e83848"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_potential_return_scalar.html">PotentialReturnScalar</a>&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, double &gt;::Scalar, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html#a99b0ec0045eea9702993623552e83848">evaluateIntegrand_impl</a> (const <a class="el" href="class_bembel_1_1_function_evaluator.html">FunctionEvaluator</a>&lt; LinOp &gt; &amp;fun_ev, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;element, const Eigen::Vector3d &amp;point, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p) const</td></tr>
-<tr class="separator:a99b0ec0045eea9702993623552e83848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac12aced6723dc51b27e65877a302bc19"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html#ac12aced6723dc51b27e65877a302bc19">evaluateKernel</a> (const Eigen::Vector3d &amp;x, const Eigen::Vector3d &amp;y) const</td></tr>
-<tr class="memdesc:ac12aced6723dc51b27e65877a302bc19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundamental solution of Laplace problem.  <a href="class_bembel_1_1_laplace_single_layer_potential.html#ac12aced6723dc51b27e65877a302bc19">More...</a><br /></td></tr>
-<tr class="separator:ac12aced6723dc51b27e65877a302bc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_struct_bembel_1_1_potential_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_bembel_1_1_potential_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_bembel_1_1_potential_base.html">Bembel::PotentialBase&lt; LaplaceSingleLayerPotential&lt; LinOp &gt;, LinOp &gt;</a></td></tr>
-<tr class="memitem:a2dbece2eb1ac2e9b8026d89958641a8d inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_base.html#a2dbece2eb1ac2e9b8026d89958641a8d">PotentialBase</a> ()</td></tr>
-<tr class="separator:a2dbece2eb1ac2e9b8026d89958641a8d inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec3f48e0a6c70a9ef94bdc265de050f1 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_potential_return_scalar.html">PotentialReturnScalar</a>&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, typename <a class="el" href="struct_bembel_1_1_potential_traits.html">PotentialTraits</a>&lt; <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &gt;::Scalar &gt;::Scalar, 1, <a class="el" href="struct_bembel_1_1_potential_traits.html">PotentialTraits</a>&lt; <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &gt;::OutputSpaceDimension &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_base.html#aec3f48e0a6c70a9ef94bdc265de050f1">evaluateIntegrand</a> (const <a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a>&lt; LinOp &gt; &amp;ansatz_space, const Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, Eigen::Dynamic, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Form &gt;()&gt; &amp;coeff, const Eigen::VectorXd &amp;point, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p) const</td></tr>
-<tr class="separator:aec3f48e0a6c70a9ef94bdc265de050f1 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94455143e9409e24bbd22af51cede667 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_base.html#a94455143e9409e24bbd22af51cede667">derived</a> ()</td></tr>
-<tr class="separator:a94455143e9409e24bbd22af51cede667 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec7ccf225d1f5123a30366014dc315a5 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_base.html#aec7ccf225d1f5123a30366014dc315a5">derived</a> () const</td></tr>
-<tr class="separator:aec7ccf225d1f5123a30366014dc315a5 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename LinOp&gt;<br />
 class Bembel::LaplaceSingleLayerPotential&lt; LinOp &gt;</h3>
 
+<p>This class implements the specification of the integration for the single layer potential for Laplace. </p>
 
-<p class="definition">Definition at line <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html#l00030">30</a> of file <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7bda2ff7bf341da18f70e23078088780"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bda2ff7bf341da18f70e23078088780">&#9670;&nbsp;</a></span>LaplaceSingleLayerPotential()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LinOp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">Bembel::LaplaceSingleLayerPotential</a>&lt; LinOp &gt;::<a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
+<p class="definition">Definition at line <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html#l00034">34</a> of file <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a99b0ec0045eea9702993623552e83848"><td class="memItemLeft" align="right" valign="top"><a id="a99b0ec0045eea9702993623552e83848"></a>
+Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_potential_return_scalar.html">PotentialReturnScalar</a>&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, double &gt;::Scalar, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateIntegrand_impl</b> (const <a class="el" href="class_bembel_1_1_function_evaluator.html">FunctionEvaluator</a>&lt; LinOp &gt; &amp;fun_ev, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;element, const Eigen::Vector3d &amp;point, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p) const</td></tr>
+<tr class="separator:a99b0ec0045eea9702993623552e83848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12aced6723dc51b27e65877a302bc19"><td class="memItemLeft" align="right" valign="top"><a id="ac12aced6723dc51b27e65877a302bc19"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html#ac12aced6723dc51b27e65877a302bc19">evaluateKernel</a> (const Eigen::Vector3d &amp;x, const Eigen::Vector3d &amp;y) const</td></tr>
+<tr class="memdesc:ac12aced6723dc51b27e65877a302bc19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fundamental solution of Laplace problem. <br /></td></tr>
+<tr class="separator:ac12aced6723dc51b27e65877a302bc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_struct_bembel_1_1_potential_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_bembel_1_1_potential_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_bembel_1_1_potential_base.html">Bembel::PotentialBase&lt; LaplaceSingleLayerPotential&lt; LinOp &gt;, LinOp &gt;</a></td></tr>
+<tr class="memitem:aec3f48e0a6c70a9ef94bdc265de050f1 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top"><a id="aec3f48e0a6c70a9ef94bdc265de050f1"></a>
+Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_potential_return_scalar.html">PotentialReturnScalar</a>&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, typename <a class="el" href="struct_bembel_1_1_potential_traits.html">PotentialTraits</a>&lt; <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &gt;::Scalar &gt;::Scalar, 1, <a class="el" href="struct_bembel_1_1_potential_traits.html">PotentialTraits</a>&lt; <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &gt;::OutputSpaceDimension &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateIntegrand</b> (const <a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a>&lt; LinOp &gt; &amp;ansatz_space, const Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, Eigen::Dynamic, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Form &gt;()&gt; &amp;coeff, const Eigen::VectorXd &amp;point, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p) const</td></tr>
+<tr class="separator:aec3f48e0a6c70a9ef94bdc265de050f1 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94455143e9409e24bbd22af51cede667 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top"><a id="a94455143e9409e24bbd22af51cede667"></a>
+<a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> ()</td></tr>
+<tr class="separator:a94455143e9409e24bbd22af51cede667 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec7ccf225d1f5123a30366014dc315a5 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memItemLeft" align="right" valign="top"><a id="aec7ccf225d1f5123a30366014dc315a5"></a>
+const <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a>&lt; LinOp &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> () const</td></tr>
+<tr class="separator:aec7ccf225d1f5123a30366014dc315a5 inherit pub_methods_struct_bembel_1_1_potential_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html#l00035">35</a> of file <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a99b0ec0045eea9702993623552e83848"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99b0ec0045eea9702993623552e83848">&#9670;&nbsp;</a></span>evaluateIntegrand_impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LinOp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_potential_return_scalar.html">PotentialReturnScalar</a>&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;LinOp&gt;::Scalar, double&gt;::Scalar, 1, 1&gt; <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">Bembel::LaplaceSingleLayerPotential</a>&lt; LinOp &gt;::evaluateIntegrand_impl </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_function_evaluator.html">FunctionEvaluator</a>&lt; LinOp &gt; &amp;&#160;</td>
-          <td class="paramname"><em>fun_ev</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>point</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html#l00040">40</a> of file <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_laplace_single_layer_potential_a99b0ec0045eea9702993623552e83848_cgraph.png" border="0" usemap="#aclass_bembel_1_1_laplace_single_layer_potential_a99b0ec0045eea9702993623552e83848_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_laplace_single_layer_potential_a99b0ec0045eea9702993623552e83848_cgraph" id="aclass_bembel_1_1_laplace_single_layer_potential_a99b0ec0045eea9702993623552e83848_cgraph">
-<area shape="rect" title=" " alt="" coords="5,39,248,80"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#afc84feb7f45fbfcfc2570083a5a16b4e" title=" " alt="" coords="301,5,498,47"/>
-<area shape="rect" href="class_bembel_1_1_laplace_single_layer_potential.html#ac12aced6723dc51b27e65877a302bc19" title="Fundamental solution of Laplace problem." alt="" coords="296,71,503,112"/>
-<area shape="rect" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715" title=" " alt="" coords="551,5,745,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ac12aced6723dc51b27e65877a302bc19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac12aced6723dc51b27e65877a302bc19">&#9670;&nbsp;</a></span>evaluateKernel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LinOp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">Bembel::LaplaceSingleLayerPotential</a>&lt; LinOp &gt;::evaluateKernel </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fundamental solution of Laplace problem. </p>
-
-<p class="definition">Definition at line <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html#l00073">73</a> of file <a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_laplace_single_layer_potential_ac12aced6723dc51b27e65877a302bc19_icgraph.png" border="0" usemap="#aclass_bembel_1_1_laplace_single_layer_potential_ac12aced6723dc51b27e65877a302bc19_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_laplace_single_layer_potential_ac12aced6723dc51b27e65877a302bc19_icgraph" id="aclass_bembel_1_1_laplace_single_layer_potential_ac12aced6723dc51b27e65877a302bc19_icgraph">
-<area shape="rect" title="Fundamental solution of Laplace problem." alt="" coords="296,5,503,47"/>
-<area shape="rect" href="class_bembel_1_1_laplace_single_layer_potential.html#a99b0ec0045eea9702993623552e83848" title=" " alt="" coords="5,5,248,47"/>
-</map>
-</div>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/Laplace/<a class="el" href="_laplace_2_single_layer_potential_8hpp_source.html">SingleLayerPotential.hpp</a></li>
 </ul>
@@ -296,7 +167,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

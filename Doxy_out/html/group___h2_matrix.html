@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('group___h2_matrix.html',''); initResiz
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">H2Matrix</div>  </div>
+<div class="title">H2Matrix<div class="ingroups"><a class="el" href="group___modules.html">Modules</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -114,18 +125,20 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes 1D moment for FMM using derivatives of the basis functions. All calculations ar performed on [0,1].  <a href="struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_h2_multipole_1_1_moment2_d.html">Bembel::H2Multipole::Moment2D&lt; InterpolationPoints, LinOp &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes all 2D moment for the FMM by tensorisation of the 1D moments. Specialice this for your linear operator if you need derivatives on your local shape functions. See e.g. <a class="el" href="class_bembel_1_1_maxwell_single_layer_operator.html">MaxwellSingleLayerOperator</a> for an example.  <a href="struct_bembel_1_1_h2_multipole_1_1_moment2_d.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes all 2D moment for the FMM by tensorisation of the 1D moments. Specialice this for your linear operator if you need derivatives on your local shape functions. See e.g. <a class="el" href="class_bembel_1_1_maxwell_single_layer_operator.html" title="This class implements the specification of the integration for the Electric Field Integral Equation.">MaxwellSingleLayerOperator</a> for an example.  <a href="struct_bembel_1_1_h2_multipole_1_1_moment2_d.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga0203377e94e1ce20cfdea64eeb049b60"><td class="memTemplParams" colspan="2">template&lt;typename InterpolationPoints &gt; </td></tr>
+<tr class="memitem:ga0203377e94e1ce20cfdea64eeb049b60"><td class="memTemplParams" colspan="2"><a id="ga0203377e94e1ce20cfdea64eeb049b60"></a>
+template&lt;typename InterpolationPoints &gt; </td></tr>
 <tr class="memitem:ga0203377e94e1ce20cfdea64eeb049b60"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga0203377e94e1ce20cfdea64eeb049b60">Bembel::H2Multipole::computeLagrangePolynomials</a> (int number_of_points)</td></tr>
-<tr class="memdesc:ga0203377e94e1ce20cfdea64eeb049b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the Lagrange polynomials wrt the interpolation points given by the InterpolationPoints struct wrt. Newton basis  <a href="group___h2_matrix.html#ga0203377e94e1ce20cfdea64eeb049b60">More...</a><br /></td></tr>
+<tr class="memdesc:ga0203377e94e1ce20cfdea64eeb049b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the Lagrange polynomials wrt the interpolation points given by the InterpolationPoints struct wrt. Newton basis <br /></td></tr>
 <tr class="separator:ga0203377e94e1ce20cfdea64eeb049b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7966b3bfc6ffff6848e8e4c088b25208"><td class="memTemplParams" colspan="2">template&lt;typename InterpolationPoints &gt; </td></tr>
+<tr class="memitem:ga7966b3bfc6ffff6848e8e4c088b25208"><td class="memTemplParams" colspan="2"><a id="ga7966b3bfc6ffff6848e8e4c088b25208"></a>
+template&lt;typename InterpolationPoints &gt; </td></tr>
 <tr class="memitem:ga7966b3bfc6ffff6848e8e4c088b25208"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga7966b3bfc6ffff6848e8e4c088b25208">Bembel::H2Multipole::evaluatePolynomial</a> (const Eigen::VectorXd &amp;L, double xi)</td></tr>
-<tr class="memdesc:ga7966b3bfc6ffff6848e8e4c088b25208"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates a given polynomial in the Newton basis wrt the interpolation points at a given location  <a href="group___h2_matrix.html#ga7966b3bfc6ffff6848e8e4c088b25208">More...</a><br /></td></tr>
+<tr class="memdesc:ga7966b3bfc6ffff6848e8e4c088b25208"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates a given polynomial in the Newton basis wrt the interpolation points at a given location <br /></td></tr>
 <tr class="separator:ga7966b3bfc6ffff6848e8e4c088b25208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacde0a6d4057b3a1ec3d5bcaf57ff4eeb"><td class="memTemplParams" colspan="2">template&lt;typename InterpolationPoints &gt; </td></tr>
 <tr class="memitem:gacde0a6d4057b3a1ec3d5bcaf57ff4eeb"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#gacde0a6d4057b3a1ec3d5bcaf57ff4eeb">Bembel::H2Multipole::computeTransferMatrices</a> (int number_of_points)</td></tr>
@@ -135,104 +148,29 @@ Functions</h2></td></tr>
 <tr class="memitem:gac08b2cd8d930efac4c5f9c836d3134d7"><td class="memTemplItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#gac08b2cd8d930efac4c5f9c836d3134d7">Bembel::H2Multipole::moment2DComputer</a> (const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; LinOp &gt; &amp;super_space, const int cluster_level, const int cluster_refinements, const int number_of_points)</td></tr>
 <tr class="memdesc:gac08b2cd8d930efac4c5f9c836d3134d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a single 2D moment for the FMM by tensorisation of the 1D moments.  <a href="group___h2_matrix.html#gac08b2cd8d930efac4c5f9c836d3134d7">More...</a><br /></td></tr>
 <tr class="separator:gac08b2cd8d930efac4c5f9c836d3134d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga41fd2374858ae6bf7cbac5a7a5c2013a"><td class="memItemLeft" align="right" valign="top">Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga41fd2374858ae6bf7cbac5a7a5c2013a">Bembel::H2Multipole::interpolationPoints2D</a> (const Eigen::VectorXd &amp;x)</td></tr>
-<tr class="memdesc:ga41fd2374858ae6bf7cbac5a7a5c2013a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute tensor interpolation points on unit square from 1D interpolation points.  <a href="group___h2_matrix.html#ga41fd2374858ae6bf7cbac5a7a5c2013a">More...</a><br /></td></tr>
+<tr class="memitem:ga41fd2374858ae6bf7cbac5a7a5c2013a"><td class="memItemLeft" align="right" valign="top"><a id="ga41fd2374858ae6bf7cbac5a7a5c2013a"></a>
+Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga41fd2374858ae6bf7cbac5a7a5c2013a">Bembel::H2Multipole::interpolationPoints2D</a> (const Eigen::VectorXd &amp;x)</td></tr>
+<tr class="memdesc:ga41fd2374858ae6bf7cbac5a7a5c2013a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute tensor interpolation points on unit square from 1D interpolation points. <br /></td></tr>
 <tr class="separator:ga41fd2374858ae6bf7cbac5a7a5c2013a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4915ea94de2db58772fd15d5acbc6699"><td class="memTemplParams" colspan="2">template&lt;typename LinOp &gt; </td></tr>
+<tr class="memitem:ga4915ea94de2db58772fd15d5acbc6699"><td class="memTemplParams" colspan="2"><a id="ga4915ea94de2db58772fd15d5acbc6699"></a>
+template&lt;typename LinOp &gt; </td></tr>
 <tr class="memitem:ga4915ea94de2db58772fd15d5acbc6699"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; LinOp &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699">Bembel::H2Multipole::interpolateKernel</a> (const LinOp &amp;linOp, const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; LinOp &gt; &amp;super_space, const Eigen::MatrixXd &amp;x, const <a class="el" href="class_bembel_1_1_element_tree_node.html">Bembel::ElementTreeNode</a> &amp;cluster1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">Bembel::ElementTreeNode</a> &amp;cluster2)</td></tr>
-<tr class="memdesc:ga4915ea94de2db58772fd15d5acbc6699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate kernel function on reference domain for FMM.  <a href="group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699">More...</a><br /></td></tr>
+<tr class="memdesc:ga4915ea94de2db58772fd15d5acbc6699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate kernel function on reference domain for FMM. <br /></td></tr>
 <tr class="separator:ga4915ea94de2db58772fd15d5acbc6699"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57bfd4948c61dbfcd721d827335ea2b2"><td class="memTemplParams" colspan="2">template&lt;typename Scalar &gt; </td></tr>
+<tr class="memitem:ga57bfd4948c61dbfcd721d827335ea2b2"><td class="memTemplParams" colspan="2"><a id="ga57bfd4948c61dbfcd721d827335ea2b2"></a>
+template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:ga57bfd4948c61dbfcd721d827335ea2b2"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga57bfd4948c61dbfcd721d827335ea2b2">Bembel::H2Multipole::forwardTransformation</a> (const Eigen::MatrixXd &amp;moment_matrices, const Eigen::MatrixXd &amp;transfer_matrices, const int steps, const Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;long_rhs_matrix)</td></tr>
-<tr class="memdesc:ga57bfd4948c61dbfcd721d827335ea2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward transformation for FMM.  <a href="group___h2_matrix.html#ga57bfd4948c61dbfcd721d827335ea2b2">More...</a><br /></td></tr>
+<tr class="memdesc:ga57bfd4948c61dbfcd721d827335ea2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward transformation for FMM. <br /></td></tr>
 <tr class="separator:ga57bfd4948c61dbfcd721d827335ea2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4dafafe2155a1976f270f22ff35c5ea2"><td class="memTemplParams" colspan="2">template&lt;typename Scalar &gt; </td></tr>
+<tr class="memitem:ga4dafafe2155a1976f270f22ff35c5ea2"><td class="memTemplParams" colspan="2"><a id="ga4dafafe2155a1976f270f22ff35c5ea2"></a>
+template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:ga4dafafe2155a1976f270f22ff35c5ea2"><td class="memTemplItemLeft" align="right" valign="top">Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___h2_matrix.html#ga4dafafe2155a1976f270f22ff35c5ea2">Bembel::H2Multipole::backwardTransformation</a> (const Eigen::MatrixXd &amp;moment_matrices, const Eigen::MatrixXd &amp;transfer_matrices, const int steps, std::vector&lt; Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&gt; &amp;long_dst_backward)</td></tr>
-<tr class="memdesc:ga4dafafe2155a1976f270f22ff35c5ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backward transformation for FMM. The content of long_dst_backward is destroyed.  <a href="group___h2_matrix.html#ga4dafafe2155a1976f270f22ff35c5ea2">More...</a><br /></td></tr>
+<tr class="memdesc:ga4dafafe2155a1976f270f22ff35c5ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backward transformation for FMM. The content of long_dst_backward is destroyed. <br /></td></tr>
 <tr class="separator:ga4dafafe2155a1976f270f22ff35c5ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The <a class="el" href="class_h2_matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a> module provides functionality for an efficient compression of the system matrix and reduction of the computational complexity of the matrix-vector multiplication. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga4dafafe2155a1976f270f22ff35c5ea2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4dafafe2155a1976f270f22ff35c5ea2">&#9670;&nbsp;</a></span>backwardTransformation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; Bembel::H2Multipole::backwardTransformation </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
-          <td class="paramname"><em>moment_matrices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
-          <td class="paramname"><em>transfer_matrices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>steps</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>long_dst_backward</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Backward transformation for FMM. The content of long_dst_backward is destroyed. </p>
-
-<p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00429">429</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_ga4dafafe2155a1976f270f22ff35c5ea2_icgraph.png" border="0" usemap="#agroup___h2_matrix_ga4dafafe2155a1976f270f22ff35c5ea2_icgraph" alt=""/></div>
-<map name="agroup___h2_matrix_ga4dafafe2155a1976f270f22ff35c5ea2_icgraph" id="agroup___h2_matrix_ga4dafafe2155a1976f270f22ff35c5ea2_icgraph">
-<area shape="rect" title="Backward transformation for FMM. The content of long_dst_backward is destroyed." alt="" coords="300,27,491,69"/>
-<area shape="rect" href="struct_eigen_1_1internal_1_1_h2__time__dense__product__impl_3_01_h2_matrix_3_01_scalar_h2_01_4_0f1d1c81968359341aeb97e05aa1942b0.html#a673fabe3e85758e4e0403783d0e738d9" title=" " alt="" coords="5,5,252,91"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga0203377e94e1ce20cfdea64eeb049b60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0203377e94e1ce20cfdea64eeb049b60">&#9670;&nbsp;</a></span>computeLagrangePolynomials()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename InterpolationPoints &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::MatrixXd Bembel::H2Multipole::computeLagrangePolynomials </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>number_of_points</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>computes the Lagrange polynomials wrt the interpolation points given by the InterpolationPoints struct wrt. Newton basis </p>
-
-<p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00040">40</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-
-</div>
-</div>
 <a id="gacde0a6d4057b3a1ec3d5bcaf57ff4eeb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gacde0a6d4057b3a1ec3d5bcaf57ff4eeb">&#9670;&nbsp;</a></span>computeTransferMatrices()</h2>
 
@@ -256,198 +194,6 @@ template&lt;typename InterpolationPoints &gt; </div>
 <p>initialize values of Lagrange functions on the interpolation points as follows: E(:,0:npts-1) containes the values of the Lagrange polynomials on the interpolation points scaled to [0, 0.5]. E(:,npts:2*npts-1) containes the values of the Lagrange polynomials on the interpolation points scaled to [0.5, 1]. E(i,j) containes the value of the j.th polynomial on the ith point</p>
 
 <p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00077">77</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_gacde0a6d4057b3a1ec3d5bcaf57ff4eeb_icgraph.png" border="0" usemap="#agroup___h2_matrix_gacde0a6d4057b3a1ec3d5bcaf57ff4eeb_icgraph" alt=""/></div>
-<map name="agroup___h2_matrix_gacde0a6d4057b3a1ec3d5bcaf57ff4eeb_icgraph" id="agroup___h2_matrix_gacde0a6d4057b3a1ec3d5bcaf57ff4eeb_icgraph">
-<area shape="rect" title="Computes transfer matrices in required order to apply them all&#45;at&#45;once in a matrix&#45;vector&#45;product,..." alt="" coords="208,5,403,47"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="5,5,160,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga7966b3bfc6ffff6848e8e4c088b25208"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7966b3bfc6ffff6848e8e4c088b25208">&#9670;&nbsp;</a></span>evaluatePolynomial()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename InterpolationPoints &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::H2Multipole::evaluatePolynomial </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::VectorXd &amp;&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>xi</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>evaluates a given polynomial in the Newton basis wrt the interpolation points at a given location </p>
-
-<p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00056">56</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ga57bfd4948c61dbfcd721d827335ea2b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga57bfd4948c61dbfcd721d827335ea2b2">&#9670;&nbsp;</a></span>forwardTransformation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;Eigen::Matrix&lt;Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; &gt; Bembel::H2Multipole::forwardTransformation </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
-          <td class="paramname"><em>moment_matrices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
-          <td class="paramname"><em>transfer_matrices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>steps</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td>
-          <td class="paramname"><em>long_rhs_matrix</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Forward transformation for FMM. </p>
-
-<p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00382">382</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_ga57bfd4948c61dbfcd721d827335ea2b2_icgraph.png" border="0" usemap="#agroup___h2_matrix_ga57bfd4948c61dbfcd721d827335ea2b2_icgraph" alt=""/></div>
-<map name="agroup___h2_matrix_ga57bfd4948c61dbfcd721d827335ea2b2_icgraph" id="agroup___h2_matrix_ga57bfd4948c61dbfcd721d827335ea2b2_icgraph">
-<area shape="rect" title="Forward transformation for FMM." alt="" coords="300,27,479,69"/>
-<area shape="rect" href="struct_eigen_1_1internal_1_1_h2__time__dense__product__impl_3_01_h2_matrix_3_01_scalar_h2_01_4_0f1d1c81968359341aeb97e05aa1942b0.html#a673fabe3e85758e4e0403783d0e738d9" title=" " alt="" coords="5,5,252,91"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga4915ea94de2db58772fd15d5acbc6699"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4915ea94de2db58772fd15d5acbc6699">&#9670;&nbsp;</a></span>interpolateKernel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LinOp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;LinOp&gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt; Bembel::H2Multipole::interpolateKernel </td>
-          <td>(</td>
-          <td class="paramtype">const LinOp &amp;&#160;</td>
-          <td class="paramname"><em>linOp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; LinOp &gt; &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::MatrixXd &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">Bembel::ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>cluster1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">Bembel::ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>cluster2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Interpolate kernel function on reference domain for FMM. </p>
-
-<p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00339">339</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_ga4915ea94de2db58772fd15d5acbc6699_cgraph.png" border="0" usemap="#agroup___h2_matrix_ga4915ea94de2db58772fd15d5acbc6699_cgraph" alt=""/></div>
-<map name="agroup___h2_matrix_ga4915ea94de2db58772fd15d5acbc6699_cgraph" id="agroup___h2_matrix_ga4915ea94de2db58772fd15d5acbc6699_cgraph">
-<area shape="rect" title="Interpolate kernel function on reference domain for FMM." alt="" coords="5,39,164,80"/>
-<area shape="rect" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715" title=" " alt="" coords="212,5,407,47"/>
-<area shape="rect" href="struct_bembel_1_1_super_space.html#afb46395178178b0d82d14ba3dfeb806e" title=" " alt="" coords="231,71,387,112"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="455,71,649,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga41fd2374858ae6bf7cbac5a7a5c2013a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga41fd2374858ae6bf7cbac5a7a5c2013a">&#9670;&nbsp;</a></span>interpolationPoints2D()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::MatrixXd Bembel::H2Multipole::interpolationPoints2D </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::VectorXd &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute tensor interpolation points on unit square from 1D interpolation points. </p>
-
-<p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00324">324</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_ga41fd2374858ae6bf7cbac5a7a5c2013a_icgraph.png" border="0" usemap="#agroup___h2_matrix_ga41fd2374858ae6bf7cbac5a7a5c2013a_icgraph" alt=""/></div>
-<map name="agroup___h2_matrix_ga41fd2374858ae6bf7cbac5a7a5c2013a_icgraph" id="agroup___h2_matrix_ga41fd2374858ae6bf7cbac5a7a5c2013a_icgraph">
-<area shape="rect" title="Compute tensor interpolation points on unit square from 1D interpolation points." alt="" coords="208,5,379,47"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="5,5,160,47"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -495,27 +241,6 @@ template&lt;typename Mom1D_1 , typename Mom1D_2 , typename LinOp &gt; </div>
 <p>Throughout this code we face the problem of memory serialisation for the traversel of elements in the element tree. the canonical orders would either be row major or column major traversal of a given patch resulting in e.g. element(i,j) = *(elementRoot + i * n + j) for n = 1 &lt;&lt; j. However, to achieve a localisation of matrix blocks if their corresponding shape functions are geometrically close, we typically use a hierarchical ordering of the elements. The mapping from hierarchical to row major ordering is easily facilitated by computing the elements position in its patch using its llc_. For our special situation of a balanced quadtree, this mapping is the same for every patch. In particular, the moments in our construction of the FMM only depend on the current level of uniform refinement and not on a particular patch. Next, we explicitly set up this mapping, where index_s determines the location of a given element along the first coordinate in the reference domain and index_t its second coordinate in the reference domain. Note that this piece of code only has to be used once in the entire setup of the FMM, such that the overhead is quite small.</p>
 
 <p class="definition">Definition at line <a class="el" href="_h2_multipole_8hpp_source.html#l00225">225</a> of file <a class="el" href="_h2_multipole_8hpp_source.html">H2Multipole.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_cgraph.png" border="0" usemap="#agroup___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_cgraph" alt=""/></div>
-<map name="agroup___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_cgraph" id="agroup___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_cgraph">
-<area shape="rect" title="Computes a single 2D moment for the FMM by tensorisation of the 1D moments." alt="" coords="5,5,172,47"/>
-<area shape="rect" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548" title=" " alt="" coords="220,5,403,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_icgraph.png" border="0" usemap="#agroup___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_icgraph" alt=""/></div>
-<map name="agroup___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_icgraph" id="agroup___h2_matrix_gac08b2cd8d930efac4c5f9c836d3134d7_icgraph">
-<area shape="rect" title="Computes a single 2D moment for the FMM by tensorisation of the 1D moments." alt="" coords="500,100,667,141"/>
-<area shape="rect" href="struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_helmholtz_hypersingular_operator_01_4.html#a817382339fdb1b6ad8d7a2a0cd272287" title=" " alt="" coords="208,5,452,76"/>
-<area shape="rect" href="struct_bembel_1_1_h2_multipole_1_1_moment2_d.html#ab5ca862dddac6d8f678a7e745b35bab1" title=" " alt="" coords="211,100,449,141"/>
-<area shape="rect" href="struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_maxwell_single_layer_operator_01_4.html#af08ae364102efbba02b5f65a20e8a5a6" title=" " alt="" coords="208,165,452,236"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="5,100,160,141"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -524,7 +249,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

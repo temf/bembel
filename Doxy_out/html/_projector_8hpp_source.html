@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_projector_8hpp_source.html',''); init
 <div class="title">Projector.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_projector_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -107,366 +118,348 @@ $(document).ready(function(){initNavTree('_projector_8hpp_source.html',''); init
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_bembel.html">Bembel</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_projector_routines.html">   15</a></span>&#160;<span class="keyword">namespace </span>ProjectorRoutines {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> DF&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">   17</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html#af71bde303a05e118e85853c8f7200661">   18</a></span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html#af71bde303a05e118e85853c8f7200661">makeMatrix</a>(</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace&lt;Derived&gt;</a>&amp; super_space,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;This needs to be specialized&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> Eigen::SparseMatrix&lt;double&gt;(1, 1);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}  <span class="comment">// namespace ProjectorRoutines</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_projector.html">Projector</a> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">   40</a></span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>() {}</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870">   41</a></span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870">Projector</a>(<span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knot_repetition) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">init_Projector</a>(super_space, knot_repetition);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">   47</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">init_Projector</a>(<span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                      <span class="keyword">const</span> <span class="keywordtype">int</span> knot_repetition) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    knot_repetition_ = knot_repetition;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    projector_ = makeProjectionMatrix(super_space, knot_repetition);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    dofs_before_projector_ = projector_.rows();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    dofs_after_projector_ = projector_.cols();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  }</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a77c9379585d6bffdd544028cc670fa4c">   58</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_bembel_1_1_projector.html#a77c9379585d6bffdd544028cc670fa4c">get_knot_repetition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> knot_repetition_; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814">   59</a></span>&#160;  <span class="keyword">const</span> Eigen::SparseMatrix&lt;double&gt;&amp; <a class="code" href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814">get_projection_matrix</a>() {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> projector_;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2">   62</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2">get_dofs_after_projector</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dofs_after_projector_; }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  Eigen::SparseMatrix&lt;double&gt; makeProjectionMatrix(</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">ProjectorRoutines::projector_matrixmaker_</a>&lt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        Derived,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Form</a>&gt;::makeMatrix(super_space,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                                         knotrepetition);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// we declare functionality which has not been implemented (yet)</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// to be private</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">int</span> knot_repetition_;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">int</span> dofs_before_projector_;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">int</span> dofs_after_projector_;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Eigen::SparseMatrix&lt;double&gt; projector_;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>(<span class="keyword">const</span> Projector&lt;Derived&gt;&amp; other);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>(Projector&lt;Derived&gt;&amp;&amp; other);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>&amp; operator=(<span class="keyword">const</span> Projector&lt;Derived&gt;&amp; other);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>&amp; operator=(Projector&lt;Derived&gt;&amp;&amp; other);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">namespace </span>ProjectorRoutines {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// Local helper struct</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">   90</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">_proj_info</a> {</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">   91</a></span>&#160;  std::vector&lt;double&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">vals</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">   92</a></span>&#160;  std::vector&lt;int&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">rows</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">   93</a></span>&#160;  std::vector&lt;int&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">cols</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#afb5a7def2c5b5b34b169f0860dcf4fe3">   94</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#afb5a7def2c5b5b34b169f0860dcf4fe3">num_c_dof</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a8a981e9d49b1db80c61e23d3cd37a1cd">   95</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a8a981e9d49b1db80c61e23d3cd37a1cd">num_dc_dof</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_projector_routines.html#a66bc5b1efce385b9f29ad1f47ce37ea9">   99</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">_proj_info</a> <a class="code" href="namespace_bembel_1_1_projector_routines.html#a66bc5b1efce385b9f29ad1f47ce37ea9">makeLocalProjectionTriplets</a>(</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> pp1x, <span class="keyword">const</span> <span class="keywordtype">int</span> pp1y,</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition_in) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> M = super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a5f3f9572bcbb4306e4e7e7ec55801574">get_refinement_level</a>();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> maximal_polynomial_degree = std::max(pp1x, pp1y);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  assert(maximal_polynomial_degree == super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() + 1 &amp;&amp;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;         <span class="stringliteral">&quot;superSpace not suitable for desired ansatz space -&gt; polynomial &quot;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;         <span class="stringliteral">&quot;degree mismatch&quot;</span>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> minp = std::min(pp1x, pp1y);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition = (maximal_polynomial_degree &lt;= knotrepetition_in)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                 ? minp</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                 : knotrepetition_in;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> n = (1 &lt;&lt; M);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> patch_number = super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a51d1cc7bd6a9367686fd3ba51a09da29">get_number_of_patches</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">// At the moment, we allow a difference of one only, i.e., we start our de</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">// Rham sequence with a space of the same degree in every TP-direction.</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  assert(std::abs(maximal_polynomial_degree - minp) &lt;= 1);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// Now, we construct the continuous spaces which will be the preimage of the</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// projector. n-1 is passed, since n = number_elements but n-1 = number of</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">// interior knots.</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  std::vector&lt;double&gt; c_space_knot_x =</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <a class="code" href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">Spl::MakeUniformKnotVector</a>(pp1x, n - 1, knotrepetition);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  std::vector&lt;double&gt; c_space_knot_y =</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <a class="code" href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">Spl::MakeUniformKnotVector</a>(pp1y, n - 1, knotrepetition);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> c_space_dim_x = c_space_knot_x.size() - pp1x;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> c_space_dim_y = c_space_knot_y.size() - pp1y;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> c_space_dim = c_space_dim_x * c_space_dim_y;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">_proj_info</a> out;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">cols</a>.reserve(c_space_dim * maximal_polynomial_degree *</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                   maximal_polynomial_degree * patch_number);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">vals</a>.reserve(c_space_dim * maximal_polynomial_degree *</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                   maximal_polynomial_degree * patch_number);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">rows</a>.reserve(c_space_dim * maximal_polynomial_degree *</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                   maximal_polynomial_degree * patch_number);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  std::vector&lt;double&gt; mask =</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <a class="code" href="namespace_bembel_1_1_spl.html#a3a58c86e1147b0087815020b43d06d63">Spl::MakeInterpolationMask</a>(maximal_polynomial_degree);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> masksize = mask.size();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="comment">// Now we assemble our system which we use for the interpolation</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  assert(masksize == maximal_polynomial_degree &amp;&amp;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;         <span class="stringliteral">&quot;projector.cpp: System needs to be square&quot;</span>);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  Eigen::Matrix&lt;double, -1, -1&gt; system(</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      masksize * masksize,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      maximal_polynomial_degree * maximal_polynomial_degree);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="comment">// Here, we suddenly use the degree for basisevaluation, i.e.,</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="comment">// maximal_polynomial_degree-1. This is confusing, but correct and tested.</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">double</span> vals_y[<a class="code" href="namespace_bembel_1_1_constants.html#a9844c7cee46cad2052b76f742bd9ad29">Constants::MaxP</a> + 1];</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">double</span> vals_x[<a class="code" href="namespace_bembel_1_1_constants.html#a9844c7cee46cad2052b76f742bd9ad29">Constants::MaxP</a> + 1];</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; maximal_polynomial_degree; ++iy) {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <a class="code" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405">Bembel::Basis::ShapeFunctionHandler::evalBasis</a>(</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;          maximal_polynomial_degree - 1, vals_y, mask[iy]);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; maximal_polynomial_degree; ++ix) {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <a class="code" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405">Bembel::Basis::ShapeFunctionHandler::evalBasis</a>(</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            maximal_polynomial_degree - 1, vals_x, mask[ix]);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> jy = 0; jy &lt; maximal_polynomial_degree; ++jy) {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> jx = 0; jx &lt; maximal_polynomial_degree; ++jx) {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            system(iy * masksize + ix, jy * maximal_polynomial_degree + jx) =</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                vals_x[jx] * vals_y[jy];</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;          }</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="comment">// Do LU-Decomposition of</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="comment">// systemsuper_space.get_mesh().get_element_tree().begin()</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keyword">const</span> Eigen::PartialPivLU&lt;Eigen::Matrix&lt;double, -1, -1&gt;&gt; pplu(system);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> element_number = 0;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> element = super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a14e5e60f4c5b98840f6457bcdf3b9376">get_mesh</a>().<a class="code" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">get_element_tree</a>().<a class="code" href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">cpbegin</a>();</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;       element != super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a14e5e60f4c5b98840f6457bcdf3b9376">get_mesh</a>().<a class="code" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">get_element_tree</a>().<a class="code" href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856">cpend</a>();</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;       ++element) {</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">// s = x</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> pos_x = element-&gt;llc_(0);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> pos_y = element-&gt;llc_(1);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> h = element-&gt;get_h();</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> mid_x = pos_x + (.5 * h);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> mid_y = pos_y + (.5 * h);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// The following block of code computes the indeces of all continuous basis</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">// functions which have a support on the element of index &#39;element&#39;</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    std::vector&lt;double&gt; nonzero_dofs_x;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    std::vector&lt;double&gt; nonzero_dofs_y;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    nonzero_dofs_x.reserve(pp1x);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    nonzero_dofs_y.reserve(pp1y);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> dof_y = 0; dof_y &lt; c_space_dim_y; ++dof_y) {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <span class="keywordflow">if</span> ((c_space_knot_y[dof_y] &lt;= mid_y) &amp;&amp;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;          (c_space_knot_y[dof_y + pp1y] &gt;= mid_y)) {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        nonzero_dofs_y.push_back(dof_y);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> dof_x = 0; dof_x &lt; c_space_dim_x; ++dof_x) {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">if</span> ((c_space_knot_x[dof_x] &lt;= mid_x) &amp;&amp;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;          (c_space_knot_x[dof_x + pp1x] &gt;= mid_x)) {</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        nonzero_dofs_x.push_back(dof_x);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    nonzero_dofs_x.shrink_to_fit();</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    nonzero_dofs_y.shrink_to_fit();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>ProjectorRoutines {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> DF&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; makeMatrix(</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace&lt;Derived&gt;</a>&amp; super_space,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    assert(<span class="keyword">false</span> &amp;&amp; <span class="stringliteral">&quot;This needs to be specialized&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> Eigen::SparseMatrix&lt;double&gt;(1, 1);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}  <span class="comment">// namespace ProjectorRoutines</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_projector.html">Projector</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">   48</a></span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>() {}</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870">   58</a></span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870">Projector</a>(<span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knot_repetition) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">init_Projector</a>(super_space, knot_repetition);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">   72</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">init_Projector</a>(<span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                      <span class="keyword">const</span> <span class="keywordtype">int</span> knot_repetition) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    knot_repetition_ = knot_repetition;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    projector_ = makeProjectionMatrix(super_space, knot_repetition);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    dofs_before_projector_ = projector_.rows();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    dofs_after_projector_ = projector_.cols();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a77c9379585d6bffdd544028cc670fa4c">   88</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_bembel_1_1_projector.html#a77c9379585d6bffdd544028cc670fa4c">get_knot_repetition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> knot_repetition_; }</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814">   99</a></span>&#160;  <span class="keyword">const</span> Eigen::SparseMatrix&lt;double&gt;&amp; <a class="code" href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814">get_projection_matrix</a>() {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> projector_;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2">  107</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2">get_dofs_after_projector</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> dofs_after_projector_; }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  Eigen::SparseMatrix&lt;double&gt; makeProjectionMatrix(</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">ProjectorRoutines::projector_matrixmaker_</a>&lt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        Derived,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;Derived&gt;::Form</a>&gt;::makeMatrix(super_space,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                                         knotrepetition);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// we declare functionality which has not been implemented (yet)</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">// to be private</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keywordtype">int</span> knot_repetition_;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordtype">int</span> dofs_before_projector_;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordtype">int</span> dofs_after_projector_;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  Eigen::SparseMatrix&lt;double&gt; projector_;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>(<span class="keyword">const</span> Projector&lt;Derived&gt;&amp; other);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>(Projector&lt;Derived&gt;&amp;&amp; other);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>&amp; operator=(<span class="keyword">const</span> Projector&lt;Derived&gt;&amp; other);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <a class="code" href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Projector</a>&amp; operator=(Projector&lt;Derived&gt;&amp;&amp; other);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">namespace </span>ProjectorRoutines {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">  139</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">_proj_info</a> {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  std::vector&lt;double&gt; vals;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  std::vector&lt;int&gt; rows;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  std::vector&lt;int&gt; cols;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordtype">int</span> num_c_dof;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keywordtype">int</span> num_dc_dof;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;};</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">inline</span> <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">_proj_info</a> makeLocalProjectionTriplets(</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> pp1x, <span class="keyword">const</span> <span class="keywordtype">int</span> pp1y,</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition_in) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> M = super_space.get_refinement_level();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> maximal_polynomial_degree = std::max(pp1x, pp1y);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  assert(maximal_polynomial_degree == super_space.get_polynomial_degree() + 1 &amp;&amp;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;         <span class="stringliteral">&quot;superSpace not suitable for desired ansatz space -&gt; polynomial &quot;</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;         <span class="stringliteral">&quot;degree mismatch&quot;</span>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> minp = std::min(pp1x, pp1y);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition = (maximal_polynomial_degree &lt;= knotrepetition_in)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                 ? minp</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                 : knotrepetition_in;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> n = (1 &lt;&lt; M);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> patch_number = super_space.get_number_of_patches();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="comment">// At the moment, we allow a difference of one only, i.e., we start our de</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="comment">// Rham sequence with a space of the same degree in every TP-direction.</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  assert(std::abs(maximal_polynomial_degree - minp) &lt;= 1);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="comment">// Now, we construct the continuous spaces which will be the preimage of the</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="comment">// projector. n-1 is passed, since n = number_elements but n-1 = number of</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="comment">// interior knots.</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  std::vector&lt;double&gt; c_space_knot_x =</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      Spl::MakeUniformKnotVector(pp1x, n - 1, knotrepetition);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  std::vector&lt;double&gt; c_space_knot_y =</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      Spl::MakeUniformKnotVector(pp1y, n - 1, knotrepetition);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> c_space_dim_x = c_space_knot_x.size() - pp1x;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> c_space_dim_y = c_space_knot_y.size() - pp1y;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> c_space_dim = c_space_dim_x * c_space_dim_y;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">_proj_info</a> out;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  out.cols.reserve(c_space_dim * maximal_polynomial_degree *</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                   maximal_polynomial_degree * patch_number);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  out.vals.reserve(c_space_dim * maximal_polynomial_degree *</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                   maximal_polynomial_degree * patch_number);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  out.rows.reserve(c_space_dim * maximal_polynomial_degree *</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                   maximal_polynomial_degree * patch_number);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  std::vector&lt;double&gt; mask =</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      Spl::MakeInterpolationMask(maximal_polynomial_degree);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> masksize = mask.size();</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">// We now loop over all basis functions wich are non-zero on the element</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> dof_y : nonzero_dofs_y) {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> dof_x : nonzero_dofs_x) {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="comment">// The next few lines are to check if the element is within the support</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="comment">// of the basis function given by dof_x and dof_y.</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        std::vector&lt;double&gt; local_mask_x(masksize);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        std::vector&lt;double&gt; local_mask_y(masksize);</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; masksize; ++i) {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          local_mask_x[i] = pos_x + (1.0 / n) * mask[i];</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          local_mask_y[i] = pos_y + (1.0 / n) * mask[i];</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;          assert(local_mask_x[i] &lt; 1 &amp;&amp; local_mask_x[i] &gt; 0);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          assert(local_mask_y[i] &lt; 1 &amp;&amp; local_mask_y[i] &gt; 0);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="comment">// build unit vectors</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        std::vector&lt;double&gt; c_coefs_x(c_space_dim_x, 0.0);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        std::vector&lt;double&gt; c_coefs_y(c_space_dim_y, 0.0);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        c_coefs_x[dof_x] = 1.;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        c_coefs_y[dof_y] = 1.;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="comment">// evaluate rhs for interpolation problem</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        std::vector&lt;double&gt; vals_x =</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <a class="code" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">Spl::DeBoor</a>(c_coefs_x, c_space_knot_x, local_mask_x);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        std::vector&lt;double&gt; vals_y =</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <a class="code" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">Spl::DeBoor</a>(c_coefs_y, c_space_knot_y, local_mask_y);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="comment">// assemble and solve interpolation problem</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        Eigen::VectorXd rhs(masksize * masksize);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; masksize; ++iy)</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; masksize; ++ix)</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            rhs(iy * masksize + ix) = vals_x[ix] * vals_y[iy];</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        Eigen::VectorXd sol = pplu.solve(rhs);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="comment">// insert entries into helperstruct</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;             i &lt; maximal_polynomial_degree * maximal_polynomial_degree; ++i) {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          <span class="keywordflow">if</span> (std::abs(sol(i)) &gt; <a class="code" href="namespace_bembel_1_1_constants.html#a4166c0b595d2b930c8ae93f12b9b6dc2">Constants::projector_tolerance</a>) {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">cols</a>.push_back(element-&gt;patch_ * (c_space_dim) +</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                               (c_space_dim_x * dof_y) + dof_x);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">rows</a>.push_back((element_number * maximal_polynomial_degree *</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                maximal_polynomial_degree) +</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                               i);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">vals</a>.push_back(sol(i));</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      }</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    ++element_number;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#afb5a7def2c5b5b34b169f0860dcf4fe3">num_c_dof</a> = c_space_dim_x * c_space_dim_y * patch_number;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a8a981e9d49b1db80c61e23d3cd37a1cd">num_dc_dof</a> = maximal_polynomial_degree * maximal_polynomial_degree * n *</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                   n * patch_number;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">cols</a>.shrink_to_fit();</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">rows</a>.shrink_to_fit();</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">vals</a>.shrink_to_fit();</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  assert((out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">vals</a>.size() == out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">rows</a>.size()) &amp;&amp;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;         (out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">rows</a>.size() == out.<a class="code" href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">cols</a>.size()) &amp;&amp;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;         <span class="stringliteral">&quot;projector.cpp: you made a mistake, try again.&quot;</span>);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_continuous_01_4.html">  274</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;Derived, <a class="code" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a>::Continuous&gt; {</div>
-<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_continuous_01_4.html#a47c452e497e30e7d63b88561d2298fe9">  275</a></span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_continuous_01_4.html#a47c452e497e30e7d63b88561d2298fe9">makeMatrix</a>(</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> P = super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>();</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    assert(P &gt; 0 &amp;&amp; <span class="stringliteral">&quot;P must be 1 or larger for this type of discrete space&quot;</span>);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    assert(knotrepetition &lt;= P &amp;&amp;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;           <span class="stringliteral">&quot;Knot repetition must be smaller than P for this type of discrete &quot;</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;           <span class="stringliteral">&quot;space&quot;</span>);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">// The matrices coincide with the 2 case, up to the limitations above</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    Eigen::SparseMatrix&lt;double&gt; local_matrix = <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        Derived, <a class="code" href="struct_bembel_1_1_differential_form.html#aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5">DifferentialForm::Discontinuous</a>&gt;<a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html#af71bde303a05e118e85853c8f7200661">::makeMatrix</a>(super_space,</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                                                              knotrepetition);</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">return</span> local_matrix;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;};</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_div_conforming_01_4.html">  292</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;Derived, <a class="code" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a>::DivConforming&gt; {</div>
-<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_div_conforming_01_4.html#ae12462dd0ac24bf59a4300e70d16b64f">  293</a></span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_div_conforming_01_4.html#ae12462dd0ac24bf59a4300e70d16b64f">makeMatrix</a>(</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    assert(super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() &gt; 0 &amp;&amp;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;           <span class="stringliteral">&quot;P must be 1 or larger for this type of discrete space&quot;</span>);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    assert(knotrepetition &lt;= super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() &amp;&amp;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;           <span class="stringliteral">&quot;Knot repetition must be smaller than P for this type of discrete &quot;</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;           <span class="stringliteral">&quot;space&quot;</span>);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> info1 = ProjectorRoutines::makeLocalProjectionTriplets&lt;Derived&gt;(</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        super_space, super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() + 1,</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>(), knotrepetition);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> info2 = ProjectorRoutines::makeLocalProjectionTriplets&lt;Derived&gt;(</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        super_space, super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>(),</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() + 1, knotrepetition);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size1 = info1.vals.size();</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size2 = info2.vals.size();</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    assert(size1 == size2);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    std::vector&lt;Eigen::Triplet&lt;double&gt;&gt; trips;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; size1; ++k) {</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      trips.push_back(</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;          Eigen::Triplet&lt;double&gt;(info1.rows[k], info1.cols[k], info1.vals[k]));</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; size2; ++k) {</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      trips.push_back(Eigen::Triplet&lt;double&gt;(info2.rows[k] + info1.num_dc_dof,</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                                             info2.cols[k] + info1.num_c_dof,</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                             info2.vals[k]));</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    }</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    Eigen::SparseMatrix&lt;double&gt; local_matrix(</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        info1.num_dc_dof + info2.num_dc_dof, info1.num_c_dof + info2.num_c_dof);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    local_matrix.setFromTriplets(trips.begin(), trips.end());</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">return</span> local_matrix;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  }</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;};</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
-<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html">  328</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;Derived, <a class="code" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a>::Discontinuous&gt; {</div>
-<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html#a2455881f13fa88d0d6357f654251fadb">  329</a></span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html#a2455881f13fa88d0d6357f654251fadb">makeMatrix</a>(</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> info = ProjectorRoutines::makeLocalProjectionTriplets&lt;Derived&gt;(</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        super_space, super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() + 1,</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        super_space.<a class="code" href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">get_polynomial_degree</a>() + 1, knotrepetition);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size = info.vals.size();</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    std::vector&lt;Eigen::Triplet&lt;double&gt;&gt; trips;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; size; ++k) {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      trips.push_back(</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;          Eigen::Triplet&lt;double&gt;(info.rows[k], info.cols[k], info.vals[k]));</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    }</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    Eigen::SparseMatrix&lt;double&gt; local_matrix(info.num_dc_dof, info.num_c_dof);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    local_matrix.setFromTriplets(trips.begin(), trips.end());</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">return</span> local_matrix;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  }</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;};</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;}  <span class="comment">// namespace ProjectorRoutines</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_</span></div>
-<div class="ttc" id="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_html_adf2f8c431af1c6bfc05beeda7e292405"><div class="ttname"><a href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405">Bembel::Basis::PSpecificShapeFunctionHandler::evalBasis</a></div><div class="ttdeci">static void evalBasis(int p, double *ar, double x)</div><div class="ttdef"><b>Definition:</b> <a href="_shape_functions_8hpp_source.html#l00038">ShapeFunctions.hpp:38</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a89a1247815b5ab0e2da43bd8a66c10ff"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">Bembel::ClusterTree::get_element_tree</a></div><div class="ttdeci">ElementTree &amp; get_element_tree()</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00046">ClusterTree.hpp:46</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a0096ebfa5f958d558ed6bff82927ceb8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">Bembel::ElementTree::cpbegin</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpbegin() const</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00172">ElementTree.hpp:172</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a47c786a6da606f54e61ea599d1ae8856"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856">Bembel::ElementTree::cpend</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpend() const</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00173">ElementTree.hpp:173</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html"><div class="ttname"><a href="class_bembel_1_1_projector.html">Bembel::Projector</a></div><div class="ttdoc">The projector solves interpolation problems to identify the the correct linear combination to represe...</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00035">Projector.hpp:35</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html_a0f08ad8eab206954c28ba1b0b7252f0a"><div class="ttname"><a href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Bembel::Projector::Projector</a></div><div class="ttdeci">Projector()</div><div class="ttdoc">constructors</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00040">Projector.hpp:40</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html_a3bf72a255d274bb53d48ab122e0fdc47"><div class="ttname"><a href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">Bembel::Projector::init_Projector</a></div><div class="ttdeci">void init_Projector(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knot_repetition)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00047">Projector.hpp:47</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html_a64da6a6020bbbc39fa66ba2ab2e90814"><div class="ttname"><a href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814">Bembel::Projector::get_projection_matrix</a></div><div class="ttdeci">const Eigen::SparseMatrix&lt; double &gt; &amp; get_projection_matrix()</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00059">Projector.hpp:59</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html_a77c9379585d6bffdd544028cc670fa4c"><div class="ttname"><a href="class_bembel_1_1_projector.html#a77c9379585d6bffdd544028cc670fa4c">Bembel::Projector::get_knot_repetition</a></div><div class="ttdeci">int get_knot_repetition() const</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00058">Projector.hpp:58</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html_a84674f7d213de785c4365c1644f254d2"><div class="ttname"><a href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2">Bembel::Projector::get_dofs_after_projector</a></div><div class="ttdeci">int get_dofs_after_projector() const</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00062">Projector.hpp:62</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_projector_html_a91a0a13006f606bab590a0c0eac38870"><div class="ttname"><a href="class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870">Bembel::Projector::Projector</a></div><div class="ttdeci">Projector(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knot_repetition)</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00041">Projector.hpp:41</a></div></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="comment">// Now we assemble our system which we use for the interpolation</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  assert(masksize == maximal_polynomial_degree &amp;&amp;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;         <span class="stringliteral">&quot;projector.cpp: System needs to be square&quot;</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  Eigen::Matrix&lt;double, -1, -1&gt; system(</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      masksize * masksize,</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      maximal_polynomial_degree * maximal_polynomial_degree);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="comment">// Here, we suddenly use the degree for basisevaluation, i.e.,</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="comment">// maximal_polynomial_degree-1. This is confusing, but correct and tested.</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">double</span> vals_y[Constants::MaxP + 1];</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">double</span> vals_x[Constants::MaxP + 1];</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; maximal_polynomial_degree; ++iy) {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      Bembel::Basis::ShapeFunctionHandler::evalBasis(</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          maximal_polynomial_degree - 1, vals_y, mask[iy]);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; maximal_polynomial_degree; ++ix) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        Bembel::Basis::ShapeFunctionHandler::evalBasis(</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            maximal_polynomial_degree - 1, vals_x, mask[ix]);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> jy = 0; jy &lt; maximal_polynomial_degree; ++jy) {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> jx = 0; jx &lt; maximal_polynomial_degree; ++jx) {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            system(iy * masksize + ix, jy * maximal_polynomial_degree + jx) =</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                vals_x[jx] * vals_y[jy];</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          }</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="comment">// Do LU-Decomposition of</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="comment">// systemsuper_space.get_mesh().get_element_tree().begin()</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="keyword">const</span> Eigen::PartialPivLU&lt;Eigen::Matrix&lt;double, -1, -1&gt;&gt; pplu(system);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> element_number = 0;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">auto</span> element = super_space.get_mesh().<a class="code" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">get_element_tree</a>().<a class="code" href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">cpbegin</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;       element != super_space.get_mesh().<a class="code" href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">get_element_tree</a>().<a class="code" href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856">cpend</a>();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;       ++element) {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// s = x</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> pos_x = element-&gt;llc_(0);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> pos_y = element-&gt;llc_(1);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> h = element-&gt;get_h();</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> mid_x = pos_x + (.5 * h);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> mid_y = pos_y + (.5 * h);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">// The following block of code computes the indeces of all continuous basis</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">// functions which have a support on the element of index &#39;element&#39;</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    std::vector&lt;double&gt; nonzero_dofs_x;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    std::vector&lt;double&gt; nonzero_dofs_y;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    nonzero_dofs_x.reserve(pp1x);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    nonzero_dofs_y.reserve(pp1y);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> dof_y = 0; dof_y &lt; c_space_dim_y; ++dof_y) {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      <span class="keywordflow">if</span> ((c_space_knot_y[dof_y] &lt;= mid_y) &amp;&amp;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          (c_space_knot_y[dof_y + pp1y] &gt;= mid_y)) {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        nonzero_dofs_y.push_back(dof_y);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> dof_x = 0; dof_x &lt; c_space_dim_x; ++dof_x) {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <span class="keywordflow">if</span> ((c_space_knot_x[dof_x] &lt;= mid_x) &amp;&amp;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;          (c_space_knot_x[dof_x + pp1x] &gt;= mid_x)) {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        nonzero_dofs_x.push_back(dof_x);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    nonzero_dofs_x.shrink_to_fit();</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    nonzero_dofs_y.shrink_to_fit();</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// We now loop over all basis functions wich are non-zero on the element</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> dof_y : nonzero_dofs_y) {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> dof_x : nonzero_dofs_x) {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="comment">// The next few lines are to check if the element is within the support</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="comment">// of the basis function given by dof_x and dof_y.</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        std::vector&lt;double&gt; local_mask_x(masksize);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        std::vector&lt;double&gt; local_mask_y(masksize);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; masksize; ++i) {</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;          local_mask_x[i] = pos_x + (1.0 / n) * mask[i];</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;          local_mask_y[i] = pos_y + (1.0 / n) * mask[i];</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;          assert(local_mask_x[i] &lt; 1 &amp;&amp; local_mask_x[i] &gt; 0);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;          assert(local_mask_y[i] &lt; 1 &amp;&amp; local_mask_y[i] &gt; 0);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="comment">// build unit vectors</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        std::vector&lt;double&gt; c_coefs_x(c_space_dim_x, 0.0);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        std::vector&lt;double&gt; c_coefs_y(c_space_dim_y, 0.0);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        c_coefs_x[dof_x] = 1.;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        c_coefs_y[dof_y] = 1.;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="comment">// evaluate rhs for interpolation problem</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        std::vector&lt;double&gt; vals_x =</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <a class="code" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">Spl::DeBoor</a>(c_coefs_x, c_space_knot_x, local_mask_x);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        std::vector&lt;double&gt; vals_y =</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <a class="code" href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">Spl::DeBoor</a>(c_coefs_y, c_space_knot_y, local_mask_y);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="comment">// assemble and solve interpolation problem</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        Eigen::VectorXd rhs(masksize * masksize);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iy = 0; iy &lt; masksize; ++iy)</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ix = 0; ix &lt; masksize; ++ix)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            rhs(iy * masksize + ix) = vals_x[ix] * vals_y[iy];</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        Eigen::VectorXd sol = pplu.solve(rhs);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="comment">// insert entries into helperstruct</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;             i &lt; maximal_polynomial_degree * maximal_polynomial_degree; ++i) {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;          <span class="keywordflow">if</span> (std::abs(sol(i)) &gt; Constants::projector_tolerance) {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            out.cols.push_back(element-&gt;patch_ * (c_space_dim) +</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                               (c_space_dim_x * dof_y) + dof_x);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            out.rows.push_back((element_number * maximal_polynomial_degree *</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                                maximal_polynomial_degree) +</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                               i);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            out.vals.push_back(sol(i));</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;          }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    ++element_number;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  out.num_c_dof = c_space_dim_x * c_space_dim_y * patch_number;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  out.num_dc_dof = maximal_polynomial_degree * maximal_polynomial_degree * n *</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                   n * patch_number;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  out.cols.shrink_to_fit();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  out.rows.shrink_to_fit();</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  out.vals.shrink_to_fit();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  assert((out.vals.size() == out.rows.size()) &amp;&amp;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;         (out.rows.size() == out.cols.size()) &amp;&amp;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;         <span class="stringliteral">&quot;projector.cpp: you made a mistake, try again.&quot;</span>);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;}</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_continuous_01_4.html">  345</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;Derived, <a class="code" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a>::Continuous&gt; {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; makeMatrix(</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> P = super_space.get_polynomial_degree();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    assert(P &gt; 0 &amp;&amp; <span class="stringliteral">&quot;P must be 1 or larger for this type of discrete space&quot;</span>);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    assert(knotrepetition &lt;= P &amp;&amp;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;           <span class="stringliteral">&quot;Knot repetition must be smaller than P for this type of discrete &quot;</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;           <span class="stringliteral">&quot;space&quot;</span>);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="comment">// The matrices coincide with the 2 case, up to the limitations above</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    Eigen::SparseMatrix&lt;double&gt; local_matrix = <a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        Derived, DifferentialForm::Discontinuous&gt;::makeMatrix(super_space,</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                                                              knotrepetition);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordflow">return</span> local_matrix;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;};</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00371"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_div_conforming_01_4.html">  371</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;Derived, <a class="code" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a>::DivConforming&gt; {</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; makeMatrix(</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    assert(super_space.get_polynomial_degree() &gt; 0 &amp;&amp;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;           <span class="stringliteral">&quot;P must be 1 or larger for this type of discrete space&quot;</span>);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    assert(knotrepetition &lt;= super_space.get_polynomial_degree() &amp;&amp;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;           <span class="stringliteral">&quot;Knot repetition must be smaller than P for this type of discrete &quot;</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;           <span class="stringliteral">&quot;space&quot;</span>);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> info1 = ProjectorRoutines::makeLocalProjectionTriplets&lt;Derived&gt;(</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        super_space, super_space.get_polynomial_degree() + 1,</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        super_space.get_polynomial_degree(), knotrepetition);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> info2 = ProjectorRoutines::makeLocalProjectionTriplets&lt;Derived&gt;(</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        super_space, super_space.get_polynomial_degree(),</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        super_space.get_polynomial_degree() + 1, knotrepetition);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size1 = info1.vals.size();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size2 = info2.vals.size();</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    assert(size1 == size2);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    std::vector&lt;Eigen::Triplet&lt;double&gt;&gt; trips;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; size1; ++k) {</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      trips.push_back(</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;          Eigen::Triplet&lt;double&gt;(info1.rows[k], info1.cols[k], info1.vals[k]));</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; size2; ++k) {</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      trips.push_back(Eigen::Triplet&lt;double&gt;(info2.rows[k] + info1.num_dc_dof,</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                                             info2.cols[k] + info1.num_c_dof,</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                                             info2.vals[k]));</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    Eigen::SparseMatrix&lt;double&gt; local_matrix(</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        info1.num_dc_dof + info2.num_dc_dof, info1.num_c_dof + info2.num_c_dof);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    local_matrix.setFromTriplets(trips.begin(), trips.end());</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordflow">return</span> local_matrix;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  }</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;};</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00413"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html">  413</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">projector_matrixmaker_</a>&lt;Derived, <a class="code" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a>::Discontinuous&gt; {</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  <span class="keyword">static</span> Eigen::SparseMatrix&lt;double&gt; makeMatrix(</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      <span class="keyword">const</span> <a class="code" href="struct_bembel_1_1_super_space.html">SuperSpace&lt;Derived&gt;</a>&amp; super_space, <span class="keyword">const</span> <span class="keywordtype">int</span> knotrepetition) {</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> info = ProjectorRoutines::makeLocalProjectionTriplets&lt;Derived&gt;(</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        super_space, super_space.get_polynomial_degree() + 1,</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        super_space.get_polynomial_degree() + 1, knotrepetition);</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> size = info.vals.size();</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    std::vector&lt;Eigen::Triplet&lt;double&gt;&gt; trips;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; size; ++k) {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      trips.push_back(</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;          Eigen::Triplet&lt;double&gt;(info.rows[k], info.cols[k], info.vals[k]));</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    }</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    Eigen::SparseMatrix&lt;double&gt; local_matrix(info.num_dc_dof, info.num_c_dof);</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    local_matrix.setFromTriplets(trips.begin(), trips.end());</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keywordflow">return</span> local_matrix;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  }</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;};</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;}  <span class="comment">// namespace ProjectorRoutines</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_ANSATZSPACE_PROJECTOR_HPP_</span></div>
+<div class="ttc" id="aclass_bembel_1_1_cluster_tree_html_a89a1247815b5ab0e2da43bd8a66c10ff"><div class="ttname"><a href="class_bembel_1_1_cluster_tree.html#a89a1247815b5ab0e2da43bd8a66c10ff">Bembel::ClusterTree::get_element_tree</a></div><div class="ttdeci">ElementTree &amp; get_element_tree()</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_cluster_tree_8hpp_source.html#l00095">ClusterTree.hpp:95</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a0096ebfa5f958d558ed6bff82927ceb8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">Bembel::ElementTree::cpbegin</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpbegin() const</div><div class="ttdoc">Returns an iterator to the beginning of the sequence represented by the leafs as ElementTreeNodes of ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00316">ElementTree.hpp:316</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a47c786a6da606f54e61ea599d1ae8856"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856">Bembel::ElementTree::cpend</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpend() const</div><div class="ttdoc">Returns an iterator one past the end of the sequence represented by the leafs as ElementTreeNodes of ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00323">ElementTree.hpp:323</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html"><div class="ttname"><a href="class_bembel_1_1_projector.html">Bembel::Projector</a></div><div class="ttdoc">The Projector provides routines to assemble smooth B-Splines on each patch.</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00040">Projector.hpp:40</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html_a0f08ad8eab206954c28ba1b0b7252f0a"><div class="ttname"><a href="class_bembel_1_1_projector.html#a0f08ad8eab206954c28ba1b0b7252f0a">Bembel::Projector::Projector</a></div><div class="ttdeci">Projector()</div><div class="ttdoc">constructors</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00048">Projector.hpp:48</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html_a3bf72a255d274bb53d48ab122e0fdc47"><div class="ttname"><a href="class_bembel_1_1_projector.html#a3bf72a255d274bb53d48ab122e0fdc47">Bembel::Projector::init_Projector</a></div><div class="ttdeci">void init_Projector(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knot_repetition)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00072">Projector.hpp:72</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html_a64da6a6020bbbc39fa66ba2ab2e90814"><div class="ttname"><a href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814">Bembel::Projector::get_projection_matrix</a></div><div class="ttdeci">const Eigen::SparseMatrix&lt; double &gt; &amp; get_projection_matrix()</div><div class="ttdoc">This function returns the transformation matrix to assemble smooth tensor product B-splines.</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00099">Projector.hpp:99</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html_a77c9379585d6bffdd544028cc670fa4c"><div class="ttname"><a href="class_bembel_1_1_projector.html#a77c9379585d6bffdd544028cc670fa4c">Bembel::Projector::get_knot_repetition</a></div><div class="ttdeci">int get_knot_repetition() const</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00088">Projector.hpp:88</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html_a84674f7d213de785c4365c1644f254d2"><div class="ttname"><a href="class_bembel_1_1_projector.html#a84674f7d213de785c4365c1644f254d2">Bembel::Projector::get_dofs_after_projector</a></div><div class="ttdeci">int get_dofs_after_projector() const</div><div class="ttdoc">Return number of smooth B-splines.</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00107">Projector.hpp:107</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_projector_html_a91a0a13006f606bab590a0c0eac38870"><div class="ttname"><a href="class_bembel_1_1_projector.html#a91a0a13006f606bab590a0c0eac38870">Bembel::Projector::Projector</a></div><div class="ttdeci">Projector(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knot_repetition)</div><div class="ttdoc">Constructor for the Projector.</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00058">Projector.hpp:58</a></div></div>
 <div class="ttc" id="agroup___spline_html_ga72fafe41754fc4ebeb6251b0819e6191"><div class="ttname"><a href="group___spline.html#ga72fafe41754fc4ebeb6251b0819e6191">Bembel::Spl::DeBoor</a></div><div class="ttdeci">Eigen::Matrix&lt; T, -1, -1 &gt; DeBoor(Eigen::Matrix&lt; T, -1, -1 &gt; const &amp;control_points, const std::vector&lt; double &gt; &amp;knot_vector, const std::vector&lt; double &gt; &amp;evaluation_points) noexcept</div><div class="ttdoc">&quot;By the book&quot; implementations of the Cox-DeBoor formula. Inefficient, do not use at bottlenecks.</div><div class="ttdef"><b>Definition:</b> <a href="_de_boor_8hpp_source.html#l00022">DeBoor.hpp:22</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_constants_html_a4166c0b595d2b930c8ae93f12b9b6dc2"><div class="ttname"><a href="namespace_bembel_1_1_constants.html#a4166c0b595d2b930c8ae93f12b9b6dc2">Bembel::Constants::projector_tolerance</a></div><div class="ttdeci">constexpr double projector_tolerance</div><div class="ttdef"><b>Definition:</b> <a href="util_2_constants_8hpp_source.html#l00037">Constants.hpp:37</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_constants_html_a9844c7cee46cad2052b76f742bd9ad29"><div class="ttname"><a href="namespace_bembel_1_1_constants.html#a9844c7cee46cad2052b76f742bd9ad29">Bembel::Constants::MaxP</a></div><div class="ttdeci">constexpr int MaxP</div><div class="ttdef"><b>Definition:</b> <a href="util_2_constants_8hpp_source.html#l00022">Constants.hpp:22</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_projector_routines_html_a66bc5b1efce385b9f29ad1f47ce37ea9"><div class="ttname"><a href="namespace_bembel_1_1_projector_routines.html#a66bc5b1efce385b9f29ad1f47ce37ea9">Bembel::ProjectorRoutines::makeLocalProjectionTriplets</a></div><div class="ttdeci">_proj_info makeLocalProjectionTriplets(const SuperSpace&lt; Derived &gt; &amp;super_space, const int pp1x, const int pp1y, const int knotrepetition_in)</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00099">Projector.hpp:99</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_spl_html_a180e8a259dab16bb8ee63d886aaf5b36"><div class="ttname"><a href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">Bembel::Spl::MakeUniformKnotVector</a></div><div class="ttdeci">std::vector&lt; double &gt; MakeUniformKnotVector(int polynomial_degree, int interior, int knotrepetition) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_knots_8hpp_source.html#l00043">Knots.hpp:43</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_spl_html_a3a58c86e1147b0087815020b43d06d63"><div class="ttname"><a href="namespace_bembel_1_1_spl.html#a3a58c86e1147b0087815020b43d06d63">Bembel::Spl::MakeInterpolationMask</a></div><div class="ttdeci">std::vector&lt; double &gt; MakeInterpolationMask(int polynomial_degree) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_localize_8hpp_source.html#l00031">Localize.hpp:31</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_differential_form_html"><div class="ttname"><a href="struct_bembel_1_1_differential_form.html">Bembel::DifferentialForm</a></div><div class="ttdoc">Provides information about the discrete space required for the discretisation of a specific operator.</div><div class="ttdef"><b>Definition:</b> <a href="_differential_form_enum_8hpp_source.html#l00020">DifferentialFormEnum.hpp:20</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_differential_form_html_aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5"><div class="ttname"><a href="struct_bembel_1_1_differential_form.html#aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5">Bembel::DifferentialForm::Discontinuous</a></div><div class="ttdeci">@ Discontinuous</div><div class="ttdef"><b>Definition:</b> <a href="_differential_form_enum_8hpp_source.html#l00021">DifferentialFormEnum.hpp:21</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits.html">Bembel::LinearOperatorTraits</a></div><div class="ttdoc">struct containing specifications on the linear operator has to be specialized or derived for any part...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_traits_8hpp_source.html#l00022">LinearOperatorTraits.hpp:22</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">Bembel::ProjectorRoutines::_proj_info</a></div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00090">Projector.hpp:90</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html_a0ffcbce348365144a39bfb6e5fcce089"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a0ffcbce348365144a39bfb6e5fcce089">Bembel::ProjectorRoutines::_proj_info::cols</a></div><div class="ttdeci">std::vector&lt; int &gt; cols</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00093">Projector.hpp:93</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html_a31f5a5462f78b38e67542eb4e43ac7f1"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a31f5a5462f78b38e67542eb4e43ac7f1">Bembel::ProjectorRoutines::_proj_info::rows</a></div><div class="ttdeci">std::vector&lt; int &gt; rows</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00092">Projector.hpp:92</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html_a8a981e9d49b1db80c61e23d3cd37a1cd"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#a8a981e9d49b1db80c61e23d3cd37a1cd">Bembel::ProjectorRoutines::_proj_info::num_dc_dof</a></div><div class="ttdeci">int num_dc_dof</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00095">Projector.hpp:95</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html_aa7a2882e14690a5de0c928a129988fdf"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#aa7a2882e14690a5de0c928a129988fdf">Bembel::ProjectorRoutines::_proj_info::vals</a></div><div class="ttdeci">std::vector&lt; double &gt; vals</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00091">Projector.hpp:91</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html_afb5a7def2c5b5b34b169f0860dcf4fe3"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html#afb5a7def2c5b5b34b169f0860dcf4fe3">Bembel::ProjectorRoutines::_proj_info::num_c_dof</a></div><div class="ttdeci">int num_c_dof</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00094">Projector.hpp:94</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_continuous_01_4_html_a47c452e497e30e7d63b88561d2298fe9"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_continuous_01_4.html#a47c452e497e30e7d63b88561d2298fe9">Bembel::ProjectorRoutines::projector_matrixmaker_&lt; Derived, DifferentialForm::Continuous &gt;::makeMatrix</a></div><div class="ttdeci">static Eigen::SparseMatrix&lt; double &gt; makeMatrix(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knotrepetition)</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00275">Projector.hpp:275</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4_html_a2455881f13fa88d0d6357f654251fadb"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_discontinuous_01_4.html#a2455881f13fa88d0d6357f654251fadb">Bembel::ProjectorRoutines::projector_matrixmaker_&lt; Derived, DifferentialForm::Discontinuous &gt;::makeMatrix</a></div><div class="ttdeci">static Eigen::SparseMatrix&lt; double &gt; makeMatrix(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knotrepetition)</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00329">Projector.hpp:329</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_div_conforming_01_4_html_ae12462dd0ac24bf59a4300e70d16b64f"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker___3_01_derived_00_01_differential_form_1_1_div_conforming_01_4.html#ae12462dd0ac24bf59a4300e70d16b64f">Bembel::ProjectorRoutines::projector_matrixmaker_&lt; Derived, DifferentialForm::DivConforming &gt;::makeMatrix</a></div><div class="ttdeci">static Eigen::SparseMatrix&lt; double &gt; makeMatrix(const SuperSpace&lt; Derived &gt; &amp;super_space, const int knotrepetition)</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00293">Projector.hpp:293</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1projector__matrixmaker___html"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">Bembel::ProjectorRoutines::projector_matrixmaker_</a></div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00017">Projector.hpp:17</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1projector__matrixmaker___html_af71bde303a05e118e85853c8f7200661"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html#af71bde303a05e118e85853c8f7200661">Bembel::ProjectorRoutines::projector_matrixmaker_::makeMatrix</a></div><div class="ttdeci">static Eigen::SparseMatrix&lt; double &gt; makeMatrix(const Bembel::SuperSpace&lt; Derived &gt; &amp;super_space, const int knotrepetition)</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00018">Projector.hpp:18</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_super_space_html"><div class="ttname"><a href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a></div><div class="ttdoc">The superspace manages local polynomial bases on each element of the mesh and provides an itnerface t...</div><div class="ttdef"><b>Definition:</b> <a href="_super_space_8hpp_source.html#l00020">SuperSpace.hpp:20</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_super_space_html_a14e5e60f4c5b98840f6457bcdf3b9376"><div class="ttname"><a href="struct_bembel_1_1_super_space.html#a14e5e60f4c5b98840f6457bcdf3b9376">Bembel::SuperSpace::get_mesh</a></div><div class="ttdeci">const ClusterTree &amp; get_mesh() const</div><div class="ttdef"><b>Definition:</b> <a href="_super_space_8hpp_source.html#l00081">SuperSpace.hpp:81</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_super_space_html_a51d1cc7bd6a9367686fd3ba51a09da29"><div class="ttname"><a href="struct_bembel_1_1_super_space.html#a51d1cc7bd6a9367686fd3ba51a09da29">Bembel::SuperSpace::get_number_of_patches</a></div><div class="ttdeci">int get_number_of_patches() const</div><div class="ttdef"><b>Definition:</b> <a href="_super_space_8hpp_source.html#l00079">SuperSpace.hpp:79</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_super_space_html_a5f3f9572bcbb4306e4e7e7ec55801574"><div class="ttname"><a href="struct_bembel_1_1_super_space.html#a5f3f9572bcbb4306e4e7e7ec55801574">Bembel::SuperSpace::get_refinement_level</a></div><div class="ttdeci">int get_refinement_level() const</div><div class="ttdef"><b>Definition:</b> <a href="_super_space_8hpp_source.html#l00077">SuperSpace.hpp:77</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_super_space_html_a6675b25cd3d78e2d9958ebbceb72e548"><div class="ttname"><a href="struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548">Bembel::SuperSpace::get_polynomial_degree</a></div><div class="ttdeci">int get_polynomial_degree() const</div><div class="ttdef"><b>Definition:</b> <a href="_super_space_8hpp_source.html#l00073">SuperSpace.hpp:73</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1__proj__info_html"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1__proj__info.html">Bembel::ProjectorRoutines::_proj_info</a></div><div class="ttdoc">Helper struct.</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00139">Projector.hpp:139</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_projector_routines_1_1projector__matrixmaker___html"><div class="ttname"><a href="struct_bembel_1_1_projector_routines_1_1projector__matrixmaker__.html">Bembel::ProjectorRoutines::projector_matrixmaker_</a></div><div class="ttdoc">Helper struct for assembling the Projector for the different cases.</div><div class="ttdef"><b>Definition:</b> <a href="_projector_8hpp_source.html#l00020">Projector.hpp:20</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_super_space_html"><div class="ttname"><a href="struct_bembel_1_1_super_space.html">Bembel::SuperSpace</a></div><div class="ttdoc">The superspace manages local polynomial bases on each element of the mesh and provides an interface t...</div><div class="ttdef"><b>Definition:</b> <a href="_super_space_8hpp_source.html#l00022">SuperSpace.hpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_0290df630c5d1b12f2fa9e6500e41b8a.html">AnsatzSpace</a></li><li class="navelem"><a class="el" href="_projector_8hpp.html">Projector.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_0290df630c5d1b12f2fa9e6500e41b8a.html">AnsatzSpace</a></li><li class="navelem"><b>Projector.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

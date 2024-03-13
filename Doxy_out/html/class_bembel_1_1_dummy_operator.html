@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_dummy_operator.html',
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_dummy_operator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::DummyOperator Class Reference</div>  </div>
+<div class="title">Bembel::DummyOperator Class Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___dummy_operator.html">DummyOperator</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -119,40 +130,47 @@ Collaboration diagram for Bembel::DummyOperator:</div>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,215,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class provides a dummy specialization of the LinearOperator and corresponding Traits for testing and debugging. </p>
+
+<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00042">42</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae46c81dd3bd2a94408502099e17f2f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">DummyOperator</a> ()</td></tr>
+<tr class="memdesc:aae46c81dd3bd2a94408502099e17f2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">More...</a><br /></td></tr>
 <tr class="separator:aae46c81dd3bd2a94408502099e17f2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2461870c27a31b329d57322ec54cbe09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">DummyOperator</a> (std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt; test_func)</td></tr>
+<tr class="memitem:a2461870c27a31b329d57322ec54cbe09"><td class="memItemLeft" align="right" valign="top"><a id="a2461870c27a31b329d57322ec54cbe09"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">DummyOperator</a> (std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt; test_func)</td></tr>
+<tr class="memdesc:a2461870c27a31b329d57322ec54cbe09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with a given test function. <br /></td></tr>
 <tr class="separator:a2461870c27a31b329d57322ec54cbe09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ddcf8e1c85175ee32adff43b9937cb"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:ac9ddcf8e1c85175ee32adff43b9937cb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">evaluateIntegrand_impl</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="memdesc:ac9ddcf8e1c85175ee32adff43b9937cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the integration routine.  <a href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">More...</a><br /></td></tr>
 <tr class="separator:ac9ddcf8e1c85175ee32adff43b9937cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_bembel_1_1_linear_operator_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_bembel_1_1_linear_operator_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase&lt; DummyOperator &gt;</a></td></tr>
-<tr class="memitem:a3014433275b18ffad85c73cb1eec22f1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a3014433275b18ffad85c73cb1eec22f1">LinearOperatorBase</a> ()</td></tr>
-<tr class="separator:a3014433275b18ffad85c73cb1eec22f1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630">evaluateIntegrand</a> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
+<tr class="memitem:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a0f7bbdf4c5de7ceff53e60cce7748630"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateIntegrand</b> (const T &amp;super_space, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</td></tr>
 <tr class="separator:a0f7bbdf4c5de7ceff53e60cce7748630 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Scalar, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#ad616d64eccfb9cbde9ff8208f473e6a0">evaluateFMMInterpolation</a> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
+<tr class="memitem:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="ad616d64eccfb9cbde9ff8208f473e6a0"></a>
+Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Scalar, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::NumberOfFMMComponents, getFunctionSpaceVectorDimension&lt; <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::Form &gt;) *<a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &gt;::NumberOfFMMComponents &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFMMInterpolation</b> (const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, const <a class="el" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2) const</td></tr>
 <tr class="separator:ad616d64eccfb9cbde9ff8208f473e6a0 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3">get_FarfieldQuadratureDegree</a> (int ansatz_degree) const</td></tr>
+<tr class="memitem:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a564ca07e65785b8f8bb8882524d5f1d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_FarfieldQuadratureDegree</b> (int ansatz_degree) const</td></tr>
 <tr class="separator:a564ca07e65785b8f8bb8882524d5f1d3 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">getNearfieldQuadratureDegree</a> (int ansatz_degree, double distance, int level) const</td></tr>
 <tr class="memdesc:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute quadrature degree for numerical integretation close to the singularity based on distance, refinement level, degree of ansatz functions and operator_order.  <a href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb">More...</a><br /></td></tr>
 <tr class="separator:a93eae80056713e449c452e86fe4f89eb inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a4363f27d775bc3e8b2364272f89650b1">derived</a> ()</td></tr>
+<tr class="memitem:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a4363f27d775bc3e8b2364272f89650b1"></a>
+<a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> ()</td></tr>
 <tr class="separator:a4363f27d775bc3e8b2364272f89650b1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html#a46d1663265d35d3db4c8041ba5693bd1">derived</a> () const</td></tr>
+<tr class="memitem:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memItemLeft" align="right" valign="top"><a id="a46d1663265d35d3db4c8041ba5693bd1"></a>
+const <a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>derived</b> () const</td></tr>
 <tr class="separator:a46d1663265d35d3db4c8041ba5693bd1 inherit pub_methods_struct_bembel_1_1_linear_operator_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class provides a dummy specialization of the LinearOperator and corresponding Traits for testing and debugging. </p>
-
-<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00040">40</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aae46c81dd3bd2a94408502099e17f2f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae46c81dd3bd2a94408502099e17f2f6">&#9670;&nbsp;</a></span>DummyOperator() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aae46c81dd3bd2a94408502099e17f2f6">&#9670;&nbsp;</a></span>DummyOperator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,35 +192,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00044">44</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
+<p>Default constructor. </p>
+<p>The default test function is a constant 1. </p>
 
-</div>
-</div>
-<a id="a2461870c27a31b329d57322ec54cbe09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2461870c27a31b329d57322ec54cbe09">&#9670;&nbsp;</a></span>DummyOperator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Bembel::DummyOperator::DummyOperator </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt;&#160;</td>
-          <td class="paramname"><em>test_func</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00045">45</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00051">51</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +248,18 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00051">51</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
+<p>Implements the integration routine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">super_space</td><td><a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> specified with template parameter. </td></tr>
+    <tr><td class="paramname">p1</td><td>SurfacePoint for evaluating the first integral. </td></tr>
+    <tr><td class="paramname">p2</td><td>SurfacePoint for evaluating the second integral. </td></tr>
+    <tr><td class="paramname">intval</td><td>Matrix for the computed integral. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00069">69</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
 
 </div>
 </div>
@@ -268,7 +272,7 @@ template&lt;class T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

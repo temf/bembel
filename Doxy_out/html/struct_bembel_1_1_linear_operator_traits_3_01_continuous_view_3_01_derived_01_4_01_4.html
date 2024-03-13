@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -97,13 +108,16 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_linear_operator_trai
 </div><!--header-->
 <div class="contents">
 
+<p>Helper specification of the <a class="el" href="struct_bembel_1_1_linear_operator_traits.html" title="struct containing specifications on the linear operator has to be specialized or derived for any part...">LinearOperatorTraits</a> for the export of data.  
+ <a href="struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_linear_operator_traits_8hpp_source.html">LinearOperatorTraits.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Bembel::LinearOperatorTraits&lt; ContinuousView&lt; Derived &gt; &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4__inherit__graph.png" border="0" usemap="#a_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4_inherit__map" id="a_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,95,244,136"/>
+<area shape="rect" title="Helper specification of the LinearOperatorTraits for the export of data." alt="" coords="5,95,244,136"/>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_traits.html" title="struct containing specifications on the linear operator has to be specialized or derived for any part..." alt="" coords="19,5,231,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -112,45 +126,24 @@ Collaboration diagram for Bembel::LinearOperatorTraits&lt; ContinuousView&lt; De
 <div class="dyncontent">
 <div class="center"><img src="struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4__coll__graph.png" border="0" usemap="#a_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="a_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4_coll__map" id="a_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="5,95,244,136"/>
+<area shape="rect" title="Helper specification of the LinearOperatorTraits for the export of data." alt="" coords="5,95,244,136"/>
 <area shape="rect" href="struct_bembel_1_1_linear_operator_traits.html" title="struct containing specifications on the linear operator has to be specialized or derived for any part..." alt="" coords="19,5,231,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a4ba119a39a3a9308861bfb0461924314"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4.html#a4ba119a39a3a9308861bfb0461924314ae00001e95f6f9042f6e8805a51208d3b">Form</a> = DifferentialForm::Continuous
- }</td></tr>
-<tr class="separator:a4ba119a39a3a9308861bfb0461924314"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 struct Bembel::LinearOperatorTraits&lt; ContinuousView&lt; Derived &gt; &gt;</h3>
 
+<p>Helper specification of the <a class="el" href="struct_bembel_1_1_linear_operator_traits.html" title="struct containing specifications on the linear operator has to be specialized or derived for any part...">LinearOperatorTraits</a> for the export of data. </p>
 
-<p class="definition">Definition at line <a class="el" href="_linear_operator_traits_8hpp_source.html#l00033">33</a> of file <a class="el" href="_linear_operator_traits_8hpp_source.html">LinearOperatorTraits.hpp</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a4ba119a39a3a9308861bfb0461924314"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba119a39a3a9308861bfb0461924314">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4ba119a39a3a9308861bfb0461924314ae00001e95f6f9042f6e8805a51208d3b"></a>Form&#160;</td><td class="fielddoc"></td></tr>
+<p class="definition">Definition at line <a class="el" href="_linear_operator_traits_8hpp_source.html#l00036">36</a> of file <a class="el" href="_linear_operator_traits_8hpp_source.html">LinearOperatorTraits.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4ba119a39a3a9308861bfb0461924314"><td class="memItemLeft" align="right" valign="top"><a id="a4ba119a39a3a9308861bfb0461924314"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Form</b> = DifferentialForm::Continuous
+ }</td></tr>
+<tr class="separator:a4ba119a39a3a9308861bfb0461924314"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_linear_operator_traits_8hpp_source.html#l00035">35</a> of file <a class="el" href="_linear_operator_traits_8hpp_source.html">LinearOperatorTraits.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Bembel/src/LinearOperator/<a class="el" href="_linear_operator_traits_8hpp_source.html">LinearOperatorTraits.hpp</a></li>
 </ul>
@@ -160,7 +153,7 @@ template&lt;typename Derived &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4.html">LinearOperatorTraits&lt; ContinuousView&lt; Derived &gt; &gt;</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

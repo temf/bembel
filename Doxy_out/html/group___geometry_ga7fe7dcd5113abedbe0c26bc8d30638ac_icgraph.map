@@ -1,6 +1,0 @@
-<map id="Bembel::writeSection" name="Bembel::writeSection">
-<area shape="rect" id="node1" title="This function writes a given section to the specified file." alt="" coords="463,31,624,57"/>
-<area shape="rect" id="node2" href="$namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65" title=" " alt="" coords="212,5,415,32"/>
-<area shape="rect" id="node4" href="$namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1" title=" " alt="" coords="222,56,405,83"/>
-<area shape="rect" id="node3" href="$group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658" title="Writes Geometry into an IGES file format." alt="" coords="5,31,164,57"/>
-</map>

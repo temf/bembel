@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_knots_8hpp_source.html',''); initResi
 <div class="title">Knots.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_knots_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -117,7 +128,7 @@ $(document).ready(function(){initNavTree('_knots_8hpp_source.html',''); initResi
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_spl.html#a2fab568c1177ea24d911639a47940954">   30</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="namespace_bembel_1_1_spl.html#a2fab568c1177ea24d911639a47940954">GetPolynomialDegreeFromKnotVector</a>(</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> GetPolynomialDegreeFromKnotVector(</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;knot_vector) {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  constexpr <span class="keywordtype">double</span> tol = .0000001;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">int</span> i = 0;</div>
@@ -130,7 +141,7 @@ $(document).ready(function(){initNavTree('_knots_8hpp_source.html',''); initResi
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">   43</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;double&gt; <a class="code" href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">MakeUniformKnotVector</a>(<span class="keywordtype">int</span> polynomial_degree,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">inline</span> std::vector&lt;double&gt; MakeUniformKnotVector(<span class="keywordtype">int</span> polynomial_degree,</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                                 <span class="keywordtype">int</span> interior,</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                                 <span class="keywordtype">int</span> knotrepetition) noexcept {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  std::vector&lt;double&gt; out;</div>
@@ -143,15 +154,15 @@ $(document).ready(function(){initNavTree('_knots_8hpp_source.html',''); initResi
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_spl.html#aebdfb52ac34ef90b1f268e2afe167e2a">   56</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;double&gt; <a class="code" href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">MakeUniformKnotVector</a>(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> lvl) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">MakeUniformKnotVector</a>(p, lvl, 1);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">inline</span> std::vector&lt;double&gt; MakeUniformKnotVector(<span class="keywordtype">int</span> p, <span class="keywordtype">int</span> lvl) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">return</span> MakeUniformKnotVector(p, lvl, 1);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">// Chunk knots eats knotvectors and returns knotvectors in which each knot is</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">// unique, up to tolerance tol.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_spl.html#a5a9d9cd6f78e5d54f4a89905378d9374">   62</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;double&gt; <a class="code" href="namespace_bembel_1_1_spl.html#a5a9d9cd6f78e5d54f4a89905378d9374">ExtractUniqueKnotVector</a>(</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">inline</span> std::vector&lt;double&gt; ExtractUniqueKnotVector(</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;in) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  constexpr <span class="keywordtype">double</span> tol = <a class="code" href="namespace_bembel_1_1_constants.html#a2335666a2c2cc212f47c3971e7589f60">Bembel::Constants::generic_tolerance</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  constexpr <span class="keywordtype">double</span> tol = Bembel::Constants::generic_tolerance;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::vector&lt;double&gt; out;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> size = in.size();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// std::cout&lt;&lt; &quot;chunk &quot; &lt;&lt; in[0]  &lt;&lt;&quot;\n&quot;;</span></div>
@@ -163,9 +174,9 @@ $(document).ready(function(){initNavTree('_knots_8hpp_source.html',''); initResi
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// Up tp tol, fins knot element index for a given x.</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespace_bembel_1_1_spl.html#aebeecdc6e23d86464fc813ba14dd2168">   76</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="namespace_bembel_1_1_spl.html#aebeecdc6e23d86464fc813ba14dd2168">FindLocationInKnotVector</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> FindLocationInKnotVector(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;x,</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;v) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  constexpr <span class="keywordtype">double</span> tol = <a class="code" href="namespace_bembel_1_1_constants.html#a2335666a2c2cc212f47c3971e7589f60">Bembel::Constants::generic_tolerance</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  constexpr <span class="keywordtype">double</span> tol = Bembel::Constants::generic_tolerance;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">int</span> size = v.size();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">if</span> (((x - tol) &lt; 0.) &amp;&amp; ((x + tol) &gt; 0.)) <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size - 1; i++) {</div>
@@ -177,19 +188,14 @@ $(document).ready(function(){initNavTree('_knots_8hpp_source.html',''); initResi
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_SPLINE_KNOTS_HPP_</span></div>
 <div class="ttc" id="agroup___spline_html_gae8f152599fef9cc558caa39a0cfe5237"><div class="ttname"><a href="group___spline.html#gae8f152599fef9cc558caa39a0cfe5237">Bembel::Spl::MakeBezierKnotVector</a></div><div class="ttdeci">std::vector&lt; double &gt; MakeBezierKnotVector(int polynomial_degree) noexcept</div><div class="ttdoc">Here, routines for the creation and processing of knot vectors are defined.</div><div class="ttdef"><b>Definition:</b> <a href="_knots_8hpp_source.html#l00021">Knots.hpp:21</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_constants_html_a2335666a2c2cc212f47c3971e7589f60"><div class="ttname"><a href="namespace_bembel_1_1_constants.html#a2335666a2c2cc212f47c3971e7589f60">Bembel::Constants::generic_tolerance</a></div><div class="ttdeci">constexpr double generic_tolerance</div><div class="ttdoc">variables</div><div class="ttdef"><b>Definition:</b> <a href="util_2_constants_8hpp_source.html#l00020">Constants.hpp:20</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_spl_html_a180e8a259dab16bb8ee63d886aaf5b36"><div class="ttname"><a href="namespace_bembel_1_1_spl.html#a180e8a259dab16bb8ee63d886aaf5b36">Bembel::Spl::MakeUniformKnotVector</a></div><div class="ttdeci">std::vector&lt; double &gt; MakeUniformKnotVector(int polynomial_degree, int interior, int knotrepetition) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_knots_8hpp_source.html#l00043">Knots.hpp:43</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_spl_html_a2fab568c1177ea24d911639a47940954"><div class="ttname"><a href="namespace_bembel_1_1_spl.html#a2fab568c1177ea24d911639a47940954">Bembel::Spl::GetPolynomialDegreeFromKnotVector</a></div><div class="ttdeci">int GetPolynomialDegreeFromKnotVector(const std::vector&lt; double &gt; &amp;knot_vector)</div><div class="ttdef"><b>Definition:</b> <a href="_knots_8hpp_source.html#l00030">Knots.hpp:30</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_spl_html_a5a9d9cd6f78e5d54f4a89905378d9374"><div class="ttname"><a href="namespace_bembel_1_1_spl.html#a5a9d9cd6f78e5d54f4a89905378d9374">Bembel::Spl::ExtractUniqueKnotVector</a></div><div class="ttdeci">std::vector&lt; double &gt; ExtractUniqueKnotVector(const std::vector&lt; double &gt; &amp;in)</div><div class="ttdef"><b>Definition:</b> <a href="_knots_8hpp_source.html#l00062">Knots.hpp:62</a></div></div>
-<div class="ttc" id="anamespace_bembel_1_1_spl_html_aebeecdc6e23d86464fc813ba14dd2168"><div class="ttname"><a href="namespace_bembel_1_1_spl.html#aebeecdc6e23d86464fc813ba14dd2168">Bembel::Spl::FindLocationInKnotVector</a></div><div class="ttdeci">int FindLocationInKnotVector(const double &amp;x, const std::vector&lt; double &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> <a href="_knots_8hpp_source.html#l00076">Knots.hpp:76</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_f87942f3275a3b9667546b80bbc45e25.html">Spline</a></li><li class="navelem"><a class="el" href="_knots_8hpp.html">Knots.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_f87942f3275a3b9667546b80bbc45e25.html">Spline</a></li><li class="navelem"><b>Knots.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

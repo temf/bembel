@@ -1,4 +1,0 @@
-<map id="Bembel::WritePatch" name="Bembel::WritePatch">
-<area shape="rect" id="node1" title="method to write Patch information into textfile" alt="" coords="217,5,368,32"/>
-<area shape="rect" id="node2" href="$group___geometry.html#ga9290c96b302fce4ec7c3b194f328db4a" title="exports a geometry from Bembel to a .dat file." alt="" coords="5,5,169,32"/>
-</map>

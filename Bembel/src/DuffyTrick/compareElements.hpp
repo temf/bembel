@@ -15,11 +15,11 @@
 namespace Bembel {
 namespace DuffyTrick {
 /**
- *  \ingroup DuffyTrick
- *  \brief compares two elements for similarities and determines, how the
- *         elements have to be rotated to move the similarity to the first
- *         vertices_ or edge
- **/
+ * \ingroup DuffyTrick
+ * \brief Compares two elements for similarities and determines, how the
+ *elements have to be rotated to move the similarity to the first vertices_ or
+ *edge
+ */
 Eigen::Vector3i compareElements(const ElementTreeNode &e1,
                                 const ElementTreeNode &e2, double *dist) {
   Eigen::Vector3i retval;

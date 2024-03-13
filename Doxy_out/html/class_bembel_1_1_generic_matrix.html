@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -90,481 +101,59 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_generic_matrix.html',
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="class_bembel_1_1_generic_matrix-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Bembel::GenericMatrix&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a835bca2c3f98650ecc867e29c5bff3c7"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::vector&lt; T &gt; &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a></td></tr>
-<tr class="separator:a835bca2c3f98650ecc867e29c5bff3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc2323719617a3388d714c42f2d49841"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; T &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a></td></tr>
-<tr class="separator:acc2323719617a3388d714c42f2d49841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a70d7c4c64577aa1989490cd718948628"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a70d7c4c64577aa1989490cd718948628">GenericMatrix</a> ()</td></tr>
-<tr class="separator:a70d7c4c64577aa1989490cd718948628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c2423aedadc97a1cbb8d66bcb423e89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a3c2423aedadc97a1cbb8d66bcb423e89">GenericMatrix</a> (<a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a> <a class="el" href="class_bembel_1_1_generic_matrix.html#ab2e5b2f4a6c70bb1f1c082296c7961cf">rows</a>, <a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a> <a class="el" href="class_bembel_1_1_generic_matrix.html#a9fa1b5fc2e939f5cd6a79140722a801a">cols</a>)</td></tr>
-<tr class="separator:a3c2423aedadc97a1cbb8d66bcb423e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9480548fc73ed7b33555b427dba91402"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a9480548fc73ed7b33555b427dba91402">GenericMatrix</a> (const <a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> &amp;other)</td></tr>
-<tr class="separator:a9480548fc73ed7b33555b427dba91402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe6c8ec66328ea6f29a36938817eb1b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#afe6c8ec66328ea6f29a36938817eb1b8">GenericMatrix</a> (<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> &amp;&amp;other)</td></tr>
-<tr class="separator:afe6c8ec66328ea6f29a36938817eb1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2141a2c6c734ccaa841c716f64f5e38a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a2141a2c6c734ccaa841c716f64f5e38a">resize</a> (<a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a> <a class="el" href="class_bembel_1_1_generic_matrix.html#ab2e5b2f4a6c70bb1f1c082296c7961cf">rows</a>, <a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a> <a class="el" href="class_bembel_1_1_generic_matrix.html#a9fa1b5fc2e939f5cd6a79140722a801a">cols</a>)</td></tr>
-<tr class="separator:a2141a2c6c734ccaa841c716f64f5e38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fa1b5fc2e939f5cd6a79140722a801a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a9fa1b5fc2e939f5cd6a79140722a801a">cols</a> () const</td></tr>
-<tr class="separator:a9fa1b5fc2e939f5cd6a79140722a801a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e5b2f4a6c70bb1f1c082296c7961cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#ab2e5b2f4a6c70bb1f1c082296c7961cf">rows</a> () const</td></tr>
-<tr class="separator:ab2e5b2f4a6c70bb1f1c082296c7961cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34d8933c429b748a5e6643bf4e31a77c"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a34d8933c429b748a5e6643bf4e31a77c">operator()</a> (<a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a> row, <a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a> col) const</td></tr>
-<tr class="separator:a34d8933c429b748a5e6643bf4e31a77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72e88944d435ac3959659c193a83360c"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a72e88944d435ac3959659c193a83360c">operator()</a> (<a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a> row, <a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a> col)</td></tr>
-<tr class="separator:a72e88944d435ac3959659c193a83360c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25f0e24517fc485a5d53e9a59920ff0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html#a25f0e24517fc485a5d53e9a59920ff0a">operator=</a> (<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> other)</td></tr>
-<tr class="separator:a25f0e24517fc485a5d53e9a59920ff0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class Bembel::GenericMatrix&lt; T &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00018">18</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a835bca2c3f98650ecc867e29c5bff3c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a835bca2c3f98650ecc867e29c5bff3c7">&#9670;&nbsp;</a></span>colIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;std::vector&lt;T&gt; &gt;::size_type <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::<a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00020">20</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="acc2323719617a3388d714c42f2d49841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc2323719617a3388d714c42f2d49841">&#9670;&nbsp;</a></span>rowIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::vector&lt;T&gt;::size_type <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::<a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00021">21</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a70d7c4c64577aa1989490cd718948628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70d7c4c64577aa1989490cd718948628">&#9670;&nbsp;</a></span>GenericMatrix() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3c2423aedadc97a1cbb8d66bcb423e89"><td class="memItemLeft" align="right" valign="top"><a id="a3c2423aedadc97a1cbb8d66bcb423e89"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GenericMatrix</b> (rowIndex rows, colIndex cols)</td></tr>
+<tr class="separator:a3c2423aedadc97a1cbb8d66bcb423e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9480548fc73ed7b33555b427dba91402"><td class="memItemLeft" align="right" valign="top"><a id="a9480548fc73ed7b33555b427dba91402"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GenericMatrix</b> (const <a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> &amp;other)</td></tr>
+<tr class="separator:a9480548fc73ed7b33555b427dba91402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe6c8ec66328ea6f29a36938817eb1b8"><td class="memItemLeft" align="right" valign="top"><a id="afe6c8ec66328ea6f29a36938817eb1b8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GenericMatrix</b> (<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> &amp;&amp;other)</td></tr>
+<tr class="separator:afe6c8ec66328ea6f29a36938817eb1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2141a2c6c734ccaa841c716f64f5e38a"><td class="memItemLeft" align="right" valign="top"><a id="a2141a2c6c734ccaa841c716f64f5e38a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> (rowIndex rows, colIndex cols)</td></tr>
+<tr class="separator:a2141a2c6c734ccaa841c716f64f5e38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa1b5fc2e939f5cd6a79140722a801a"><td class="memItemLeft" align="right" valign="top"><a id="a9fa1b5fc2e939f5cd6a79140722a801a"></a>
+colIndex&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b> () const</td></tr>
+<tr class="separator:a9fa1b5fc2e939f5cd6a79140722a801a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e5b2f4a6c70bb1f1c082296c7961cf"><td class="memItemLeft" align="right" valign="top"><a id="ab2e5b2f4a6c70bb1f1c082296c7961cf"></a>
+rowIndex&#160;</td><td class="memItemRight" valign="bottom"><b>rows</b> () const</td></tr>
+<tr class="separator:ab2e5b2f4a6c70bb1f1c082296c7961cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34d8933c429b748a5e6643bf4e31a77c"><td class="memItemLeft" align="right" valign="top"><a id="a34d8933c429b748a5e6643bf4e31a77c"></a>
+const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (rowIndex row, colIndex col) const</td></tr>
+<tr class="separator:a34d8933c429b748a5e6643bf4e31a77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e88944d435ac3959659c193a83360c"><td class="memItemLeft" align="right" valign="top"><a id="a72e88944d435ac3959659c193a83360c"></a>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (rowIndex row, colIndex col)</td></tr>
+<tr class="separator:a72e88944d435ac3959659c193a83360c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f0e24517fc485a5d53e9a59920ff0a"><td class="memItemLeft" align="right" valign="top"><a id="a25f0e24517fc485a5d53e9a59920ff0a"></a>
+<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> other)</td></tr>
+<tr class="separator:a25f0e24517fc485a5d53e9a59920ff0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a835bca2c3f98650ecc867e29c5bff3c7"><td class="memItemLeft" align="right" valign="top"><a id="a835bca2c3f98650ecc867e29c5bff3c7"></a>
+typedef std::vector&lt; std::vector&lt; T &gt; &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>colIndex</b></td></tr>
+<tr class="separator:a835bca2c3f98650ecc867e29c5bff3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2323719617a3388d714c42f2d49841"><td class="memItemLeft" align="right" valign="top"><a id="acc2323719617a3388d714c42f2d49841"></a>
+typedef std::vector&lt; T &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>rowIndex</b></td></tr>
+<tr class="separator:acc2323719617a3388d714c42f2d49841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00025">25</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3c2423aedadc97a1cbb8d66bcb423e89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c2423aedadc97a1cbb8d66bcb423e89">&#9670;&nbsp;</a></span>GenericMatrix() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a>&#160;</td>
-          <td class="paramname"><em>rows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a>&#160;</td>
-          <td class="paramname"><em>cols</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00027">27</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_generic_matrix_a3c2423aedadc97a1cbb8d66bcb423e89_cgraph.png" border="0" usemap="#aclass_bembel_1_1_generic_matrix_a3c2423aedadc97a1cbb8d66bcb423e89_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_generic_matrix_a3c2423aedadc97a1cbb8d66bcb423e89_cgraph" id="aclass_bembel_1_1_generic_matrix_a3c2423aedadc97a1cbb8d66bcb423e89_cgraph">
-<area shape="rect" title=" " alt="" coords="5,51,177,92"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a9fa1b5fc2e939f5cd6a79140722a801a" title=" " alt="" coords="445,5,617,47"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a2141a2c6c734ccaa841c716f64f5e38a" title=" " alt="" coords="225,51,397,92"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#ab2e5b2f4a6c70bb1f1c082296c7961cf" title=" " alt="" coords="445,84,617,125"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9480548fc73ed7b33555b427dba91402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9480548fc73ed7b33555b427dba91402">&#9670;&nbsp;</a></span>GenericMatrix() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00029">29</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="afe6c8ec66328ea6f29a36938817eb1b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe6c8ec66328ea6f29a36938817eb1b8">&#9670;&nbsp;</a></span>GenericMatrix() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::<a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a>&lt; T &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00035">35</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9fa1b5fc2e939f5cd6a79140722a801a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fa1b5fc2e939f5cd6a79140722a801a">&#9670;&nbsp;</a></span>cols()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a> <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::cols </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00051">51</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_generic_matrix_a9fa1b5fc2e939f5cd6a79140722a801a_icgraph.png" border="0" usemap="#aclass_bembel_1_1_generic_matrix_a9fa1b5fc2e939f5cd6a79140722a801a_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_generic_matrix_a9fa1b5fc2e939f5cd6a79140722a801a_icgraph" id="aclass_bembel_1_1_generic_matrix_a9fa1b5fc2e939f5cd6a79140722a801a_icgraph">
-<area shape="rect" title=" " alt="" coords="445,35,617,76"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a3c2423aedadc97a1cbb8d66bcb423e89" title=" " alt="" coords="5,5,177,47"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a2141a2c6c734ccaa841c716f64f5e38a" title=" " alt="" coords="225,64,397,105"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="14,71,169,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a72e88944d435ac3959659c193a83360c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72e88944d435ac3959659c193a83360c">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a>&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a>&#160;</td>
-          <td class="paramname"><em>col</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00061">61</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a34d8933c429b748a5e6643bf4e31a77c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34d8933c429b748a5e6643bf4e31a77c">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a>&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a>&#160;</td>
-          <td class="paramname"><em>col</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00057">57</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a25f0e24517fc485a5d53e9a59920ff0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25f0e24517fc485a5d53e9a59920ff0a">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a>&amp; <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a>&lt; T &gt;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00063">63</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2141a2c6c734ccaa841c716f64f5e38a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2141a2c6c734ccaa841c716f64f5e38a">&#9670;&nbsp;</a></span>resize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::resize </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a>&#160;</td>
-          <td class="paramname"><em>rows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_generic_matrix.html#a835bca2c3f98650ecc867e29c5bff3c7">colIndex</a>&#160;</td>
-          <td class="paramname"><em>cols</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00043">43</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_cgraph.png" border="0" usemap="#aclass_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_cgraph" id="aclass_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_cgraph">
-<area shape="rect" title=" " alt="" coords="5,39,177,80"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a9fa1b5fc2e939f5cd6a79140722a801a" title=" " alt="" coords="225,5,397,47"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#ab2e5b2f4a6c70bb1f1c082296c7961cf" title=" " alt="" coords="225,71,397,112"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_icgraph.png" border="0" usemap="#aclass_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_icgraph" id="aclass_bembel_1_1_generic_matrix_a2141a2c6c734ccaa841c716f64f5e38a_icgraph">
-<area shape="rect" title=" " alt="" coords="225,39,397,80"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a3c2423aedadc97a1cbb8d66bcb423e89" title=" " alt="" coords="5,5,177,47"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="14,71,169,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ab2e5b2f4a6c70bb1f1c082296c7961cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2e5b2f4a6c70bb1f1c082296c7961cf">&#9670;&nbsp;</a></span>rows()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_generic_matrix.html#acc2323719617a3388d714c42f2d49841">rowIndex</a> <a class="el" href="class_bembel_1_1_generic_matrix.html">Bembel::GenericMatrix</a>&lt; T &gt;::rows </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_generic_matrix_8hpp_source.html#l00053">53</a> of file <a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_generic_matrix_ab2e5b2f4a6c70bb1f1c082296c7961cf_icgraph.png" border="0" usemap="#aclass_bembel_1_1_generic_matrix_ab2e5b2f4a6c70bb1f1c082296c7961cf_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_generic_matrix_ab2e5b2f4a6c70bb1f1c082296c7961cf_icgraph" id="aclass_bembel_1_1_generic_matrix_ab2e5b2f4a6c70bb1f1c082296c7961cf_icgraph">
-<area shape="rect" title=" " alt="" coords="445,35,617,76"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a3c2423aedadc97a1cbb8d66bcb423e89" title=" " alt="" coords="5,5,177,47"/>
-<area shape="rect" href="class_bembel_1_1_generic_matrix.html#a2141a2c6c734ccaa841c716f64f5e38a" title=" " alt="" coords="225,64,397,105"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="14,71,169,112"/>
-</map>
-</div>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/util/<a class="el" href="_generic_matrix_8hpp_source.html">GenericMatrix.hpp</a></li>
 </ul>
@@ -574,7 +163,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

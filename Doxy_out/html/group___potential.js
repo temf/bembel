@@ -9,5 +9,11 @@ var group___potential =
       [ "set_cauchy_data", "class_bembel_1_1_discrete_potential.html#ad6ea39f7ec3c006a6c28020c82b95536", null ],
       [ "set_degree", "class_bembel_1_1_discrete_potential.html#a2b7d4d062e4727b66633ce627b46baeb", null ]
     ] ],
-    [ "PotentialTraits", "struct_bembel_1_1_potential_traits.html", null ]
+    [ "PotentialTraits", "struct_bembel_1_1_potential_traits.html", null ],
+    [ "PotentialBase", "struct_bembel_1_1_potential_base.html", [
+      [ "PotentialBase", "struct_bembel_1_1_potential_base.html#a2dbece2eb1ac2e9b8026d89958641a8d", null ],
+      [ "derived", "struct_bembel_1_1_potential_base.html#a94455143e9409e24bbd22af51cede667", null ],
+      [ "derived", "struct_bembel_1_1_potential_base.html#aec7ccf225d1f5123a30366014dc315a5", null ],
+      [ "evaluateIntegrand", "struct_bembel_1_1_potential_base.html#aec3f48e0a6c70a9ef94bdc265de050f1", null ]
+    ] ]
 ];

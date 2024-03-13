@@ -1,0 +1,15 @@
+namespace Bembel {
+/**
+\page Funding Funding
+
+Work on Bembel was conducted with the following financial support (alphabetically):
+- DFG Grant KU1553/4-1,
+- DFG Grant SCHO1562/3-1,
+- DFG Grant SCHO1562/7,
+- The Graduate School of Computational Engineering at TU Darmstadt and the Excellence Initiative of the German Federal and State Governments and the Graduate School of Computational Engineering at TU Darmstadt,
+- SNSF Grant 137669,
+- SNSF Grant 156101,
+- SNSF Grant 174987. 
+
+*/
+}  // namespace Bembel

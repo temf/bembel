@@ -1,5 +1,0 @@
-<map id="Bembel::FunctionEvaluatorEval&lt; Scalar, DifferentialForm::Continuous, LinOp &gt;::eval" name="Bembel::FunctionEvaluatorEval&lt; Scalar, DifferentialForm::Continuous, LinOp &gt;::eval">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,224,87"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_super_space.html#ac9ed3b8f26e85ac3d18a42e622f6d642" title="Evaluate local shape functions on the unit square at coordinate s." alt="" coords="291,5,447,47"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="272,71,467,112"/>
-</map>

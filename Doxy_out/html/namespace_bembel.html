@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -89,544 +100,16 @@ $(document).ready(function(){initNavTree('namespace_bembel.html',''); initResiza
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Bembel Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespace_bembel_1_1_basis"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_basis.html">Basis</a></td></tr>
-<tr class="memdesc:namespace_bembel_1_1_basis"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="namespace_bembel_1_1_basis.html" title="The Basis namespace contains classes and functions that are to be used as an interface between the BE...">Basis</a> namespace contains classes and functions that are to be used as an interface between the BEM code and the functions in the <a class="el" href="namespace_bembel_1_1_spl.html" title="The Spl namespace is the backend for basis functions and B-Spline computations, and should not be use...">Spl</a> namespace. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_constants"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_constants.html">Constants</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_duffy_trick"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_duffy_trick.html">DuffyTrick</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_glue_routines"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_glue_routines.html">GlueRoutines</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_h2_multipole"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_h2_multipole.html">H2Multipole</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_i_o"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_i_o.html">IO</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_projector_routines"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_projector_routines.html">ProjectorRoutines</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespace_bembel_1_1_spl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel_1_1_spl.html">Spl</a></td></tr>
-<tr class="memdesc:namespace_bembel_1_1_spl"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="namespace_bembel_1_1_spl.html" title="The Spl namespace is the backend for basis functions and B-Spline computations, and should not be use...">Spl</a> namespace is the backend for basis functions and B-Spline computations, and should not be used by the user in a boundary element code. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> is the class that handles the assembly of the discrete basis.  <a href="class_bembel_1_1_ansatz_space.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_function_evaluator.html">FunctionEvaluator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_bembel_1_1_function_evaluator.html" title="The FunctionEvaluator provides means to evaluate coefficient vectors as functions on the geometry.">FunctionEvaluator</a> provides means to evaluate coefficient vectors as functions on the geometry.  <a href="class_bembel_1_1_function_evaluator.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_function_evaluator_eval.html">FunctionEvaluatorEval</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_continuous_00_01_lin_op_01_4.html">FunctionEvaluatorEval&lt; Scalar, DifferentialForm::Continuous, LinOp &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html">FunctionEvaluatorEval&lt; Scalar, DifferentialForm::DivConforming, LinOp &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_discontinuous_00_01_lin_op_01_4.html">FunctionEvaluatorEval&lt; Scalar, DifferentialForm::Discontinuous, LinOp &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_glue.html">Glue</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class takes care of identifying DOFs on different edges, which must be identified with one another.  <a href="class_bembel_1_1_glue.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_projector.html">Projector</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The projector solves interpolation problems to identify the the correct linear combination to represent a B-Spline basis local to each patch by means of the given superspace, and then assembles the required transformation matrices.  <a href="class_bembel_1_1_projector.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The superspace manages local polynomial bases on each element of the mesh and provides an itnerface to evaluate them.  <a href="struct_bembel_1_1_super_space.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_cluster_tree.html">ClusterTree</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_bembel_1_1_cluster_tree.html" title="The ClusterTree class introduces an element structure on a Geometry object. Note that we do not intro...">ClusterTree</a> class introduces an element structure on a <a class="el" href="class_bembel_1_1_geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> object. Note that we do not introduce a mesh in the classical sense, but only introduce a system of local coordinates via an <a class="el" href="class_bembel_1_1_element_tree.html" title="This class organizes an element structure on a Geometry object and handles refinement.">ElementTree</a>.  <a href="class_bembel_1_1_cluster_tree.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree.html">ElementTree</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class organizes an element structure on a <a class="el" href="class_bembel_1_1_geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> object and handles refinement.  <a href="class_bembel_1_1_element_tree.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode correposnds to an element in the element tree.">ElementTreeNode</a> correposnds to an element in the element tree.  <a href="class_bembel_1_1_element_tree_node.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_geometry.html">Geometry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this class wraps a GeometryVector and provides some basic functionality, like reading <a class="el" href="class_bembel_1_1_geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> files  <a href="class_bembel_1_1_geometry.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_patch.html">Patch</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles a single patch  <a href="class_bembel_1_1_patch.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_block_cluster_tree.html">BlockClusterTree</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_block_cluster_admissibility.html">BlockClusterAdmissibility</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_block_cluster_tree_parameters.html">BlockClusterTreeParameters</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_adjoint_double_layer_operator_01_4.html">LinearOperatorTraits&lt; HelmholtzAdjointDoubleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_adjoint_double_layer_operator.html">HelmholtzAdjointDoubleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_double_layer_operator_01_4.html">LinearOperatorTraits&lt; HelmholtzDoubleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_double_layer_operator.html">HelmholtzDoubleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_double_layer_potential.html">HelmholtzDoubleLayerPotential</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_helmholtz_double_layer_potential_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; HelmholtzDoubleLayerPotential&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_hypersingular_operator_01_4.html">LinearOperatorTraits&lt; HelmholtzHypersingularOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_hypersingular_operator.html">HelmholtzHypersingularOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_helmholtz_single_layer_operator_01_4.html">LinearOperatorTraits&lt; HelmholtzSingleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_operator.html">HelmholtzSingleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_helmholtz_single_layer_potential.html">HelmholtzSingleLayerPotential</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_helmholtz_single_layer_potential_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; HelmholtzSingleLayerPotential&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_homogenised_laplace_single_layer_operator_01_4.html">LinearOperatorTraits&lt; HomogenisedLaplaceSingleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html">HomogenisedLaplaceSingleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html">HomogenisedLaplaceSingleLayerPotential</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_homogenised_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; HomogenisedLaplaceSingleLayerPotential&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_identity_operator_base.html">IdentityOperatorBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is the base for all mass matrices.  <a href="class_bembel_1_1_identity_operator_base.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_cont_01_4.html">LinearOperatorTraits&lt; MassMatrixScalarCont &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_mass_matrix_scalar_cont.html">MassMatrixScalarCont</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_disc_01_4.html">LinearOperatorTraits&lt; MassMatrixScalarDisc &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_mass_matrix_scalar_disc.html">MassMatrixScalarDisc</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_v_t_k_domain_export.html">VTKDomainExport</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_v_t_k_point_export.html">VTKPointExport</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_v_t_k_surface_export.html">VTKSurfaceExport</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides export routines from functions on geometries to the VTK file format.  <a href="class_bembel_1_1_v_t_k_surface_export.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_laplace_double_layer_operator_01_4.html">LinearOperatorTraits&lt; LaplaceDoubleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_double_layer_operator.html">LaplaceDoubleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_double_layer_potential.html">LaplaceDoubleLayerPotential</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_laplace_double_layer_potential_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; LaplaceDoubleLayerPotential&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_laplace_single_layer_operator_01_4.html">LinearOperatorTraits&lt; LaplaceSingleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_operator.html">LaplaceSingleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential.html">LaplaceSingleLayerPotential</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; LaplaceSingleLayerPotential&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_single_layer_potential_gradient.html">LaplaceSingleLayerPotentialGradient</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_laplace_single_layer_potential_gradient_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; LaplaceSingleLayerPotentialGradient&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_laplace_beltrami_operator_01_4.html">LinearOperatorTraits&lt; LaplaceBeltramiOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_beltrami_operator.html">LaplaceBeltramiOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_laplace_beltrami_operator_base.html">LaplaceBeltramiOperatorBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is the base for Laplace Beltrami operator.  <a href="class_bembel_1_1_laplace_beltrami_operator_base.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_dirichlet_trace.html">DirichletTrace</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides an implementation of the Dirichlet trace operator and a corresponding method to evaluate the linear form corresponding to the right hand side of the system via quadrature.  <a href="class_bembel_1_1_dirichlet_trace.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_form_traits_3_01_dirichlet_trace_3_01_scalar_t_01_4_01_4.html">LinearFormTraits&lt; DirichletTrace&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_discrete_linear_form.html">DiscreteLinearForm</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class, given a LinearForm with defined traits, takes care of the assembly of the right hand side.  <a href="class_bembel_1_1_discrete_linear_form.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_form_traits.html">LinearFormTraits</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_form_base.html">LinearFormBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a blueprint for the class that needs to be specialized for assembly of the right hand side of the linear system.  <a href="struct_bembel_1_1_linear_form_base.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_neumann_trace.html">NeumannTrace</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides an implementation of the Neumann trace operator and a corresponding method to evaluate the linear form corresponding to the right hand side of the system via quadrature.  <a href="class_bembel_1_1_neumann_trace.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_form_traits_3_01_neumann_trace_3_01_scalar_t_01_4_01_4.html">LinearFormTraits&lt; NeumannTrace&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_rotated_tangential_trace.html">RotatedTangentialTrace</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_form_traits_3_01_rotated_tangential_trace_3_01_scalar_t_01_4_01_4.html">LinearFormTraits&lt; RotatedTangentialTrace&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tangential_trace.html">TangentialTrace</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_form_traits_3_01_tangential_trace_3_01_scalar_t_01_4_01_4.html">LinearFormTraits&lt; TangentialTrace&lt; ScalarT &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_differential_form.html">DifferentialForm</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides information about the discrete space required for the discretisation of a specific operator.  <a href="struct_bembel_1_1_differential_form.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_differential_form_traits.html">DifferentialFormTraits</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">struct containing specifications on DifferentialForms, i.e., the function spaces.  <a href="struct_bembel_1_1_differential_form_traits.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_continuous_00_01_scalar_01_4.html">DifferentialFormTraits&lt; DifferentialForm::Continuous, Scalar &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_div_conforming_00_01_scalar_01_4.html">DifferentialFormTraits&lt; DifferentialForm::DivConforming, Scalar &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html">DifferentialFormTraits&lt; DifferentialForm::Discontinuous, Scalar &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_discrete_local_operator_computer.html">DiscreteLocalOperatorComputer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct which mimics the <a class="el" href="struct_bembel_1_1_discrete_operator_computer.html" title="Helper struct that is used in order to partially specialise the compute routine of DiscreteOperator f...">DiscreteOperatorComputer</a> struct to assemble sparse matrices of local operators.  <a href="struct_bembel_1_1_discrete_local_operator_computer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html">DiscreteOperatorComputer&lt; Eigen::SparseMatrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct that is used in order to partially specialise the compute routine of <a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a> for the <a class="el" href="class_eigen_1_1_h2_matrix.html" title="forward definition of the H2Matrix Class in order to define traits">Eigen::H2Matrix</a> format.  <a href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_discrete_operator_computer.html">DiscreteOperatorComputer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct that is used in order to partially specialise the compute routine of <a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a> for different types of output formats.  <a href="struct_bembel_1_1_discrete_operator_computer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html">DiscreteOperatorComputer&lt; Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;, Derived &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct that is used in order to partially specialise the compute routine of <a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a> for the Eigen::MatrixXd format.  <a href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_h2_matrix_3_01typename_01_linear_ope625c1c1af22631c19398e86cea9e13d0.html">DiscreteOperatorComputer&lt; Eigen::H2Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct that is used in order to partially specialise the compute routine of <a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a> for the <a class="el" href="class_eigen_1_1_h2_matrix.html" title="forward definition of the H2Matrix Class in order to define traits">Eigen::H2Matrix</a> format.  <a href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_h2_matrix_3_01typename_01_linear_ope625c1c1af22631c19398e86cea9e13d0.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_discrete_operator.html">DiscreteOperator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a>.  <a href="class_bembel_1_1_discrete_operator.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html">LinearOperatorTraits&lt; DummyOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a dummy specialization of the LinearOperator and corresponding Traits for testing and debugging.  <a href="class_bembel_1_1_dummy_operator.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">linear operator base class. this serves as a common interface for existing linear operators  <a href="struct_bembel_1_1_linear_operator_base.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">struct containing specifications on the linear operator has to be specialized or derived for any particular operator under consideration This has to be specialized for each operator  <a href="struct_bembel_1_1_linear_operator_traits.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_continuous_view.html">ContinuousView</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_continuous_view_3_01_derived_01_4_01_4.html">LinearOperatorTraits&lt; ContinuousView&lt; Derived &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_local_operator_base.html">LocalOperatorBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">local operator base class. this serves as a common interface for existing local operators  <a href="struct_bembel_1_1_local_operator_base.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_linear_operator_traits_3_01_maxwell_single_layer_operator_01_4.html">LinearOperatorTraits&lt; MaxwellSingleLayerOperator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_maxwell_single_layer_operator.html">MaxwellSingleLayerOperator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_maxwell_single_layer_potential.html">MaxwellSingleLayerPotential</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits_3_01_maxwell_single_layer_potential_3_01_lin_op_01_4_01_4.html">PotentialTraits&lt; MaxwellSingleLayerPotential&lt; LinOp &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_discrete_potential.html">DiscretePotential</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_bembel_1_1_discrete_potential.html" title="DiscretePotential.">DiscretePotential</a>.  <a href="class_bembel_1_1_discrete_potential.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_traits.html">PotentialTraits</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">struct containing specifications on the functional has to be specialized or derived for any particular operator under consideration  <a href="struct_bembel_1_1_potential_traits.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_return_scalar.html">PotentialReturnScalar</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_return_scalar_3_01double_00_01double_01_4.html">PotentialReturnScalar&lt; double, double &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01double_01_4.html">PotentialReturnScalar&lt; std::complex&lt; double &gt;, double &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_return_scalar_3_01double_00_01std_1_1complex_3_01double_01_4_01_4.html">PotentialReturnScalar&lt; double, std::complex&lt; double &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_return_scalar_3_01std_1_1complex_3_01double_01_4_00_01std_1_1complex_3_01double_01_4_01_4.html">PotentialReturnScalar&lt; std::complex&lt; double &gt;, std::complex&lt; double &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_potential_base.html">PotentialBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">functional base class. this serves as a common interface for existing functionals  <a href="struct_bembel_1_1_potential_base.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule.html">GaussLegendreRule</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gauss Legendre quadrature rules. The first 20 are hard coded. Afterwards, the programmer in charge lost his interest and provided a method to compute arbitrary order Legendre rules by solving the corresponding eigenvalue problem.  <a href="struct_bembel_1_1_gauss_legendre_rule.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_010_01_4.html">GaussLegendreRule&lt; 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_011_01_4.html">GaussLegendreRule&lt; 1 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_012_01_4.html">GaussLegendreRule&lt; 2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_013_01_4.html">GaussLegendreRule&lt; 3 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_014_01_4.html">GaussLegendreRule&lt; 4 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_015_01_4.html">GaussLegendreRule&lt; 5 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_016_01_4.html">GaussLegendreRule&lt; 6 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_017_01_4.html">GaussLegendreRule&lt; 7 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_018_01_4.html">GaussLegendreRule&lt; 8 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_019_01_4.html">GaussLegendreRule&lt; 9 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0110_01_4.html">GaussLegendreRule&lt; 10 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0111_01_4.html">GaussLegendreRule&lt; 11 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0112_01_4.html">GaussLegendreRule&lt; 12 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0113_01_4.html">GaussLegendreRule&lt; 13 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0114_01_4.html">GaussLegendreRule&lt; 14 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0115_01_4.html">GaussLegendreRule&lt; 15 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0116_01_4.html">GaussLegendreRule&lt; 16 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0117_01_4.html">GaussLegendreRule&lt; 17 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0118_01_4.html">GaussLegendreRule&lt; 18 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0119_01_4.html">GaussLegendreRule&lt; 19 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_gauss_legendre_rule_3_0120_01_4.html">GaussLegendreRule&lt; 20 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_quadrature.html">Quadrature</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_quadrature_vector.html">QuadratureVector</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this struct wraps all the defined quadrature Rules in a nice structure overloading the [] operator such that they can be accessed within a loop during runtime  <a href="struct_bembel_1_1_quadrature_vector.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html">QuadratureVector&lt; QuadratureRule, 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html">TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1static__assert_klessseq_n.html">static_assertKlessseqN</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here we hardcode the binomial coefficients through template recursion and perform bounds checking, just in case...  <a href="struct_bembel_1_1static__assert_klessseq_n.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1static__assert_klessseq_n_3_01true_01_4.html">static_assertKlessseqN&lt; true &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_binomial.html">Binomial</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_binomial_3_010_00_010_01_4.html">Binomial&lt; 0, 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html">Binomial&lt; N, N &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html">Binomial&lt; 0, N &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_generic_matrix.html">GenericMatrix</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ga2a0fac9275fef7f9601b40a644585cec"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Bembel::Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#ga2a0fac9275fef7f9601b40a644585cec">PatchVector</a></td></tr>
-<tr class="memdesc:ga2a0fac9275fef7f9601b40a644585cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef for PatchVector  <a href="group___geometry.html#ga2a0fac9275fef7f9601b40a644585cec">More...</a><br /></td></tr>
-<tr class="separator:ga2a0fac9275fef7f9601b40a644585cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ea8dc2d29fd3b1bf3d0d04a212e93f1"><td class="memTemplParams" colspan="2">template&lt;typename Derived &gt; </td></tr>
-<tr class="memitem:a9ea8dc2d29fd3b1bf3d0d04a212e93f1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a9ea8dc2d29fd3b1bf3d0d04a212e93f1">DiscreteLocalOperator</a> = <a class="el" href="class_bembel_1_1_discrete_operator.html">DiscreteOperator</a>&lt; Eigen::SparseMatrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar &gt;, Derived &gt;</td></tr>
-<tr class="memdesc:a9ea8dc2d29fd3b1bf3d0d04a212e93f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">DiscreteLocalOperator Specialization of the <a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a> class for sparse matrices and an intgrator for local operators.  <a href="namespace_bembel.html#a9ea8dc2d29fd3b1bf3d0d04a212e93f1">More...</a><br /></td></tr>
-<tr class="separator:a9ea8dc2d29fd3b1bf3d0d04a212e93f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0454dff882b2f2d64be2e6d45aaebb0c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_bembel_1_1_quadrature.html">Quadrature</a>&lt; 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a></td></tr>
-<tr class="separator:a0454dff882b2f2d64be2e6d45aaebb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a627a97868d13d2c171c0264ebf325345"><td class="memTemplParams" colspan="2">template&lt;unsigned int Order&gt; </td></tr>
-<tr class="memitem:a627a97868d13d2c171c0264ebf325345"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a627a97868d13d2c171c0264ebf325345">GaussLegendre</a> = <a class="el" href="struct_bembel_1_1_quadrature_vector.html">QuadratureVector</a>&lt; <a class="el" href="struct_bembel_1_1_gauss_legendre_rule.html">GaussLegendreRule</a>, Order &gt;</td></tr>
-<tr class="separator:a627a97868d13d2c171c0264ebf325345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cbed010627e5ae4755780b2f9a29bcb"><td class="memTemplParams" colspan="2">template&lt;unsigned int Order&gt; </td></tr>
-<tr class="memitem:a9cbed010627e5ae4755780b2f9a29bcb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a9cbed010627e5ae4755780b2f9a29bcb">GaussSquare</a> = <a class="el" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a>&lt; <a class="el" href="struct_bembel_1_1_gauss_legendre_rule.html">GaussLegendreRule</a>, Order &gt;</td></tr>
-<tr class="separator:a9cbed010627e5ae4755780b2f9a29bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gaaa18e14e95262340034d0b41f2ebc075"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075">LoadGeometryFileIGS</a> (const std::string &amp;file_name) noexcept</td></tr>
-<tr class="memdesc:gaaa18e14e95262340034d0b41f2ebc075"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from IGES file. Note that the direction of the normals must be consistent.  <a href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075">More...</a><br /></td></tr>
-<tr class="separator:gaaa18e14e95262340034d0b41f2ebc075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7fe7dcd5113abedbe0c26bc8d30638ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">writeSection</a> (std::string file_name, const std::vector&lt; std::string &gt; &amp;section, const char section_char)</td></tr>
-<tr class="memdesc:ga7fe7dcd5113abedbe0c26bc8d30638ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function writes a given section to the specified file.  <a href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac">More...</a><br /></td></tr>
-<tr class="separator:ga7fe7dcd5113abedbe0c26bc8d30638ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga46aa1c9d9f6c91c896de8bd7415ae06e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">writeParameterSection</a> (std::string file_name, const std::vector&lt; std::string &gt; &amp;section, const int patch_idx, const int start_count)</td></tr>
-<tr class="memdesc:ga46aa1c9d9f6c91c896de8bd7415ae06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function writes a the parameter section of the IGES file.  <a href="group___geometry.html#ga46aa1c9d9f6c91c896de8bd7415ae06e">More...</a><br /></td></tr>
-<tr class="separator:ga46aa1c9d9f6c91c896de8bd7415ae06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">makeSection</a> (std::vector&lt; std::string &gt; data, const int linewidth=72)</td></tr>
-<tr class="memdesc:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform a vector of Data in a vector of lines with a specific length.  <a href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977">More...</a><br /></td></tr>
-<tr class="separator:gaaf2c0a5ad28e3c0abc4e3db7a85ab977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c17c87ff88511abb7cf6a47970e2aa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a6c17c87ff88511abb7cf6a47970e2aa1">writeIGSHeader</a> (std::string file_name)</td></tr>
-<tr class="separator:a6c17c87ff88511abb7cf6a47970e2aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a630a98b04cf9e1474891161b408bd9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a2a630a98b04cf9e1474891161b408bd9">double_to_string</a> (double d, const int precision)</td></tr>
-<tr class="separator:a2a630a98b04cf9e1474891161b408bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a32044fa9c3c1ea7475ba5595aec65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#ae7a32044fa9c3c1ea7475ba5595aec65">writeGlobalSection</a> (std::string file_name)</td></tr>
-<tr class="separator:ae7a32044fa9c3c1ea7475ba5595aec65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13ec0a7ecedd0f45845efd7afeb228b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a13ec0a7ecedd0f45845efd7afeb228b7">writeDirectory</a> (std::string file_name, std::vector&lt; int &gt; start_idx, std::vector&lt; int &gt; number_of_lines)</td></tr>
-<tr class="separator:a13ec0a7ecedd0f45845efd7afeb228b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab0557fb935922723f44d095d43c96c93"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">writePatchData</a> (const <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &amp;patch, const int precision)</td></tr>
-<tr class="memdesc:gab0557fb935922723f44d095d43c96c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">This Function writes the patch from <a class="el" href="namespace_bembel.html">Bembel</a> into a vector which can be written into an IGES file.  <a href="group___geometry.html#gab0557fb935922723f44d095d43c96c93">More...</a><br /></td></tr>
-<tr class="separator:gab0557fb935922723f44d095d43c96c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">writeIGSFile</a> (const std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt; &amp;geometry, std::string file_name, const int precision=6)</td></tr>
-<tr class="memdesc:gac59b3f15b6352069bc49b9c3b73e2658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="class_bembel_1_1_geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a> into an IGES file format.  <a href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658">More...</a><br /></td></tr>
-<tr class="separator:gac59b3f15b6352069bc49b9c3b73e2658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab6cca6243499deb03e7fb6a7c450870e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e">LoadGeometryFileDAT</a> (const std::string &amp;file_name) noexcept</td></tr>
-<tr class="memdesc:gab6cca6243499deb03e7fb6a7c450870e"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads geometry from file with GEOPDE-format. Note that the direction of the normals must be consistent  <a href="group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e">More...</a><br /></td></tr>
-<tr class="separator:gab6cca6243499deb03e7fb6a7c450870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3e0d6a6e95643a5a2c447d75513d0d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#ae3e0d6a6e95643a5a2c447d75513d0d5">MakeFile</a> (const std::string &amp;file_name, int number_of_patches) noexcept</td></tr>
-<tr class="memdesc:ae3e0d6a6e95643a5a2c447d75513d0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">method to generate textfile for the geometry  <a href="namespace_bembel.html#ae3e0d6a6e95643a5a2c447d75513d0d5">More...</a><br /></td></tr>
-<tr class="separator:ae3e0d6a6e95643a5a2c447d75513d0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939c4394ad2b21a15e7e6494d7dc1221"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a939c4394ad2b21a15e7e6494d7dc1221">WritePatch</a> (const std::string &amp;file_name, int current_patch_number, const std::vector&lt; Eigen::MatrixXd &gt; &amp;xyzw, const std::vector&lt; double &gt; &amp;knt1, const std::vector&lt; double &gt; &amp;knt2) noexcept</td></tr>
-<tr class="memdesc:a939c4394ad2b21a15e7e6494d7dc1221"><td class="mdescLeft">&#160;</td><td class="mdescRight">method to write <a class="el" href="class_bembel_1_1_patch.html" title="handles a single patch">Patch</a> information into textfile  <a href="namespace_bembel.html#a939c4394ad2b21a15e7e6494d7dc1221">More...</a><br /></td></tr>
-<tr class="separator:a939c4394ad2b21a15e7e6494d7dc1221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9290c96b302fce4ec7c3b194f328db4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">WriteDATFile</a> (const std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt; &amp;<a class="el" href="class_bembel_1_1_geometry.html">Geometry</a>, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:ga9290c96b302fce4ec7c3b194f328db4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">exports a geometry from <a class="el" href="namespace_bembel.html">Bembel</a> to a .dat file.  <a href="group___geometry.html#ga9290c96b302fce4ec7c3b194f328db4a">More...</a><br /></td></tr>
-<tr class="separator:ga9290c96b302fce4ec7c3b194f328db4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4964bb4906731ef7ac920f39216a2fc8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a4964bb4906731ef7ac920f39216a2fc8">PatchShredder</a> (const <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &amp;patch) noexcept</td></tr>
-<tr class="separator:a4964bb4906731ef7ac920f39216a2fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af73f3dc233ef364fd4645197799306a5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#af73f3dc233ef364fd4645197799306a5">PatchShredder</a> (const std::vector&lt; <a class="el" href="class_bembel_1_1_patch.html">Patch</a> &gt; &amp;patches) noexcept</td></tr>
-<tr class="separator:af73f3dc233ef364fd4645197799306a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1de4db012915c44203a104745baecd63"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63">getCoefficients</a> (double precision)</td></tr>
-<tr class="memdesc:a1de4db012915c44203a104745baecd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the coefficients for the solid harmonics expansion of the periodic kernel \( k(x) = \sum_{m \in \{-1, 0, 1\}^3} \frac{1}{4 \pi |x-m|} + \frac{|x|^2}{6} + \sum_{n = 0}^{N} \sum_{m = -n}^n c_m^n \phi_n^m(x) \).  <a href="namespace_bembel.html#a1de4db012915c44203a104745baecd63">More...</a><br /></td></tr>
-<tr class="separator:a1de4db012915c44203a104745baecd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51992cce07c8ea2b5d530f4e91769025"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a51992cce07c8ea2b5d530f4e91769025">getDegree</a> (double precision)</td></tr>
-<tr class="memdesc:a51992cce07c8ea2b5d530f4e91769025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the degree of the sphericals expansion given a precision. Can be extended, use even numbers only!  <a href="namespace_bembel.html#a51992cce07c8ea2b5d530f4e91769025">More...</a><br /></td></tr>
-<tr class="separator:a51992cce07c8ea2b5d530f4e91769025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d5757d50530bf1fef207bbe3aff7231"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a5d5757d50530bf1fef207bbe3aff7231">getDisplacement</a> (Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f, Eigen::MatrixXd ps_b)</td></tr>
-<tr class="memdesc:a5d5757d50530bf1fef207bbe3aff7231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the right-hand side for the homogenised coefficient calculation.  <a href="namespace_bembel.html#a5d5757d50530bf1fef207bbe3aff7231">More...</a><br /></td></tr>
-<tr class="separator:a5d5757d50530bf1fef207bbe3aff7231"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ce1dde12efc081c0ffbf42b76018f48"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48">k_mod</a> (Eigen::Vector3d in)</td></tr>
-<tr class="memdesc:a7ce1dde12efc081c0ffbf42b76018f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the modified kernel \( \sum_{m \in \{-1, 0, 1 \}^3} \frac{1}{4 \pi |x-m|} + \frac{|x|^2}{6} \).  <a href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48">More...</a><br /></td></tr>
-<tr class="separator:a7ce1dde12efc081c0ffbf42b76018f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6932f556898129252682b4bbf4823f8b"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a6932f556898129252682b4bbf4823f8b">Dk_mod</a> (Eigen::Vector3d in)</td></tr>
-<tr class="memdesc:a6932f556898129252682b4bbf4823f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the gradient of the modified kernel \( - \sum_{m \in \{-1, 0, 1\}^3} \frac{x-m}{|x-m|^3} + \frac{x}{3} \).  <a href="namespace_bembel.html#a6932f556898129252682b4bbf4823f8b">More...</a><br /></td></tr>
-<tr class="separator:a6932f556898129252682b4bbf4823f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4aa0b663a4af4c45b2d2039e572097a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#ac4aa0b663a4af4c45b2d2039e572097a">calculateFirstCoefficient</a> (Eigen::VectorXd cs, unsigned int deg, Eigen::MatrixXd ps_l, Eigen::MatrixXd ps_f, Eigen::MatrixXd ps_b)</td></tr>
-<tr class="memdesc:ac4aa0b663a4af4c45b2d2039e572097a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the first coefficient such that the mean of the kernel vanishes.  <a href="namespace_bembel.html#ac4aa0b663a4af4c45b2d2039e572097a">More...</a><br /></td></tr>
-<tr class="separator:ac4aa0b663a4af4c45b2d2039e572097a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeae05c4d8cf11542222e8ce43f67e715"><td class="memTemplParams" colspan="2">template&lt;unsigned int DF&gt; </td></tr>
-<tr class="memitem:aeae05c4d8cf11542222e8ce43f67e715"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715">getFunctionSpaceVectorDimension</a> ()</td></tr>
-<tr class="separator:aeae05c4d8cf11542222e8ce43f67e715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memTemplParams" colspan="2">template&lt;unsigned int DF&gt; </td></tr>
-<tr class="memitem:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a7ded4e643797e9e7f886a0e64ad643a9">getFunctionSpaceOutputDimension</a> ()</td></tr>
-<tr class="separator:a7ded4e643797e9e7f886a0e64ad643a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2159b56b4c9d2ca4155fddb827381866"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a2159b56b4c9d2ca4155fddb827381866">evaluate_sphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg)</td></tr>
-<tr class="memdesc:a2159b56b4c9d2ca4155fddb827381866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n Y_m^n(x) \) for real coefficients, with the convenction that \( Y_{-m}^n := \overline{Y_m^n} \).  <a href="namespace_bembel.html#a2159b56b4c9d2ca4155fddb827381866">More...</a><br /></td></tr>
-<tr class="separator:a2159b56b4c9d2ca4155fddb827381866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6706b6f0cd21815a1901d3dc1f6c2a6d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d">evaluate_solid_sphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg, bool grad)</td></tr>
-<tr class="memdesc:a6706b6f0cd21815a1901d3dc1f6c2a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n |x|^n c_m^n Y_m^n( \frac{x}{|x|}) \) for real coefficients cs if grad is false, and \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n n |x|^{n-1} c_m^n Y_m^n(\frac{x}{|x|}) \) for real coefficients cs if grad is true.  <a href="namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d">More...</a><br /></td></tr>
-<tr class="separator:a6706b6f0cd21815a1901d3dc1f6c2a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12c19ba24bda56f4c0f1c98c7904526"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#ab12c19ba24bda56f4c0f1c98c7904526">evaluate_dsphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg)</td></tr>
-<tr class="memdesc:ab12c19ba24bda56f4c0f1c98c7904526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n c_m^n \nabla Y_m^n(x) \) for real coefficients.  <a href="namespace_bembel.html#ab12c19ba24bda56f4c0f1c98c7904526">More...</a><br /></td></tr>
-<tr class="separator:ab12c19ba24bda56f4c0f1c98c7904526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a239a9ac3e7ba2cf89e53cc77fd0c9581"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a239a9ac3e7ba2cf89e53cc77fd0c9581">evaluate_dsolid_sphericals</a> (Eigen::Vector3d x, Eigen::VectorXd cs, unsigned int deg)</td></tr>
-<tr class="memdesc:a239a9ac3e7ba2cf89e53cc77fd0c9581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the series \( \sum_{n = 0}^{\rm deg} \sum_{m = -n}^n |x|^{n-3} c_m^n (\nabla Y_m^n)(\frac{x}{|x|}) \) for real coefficients.  <a href="namespace_bembel.html#a239a9ac3e7ba2cf89e53cc77fd0c9581">More...</a><br /></td></tr>
-<tr class="separator:a239a9ac3e7ba2cf89e53cc77fd0c9581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac471d8ce3c1bed1faa03d1a234b9044d"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, Eigen::Dynamic, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#ac471d8ce3c1bed1faa03d1a234b9044d">spherical_harmonics_full</a> (Eigen::Vector3d x, unsigned int N)</td></tr>
-<tr class="memdesc:ac471d8ce3c1bed1faa03d1a234b9044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the the spherical harmonics \( Y_n^m(\frac{x}{|x|}) \), ordered by \( [Y_0^0, \, Y_1^{-1}, \, Y_1^0, \, Y_1^1, \, Y_2^{-2}, ..., Y_N^N] \).  <a href="namespace_bembel.html#ac471d8ce3c1bed1faa03d1a234b9044d">More...</a><br /></td></tr>
-<tr class="separator:ac471d8ce3c1bed1faa03d1a234b9044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf21aded2538756462f6ea3631dc909"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#aeaf21aded2538756462f6ea3631dc909">spherical_prev</a> (Eigen::Vector3d x, int m, int n, Eigen::Vector2d y1, Eigen::Vector2d y2)</td></tr>
-<tr class="memdesc:aeaf21aded2538756462f6ea3631dc909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the spherical harmonic \( Y_n^m(x) \) based on previous values.  <a href="namespace_bembel.html#aeaf21aded2538756462f6ea3631dc909">More...</a><br /></td></tr>
-<tr class="separator:aeaf21aded2538756462f6ea3631dc909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a997d908407f8a4c0b874fcc4c687c9dc"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, 3, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc">Dsolid_harmonics_full</a> (Eigen::Vector3d x, unsigned int N, Eigen::MatrixXd spherical_val)</td></tr>
-<tr class="memdesc:a997d908407f8a4c0b874fcc4c687c9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates all gradients of the solid harmonics, given the Legendre Coefficients L.  <a href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc">More...</a><br /></td></tr>
-<tr class="separator:a997d908407f8a4c0b874fcc4c687c9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38bccc29943da2ba8056951ecf04129d"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, 3, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d">dsolid_spherical_prev</a> (Eigen::Vector3d y, int m, unsigned int n, Eigen::VectorXd L, double y_re, double y_im)</td></tr>
-<tr class="memdesc:a38bccc29943da2ba8056951ecf04129d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the derivative of the solid harmonics function \( \phi_n^m \) at the point \( y \) with the spherical values.  <a href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d">More...</a><br /></td></tr>
-<tr class="separator:a38bccc29943da2ba8056951ecf04129d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272b65592bd5c21fea7ff48a082b4f71"><td class="memItemLeft" align="right" valign="top">Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71">legendreFull</a> (unsigned int N, double t)</td></tr>
-<tr class="memdesc:a272b65592bd5c21fea7ff48a082b4f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the values of the spherical polynomials \( P_n^m(t) \).  <a href="namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71">More...</a><br /></td></tr>
-<tr class="separator:a272b65592bd5c21fea7ff48a082b4f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a583748b8805c69985b1bdd112bed4a56"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56">constant</a> (int m, unsigned int n)</td></tr>
-<tr class="memdesc:a583748b8805c69985b1bdd112bed4a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the norming factor of the spherical polynomials  <a href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56">More...</a><br /></td></tr>
-<tr class="separator:a583748b8805c69985b1bdd112bed4a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0ebf2e12945b8344cae3089a46de58e"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e">functionalMatrix</a> (Eigen::Vector3d z)</td></tr>
-<tr class="memdesc:ad0ebf2e12945b8344cae3089a46de58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives \( |z|^3 \) times the Jacobi Matrix of the transformation \( z \mapsto \frac{z}{|z|} \)  <a href="namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e">More...</a><br /></td></tr>
-<tr class="separator:ad0ebf2e12945b8344cae3089a46de58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bbb376e15f98ecc3cd80dcd5c011959"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959">pow_int</a> (double x, int n)</td></tr>
-<tr class="memdesc:a4bbb376e15f98ecc3cd80dcd5c011959"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the \( n \)-th power of \( x \) without using pow.  <a href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959">More...</a><br /></td></tr>
-<tr class="separator:a4bbb376e15f98ecc3cd80dcd5c011959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebeae9a65184e35201205697138af49b"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; double, 3, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#aebeae9a65184e35201205697138af49b">dspherical_prev</a> (Eigen::Vector3d x, int m, unsigned int n, Eigen::VectorXd L)</td></tr>
-<tr class="memdesc:aebeae9a65184e35201205697138af49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates \( \nabla Y_m^n(x) \) based on the Legendre Coefficients L.  <a href="namespace_bembel.html#aebeae9a65184e35201205697138af49b">More...</a><br /></td></tr>
-<tr class="separator:aebeae9a65184e35201205697138af49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d75608ee7079ac7c9100764ab6a81be"><td class="memTemplParams" colspan="2">template&lt;typename Op , typename Derived , typename Functor &gt; </td></tr>
-<tr class="memitem:a5d75608ee7079ac7c9100764ab6a81be"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a5d75608ee7079ac7c9100764ab6a81be">surfaceL2error</a> (const <a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a>&lt; Op &gt; &amp;ansatz_space, const Eigen::MatrixBase&lt; Derived &gt; &amp;vec, const Functor &amp;functor, int deg=4)</td></tr>
-<tr class="separator:a5d75608ee7079ac7c9100764ab6a81be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a7a45a61be55ca86b8c57a2bf68356f50"><td class="memItemLeft" align="right" valign="top">std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_bembel.html#a7a45a61be55ca86b8c57a2bf68356f50">DummyOperator_test_function</a></td></tr>
-<tr class="separator:a7a45a61be55ca86b8c57a2bf68356f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a0454dff882b2f2d64be2e6d45aaebb0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0454dff882b2f2d64be2e6d45aaebb0c">&#9670;&nbsp;</a></span>Cubature</h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="struct_bembel_1_1_quadrature.html">Quadrature</a>&lt;2&gt; <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Bembel::Cubature</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_cubature_8hpp_source.html#l00017">17</a> of file <a class="el" href="_cubature_8hpp_source.html">Cubature.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9ea8dc2d29fd3b1bf3d0d04a212e93f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ea8dc2d29fd3b1bf3d0d04a212e93f1">&#9670;&nbsp;</a></span>DiscreteLocalOperator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespace_bembel.html#a9ea8dc2d29fd3b1bf3d0d04a212e93f1">Bembel::DiscreteLocalOperator</a> = typedef <a class="el" href="class_bembel_1_1_discrete_operator.html">DiscreteOperator</a>&lt; Eigen::SparseMatrix&lt;typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;Derived&gt;::Scalar&gt;, Derived&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>DiscreteLocalOperator Specialization of the <a class="el" href="class_bembel_1_1_discrete_operator.html" title="DiscreteOperator.">DiscreteOperator</a> class for sparse matrices and an intgrator for local operators. </p>
-
-<p class="definition">Definition at line <a class="el" href="_discrete_local_operator_8hpp_source.html#l00097">97</a> of file <a class="el" href="_discrete_local_operator_8hpp_source.html">DiscreteLocalOperator.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a627a97868d13d2c171c0264ebf325345"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a627a97868d13d2c171c0264ebf325345">&#9670;&nbsp;</a></span>GaussLegendre</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int Order&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespace_bembel.html#a627a97868d13d2c171c0264ebf325345">Bembel::GaussLegendre</a> = typedef <a class="el" href="struct_bembel_1_1_quadrature_vector.html">QuadratureVector</a>&lt;<a class="el" href="struct_bembel_1_1_gauss_legendre_rule.html">GaussLegendreRule</a>, Order&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_gauss_legendre_8hpp_source.html#l00018">18</a> of file <a class="el" href="_gauss_legendre_8hpp_source.html">GaussLegendre.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9cbed010627e5ae4755780b2f9a29bcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cbed010627e5ae4755780b2f9a29bcb">&#9670;&nbsp;</a></span>GaussSquare</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned int Order&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespace_bembel.html#a9cbed010627e5ae4755780b2f9a29bcb">Bembel::GaussSquare</a> = typedef <a class="el" href="struct_bembel_1_1_tensor_product_quadrature_vector.html">TensorProductQuadratureVector</a>&lt;<a class="el" href="struct_bembel_1_1_gauss_legendre_rule.html">GaussLegendreRule</a>, Order&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_gauss_square_8hpp_source.html#l00017">17</a> of file <a class="el" href="_gauss_square_8hpp_source.html">GaussSquare.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<p>Routines for the evalutation of pointwise errors.  
+<a href="namespace_bembel.html#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Routines for the evalutation of pointwise errors. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ac4aa0b663a4af4c45b2d2039e572097a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4aa0b663a4af4c45b2d2039e572097a">&#9670;&nbsp;</a></span>calculateFirstCoefficient()</h2>
 
@@ -684,115 +167,6 @@ template&lt;unsigned int Order&gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_coefficients_8hpp_source.html#l00346">346</a> of file <a class="el" href="_coefficients_8hpp_source.html">Coefficients.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_cgraph.png" border="0" usemap="#anamespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_cgraph" alt=""/></div>
-<map name="anamespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_cgraph" id="anamespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_cgraph">
-<area shape="rect" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="5,31,243,57"/>
-<area shape="rect" href="namespace_bembel.html#a2159b56b4c9d2ca4155fddb827381866" title="Evaluates the series &#160;for real coefficients, with the convenction that ." alt="" coords="291,5,501,32"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="334,56,458,83"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_icgraph.png" border="0" usemap="#anamespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_icgraph" alt=""/></div>
-<map name="anamespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_icgraph" id="anamespace_bembel_ac4aa0b663a4af4c45b2d2039e572097a_icgraph">
-<area shape="rect" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="535,60,772,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a583748b8805c69985b1bdd112bed4a56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a583748b8805c69985b1bdd112bed4a56">&#9670;&nbsp;</a></span>constant()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::constant </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>gives the norming factor of the spherical polynomials </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00708">708</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a583748b8805c69985b1bdd112bed4a56_icgraph.png" border="0" usemap="#anamespace_bembel_a583748b8805c69985b1bdd112bed4a56_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a583748b8805c69985b1bdd112bed4a56_icgraph" id="anamespace_bembel_a583748b8805c69985b1bdd112bed4a56_icgraph">
-<area shape="rect" title="gives the norming factor of the spherical polynomials" alt="" coords="1307,60,1443,87"/>
-<area shape="rect" href="namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="1076,60,1259,87"/>
-<area shape="rect" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="807,60,1028,87"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a6932f556898129252682b4bbf4823f8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6932f556898129252682b4bbf4823f8b">&#9670;&nbsp;</a></span>Dk_mod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Vector3d Bembel::Dk_mod </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the gradient of the modified kernel \( - \sum_{m \in \{-1, 0, 1\}^3} \frac{x-m}{|x-m|^3} + \frac{x}{3} \). </p>
-
-<p class="definition">Definition at line <a class="el" href="_coefficients_8hpp_source.html#l00312">312</a> of file <a class="el" href="_coefficients_8hpp_source.html">Coefficients.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a6932f556898129252682b4bbf4823f8b_icgraph.png" border="0" usemap="#anamespace_bembel_a6932f556898129252682b4bbf4823f8b_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a6932f556898129252682b4bbf4823f8b_icgraph" id="anamespace_bembel_a6932f556898129252682b4bbf4823f8b_icgraph">
-<area shape="rect" title="Returns the gradient of the modified kernel ." alt="" coords="773,60,908,87"/>
-<area shape="rect" href="namespace_bembel.html#a5d5757d50530bf1fef207bbe3aff7231" title="Returns the right&#45;hand side for the homogenised coefficient calculation." alt="" coords="535,60,725,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -822,232 +196,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_geometry_i_g_s_8hpp_source.html#l00241">241</a> of file <a class="el" href="_geometry_i_g_s_8hpp_source.html">GeometryIGS.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a2a630a98b04cf9e1474891161b408bd9_icgraph.png" border="0" usemap="#anamespace_bembel_a2a630a98b04cf9e1474891161b408bd9_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a2a630a98b04cf9e1474891161b408bd9_icgraph" id="anamespace_bembel_a2a630a98b04cf9e1474891161b408bd9_icgraph">
-<area shape="rect" title=" " alt="" coords="439,5,627,32"/>
-<area shape="rect" href="group___geometry.html#gab0557fb935922723f44d095d43c96c93" title="This Function writes the patch from Bembel into a vector which can be written into an IGES file." alt="" coords="212,5,391,32"/>
-<area shape="rect" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658" title="Writes Geometry into an IGES file format." alt="" coords="5,5,164,32"/>
-</map>
-</div>
+<p>Convert a double to a string with given precision. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>double to be converted. </td></tr>
+    <tr><td class="paramname">precision</td><td>Precision of the conversion. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-</div>
-</div>
-<a id="a997d908407f8a4c0b874fcc4c687c9dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a997d908407f8a4c0b874fcc4c687c9dc">&#9670;&nbsp;</a></span>Dsolid_harmonics_full()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt; double, 3, Eigen::Dynamic &gt; Bembel::Dsolid_harmonics_full </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>N</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::MatrixXd&#160;</td>
-          <td class="paramname"><em>spherical_val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates all gradients of the solid harmonics, given the Legendre Coefficients L. </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00491">491</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_cgraph.png" border="0" usemap="#anamespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_cgraph" id="anamespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_cgraph">
-<area shape="rect" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="5,56,229,83"/>
-<area shape="rect" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="277,31,499,57"/>
-<area shape="rect" href="namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71" title="Returns the values of the spherical polynomials ." alt="" coords="308,81,468,108"/>
-<area shape="rect" href="namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="549,5,731,32"/>
-<area shape="rect" href="namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="547,56,733,83"/>
-<area shape="rect" href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="781,5,917,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_icgraph.png" border="0" usemap="#anamespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_icgraph" id="anamespace_bembel_a997d908407f8a4c0b874fcc4c687c9dc_icgraph">
-<area shape="rect" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a38bccc29943da2ba8056951ecf04129d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38bccc29943da2ba8056951ecf04129d">&#9670;&nbsp;</a></span>dsolid_spherical_prev()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt; double, 3, 2 &gt; Bembel::dsolid_spherical_prev </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::VectorXd&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>y_re</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>y_im</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates the derivative of the solid harmonics function \( \phi_n^m \) at the point \( y \) with the spherical values. </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00592">592</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a38bccc29943da2ba8056951ecf04129d_cgraph.png" border="0" usemap="#anamespace_bembel_a38bccc29943da2ba8056951ecf04129d_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a38bccc29943da2ba8056951ecf04129d_cgraph" id="anamespace_bembel_a38bccc29943da2ba8056951ecf04129d_cgraph">
-<area shape="rect" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="5,31,227,57"/>
-<area shape="rect" href="namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="277,5,459,32"/>
-<area shape="rect" href="namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="275,56,461,83"/>
-<area shape="rect" href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="509,5,645,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a38bccc29943da2ba8056951ecf04129d_icgraph.png" border="0" usemap="#anamespace_bembel_a38bccc29943da2ba8056951ecf04129d_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a38bccc29943da2ba8056951ecf04129d_icgraph" id="anamespace_bembel_a38bccc29943da2ba8056951ecf04129d_icgraph">
-<area shape="rect" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="807,60,1028,87"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aebeae9a65184e35201205697138af49b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebeae9a65184e35201205697138af49b">&#9670;&nbsp;</a></span>dspherical_prev()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;double, 3, 2&gt; Bembel::dspherical_prev </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::VectorXd&#160;</td>
-          <td class="paramname"><em>L</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates \( \nabla Y_m^n(x) \) based on the Legendre Coefficients L. </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00531">531</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_aebeae9a65184e35201205697138af49b_cgraph.png" border="0" usemap="#anamespace_bembel_aebeae9a65184e35201205697138af49b_cgraph" alt=""/></div>
-<map name="anamespace_bembel_aebeae9a65184e35201205697138af49b_cgraph" id="anamespace_bembel_aebeae9a65184e35201205697138af49b_cgraph">
-<area shape="rect" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="5,5,188,32"/>
-<area shape="rect" href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="236,5,372,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_aebeae9a65184e35201205697138af49b_icgraph.png" border="0" usemap="#anamespace_bembel_aebeae9a65184e35201205697138af49b_icgraph" alt=""/></div>
-<map name="anamespace_bembel_aebeae9a65184e35201205697138af49b_icgraph" id="anamespace_bembel_aebeae9a65184e35201205697138af49b_icgraph">
-<area shape="rect" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="1076,60,1259,87"/>
-<area shape="rect" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="807,60,1028,87"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_geometry_i_g_s_8hpp_source.html#l00253">253</a> of file <a class="el" href="_geometry_i_g_s_8hpp_source.html">GeometryIGS.hpp</a>.</p>
 
 </div>
 </div>
@@ -1093,16 +251,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00301">301</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a239a9ac3e7ba2cf89e53cc77fd0c9581_cgraph.png" border="0" usemap="#anamespace_bembel_a239a9ac3e7ba2cf89e53cc77fd0c9581_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a239a9ac3e7ba2cf89e53cc77fd0c9581_cgraph" id="anamespace_bembel_a239a9ac3e7ba2cf89e53cc77fd0c9581_cgraph">
-<area shape="rect" title="Evaluates the series &#160;for real coefficients." alt="" coords="5,5,188,47"/>
-<area shape="rect" href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="236,13,367,39"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00302">302</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
 
 </div>
 </div>
@@ -1148,7 +297,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00212">212</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00213">213</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
 
 </div>
 </div>
@@ -1196,33 +345,12 @@ Here is the call graph for this function:</div>
     <tr><td class="paramname">x</td><td>The point of evaluation </td></tr>
     <tr><td class="paramname">cs</td><td>The coefficients stored in the order \( [(0, 0), (1, -1), (1, 0), (1, 1) (2, -2), (2, -1), ... (n, n)] \) </td></tr>
     <tr><td class="paramname">deg</td><td>The degree </td></tr>
+    <tr><td class="paramname">grad</td><td>distinguish the two cases. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00127">127</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_cgraph.png" border="0" usemap="#anamespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_cgraph" id="anamespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_cgraph">
-<area shape="rect" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="5,5,180,47"/>
-<area shape="rect" href="namespace_bembel.html#a4bbb376e15f98ecc3cd80dcd5c011959" title="returns the &#45;th power of &#160;without using pow." alt="" coords="228,13,359,39"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_icgraph.png" border="0" usemap="#anamespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_icgraph" id="anamespace_bembel_a6706b6f0cd21815a1901d3dc1f6c2a6d_icgraph">
-<area shape="rect" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="733,108,908,149"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="424,71,685,112"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a8407937952d4b69ca7123048c08209cc" title="Fundamental solution of the homogenised Laplace problem." alt="" coords="444,137,665,193"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a127d103a953d767803074019536bddaa" title=" " alt="" coords="5,5,376,47"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a680a12363310dcf57461c55a0022e0c3" title=" " alt="" coords="31,71,350,112"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a202e7872c229f6cd0e5ef1ef72c2b5df" title=" " alt="" coords="80,137,301,193"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00128">128</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
 
 </div>
 </div>
@@ -1272,61 +400,6 @@ R. von Rickenbach. <em>Boundary Element Methods for Shape Optimisation in Homoge
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00068">68</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a2159b56b4c9d2ca4155fddb827381866_icgraph.png" border="0" usemap="#anamespace_bembel_a2159b56b4c9d2ca4155fddb827381866_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a2159b56b4c9d2ca4155fddb827381866_icgraph" id="anamespace_bembel_a2159b56b4c9d2ca4155fddb827381866_icgraph">
-<area shape="rect" title="Evaluates the series &#160;for real coefficients, with the convenction that ." alt="" coords="820,60,1031,87"/>
-<area shape="rect" href="namespace_bembel.html#ac4aa0b663a4af4c45b2d2039e572097a" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="535,60,772,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ad0ebf2e12945b8344cae3089a46de58e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0ebf2e12945b8344cae3089a46de58e">&#9670;&nbsp;</a></span>functionalMatrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix3d Bembel::functionalMatrix </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>z</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gives \( |z|^3 \) times the Jacobi Matrix of the transformation \( z \mapsto \frac{z}{|z|} \) </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00722">722</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ad0ebf2e12945b8344cae3089a46de58e_icgraph.png" border="0" usemap="#anamespace_bembel_ad0ebf2e12945b8344cae3089a46de58e_icgraph" alt=""/></div>
-<map name="anamespace_bembel_ad0ebf2e12945b8344cae3089a46de58e_icgraph" id="anamespace_bembel_ad0ebf2e12945b8344cae3089a46de58e_icgraph">
-<area shape="rect" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="1076,60,1263,87"/>
-<area shape="rect" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="807,60,1028,87"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1360,38 +433,6 @@ P. Cazeaux and O. Zahm. A fast boundary element method for the solution of perio
 R. von Rickenbach. <em>Boundary Element Methods for Shape Optimisation in Homogenisation</em>. MSc thesis, Universität Basel, 2021. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_coefficients_8hpp_source.html#l00060">60</a> of file <a class="el" href="_coefficients_8hpp_source.html">Coefficients.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a1de4db012915c44203a104745baecd63_cgraph.png" border="0" usemap="#anamespace_bembel_a1de4db012915c44203a104745baecd63_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a1de4db012915c44203a104745baecd63_cgraph" id="anamespace_bembel_a1de4db012915c44203a104745baecd63_cgraph">
-<area shape="rect" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="5,183,184,209"/>
-<area shape="rect" href="namespace_bembel.html#ac4aa0b663a4af4c45b2d2039e572097a" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="235,132,472,159"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="241,81,465,108"/>
-<area shape="rect" href="namespace_bembel.html#a51992cce07c8ea2b5d530f4e91769025" title="Returns the degree of the sphericals expansion given a precision. Can be extended,..." alt="" coords="279,183,427,209"/>
-<area shape="rect" href="namespace_bembel.html#a5d5757d50530bf1fef207bbe3aff7231" title="Returns the right&#45;hand side for the homogenised coefficient calculation." alt="" coords="258,233,449,260"/>
-<area shape="rect" href="namespace_bembel.html#ac471d8ce3c1bed1faa03d1a234b9044d" title="Calculates the the spherical harmonics , ordered by ." alt="" coords="232,284,475,311"/>
-<area shape="rect" href="namespace_bembel.html#a2159b56b4c9d2ca4155fddb827381866" title="Evaluates the series &#160;for real coefficients, with the convenction that ." alt="" coords="528,132,739,159"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="571,183,695,209"/>
-<area shape="rect" href="namespace_bembel.html#a38bccc29943da2ba8056951ecf04129d" title="Calculates the derivative of the solid harmonics function &#160;at the point &#160;with the spherical values." alt="" coords="523,31,744,57"/>
-<area shape="rect" href="namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71" title="Returns the values of the spherical polynomials ." alt="" coords="553,81,713,108"/>
-<area shape="rect" href="namespace_bembel.html#aebeae9a65184e35201205697138af49b" title="Calculates &#160;based on the Legendre Coefficients L." alt="" coords="794,5,977,32"/>
-<area shape="rect" href="namespace_bembel.html#ad0ebf2e12945b8344cae3089a46de58e" title="gives &#160;times the Jacobi Matrix of the transformation" alt="" coords="792,56,979,83"/>
-<area shape="rect" href="namespace_bembel.html#a583748b8805c69985b1bdd112bed4a56" title="gives the norming factor of the spherical polynomials" alt="" coords="1027,5,1163,32"/>
-<area shape="rect" href="namespace_bembel.html#a6932f556898129252682b4bbf4823f8b" title="Returns the gradient of the modified kernel ." alt="" coords="566,233,701,260"/>
-<area shape="rect" href="namespace_bembel.html#aeaf21aded2538756462f6ea3631dc909" title="Calculates the spherical harmonic &#160;based on previous values." alt="" coords="546,284,721,311"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a1de4db012915c44203a104745baecd63_icgraph.png" border="0" usemap="#anamespace_bembel_a1de4db012915c44203a104745baecd63_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a1de4db012915c44203a104745baecd63_icgraph" id="anamespace_bembel_a1de4db012915c44203a104745baecd63_icgraph">
-<area shape="rect" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1425,17 +466,6 @@ Here is the caller graph for this function:</div>
 R. von Rickenbach. <em>Boundary Element Methods for Shape Optimisation in Homogenisation</em>. MSc thesis, Universität Basel, 2021. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_coefficients_8hpp_source.html#l00221">221</a> of file <a class="el" href="_coefficients_8hpp_source.html">Coefficients.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a51992cce07c8ea2b5d530f4e91769025_icgraph.png" border="0" usemap="#anamespace_bembel_a51992cce07c8ea2b5d530f4e91769025_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a51992cce07c8ea2b5d530f4e91769025_icgraph" id="anamespace_bembel_a51992cce07c8ea2b5d530f4e91769025_icgraph">
-<area shape="rect" title="Returns the degree of the sphericals expansion given a precision. Can be extended,..." alt="" coords="535,65,683,92"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,65,487,92"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,91,260,147"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1482,27 +512,6 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_coefficients_8hpp_source.html#l00238">238</a> of file <a class="el" href="_coefficients_8hpp_source.html">Coefficients.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_cgraph.png" border="0" usemap="#anamespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_cgraph" id="anamespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_cgraph">
-<area shape="rect" title="Returns the right&#45;hand side for the homogenised coefficient calculation." alt="" coords="5,31,196,57"/>
-<area shape="rect" href="namespace_bembel.html#a6932f556898129252682b4bbf4823f8b" title="Returns the gradient of the modified kernel ." alt="" coords="244,5,379,32"/>
-<area shape="rect" href="namespace_bembel.html#a7ce1dde12efc081c0ffbf42b76018f48" title="Returns the modified kernel ." alt="" coords="249,56,373,83"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_icgraph.png" border="0" usemap="#anamespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_icgraph" id="anamespace_bembel_a5d5757d50530bf1fef207bbe3aff7231_icgraph">
-<area shape="rect" title="Returns the right&#45;hand side for the homogenised coefficient calculation." alt="" coords="535,60,725,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1532,7 +541,7 @@ template&lt;unsigned int DF&gt; </div>
 </div><div class="memdoc">
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Use <a class="el" href="struct_bembel_1_1_differential_form_traits.html" title="struct containing specifications on DifferentialForms, i.e., the function spaces.">DifferentialFormTraits</a> instead. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00067">67</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00075">75</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
 
 </div>
 </div>
@@ -1562,120 +571,7 @@ template&lt;unsigned int DF&gt; </div>
 </div><div class="memdoc">
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use <a class="el" href="struct_bembel_1_1_differential_form_traits.html" title="struct containing specifications on DifferentialForms, i.e., the function spaces.">DifferentialFormTraits</a> instead. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00059">59</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_aeae05c4d8cf11542222e8ce43f67e715_icgraph.png" border="0" usemap="#anamespace_bembel_aeae05c4d8cf11542222e8ce43f67e715_icgraph" alt=""/></div>
-<map name="anamespace_bembel_aeae05c4d8cf11542222e8ce43f67e715_icgraph" id="anamespace_bembel_aeae05c4d8cf11542222e8ce43f67e715_icgraph">
-<area shape="rect" title=" " alt="" coords="597,505,792,547"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#afc84feb7f45fbfcfc2570083a5a16b4e" title=" " alt="" coords="352,316,549,357"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#a4860bab603e20018c83f54965d362fb4" title=" " alt="" coords="352,472,549,513"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="373,537,528,579"/>
-<area shape="rect" href="group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699" title="Interpolate kernel function on reference domain for FMM." alt="" coords="371,603,530,644"/>
-<area shape="rect" href="class_bembel_1_1_helmholtz_double_layer_potential.html#a5f6c8766f0f6decc714cb64e4d07442e" title=" " alt="" coords="33,5,276,47"/>
-<area shape="rect" href="class_bembel_1_1_helmholtz_single_layer_potential.html#a02d1b310b3e4773297cf07a75ea6356b" title=" " alt="" coords="33,71,276,112"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a202e7872c229f6cd0e5ef1ef72c2b5df" title=" " alt="" coords="44,137,265,193"/>
-<area shape="rect" href="class_bembel_1_1_laplace_double_layer_potential.html#aaa5f5d19e09ed2694a57e2a7d6a4cc8e" title=" " alt="" coords="33,217,276,259"/>
-<area shape="rect" href="class_bembel_1_1_laplace_single_layer_potential.html#a99b0ec0045eea9702993623552e83848" title=" " alt="" coords="33,283,276,324"/>
-<area shape="rect" href="class_bembel_1_1_laplace_single_layer_potential_gradient.html#af1925b4c2bf5bfddf334e24d49c73d3d" title=" " alt="" coords="5,348,304,389"/>
-<area shape="rect" href="class_bembel_1_1_maxwell_single_layer_potential.html#a59facc4a5f6645515b51e94f06ba1459" title=" " alt="" coords="33,531,276,572"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#acff68ebfa96dcc8cda3f2247c65fbc7a" title=" " alt="" coords="56,413,253,455"/>
-<area shape="rect" href="namespace_bembel.html#a5d75608ee7079ac7c9100764ab6a81be" title=" " alt="" coords="67,479,242,506"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a7ce1dde12efc081c0ffbf42b76018f48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ce1dde12efc081c0ffbf42b76018f48">&#9670;&nbsp;</a></span>k_mod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::k_mod </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the modified kernel \( \sum_{m \in \{-1, 0, 1 \}^3} \frac{1}{4 \pi |x-m|} + \frac{|x|^2}{6} \). </p>
-
-<p class="definition">Definition at line <a class="el" href="_coefficients_8hpp_source.html#l00286">286</a> of file <a class="el" href="_coefficients_8hpp_source.html">Coefficients.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a7ce1dde12efc081c0ffbf42b76018f48_icgraph.png" border="0" usemap="#anamespace_bembel_a7ce1dde12efc081c0ffbf42b76018f48_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a7ce1dde12efc081c0ffbf42b76018f48_icgraph" id="anamespace_bembel_a7ce1dde12efc081c0ffbf42b76018f48_icgraph">
-<area shape="rect" title="Returns the modified kernel ." alt="" coords="1036,140,1160,167"/>
-<area shape="rect" href="namespace_bembel.html#ac4aa0b663a4af4c45b2d2039e572097a" title="Calculates the first coefficient such that the mean of the kernel vanishes." alt="" coords="739,60,976,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="727,162,988,203"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a8407937952d4b69ca7123048c08209cc" title="Fundamental solution of the homogenised Laplace problem." alt="" coords="747,235,968,291"/>
-<area shape="rect" href="namespace_bembel.html#a5d5757d50530bf1fef207bbe3aff7231" title="Returns the right&#45;hand side for the homogenised coefficient calculation." alt="" coords="762,111,953,137"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="404,60,583,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a127d103a953d767803074019536bddaa" title=" " alt="" coords="308,111,679,153"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a680a12363310dcf57461c55a0022e0c3" title=" " alt="" coords="334,177,653,218"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a202e7872c229f6cd0e5ef1ef72c2b5df" title=" " alt="" coords="383,243,604,299"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a272b65592bd5c21fea7ff48a082b4f71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a272b65592bd5c21fea7ff48a082b4f71">&#9670;&nbsp;</a></span>legendreFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::VectorXd Bembel::legendreFull </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>N</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>t</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the values of the spherical polynomials \( P_n^m(t) \). </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00676">676</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a272b65592bd5c21fea7ff48a082b4f71_icgraph.png" border="0" usemap="#anamespace_bembel_a272b65592bd5c21fea7ff48a082b4f71_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a272b65592bd5c21fea7ff48a082b4f71_icgraph" id="anamespace_bembel_a272b65592bd5c21fea7ff48a082b4f71_icgraph">
-<area shape="rect" title="Returns the values of the spherical polynomials ." alt="" coords="807,60,967,87"/>
-<area shape="rect" href="namespace_bembel.html#a997d908407f8a4c0b874fcc4c687c9dc" title="Calculates all gradients of the solid harmonics, given the Legendre Coefficients L." alt="" coords="535,60,759,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00067">67</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
 
 </div>
 </div>
@@ -1716,22 +612,13 @@ Here is the caller graph for this function:</div>
 <p>method to generate textfile for the geometry </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>name of new textfile </td></tr>
-    <tr><td class="paramname">patchnumber</td><td>overall number of patches </td></tr>
+    <tr><td class="paramname">file_name</td><td>name of new textfile </td></tr>
+    <tr><td class="paramname">number_of_patches</td><td>overall number of patches </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_i_o_8hpp_source.html#l00129">129</a> of file <a class="el" href="_geometry_i_o_8hpp_source.html">GeometryIO.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ae3e0d6a6e95643a5a2c447d75513d0d5_icgraph.png" border="0" usemap="#anamespace_bembel_ae3e0d6a6e95643a5a2c447d75513d0d5_icgraph" alt=""/></div>
-<map name="anamespace_bembel_ae3e0d6a6e95643a5a2c447d75513d0d5_icgraph" id="anamespace_bembel_ae3e0d6a6e95643a5a2c447d75513d0d5_icgraph">
-<area shape="rect" title="method to generate textfile for the geometry" alt="" coords="217,5,356,32"/>
-<area shape="rect" href="group___geometry.html#ga9290c96b302fce4ec7c3b194f328db4a" title="exports a geometry from Bembel to a .dat file." alt="" coords="5,5,169,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_geometry_i_o_8hpp_source.html#l00130">130</a> of file <a class="el" href="_geometry_i_o_8hpp_source.html">GeometryIO.hpp</a>.</p>
 
 </div>
 </div>
@@ -1759,18 +646,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_patch_8hpp_source.html#l00298">298</a> of file <a class="el" href="_patch_8hpp_source.html">Patch.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a4964bb4906731ef7ac920f39216a2fc8_icgraph.png" border="0" usemap="#anamespace_bembel_a4964bb4906731ef7ac920f39216a2fc8_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a4964bb4906731ef7ac920f39216a2fc8_icgraph" id="anamespace_bembel_a4964bb4906731ef7ac920f39216a2fc8_icgraph">
-<area shape="rect" title=" " alt="" coords="492,42,665,69"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a02ce72f4229e168a5c56dd5f174baa8f" title=" " alt="" coords="271,5,444,47"/>
-<area shape="rect" href="namespace_bembel.html#af73f3dc233ef364fd4645197799306a5" title=" " alt="" coords="271,71,444,98"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a4b577a308bc416d9cead1dae6694050f" title=" " alt="" coords="5,13,223,39"/>
-</map>
-</div>
+<p>This function cuts a patch along internal knots, if any. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">patch</td><td><a class="el" href="class_bembel_1_1_patch.html" title="handles a single patch">Patch</a> which gets checked and cut if there are internal knots. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of patches if it got cut, otherwise the vector is of size 1. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_patch_8hpp_source.html#l00386">386</a> of file <a class="el" href="_patch_8hpp_source.html">Patch.hpp</a>.</p>
 
 </div>
 </div>
@@ -1798,71 +683,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_patch_8hpp_source.html#l00344">344</a> of file <a class="el" href="_patch_8hpp_source.html">Patch.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_af73f3dc233ef364fd4645197799306a5_cgraph.png" border="0" usemap="#anamespace_bembel_af73f3dc233ef364fd4645197799306a5_cgraph" alt=""/></div>
-<map name="anamespace_bembel_af73f3dc233ef364fd4645197799306a5_cgraph" id="anamespace_bembel_af73f3dc233ef364fd4645197799306a5_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,179,32"/>
-<area shape="rect" href="namespace_bembel.html#a4964bb4906731ef7ac920f39216a2fc8" title=" " alt="" coords="227,5,400,32"/>
-</map>
-</div>
+<p>This function cuts all patches along internal knots, if any. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">patches</td><td>Vector with patches. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of patches if it got cut. </dd></dl>
 
-</div>
-</div>
-<a id="a4bbb376e15f98ecc3cd80dcd5c011959"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bbb376e15f98ecc3cd80dcd5c011959">&#9670;&nbsp;</a></span>pow_int()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::pow_int </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>returns the \( n \)-th power of \( x \) without using pow. </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00741">741</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a4bbb376e15f98ecc3cd80dcd5c011959_icgraph.png" border="0" usemap="#anamespace_bembel_a4bbb376e15f98ecc3cd80dcd5c011959_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a4bbb376e15f98ecc3cd80dcd5c011959_icgraph" id="anamespace_bembel_a4bbb376e15f98ecc3cd80dcd5c011959_icgraph">
-<area shape="rect" title="returns the &#45;th power of &#160;without using pow." alt="" coords="964,83,1095,110"/>
-<area shape="rect" href="namespace_bembel.html#a239a9ac3e7ba2cf89e53cc77fd0c9581" title="Evaluates the series &#160;for real coefficients." alt="" coords="733,43,916,84"/>
-<area shape="rect" href="namespace_bembel.html#a6706b6f0cd21815a1901d3dc1f6c2a6d" title="Evaluates the series &#160;for real coefficients cs if grad is false, and &#160;for real coefficients cs if gra..." alt="" coords="737,108,912,149"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a0ba608b188b016901090dfd63acc4e72" title="Fundamental solution of the Homogenised Laplace problem." alt="" coords="424,71,685,112"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a8407937952d4b69ca7123048c08209cc" title="Fundamental solution of the homogenised Laplace problem." alt="" coords="444,137,665,193"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a127d103a953d767803074019536bddaa" title=" " alt="" coords="5,5,376,47"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#a680a12363310dcf57461c55a0022e0c3" title=" " alt="" coords="31,71,350,112"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#a202e7872c229f6cd0e5ef1ef72c2b5df" title=" " alt="" coords="80,137,301,193"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_patch_8hpp_source.html#l00437">437</a> of file <a class="el" href="_patch_8hpp_source.html">Patch.hpp</a>.</p>
 
 </div>
 </div>
@@ -1901,279 +731,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00387">387</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_cgraph.png" border="0" usemap="#anamespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_cgraph" alt=""/></div>
-<map name="anamespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_cgraph" id="anamespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_cgraph">
-<area shape="rect" title="Calculates the the spherical harmonics , ordered by ." alt="" coords="5,5,248,32"/>
-<area shape="rect" href="namespace_bembel.html#aeaf21aded2538756462f6ea3631dc909" title="Calculates the spherical harmonic &#160;based on previous values." alt="" coords="296,5,471,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_icgraph.png" border="0" usemap="#anamespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_icgraph" alt=""/></div>
-<map name="anamespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_icgraph" id="anamespace_bembel_ac471d8ce3c1bed1faa03d1a234b9044d_icgraph">
-<area shape="rect" title="Calculates the the spherical harmonics , ordered by ." alt="" coords="535,60,777,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aeaf21aded2538756462f6ea3631dc909"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaf21aded2538756462f6ea3631dc909">&#9670;&nbsp;</a></span>spherical_prev()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Vector2d Bembel::spherical_prev </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>y1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Vector2d&#160;</td>
-          <td class="paramname"><em>y2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the spherical harmonic \( Y_n^m(x) \) based on previous values. </p>
-
-<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00462">462</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_aeaf21aded2538756462f6ea3631dc909_icgraph.png" border="0" usemap="#anamespace_bembel_aeaf21aded2538756462f6ea3631dc909_icgraph" alt=""/></div>
-<map name="anamespace_bembel_aeaf21aded2538756462f6ea3631dc909_icgraph" id="anamespace_bembel_aeaf21aded2538756462f6ea3631dc909_icgraph">
-<area shape="rect" title="Calculates the spherical harmonic &#160;based on previous values." alt="" coords="825,60,1000,87"/>
-<area shape="rect" href="namespace_bembel.html#ac471d8ce3c1bed1faa03d1a234b9044d" title="Calculates the the spherical harmonics , ordered by ." alt="" coords="535,60,777,87"/>
-<area shape="rect" href="namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" href="class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a5d75608ee7079ac7c9100764ab6a81be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d75608ee7079ac7c9100764ab6a81be">&#9670;&nbsp;</a></span>surfaceL2error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Op , typename Derived , typename Functor &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::surfaceL2error </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a>&lt; Op &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ansatz_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::MatrixBase&lt; Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Functor &amp;&#160;</td>
-          <td class="paramname"><em>functor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>deg</em> = <code>4</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="surface_l2error_8hpp_source.html#l00018">18</a> of file <a class="el" href="surface_l2error_8hpp_source.html">surfaceL2error.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a5d75608ee7079ac7c9100764ab6a81be_cgraph.png" border="0" usemap="#anamespace_bembel_a5d75608ee7079ac7c9100764ab6a81be_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a5d75608ee7079ac7c9100764ab6a81be_cgraph" id="anamespace_bembel_a5d75608ee7079ac7c9100764ab6a81be_cgraph">
-<area shape="rect" title=" " alt="" coords="5,143,180,170"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8" title=" " alt="" coords="246,5,407,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856" title=" " alt="" coords="246,71,407,112"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#afc84feb7f45fbfcfc2570083a5a16b4e" title=" " alt="" coords="228,136,425,177"/>
-<area shape="rect" href="class_bembel_1_1_ansatz_space.html#a976516196d270b3fb5f3af0ef34dc95b" title=" " alt="" coords="245,201,408,243"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#a335d3de2569dd975a42a2cc2c306e07c" title=" " alt="" coords="228,267,425,308"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801" title="iterators" alt="" coords="490,5,651,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d" title=" " alt="" coords="490,71,651,112"/>
-<area shape="rect" href="namespace_bembel.html#aeae05c4d8cf11542222e8ce43f67e715" title=" " alt="" coords="473,136,668,177"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a13ec0a7ecedd0f45845efd7afeb228b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13ec0a7ecedd0f45845efd7afeb228b7">&#9670;&nbsp;</a></span>writeDirectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bembel::writeDirectory </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>file_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>start_idx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>number_of_lines</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_geometry_i_g_s_8hpp_source.html#l00309">309</a> of file <a class="el" href="_geometry_i_g_s_8hpp_source.html">GeometryIGS.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a13ec0a7ecedd0f45845efd7afeb228b7_icgraph.png" border="0" usemap="#anamespace_bembel_a13ec0a7ecedd0f45845efd7afeb228b7_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a13ec0a7ecedd0f45845efd7afeb228b7_icgraph" id="anamespace_bembel_a13ec0a7ecedd0f45845efd7afeb228b7_icgraph">
-<area shape="rect" title=" " alt="" coords="212,5,385,32"/>
-<area shape="rect" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658" title="Writes Geometry into an IGES file format." alt="" coords="5,5,164,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae7a32044fa9c3c1ea7475ba5595aec65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7a32044fa9c3c1ea7475ba5595aec65">&#9670;&nbsp;</a></span>writeGlobalSection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bembel::writeGlobalSection </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>file_name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_geometry_i_g_s_8hpp_source.html#l00247">247</a> of file <a class="el" href="_geometry_i_g_s_8hpp_source.html">GeometryIGS.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_cgraph.png" border="0" usemap="#anamespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_cgraph" alt=""/></div>
-<map name="anamespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_cgraph" id="anamespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,208,57"/>
-<area shape="rect" href="group___geometry.html#gaaf2c0a5ad28e3c0abc4e3db7a85ab977" title="Transform a vector of Data in a vector of lines with a specific length." alt="" coords="256,5,420,32"/>
-<area shape="rect" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac" title="This function writes a given section to the specified file." alt="" coords="257,56,419,83"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_icgraph.png" border="0" usemap="#anamespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_icgraph" alt=""/></div>
-<map name="anamespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_icgraph" id="anamespace_bembel_ae7a32044fa9c3c1ea7475ba5595aec65_icgraph">
-<area shape="rect" title=" " alt="" coords="212,5,415,32"/>
-<area shape="rect" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658" title="Writes Geometry into an IGES file format." alt="" coords="5,5,164,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a6c17c87ff88511abb7cf6a47970e2aa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c17c87ff88511abb7cf6a47970e2aa1">&#9670;&nbsp;</a></span>writeIGSHeader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::writeIGSHeader </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>file_name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_geometry_i_g_s_8hpp_source.html#l00230">230</a> of file <a class="el" href="_geometry_i_g_s_8hpp_source.html">GeometryIGS.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_cgraph.png" border="0" usemap="#anamespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_cgraph" alt=""/></div>
-<map name="anamespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_cgraph" id="anamespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,188,32"/>
-<area shape="rect" href="group___geometry.html#ga7fe7dcd5113abedbe0c26bc8d30638ac" title="This function writes a given section to the specified file." alt="" coords="236,5,397,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_icgraph.png" border="0" usemap="#anamespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_icgraph" id="anamespace_bembel_a6c17c87ff88511abb7cf6a47970e2aa1_icgraph">
-<area shape="rect" title=" " alt="" coords="212,5,395,32"/>
-<area shape="rect" href="group___geometry.html#gac59b3f15b6352069bc49b9c3b73e2658" title="Writes Geometry into an IGES file format." alt="" coords="5,5,164,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_sphericals_8hpp_source.html#l00388">388</a> of file <a class="el" href="_sphericals_8hpp_source.html">Sphericals.hpp</a>.</p>
 
 </div>
 </div>
@@ -2234,23 +792,14 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">knt1</td><td>knotVector1 </td></tr>
     <tr><td class="paramname">knt2</td><td>knotVector2 </td></tr>
-    <tr><td class="paramname">tmp</td><td>Vector with x,y,z,w Matices </td></tr>
-    <tr><td class="paramname">name</td><td>filename </td></tr>
-    <tr><td class="paramname">patchnumberCurr</td><td>current patch number </td></tr>
+    <tr><td class="paramname">xyzw</td><td>Vector with x,y,z,w Matices </td></tr>
+    <tr><td class="paramname">file_name</td><td>filename </td></tr>
+    <tr><td class="paramname">current_patch_number</td><td>current patch number </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_geometry_i_o_8hpp_source.html#l00153">153</a> of file <a class="el" href="_geometry_i_o_8hpp_source.html">GeometryIO.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespace_bembel_a939c4394ad2b21a15e7e6494d7dc1221_icgraph.png" border="0" usemap="#anamespace_bembel_a939c4394ad2b21a15e7e6494d7dc1221_icgraph" alt=""/></div>
-<map name="anamespace_bembel_a939c4394ad2b21a15e7e6494d7dc1221_icgraph" id="anamespace_bembel_a939c4394ad2b21a15e7e6494d7dc1221_icgraph">
-<area shape="rect" title="method to write Patch information into textfile" alt="" coords="217,5,368,32"/>
-<area shape="rect" href="group___geometry.html#ga9290c96b302fce4ec7c3b194f328db4a" title="exports a geometry from Bembel to a .dat file." alt="" coords="5,5,169,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_geometry_i_o_8hpp_source.html#l00154">154</a> of file <a class="el" href="_geometry_i_o_8hpp_source.html">GeometryIO.hpp</a>.</p>
 
 </div>
 </div>
@@ -2269,7 +818,7 @@ Here is the caller graph for this function:</div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">        [](<span class="keyword">const</span> Eigen::Vector2d &amp;x, <span class="keyword">const</span> Eigen::Vector2d &amp;y) { <span class="keywordflow">return</span> 1.; }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00032">32</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dummy_operator_8hpp_source.html#l00034">34</a> of file <a class="el" href="_dummy_operator_8hpp_source.html">DummyOperator.hpp</a>.</p>
 
 </div>
 </div>
@@ -2279,7 +828,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

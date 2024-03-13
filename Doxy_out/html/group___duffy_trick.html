@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -92,7 +103,7 @@ $(document).ready(function(){initNavTree('group___duffy_trick.html',''); initRes
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">DuffyTrick</div>  </div>
+<div class="title">DuffyTrick<div class="ingroups"><a class="el" href="group___modules.html">Modules</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -101,339 +112,49 @@ $(document).ready(function(){initNavTree('group___duffy_trick.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga63fd7fd5ef96ef692b695626b7bfe566"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga63fd7fd5ef96ef692b695626b7bfe566">Bembel::DuffyTrick::compareElements</a> (const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, double *dist)</td></tr>
-<tr class="memdesc:ga63fd7fd5ef96ef692b695626b7bfe566"><td class="mdescLeft">&#160;</td><td class="mdescRight">compares two elements for similarities and determines, how the elements have to be rotated to move the similarity to the first vertices_ or edge  <a href="group___duffy_trick.html#ga63fd7fd5ef96ef692b695626b7bfe566">More...</a><br /></td></tr>
+<tr class="memitem:ga63fd7fd5ef96ef692b695626b7bfe566"><td class="memItemLeft" align="right" valign="top"><a id="ga63fd7fd5ef96ef692b695626b7bfe566"></a>
+Eigen::Vector3i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga63fd7fd5ef96ef692b695626b7bfe566">Bembel::DuffyTrick::compareElements</a> (const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, double *dist)</td></tr>
+<tr class="memdesc:ga63fd7fd5ef96ef692b695626b7bfe566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two elements for similarities and determines, how the elements have to be rotated to move the similarity to the first vertices_ or edge. <br /></td></tr>
 <tr class="separator:ga63fd7fd5ef96ef692b695626b7bfe566"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga08c83eb5d1c80c396c653ca32c90f719"><td class="memTemplParams" colspan="2">template&lt;typename Derived , class T , class CubatureVector &gt; </td></tr>
+<tr class="memitem:ga08c83eb5d1c80c396c653ca32c90f719"><td class="memTemplParams" colspan="2"><a id="ga08c83eb5d1c80c396c653ca32c90f719"></a>
+template&lt;typename Derived , class T , class CubatureVector &gt; </td></tr>
 <tr class="memitem:ga08c83eb5d1c80c396c653ca32c90f719"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719">Bembel::DuffyTrick::evaluateBilinearForm</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;linOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, const CubatureVector &amp;GS, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
-<tr class="memdesc:ga08c83eb5d1c80c396c653ca32c90f719"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function wraps the quadrature routines for the duffy trick and returns all integrals for the given pair of elements.  <a href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719">More...</a><br /></td></tr>
+<tr class="memdesc:ga08c83eb5d1c80c396c653ca32c90f719"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function wraps the quadrature routines for the DuffyTrick and returns all integrals for the given pair of elements. <br /></td></tr>
 <tr class="separator:ga08c83eb5d1c80c396c653ca32c90f719"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga51dfc70fb9ff184673021da12a589d57"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ga51dfc70fb9ff184673021da12a589d57"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga51dfc70fb9ff184673021da12a589d57">Bembel::DuffyTrick::computeFfieldQnodes</a> (const T &amp;super_space, const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;Q)</td></tr>
-<tr class="memdesc:ga51dfc70fb9ff184673021da12a589d57"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates a given quadrature on all surface panels storage format is qNodes.col(k) = [xi, w, Chi(xi); dsChi(xi); dtChi(xi)]\in\Rbb^12  <a href="group___duffy_trick.html#ga51dfc70fb9ff184673021da12a589d57">More...</a><br /></td></tr>
+<tr class="memitem:ga51dfc70fb9ff184673021da12a589d57"><td class="memTemplParams" colspan="2"><a id="ga51dfc70fb9ff184673021da12a589d57"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga51dfc70fb9ff184673021da12a589d57"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga51dfc70fb9ff184673021da12a589d57">Bembel::DuffyTrick::computeFfieldQnodes</a> (const T &amp;super_space, const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;Q)</td></tr>
+<tr class="memdesc:ga51dfc70fb9ff184673021da12a589d57"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluates a given quadrature on all surface panels storage format is qNodes.col(k) = [xi, w, Chi(xi); dsChi(xi); dtChi(xi)] <br /></td></tr>
 <tr class="separator:ga51dfc70fb9ff184673021da12a589d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga36f1765af6834d692ebc93f71750ce62"><td class="memTemplParams" colspan="2">template&lt;typename Derived , class T &gt; </td></tr>
-<tr class="memitem:ga36f1765af6834d692ebc93f71750ce62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga36f1765af6834d692ebc93f71750ce62">Bembel::DuffyTrick::integrate0</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
-<tr class="memdesc:ga36f1765af6834d692ebc93f71750ce62"><td class="mdescLeft">&#160;</td><td class="mdescRight">far-field quadrature routine, which is based on precomputed values in order to quickly evaluate the integrand in the case that the far-field quadrature degree can be used  <a href="group___duffy_trick.html#ga36f1765af6834d692ebc93f71750ce62">More...</a><br /></td></tr>
+<tr class="memitem:ga36f1765af6834d692ebc93f71750ce62"><td class="memTemplParams" colspan="2"><a id="ga36f1765af6834d692ebc93f71750ce62"></a>
+template&lt;typename Derived , class T &gt; </td></tr>
+<tr class="memitem:ga36f1765af6834d692ebc93f71750ce62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga36f1765af6834d692ebc93f71750ce62">Bembel::DuffyTrick::integrate0</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
+<tr class="memdesc:ga36f1765af6834d692ebc93f71750ce62"><td class="mdescLeft">&#160;</td><td class="mdescRight">far-field quadrature routine, which is based on precomputed values in order to quickly evaluate the integrand in the case that the far-field quadrature degree can be used <br /></td></tr>
 <tr class="separator:ga36f1765af6834d692ebc93f71750ce62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1c02c8465fe5e6c097dcb6f9141f29b9"><td class="memTemplParams" colspan="2">template&lt;typename Derived , class T &gt; </td></tr>
-<tr class="memitem:ga1c02c8465fe5e6c097dcb6f9141f29b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9">Bembel::DuffyTrick::integrate1</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
-<tr class="memdesc:ga1c02c8465fe5e6c097dcb6f9141f29b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">no-problem quadrature routine, elements are sufficiently far away from each other, but not far-field yet (this is just an isotropic tensor product quadrature!)  <a href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9">More...</a><br /></td></tr>
+<tr class="memitem:ga1c02c8465fe5e6c097dcb6f9141f29b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9">Bembel::DuffyTrick::integrate1</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
+<tr class="memdesc:ga1c02c8465fe5e6c097dcb6f9141f29b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">no-problem quadrature routine, elements are sufficiently far away from each other, but not far-field yet (this is just an isotropic tensor product quadrature!).  <a href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9">More...</a><br /></td></tr>
 <tr class="separator:ga1c02c8465fe5e6c097dcb6f9141f29b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2a96bf79e6357a8465e7feedffc27b39"><td class="memTemplParams" colspan="2">template&lt;typename Derived , class T &gt; </td></tr>
-<tr class="memitem:ga2a96bf79e6357a8465e7feedffc27b39"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39">Bembel::DuffyTrick::integrate2</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
+<tr class="memitem:ga2a96bf79e6357a8465e7feedffc27b39"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39">Bembel::DuffyTrick::integrate2</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
 <tr class="memdesc:ga2a96bf79e6357a8465e7feedffc27b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">quadrature routine for identical elements  <a href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39">More...</a><br /></td></tr>
 <tr class="separator:ga2a96bf79e6357a8465e7feedffc27b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1a2ace5d00944aa5a991084c252a2fcd"><td class="memTemplParams" colspan="2">template&lt;typename Derived , class T &gt; </td></tr>
-<tr class="memitem:ga1a2ace5d00944aa5a991084c252a2fcd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd">Bembel::DuffyTrick::integrate3</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
+<tr class="memitem:ga1a2ace5d00944aa5a991084c252a2fcd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd">Bembel::DuffyTrick::integrate3</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
 <tr class="memdesc:ga1a2ace5d00944aa5a991084c252a2fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">quadrature routine for the common edge case  <a href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd">More...</a><br /></td></tr>
 <tr class="separator:ga1a2ace5d00944aa5a991084c252a2fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4159560d18ac51da0f9f8b9a1cd3c334"><td class="memTemplParams" colspan="2">template&lt;typename Derived , class T &gt; </td></tr>
-<tr class="memitem:ga4159560d18ac51da0f9f8b9a1cd3c334"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334">Bembel::DuffyTrick::integrate4</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
-<tr class="memdesc:ga4159560d18ac51da0f9f8b9a1cd3c334"><td class="mdescLeft">&#160;</td><td class="mdescRight">quadrature routine for identical elements  <a href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334">More...</a><br /></td></tr>
+<tr class="memitem:ga4159560d18ac51da0f9f8b9a1cd3c334"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334">Bembel::DuffyTrick::integrate4</a> (const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;LinOp, const T &amp;super_space, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e1, int rot1, const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;e2, int rot2, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes1, const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;ffield_qnodes2, const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;Q, Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval)</td></tr>
+<tr class="memdesc:ga4159560d18ac51da0f9f8b9a1cd3c334"><td class="mdescLeft">&#160;</td><td class="mdescRight">quadrature routine for common vertex case.  <a href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334">More...</a><br /></td></tr>
 <tr class="separator:ga4159560d18ac51da0f9f8b9a1cd3c334"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa45bae55cdce9e0a39ded6b20eedeb4a"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a">Bembel::DuffyTrick::tau</a> (double x, double y, int thecase)</td></tr>
-<tr class="memdesc:gaa45bae55cdce9e0a39ded6b20eedeb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes rotations for the Duffy trick  <a href="group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a">More...</a><br /></td></tr>
+<tr class="memdesc:gaa45bae55cdce9e0a39ded6b20eedeb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes rotations for the DuffyTrick.  <a href="group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a">More...</a><br /></td></tr>
 <tr class="separator:gaa45bae55cdce9e0a39ded6b20eedeb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The DuffyTrick module provides quadrature routines for (nearly) singular integrals. </p>
-<p>Therein, the implementation is ssentially an adaptation of the so-called Sauter-Schwab quadrature rules </p>
+<p>Therein, the implementation is essentially an adaptation of the so-called Sauter-Schwab quadrature rules </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga63fd7fd5ef96ef692b695626b7bfe566"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga63fd7fd5ef96ef692b695626b7bfe566">&#9670;&nbsp;</a></span>compareElements()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Vector3i Bembel::DuffyTrick::compareElements </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>e1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>e2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>dist</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>compares two elements for similarities and determines, how the elements have to be rotated to move the similarity to the first vertices_ or edge </p>
-
-<p class="definition">Definition at line <a class="el" href="compare_elements_8hpp_source.html#l00023">23</a> of file <a class="el" href="compare_elements_8hpp_source.html">compareElements.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga63fd7fd5ef96ef692b695626b7bfe566_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga63fd7fd5ef96ef692b695626b7bfe566_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga63fd7fd5ef96ef692b695626b7bfe566_icgraph" id="agroup___duffy_trick_ga63fd7fd5ef96ef692b695626b7bfe566_icgraph">
-<area shape="rect" title="compares two elements for similarities and determines, how the elements have to be rotated to move th..." alt="" coords="475,71,623,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga51dfc70fb9ff184673021da12a589d57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga51dfc70fb9ff184673021da12a589d57">&#9670;&nbsp;</a></span>computeFfieldQnodes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a>&gt; Bembel::DuffyTrick::computeFfieldQnodes </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;&#160;</td>
-          <td class="paramname"><em>Q</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>evaluates a given quadrature on all surface panels storage format is qNodes.col(k) = [xi, w, Chi(xi); dsChi(xi); dtChi(xi)]\in\Rbb^12 </p>
-
-<p class="definition">Definition at line <a class="el" href="far_field_quadrature_nodes_8hpp_source.html#l00023">23</a> of file <a class="el" href="far_field_quadrature_nodes_8hpp_source.html">farFieldQuadratureNodes.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga51dfc70fb9ff184673021da12a589d57_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga51dfc70fb9ff184673021da12a589d57_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga51dfc70fb9ff184673021da12a589d57_icgraph" id="agroup___duffy_trick_ga51dfc70fb9ff184673021da12a589d57_icgraph">
-<area shape="rect" title="evaluates a given quadrature on all surface panels storage format is qNodes.col(k) = [xi,..." alt="" coords="256,71,428,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga08c83eb5d1c80c396c653ca32c90f719"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga08c83eb5d1c80c396c653ca32c90f719">&#9670;&nbsp;</a></span>evaluateBilinearForm()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived , class T , class CubatureVector &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::DuffyTrick::evaluateBilinearForm </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>linOp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>e1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>e2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const CubatureVector &amp;&#160;</td>
-          <td class="paramname"><em>GS</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;&#160;</td>
-          <td class="paramname"><em>ffield_qnodes1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;&#160;</td>
-          <td class="paramname"><em>ffield_qnodes2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>intval</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function wraps the quadrature routines for the duffy trick and returns all integrals for the given pair of elements. </p>
-
-<p class="definition">Definition at line <a class="el" href="evaluate_bilinear_form_8hpp_source.html#l00022">22</a> of file <a class="el" href="evaluate_bilinear_form_8hpp_source.html">evaluateBilinearForm.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_cgraph.png" border="0" usemap="#agroup___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_cgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_cgraph" id="agroup___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_cgraph">
-<area shape="rect" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="5,235,176,276"/>
-<area shape="rect" href="group___duffy_trick.html#ga63fd7fd5ef96ef692b695626b7bfe566" title="compares two elements for similarities and determines, how the elements have to be rotated to move th..." alt="" coords="265,5,413,47"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a564ca07e65785b8f8bb8882524d5f1d3" title=" " alt="" coords="227,71,452,112"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a93eae80056713e449c452e86fe4f89eb" title="Compute quadrature degree for numerical integretation close to the singularity based on distance,..." alt="" coords="224,136,455,177"/>
-<area shape="rect" href="group___duffy_trick.html#ga36f1765af6834d692ebc93f71750ce62" title="far&#45;field quadrature routine, which is based on precomputed values in order to quickly evaluate the i..." alt="" coords="267,201,412,243"/>
-<area shape="rect" href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9" title="no&#45;problem quadrature routine, elements are sufficiently far away from each other,..." alt="" coords="267,267,412,308"/>
-<area shape="rect" href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39" title="quadrature routine for identical elements" alt="" coords="267,332,412,373"/>
-<area shape="rect" href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd" title="quadrature routine for the common edge case" alt="" coords="267,397,412,439"/>
-<area shape="rect" href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334" title="quadrature routine for identical elements" alt="" coords="267,463,412,504"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="503,332,712,373"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="510,397,705,439"/>
-<area shape="rect" href="group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a" title="computes rotations for the Duffy trick" alt="" coords="520,466,695,493"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_icgraph" id="agroup___duffy_trick_ga08c83eb5d1c80c396c653ca32c90f719_icgraph">
-<area shape="rect" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ga36f1765af6834d692ebc93f71750ce62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga36f1765af6834d692ebc93f71750ce62">&#9670;&nbsp;</a></span>integrate0()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived , class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void Bembel::DuffyTrick::integrate0 </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt; Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>LinOp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>super_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>e1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rot1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td>
-          <td class="paramname"><em>e2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rot2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;&#160;</td>
-          <td class="paramname"><em>ffield_qnodes1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group___geometry.html#gabc1f8e94e141fc00501462d78c030071">ElementSurfacePoints</a> &amp;&#160;</td>
-          <td class="paramname"><em>ffield_qnodes2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;&#160;</td>
-          <td class="paramname"><em>Q</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Eigen::Matrix&lt; typename <a class="el" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt; Derived &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *&#160;</td>
-          <td class="paramname"><em>intval</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>far-field quadrature routine, which is based on precomputed values in order to quickly evaluate the integrand in the case that the far-field quadrature degree can be used </p>
-
-<p class="definition">Definition at line <a class="el" href="integrate0_8hpp_source.html#l00023">23</a> of file <a class="el" href="integrate0_8hpp_source.html">integrate0.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_cgraph.png" border="0" usemap="#agroup___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_cgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_cgraph" id="agroup___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_cgraph">
-<area shape="rect" title="far&#45;field quadrature routine, which is based on precomputed values in order to quickly evaluate the i..." alt="" coords="5,5,151,47"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="199,5,408,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_icgraph" id="agroup___duffy_trick_ga36f1765af6834d692ebc93f71750ce62_icgraph">
-<area shape="rect" title="far&#45;field quadrature routine, which is based on precomputed values in order to quickly evaluate the i..." alt="" coords="475,71,620,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="ga1c02c8465fe5e6c097dcb6f9141f29b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga1c02c8465fe5e6c097dcb6f9141f29b9">&#9670;&nbsp;</a></span>integrate1()</h2>
 
@@ -493,7 +214,7 @@ template&lt;typename Derived , class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;&#160;</td>
           <td class="paramname"><em>Q</em>, </td>
         </tr>
         <tr>
@@ -510,31 +231,10 @@ template&lt;typename Derived , class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>no-problem quadrature routine, elements are sufficiently far away from each other, but not far-field yet (this is just an isotropic tensor product quadrature!) </p>
+<p>no-problem quadrature routine, elements are sufficiently far away from each other, but not far-field yet (this is just an isotropic tensor product quadrature!). </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="integrate1_8hpp_source.html#l00025">25</a> of file <a class="el" href="integrate1_8hpp_source.html">integrate1.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_cgraph.png" border="0" usemap="#agroup___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_cgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_cgraph" id="agroup___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_cgraph">
-<area shape="rect" title="no&#45;problem quadrature routine, elements are sufficiently far away from each other,..." alt="" coords="5,39,151,80"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="199,5,408,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="206,71,401,112"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_icgraph" id="agroup___duffy_trick_ga1c02c8465fe5e6c097dcb6f9141f29b9_icgraph">
-<area shape="rect" title="no&#45;problem quadrature routine, elements are sufficiently far away from each other,..." alt="" coords="475,71,620,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="integrate1_8hpp_source.html#l00026">26</a> of file <a class="el" href="integrate1_8hpp_source.html">integrate1.hpp</a>.</p>
 
 </div>
 </div>
@@ -597,7 +297,7 @@ template&lt;typename Derived , class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;&#160;</td>
           <td class="paramname"><em>Q</em>, </td>
         </tr>
         <tr>
@@ -615,30 +315,10 @@ template&lt;typename Derived , class T &gt; </div>
 </div><div class="memdoc">
 
 <p>quadrature routine for identical elements </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight here we just set one weight to the actual weight, while the other one will be set to 1. This is to remain conforming to the structure of integrate0/1 Information that map2element has to provide: xi; w; Chi(xi); dChidx(xi); dChidy(xi); </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight here we just set one weight to the actual weight, while the other one will be set to 1. This is to remain conforming to the structure of integrate0/1.</dd></dl>
+<p>Information that map2element has to provide: xi; w; Chi(xi); dChidx(xi); dChidy(xi); </p>
 
 <p class="definition">Definition at line <a class="el" href="integrate2_8hpp_source.html#l00028">28</a> of file <a class="el" href="integrate2_8hpp_source.html">integrate2.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_cgraph.png" border="0" usemap="#agroup___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_cgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_cgraph" id="agroup___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_cgraph">
-<area shape="rect" title="quadrature routine for identical elements" alt="" coords="5,39,151,80"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="199,5,408,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="206,71,401,112"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_icgraph" id="agroup___duffy_trick_ga2a96bf79e6357a8465e7feedffc27b39_icgraph">
-<area shape="rect" title="quadrature routine for identical elements" alt="" coords="475,71,620,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -701,7 +381,7 @@ template&lt;typename Derived , class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;&#160;</td>
           <td class="paramname"><em>Q</em>, </td>
         </tr>
         <tr>
@@ -719,31 +399,10 @@ template&lt;typename Derived , class T &gt; </div>
 </div><div class="memdoc">
 
 <p>quadrature routine for the common edge case </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight here we just set one weight to the actual weight, while the other one will be set to 1. This is to remain conforming to the structure of integrate0/1 Information that map2surface has to provide: xi; w; Chi(xi); dChidx(xi); dChidy(xi); </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight here we just set one weight to the actual weight, while the other one will be set to 1. This is to remain conforming to the structure of integrate0/1.</dd></dl>
+<p>Information that map2surface has to provide: xi; w; Chi(xi); dChidx(xi); dChidy(xi); </p>
 
 <p class="definition">Definition at line <a class="el" href="integrate3_8hpp_source.html#l00028">28</a> of file <a class="el" href="integrate3_8hpp_source.html">integrate3.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_cgraph.png" border="0" usemap="#agroup___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_cgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_cgraph" id="agroup___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_cgraph">
-<area shape="rect" title="quadrature routine for the common edge case" alt="" coords="5,71,151,112"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="199,5,408,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="206,71,401,112"/>
-<area shape="rect" href="group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a" title="computes rotations for the Duffy trick" alt="" coords="216,137,391,163"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_icgraph" id="agroup___duffy_trick_ga1a2ace5d00944aa5a991084c252a2fcd_icgraph">
-<area shape="rect" title="quadrature routine for the common edge case" alt="" coords="475,71,620,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -806,7 +465,7 @@ template&lt;typename Derived , class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespace_bembel.html#a0454dff882b2f2d64be2e6d45aaebb0c">Cubature</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_bembel_1_1_quadrature.html">Cubature</a> &amp;&#160;</td>
           <td class="paramname"><em>Q</em>, </td>
         </tr>
         <tr>
@@ -823,32 +482,11 @@ template&lt;typename Derived , class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>quadrature routine for identical elements </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight here we just set one weight to the actual weight, while the other one will be set to 1. This is to remain conforming to the structure of integrate0/1 Information that map2element has to provide: xi; w; Chi(xi); dChidx(xi); dChidy(xi); </dd></dl>
+<p>quadrature routine for common vertex case. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>be sure that map2element computes the weight h*Q.w(i) such that the integrand may then be scaled by qp1.weight * qp2.weight here we just set one weight to the actual weight, while the other one will be set to 1. This is to remain conforming to the structure of integrate0/1.</dd></dl>
+<p>Information that map2element has to provide: xi; w; Chi(xi); dChidx(xi); dChidy(xi); </p>
 
 <p class="definition">Definition at line <a class="el" href="integrate4_8hpp_source.html#l00028">28</a> of file <a class="el" href="integrate4_8hpp_source.html">integrate4.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_cgraph.png" border="0" usemap="#agroup___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_cgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_cgraph" id="agroup___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_cgraph">
-<area shape="rect" title="quadrature routine for identical elements" alt="" coords="5,71,151,112"/>
-<area shape="rect" href="struct_bembel_1_1_linear_operator_base.html#a0f7bbdf4c5de7ceff53e60cce7748630" title=" " alt="" coords="199,5,408,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="206,71,401,112"/>
-<area shape="rect" href="group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a" title="computes rotations for the Duffy trick" alt="" coords="216,137,391,163"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_icgraph.png" border="0" usemap="#agroup___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_icgraph" id="agroup___duffy_trick_ga4159560d18ac51da0f9f8b9a1cd3c334_icgraph">
-<area shape="rect" title="quadrature routine for identical elements" alt="" coords="475,71,620,113"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -884,22 +522,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>computes rotations for the Duffy trick </p>
+<p>computes rotations for the DuffyTrick. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate </td></tr>
+    <tr><td class="paramname">thecase</td><td>Edge case denoting how the element needs to be turned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Point in rotated element. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tau_8hpp_source.html#l00021">21</a> of file <a class="el" href="tau_8hpp_source.html">tau.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___duffy_trick_gaa45bae55cdce9e0a39ded6b20eedeb4a_icgraph.png" border="0" usemap="#agroup___duffy_trick_gaa45bae55cdce9e0a39ded6b20eedeb4a_icgraph" alt=""/></div>
-<map name="agroup___duffy_trick_gaa45bae55cdce9e0a39ded6b20eedeb4a_icgraph" id="agroup___duffy_trick_gaa45bae55cdce9e0a39ded6b20eedeb4a_icgraph">
-<area shape="rect" title="computes rotations for the Duffy trick" alt="" coords="668,79,843,105"/>
-<area shape="rect" href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd" title="quadrature routine for the common edge case" alt="" coords="475,38,620,79"/>
-<area shape="rect" href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334" title="quadrature routine for identical elements" alt="" coords="475,103,620,145"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="256,71,427,113"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,5,208,91"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,115,184,157"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="tau_8hpp_source.html#l00026">26</a> of file <a class="el" href="tau_8hpp_source.html">tau.hpp</a>.</p>
 
 </div>
 </div>
@@ -908,7 +542,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

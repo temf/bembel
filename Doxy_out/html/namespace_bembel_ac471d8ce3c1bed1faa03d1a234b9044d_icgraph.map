@@ -1,6 +1,0 @@
-<map id="Bembel::spherical_harmonics_full" name="Bembel::spherical_harmonics_full">
-<area shape="rect" id="node1" title="Calculates the the spherical harmonics , ordered by ." alt="" coords="535,60,777,87"/>
-<area shape="rect" id="node2" href="$namespace_bembel.html#a1de4db012915c44203a104745baecd63" title="Calculates the coefficients for the solid harmonics expansion of the periodic kernel ." alt="" coords="308,60,487,87"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_homogenised_laplace_single_layer_operator.html#abc5fd90d7c0cb6fc962aa0dc53b36684" title="Constructs an object initialising the coefficients and the degree via the static variable precision." alt="" coords="6,5,259,61"/>
-<area shape="rect" id="node4" href="$class_bembel_1_1_homogenised_laplace_single_layer_potential.html#aff4729f583dfc45eca6d957c579add9f" title="Constructs an object initialising the coefficients and the degree via the static variable Homogenised..." alt="" coords="5,85,260,141"/>
-</map>

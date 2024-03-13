@@ -1,5 +1,0 @@
-<map id="Bembel::Spl::GetCoefficients" name="Bembel::Spl::GetCoefficients">
-<area shape="rect" id="node1" title="this solves a generic interpolation problem." alt="" coords="5,20,213,47"/>
-<area shape="rect" id="node2" href="$group___spline.html#ga0c98aa7e939d5d199b75e867257f942b" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="261,13,476,54"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405" title=" " alt="" coords="524,5,705,61"/>
-</map>

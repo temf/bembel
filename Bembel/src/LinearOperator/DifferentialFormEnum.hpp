@@ -30,21 +30,29 @@ template <unsigned int DifferentialForm, typename Scalar>
 struct DifferentialFormTraits {
   // empty, only to be used in its specialization
 };
-
+/**
+ * \brief Specification of the DifferentialFormTraits for the continuous case.
+ */
 template <typename Scalar>
 struct DifferentialFormTraits<DifferentialForm::Continuous, Scalar> {
   enum { FunctionSpaceVectorDimension = 1, FunctionSpaceOutputDimension = 1 };
 
   typedef Scalar FunctionSpaceValue;
 };
-
+/**
+ * \brief Specification of the DifferentialFormTraits for the div conforming
+ * case.
+ */
 template <typename Scalar>
 struct DifferentialFormTraits<DifferentialForm::DivConforming, Scalar> {
   enum { FunctionSpaceVectorDimension = 2, FunctionSpaceOutputDimension = 3 };
 
   typedef Eigen::Matrix<Scalar, 3, 1> FunctionSpaceValue;
 };
-
+/**
+ * \brief Specification of the DifferentialFormTraits for the discontinuous
+ * case.
+ */
 template <typename Scalar>
 struct DifferentialFormTraits<DifferentialForm::Discontinuous, Scalar> {
   enum { FunctionSpaceVectorDimension = 1, FunctionSpaceOutputDimension = 1 };

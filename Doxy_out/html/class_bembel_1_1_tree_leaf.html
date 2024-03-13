@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -97,670 +108,88 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_tree_leaf.html',''); 
 </div><!--header-->
 <div class="contents">
 
+<p>This class is managing the leafs of the <a class="el" href="class_h2_matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a> <a class="el" href="class_bembel_1_1_block_cluster_tree.html">BlockClusterTree</a>.  
+ <a href="class_bembel_1_1_tree_leaf.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:adbd97a46cff8f7b258de1f005a87363b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">TreeLeaf</a> (void)</td></tr>
-<tr class="memdesc:adbd97a46cff8f7b258de1f005a87363b"><td class="mdescLeft">&#160;</td><td class="mdescRight">void constructor  <a href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">More...</a><br /></td></tr>
-<tr class="separator:adbd97a46cff8f7b258de1f005a87363b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37d64902f934440fe267b9cdfca256f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">TreeLeaf</a> (const <a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;other)</td></tr>
-<tr class="memdesc:a37d64902f934440fe267b9cdfca256f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">More...</a><br /></td></tr>
-<tr class="separator:a37d64902f934440fe267b9cdfca256f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fc78cbaf513afb47c5bd87766a49854"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">TreeLeaf</a> (<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;&amp;other)</td></tr>
-<tr class="memdesc:a5fc78cbaf513afb47c5bd87766a49854"><td class="mdescLeft">&#160;</td><td class="mdescRight">move constructor  <a href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">More...</a><br /></td></tr>
-<tr class="separator:a5fc78cbaf513afb47c5bd87766a49854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="memTemplParams" colspan="2">template&lt;typename otherDerived &gt; </td></tr>
-<tr class="memitem:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">TreeLeaf</a> (const Eigen::MatrixBase&lt; otherDerived &gt; &amp;L, const Eigen::MatrixBase&lt; otherDerived &gt; &amp;R)</td></tr>
-<tr class="memdesc:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">lowRank constructor whatever <a class="el" href="namespace_eigen.html">Eigen</a> object is put in here will be evaluated  <a href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">More...</a><br /></td></tr>
-<tr class="separator:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af44413eb5337f59c51250f5ade151358"><td class="memTemplParams" colspan="2">template&lt;typename otherDerived &gt; </td></tr>
-<tr class="memitem:af44413eb5337f59c51250f5ade151358"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">TreeLeaf</a> (const Eigen::MatrixBase&lt; otherDerived &gt; &amp;F)</td></tr>
-<tr class="memdesc:af44413eb5337f59c51250f5ade151358"><td class="mdescLeft">&#160;</td><td class="mdescRight">full constructor whatever <a class="el" href="namespace_eigen.html">Eigen</a> object is put in here will be evaluated  <a href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">More...</a><br /></td></tr>
-<tr class="separator:af44413eb5337f59c51250f5ade151358"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a24739e694ad57d8df9755c4f75fb6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">TreeLeaf</a> (Derived &amp;&amp;L, Derived &amp;&amp;R)</td></tr>
-<tr class="memdesc:a2a24739e694ad57d8df9755c4f75fb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">lowRank move constructor  <a href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">More...</a><br /></td></tr>
-<tr class="separator:a2a24739e694ad57d8df9755c4f75fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23b3b6a0b86a2a4761ef289db113fd87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">TreeLeaf</a> (Derived &amp;&amp;F)</td></tr>
-<tr class="memdesc:a23b3b6a0b86a2a4761ef289db113fd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">full move constructor  <a href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">More...</a><br /></td></tr>
-<tr class="separator:a23b3b6a0b86a2a4761ef289db113fd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa03a169bac2828a07b0a0b94c45882ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#aa03a169bac2828a07b0a0b94c45882ed">is_low_rank</a> ()</td></tr>
-<tr class="separator:aa03a169bac2828a07b0a0b94c45882ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30f6b18d270b7326665560fb6dc5571b"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a30f6b18d270b7326665560fb6dc5571b">get_F</a> ()</td></tr>
-<tr class="separator:a30f6b18d270b7326665560fb6dc5571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3e98b7be0a60486dedab4292f647dab"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#af3e98b7be0a60486dedab4292f647dab">get_L</a> ()</td></tr>
-<tr class="separator:af3e98b7be0a60486dedab4292f647dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74b0fd65075c89ad9879efabbdb63bdd"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a74b0fd65075c89ad9879efabbdb63bdd">get_R</a> ()</td></tr>
-<tr class="separator:a74b0fd65075c89ad9879efabbdb63bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86121b24b157f31e4460e37e0bcfcbc0"><td class="memItemLeft" align="right" valign="top">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a86121b24b157f31e4460e37e0bcfcbc0">get_F</a> () const</td></tr>
-<tr class="separator:a86121b24b157f31e4460e37e0bcfcbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3737d50bab3c6d445793fc85a24542a0"><td class="memItemLeft" align="right" valign="top">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a3737d50bab3c6d445793fc85a24542a0">get_L</a> () const</td></tr>
-<tr class="separator:a3737d50bab3c6d445793fc85a24542a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49e351e787ce8815ee5b23979b7c75f6"><td class="memItemLeft" align="right" valign="top">Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a49e351e787ce8815ee5b23979b7c75f6">get_R</a> () const</td></tr>
-<tr class="separator:a49e351e787ce8815ee5b23979b7c75f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a421d5f1588acbdff41d3d52e7d3ccbe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a421d5f1588acbdff41d3d52e7d3ccbe4">set_low_rank_flag</a> (bool flag)</td></tr>
-<tr class="separator:a421d5f1588acbdff41d3d52e7d3ccbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae75a52027d82e6210a3484532027fba2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#ae75a52027d82e6210a3484532027fba2">set_F</a> (const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;F)</td></tr>
-<tr class="separator:ae75a52027d82e6210a3484532027fba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27d95091672314986a0cad097a8dda46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a27d95091672314986a0cad097a8dda46">set_L</a> (const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;L)</td></tr>
-<tr class="separator:a27d95091672314986a0cad097a8dda46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21c524a935e0122c0ce5957ede55569c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a21c524a935e0122c0ce5957ede55569c">set_R</a> (const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;R)</td></tr>
-<tr class="separator:a21c524a935e0122c0ce5957ede55569c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e27ec900aa372b8fd20bcd9d720b2f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">operator=</a> (<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> other)</td></tr>
-<tr class="memdesc:a0e27ec900aa372b8fd20bcd9d720b2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignment operator, works for copy and move assignment  <a href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">More...</a><br /></td></tr>
-<tr class="separator:a0e27ec900aa372b8fd20bcd9d720b2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class Bembel::TreeLeaf&lt; Derived &gt;</h3>
 
+<p>This class is managing the leafs of the <a class="el" href="class_h2_matrix.html" title="Hierarchical Matrix class, which extends the EigenBase class.">H2Matrix</a> <a class="el" href="class_bembel_1_1_block_cluster_tree.html">BlockClusterTree</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00017">17</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adbd97a46cff8f7b258de1f005a87363b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbd97a46cff8f7b258de1f005a87363b">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[1/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
+<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00020">20</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:adbd97a46cff8f7b258de1f005a87363b"><td class="memItemLeft" align="right" valign="top"><a id="adbd97a46cff8f7b258de1f005a87363b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b">TreeLeaf</a> (void)</td></tr>
+<tr class="memdesc:adbd97a46cff8f7b258de1f005a87363b"><td class="mdescLeft">&#160;</td><td class="mdescRight">void constructor <br /></td></tr>
+<tr class="separator:adbd97a46cff8f7b258de1f005a87363b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d64902f934440fe267b9cdfca256f0"><td class="memItemLeft" align="right" valign="top"><a id="a37d64902f934440fe267b9cdfca256f0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0">TreeLeaf</a> (const <a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;other)</td></tr>
+<tr class="memdesc:a37d64902f934440fe267b9cdfca256f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor <br /></td></tr>
+<tr class="separator:a37d64902f934440fe267b9cdfca256f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fc78cbaf513afb47c5bd87766a49854"><td class="memItemLeft" align="right" valign="top"><a id="a5fc78cbaf513afb47c5bd87766a49854"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854">TreeLeaf</a> (<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a5fc78cbaf513afb47c5bd87766a49854"><td class="mdescLeft">&#160;</td><td class="mdescRight">move constructor <br /></td></tr>
+<tr class="separator:a5fc78cbaf513afb47c5bd87766a49854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="memTemplParams" colspan="2"><a id="a9565e3bfaa3cee339b541a38d60d1fc3"></a>
+template&lt;typename otherDerived &gt; </td></tr>
+<tr class="memitem:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3">TreeLeaf</a> (const Eigen::MatrixBase&lt; otherDerived &gt; &amp;L, const Eigen::MatrixBase&lt; otherDerived &gt; &amp;R)</td></tr>
+<tr class="memdesc:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">lowRank constructor whatever <a class="el" href="namespace_eigen.html">Eigen</a> object is put in here will be evaluated <br /></td></tr>
+<tr class="separator:a9565e3bfaa3cee339b541a38d60d1fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af44413eb5337f59c51250f5ade151358"><td class="memTemplParams" colspan="2"><a id="af44413eb5337f59c51250f5ade151358"></a>
+template&lt;typename otherDerived &gt; </td></tr>
+<tr class="memitem:af44413eb5337f59c51250f5ade151358"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358">TreeLeaf</a> (const Eigen::MatrixBase&lt; otherDerived &gt; &amp;F)</td></tr>
+<tr class="memdesc:af44413eb5337f59c51250f5ade151358"><td class="mdescLeft">&#160;</td><td class="mdescRight">full constructor whatever <a class="el" href="namespace_eigen.html">Eigen</a> object is put in here will be evaluated <br /></td></tr>
+<tr class="separator:af44413eb5337f59c51250f5ade151358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a24739e694ad57d8df9755c4f75fb6a"><td class="memItemLeft" align="right" valign="top"><a id="a2a24739e694ad57d8df9755c4f75fb6a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a">TreeLeaf</a> (Derived &amp;&amp;L, Derived &amp;&amp;R)</td></tr>
+<tr class="memdesc:a2a24739e694ad57d8df9755c4f75fb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">lowRank move constructor <br /></td></tr>
+<tr class="separator:a2a24739e694ad57d8df9755c4f75fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b3b6a0b86a2a4761ef289db113fd87"><td class="memItemLeft" align="right" valign="top"><a id="a23b3b6a0b86a2a4761ef289db113fd87"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87">TreeLeaf</a> (Derived &amp;&amp;F)</td></tr>
+<tr class="memdesc:a23b3b6a0b86a2a4761ef289db113fd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">full move constructor <br /></td></tr>
+<tr class="separator:a23b3b6a0b86a2a4761ef289db113fd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03a169bac2828a07b0a0b94c45882ed"><td class="memItemLeft" align="right" valign="top"><a id="aa03a169bac2828a07b0a0b94c45882ed"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_low_rank</b> ()</td></tr>
+<tr class="separator:aa03a169bac2828a07b0a0b94c45882ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f6b18d270b7326665560fb6dc5571b"><td class="memItemLeft" align="right" valign="top"><a id="a30f6b18d270b7326665560fb6dc5571b"></a>
+Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_F</b> ()</td></tr>
+<tr class="separator:a30f6b18d270b7326665560fb6dc5571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3e98b7be0a60486dedab4292f647dab"><td class="memItemLeft" align="right" valign="top"><a id="af3e98b7be0a60486dedab4292f647dab"></a>
+Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_L</b> ()</td></tr>
+<tr class="separator:af3e98b7be0a60486dedab4292f647dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b0fd65075c89ad9879efabbdb63bdd"><td class="memItemLeft" align="right" valign="top"><a id="a74b0fd65075c89ad9879efabbdb63bdd"></a>
+Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_R</b> ()</td></tr>
+<tr class="separator:a74b0fd65075c89ad9879efabbdb63bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86121b24b157f31e4460e37e0bcfcbc0"><td class="memItemLeft" align="right" valign="top"><a id="a86121b24b157f31e4460e37e0bcfcbc0"></a>
+const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_F</b> () const</td></tr>
+<tr class="separator:a86121b24b157f31e4460e37e0bcfcbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3737d50bab3c6d445793fc85a24542a0"><td class="memItemLeft" align="right" valign="top"><a id="a3737d50bab3c6d445793fc85a24542a0"></a>
+const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_L</b> () const</td></tr>
+<tr class="separator:a3737d50bab3c6d445793fc85a24542a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e351e787ce8815ee5b23979b7c75f6"><td class="memItemLeft" align="right" valign="top"><a id="a49e351e787ce8815ee5b23979b7c75f6"></a>
+Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_R</b> () const</td></tr>
+<tr class="separator:a49e351e787ce8815ee5b23979b7c75f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a421d5f1588acbdff41d3d52e7d3ccbe4"><td class="memItemLeft" align="right" valign="top"><a id="a421d5f1588acbdff41d3d52e7d3ccbe4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_low_rank_flag</b> (bool flag)</td></tr>
+<tr class="separator:a421d5f1588acbdff41d3d52e7d3ccbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75a52027d82e6210a3484532027fba2"><td class="memItemLeft" align="right" valign="top"><a id="ae75a52027d82e6210a3484532027fba2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_F</b> (const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;F)</td></tr>
+<tr class="separator:ae75a52027d82e6210a3484532027fba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d95091672314986a0cad097a8dda46"><td class="memItemLeft" align="right" valign="top"><a id="a27d95091672314986a0cad097a8dda46"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_L</b> (const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;L)</td></tr>
+<tr class="separator:a27d95091672314986a0cad097a8dda46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c524a935e0122c0ce5957ede55569c"><td class="memItemLeft" align="right" valign="top"><a id="a21c524a935e0122c0ce5957ede55569c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_R</b> (const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;R)</td></tr>
+<tr class="separator:a21c524a935e0122c0ce5957ede55569c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e27ec900aa372b8fd20bcd9d720b2f6"><td class="memItemLeft" align="right" valign="top"><a id="a0e27ec900aa372b8fd20bcd9d720b2f6"></a>
+<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_tree_leaf.html#a0e27ec900aa372b8fd20bcd9d720b2f6">operator=</a> (<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> other)</td></tr>
+<tr class="memdesc:a0e27ec900aa372b8fd20bcd9d720b2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignment operator, works for copy and move assignment <br /></td></tr>
+<tr class="separator:a0e27ec900aa372b8fd20bcd9d720b2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p>void constructor </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00025">25</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a37d64902f934440fe267b9cdfca256f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37d64902f934440fe267b9cdfca256f0">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[2/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a>&lt; Derived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>copy constructor </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00033">33</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5fc78cbaf513afb47c5bd87766a49854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fc78cbaf513afb47c5bd87766a49854">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a>&lt; Derived &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>move constructor </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00041">41</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9565e3bfaa3cee339b541a38d60d1fc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9565e3bfaa3cee339b541a38d60d1fc3">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<div class="memtemplate">
-template&lt;typename otherDerived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::MatrixBase&lt; otherDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::MatrixBase&lt; otherDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>R</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>lowRank constructor whatever <a class="el" href="namespace_eigen.html">Eigen</a> object is put in here will be evaluated </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00051">51</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af44413eb5337f59c51250f5ade151358"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af44413eb5337f59c51250f5ade151358">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<div class="memtemplate">
-template&lt;typename otherDerived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::MatrixBase&lt; otherDerived &gt; &amp;&#160;</td>
-          <td class="paramname"><em>F</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>full constructor whatever <a class="el" href="namespace_eigen.html">Eigen</a> object is put in here will be evaluated </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00059">59</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2a24739e694ad57d8df9755c4f75fb6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a24739e694ad57d8df9755c4f75fb6a">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[6/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype">Derived &amp;&amp;&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Derived &amp;&amp;&#160;</td>
-          <td class="paramname"><em>R</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>lowRank move constructor </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00064">64</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a23b3b6a0b86a2a4761ef289db113fd87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23b3b6a0b86a2a4761ef289db113fd87">&#9670;&nbsp;</a></span>TreeLeaf() <span class="overload">[7/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a> </td>
-          <td>(</td>
-          <td class="paramtype">Derived &amp;&amp;&#160;</td>
-          <td class="paramname"><em>F</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>full move constructor </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00069">69</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a30f6b18d270b7326665560fb6dc5571b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30f6b18d270b7326665560fb6dc5571b">&#9670;&nbsp;</a></span>get_F() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::get_F </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00076">76</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a86121b24b157f31e4460e37e0bcfcbc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86121b24b157f31e4460e37e0bcfcbc0">&#9670;&nbsp;</a></span>get_F() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::get_F </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00088">88</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af3e98b7be0a60486dedab4292f647dab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3e98b7be0a60486dedab4292f647dab">&#9670;&nbsp;</a></span>get_L() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::get_L </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00080">80</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3737d50bab3c6d445793fc85a24542a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3737d50bab3c6d445793fc85a24542a0">&#9670;&nbsp;</a></span>get_L() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::get_L </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00092">92</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a74b0fd65075c89ad9879efabbdb63bdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74b0fd65075c89ad9879efabbdb63bdd">&#9670;&nbsp;</a></span>get_R() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::get_R </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00084">84</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a49e351e787ce8815ee5b23979b7c75f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49e351e787ce8815ee5b23979b7c75f6">&#9670;&nbsp;</a></span>get_R() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Matrix&lt;typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic&gt;&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::get_R </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00096">96</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa03a169bac2828a07b0a0b94c45882ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa03a169bac2828a07b0a0b94c45882ed">&#9670;&nbsp;</a></span>is_low_rank()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::is_low_rank </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00074">74</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0e27ec900aa372b8fd20bcd9d720b2f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e27ec900aa372b8fd20bcd9d720b2f6">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a>&amp; <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a>&lt; Derived &gt;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>assignment operator, works for copy and move assignment </p>
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00124">124</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae75a52027d82e6210a3484532027fba2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae75a52027d82e6210a3484532027fba2">&#9670;&nbsp;</a></span>set_F()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::set_F </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td>
-          <td class="paramname"><em>F</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00106">106</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a27d95091672314986a0cad097a8dda46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27d95091672314986a0cad097a8dda46">&#9670;&nbsp;</a></span>set_L()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::set_L </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td>
-          <td class="paramname"><em>L</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00110">110</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a421d5f1588acbdff41d3d52e7d3ccbe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a421d5f1588acbdff41d3d52e7d3ccbe4">&#9670;&nbsp;</a></span>set_low_rank_flag()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::set_low_rank_flag </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>flag</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00102">102</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a21c524a935e0122c0ce5957ede55569c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21c524a935e0122c0ce5957ede55569c">&#9670;&nbsp;</a></span>set_R()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_bembel_1_1_tree_leaf.html">Bembel::TreeLeaf</a>&lt; Derived &gt;::set_R </td>
-          <td>(</td>
-          <td class="paramtype">const Eigen::Matrix&lt; typename Derived::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;&#160;</td>
-          <td class="paramname"><em>R</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_tree_leaf_8hpp_source.html#l00114">114</a> of file <a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/H2Matrix/<a class="el" href="_tree_leaf_8hpp_source.html">TreeLeaf.hpp</a></li>
 </ul>
@@ -770,7 +199,7 @@ template&lt;typename Derived &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_tree_leaf.html">TreeLeaf</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

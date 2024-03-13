@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['potential_1711',['Potential',['../group___potential.html',1,'']]]
+  ['maxwell_900',['Maxwell',['../group___maxwell.html',1,'']]],
+  ['modules_901',['Modules',['../group___modules.html',1,'']]]
 ];

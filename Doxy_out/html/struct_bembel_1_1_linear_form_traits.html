@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,49 +104,29 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_linear_form_traits.h
 <a href="#pub-types">Public Types</a> &#124;
 <a href="struct_bembel_1_1_linear_form_traits-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::LinearFormTraits&lt; Derived &gt; Struct Template Reference</div>  </div>
+<div class="title">Bembel::LinearFormTraits&lt; Derived &gt; Struct Template Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___linear_form.html">LinearForm</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>This class needs to be specialized, such that key traits for user defined LinearForms are available.  
+ <a href="struct_bembel_1_1_linear_form_traits.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_linear_form_8hpp_source.html">LinearForm.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa8ea3cb3232c7de176d78cf00684c357"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="struct_bembel_1_1_linear_form_traits.html#aa8ea3cb3232c7de176d78cf00684c357a2fd17a7d9081c02fee070cb8222b5ddc">YOU_DID_NOT_SPECIFY_LINEARFORM_TRAITS</a> = 1
- }</td></tr>
-<tr class="separator:aa8ea3cb3232c7de176d78cf00684c357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 struct Bembel::LinearFormTraits&lt; Derived &gt;</h3>
 
-<pre class="fragment">\ingroup LinearForm
-\brief This class needs to be specialized, such that key traits for user
-</pre><p> defined LinearForms are available. </p>
+<p>This class needs to be specialized, such that key traits for user defined LinearForms are available. </p>
+<p>LinearForm implements trace operators, i.e., routines to generate the right hand side of the linear systems. Currently, only a Dirichlet trace, tangential trace and a rotated tangential trace are provided. </p>
 
-<p class="definition">Definition at line <a class="el" href="_linear_form_8hpp_source.html#l00021">21</a> of file <a class="el" href="_linear_form_8hpp_source.html">LinearForm.hpp</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="aa8ea3cb3232c7de176d78cf00684c357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8ea3cb3232c7de176d78cf00684c357">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa8ea3cb3232c7de176d78cf00684c357a2fd17a7d9081c02fee070cb8222b5ddc"></a>YOU_DID_NOT_SPECIFY_LINEARFORM_TRAITS&#160;</td><td class="fielddoc"></td></tr>
+<p class="definition">Definition at line <a class="el" href="_linear_form_8hpp_source.html#l00025">25</a> of file <a class="el" href="_linear_form_8hpp_source.html">LinearForm.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa8ea3cb3232c7de176d78cf00684c357"><td class="memItemLeft" align="right" valign="top"><a id="aa8ea3cb3232c7de176d78cf00684c357"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>YOU_DID_NOT_SPECIFY_LINEARFORM_TRAITS</b> = 1
+ }</td></tr>
+<tr class="separator:aa8ea3cb3232c7de176d78cf00684c357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_linear_form_8hpp_source.html#l00022">22</a> of file <a class="el" href="_linear_form_8hpp_source.html">LinearForm.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Bembel/src/LinearForm/<a class="el" href="_linear_form_8hpp_source.html">LinearForm.hpp</a></li>
 </ul>
@@ -145,7 +136,7 @@ template&lt;typename Derived &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="struct_bembel_1_1_linear_form_traits.html">LinearFormTraits</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

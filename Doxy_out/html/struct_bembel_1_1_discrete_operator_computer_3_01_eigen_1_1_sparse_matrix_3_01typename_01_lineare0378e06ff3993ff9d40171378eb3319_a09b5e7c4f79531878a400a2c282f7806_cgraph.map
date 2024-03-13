@@ -1,6 +1,0 @@
-<map id="Bembel::DiscreteOperatorComputer&lt; Eigen::SparseMatrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;::compute" name="Bembel::DiscreteOperatorComputer&lt; Eigen::SparseMatrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;::compute">
-<area shape="rect" id="node1" title=" " alt="" coords="5,21,244,106"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_discrete_local_operator_computer.html#a9ab3c51c3d4b59606d730036704b8185" title=" " alt="" coords="292,43,517,84"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_ansatz_space.html#a976516196d270b3fb5f3af0ef34dc95b" title=" " alt="" coords="565,5,728,47"/>
-<area shape="rect" id="node4" href="$class_bembel_1_1_ansatz_space.html#a5649a924885719a7bff5fd7ba2f90640" title=" " alt="" coords="565,71,728,127"/>
-</map>

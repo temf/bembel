@@ -1,4 +1,4 @@
 <map id="Bembel::QuadratureVector&lt; QuadratureRule, 0 &gt;" name="Bembel::QuadratureVector&lt; QuadratureRule, 0 &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,95,200,136"/>
+<area shape="rect" id="node1" title="this struct wraps all the defined quadrature Rules in a nice structure overloading the [] operator su..." alt="" coords="5,95,200,136"/>
 <area shape="rect" id="node2" href="$struct_bembel_1_1_quadrature.html" title=" " alt="" coords="7,5,198,32"/>
 </map>

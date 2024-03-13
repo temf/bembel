@@ -1,5 +1,0 @@
-<map id="Bembel::H2Multipole::Moment2D&lt; InterpolationPoints, HelmholtzHypersingularOperator &gt;::compute2DMoment" name="Bembel::H2Multipole::Moment2D&lt; InterpolationPoints, HelmholtzHypersingularOperator &gt;::compute2DMoment">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,249,76"/>
-<area shape="rect" id="node2" href="$group___h2_matrix.html#gac08b2cd8d930efac4c5f9c836d3134d7" title="Computes a single 2D moment for the FMM by tensorisation of the 1D moments." alt="" coords="297,20,464,61"/>
-<area shape="rect" id="node3" href="$struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548" title=" " alt="" coords="512,20,695,61"/>
-</map>

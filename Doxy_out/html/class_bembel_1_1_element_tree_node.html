@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -90,16 +101,16 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_element_tree_node.htm
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_bembel_1_1_element_tree_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::ElementTreeNode Class Reference<div class="ingroups"><a class="el" href="group___cluster_tree.html">ClusterTree</a></div></div>  </div>
+<div class="title">Bembel::ElementTreeNode Class Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___cluster_tree.html">ClusterTree</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode correposnds to an element in the element tree.">ElementTreeNode</a> correposnds to an element in the element tree.  
+<p>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> corresponds to an element in the element tree.  
  <a href="class_bembel_1_1_element_tree_node.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>&gt;</code></p>
@@ -108,94 +119,120 @@ Collaboration diagram for Bembel::ElementTreeNode:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_bembel_1_1_element_tree_node__coll__graph.png" border="0" usemap="#a_bembel_1_1_element_tree_node_coll__map" alt="Collaboration graph"/></div>
 <map name="a_bembel_1_1_element_tree_node_coll__map" id="a_bembel_1_1_element_tree_node_coll__map">
-<area shape="rect" title="The ElementTreeNode correposnds to an element in the element tree." alt="" coords="5,7,200,33"/>
+<area shape="rect" title="The ElementTreeNode corresponds to an element in the element tree." alt="" coords="5,7,200,33"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html">const_iterator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> corresponds to an element in the element tree. </p>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00021">21</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2617adbdf0f465cbcb3e0c77fe6e609"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#aa2617adbdf0f465cbcb3e0c77fe6e609">ElementTreeNode</a> () noexcept</td></tr>
 <tr class="memdesc:aa2617adbdf0f465cbcb3e0c77fe6e609"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructors  <a href="class_bembel_1_1_element_tree_node.html#aa2617adbdf0f465cbcb3e0c77fe6e609">More...</a><br /></td></tr>
 <tr class="separator:aa2617adbdf0f465cbcb3e0c77fe6e609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d6a7050f7e1d71ace47682f906c81c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a7d6a7050f7e1d71ace47682f906c81c2">ElementTreeNode</a> (<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memitem:a7d6a7050f7e1d71ace47682f906c81c2"><td class="memItemLeft" align="right" valign="top"><a id="a7d6a7050f7e1d71ace47682f906c81c2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a7d6a7050f7e1d71ace47682f906c81c2">ElementTreeNode</a> (<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a7d6a7050f7e1d71ace47682f906c81c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
 <tr class="separator:a7d6a7050f7e1d71ace47682f906c81c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dca8f10d3c2c0e71d0476e08f044025"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a1dca8f10d3c2c0e71d0476e08f044025">ElementTreeNode</a> (const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a1dca8f10d3c2c0e71d0476e08f044025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor (deleted).  <a href="class_bembel_1_1_element_tree_node.html#a1dca8f10d3c2c0e71d0476e08f044025">More...</a><br /></td></tr>
 <tr class="separator:a1dca8f10d3c2c0e71d0476e08f044025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31242b584ac3018c4a08a0572cab2a43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a31242b584ac3018c4a08a0572cab2a43">operator=</a> (const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a31242b584ac3018c4a08a0572cab2a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator (deleted).  <a href="class_bembel_1_1_element_tree_node.html#a31242b584ac3018c4a08a0572cab2a43">More...</a><br /></td></tr>
 <tr class="separator:a31242b584ac3018c4a08a0572cab2a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f190789256a2481d3bcc71c6f2041e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a72f190789256a2481d3bcc71c6f2041e">operator=</a> (<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a72f190789256a2481d3bcc71c6f2041e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator (deleted).  <a href="class_bembel_1_1_element_tree_node.html#a72f190789256a2481d3bcc71c6f2041e">More...</a><br /></td></tr>
 <tr class="separator:a72f190789256a2481d3bcc71c6f2041e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f761a70e0e5122470a821ec833ce2ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a6f761a70e0e5122470a821ec833ce2ca">print</a> () const</td></tr>
 <tr class="memdesc:a6f761a70e0e5122470a821ec833ce2ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">methods  <a href="class_bembel_1_1_element_tree_node.html#a6f761a70e0e5122470a821ec833ce2ca">More...</a><br /></td></tr>
 <tr class="separator:a6f761a70e0e5122470a821ec833ce2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb52690ebac4df925982bdae798f5528"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#abb52690ebac4df925982bdae798f5528">mapToReferenceElement</a> (const Eigen::Vector2d &amp;in) const</td></tr>
+<tr class="memdesc:abb52690ebac4df925982bdae798f5528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a point in the reference domain of a patch to the reference element of this element.  <a href="class_bembel_1_1_element_tree_node.html#abb52690ebac4df925982bdae798f5528">More...</a><br /></td></tr>
 <tr class="separator:abb52690ebac4df925982bdae798f5528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3631bf2aa5cb9919af47bc751a4cf8c"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#ae3631bf2aa5cb9919af47bc751a4cf8c">referenceMidpoint</a> () const</td></tr>
+<tr class="memdesc:ae3631bf2aa5cb9919af47bc751a4cf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the midpoint of this element with respect to the patch.  <a href="class_bembel_1_1_element_tree_node.html#ae3631bf2aa5cb9919af47bc751a4cf8c">More...</a><br /></td></tr>
 <tr class="separator:ae3631bf2aa5cb9919af47bc751a4cf8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abee5373e9a9134d43f1b0fa23d0a3b36"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36">get_h</a> () const</td></tr>
 <tr class="memdesc:abee5373e9a9134d43f1b0fa23d0a3b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter  <a href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36">More...</a><br /></td></tr>
 <tr class="separator:abee5373e9a9134d43f1b0fa23d0a3b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cf5b11fcc0a12c54d35577a15084422"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a6cf5b11fcc0a12c54d35577a15084422">get_level</a> () const</td></tr>
+<tr class="memdesc:a6cf5b11fcc0a12c54d35577a15084422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the level of refinement of the element.  <a href="class_bembel_1_1_element_tree_node.html#a6cf5b11fcc0a12c54d35577a15084422">More...</a><br /></td></tr>
 <tr class="separator:a6cf5b11fcc0a12c54d35577a15084422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae71be09518a93f28bbe195f7aefd08cc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#ae71be09518a93f28bbe195f7aefd08cc">front</a> () const</td></tr>
+<tr class="memdesc:ae71be09518a93f28bbe195f7aefd08cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const reference to the first son if any or itself.  <a href="class_bembel_1_1_element_tree_node.html#ae71be09518a93f28bbe195f7aefd08cc">More...</a><br /></td></tr>
 <tr class="separator:ae71be09518a93f28bbe195f7aefd08cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af01c5109d38e29fedbeb526f0598ba15"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#af01c5109d38e29fedbeb526f0598ba15">back</a> () const</td></tr>
+<tr class="memdesc:af01c5109d38e29fedbeb526f0598ba15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const reference to the last son if any or itself.  <a href="class_bembel_1_1_element_tree_node.html#af01c5109d38e29fedbeb526f0598ba15">More...</a><br /></td></tr>
 <tr class="separator:af01c5109d38e29fedbeb526f0598ba15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94baac818c42f493cd46b6cbf0ccc1f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a94baac818c42f493cd46b6cbf0ccc1f8">cbegin</a> () const</td></tr>
+<tr class="memdesc:a94baac818c42f493cd46b6cbf0ccc1f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator pointing to the element in the sequence before this ElementTreeNodes.  <a href="class_bembel_1_1_element_tree_node.html#a94baac818c42f493cd46b6cbf0ccc1f8">More...</a><br /></td></tr>
 <tr class="separator:a94baac818c42f493cd46b6cbf0ccc1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a137017e42253c1fb88d21ab63ab6af8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a137017e42253c1fb88d21ab63ab6af8e">cend</a> () const</td></tr>
+<tr class="memdesc:a137017e42253c1fb88d21ab63ab6af8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator pointing to the element in the sequence after this <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a>.  <a href="class_bembel_1_1_element_tree_node.html#a137017e42253c1fb88d21ab63ab6af8e">More...</a><br /></td></tr>
 <tr class="separator:a137017e42253c1fb88d21ab63ab6af8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b3fa4922e92a157c154a8e36a6e78e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a4b3fa4922e92a157c154a8e36a6e78e9">begin</a> () const</td></tr>
+<tr class="memdesc:a4b3fa4922e92a157c154a8e36a6e78e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator pointing to the element in the sequence before this ElementTreeNodes.  <a href="class_bembel_1_1_element_tree_node.html#a4b3fa4922e92a157c154a8e36a6e78e9">More...</a><br /></td></tr>
 <tr class="separator:a4b3fa4922e92a157c154a8e36a6e78e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af00e0f28bd1f612f2b90f950e0752f1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#af00e0f28bd1f612f2b90f950e0752f1f">end</a> () const</td></tr>
+<tr class="memdesc:af00e0f28bd1f612f2b90f950e0752f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator pointing to the element in the sequence after this <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a>.  <a href="class_bembel_1_1_element_tree_node.html#af00e0f28bd1f612f2b90f950e0752f1f">More...</a><br /></td></tr>
 <tr class="separator:af00e0f28bd1f612f2b90f950e0752f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html">const_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">iterator struct for element tree nodes. They may be used to iterator over the elements in a cluster. To do so, however, the cluster must be set up by <a class="el" href="class_bembel_1_1_element_tree.html" title="This class organizes an element structure on a Geometry object and handles refinement.">ElementTree</a> beforehand.  <a href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae3b0c9c48996599cfcbc6a538aa92e9d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a></td></tr>
-<tr class="memdesc:ae3b0c9c48996599cfcbc6a538aa92e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">member variables  <a href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">More...</a><br /></td></tr>
+<tr class="memitem:ae3b0c9c48996599cfcbc6a538aa92e9d"><td class="memItemLeft" align="right" valign="top"><a id="ae3b0c9c48996599cfcbc6a538aa92e9d"></a>
+std::vector&lt; <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a></td></tr>
+<tr class="memdesc:ae3b0c9c48996599cfcbc6a538aa92e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">member variables <br /></td></tr>
 <tr class="separator:ae3b0c9c48996599cfcbc6a538aa92e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac071cbea5c19456524246c4ad79c65bd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">adjcents_</a></td></tr>
-<tr class="memdesc:ac071cbea5c19456524246c4ad79c65bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">children  <a href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">More...</a><br /></td></tr>
+<tr class="memitem:ac071cbea5c19456524246c4ad79c65bd"><td class="memItemLeft" align="right" valign="top"><a id="ac071cbea5c19456524246c4ad79c65bd"></a>
+std::vector&lt; <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">adjcents_</a></td></tr>
+<tr class="memdesc:ac071cbea5c19456524246c4ad79c65bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">children <br /></td></tr>
 <tr class="separator:ac071cbea5c19456524246c4ad79c65bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6de377b349500311b109376881d3ce06"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a></td></tr>
-<tr class="memdesc:a6de377b349500311b109376881d3ce06"><td class="mdescLeft">&#160;</td><td class="mdescRight">neighbouring elements indices  <a href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">More...</a><br /></td></tr>
+<tr class="memitem:a6de377b349500311b109376881d3ce06"><td class="memItemLeft" align="right" valign="top"><a id="a6de377b349500311b109376881d3ce06"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a></td></tr>
+<tr class="memdesc:a6de377b349500311b109376881d3ce06"><td class="mdescLeft">&#160;</td><td class="mdescRight">neighbouring elements indices <br /></td></tr>
 <tr class="separator:a6de377b349500311b109376881d3ce06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba009f625a16ee295776fa5f5567f139"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">midpoint_</a></td></tr>
-<tr class="memdesc:aba009f625a16ee295776fa5f5567f139"><td class="mdescLeft">&#160;</td><td class="mdescRight">indices of the vertices  <a href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">More...</a><br /></td></tr>
+<tr class="memitem:aba009f625a16ee295776fa5f5567f139"><td class="memItemLeft" align="right" valign="top"><a id="aba009f625a16ee295776fa5f5567f139"></a>
+Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">midpoint_</a></td></tr>
+<tr class="memdesc:aba009f625a16ee295776fa5f5567f139"><td class="mdescLeft">&#160;</td><td class="mdescRight">indices of the vertices <br /></td></tr>
 <tr class="separator:aba009f625a16ee295776fa5f5567f139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a846769f7d42f3c9d2448cf4e4d572d"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a7a846769f7d42f3c9d2448cf4e4d572d">llc_</a></td></tr>
-<tr class="memdesc:a7a846769f7d42f3c9d2448cf4e4d572d"><td class="mdescLeft">&#160;</td><td class="mdescRight">midpoint of the element  <a href="class_bembel_1_1_element_tree_node.html#a7a846769f7d42f3c9d2448cf4e4d572d">More...</a><br /></td></tr>
+<tr class="memitem:a7a846769f7d42f3c9d2448cf4e4d572d"><td class="memItemLeft" align="right" valign="top"><a id="a7a846769f7d42f3c9d2448cf4e4d572d"></a>
+Eigen::Vector2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a7a846769f7d42f3c9d2448cf4e4d572d">llc_</a></td></tr>
+<tr class="memdesc:a7a846769f7d42f3c9d2448cf4e4d572d"><td class="mdescLeft">&#160;</td><td class="mdescRight">midpoint of the element <br /></td></tr>
 <tr class="separator:a7a846769f7d42f3c9d2448cf4e4d572d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a9f26e0cfe6ff5ec3c1a9e67ce5f9578d">prev_</a></td></tr>
-<tr class="memdesc:a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"><td class="mdescLeft">&#160;</td><td class="mdescRight">lower left corner on [0,1]^2  <a href="class_bembel_1_1_element_tree_node.html#a9f26e0cfe6ff5ec3c1a9e67ce5f9578d">More...</a><br /></td></tr>
+<tr class="memitem:a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"><td class="memItemLeft" align="right" valign="top"><a id="a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"></a>
+<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a9f26e0cfe6ff5ec3c1a9e67ce5f9578d">prev_</a></td></tr>
+<tr class="memdesc:a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"><td class="mdescLeft">&#160;</td><td class="mdescRight">lower left corner on [0,1]^2 <br /></td></tr>
 <tr class="separator:a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bbb54d2acd083f5c011036740723c9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a3bbb54d2acd083f5c011036740723c9f">next_</a></td></tr>
+<tr class="memitem:a3bbb54d2acd083f5c011036740723c9f"><td class="memItemLeft" align="right" valign="top"><a id="a3bbb54d2acd083f5c011036740723c9f"></a>
+<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>next_</b></td></tr>
 <tr class="separator:a3bbb54d2acd083f5c011036740723c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60b695106f9824b6dd8253e2cad937ac"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a60b695106f9824b6dd8253e2cad937ac">radius_</a></td></tr>
+<tr class="memitem:a60b695106f9824b6dd8253e2cad937ac"><td class="memItemLeft" align="right" valign="top"><a id="a60b695106f9824b6dd8253e2cad937ac"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>radius_</b></td></tr>
 <tr class="separator:a60b695106f9824b6dd8253e2cad937ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030b4d2002ceeeeabf90a3874f9e94b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">id_</a></td></tr>
-<tr class="memdesc:a030b4d2002ceeeeabf90a3874f9e94b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">radius of the element  <a href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">More...</a><br /></td></tr>
+<tr class="memitem:a030b4d2002ceeeeabf90a3874f9e94b3"><td class="memItemLeft" align="right" valign="top"><a id="a030b4d2002ceeeeabf90a3874f9e94b3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">id_</a></td></tr>
+<tr class="memdesc:a030b4d2002ceeeeabf90a3874f9e94b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">radius of the element <br /></td></tr>
 <tr class="separator:a030b4d2002ceeeeabf90a3874f9e94b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15b29d19d3bd69cd8d08323c93bce00f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">level_</a></td></tr>
-<tr class="memdesc:a15b29d19d3bd69cd8d08323c93bce00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">element id with respect to the level  <a href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">More...</a><br /></td></tr>
+<tr class="memitem:a15b29d19d3bd69cd8d08323c93bce00f"><td class="memItemLeft" align="right" valign="top"><a id="a15b29d19d3bd69cd8d08323c93bce00f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">level_</a></td></tr>
+<tr class="memdesc:a15b29d19d3bd69cd8d08323c93bce00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">element id with respect to the level <br /></td></tr>
 <tr class="separator:a15b29d19d3bd69cd8d08323c93bce00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce8406f0f90d030f3207622af590040"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#abce8406f0f90d030f3207622af590040">patch_</a></td></tr>
-<tr class="memdesc:abce8406f0f90d030f3207622af590040"><td class="mdescLeft">&#160;</td><td class="mdescRight">level of the element  <a href="class_bembel_1_1_element_tree_node.html#abce8406f0f90d030f3207622af590040">More...</a><br /></td></tr>
+<tr class="memitem:abce8406f0f90d030f3207622af590040"><td class="memItemLeft" align="right" valign="top"><a id="abce8406f0f90d030f3207622af590040"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree_node.html#abce8406f0f90d030f3207622af590040">patch_</a></td></tr>
+<tr class="memdesc:abce8406f0f90d030f3207622af590040"><td class="mdescLeft">&#160;</td><td class="mdescRight">level of the element <br /></td></tr>
 <tr class="separator:abce8406f0f90d030f3207622af590040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode correposnds to an element in the element tree.">ElementTreeNode</a> correposnds to an element in the element tree. </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00021">21</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa2617adbdf0f465cbcb3e0c77fe6e609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2617adbdf0f465cbcb3e0c77fe6e609">&#9670;&nbsp;</a></span>ElementTreeNode() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2617adbdf0f465cbcb3e0c77fe6e609">&#9670;&nbsp;</a></span>ElementTreeNode() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,41 +255,14 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>constructors </p>
+<p>Default constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00067">67</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7d6a7050f7e1d71ace47682f906c81c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d6a7050f7e1d71ace47682f906c81c2">&#9670;&nbsp;</a></span>ElementTreeNode() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Bembel::ElementTreeNode::ElementTreeNode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00077">77</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00088">88</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a1dca8f10d3c2c0e71d0476e08f044025"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dca8f10d3c2c0e71d0476e08f044025">&#9670;&nbsp;</a></span>ElementTreeNode() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dca8f10d3c2c0e71d0476e08f044025">&#9670;&nbsp;</a></span>ElementTreeNode() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,6 +284,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Copy constructor (deleted). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> instance to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -301,24 +319,10 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00137">137</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_af01c5109d38e29fedbeb526f0598ba15_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_af01c5109d38e29fedbeb526f0598ba15_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_af01c5109d38e29fedbeb526f0598ba15_icgraph" id="aclass_bembel_1_1_element_tree_node_af01c5109d38e29fedbeb526f0598ba15_icgraph">
-<area shape="rect" title=" " alt="" coords="1235,75,1429,116"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#a137017e42253c1fb88d21ab63ab6af8e" title=" " alt="" coords="992,75,1187,116"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#ade83cee307e4ac95eb69680422f59df1" title=" " alt="" coords="750,45,911,87"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#af00e0f28bd1f612f2b90f950e0752f1f" title=" " alt="" coords="717,111,944,138"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9" title="methods" alt="" coords="480,5,669,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ab0314bd9541174723b14901687a909d4" title=" " alt="" coords="480,71,669,112"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ae744460d917d77256c45c37107bb8c88" title=" " alt="" coords="480,136,669,177"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="497,201,652,243"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="243,5,432,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="5,5,195,47"/>
-</map>
-</div>
+<p>Returns a const reference to the last son if any or itself. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the last son or this element itself. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00218">218</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -345,31 +349,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00153">153</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_cgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_cgraph" id="aclass_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#a94baac818c42f493cd46b6cbf0ccc1f8" title=" " alt="" coords="248,5,443,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#ae71be09518a93f28bbe195f7aefd08cc" title=" " alt="" coords="491,5,685,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_icgraph" id="aclass_bembel_1_1_element_tree_node_a4b3fa4922e92a157c154a8e36a6e78e9_icgraph">
-<area shape="rect" title=" " alt="" coords="717,104,912,145"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9" title="methods" alt="" coords="480,5,669,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a1bb24acdd69e927e3a0a8e14fbb5cf0a" title=" " alt="" coords="480,71,669,112"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a52b4291cd2d7729bdfd6d738b5f5229e" title=" " alt="" coords="480,136,669,177"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="497,201,652,243"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="243,5,432,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="5,5,195,47"/>
-</map>
-</div>
+<p>Returns an iterator pointing to the element in the sequence before this ElementTreeNodes. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html" title="iterator struct for element tree nodes. They may be used to iterator over the elements in a cluster....">ElementTreeNode::const_iterator</a> object. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00253">253</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -396,32 +379,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00143">143</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_cgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_cgraph" id="aclass_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#ae71be09518a93f28bbe195f7aefd08cc" title=" " alt="" coords="248,5,443,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_icgraph" id="aclass_bembel_1_1_element_tree_node_a94baac818c42f493cd46b6cbf0ccc1f8_icgraph">
-<area shape="rect" title=" " alt="" coords="960,137,1155,179"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#a4b3fa4922e92a157c154a8e36a6e78e9" title=" " alt="" coords="717,104,912,145"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a50f2b8130863eded89bb1e0055bbaaa8" title=" " alt="" coords="734,169,895,211"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9" title="methods" alt="" coords="480,5,669,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a1bb24acdd69e927e3a0a8e14fbb5cf0a" title=" " alt="" coords="480,71,669,112"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a52b4291cd2d7729bdfd6d738b5f5229e" title=" " alt="" coords="480,136,669,177"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="497,201,652,243"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="243,5,432,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="5,5,195,47"/>
-</map>
-</div>
+<p>Returns an iterator pointing to the element in the sequence before this ElementTreeNodes. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html" title="iterator struct for element tree nodes. They may be used to iterator over the elements in a cluster....">ElementTreeNode::const_iterator</a> object. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00231">231</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -448,32 +409,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00148">148</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_cgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_cgraph" id="aclass_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#af01c5109d38e29fedbeb526f0598ba15" title=" " alt="" coords="248,5,443,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_icgraph" id="aclass_bembel_1_1_element_tree_node_a137017e42253c1fb88d21ab63ab6af8e_icgraph">
-<area shape="rect" title=" " alt="" coords="992,75,1187,116"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#ade83cee307e4ac95eb69680422f59df1" title=" " alt="" coords="750,45,911,87"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#af00e0f28bd1f612f2b90f950e0752f1f" title=" " alt="" coords="717,111,944,138"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9" title="methods" alt="" coords="480,5,669,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ab0314bd9541174723b14901687a909d4" title=" " alt="" coords="480,71,669,112"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ae744460d917d77256c45c37107bb8c88" title=" " alt="" coords="480,136,669,177"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="497,201,652,243"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="243,5,432,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="5,5,195,47"/>
-</map>
-</div>
+<p>Returns an iterator pointing to the element in the sequence after this <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html" title="iterator struct for element tree nodes. They may be used to iterator over the elements in a cluster....">ElementTreeNode::const_iterator</a> object. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00242">242</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -500,31 +439,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00155">155</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_cgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_cgraph" id="aclass_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,232,39"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#a137017e42253c1fb88d21ab63ab6af8e" title=" " alt="" coords="280,5,475,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#af01c5109d38e29fedbeb526f0598ba15" title=" " alt="" coords="523,5,717,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_icgraph" id="aclass_bembel_1_1_element_tree_node_af00e0f28bd1f612f2b90f950e0752f1f_icgraph">
-<area shape="rect" title=" " alt="" coords="717,111,944,138"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9" title="methods" alt="" coords="480,5,669,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ab0314bd9541174723b14901687a909d4" title=" " alt="" coords="480,71,669,112"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ae744460d917d77256c45c37107bb8c88" title=" " alt="" coords="480,136,669,177"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="497,201,652,243"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="243,5,432,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="5,5,195,47"/>
-</map>
-</div>
+<p>Returns an iterator pointing to the element in the sequence after this <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <a class="el" href="struct_bembel_1_1_element_tree_node_1_1const__iterator.html" title="iterator struct for element tree nodes. They may be used to iterator over the elements in a cluster....">ElementTreeNode::const_iterator</a> object. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00261">261</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -551,24 +469,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00131">131</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_ae71be09518a93f28bbe195f7aefd08cc_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_ae71be09518a93f28bbe195f7aefd08cc_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_ae71be09518a93f28bbe195f7aefd08cc_icgraph" id="aclass_bembel_1_1_element_tree_node_ae71be09518a93f28bbe195f7aefd08cc_icgraph">
-<area shape="rect" title=" " alt="" coords="1203,137,1397,179"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#a94baac818c42f493cd46b6cbf0ccc1f8" title=" " alt="" coords="960,137,1155,179"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#a4b3fa4922e92a157c154a8e36a6e78e9" title=" " alt="" coords="717,104,912,145"/>
-<area shape="rect" href="class_bembel_1_1_element_tree.html#a50f2b8130863eded89bb1e0055bbaaa8" title=" " alt="" coords="734,169,895,211"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a2558006474f4306c4b34bee53a0b35b9" title="methods" alt="" coords="480,5,669,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a1bb24acdd69e927e3a0a8e14fbb5cf0a" title=" " alt="" coords="480,71,669,112"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a52b4291cd2d7729bdfd6d738b5f5229e" title=" " alt="" coords="480,136,669,177"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="497,201,652,243"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="243,5,432,47"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="5,5,195,47"/>
-</map>
-</div>
+<p>Returns a const reference to the first son if any or itself. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the first son or this element itself. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00207">207</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -596,33 +500,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>getter </p>
+<p>Get with of the reference element with respect to the reference domain of the patch.</p>
+<dl class="section return"><dt>Returns</dt><dd>Width of the reference element. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00127">127</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_abee5373e9a9134d43f1b0fa23d0a3b36_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_abee5373e9a9134d43f1b0fa23d0a3b36_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_abee5373e9a9134d43f1b0fa23d0a3b36_icgraph" id="aclass_bembel_1_1_element_tree_node_abee5373e9a9134d43f1b0fa23d0a3b36_icgraph">
-<area shape="rect" title="getter" alt="" coords="796,425,991,466"/>
-<area shape="rect" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_continuous_00_01_lin_op_01_4.html#a35fb1d49ba99355468cd487476a675a8" title=" " alt="" coords="515,5,734,61"/>
-<area shape="rect" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_discontinuous_00_01_lin_op_01_4.html#a698c05dc1fd19c20af06da1894db025b" title=" " alt="" coords="515,85,734,141"/>
-<area shape="rect" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#af3b37d399d7327b283360499560f3d2c" title=" " alt="" coords="513,165,737,221"/>
-<area shape="rect" href="struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html#ad146e74022a55e95c86692e5f09e8fb9" title=" " alt="" coords="501,245,748,301"/>
-<area shape="rect" href="class_bembel_1_1_maxwell_single_layer_potential.html#a59facc4a5f6645515b51e94f06ba1459" title=" " alt="" coords="503,326,746,367"/>
-<area shape="rect" href="group___duffy_trick.html#ga1c02c8465fe5e6c097dcb6f9141f29b9" title="no&#45;problem quadrature routine, elements are sufficiently far away from each other,..." alt="" coords="552,391,697,433"/>
-<area shape="rect" href="group___duffy_trick.html#ga2a96bf79e6357a8465e7feedffc27b39" title="quadrature routine for identical elements" alt="" coords="552,457,697,498"/>
-<area shape="rect" href="group___duffy_trick.html#ga1a2ace5d00944aa5a991084c252a2fcd" title="quadrature routine for the common edge case" alt="" coords="552,522,697,563"/>
-<area shape="rect" href="group___duffy_trick.html#ga4159560d18ac51da0f9f8b9a1cd3c334" title="quadrature routine for identical elements" alt="" coords="552,587,697,629"/>
-<area shape="rect" href="struct_bembel_1_1_super_space.html#afb46395178178b0d82d14ba3dfeb806e" title=" " alt="" coords="547,653,703,694"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abb52690ebac4df925982bdae798f5528" title=" " alt="" coords="527,718,722,759"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#ae3631bf2aa5cb9919af47bc751a4cf8c" title=" " alt="" coords="527,783,722,825"/>
-<area shape="rect" href="group___duffy_trick.html#ga08c83eb5d1c80c396c653ca32c90f719" title="This function wraps the quadrature routines for the duffy trick and returns all integrals for the giv..." alt="" coords="269,490,440,531"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="5,424,208,509"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="29,534,184,575"/>
-<area shape="rect" href="group___h2_matrix.html#ga4915ea94de2db58772fd15d5acbc6699" title="Interpolate kernel function on reference domain for FMM." alt="" coords="275,653,434,694"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#acff68ebfa96dcc8cda3f2247c65fbc7a" title=" " alt="" coords="256,718,453,759"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00193">193</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -649,17 +530,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00129">129</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_a6cf5b11fcc0a12c54d35577a15084422_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_a6cf5b11fcc0a12c54d35577a15084422_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_a6cf5b11fcc0a12c54d35577a15084422_icgraph" id="aclass_bembel_1_1_element_tree_node_a6cf5b11fcc0a12c54d35577a15084422_icgraph">
-<area shape="rect" title=" " alt="" coords="300,49,495,91"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ab1d05aae27410cd7c381e47dcbdc09f0" title=" " alt="" coords="34,5,223,47"/>
-<area shape="rect" href="struct_eigen_1_1internal_1_1_h2__time__dense__product__impl_3_01_h2_matrix_3_01_scalar_h2_01_4_0f1d1c81968359341aeb97e05aa1942b0.html#a673fabe3e85758e4e0403783d0e738d9" title=" " alt="" coords="5,71,252,157"/>
-</map>
-</div>
+<p>Get the level of refinement of the element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Level of refinement. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00200">200</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -687,25 +561,17 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00115">115</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_cgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_cgraph" id="aclass_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="248,5,443,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_icgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_icgraph" id="aclass_bembel_1_1_element_tree_node_abb52690ebac4df925982bdae798f5528_icgraph">
-<area shape="rect" title=" " alt="" coords="251,5,445,47"/>
-<area shape="rect" href="class_bembel_1_1_function_evaluator.html#acff68ebfa96dcc8cda3f2247c65fbc7a" title=" " alt="" coords="5,5,203,47"/>
-</map>
-</div>
+<p>Maps a point in the reference domain of a patch to the reference element of this element. </p>
+<p>This function asserts that the correct element is chosen. So the return value must be with in [0,1]^2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>Point in reference domain of the patch. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Point in reference domain of the element. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00170">170</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -733,6 +599,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Copy assignment operator (deleted). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> instance to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> instance. </dd></dl>
+
 </div>
 </div>
 <a id="a72f190789256a2481d3bcc71c6f2041e"></a>
@@ -758,6 +633,15 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Move assignment operator (deleted). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> instance to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this <a class="el" href="class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree.">ElementTreeNode</a> instance. </dd></dl>
 
 </div>
 </div>
@@ -785,8 +669,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>methods </p>
+<p>Prints the member variables of the element. </p>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00093">93</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00138">138</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -813,211 +698,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00121">121</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_element_tree_node_ae3631bf2aa5cb9919af47bc751a4cf8c_cgraph.png" border="0" usemap="#aclass_bembel_1_1_element_tree_node_ae3631bf2aa5cb9919af47bc751a4cf8c_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_element_tree_node_ae3631bf2aa5cb9919af47bc751a4cf8c_cgraph" id="aclass_bembel_1_1_element_tree_node_ae3631bf2aa5cb9919af47bc751a4cf8c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,200,47"/>
-<area shape="rect" href="class_bembel_1_1_element_tree_node.html#abee5373e9a9134d43f1b0fa23d0a3b36" title="getter" alt="" coords="248,5,443,47"/>
-</map>
-</div>
+<p>Get the midpoint of this element with respect to the patch. </p>
+<dl class="section return"><dt>Returns</dt><dd>Midpoint with respect to the patch containing the element. </dd></dl>
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac071cbea5c19456524246c4ad79c65bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac071cbea5c19456524246c4ad79c65bd">&#9670;&nbsp;</a></span>adjcents_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> *&gt; Bembel::ElementTreeNode::adjcents_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>children </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00162">162</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a030b4d2002ceeeeabf90a3874f9e94b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a030b4d2002ceeeeabf90a3874f9e94b3">&#9670;&nbsp;</a></span>id_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bembel::ElementTreeNode::id_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>radius of the element </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00169">169</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a15b29d19d3bd69cd8d08323c93bce00f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15b29d19d3bd69cd8d08323c93bce00f">&#9670;&nbsp;</a></span>level_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bembel::ElementTreeNode::level_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>element id with respect to the level </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00170">170</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7a846769f7d42f3c9d2448cf4e4d572d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a846769f7d42f3c9d2448cf4e4d572d">&#9670;&nbsp;</a></span>llc_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Vector2d Bembel::ElementTreeNode::llc_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>midpoint of the element </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00165">165</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aba009f625a16ee295776fa5f5567f139"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba009f625a16ee295776fa5f5567f139">&#9670;&nbsp;</a></span>midpoint_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Eigen::Vector3d Bembel::ElementTreeNode::midpoint_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>indices of the vertices </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00164">164</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3bbb54d2acd083f5c011036740723c9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bbb54d2acd083f5c011036740723c9f">&#9670;&nbsp;</a></span>next_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a>* Bembel::ElementTreeNode::next_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00167">167</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abce8406f0f90d030f3207622af590040"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abce8406f0f90d030f3207622af590040">&#9670;&nbsp;</a></span>patch_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bembel::ElementTreeNode::patch_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>level of the element </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00171">171</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9f26e0cfe6ff5ec3c1a9e67ce5f9578d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f26e0cfe6ff5ec3c1a9e67ce5f9578d">&#9670;&nbsp;</a></span>prev_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a>* Bembel::ElementTreeNode::prev_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>lower left corner on [0,1]^2 </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00166">166</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a60b695106f9824b6dd8253e2cad937ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60b695106f9824b6dd8253e2cad937ac">&#9670;&nbsp;</a></span>radius_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Bembel::ElementTreeNode::radius_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00168">168</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae3b0c9c48996599cfcbc6a538aa92e9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3b0c9c48996599cfcbc6a538aa92e9d">&#9670;&nbsp;</a></span>sons_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a>&gt; Bembel::ElementTreeNode::sons_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>member variables </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00161">161</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6de377b349500311b109376881d3ce06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6de377b349500311b109376881d3ce06">&#9670;&nbsp;</a></span>vertices_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;int&gt; Bembel::ElementTreeNode::vertices_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>neighbouring elements indices </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00163">163</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_node_8hpp_source.html#l00181">181</a> of file <a class="el" href="_element_tree_node_8hpp_source.html">ElementTreeNode.hpp</a>.</p>
 
 </div>
 </div>
@@ -1030,7 +714,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

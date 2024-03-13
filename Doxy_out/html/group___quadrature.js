@@ -11,6 +11,11 @@ var group___quadrature =
       [ "Q_", "struct_bembel_1_1_quadrature_vector.html#ab7872987a3198f059a97ce3e99ca0a26", null ],
       [ "remainingQuadratures_", "struct_bembel_1_1_quadrature_vector.html#a1db6b7ba9b197693df383f0b24bc6a24", null ]
     ] ],
+    [ "QuadratureVector< QuadratureRule, 0 >", "struct_bembel_1_1_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html", [
+      [ "QuadratureVector", "struct_bembel_1_1_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#abb6f48b481f627e8ea0c3a409d304486", null ],
+      [ "operator[]", "struct_bembel_1_1_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#aad3515ed947b6bd1de3f236efd08ff2a", null ],
+      [ "Q_", "struct_bembel_1_1_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html#a9a73294a5dc2a686a7e5b774feb23e8b", null ]
+    ] ],
     [ "TensorProductQuadratureVector", "struct_bembel_1_1_tensor_product_quadrature_vector.html", [
       [ "TensorProductQuadratureVector", "struct_bembel_1_1_tensor_product_quadrature_vector.html#a7dd6192ffc869946afb9ac5dba730f42", null ],
       [ "operator[]", "struct_bembel_1_1_tensor_product_quadrature_vector.html#a3d25ef4affe86a738b3126ce8c633678", null ],

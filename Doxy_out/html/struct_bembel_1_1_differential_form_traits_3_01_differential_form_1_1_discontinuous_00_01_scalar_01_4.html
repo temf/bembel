@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -97,65 +108,28 @@ $(document).ready(function(){initNavTree('struct_bembel_1_1_differential_form_tr
 </div><!--header-->
 <div class="contents">
 
+<p>Specification of the <a class="el" href="struct_bembel_1_1_differential_form_traits.html" title="struct containing specifications on DifferentialForms, i.e., the function spaces.">DifferentialFormTraits</a> for the discontinuous case.  
+ <a href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a417dd6abbac77d915407c34d4cad003e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html#a417dd6abbac77d915407c34d4cad003ea3b14935f8942c5852966706369e08060">FunctionSpaceVectorDimension</a> = 1
-, <a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html#a417dd6abbac77d915407c34d4cad003ea3f1cce4fcbee493ca0a4d4bde87dd687">FunctionSpaceOutputDimension</a> = 1
- }</td></tr>
-<tr class="separator:a417dd6abbac77d915407c34d4cad003e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a011519d296722b3158023bf3c5471a4c"><td class="memItemLeft" align="right" valign="top">typedef Scalar&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html#a011519d296722b3158023bf3c5471a4c">FunctionSpaceValue</a></td></tr>
-<tr class="separator:a011519d296722b3158023bf3c5471a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Scalar&gt;<br />
 struct Bembel::DifferentialFormTraits&lt; DifferentialForm::Discontinuous, Scalar &gt;</h3>
 
+<p>Specification of the <a class="el" href="struct_bembel_1_1_differential_form_traits.html" title="struct containing specifications on DifferentialForms, i.e., the function spaces.">DifferentialFormTraits</a> for the discontinuous case. </p>
 
-<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00049">49</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a011519d296722b3158023bf3c5471a4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a011519d296722b3158023bf3c5471a4c">&#9670;&nbsp;</a></span>FunctionSpaceValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Scalar <a class="el" href="struct_bembel_1_1_differential_form_traits.html">Bembel::DifferentialFormTraits</a>&lt; <a class="el" href="struct_bembel_1_1_differential_form.html#aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5">DifferentialForm::Discontinuous</a>, Scalar &gt;::<a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html#a011519d296722b3158023bf3c5471a4c">FunctionSpaceValue</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00052">52</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a417dd6abbac77d915407c34d4cad003e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a417dd6abbac77d915407c34d4cad003e">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scalar &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a417dd6abbac77d915407c34d4cad003ea3b14935f8942c5852966706369e08060"></a>FunctionSpaceVectorDimension&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a417dd6abbac77d915407c34d4cad003ea3f1cce4fcbee493ca0a4d4bde87dd687"></a>FunctionSpaceOutputDimension&#160;</td><td class="fielddoc"></td></tr>
+<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00057">57</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a417dd6abbac77d915407c34d4cad003e"><td class="memItemLeft" align="right" valign="top"><a id="a417dd6abbac77d915407c34d4cad003e"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>FunctionSpaceVectorDimension</b> = 1
+, <b>FunctionSpaceOutputDimension</b> = 1
+ }</td></tr>
+<tr class="separator:a417dd6abbac77d915407c34d4cad003e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011519d296722b3158023bf3c5471a4c"><td class="memItemLeft" align="right" valign="top"><a id="a011519d296722b3158023bf3c5471a4c"></a>
+typedef Scalar&#160;</td><td class="memItemRight" valign="bottom"><b>FunctionSpaceValue</b></td></tr>
+<tr class="separator:a011519d296722b3158023bf3c5471a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_differential_form_enum_8hpp_source.html#l00050">50</a> of file <a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Bembel/src/LinearOperator/<a class="el" href="_differential_form_enum_8hpp_source.html">DifferentialFormEnum.hpp</a></li>
 </ul>
@@ -165,7 +139,7 @@ template&lt;typename Scalar &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html">DifferentialFormTraits&lt; DifferentialForm::Discontinuous, Scalar &gt;</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

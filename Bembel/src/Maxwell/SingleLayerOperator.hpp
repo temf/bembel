@@ -16,7 +16,9 @@ namespace Bembel {
 // forward declaration of class MaxwellSingleLayerOperator in order to define
 // traits
 class MaxwellSingleLayerOperator;
-
+/**
+ * \brief Specification of the LinerOperatorTraits for Maxwell.
+ */
 template <>
 struct LinearOperatorTraits<MaxwellSingleLayerOperator> {
   typedef Eigen::VectorXcd EigenType;
@@ -30,6 +32,8 @@ struct LinearOperatorTraits<MaxwellSingleLayerOperator> {
 
 /**
  * \ingroup Maxwell
+ * \brief This class implements the specification of the integration for the
+ * Electric Field Integral Equation.
  */
 class MaxwellSingleLayerOperator
     : public LinearOperatorBase<MaxwellSingleLayerOperator> {

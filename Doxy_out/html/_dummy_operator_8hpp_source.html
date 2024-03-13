@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_dummy_operator_8hpp_source.html','');
 <div class="title">DummyOperator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_dummy_operator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -109,70 +120,65 @@ $(document).ready(function(){initNavTree('_dummy_operator_8hpp_source.html','');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_bembel.html">Bembel</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span>DummyOperator;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html">   19</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;<a class="code" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a>&gt; {</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a0ebaecda2ac708d80ec18ab374c91f85">   20</a></span>&#160;  <span class="keyword">typedef</span> Eigen::VectorXd <a class="code" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a0ebaecda2ac708d80ec18ab374c91f85">EigenType</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a8ecbe95d31a8e962b6b1dc121eef6711">   21</a></span>&#160;  <span class="keyword">typedef</span> Eigen::VectorXd::Scalar <a class="code" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a8ecbe95d31a8e962b6b1dc121eef6711">Scalar</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#aad167b2a0d5e82734b474d19fbf51fd5a2ad35d690f57214113ae6a0f66df1dee">   23</a></span>&#160;    OperatorOrder = 0,</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#aad167b2a0d5e82734b474d19fbf51fd5a1d9d9921bc018e08378b49368685a7cc">   24</a></span>&#160;    Form = <a class="code" href="struct_bembel_1_1_differential_form.html#aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5">DifferentialForm::Discontinuous</a>,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    NumberOfFMMComponents = 1</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#aad167b2a0d5e82734b474d19fbf51fd5af9649a4755a6a99a15fcb873b1713025">   26</a></span>&#160;  };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// forward declaration of class DummyOperator in order to define traits</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// define some default test functiom</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;std::function&lt;double(<span class="keyword">const</span> Eigen::Vector2d &amp;, <span class="keyword">const</span> Eigen::Vector2d &amp;)&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespace_bembel.html#a7a45a61be55ca86b8c57a2bf68356f50">   32</a></span>&#160;    <a class="code" href="namespace_bembel.html#a7a45a61be55ca86b8c57a2bf68356f50">DummyOperator_test_function</a> =</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        [](<span class="keyword">const</span> Eigen::Vector2d &amp;x, <span class="keyword">const</span> Eigen::Vector2d &amp;y) { <span class="keywordflow">return</span> 1.; };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> : <span class="keyword">public</span> <a class="code" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt;DummyOperator&gt; {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">// implementation of the kernel evaluation, which may be based on the</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// information available from the superSpace</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">   44</a></span>&#160;  <a class="code" href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">DummyOperator</a>() { test_func_ = <a class="code" href="namespace_bembel.html#a7a45a61be55ca86b8c57a2bf68356f50">DummyOperator_test_function</a>; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">   45</a></span>&#160;  <a class="code" href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">DummyOperator</a>(</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      std::function&lt;<span class="keywordtype">double</span>(<span class="keyword">const</span> Eigen::Vector2d &amp;, <span class="keyword">const</span> Eigen::Vector2d &amp;)&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          test_func) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    test_func_ = test_func;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">   51</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">evaluateIntegrand_impl</a>(</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">const</span> T &amp;super_space, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      Eigen::Matrix&lt;<span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;DummyOperator&gt;::Scalar</a>,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    Eigen::Dynamic, Eigen::Dynamic&gt; *intval)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    (*intval)(0, 0) +=</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        test_func_(p1.segment(3, 2), p2.segment(3, 2)) * p1(2) * p2(2);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  std::function&lt;double(<span class="keyword">const</span> Eigen::Vector2d &amp;, <span class="keyword">const</span> Eigen::Vector2d &amp;)&gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      test_func_;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_LINEAROPERATOR_DUMMY_DUMMYOPERATOR_HPP_</span></div>
-<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html">Bembel::DummyOperator</a></div><div class="ttdoc">This class provides a dummy specialization of the LinearOperator and corresponding Traits for testing...</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00040">DummyOperator.hpp:40</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html_a2461870c27a31b329d57322ec54cbe09"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">Bembel::DummyOperator::DummyOperator</a></div><div class="ttdeci">DummyOperator(std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt; test_func)</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00045">DummyOperator.hpp:45</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html_aae46c81dd3bd2a94408502099e17f2f6"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">Bembel::DummyOperator::DummyOperator</a></div><div class="ttdeci">DummyOperator()</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00044">DummyOperator.hpp:44</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html_ac9ddcf8e1c85175ee32adff43b9937cb"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">Bembel::DummyOperator::evaluateIntegrand_impl</a></div><div class="ttdeci">void evaluateIntegrand_impl(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; DummyOperator &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00051">DummyOperator.hpp:51</a></div></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html">   21</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits</a>&lt;<a class="code" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a>&gt; {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">typedef</span> Eigen::VectorXd EigenType;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">typedef</span> Eigen::VectorXd::Scalar Scalar;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    OperatorOrder = 0,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Form = DifferentialForm::Discontinuous,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    NumberOfFMMComponents = 1</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  };</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// forward declaration of class DummyOperator in order to define traits</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// define some default test functiom</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;std::function&lt;double(<span class="keyword">const</span> Eigen::Vector2d &amp;, <span class="keyword">const</span> Eigen::Vector2d &amp;)&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    DummyOperator_test_function =</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        [](<span class="keyword">const</span> Eigen::Vector2d &amp;x, <span class="keyword">const</span> Eigen::Vector2d &amp;y) { <span class="keywordflow">return</span> 1.; };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bembel_1_1_dummy_operator.html">DummyOperator</a> : <span class="keyword">public</span> <a class="code" href="struct_bembel_1_1_linear_operator_base.html">LinearOperatorBase</a>&lt;DummyOperator&gt; {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// implementation of the kernel evaluation, which may be based on the</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">// information available from the superSpace</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">   51</a></span>&#160;  <a class="code" href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">DummyOperator</a>() { test_func_ = DummyOperator_test_function; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">   55</a></span>&#160;  <a class="code" href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">DummyOperator</a>(</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      std::function&lt;<span class="keywordtype">double</span>(<span class="keyword">const</span> Eigen::Vector2d &amp;, <span class="keyword">const</span> Eigen::Vector2d &amp;)&gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          test_func) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    test_func_ = test_func;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">   69</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">evaluateIntegrand_impl</a>(</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">const</span> T &amp;super_space, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p1, <span class="keyword">const</span> <a class="code" href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a> &amp;p2,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      Eigen::Matrix&lt;<span class="keyword">typename</span> <a class="code" href="struct_bembel_1_1_linear_operator_traits.html">LinearOperatorTraits&lt;DummyOperator&gt;::Scalar</a>,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    Eigen::Dynamic, Eigen::Dynamic&gt; *intval)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    (*intval)(0, 0) +=</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        test_func_(p1.segment(3, 2), p2.segment(3, 2)) * p1(2) * p2(2);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  std::function&lt;double(<span class="keyword">const</span> Eigen::Vector2d &amp;, <span class="keyword">const</span> Eigen::Vector2d &amp;)&gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      test_func_;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_LINEAROPERATOR_DUMMY_DUMMYOPERATOR_HPP_</span></div>
+<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html">Bembel::DummyOperator</a></div><div class="ttdoc">This class provides a dummy specialization of the LinearOperator and corresponding Traits for testing...</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00042">DummyOperator.hpp:42</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html_a2461870c27a31b329d57322ec54cbe09"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html#a2461870c27a31b329d57322ec54cbe09">Bembel::DummyOperator::DummyOperator</a></div><div class="ttdeci">DummyOperator(std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt; test_func)</div><div class="ttdoc">Constructor with a given test function.</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00055">DummyOperator.hpp:55</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html_aae46c81dd3bd2a94408502099e17f2f6"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html#aae46c81dd3bd2a94408502099e17f2f6">Bembel::DummyOperator::DummyOperator</a></div><div class="ttdeci">DummyOperator()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00051">DummyOperator.hpp:51</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_dummy_operator_html_ac9ddcf8e1c85175ee32adff43b9937cb"><div class="ttname"><a href="class_bembel_1_1_dummy_operator.html#ac9ddcf8e1c85175ee32adff43b9937cb">Bembel::DummyOperator::evaluateIntegrand_impl</a></div><div class="ttdeci">void evaluateIntegrand_impl(const T &amp;super_space, const SurfacePoint &amp;p1, const SurfacePoint &amp;p2, Eigen::Matrix&lt; typename LinearOperatorTraits&lt; DummyOperator &gt;::Scalar, Eigen::Dynamic, Eigen::Dynamic &gt; *intval) const</div><div class="ttdoc">Implements the integration routine.</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00069">DummyOperator.hpp:69</a></div></div>
 <div class="ttc" id="agroup___geometry_html_ga7f3488fb214d75f08146ff31726428b4"><div class="ttname"><a href="group___geometry.html#ga7f3488fb214d75f08146ff31726428b4">SurfacePoint</a></div><div class="ttdeci">Eigen::Matrix&lt; double, 12, 1 &gt; SurfacePoint</div><div class="ttdoc">typedef of SurfacePoint</div><div class="ttdef"><b>Definition:</b> <a href="_surface_point_8hpp_source.html#l00042">SurfacePoint.hpp:42</a></div></div>
-<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
-<div class="ttc" id="anamespace_bembel_html_a7a45a61be55ca86b8c57a2bf68356f50"><div class="ttname"><a href="namespace_bembel.html#a7a45a61be55ca86b8c57a2bf68356f50">Bembel::DummyOperator_test_function</a></div><div class="ttdeci">std::function&lt; double(const Eigen::Vector2d &amp;, const Eigen::Vector2d &amp;)&gt; DummyOperator_test_function</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00032">DummyOperator.hpp:32</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_differential_form_html_aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5"><div class="ttname"><a href="struct_bembel_1_1_differential_form.html#aef10154eea237eea00157e5a217ec050a9069b7e3f2dd459f02912eefa3b166a5">Bembel::DifferentialForm::Discontinuous</a></div><div class="ttdeci">@ Discontinuous</div><div class="ttdef"><b>Definition:</b> <a href="_differential_form_enum_8hpp_source.html#l00021">DifferentialFormEnum.hpp:21</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a></div><div class="ttdoc">linear operator base class. this serves as a common interface for existing linear operators</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00021">LinearOperatorBase.hpp:21</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4_html_a0ebaecda2ac708d80ec18ab374c91f85"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a0ebaecda2ac708d80ec18ab374c91f85">Bembel::LinearOperatorTraits&lt; DummyOperator &gt;::EigenType</a></div><div class="ttdeci">Eigen::VectorXd EigenType</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00020">DummyOperator.hpp:20</a></div></div>
-<div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4_html_a8ecbe95d31a8e962b6b1dc121eef6711"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a8ecbe95d31a8e962b6b1dc121eef6711">Bembel::LinearOperatorTraits&lt; DummyOperator &gt;::Scalar</a></div><div class="ttdeci">Eigen::VectorXd::Scalar Scalar</div><div class="ttdef"><b>Definition:</b> <a href="_dummy_operator_8hpp_source.html#l00021">DummyOperator.hpp:21</a></div></div>
+<div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
+<div class="ttc" id="astruct_bembel_1_1_linear_operator_base_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_base.html">Bembel::LinearOperatorBase</a></div><div class="ttdoc">linear operator base class. this serves as a common interface for existing linear operators.</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_base_8hpp_source.html#l00024">LinearOperatorBase.hpp:24</a></div></div>
 <div class="ttc" id="astruct_bembel_1_1_linear_operator_traits_html"><div class="ttname"><a href="struct_bembel_1_1_linear_operator_traits.html">Bembel::LinearOperatorTraits</a></div><div class="ttdoc">struct containing specifications on the linear operator has to be specialized or derived for any part...</div><div class="ttdef"><b>Definition:</b> <a href="_linear_operator_traits_8hpp_source.html#l00022">LinearOperatorTraits.hpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_645d27ead1d07aa3564cfdf7ff2d131a.html">LinearOperator</a></li><li class="navelem"><a class="el" href="dir_cd5141ca4a9e0ae01016f4a40b997813.html">Dummy</a></li><li class="navelem"><a class="el" href="_dummy_operator_8hpp.html">DummyOperator.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_645d27ead1d07aa3564cfdf7ff2d131a.html">LinearOperator</a></li><li class="navelem"><a class="el" href="dir_cd5141ca4a9e0ae01016f4a40b997813.html">Dummy</a></li><li class="navelem"><b>DummyOperator.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

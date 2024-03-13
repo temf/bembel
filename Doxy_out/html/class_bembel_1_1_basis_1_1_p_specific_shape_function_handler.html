@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_basis_1_1_p_specific_
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::Basis::PSpecificShapeFunctionHandler&lt; P &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___spline.html">Spline</a></div></div>  </div>
+<div class="title">Bembel::Basis::PSpecificShapeFunctionHandler&lt; P &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___spline.html">Spline</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -110,28 +121,6 @@ Inheritance diagram for Bembel::Basis::PSpecificShapeFunctionHandler&lt; P &gt;:
 <area shape="rect" href="class_bembel_1_1_basis_1_1_p_specific_basis_handler.html" title="The functions above have a fixed compile time polynomial degree. The PSpecificBasis handler is used t..." alt="" coords="11,95,206,136"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab0d60a0b9e034bd8e1843da043d2307a"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab0d60a0b9e034bd8e1843da043d2307a">evalCoef</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:ab0d60a0b9e034bd8e1843da043d2307a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a238e4efbd7c314ef647fcd5f3402f271"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a238e4efbd7c314ef647fcd5f3402f271">evalDerCoef</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:a238e4efbd7c314ef647fcd5f3402f271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf2f8c431af1c6bfc05beeda7e292405"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#adf2f8c431af1c6bfc05beeda7e292405">evalBasis</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:adf2f8c431af1c6bfc05beeda7e292405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a1673d8eca8cf9a795dc0a17e56f06f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a0a1673d8eca8cf9a795dc0a17e56f06f">evalDerBasis</a> (int p, double *ar, double x)</td></tr>
-<tr class="separator:a0a1673d8eca8cf9a795dc0a17e56f06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81bff236cd502e3f8375c93481dc939"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac29818f73740cc9cabf101d6eb7b8718">funptr_doubleOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ac81bff236cd502e3f8375c93481dc939">ptrEvalCoef</a> (int p)</td></tr>
-<tr class="separator:ac81bff236cd502e3f8375c93481dc939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e1d3cefdf7e7e2c686bd218ac2befb3"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac29818f73740cc9cabf101d6eb7b8718">funptr_doubleOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a4e1d3cefdf7e7e2c686bd218ac2befb3">ptrEvalDerCoef</a> (int p)</td></tr>
-<tr class="separator:a4e1d3cefdf7e7e2c686bd218ac2befb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2645388fe55c1cd9221da460e3c830a"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a27961bd2cc3596cb6ee85e2e50f5c4b6">funptr_voidOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ab2645388fe55c1cd9221da460e3c830a">ptrEvalBasis</a> (int p)</td></tr>
-<tr class="separator:ab2645388fe55c1cd9221da460e3c830a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1c9e2df1b2a5ec8073741b0ac62220c"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a27961bd2cc3596cb6ee85e2e50f5c4b6">funptr_voidOut_doubleptrDoubleIn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#ac1c9e2df1b2a5ec8073741b0ac62220c">ptrEvalDerBasis</a> (int p)</td></tr>
-<tr class="separator:ac1c9e2df1b2a5ec8073741b0ac62220c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a151b589e892aabad30ae922cbc225e9d"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html#a151b589e892aabad30ae922cbc225e9d">checkP</a> (int p)</td></tr>
-<tr class="separator:a151b589e892aabad30ae922cbc225e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int P&gt;<br />
 class Bembel::Basis::PSpecificShapeFunctionHandler&lt; P &gt;</h3>
@@ -139,395 +128,37 @@ class Bembel::Basis::PSpecificShapeFunctionHandler&lt; P &gt;</h3>
 <p>These routines implement a template recursion that allows to choose a compile time instantiation of a basis-evaluation routine with a runtime p. To replace the underlying basis, only these routines should be changed. </p>
 
 <p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00028">28</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a151b589e892aabad30ae922cbc225e9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a151b589e892aabad30ae922cbc225e9d">&#9670;&nbsp;</a></span>checkP()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr bool <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::checkP </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ab0d60a0b9e034bd8e1843da043d2307a"><td class="memItemLeft" align="right" valign="top"><a id="ab0d60a0b9e034bd8e1843da043d2307a"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>evalCoef</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:ab0d60a0b9e034bd8e1843da043d2307a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238e4efbd7c314ef647fcd5f3402f271"><td class="memItemLeft" align="right" valign="top"><a id="a238e4efbd7c314ef647fcd5f3402f271"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>evalDerCoef</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:a238e4efbd7c314ef647fcd5f3402f271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2f8c431af1c6bfc05beeda7e292405"><td class="memItemLeft" align="right" valign="top"><a id="adf2f8c431af1c6bfc05beeda7e292405"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>evalBasis</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:adf2f8c431af1c6bfc05beeda7e292405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a1673d8eca8cf9a795dc0a17e56f06f"><td class="memItemLeft" align="right" valign="top"><a id="a0a1673d8eca8cf9a795dc0a17e56f06f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>evalDerBasis</b> (int p, double *ar, double x)</td></tr>
+<tr class="separator:a0a1673d8eca8cf9a795dc0a17e56f06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81bff236cd502e3f8375c93481dc939"><td class="memItemLeft" align="right" valign="top"><a id="ac81bff236cd502e3f8375c93481dc939"></a>
+static constexpr funptr_doubleOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalCoef</b> (int p)</td></tr>
+<tr class="separator:ac81bff236cd502e3f8375c93481dc939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1d3cefdf7e7e2c686bd218ac2befb3"><td class="memItemLeft" align="right" valign="top"><a id="a4e1d3cefdf7e7e2c686bd218ac2befb3"></a>
+static constexpr funptr_doubleOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalDerCoef</b> (int p)</td></tr>
+<tr class="separator:a4e1d3cefdf7e7e2c686bd218ac2befb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2645388fe55c1cd9221da460e3c830a"><td class="memItemLeft" align="right" valign="top"><a id="ab2645388fe55c1cd9221da460e3c830a"></a>
+static constexpr funptr_voidOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalBasis</b> (int p)</td></tr>
+<tr class="separator:ab2645388fe55c1cd9221da460e3c830a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1c9e2df1b2a5ec8073741b0ac62220c"><td class="memItemLeft" align="right" valign="top"><a id="ac1c9e2df1b2a5ec8073741b0ac62220c"></a>
+static constexpr funptr_voidOut_doubleptrDoubleIn&#160;</td><td class="memItemRight" valign="bottom"><b>ptrEvalDerBasis</b> (int p)</td></tr>
+<tr class="separator:ac1c9e2df1b2a5ec8073741b0ac62220c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151b589e892aabad30ae922cbc225e9d"><td class="memItemLeft" align="right" valign="top"><a id="a151b589e892aabad30ae922cbc225e9d"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkP</b> (int p)</td></tr>
+<tr class="separator:a151b589e892aabad30ae922cbc225e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00066">66</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-
-</div>
-</div>
-<a id="adf2f8c431af1c6bfc05beeda7e292405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf2f8c431af1c6bfc05beeda7e292405">&#9670;&nbsp;</a></span>evalBasis()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::evalBasis </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>ar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00038">38</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_adf2f8c431af1c6bfc05beeda7e292405_icgraph.png" border="0" usemap="#aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_adf2f8c431af1c6bfc05beeda7e292405_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_adf2f8c431af1c6bfc05beeda7e292405_icgraph" id="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_adf2f8c431af1c6bfc05beeda7e292405_icgraph">
-<area shape="rect" title=" " alt="" coords="773,285,955,341"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#ad5fae946174996738c5e8ba25778d40c" title=" " alt="" coords="541,16,692,43"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a4e68f5e893b2be0b67130f5cdfc01944" title=" " alt="" coords="513,88,720,115"/>
-<area shape="rect" href="group___spline.html#ga0c98aa7e939d5d199b75e867257f942b" title="returns the coefficients to represent a function in the Bernstein basis on [0,1]." alt="" coords="509,139,724,181"/>
-<area shape="rect" href="namespace_bembel_1_1_projector_routines.html#a66bc5b1efce385b9f29ad1f47ce37ea9" title=" " alt="" coords="511,205,723,246"/>
-<area shape="rect" href="group___spline.html#gad90833bf929ec28aabfe8aedc59f63c3" title="evaluates the 1D basis at x weighted with a quadrature weight w" alt="" coords="541,271,692,297"/>
-<area shape="rect" href="group___spline.html#gabaf5c3305a82d32e8af024c33efab117" title="evaluates the interaction of two phiphis, one at xi and one at eta. Used for e.g. gram matrices." alt="" coords="545,322,688,363"/>
-<area shape="rect" href="group___spline.html#ga1ebe02002265f8b7d7d61a32956f4751" title="evaluates the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="531,388,702,415"/>
-<area shape="rect" href="group___spline.html#gab678c79d14a00c03513126b48fc37449" title="evaluates the x&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="520,439,713,465"/>
-<area shape="rect" href="group___spline.html#gaa12be803e27738b1612ec4917f55aecd" title="evaluates the y&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="520,489,713,516"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#ae33252985226bd18c29ca05749553ada" title=" " alt="" coords="508,541,725,582"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#ad0331b6d8f22db8074e6821bb8ded5bd" title=" " alt="" coords="281,5,431,32"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a425d4cc97f11344f1c1d8ce481e25281" title=" " alt="" coords="253,56,459,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a839327eaea60f8007fee75ac480853fb" title=" " alt="" coords="257,107,455,133"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a3580acec79763e60c1d514dc5aa36fa3" title=" " alt="" coords="5,107,204,133"/>
-<area shape="rect" href="group___spline.html#gae358ed2987505a76b9fa0be94ed8b19c" title="this solves a generic interpolation problem." alt="" coords="252,157,460,184"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ab0d60a0b9e034bd8e1843da043d2307a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0d60a0b9e034bd8e1843da043d2307a">&#9670;&nbsp;</a></span>evalCoef()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static double <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::evalCoef </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>ar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00030">30</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_ab0d60a0b9e034bd8e1843da043d2307a_icgraph.png" border="0" usemap="#aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_ab0d60a0b9e034bd8e1843da043d2307a_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_ab0d60a0b9e034bd8e1843da043d2307a_icgraph" id="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_ab0d60a0b9e034bd8e1843da043d2307a_icgraph">
-<area shape="rect" title=" " alt="" coords="1213,41,1395,97"/>
-<area shape="rect" href="group___spline.html#gaedbab2805662ec55aede9e429b384756" title="implements Bezier extraction via the solution of an interpolation problem." alt="" coords="957,56,1165,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a94e90e693ae9764675d67ea9b1755252" title="init" alt="" coords="765,49,909,90"/>
-<area shape="rect" href="group___geometry.html#gab6cca6243499deb03e7fb6a7c450870e" title="loads geometry from file with GEOPDE&#45;format. Note that the direction of the normals must be consisten..." alt="" coords="492,5,717,32"/>
-<area shape="rect" href="group___geometry.html#gaaa18e14e95262340034d0b41f2ebc075" title="loads geometry from IGES file. Note that the direction of the normals must be consistent." alt="" coords="494,56,715,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a9b3acf6880f6b657a3d6df49e68c4407" title=" " alt="" coords="525,107,684,133"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a02ce72f4229e168a5c56dd5f174baa8f" title=" " alt="" coords="271,23,444,65"/>
-<area shape="rect" href="class_bembel_1_1_geometry.html#a4b577a308bc416d9cead1dae6694050f" title=" " alt="" coords="5,31,223,57"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a0a1673d8eca8cf9a795dc0a17e56f06f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a1673d8eca8cf9a795dc0a17e56f06f">&#9670;&nbsp;</a></span>evalDerBasis()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::evalDerBasis </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>ar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00042">42</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler_a0a1673d8eca8cf9a795dc0a17e56f06f_icgraph.png" border="0" usemap="#aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_a0a1673d8eca8cf9a795dc0a17e56f06f_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_a0a1673d8eca8cf9a795dc0a17e56f06f_icgraph" id="aclass_bembel_1_1_basis_1_1_p_specific_shape_function_handler_a0a1673d8eca8cf9a795dc0a17e56f06f_icgraph">
-<area shape="rect" title=" " alt="" coords="772,117,953,173"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a4e68f5e893b2be0b67130f5cdfc01944" title=" " alt="" coords="512,31,719,57"/>
-<area shape="rect" href="group___spline.html#ga6df93e4cb47305d8468d609a392ef84d" title="evaluates the derivative of phi" alt="" coords="529,81,702,108"/>
-<area shape="rect" href="group___spline.html#gab678c79d14a00c03513126b48fc37449" title="evaluates the x&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="519,132,712,159"/>
-<area shape="rect" href="group___spline.html#gaa12be803e27738b1612ec4917f55aecd" title="evaluates the y&#45;derivative of the 2D tensor product basis at a point a in [0,1]^2" alt="" coords="519,183,712,209"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#ae33252985226bd18c29ca05749553ada" title=" " alt="" coords="507,234,724,275"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a425d4cc97f11344f1c1d8ce481e25281" title=" " alt="" coords="252,5,459,32"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a839327eaea60f8007fee75ac480853fb" title=" " alt="" coords="256,56,455,83"/>
-<area shape="rect" href="class_bembel_1_1_patch.html#a3580acec79763e60c1d514dc5aa36fa3" title=" " alt="" coords="5,56,204,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a238e4efbd7c314ef647fcd5f3402f271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a238e4efbd7c314ef647fcd5f3402f271">&#9670;&nbsp;</a></span>evalDerCoef()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static double <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::evalDerCoef </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>ar</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00034">34</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab2645388fe55c1cd9221da460e3c830a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2645388fe55c1cd9221da460e3c830a">&#9670;&nbsp;</a></span>ptrEvalBasis()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a27961bd2cc3596cb6ee85e2e50f5c4b6">funptr_voidOut_doubleptrDoubleIn</a> <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::ptrEvalBasis </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00057">57</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac81bff236cd502e3f8375c93481dc939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac81bff236cd502e3f8375c93481dc939">&#9670;&nbsp;</a></span>ptrEvalCoef()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac29818f73740cc9cabf101d6eb7b8718">funptr_doubleOut_doubleptrDoubleIn</a> <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::ptrEvalCoef </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00047">47</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac1c9e2df1b2a5ec8073741b0ac62220c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1c9e2df1b2a5ec8073741b0ac62220c">&#9670;&nbsp;</a></span>ptrEvalDerBasis()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#a27961bd2cc3596cb6ee85e2e50f5c4b6">funptr_voidOut_doubleptrDoubleIn</a> <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::ptrEvalDerBasis </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00061">61</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4e1d3cefdf7e7e2c686bd218ac2befb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e1d3cefdf7e7e2c686bd218ac2befb3">&#9670;&nbsp;</a></span>ptrEvalDerCoef()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int P&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr <a class="el" href="namespace_bembel_1_1_basis.html#ac29818f73740cc9cabf101d6eb7b8718">funptr_doubleOut_doubleptrDoubleIn</a> <a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">Bembel::Basis::PSpecificShapeFunctionHandler</a>&lt; P &gt;::ptrEvalDerCoef </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shape_functions_8hpp_source.html#l00052">52</a> of file <a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Bembel/src/Spline/<a class="el" href="_shape_functions_8hpp_source.html">ShapeFunctions.hpp</a></li>
 </ul>
@@ -537,7 +168,7 @@ template&lt;int P&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="namespace_bembel_1_1_basis.html">Basis</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_basis_1_1_p_specific_shape_function_handler.html">PSpecificShapeFunctionHandler</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

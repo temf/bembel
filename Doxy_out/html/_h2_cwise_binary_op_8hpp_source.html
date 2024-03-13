@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -93,7 +104,7 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="title">H2CwiseBinaryOp.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_h2_cwise_binary_op_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This file is part of Bembel, the higher order C++ boundary element library.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 see &lt;http://www.bembel.eu&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -114,10 +125,10 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html">   19</a></span>&#160;<span class="keyword">class </span>CwiseBinaryOpImpl&lt;BinaryOp, Lhs, Rhs, <a class="code" href="struct_eigen_1_1_h2.html">H2</a>&gt;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    : <span class="keyword">public</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase</a>&lt;CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt;&gt; {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a742520c1eeaee603aac63c98a4a8f8db">   22</a></span>&#160;  <span class="keyword">typedef</span> CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt; <a class="code" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a742520c1eeaee603aac63c98a4a8f8db">Derived</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a376fb0ffcf728ea3ec25efbf40c86710">   23</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;Derived&gt;</a> <a class="code" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a376fb0ffcf728ea3ec25efbf40c86710">Base</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  EIGEN_GENERIC_PUBLIC_INTERFACE(<a class="code" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a742520c1eeaee603aac63c98a4a8f8db">Derived</a>)</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#ade8d5355ebe5e612cf0502bb4153509e">   25</a></span>&#160;  CwiseBinaryOpImpl() {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">typedef</span> CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt; Derived;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;Derived&gt;</a> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">Base</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  EIGEN_GENERIC_PUBLIC_INTERFACE(Derived)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  CwiseBinaryOpImpl() {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    EIGEN_STATIC_ASSERT(</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        ((!internal::is_same&lt;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;             <span class="keyword">typename</span> internal::traits&lt;Lhs&gt;::StorageKind,</div>
@@ -133,7 +144,7 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// brute force solution to allow the use of CwiseBinaryOps in solvers</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> BinaryOp, <span class="keyword">typename</span> Lhs, <span class="keyword">typename</span> Rhs&gt;</div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_01_rhs_01_4_01_4.html">   40</a></span>&#160;<span class="keyword">struct </span>is_ref_compatible&lt;CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt;&gt; {</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_01_rhs_01_4_01_4.html#a9be00e35f458d12fe24b20d5e81b67ceab0467d4370b77bce88174c7c9b4f6700">   41</a></span>&#160;  <span class="keyword">enum</span> { value = <span class="keyword">false</span> };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">enum</span> { value = <span class="keyword">false</span> };</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> BinaryOp, <span class="keyword">typename</span> Lhs, <span class="keyword">typename</span> Rhs&gt;</div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1is__ref__compatible_3_01const_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_01_rhs_01_4_01_4.html">   44</a></span>&#160;<span class="keyword">struct </span>is_ref_compatible&lt;const CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt;&gt;</div>
@@ -144,17 +155,17 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html">   49</a></span>&#160;<span class="keyword">struct </span>binary_evaluator&lt;CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt;, <a class="code" href="struct_eigen_1_1_h2.html">H2</a>, <a class="code" href="struct_eigen_1_1_h2.html">H2</a>&gt;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    : evaluator_base&lt;CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt;&gt; {</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a01c00401b1babd1e421a274a39e27984">   52</a></span>&#160;  <span class="keyword">typedef</span> CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt; <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a01c00401b1babd1e421a274a39e27984">XprType</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#ac147cba00586e7fb57d8211936848707">   53</a></span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> traits&lt;XprType&gt;::Scalar <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#ac147cba00586e7fb57d8211936848707">Scalar</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a8859aa425feae7bc3ee0ea19c6acd71e">   54</a></span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> XprType::StorageIndex <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a8859aa425feae7bc3ee0ea19c6acd71e">StorageIndex</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">typedef</span> CwiseBinaryOp&lt;BinaryOp, Lhs, Rhs&gt; XprType;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> traits&lt;XprType&gt;::Scalar Scalar;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> XprType::StorageIndex StorageIndex;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#aba3956de5eaa9cc91114b2c34be879e1adfe33a332cb02a993b5f4dd63731ca7e">   58</a></span>&#160;    CoeffReadCost = HugeCost,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    CoeffReadCost = HugeCost,</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    Flags = (XprType::Flags &amp; ~RowMajorBit) | (<span class="keywordtype">int</span>(Rhs::Flags) &amp; RowMajorBit)</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#aba3956de5eaa9cc91114b2c34be879e1a31f52739982fa58728f9e3290886d900">   60</a></span>&#160;  };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  };</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#aea040238b39ae902f0665ce704f9da51">   62</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#aea040238b39ae902f0665ce704f9da51">binary_evaluator</a>(<span class="keyword">const</span> <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a01c00401b1babd1e421a274a39e27984">XprType</a>&amp; xpr)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">explicit</span> binary_evaluator(<span class="keyword">const</span> XprType&amp; xpr)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      : m_functor(xpr.functor()),</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        m_lhsImpl(xpr.lhs()),</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        m_rhsImpl(xpr.rhs()),</div>
@@ -163,10 +174,10 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a6dd0319b98fe0f602576d3b486ae073d">   71</a></span>&#160;  <span class="keyword">const</span> BinaryOp <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a6dd0319b98fe0f602576d3b486ae073d">m_functor</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a16e0e2905a76904702cd1facf97fc369">   72</a></span>&#160;  evaluator&lt;Lhs&gt; <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a16e0e2905a76904702cd1facf97fc369">m_lhsImpl</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a638ac25e6d14a4ee40555791a3f8b97b">   73</a></span>&#160;  evaluator&lt;Rhs&gt; <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a638ac25e6d14a4ee40555791a3f8b97b">m_rhsImpl</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#ad6ad1491e06fe04a299375a2604a6ac4">   74</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a01c00401b1babd1e421a274a39e27984">XprType</a>&amp; <a class="code" href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#ad6ad1491e06fe04a299375a2604a6ac4">m_expr</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">const</span> BinaryOp m_functor;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  evaluator&lt;Lhs&gt; m_lhsImpl;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  evaluator&lt;Rhs&gt; m_rhsImpl;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">const</span> XprType&amp; m_expr;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// interaction structs with dense</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> BinaryOp, <span class="keyword">typename</span> Lhs, <span class="keyword">typename</span> Rhs&gt;</div>
@@ -194,12 +205,12 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> DenseDerived::Scalar,</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                          <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                  <span class="keyword">const</span> DenseDerived, <span class="keyword">const</span> H2Derived&gt;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">  102</a></span>&#160;    <a class="code" href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">operator+</a>(<span class="keyword">const</span> MatrixBase&lt;DenseDerived&gt;&amp; a,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    operator+(<span class="keyword">const</span> MatrixBase&lt;DenseDerived&gt;&amp; a,</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;              <span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; b) {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> DenseDerived::Scalar,</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                               <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                       <span class="keyword">const</span> DenseDerived, <span class="keyword">const</span> H2Derived&gt;(a.derived(),</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                            b.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>());</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                            b.derived());</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> H2Derived, <span class="keyword">typename</span> DenseDerived&gt;</div>
@@ -207,11 +218,11 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                          <span class="keyword">typename</span> DenseDerived::Scalar&gt;,</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                  <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> DenseDerived&gt;</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespace_eigen.html#ae7e7bf2bbef483cdd34c5ba714e0a500">  115</a></span>&#160;    <a class="code" href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">operator+</a>(<span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; a,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    operator+(<span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; a,</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;              <span class="keyword">const</span> MatrixBase&lt;DenseDerived&gt;&amp; b) {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                               <span class="keyword">typename</span> DenseDerived::Scalar&gt;,</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                       <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> DenseDerived&gt;(a.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>(),</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                       <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> DenseDerived&gt;(a.derived(),</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                                                            b.derived());</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
@@ -220,12 +231,12 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> SparseDerived::Scalar,</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                                          <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                  <span class="keyword">const</span> SparseDerived, <span class="keyword">const</span> H2Derived&gt;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="namespace_eigen.html#af39d9442a5a8267f70d166ce490c2100">  128</a></span>&#160;    <a class="code" href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">operator+</a>(<span class="keyword">const</span> SparseMatrixBase&lt;SparseDerived&gt;&amp; a,</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;              <span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; b) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    operator+(<span class="keyword">const</span> SparseMatrixBase&lt;SparseDerived&gt;&amp; a,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;              <span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; b) {</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> SparseDerived::Scalar,</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                               <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                       <span class="keyword">const</span> SparseDerived, <span class="keyword">const</span> H2Derived&gt;(a.derived(),</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                                             b.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>());</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                                             b.derived());</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> H2Derived, <span class="keyword">typename</span> SparseDerived&gt;</div>
@@ -233,11 +244,11 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                                          <span class="keyword">typename</span> SparseDerived::Scalar&gt;,</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                  <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> SparseDerived&gt;</div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="namespace_eigen.html#aa079f690520187ae1c463997b82b122b">  141</a></span>&#160;    <a class="code" href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">operator+</a>(<span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; a,</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    operator+(<span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; a,</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;              <span class="keyword">const</span> SparseMatrixBase&lt;SparseDerived&gt;&amp; b) {</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;internal::scalar_sum_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                                               <span class="keyword">typename</span> SparseDerived::Scalar&gt;,</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                       <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> SparseDerived&gt;(a.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>(),</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                       <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> SparseDerived&gt;(a.derived(),</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                                             b.derived());</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;}</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
@@ -246,12 +257,12 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    CwiseBinaryOp&lt;internal::scalar_difference_op&lt;<span class="keyword">typename</span> DenseDerived::Scalar,</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                                                 <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                  <span class="keyword">const</span> DenseDerived, <span class="keyword">const</span> H2Derived&gt;</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">  154</a></span>&#160;    <a class="code" href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">operator-</a>(<span class="keyword">const</span> MatrixBase&lt;DenseDerived&gt;&amp; a,</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;              <span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; b) {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    operator-(<span class="keyword">const</span> MatrixBase&lt;DenseDerived&gt;&amp; a,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;              <span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; b) {</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      internal::scalar_difference_op&lt;<span class="keyword">typename</span> DenseDerived::Scalar,</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                                     <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keyword">const</span> DenseDerived, <span class="keyword">const</span> H2Derived&gt;(a.derived(), b.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>());</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keyword">const</span> DenseDerived, <span class="keyword">const</span> H2Derived&gt;(a.derived(), b.derived());</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> H2Derived, <span class="keyword">typename</span> DenseDerived&gt;</div>
@@ -259,12 +270,12 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    CwiseBinaryOp&lt;internal::scalar_difference_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                                                 <span class="keyword">typename</span> DenseDerived::Scalar&gt;,</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                  <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> DenseDerived&gt;</div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="namespace_eigen.html#a83fd91cd0ace8deafe535549fb94073f">  167</a></span>&#160;    <a class="code" href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">operator-</a>(<span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; a,</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    operator-(<span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; a,</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;              <span class="keyword">const</span> MatrixBase&lt;DenseDerived&gt;&amp; b) {</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      internal::scalar_difference_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                                     <span class="keyword">typename</span> DenseDerived::Scalar&gt;,</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> DenseDerived&gt;(a.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>(), b.derived());</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> DenseDerived&gt;(a.derived(), b.derived());</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> SparseDerived, <span class="keyword">typename</span> H2Derived&gt;</div>
@@ -272,12 +283,12 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    CwiseBinaryOp&lt;internal::scalar_difference_op&lt;<span class="keyword">typename</span> SparseDerived::Scalar,</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                                 <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                  <span class="keyword">const</span> SparseDerived, <span class="keyword">const</span> H2Derived&gt;</div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="namespace_eigen.html#a7e5703fa93c3019ff6c872e23d21116d">  180</a></span>&#160;    <a class="code" href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">operator-</a>(<span class="keyword">const</span> SparseMatrixBase&lt;SparseDerived&gt;&amp; a,</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;              <span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; b) {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    operator-(<span class="keyword">const</span> SparseMatrixBase&lt;SparseDerived&gt;&amp; a,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;              <span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; b) {</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      internal::scalar_difference_op&lt;<span class="keyword">typename</span> SparseDerived::Scalar,</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                                     <span class="keyword">typename</span> H2Derived::Scalar&gt;,</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keyword">const</span> SparseDerived, <span class="keyword">const</span> H2Derived&gt;(a.derived(), b.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>());</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keyword">const</span> SparseDerived, <span class="keyword">const</span> H2Derived&gt;(a.derived(), b.derived());</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> H2Derived, <span class="keyword">typename</span> SparseDerived&gt;</div>
@@ -285,40 +296,27 @@ $(document).ready(function(){initNavTree('_h2_cwise_binary_op_8hpp_source.html',
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    internal::scalar_difference_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                   <span class="keyword">typename</span> SparseDerived::Scalar&gt;,</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> SparseDerived&gt;</div>
-<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="namespace_eigen.html#ad292b392b5429db747ad822ff3e53d46">  193</a></span>&#160;<a class="code" href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">operator-</a>(<span class="keyword">const</span> <a class="code" href="class_eigen_1_1_h2_matrix_base.html">H2MatrixBase&lt;H2Derived&gt;</a>&amp; a,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;operator-(<span class="keyword">const</span> H2MatrixBase&lt;H2Derived&gt;&amp; a,</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;          <span class="keyword">const</span> SparseMatrixBase&lt;SparseDerived&gt;&amp; b) {</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordflow">return</span> CwiseBinaryOp&lt;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      internal::scalar_difference_op&lt;<span class="keyword">typename</span> H2Derived::Scalar,</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                     <span class="keyword">typename</span> SparseDerived::Scalar&gt;,</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> SparseDerived&gt;(a.<a class="code" href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">derived</a>(), b.derived());</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="keyword">const</span> H2Derived, <span class="keyword">const</span> SparseDerived&gt;(a.derived(), b.derived());</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}  <span class="comment">// end namespace Eigen</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_H2MATRIX_EIGENHELPER_H2CWISEBINARYOP_HPP_</span></div>
-<div class="ttc" id="aclass_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4_html_a376fb0ffcf728ea3ec25efbf40c86710"><div class="ttname"><a href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a376fb0ffcf728ea3ec25efbf40c86710">Eigen::CwiseBinaryOpImpl&lt; BinaryOp, Lhs, Rhs, H2 &gt;::Base</a></div><div class="ttdeci">H2MatrixBase&lt; Derived &gt; Base</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00023">H2CwiseBinaryOp.hpp:23</a></div></div>
-<div class="ttc" id="aclass_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4_html_a742520c1eeaee603aac63c98a4a8f8db"><div class="ttname"><a href="class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html#a742520c1eeaee603aac63c98a4a8f8db">Eigen::CwiseBinaryOpImpl&lt; BinaryOp, Lhs, Rhs, H2 &gt;::Derived</a></div><div class="ttdeci">CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt; Derived</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00022">H2CwiseBinaryOp.hpp:22</a></div></div>
 <div class="ttc" id="aclass_eigen_1_1_h2_matrix_base_html"><div class="ttname"><a href="class_eigen_1_1_h2_matrix_base.html">Eigen::H2MatrixBase</a></div><div class="ttdef"><b>Definition:</b> <a href="_h2_matrix_base_8hpp_source.html#l00022">H2MatrixBase.hpp:22</a></div></div>
-<div class="ttc" id="aclass_eigen_1_1_h2_matrix_base_html_a1c95afa9203f74bd0e151e331060a96e"><div class="ttname"><a href="class_eigen_1_1_h2_matrix_base.html#a1c95afa9203f74bd0e151e331060a96e">Eigen::H2MatrixBase::derived</a></div><div class="ttdeci">const Derived &amp; derived() const</div><div class="ttdef"><b>Definition:</b> <a href="_h2_matrix_base_8hpp_source.html#l00043">H2MatrixBase.hpp:43</a></div></div>
 <div class="ttc" id="anamespace_eigen_html"><div class="ttname"><a href="namespace_eigen.html">Eigen</a></div><div class="ttdef"><b>Definition:</b> <a href="_h2_matrix_2_eigen_helper_2_constants_8hpp_source.html#l00016">Constants.hpp:16</a></div></div>
-<div class="ttc" id="anamespace_eigen_html_a6ee81391daa8925032c8b61474ee43c3"><div class="ttname"><a href="namespace_eigen.html#a6ee81391daa8925032c8b61474ee43c3">Eigen::operator+</a></div><div class="ttdeci">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_sum_op&lt; typename DenseDerived::Scalar, typename H2Derived::Scalar &gt;, const DenseDerived, const H2Derived &gt; operator+(const MatrixBase&lt; DenseDerived &gt; &amp;a, const H2MatrixBase&lt; H2Derived &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00102">H2CwiseBinaryOp.hpp:102</a></div></div>
-<div class="ttc" id="anamespace_eigen_html_afc22dca7bb8e19ca5aec81159507b887"><div class="ttname"><a href="namespace_eigen.html#afc22dca7bb8e19ca5aec81159507b887">Eigen::operator-</a></div><div class="ttdeci">EIGEN_STRONG_INLINE const CwiseBinaryOp&lt; internal::scalar_difference_op&lt; typename DenseDerived::Scalar, typename H2Derived::Scalar &gt;, const DenseDerived, const H2Derived &gt; operator-(const MatrixBase&lt; DenseDerived &gt; &amp;a, const H2MatrixBase&lt; H2Derived &gt; &amp;b)</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00154">H2CwiseBinaryOp.hpp:154</a></div></div>
 <div class="ttc" id="astruct_eigen_1_1_h2_html"><div class="ttname"><a href="struct_eigen_1_1_h2.html">Eigen::H2</a></div><div class="ttdef"><b>Definition:</b> <a href="_h2_matrix_2_eigen_helper_2_constants_8hpp_source.html#l00018">Constants.hpp:18</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_a01c00401b1babd1e421a274a39e27984"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a01c00401b1babd1e421a274a39e27984">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::XprType</a></div><div class="ttdeci">CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt; XprType</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00052">H2CwiseBinaryOp.hpp:52</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_a16e0e2905a76904702cd1facf97fc369"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a16e0e2905a76904702cd1facf97fc369">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::m_lhsImpl</a></div><div class="ttdeci">evaluator&lt; Lhs &gt; m_lhsImpl</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00072">H2CwiseBinaryOp.hpp:72</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_a638ac25e6d14a4ee40555791a3f8b97b"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a638ac25e6d14a4ee40555791a3f8b97b">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::m_rhsImpl</a></div><div class="ttdeci">evaluator&lt; Rhs &gt; m_rhsImpl</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00073">H2CwiseBinaryOp.hpp:73</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_a6dd0319b98fe0f602576d3b486ae073d"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a6dd0319b98fe0f602576d3b486ae073d">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::m_functor</a></div><div class="ttdeci">const BinaryOp m_functor</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00071">H2CwiseBinaryOp.hpp:71</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_a8859aa425feae7bc3ee0ea19c6acd71e"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#a8859aa425feae7bc3ee0ea19c6acd71e">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::StorageIndex</a></div><div class="ttdeci">XprType::StorageIndex StorageIndex</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00054">H2CwiseBinaryOp.hpp:54</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_ac147cba00586e7fb57d8211936848707"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#ac147cba00586e7fb57d8211936848707">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::Scalar</a></div><div class="ttdeci">traits&lt; XprType &gt;::Scalar Scalar</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00053">H2CwiseBinaryOp.hpp:53</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_ad6ad1491e06fe04a299375a2604a6ac4"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#ad6ad1491e06fe04a299375a2604a6ac4">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::m_expr</a></div><div class="ttdeci">const XprType &amp; m_expr</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00074">H2CwiseBinaryOp.hpp:74</a></div></div>
-<div class="ttc" id="astruct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048_html_aea040238b39ae902f0665ce704f9da51"><div class="ttname"><a href="struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html#aea040238b39ae902f0665ce704f9da51">Eigen::internal::binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;::binary_evaluator</a></div><div class="ttdeci">binary_evaluator(const XprType &amp;xpr)</div><div class="ttdef"><b>Definition:</b> <a href="_h2_cwise_binary_op_8hpp_source.html#l00062">H2CwiseBinaryOp.hpp:62</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_fcfb69fcd3eeb628c913b3d64af8b861.html">H2Matrix</a></li><li class="navelem"><a class="el" href="dir_3a524aee134e90b0d1aba72aa27f9099.html">EigenHelper</a></li><li class="navelem"><a class="el" href="_h2_cwise_binary_op_8hpp.html">H2CwiseBinaryOp.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_fcfb69fcd3eeb628c913b3d64af8b861.html">H2Matrix</a></li><li class="navelem"><a class="el" href="dir_3a524aee134e90b0d1aba72aa27f9099.html">EigenHelper</a></li><li class="navelem"><b>H2CwiseBinaryOp.hpp</b></li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

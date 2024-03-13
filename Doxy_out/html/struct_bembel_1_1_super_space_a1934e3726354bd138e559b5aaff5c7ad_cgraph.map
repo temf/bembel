@@ -1,5 +1,0 @@
-<map id="Bembel::SuperSpace::addScaledSurfaceCurlInteraction" name="Bembel::SuperSpace::addScaledSurfaceCurlInteraction">
-<area shape="rect" id="node1" title="Compute all products of surface curls of local shape functions on the unit square at coordinates s,..." alt="" coords="5,39,248,80"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_super_space.html#a1f3174ff6264672ae9b719a216710284" title="Evaluate derivatives in x direction of local shape functions on the unit square at coordinate s." alt="" coords="296,5,452,47"/>
-<area shape="rect" id="node3" href="$struct_bembel_1_1_super_space.html#ade66b57b366eca54c71137ea058c4ebc" title="Evaluate derivatives in y direction of local shape functions on the unit square at coordinate s." alt="" coords="296,71,452,112"/>
-</map>

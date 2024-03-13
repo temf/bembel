@@ -1,4 +1,4 @@
 <map id="Bembel::LaplaceSingleLayerOperator" name="Bembel::LaplaceSingleLayerOperator">
-<area shape="rect" id="node1" title=" " alt="" coords="19,95,226,136"/>
+<area shape="rect" id="node1" title="This class implements the specification of the integration for the single layer operator for Laplace." alt="" coords="19,95,226,136"/>
 <area shape="rect" id="node2" href="$struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,240,47"/>
 </map>

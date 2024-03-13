@@ -16,6 +16,11 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
@@ -24,6 +29,7 @@
 </script>
 <script type="text/javascript" async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="bembeldoxy.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -36,6 +42,21 @@
    <div id="projectname">Bembel
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -47,16 +68,6 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -90,11 +101,11 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_ansatz_space.html',''
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="class_bembel_1_1_ansatz_space-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Bembel::AnsatzSpace&lt; Derived &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___ansatz_space.html">AnsatzSpace</a></div></div>  </div>
+<div class="title">Bembel::AnsatzSpace&lt; Derived &gt; Class Template Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___ansatz_space.html">AnsatzSpace</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,109 +113,73 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_ansatz_space.html',''
  <a href="class_bembel_1_1_ansatz_space.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa03ec868cbb2e09670c5c61dde72d8fa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="class_bembel_1_1_ansatz_space.html#aa03ec868cbb2e09670c5c61dde72d8faa228d9006c264b7f5b26b5bf15e5cbd7a">Form</a> = LinearOperatorTraits&lt;Derived&gt;::Form
- }</td></tr>
-<tr class="separator:aa03ec868cbb2e09670c5c61dde72d8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a6206eb9afb37689673e36361e8452c69"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a6206eb9afb37689673e36361e8452c69">AnsatzSpace</a> ()</td></tr>
-<tr class="separator:a6206eb9afb37689673e36361e8452c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99cdd17c1aff3e73daaf0d47ae6b2764"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a99cdd17c1aff3e73daaf0d47ae6b2764">AnsatzSpace</a> (const <a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> &amp;other)</td></tr>
-<tr class="separator:a99cdd17c1aff3e73daaf0d47ae6b2764"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9860ac0d6ca7086cf869a0022cba78cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a9860ac0d6ca7086cf869a0022cba78cd">AnsatzSpace</a> (<a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> &amp;&amp;other)</td></tr>
-<tr class="separator:a9860ac0d6ca7086cf869a0022cba78cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a37d92303d8709ad295615d952ee445"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a9a37d92303d8709ad295615d952ee445">operator=</a> (<a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> other)</td></tr>
-<tr class="separator:a9a37d92303d8709ad295615d952ee445"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a212a649562467e3f8b74d808945e72e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a212a649562467e3f8b74d808945e72e3">AnsatzSpace</a> (const <a class="el" href="class_bembel_1_1_geometry.html">Geometry</a> &amp;geometry, int refinement_level, int polynomial_degree, int knot_repetition=1)</td></tr>
-<tr class="separator:a212a649562467e3f8b74d808945e72e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4be284b540e0564403c48e997f352a8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a4be284b540e0564403c48e997f352a8b">init_AnsatzSpace</a> (const <a class="el" href="class_bembel_1_1_geometry.html">Geometry</a> &amp;geometry, int refinement_level, int polynomial_degree, int knot_repetition)</td></tr>
-<tr class="separator:a4be284b540e0564403c48e997f352a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a976516196d270b3fb5f3af0ef34dc95b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a976516196d270b3fb5f3af0ef34dc95b">get_superspace</a> () const</td></tr>
-<tr class="separator:a976516196d270b3fb5f3af0ef34dc95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cec3e6eeaee0efff6ba5d5ffc58a895"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a5cec3e6eeaee0efff6ba5d5ffc58a895">get_knot_repetition</a> () const</td></tr>
-<tr class="separator:a5cec3e6eeaee0efff6ba5d5ffc58a895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6669a429ee0d176720d9fa19f277ec6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a6669a429ee0d176720d9fa19f277ec6d">get_refinement_level</a> () const</td></tr>
-<tr class="separator:a6669a429ee0d176720d9fa19f277ec6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3436dfc118853350bcffeb91b5debfeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a3436dfc118853350bcffeb91b5debfeb">get_polynomial_degree</a> () const</td></tr>
-<tr class="separator:a3436dfc118853350bcffeb91b5debfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa79dfbeebcc8c2de81e0fc19e48187e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#aaa79dfbeebcc8c2de81e0fc19e48187e">get_number_of_elements</a> () const</td></tr>
-<tr class="separator:aaa79dfbeebcc8c2de81e0fc19e48187e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aea965c7900165fe9ef6b390eb7d5c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a1aea965c7900165fe9ef6b390eb7d5c7">get_number_of_patches</a> () const</td></tr>
-<tr class="separator:a1aea965c7900165fe9ef6b390eb7d5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff796b7da255985006c532149336706b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#aff796b7da255985006c532149336706b">get_number_of_dofs</a> () const</td></tr>
-<tr class="separator:aff796b7da255985006c532149336706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a590b3867c8db980548af6e001b4765e5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group___geometry.html#ga2a0fac9275fef7f9601b40a644585cec">PatchVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a590b3867c8db980548af6e001b4765e5">get_geometry</a> () const</td></tr>
-<tr class="separator:a590b3867c8db980548af6e001b4765e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5649a924885719a7bff5fd7ba2f90640"><td class="memItemLeft" align="right" valign="top">const Eigen::SparseMatrix&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a5649a924885719a7bff5fd7ba2f90640">get_transformation_matrix</a> () const</td></tr>
-<tr class="separator:a5649a924885719a7bff5fd7ba2f90640"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class Bembel::AnsatzSpace&lt; Derived &gt;</h3>
 
 <p>The <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> is the class that handles the assembly of the discrete basis. </p>
-<pre class="fragment">It invokes a superspace and uses the Glue and Projektor class to
-</pre><p> assemble a transformation matrix, which relates the superspace to the desired basis. </p>
+<p>It invokes a <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> and uses the <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> and <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> class to assemble a transformation matrix, which relates the <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> to the desired basis. </p>
 
 <p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00025">25</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="aa03ec868cbb2e09670c5c61dde72d8fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa03ec868cbb2e09670c5c61dde72d8fa">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa03ec868cbb2e09670c5c61dde72d8faa228d9006c264b7f5b26b5bf15e5cbd7a"></a>Form&#160;</td><td class="fielddoc"></td></tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6206eb9afb37689673e36361e8452c69"><td class="memItemLeft" align="right" valign="top"><a id="a6206eb9afb37689673e36361e8452c69"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a6206eb9afb37689673e36361e8452c69">AnsatzSpace</a> ()</td></tr>
+<tr class="memdesc:a6206eb9afb37689673e36361e8452c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:a6206eb9afb37689673e36361e8452c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99cdd17c1aff3e73daaf0d47ae6b2764"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a99cdd17c1aff3e73daaf0d47ae6b2764">AnsatzSpace</a> (const <a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> &amp;other)</td></tr>
+<tr class="memdesc:a99cdd17c1aff3e73daaf0d47ae6b2764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="class_bembel_1_1_ansatz_space.html#a99cdd17c1aff3e73daaf0d47ae6b2764">More...</a><br /></td></tr>
+<tr class="separator:a99cdd17c1aff3e73daaf0d47ae6b2764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9860ac0d6ca7086cf869a0022cba78cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a9860ac0d6ca7086cf869a0022cba78cd">AnsatzSpace</a> (<a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a9860ac0d6ca7086cf869a0022cba78cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="class_bembel_1_1_ansatz_space.html#a9860ac0d6ca7086cf869a0022cba78cd">More...</a><br /></td></tr>
+<tr class="separator:a9860ac0d6ca7086cf869a0022cba78cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a37d92303d8709ad295615d952ee445"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a9a37d92303d8709ad295615d952ee445">operator=</a> (<a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> other)</td></tr>
+<tr class="memdesc:a9a37d92303d8709ad295615d952ee445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="class_bembel_1_1_ansatz_space.html#a9a37d92303d8709ad295615d952ee445">More...</a><br /></td></tr>
+<tr class="separator:a9a37d92303d8709ad295615d952ee445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a212a649562467e3f8b74d808945e72e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a212a649562467e3f8b74d808945e72e3">AnsatzSpace</a> (const <a class="el" href="class_bembel_1_1_geometry.html">Geometry</a> &amp;geometry, int refinement_level, int polynomial_degree, int knot_repetition=1)</td></tr>
+<tr class="memdesc:a212a649562467e3f8b74d808945e72e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a212a649562467e3f8b74d808945e72e3">More...</a><br /></td></tr>
+<tr class="separator:a212a649562467e3f8b74d808945e72e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be284b540e0564403c48e997f352a8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a4be284b540e0564403c48e997f352a8b">init_AnsatzSpace</a> (const <a class="el" href="class_bembel_1_1_geometry.html">Geometry</a> &amp;geometry, int refinement_level, int polynomial_degree, int knot_repetition)</td></tr>
+<tr class="memdesc:a4be284b540e0564403c48e997f352a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object.  <a href="class_bembel_1_1_ansatz_space.html#a4be284b540e0564403c48e997f352a8b">More...</a><br /></td></tr>
+<tr class="separator:a4be284b540e0564403c48e997f352a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976516196d270b3fb5f3af0ef34dc95b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_bembel_1_1_super_space.html">SuperSpace</a>&lt; Derived &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a976516196d270b3fb5f3af0ef34dc95b">get_superspace</a> () const</td></tr>
+<tr class="memdesc:a976516196d270b3fb5f3af0ef34dc95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the reference to the <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> associated with this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a976516196d270b3fb5f3af0ef34dc95b">More...</a><br /></td></tr>
+<tr class="separator:a976516196d270b3fb5f3af0ef34dc95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cec3e6eeaee0efff6ba5d5ffc58a895"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a5cec3e6eeaee0efff6ba5d5ffc58a895">get_knot_repetition</a> () const</td></tr>
+<tr class="memdesc:a5cec3e6eeaee0efff6ba5d5ffc58a895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the knot repetition value of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a5cec3e6eeaee0efff6ba5d5ffc58a895">More...</a><br /></td></tr>
+<tr class="separator:a5cec3e6eeaee0efff6ba5d5ffc58a895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6669a429ee0d176720d9fa19f277ec6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a6669a429ee0d176720d9fa19f277ec6d">get_refinement_level</a> () const</td></tr>
+<tr class="memdesc:a6669a429ee0d176720d9fa19f277ec6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the refinement level of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a6669a429ee0d176720d9fa19f277ec6d">More...</a><br /></td></tr>
+<tr class="separator:a6669a429ee0d176720d9fa19f277ec6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3436dfc118853350bcffeb91b5debfeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a3436dfc118853350bcffeb91b5debfeb">get_polynomial_degree</a> () const</td></tr>
+<tr class="memdesc:a3436dfc118853350bcffeb91b5debfeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the polynomial degree of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a3436dfc118853350bcffeb91b5debfeb">More...</a><br /></td></tr>
+<tr class="separator:a3436dfc118853350bcffeb91b5debfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa79dfbeebcc8c2de81e0fc19e48187e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#aaa79dfbeebcc8c2de81e0fc19e48187e">get_number_of_elements</a> () const</td></tr>
+<tr class="memdesc:aaa79dfbeebcc8c2de81e0fc19e48187e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of elements of the underlying <a class="el" href="class_bembel_1_1_element_tree.html" title="This class organizes an element structure on a Geometry object and handles refinement.">ElementTree</a> in the <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#aaa79dfbeebcc8c2de81e0fc19e48187e">More...</a><br /></td></tr>
+<tr class="separator:aaa79dfbeebcc8c2de81e0fc19e48187e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aea965c7900165fe9ef6b390eb7d5c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a1aea965c7900165fe9ef6b390eb7d5c7">get_number_of_patches</a> () const</td></tr>
+<tr class="memdesc:a1aea965c7900165fe9ef6b390eb7d5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of patches of the underlying <a class="el" href="class_bembel_1_1_geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a>.  <a href="class_bembel_1_1_ansatz_space.html#a1aea965c7900165fe9ef6b390eb7d5c7">More...</a><br /></td></tr>
+<tr class="separator:a1aea965c7900165fe9ef6b390eb7d5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff796b7da255985006c532149336706b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#aff796b7da255985006c532149336706b">get_number_of_dofs</a> () const</td></tr>
+<tr class="memdesc:aff796b7da255985006c532149336706b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of degrees of freedom of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#aff796b7da255985006c532149336706b">More...</a><br /></td></tr>
+<tr class="separator:aff796b7da255985006c532149336706b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a590b3867c8db980548af6e001b4765e5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group___geometry.html#ga2a0fac9275fef7f9601b40a644585cec">PatchVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a590b3867c8db980548af6e001b4765e5">get_geometry</a> () const</td></tr>
+<tr class="memdesc:a590b3867c8db980548af6e001b4765e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the geometry associated with this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a590b3867c8db980548af6e001b4765e5">More...</a><br /></td></tr>
+<tr class="separator:a590b3867c8db980548af6e001b4765e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5649a924885719a7bff5fd7ba2f90640"><td class="memItemLeft" align="right" valign="top">const Eigen::SparseMatrix&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_ansatz_space.html#a5649a924885719a7bff5fd7ba2f90640">get_transformation_matrix</a> () const</td></tr>
+<tr class="memdesc:a5649a924885719a7bff5fd7ba2f90640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the transformation matrix associated with this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>.  <a href="class_bembel_1_1_ansatz_space.html#a5649a924885719a7bff5fd7ba2f90640">More...</a><br /></td></tr>
+<tr class="separator:a5649a924885719a7bff5fd7ba2f90640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa03ec868cbb2e09670c5c61dde72d8fa"><td class="memItemLeft" align="right" valign="top"><a id="aa03ec868cbb2e09670c5c61dde72d8fa"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>Form</b> = LinearOperatorTraits&lt;Derived&gt;::Form
+ }</td></tr>
+<tr class="separator:aa03ec868cbb2e09670c5c61dde72d8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00027">27</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6206eb9afb37689673e36361e8452c69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6206eb9afb37689673e36361e8452c69">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_bembel_1_1_ansatz_space.html">Bembel::AnsatzSpace</a>&lt; Derived &gt;::<a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00031">31</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a99cdd17c1aff3e73daaf0d47ae6b2764"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99cdd17c1aff3e73daaf0d47ae6b2764">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a99cdd17c1aff3e73daaf0d47ae6b2764">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,12 +204,20 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00032">32</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The object to copy from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00039">39</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a9860ac0d6ca7086cf869a0022cba78cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9860ac0d6ca7086cf869a0022cba78cd">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9860ac0d6ca7086cf869a0022cba78cd">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,12 +242,20 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00037">37</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Move constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The object to move from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00048">48</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a212a649562467e3f8b74d808945e72e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a212a649562467e3f8b74d808945e72e3">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a212a649562467e3f8b74d808945e72e3">&#9670;&nbsp;</a></span>AnsatzSpace() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -311,18 +302,19 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00049">49</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_ansatz_space_a212a649562467e3f8b74d808945e72e3_cgraph.png" border="0" usemap="#aclass_bembel_1_1_ansatz_space_a212a649562467e3f8b74d808945e72e3_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_ansatz_space_a212a649562467e3f8b74d808945e72e3_cgraph" id="aclass_bembel_1_1_ansatz_space_a212a649562467e3f8b74d808945e72e3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,39,168,80"/>
-<area shape="rect" href="class_bembel_1_1_ansatz_space.html#a4be284b540e0564403c48e997f352a8b" title=" " alt="" coords="216,39,379,80"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#a2331bd268bc12cf2a8b264684258224e" title=" " alt="" coords="427,5,601,47"/>
-<area shape="rect" href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814" title=" " alt="" coords="431,71,597,112"/>
-</map>
-</div>
+<p>Constructor for <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<p>This constructor initializes an <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object with the provided parameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">geometry</td><td>The geometry object defining the space. </td></tr>
+    <tr><td class="paramname">refinement_level</td><td>The refinement level of the space. </td></tr>
+    <tr><td class="paramname">polynomial_degree</td><td>The degree of polynomials used in the space. </td></tr>
+    <tr><td class="paramname">knot_repetition</td><td>(optional) The number of repetitions of knots in the space. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00080">80</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -352,7 +344,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00086">86</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Retrieves the geometry associated with this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A const reference to the geometry. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00179">179</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +376,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00072">72</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Retrieves the knot repetition value of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The knot repetition value. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00128">128</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +408,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00085">85</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Retrieves the number of degrees of freedom of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of degrees of freedom. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00172">172</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -439,7 +440,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00079">79</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Retrieves the number of elements of the underlying <a class="el" href="class_bembel_1_1_element_tree.html" title="This class organizes an element structure on a Geometry object and handles refinement.">ElementTree</a> in the <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of elements. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00154">154</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -468,7 +472,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00082">82</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Retrieves the number of patches of the underlying <a class="el" href="class_bembel_1_1_geometry.html" title="this class wraps a GeometryVector and provides some basic functionality, like reading Geometry files">Geometry</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of patches. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00163">163</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -497,20 +504,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00076">76</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_ansatz_space_a3436dfc118853350bcffeb91b5debfeb_icgraph.png" border="0" usemap="#aclass_bembel_1_1_ansatz_space_a3436dfc118853350bcffeb91b5debfeb_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_ansatz_space_a3436dfc118853350bcffeb91b5debfeb_icgraph" id="aclass_bembel_1_1_ansatz_space_a3436dfc118853350bcffeb91b5debfeb_icgraph">
-<area shape="rect" title=" " alt="" coords="515,71,697,112"/>
-<area shape="rect" href="class_bembel_1_1_discrete_linear_form.html#a3d13dbedc3aa1f72ae2168de40d9926a" title=" " alt="" coords="260,5,467,47"/>
-<area shape="rect" href="class_bembel_1_1_discrete_potential.html#acf272dd1b282d27f2ca6acd22fce80d6" title=" " alt="" coords="267,71,459,112"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="286,136,441,177"/>
-<area shape="rect" href="class_bembel_1_1_discrete_linear_form.html#ac36abcd3f36b39f4c9b7cd80ef6758af" title=" " alt="" coords="5,5,212,47"/>
-<area shape="rect" href="class_bembel_1_1_discrete_potential.html#a863ee87f2feb8f804765da0a5c22ebf8" title=" " alt="" coords="13,71,205,112"/>
-</map>
-</div>
+<p>Retrieves the polynomial degree of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The polynomial degree. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00144">144</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -539,7 +536,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00073">73</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Retrieves the refinement level of this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The refinement level. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00135">135</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -568,24 +568,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00071">71</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_ansatz_space_a976516196d270b3fb5f3af0ef34dc95b_icgraph.png" border="0" usemap="#aclass_bembel_1_1_ansatz_space_a976516196d270b3fb5f3af0ef34dc95b_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_ansatz_space_a976516196d270b3fb5f3af0ef34dc95b_icgraph" id="aclass_bembel_1_1_ansatz_space_a976516196d270b3fb5f3af0ef34dc95b_icgraph">
-<area shape="rect" title=" " alt="" coords="565,247,728,288"/>
-<area shape="rect" href="class_bembel_1_1_discrete_linear_form.html#a6a575d8557296fc741930c2ebc98b063" title=" " alt="" coords="301,5,508,47"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="303,71,506,157"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_local_operator_computer.html#a9ab3c51c3d4b59606d730036704b8185" title=" " alt="" coords="292,181,517,223"/>
-<area shape="rect" href="class_bembel_1_1_discrete_potential.html#a31b5689b8960c41d9dca561b3a986b51" title=" " alt="" coords="309,247,501,288"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#ac996ef7c5dd2b62d65c1ffdaa411bfa0" title=" " alt="" coords="310,312,499,353"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="327,377,482,419"/>
-<area shape="rect" href="namespace_bembel.html#a5d75608ee7079ac7c9100764ab6a81be" title=" " alt="" coords="317,443,492,470"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html#a09b5e7c4f79531878a400a2c282f7806" title=" " alt="" coords="5,159,244,245"/>
-<area shape="rect" href="class_bembel_1_1_block_cluster_tree.html#a5401284f9ad5484df505f538db58b879" title=" " alt="" coords="30,312,219,353"/>
-</map>
-</div>
+<p>Retrieves the reference to the <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a> associated with this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A const reference to the <a class="el" href="struct_bembel_1_1_super_space.html" title="The superspace manages local polynomial bases on each element of the mesh and provides an interface t...">SuperSpace</a>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00121">121</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -614,20 +600,10 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00089">89</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_ansatz_space_a5649a924885719a7bff5fd7ba2f90640_icgraph.png" border="0" usemap="#aclass_bembel_1_1_ansatz_space_a5649a924885719a7bff5fd7ba2f90640_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_ansatz_space_a5649a924885719a7bff5fd7ba2f90640_icgraph" id="aclass_bembel_1_1_ansatz_space_a5649a924885719a7bff5fd7ba2f90640_icgraph">
-<area shape="rect" title=" " alt="" coords="565,130,728,186"/>
-<area shape="rect" href="class_bembel_1_1_discrete_linear_form.html#a6a575d8557296fc741930c2ebc98b063" title=" " alt="" coords="301,5,508,47"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html#a763d4c3d7b491439dfeaba61fdae4ac8" title=" " alt="" coords="303,71,506,157"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_local_operator_computer.html#a9ab3c51c3d4b59606d730036704b8185" title=" " alt="" coords="292,181,517,223"/>
-<area shape="rect" href="class_eigen_1_1_h2_matrix.html#aa020f25d1d009e639d3f49d96f3d3d6b" title="Assemble H2&#45;Matrix for linear operator linOp and AnsatzSpace ansatz_space with number_of_points inter..." alt="" coords="327,247,482,288"/>
-<area shape="rect" href="struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html#a09b5e7c4f79531878a400a2c282f7806" title=" " alt="" coords="5,159,244,245"/>
-</map>
-</div>
+<p>Retrieves the transformation matrix associated with this <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A const reference to the transformation matrix. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00189">189</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -679,26 +655,19 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00058">58</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_cgraph.png" border="0" usemap="#aclass_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_cgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_cgraph" id="aclass_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_cgraph">
-<area shape="rect" title=" " alt="" coords="5,39,168,80"/>
-<area shape="rect" href="class_bembel_1_1_glue.html#a2331bd268bc12cf2a8b264684258224e" title=" " alt="" coords="216,5,391,47"/>
-<area shape="rect" href="class_bembel_1_1_projector.html#a64da6a6020bbbc39fa66ba2ab2e90814" title=" " alt="" coords="221,71,386,112"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_icgraph.png" border="0" usemap="#aclass_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_icgraph" alt=""/></div>
-<map name="aclass_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_icgraph" id="aclass_bembel_1_1_ansatz_space_a4be284b540e0564403c48e997f352a8b_icgraph">
-<area shape="rect" title=" " alt="" coords="216,5,379,47"/>
-<area shape="rect" href="class_bembel_1_1_ansatz_space.html#a212a649562467e3f8b74d808945e72e3" title=" " alt="" coords="5,5,168,47"/>
-</map>
-</div>
+<p>Initializes the <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object. </p>
+<p>This function initializes the <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object with the provided parameters. It sets the knot repetition, initializes the super space, utilizes the <a class="el" href="class_bembel_1_1_projector.html" title="The Projector provides routines to assemble smooth B-Splines on each patch.">Projector</a> and <a class="el" href="class_bembel_1_1_glue.html" title="This class takes care of identifying DOFs on different edges, which must be identified with one anoth...">Glue</a> class to create a transformation matrix which assembles conforming B-Splines from local Bernstein polynomials.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">geometry</td><td>The geometry object. </td></tr>
+    <tr><td class="paramname">refinement_level</td><td>The refinement level of the space. </td></tr>
+    <tr><td class="paramname">polynomial_degree</td><td>The degree of polynomials used in the space. </td></tr>
+    <tr><td class="paramname">knot_repetition</td><td>The number of repetitions of knots in the space. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00102">102</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -728,7 +697,17 @@ template&lt;typename Derived &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00042">42</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
+<p>Copy assignment operator. </p>
+<p>This operator assigns the contents of another <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object to this one.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the updated <a class="el" href="class_bembel_1_1_ansatz_space.html" title="The AnsatzSpace is the class that handles the assembly of the discrete basis.">AnsatzSpace</a> object. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_ansatz_space_8hpp_source.html#l00062">62</a> of file <a class="el" href="_ansatz_space_8hpp_source.html">AnsatzSpace.hpp</a>.</p>
 
 </div>
 </div>
@@ -741,7 +720,7 @@ template&lt;typename Derived &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_ansatz_space.html">AnsatzSpace</a></li>
-    <li class="footer">Generated on Wed Feb 28 2024 09:07:30 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 13 2024 09:41:51 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
