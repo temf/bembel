@@ -22,11 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Getting Doxygen
         run: |
           sudo apt-get install --yes doxygen
+
+      - name: Install Latex
+        run: |
+          sudo apt install --yes texlive-latex-extra
 
       - name: Getting dot
         run: |

@@ -16,7 +16,10 @@ namespace Bembel {
 // forward declaration of class LaplaceBeltramiScalar in order to define
 // traits
 class LaplaceBeltramiOperator;
-
+/**
+ * \brief Specification of the LinearOperatorTraits for the Laplace Betrami
+ * Operator.
+ */
 template <>
 struct LinearOperatorTraits<LaplaceBeltramiOperator> {
   typedef Eigen::VectorXd EigenType;

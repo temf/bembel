@@ -17,6 +17,9 @@ namespace Bembel {
 template <typename LinOp>
 class HelmholtzSingleLayerPotential;
 
+/**
+ * \brief Specification of the PotentialTraits for the Helmholtz.
+ */
 template <typename LinOp>
 struct PotentialTraits<HelmholtzSingleLayerPotential<LinOp>> {
   typedef Eigen::VectorXcd::Scalar Scalar;
@@ -25,6 +28,8 @@ struct PotentialTraits<HelmholtzSingleLayerPotential<LinOp>> {
 
 /**
  * \ingroup Helmholtz
+ * \brief This class implements the specification of the integration for the
+ * single layer potential for Helmholtz.
  */
 template <typename LinOp>
 class HelmholtzSingleLayerPotential

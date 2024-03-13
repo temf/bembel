@@ -15,10 +15,10 @@
 namespace Bembel {
 namespace DuffyTrick {
 /**
- *  \ingroup DuffyTrick
- *  \brief evaluates a given quadrature on all surface panels storage format
- *         is qNodes.col(k) = [xi, w, Chi(xi); dsChi(xi); dtChi(xi)]\in\Rbb^12
- **/
+ * \ingroup DuffyTrick
+ * \brief evaluates a given quadrature on all surface panels storage format is
+ *qNodes.col(k) = [xi, w, Chi(xi); dsChi(xi); dtChi(xi)]
+ */
 template <class T>
 std::vector<ElementSurfacePoints> computeFfieldQnodes(const T &super_space,
                                                       const Cubature &Q) {

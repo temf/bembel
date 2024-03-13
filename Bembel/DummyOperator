@@ -12,6 +12,12 @@
 #ifndef BEMBEL_DUMMYOPERATOR_MODULE_
 #define BEMBEL_DUMMYOPERATOR_MODULE_
 
+/**
+ * \ingroup Modules
+ * \defgroup DummyOperator DummyOperator
+ * \brief DummyOperator provides a LinearOperator for testing.
+ **/
+
 #include <functional>
 
 #include <Eigen/Dense>

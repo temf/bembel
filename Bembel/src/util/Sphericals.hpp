@@ -123,6 +123,7 @@ double evaluate_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
  * @param cs:		The coefficients stored in the order \f$ [(0,  0), (1, -1), (1, 0), (1, 1)
  * 																			  (2, -2), (2, -1), ... (n, n)] \f$
  * @param deg:	The degree
+ * @param grad: distinguish the two cases.
  */
 double evaluate_solid_sphericals(Eigen::Vector3d x, Eigen::VectorXd cs,
     unsigned int deg, bool grad) {

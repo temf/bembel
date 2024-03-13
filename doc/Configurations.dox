@@ -1,0 +1,18 @@
+namespace Bembel {
+/**
+\page Configurations Configurations
+
+\section secEigen Include Eigen
+
+The CMake-File checks for installations of Eigen via the corresponding `Eigen3Config.cmake`.
+You can include the source code of Eigen directly byEigen can be integrated as a module.
+Alternatively, include the source code from Eigen with `include_directory(path/to/eigen)` and delete the following lines
+
+<pre><code>find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+target_link_librarires(... Eigen3::Eigen)
+</code></pre>
+
+from the `CMakeLists.txt` files.
+
+*/
+}  // namespace Bembel

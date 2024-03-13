@@ -13,9 +13,13 @@
 
 namespace Bembel {
 /**
- *    \ingroup LinearForm
- *    \brief This class needs to be specialized, such that key traits for user
+ * \ingroup LinearForm
+ * \brief This class needs to be specialized, such that key traits for user
  *defined LinearForms are available.
+ *
+ * LinearForm implements trace operators, i.e., routines to generate the right
+ *hand side of the linear systems. Currently, only a Dirichlet trace, tangential
+ *trace and a rotated tangential trace are provided.
  **/
 template <typename Derived>
 struct LinearFormTraits {
@@ -23,9 +27,12 @@ struct LinearFormTraits {
 };
 
 /**
- *  \ingroup LinearForm
- *  \brief This class provides a blueprint for the class that needs to be
+ * \ingroup LinearForm
+ * \brief This class provides a blueprint for the class that needs to be
  * specialized for assembly of the right hand side of the linear system.
+ * 
+ * Take a look at the [Design Considerations](\ref CRTPLinearForm) for
+ * details.
  */
 template <typename Derived, typename Scalar>
 struct LinearFormBase {

@@ -13,8 +13,10 @@
 #define BEMBEL_VISUALIZE_MODULE_
 
 /**
- *  \defgroup IO IO
- *  \brief The IO module provides input-output functionality.
+ * \ingroup Modules
+ * \defgroup IO IO
+ * \brief The IO module provides input-output functionality, including
+ * routines for VTK file export, timing, and writing log files.
  **/
 
 #include <assert.h>

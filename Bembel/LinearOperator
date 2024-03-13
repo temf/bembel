@@ -13,9 +13,10 @@
 #define BEMBEL_LINEAROPERATOR_MODULE_
 
 /**
- *  \defgroup LinearOperator LinearOperator
- *  \brief Specializations of the LinearOperatorBase class govern the behaviour
- *of most other modules.
+ * \ingroup Modules
+ * \defgroup LinearOperator LinearOperator
+ * \brief Provides a framework to implement linear operators that can be used
+ *to solve PDEs
  *
  * To provide a valid specialization, methods for kernel
  *evaluation and evaluation of the integrand, i.e., including the test

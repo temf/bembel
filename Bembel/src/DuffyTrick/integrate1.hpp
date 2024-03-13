@@ -14,12 +14,13 @@
 namespace Bembel {
 namespace DuffyTrick {
 /**
- *  \ingroup DuffyTrick
- *    \brief no-problem quadrature routine, elements are sufficiently far
- *           away from each other, but not far-field yet (this is just an
- *           isotropic tensor product quadrature!)
- *    \todo  be sure that map2element computes the weight h*Q.w(i) such that
- *           the integrand may then be scaled by qp1.weight * qp2.weight
+ * \ingroup DuffyTrick
+ * \brief no-problem quadrature routine, elements are sufficiently far away from
+ *each other, but not far-field yet (this is just an isotropic tensor product
+ *quadrature!).
+ *
+ * \todo be sure that map2element computes the weight h*Q.w(i) such that the
+ *integrand may then be scaled by qp1.weight * qp2.weight
  **/
 template <typename Derived, class T>
 void integrate1(const LinearOperatorBase<Derived> &LinOp, const T &super_space,

@@ -13,6 +13,9 @@
 
 namespace Bembel {
 namespace ProjectorRoutines {
+/**
+ * \brief Helper struct for assembling the Projector for the different cases.
+ */
 template <typename Derived, unsigned int DF>
 struct projector_matrixmaker_ {
   static Eigen::SparseMatrix<double> makeMatrix(
@@ -25,11 +28,13 @@ struct projector_matrixmaker_ {
 }  // namespace ProjectorRoutines
 
 /**
- *  \ingroup AnsatzSpace
- *  \brief The projector solves interpolation problems to identify the the
- * correct linear combination to represent a B-Spline basis local to each patch
- * by means of the given superspace, and then assembles the required
- * transformation matrices.
+ * \ingroup AnsatzSpace
+ * \brief The Projector provides routines to assemble smooth B-Splines on each
+ * patch.
+ *
+ * This class solves local interpolation problems on each patch to assemble
+ * B-splines from the Berstein basis. The linear combination of the Bernstein
+ * basis functions is stored in a sparse transformation matrix.
  */
 template <typename Derived>
 class Projector {
@@ -37,13 +42,33 @@ class Projector {
   //////////////////////////////////////////////////////////////////////////////
   /// constructors
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Default constructor
+   */
   Projector() {}
+  /**
+   * \brief Constructor for the Projector.
+   *
+   * This constructor initializes a Projector object with the provided
+   * parameters.
+   *
+   * \param super_space The SuperSpace to handle basis functions.
+   * \param knot_repetition The number of repetitions of knots in the space.
+   */
   Projector(const SuperSpace<Derived>& super_space, const int knot_repetition) {
     init_Projector(super_space, knot_repetition);
   }
   //////////////////////////////////////////////////////////////////////////////
   /// init
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Initializes the Projector.
+   *
+   * This function initializes the member variables of the Projector
+   *
+   * \param super_space The SuperSpace to handle basis functions.
+   * \param knot_repetition The number of repetitions of knots in the space.
+   */
   void init_Projector(const SuperSpace<Derived>& super_space,
                       const int knot_repetition) {
     knot_repetition_ = knot_repetition;
@@ -55,10 +80,30 @@ class Projector {
   //////////////////////////////////////////////////////////////////////////////
   /// getter
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Return knot repetition.
+   *
+   * \return The number of repetitions of knots in the space.
+   */
   int get_knot_repetition() const { return knot_repetition_; }
+  /**
+   * \brief This function returns the transformation matrix to assemble smooth
+   * tensor product B-splines.
+   *
+   * In the assembly process of this Projection matrix an local interpolation
+   * problem is solved on each element. This matrix needs to be applied to the
+   * Bernstein basis to assemble smooth tensor product B-splines.
+   *
+   * \return The Projector matrix a tall thin Sparse transformation matrix.
+   */
   const Eigen::SparseMatrix<double>& get_projection_matrix() {
     return projector_;
   }
+  /**
+   * \brief Return number of smooth B-splines.
+   *
+   * \return Number of DOFs after applying the transformation matrix.
+   */
   int get_dofs_after_projector() const { return dofs_after_projector_; }
   //////////////////////////////////////////////////////////////////////////////
   /// private members
@@ -86,7 +131,11 @@ class Projector {
 
 namespace ProjectorRoutines {
 
-// Local helper struct
+/**
+ * \brief Helper struct
+ * 
+ * \todo Use Eigen::Triplets.
+ */
 struct _proj_info {
   std::vector<double> vals;
   std::vector<int> rows;
@@ -96,6 +145,23 @@ struct _proj_info {
 };
 
 template <typename Derived>
+/**
+ * \brief This function solves on each element the interpolation problem to
+ * assemble smooth tensor product B-splines.
+ *
+ * This function returns the entries of the matrix which transforms Bernstein
+ * polynomials to tensor product B-splines defined by the polynomial degree in x
+ * and y direction. The local interpolation mask is filled with the DeBoor
+ * algorithm and the system is solved with the Eigen::FullPivLU decomposition.
+ *
+ * \param super_space Reference to the SuperSpace handling basis functions.
+ * \param pp1x Polynomial degree in x direction plus 1.
+ * \param pp1y Polynomial degree in y direction plus 1.
+ * \param knotrepetition_in Knot repetition of the knot vector.
+ *
+ * \return Struct Number of DOFs and indices of the matrix entries and the
+ * coefficients of the linear combination assembling smooth B-spline.
+ */
 inline _proj_info makeLocalProjectionTriplets(
     const SuperSpace<Derived>& super_space, const int pp1x, const int pp1y,
     const int knotrepetition_in) {
@@ -270,6 +336,11 @@ inline _proj_info makeLocalProjectionTriplets(
   return out;
 }
 
+/**
+ * \brief Specification of the struct for the scalar continuous case.
+ *
+ * Do the same as in the discontinuous case but with an assert p >= 1.
+ */
 template <typename Derived>
 struct projector_matrixmaker_<Derived, DifferentialForm::Continuous> {
   static Eigen::SparseMatrix<double> makeMatrix(
@@ -288,6 +359,14 @@ struct projector_matrixmaker_<Derived, DifferentialForm::Continuous> {
   }
 };
 
+/**
+ * \brief Specification of the struct for the vector Div conforming case.
+ *
+ * The Maxwell case: This function assembles a vector valued smooth tensor
+ * product B-spline basis. Hereby the first component has the polynomial degree
+ * p in x direction and p - 1 in y direction. For the second component the
+ * polynomial degree for x and y direction are switched.
+ */
 template <typename Derived>
 struct projector_matrixmaker_<Derived, DifferentialForm::DivConforming> {
   static Eigen::SparseMatrix<double> makeMatrix(
@@ -324,6 +403,12 @@ struct projector_matrixmaker_<Derived, DifferentialForm::DivConforming> {
   }
 };
 
+/**
+ * \brief Specification of the struct for the discontinuous case.
+ *
+ * This functions assembles scalar smooth tensor product B-splines according to
+ * the knot repetition. The polynomial degree in x and y direction is the same.
+ */
 template <typename Derived>
 struct projector_matrixmaker_<Derived, DifferentialForm::Discontinuous> {
   static Eigen::SparseMatrix<double> makeMatrix(
