@@ -28,6 +28,10 @@ jobs:
         run: |
           sudo apt-get install --yes doxygen
 
+      - name: Install Latex
+        run: |
+          sudo apt install --yes texlive-latex-extra
+
       - name: Getting dot
         run: |
           sudo apt-get install --yes graphviz
