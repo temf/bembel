@@ -17,6 +17,7 @@ set(CIFILES
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
     LaplaceHypersingularH2
+    LaplaceDoubleLayerH2
     LazyEigenSum
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
