@@ -202,8 +202,9 @@ class Patch {
 
   // This is a combination of eval und evalJacobian, to avoid duplication of
   // work. See SurfacePoint.hpp
-  void updateSurfacePoint(SurfacePoint *srf_pt, const Eigen::Vector2d &ref_pt,
-                          double w, const Eigen::Vector2d &xi) const {
+  void updateSurfacePoint(SurfacePoint *srf_pt, const int patch,
+                          const Eigen::Vector2d &ref_pt, const double w,
+                          const Eigen::Vector2d &xi) const {
     const int x_location =
         Spl::FindLocationInKnotVector(ref_pt(0), unique_knots_x_);
     const int y_location =
@@ -262,6 +263,7 @@ class Patch {
     Eigen::Vector3d tmpDxvec(tmpDx[0], tmpDx[1], tmpDx[2]);
     Eigen::Vector3d tmpDyvec(tmpDy[0], tmpDy[1], tmpDy[2]);
 
+    srf_pt->set_patch(patch);
     srf_pt->set_xi(xi);
     srf_pt->set_w(w);
     srf_pt->set_f(bot * tmpvec);
