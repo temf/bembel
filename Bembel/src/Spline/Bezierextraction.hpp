@@ -53,24 +53,15 @@ Eigen::SparseMatrix<T> MakeProjection(const std::vector<T> &x_knots,
   Eigen::Matrix<T, -1, -1> tempsolver =
       Eigen::Matrix<T, -1, -1>::Zero(size_phi, size_phi);
 
-  double *coefficients_x = new double[polynomial_degree_x];
-  double *coefficients_y = new double[polynomial_degree_y];
-
-  for (int i = 0; i < polynomial_degree_x; i++) coefficients_x[i] = 0;
-
-  for (int i = 0; i < polynomial_degree_y; i++) coefficients_y[i] = 0;
-
-  auto BezBasis = [](std::vector<double> uniq, int deg, int pos, double pt,
-                     double *coef) {
+  auto BezBasis = [](std::vector<double> uniq, int deg, int pos, double pt) {
     std::div_t loc = std::div(pos, deg);
     if (pt > uniq[loc.quot + 1] || pt < uniq[loc.quot]) {
       return 0.;
     } else {
-      coef[loc.rem] = 1;
-      double out = Bembel::Basis::ShapeFunctionHandler::evalCoef(
-          deg - 1, coef, Rescale(pt, uniq[loc.quot], uniq[loc.quot + 1]));
-      coef[loc.rem] = 0;
-      return out;
+      Eigen::VectorXd unit = Eigen::VectorXd::Zero(deg);
+      unit(loc.rem) = 1.;
+      return unit.dot(Bembel::Basis::ShapeFunctionHandler::evalBasis(
+          deg - 1, Rescale(pt, uniq[loc.quot], uniq[loc.quot + 1])));
     }
   };
 
@@ -81,17 +72,12 @@ Eigen::SparseMatrix<T> MakeProjection(const std::vector<T> &x_knots,
       for (int y = 0; y < size_phi_y; y++) {
         for (int x = 0; x < size_phi_x; x++) {
           tempsolver(y * size_phi_x + x, ix * size_phi_y + iy) =
-              BezBasis(x_unique_knots, polynomial_degree_x, ix, xpoint[x],
-                       coefficients_x) *
-              BezBasis(y_unique_knots, polynomial_degree_y, iy, ypoint[y],
-                       coefficients_y);
+              BezBasis(x_unique_knots, polynomial_degree_x, ix, xpoint[x]) *
+              BezBasis(y_unique_knots, polynomial_degree_y, iy, ypoint[y]);
         }
       }
     }
   }
-
-  delete[] coefficients_x;
-  delete[] coefficients_y;
 
   Eigen::FullPivLU<Eigen::Matrix<double, -1, -1>> lu_decomp(tempsolver);
   assert(lu_decomp.rank() == size_phi);

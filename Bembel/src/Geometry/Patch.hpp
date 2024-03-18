@@ -140,7 +140,6 @@ class Patch {
         const double tpbasisval = xbasis[i] * ybasis[j];
         const int accs = 4 * (numy * (polynomial_degree_x_ * x_location + i) +
                               polynomial_degree_y_ * y_location + j);
-#pragma omp simd
         for (int k = 0; k < 4; k++) tmp[k] += data_[accs + k] * tpbasisval;
       }
     }
@@ -202,7 +201,6 @@ class Patch {
 
         // Here I add up the values of the basis functions in the dc
         // basis
-#pragma omp simd
         for (int k = 0; k < 4; k++) {
           tmp[k] += data_[accs + k] * tpbasisval;
           tmpDx[k] += data_[accs + k] * tpbasisvalDx;
@@ -216,13 +214,8 @@ class Patch {
     delete[] xbasisD;
     delete[] ybasisD;
 
-    Eigen::Matrix<double, 3, 2> out;
-
-    // Eigen::Vector3d out;
-
     double bot = 1. / (tmp[3] * tmp[3]);
-
-#pragma omp simd
+    Eigen::Matrix<double, 3, 2> out;
     for (int k = 0; k < 3; k++) {
       out(k, 0) = (tmpDx[k] * tmp[3] - tmp[k] * tmpDx[3]) * bot;
       out(k, 1) = (tmpDy[k] * tmp[3] - tmp[k] * tmpDy[3]) * bot;
@@ -278,22 +271,10 @@ class Patch {
     return evalNormal(Eigen::Vector2d(x, y));
   }
 
-  //
-  /**
-   * \brief Updates the surface point and returns the physical point and the
-   * derivatives there.
-   *
-   * This is a combination of eval und evalJacobian, to avoid duplication of
-   * work.
-   *
-   * \param srf_pt Pointer to the SurfacePoint which gets updated.
-   * \param ref_pt Point in reference domain with respect to the patch.
-   * \param w quadrature weight.
-   * \param xi Point in reference domain with respect to the element.
-   */
-  void updateSurfacePoint(SurfacePoint *srf_pt,
-                          const Eigen::Vector2d &ref_pt, double w,
-                          const Eigen::Vector2d &xi) const {
+  // This is a combination of eval und evalJacobian, to avoid duplication of
+  // work. See SurfacePoint.hpp
+  void updateSurfacePoint(SurfacePoint *srf_pt, const Eigen::Vector2d &ref_pt,
+                          double w, const Eigen::Vector2d &xi) const {
     const int x_location =
         Spl::FindLocationInKnotVector(ref_pt(0), unique_knots_x_);
     const int y_location =
@@ -304,11 +285,11 @@ class Patch {
     const double scaledy = Spl::Rescale(ref_pt(1), unique_knots_y_[y_location],
                                         unique_knots_y_[y_location + 1]);
 
-    // TODO(Felix) Do not use variable-length arrays in accordance to Google
-    // Style guide
-    double *buffer =
-        new double[2 * (polynomial_degree_x_ + polynomial_degree_y_) + 12];
-    for (int i = 0; i < 12; ++i) buffer[i] = 0;
+    // allocating memory is expensive, use the buffer in SurfacePoint
+    srf_pt->allocate_buffer(2 * (polynomial_degree_x_ + polynomial_degree_y_) +
+                            12);
+    double *buffer = srf_pt->get_buffer();
+    std::memset(buffer, 0, 12 * sizeof(double));
 
     double *tmp = buffer;
     double *tmpDx = tmp + 4;
@@ -348,19 +329,17 @@ class Patch {
     const double bot = 1. / tmp[3];
     const double botsqr = bot * bot;
 
-    (*srf_pt)(0) = xi(0);
-    (*srf_pt)(1) = xi(1);
-    (*srf_pt)(2) = w;
-    (*srf_pt)(3) = tmp[0] * bot;
-    (*srf_pt)(4) = tmp[1] * bot;
-    (*srf_pt)(5) = tmp[2] * bot;
-    (*srf_pt)(6) = (tmpDx[0] * tmp[3] - tmp[0] * tmpDx[3]) * botsqr;
-    (*srf_pt)(7) = (tmpDx[1] * tmp[3] - tmp[1] * tmpDx[3]) * botsqr;
-    (*srf_pt)(8) = (tmpDx[2] * tmp[3] - tmp[2] * tmpDx[3]) * botsqr;
-    (*srf_pt)(9) = (tmpDy[0] * tmp[3] - tmp[0] * tmpDy[3]) * botsqr;
-    (*srf_pt)(10) = (tmpDy[1] * tmp[3] - tmp[1] * tmpDy[3]) * botsqr;
-    (*srf_pt)(11) = (tmpDy[2] * tmp[3] - tmp[2] * tmpDy[3]) * botsqr;
-    delete[] buffer;
+    Eigen::Vector3d tmpvec(tmp[0], tmp[1], tmp[2]);
+    Eigen::Vector3d tmpDxvec(tmpDx[0], tmpDx[1], tmpDx[2]);
+    Eigen::Vector3d tmpDyvec(tmpDy[0], tmpDy[1], tmpDy[2]);
+
+    srf_pt->set_xi(xi);
+    srf_pt->set_w(w);
+    srf_pt->set_f(bot * tmpvec);
+    srf_pt->set_jacobian(botsqr * (Eigen::Matrix<double, 3, 2>()
+                                       << tmpDxvec * tmp[3] - tmpvec * tmpDx[3],
+                                   tmpDyvec * tmp[3] - tmpvec * tmpDy[3])
+                                      .finished());
     return;
   }
 

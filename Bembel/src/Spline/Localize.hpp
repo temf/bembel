@@ -64,18 +64,14 @@ inline std::vector<T> MakeInterpolationPoints(
  *  \brief returns the coefficients to represent a function in the Bernstein
  *         basis on [0,1].
  **/
-inline Eigen::Matrix<double, -1, -1> GetInterpolationMatrix(
-    int polynomial_degree, const std::vector<double> &mask) {
-  Eigen::Matrix<double, -1, -1> interpolationMatrix(polynomial_degree + 1,
-                                                    polynomial_degree + 1);
+inline Eigen::MatrixXd GetInterpolationMatrix(int polynomial_degree,
+                                              const std::vector<double> &mask) {
+  Eigen::MatrixXd interpolationMatrix(polynomial_degree + 1,
+                                      polynomial_degree + 1);
 
-  double val[Constants::MaxP + 1];
-  for (int j = 0; j < polynomial_degree + 1; j++) {
-    Bembel::Basis::ShapeFunctionHandler::evalBasis(polynomial_degree, val,
-                                                   mask[j]);
-    for (int i = 0; i < polynomial_degree + 1; i++)
-      interpolationMatrix(j, i) = val[i];
-  }
+  for (int j = 0; j < polynomial_degree + 1; j++)
+    interpolationMatrix.row(j) = Bembel::Basis::ShapeFunctionHandler::evalBasis(
+        polynomial_degree, mask[j]);
 
   return interpolationMatrix.inverse();
 }

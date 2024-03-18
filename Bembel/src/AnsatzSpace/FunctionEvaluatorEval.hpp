@@ -29,8 +29,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Continuous, LinOp> {
            Scalar, Eigen::Dynamic,
            getFunctionSpaceVectorDimension<DifferentialForm::Continuous>()>
            &coeff) const {
-    auto s = p.segment<2>(0);
-    return coeff.transpose() * super_space.basis(s) / element.get_h();
+    return coeff.transpose() * super_space.basis(p.get_xi()) / element.get_h();
   }
 };
 
@@ -47,15 +46,13 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::DivConforming, LinOp> {
            Scalar, Eigen::Dynamic,
            getFunctionSpaceVectorDimension<DifferentialForm::DivConforming>()>
            &coeff) const {
-    auto s = p.segment<2>(0);
-    auto h = element.get_h();
-    auto x_f_dx = p.segment<3>(6);
-    auto x_f_dy = p.segment<3>(9);
+    double h = element.get_h();
     Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar, Eigen::Dynamic,
                   1>
-        tangential_coefficients = coeff.transpose() * super_space.basis(s);
-    return (x_f_dx * tangential_coefficients(0) +
-            x_f_dy * tangential_coefficients(1)) /
+        tangential_coefficients =
+            coeff.transpose() * super_space.basis(p.get_xi());
+    return (p.get_f_dx() * tangential_coefficients(0) +
+            p.get_f_dy() * tangential_coefficients(1)) /
            h;
   }
 
@@ -67,14 +64,13 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::DivConforming, LinOp> {
           Scalar, Eigen::Dynamic,
           getFunctionSpaceVectorDimension<DifferentialForm::DivConforming>()>
           &coeff) const {
-    auto s = p.segment<2>(0);
-    auto h = element.get_h();
+    double h = element.get_h();
     Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar, Eigen::Dynamic,
                   1>
-        phiPhiVec_dx = super_space.basisDx(s);
+        phiPhiVec_dx = super_space.basisDx(p.get_xi());
     Eigen::Matrix<typename LinearOperatorTraits<LinOp>::Scalar, Eigen::Dynamic,
                   1>
-        phiPhiVec_dy = super_space.basisDy(s);
+        phiPhiVec_dy = super_space.basisDy(p.get_xi());
     return (phiPhiVec_dx.dot(coeff.col(0)) + phiPhiVec_dy.dot(coeff.col(1))) /
            h / h;
   }
@@ -93,8 +89,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Discontinuous, LinOp> {
            Scalar, Eigen::Dynamic,
            getFunctionSpaceVectorDimension<DifferentialForm::Discontinuous>()>
            &coeff) const {
-    auto s = p.segment<2>(0);
-    return coeff.transpose() * super_space.basis(s) / element.get_h();
+    return coeff.transpose() * super_space.basis(p.get_xi()) / element.get_h();
   }
 };
 }  // namespace Bembel
