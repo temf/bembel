@@ -38,10 +38,9 @@ class DirichletTrace : public LinearFormBase<DirichletTrace<Scalar>, Scalar> {
   void evaluateIntegrand_impl(
       const T &super_space, const SurfacePoint &p,
       Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
-    // compute surface measures from tangential derivatives
-    auto x_kappa = p.get_f_dx().cross(p.get_f_dy()).norm();
+    std::cout << p.get_xi() << std::endl;
     // integrand without basis functions
-    auto integrand = function_(p.get_f()) * p.get_surface_measure() * p.get_w();
+    Scalar integrand = function_(p.get_f()) * p.get_surface_measure() * p.get_w();
     // multiply basis functions with integrand
     super_space.addScaledBasis(intval, integrand, p.get_xi());
     return;

@@ -22,7 +22,6 @@
 #include "Quadrature"
 
 #include "src/LinearForm/LinearForm.hpp"
-#include "src/LinearForm/DiscreteLinearFormOnReferenceDomain.hpp"
 
 #include "src/LinearForm/DirichletTrace.hpp"
 #include "src/LinearForm/DirichletTraceOnReferenceDomain.hpp"

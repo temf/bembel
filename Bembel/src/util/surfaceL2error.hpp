@@ -32,9 +32,7 @@ double surfaceL2error(const AnsatzSpace<Op> &ansatz_space,
     for (auto i = 0; i < Q.w_.size(); ++i) {
       super_space.map2surface(*element, Q.xi_.col(i), Q.w_(i), &qp);
       // integrand without basis functions
-      const Scalar val =
-          longvec.segment(n_shape_fun * element->id_, n_shape_fun).transpose() *
-          super_space.basis(qp.get_xi());
+      const Scalar val = fun_val.evaluate(*element, qp)(0);
       retval += qp.get_surface_measure() * Q.w_(i) * element->get_h() *
                 element->get_h() *
                 (functor(qp.get_f()) - val / element->get_h()) *

@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2024 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_H_
-#define BEMBEL_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_H_
+#ifndef BEMBEL_SRC_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_H_
+#define BEMBEL_SRC_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_H_
 
 namespace Bembel {
 
@@ -34,39 +37,21 @@ class DirichletTraceOnReferenceDomain
     function_ = function;
   }
   template <class T>
-  void evaluateIntegrand_impl(const T &super_space, const SurfacePoint &p,
-                              Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval,
-                              int patch) const {
-    auto polynomial_degree = super_space.get_polynomial_degree();
-    auto polynomial_degree_plus_one_squared =
-        (polynomial_degree + 1) * (polynomial_degree + 1);
-
-    // get evaluation points on unit square
-    auto s = p.segment<2>(0);
-
-    // get quadrature weights
-    auto ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    auto x_f = p.segment<3>(3);
-    auto x_f_dx = p.segment<3>(6);
-    auto x_f_dy = p.segment<3>(9);
-
-    // compute surface measures from tangential derivatives
-    auto x_kappa = x_f_dx.cross(x_f_dy).norm();
-
+  void evaluateIntegrand_impl(
+      const T &super_space, const SurfacePoint &p,
+      Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
     // integrand without basis functions
-    auto integrand = function_(patch, s) * x_kappa * ws;
-
+    //std::cout << p.get_xi() << std::endl;
+    Scalar integrand = function_(p.get_patch(), p.get_xi()) *
+                       p.get_surface_measure() * p.get_w();
     // multiply basis functions with integrand
-    super_space.addScaledBasis(intval, integrand, s);
-
+    super_space.addScaledBasis(intval, integrand, p.get_xi());
     return;
-  };
+  }
 
  private:
   std::function<Scalar(int, Eigen::Vector2d)> function_;
 };
 }  // namespace Bembel
 
-#endif
+#endif  // BEMBEL_SRC_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_H_
