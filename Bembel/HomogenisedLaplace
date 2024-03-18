@@ -1,0 +1,35 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
+#ifndef BEMBEL_HOMOGENISEDLAPLACEOPERATOR_MODULE_
+#define BEMBEL_HOMOGENISEDLAPLACEOPERATOR_MODULE_
+
+/**
+ *  \ingroup Modules
+ *  \defgroup HomogenisedLaplace HomogenisedLaplace
+ *  \brief The HomogenisedLaplace module provides some specializations to solve
+ *  a homogenised Laplace problem.
+ **/
+
+#include <functional>
+
+#include <Eigen/Dense>
+
+#include "LinearOperator"
+#include "Potential"
+
+#include "src/util/Sphericals.hpp"
+
+#include "src/HomogenisedLaplace/Coefficients.hpp"
+#include "src/HomogenisedLaplace/SingleLayerOperator.hpp"
+#include "src/HomogenisedLaplace/SingleLayerPotential.hpp"
+
+#endif

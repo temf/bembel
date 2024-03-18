@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -13,19 +16,19 @@
 #include <Bembel/LinearForm>
 #include <Bembel/Maxwell>
 #include <Eigen/Dense>
-#include <iostream>
 #include <unsupported/Eigen/IterativeSolvers>
+#include <iostream>
 
-#include "Data.hpp"
-#include "Error.hpp"
-#include "Grids.hpp"
+#include "examples/Data.hpp"
+#include "examples/Error.hpp"
+#include "examples/Grids.hpp"
 
 int main() {
   using namespace Bembel;
   using namespace Eigen;
 
   Bembel::IO::Stopwatch sw;
-  
+
   int polynomial_degree_max = 2;
   int refinement_level_max = 3;
   std::complex<double> wavenumber(2., 0.);
@@ -34,9 +37,9 @@ int main() {
   // directory as the executable
   Geometry geometry("sphere.dat");
 
-  // Define evaluation points for scattered field, sphere of radius 2, 10*10
-  // points.
-  MatrixXd gridpoints = Util::makeSphereGrid(2., 10);
+  // Define evaluation points for scattered field, sphere of radius 2, 100
+  // equispaced points.
+  MatrixXd gridpoints = Util::makeSphereGrid(2., 100);
 
   // Define analytical solution using lambda function, in this case a dipole
   // centered on 0, see Data.hpp
@@ -89,7 +92,7 @@ int main() {
       auto pot = disc_pot.evaluate(gridpoints);
 
       // compute reference, print time, and compute error
-      MatrixXcd pot_ref(gridpoints.rows(),3);
+      MatrixXcd pot_ref(gridpoints.rows(), 3);
       for (int i = 0; i < gridpoints.rows(); ++i)
         pot_ref.row(i) = fun(gridpoints.row(i));
       error(refinement_level) = (pot - pot_ref).rowwise().norm().maxCoeff();

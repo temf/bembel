@@ -1,17 +1,22 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_INCLUDE_SUPERSPACE_H_
-#define BEMBEL_INCLUDE_SUPERSPACE_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
 namespace Bembel {
 /**
- *  \ingroup AnsatzSpace
- *  \brief The superspace manages local polynomial bases on each element of the
- * mesh and provides an itnerface to evaluate them.
+ * \ingroup AnsatzSpace
+ * \brief The superspace manages local polynomial bases on each element of the
+ * mesh and provides an interface to evaluate them.
+ * 
+ * 
  */
 template <typename Derived>
 struct SuperSpace {
@@ -19,8 +24,31 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
-  SuperSpace(){};
+  /**
+   * \brief Default constructor for the SuperSpace class.
+   * 
+   * This constructor creates a SuperSpace object with default parameters.
+   */
+  SuperSpace() {}
+  /**
+   * \brief Parameterized constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object with the provided
+   * parameters.
+   *
+   * \param geom The geometry object defining the space.
+   * \param M The refinement level of the space.
+   * \param P The degree of polynomials used in the space.
+   */
   SuperSpace(Geometry& geom, int M, int P) { init_SuperSpace(geom, M, P); }
+  /**
+   * \brief Copy constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object by copying another
+   * SuperSpace object.
+   *
+   * \param other The SuperSpace object to copy from.
+   */
   SuperSpace(const SuperSpace& other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -35,6 +63,14 @@ struct SuperSpace {
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
   }
+  /**
+   * \brief Move constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object by moving from another
+   * SuperSpace object.
+   *
+   * \param other The SuperSpace object to move from.
+   */
   SuperSpace(SuperSpace&& other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -48,7 +84,16 @@ struct SuperSpace {
     polynomial_degree = other.polynomial_degree;
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
-  };
+  }
+  /**
+   * \brief Assignment operator for the SuperSpace class.
+   *
+   * This operator assigns the contents of another SuperSpace object to this
+   * one.
+   *
+   * \param other The SuperSpace object to copy from.
+   * \return A reference to the updated SuperSpace object.
+   */
   SuperSpace& operator=(SuperSpace other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -75,7 +120,7 @@ struct SuperSpace {
   int get_number_of_elements() const { return mesh_->get_number_of_elements(); }
   int get_number_of_patches() const { return mesh_->get_geometry().size(); }
   const PatchVector& get_geometry() const { return mesh_->get_geometry(); }
-  const ClusterTree& get_mesh() const { return *mesh_; };
+  const ClusterTree& get_mesh() const { return *mesh_; }
   //////////////////////////////////////////////////////////////////////////////
   //    init_SuperSpace
   //////////////////////////////////////////////////////////////////////////////
@@ -97,10 +142,21 @@ struct SuperSpace {
     mesh_->init_ClusterTree(geom, M);
     mesh_->checkOrientation();
     return;
-  };
+  }
   //////////////////////////////////////////////////////////////////////////////
   //    map2surface
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Evaluation of a point in the element and its Jacobian matrix.
+   *
+   * This function performs the affine transformation of an element to the
+   * reference domain of the patch and returns the output in a surface point.
+   *
+   * \param e       : Element to be evaluated,
+   * \param xi      : Point in [0, 1]^2 of the element
+   * \param w       : Quadrature weight
+   * \param surf_pt : Evaluated point and its jacobian
+   */
   void map2surface(const ElementTreeNode& e, const Eigen::Vector2d& xi,
                    double w, SurfacePoint* surf_pt) const {
     Eigen::Vector2d st = e.llc_ + e.get_h() * xi;
@@ -145,14 +201,14 @@ struct SuperSpace {
     double kappa2 = p2.segment<3>(6).cross(p2.segment<3>(9)).norm();
     // compute basis functions's surface curl. Each column of s_curl is a basis
     // function's surface curl at point s.
-    Eigen::MatrixXd s_curl(3, polynomial_degree_plus_one_squared);
-    s_curl = (1.0 / kappa1) *
-             (-p1.segment<3>(6) * basisDy(p1.segment<2>(0)).transpose() +
-              p1.segment<3>(9) * basisDx(p1.segment<2>(0)).transpose());
-    Eigen::MatrixXd t_curl(3, polynomial_degree_plus_one_squared);
-    t_curl = (1.0 / kappa2) *
-             (-p2.segment<3>(6) * basisDy(p2.segment<2>(0)).transpose() +
-              p2.segment<3>(9) * basisDx(p2.segment<2>(0)).transpose());
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> s_curl =
+        (1.0 / kappa1) *
+        (-p1.segment<3>(6) * basisDy(p1.segment<2>(0)).transpose() +
+         p1.segment<3>(9) * basisDx(p1.segment<2>(0)).transpose());
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> t_curl =
+        (1.0 / kappa2) *
+        (-p2.segment<3>(6) * basisDy(p2.segment<2>(0)).transpose() +
+         p2.segment<3>(9) * basisDx(p2.segment<2>(0)).transpose());
     // inner product of surface curls of any two basis functions
     for (int j = 0; j < polynomial_degree_plus_one_squared; ++j)
       for (int i = 0; i < polynomial_degree_plus_one_squared; ++i)
@@ -353,4 +409,4 @@ struct SuperSpace {
   int polynomial_degree_plus_one_squared;
 };  // namespace Bembel
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_

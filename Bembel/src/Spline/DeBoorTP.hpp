@@ -1,18 +1,21 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_DEBOORTP_H_
-#define BEMBEL_SPLINE_DEBOORTP_H_
+#ifndef BEMBEL_SRC_SPLINE_DEBOORTP_HPP_
+#define BEMBEL_SRC_SPLINE_DEBOORTP_HPP_
 
 namespace Bembel {
 namespace Spl {
 /**
  *  \ingroup Spline
- *  \brief A "by the book" implementation of the derivatives and TP-algos based 
+ *  \brief A "by the book" implementation of the derivatives and TP-algos based
  *         on the DeBoor Recursion.
  **/
 template <typename T>
@@ -43,12 +46,12 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoorDer(
   for (int ll = 0; ll < dimension; ll++) {
     assert(control_points[0].cols() == control_points[ll].cols() &&
            control_points[0].rows() == control_points[ll].rows());
-  };
+  }
   const int polynomial_degree = knot.size() - control_points_cols - 1;
   std::vector<Eigen::Matrix<T, -1, -1>> temp(dimension);
   for (int ll = 0; ll < dimension; ll++) {
     temp[ll].resize(control_points[ll].rows(), control_points_cols - 1);
-  };
+  }
 
   for (int i = control_points_cols - 1; 0 <= --i;) {
     double factor =
@@ -72,12 +75,12 @@ std::vector<Eigen::Matrix<T, -1, -1>> deBoorDerGiveData(
   for (int ll = 0; ll < dimension; ll++) {
     assert(control_points[0].cols() == control_points[ll].cols() &&
            control_points[0].rows() == control_points[ll].rows());
-  };
+  }
   const int polynomial_degree = knot.size() - control_points_cols - 1;
   std::vector<Eigen::Matrix<T, -1, -1>> temp(dimension);
   for (int ll = 0; ll < dimension; ll++) {
     temp[ll].resize(control_points[ll].rows(), control_points_cols - 1);
-  };
+  }
 
   for (int i = control_points_cols - 1; 0 <= --i;) {
     double factor =
@@ -150,4 +153,4 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoorTPDer(
 }
 }  // namespace Spl
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_DEBOORTP_HPP_

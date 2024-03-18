@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
-// M. Multerer, S. Schoeps, and F. Wolf at Technische Universtaet Darmstadt,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef __BEMBEL_UTIL_ERROR__
-#define __BEMBEL_UTIL_ERROR__
+#ifndef EXAMPLES_ERROR_HPP_
+#define EXAMPLES_ERROR_HPP_
 
 /**
  * @brief Routines for the evalutation of pointwise errors.
@@ -117,4 +120,4 @@ bool checkRateOfConvergence(const Eigen::VectorXd &errors,
 
 }  // namespace Bembel
 
-#endif
+#endif  // EXAMPLES_ERROR_HPP_

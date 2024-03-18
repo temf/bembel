@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_QUADRATURE_GAUSSLEGENDRERULE_H_
-#define BEMBEL_QUADRATURE_GAUSSLEGENDRERULE_H_
+#ifndef BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRERULE_HPP_
+#define BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRERULE_HPP_
 
 namespace Bembel {
 /**
@@ -39,14 +42,18 @@ struct GaussLegendreRule {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule - Unused base case
+ */
 template <>
 struct GaussLegendreRule<0> {
   GaussLegendreRule() {
     assert(false && "Order of GaussLegendre Quadrature has to be at least 1");
   }
 };
-
+/**
+ * \brief Gauss Legendre Rule using 1 point.
+ */
 template <>
 struct GaussLegendreRule<1> {
   GaussLegendreRule() {
@@ -56,7 +63,9 @@ struct GaussLegendreRule<1> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 2 point.
+ */
 template <>
 struct GaussLegendreRule<2> {
   GaussLegendreRule() {
@@ -67,7 +76,9 @@ struct GaussLegendreRule<2> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 3 point.
+ */
 template <>
 struct GaussLegendreRule<3> {
   GaussLegendreRule() {
@@ -81,7 +92,9 @@ struct GaussLegendreRule<3> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 4 point.
+ */
 template <>
 struct GaussLegendreRule<4> {
   GaussLegendreRule() {
@@ -98,7 +111,9 @@ struct GaussLegendreRule<4> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 5 point.
+ */
 template <>
 struct GaussLegendreRule<5> {
   GaussLegendreRule() {
@@ -116,7 +131,9 @@ struct GaussLegendreRule<5> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 6 point.
+ */
 template <>
 struct GaussLegendreRule<6> {
   GaussLegendreRule() {
@@ -137,7 +154,9 @@ struct GaussLegendreRule<6> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 7 point.
+ */
 template <>
 struct GaussLegendreRule<7> {
   GaussLegendreRule() {
@@ -160,7 +179,9 @@ struct GaussLegendreRule<7> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 8 point.
+ */
 template <>
 struct GaussLegendreRule<8> {
   GaussLegendreRule() {
@@ -185,7 +206,9 @@ struct GaussLegendreRule<8> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 9 point.
+ */
 template <>
 struct GaussLegendreRule<9> {
   GaussLegendreRule() {
@@ -212,6 +235,9 @@ struct GaussLegendreRule<9> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
+/**
+ * \brief Gauss Legendre Rule using 10 point.
+ */
 template <>
 struct GaussLegendreRule<10> {
   GaussLegendreRule() {
@@ -240,7 +266,9 @@ struct GaussLegendreRule<10> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 11 point.
+ */
 template <>
 struct GaussLegendreRule<11> {
   GaussLegendreRule() {
@@ -271,7 +299,9 @@ struct GaussLegendreRule<11> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 12 point.
+ */
 template <>
 struct GaussLegendreRule<12> {
   GaussLegendreRule() {
@@ -304,7 +334,9 @@ struct GaussLegendreRule<12> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 13 point.
+ */
 template <>
 struct GaussLegendreRule<13> {
   GaussLegendreRule() {
@@ -339,7 +371,9 @@ struct GaussLegendreRule<13> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 14 point.
+ */
 template <>
 struct GaussLegendreRule<14> {
   GaussLegendreRule() {
@@ -376,6 +410,9 @@ struct GaussLegendreRule<14> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
+/**
+ * \brief Gauss Legendre Rule using 15 point.
+ */
 template <>
 struct GaussLegendreRule<15> {
   GaussLegendreRule() {
@@ -414,7 +451,9 @@ struct GaussLegendreRule<15> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 16 point.
+ */
 template <>
 struct GaussLegendreRule<16> {
   GaussLegendreRule() {
@@ -455,6 +494,9 @@ struct GaussLegendreRule<16> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
+/**
+ * \brief Gauss Legendre Rule using 17 point.
+ */
 template <>
 struct GaussLegendreRule<17> {
   GaussLegendreRule() {
@@ -497,7 +539,9 @@ struct GaussLegendreRule<17> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 18 point.
+ */
 template <>
 struct GaussLegendreRule<18> {
   GaussLegendreRule() {
@@ -542,7 +586,9 @@ struct GaussLegendreRule<18> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 19 point.
+ */
 template <>
 struct GaussLegendreRule<19> {
   GaussLegendreRule() {
@@ -589,7 +635,9 @@ struct GaussLegendreRule<19> {
   std::vector<double> xi_;
   std::vector<double> w_;
 };
-
+/**
+ * \brief Gauss Legendre Rule using 20 point.
+ */
 template <>
 struct GaussLegendreRule<20> {
   GaussLegendreRule() {
@@ -640,4 +688,4 @@ struct GaussLegendreRule<20> {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_QUADRATURE_GAUSSLEGENDRERULE_HPP_

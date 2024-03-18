@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_TEST_DUFFYTRICK_INTEGRATE4_H_
-#define BEMBEL_TEST_DUFFYTRICK_INTEGRATE4_H_
+#ifndef TESTS_DUFFYTRICK_TEST_INTEGRATE4_HPP_
+#define TESTS_DUFFYTRICK_TEST_INTEGRATE4_HPP_
 
 namespace Test {
 namespace DuffyTrick {
@@ -17,7 +20,7 @@ bool test_integrate4(const Bembel::AnsatzSpace<Derived> &ansatz_space,
                      const Bembel::LinearOperatorBase<Derived> &linOp) {
   Bembel::GaussSquare<maxqdeg + 1> GS;
   auto Q = GS[maxqdeg];
-  Eigen::MatrixXd ffield_qnodes(0, 0);
+  ElementSurfacePoints ffield_qnodes;
   Eigen::MatrixXd intval;
   Eigen::MatrixXd axis;
   intval.resize(1, 1);
@@ -42,7 +45,7 @@ bool test_integrate4(const Bembel::AnsatzSpace<Derived> &ansatz_space,
         ////////////////////////////////////////////////////////////////////////
         Bembel::DuffyTrick::integrate4(linOp, ansatz_space.get_superspace(),
                                        *it, cp(0), *it2, cp(1), ffield_qnodes,
-                                       Q, &intval);
+                                       ffield_qnodes, Q, &intval);
         ////////////////////////////////////////////////////////////////////////
         axis.col(0) << it->llc_(0), it->llc_(0) + h;
         axis.col(1) << it->llc_(1), it->llc_(1) + h;
@@ -60,4 +63,4 @@ bool test_integrate4(const Bembel::AnsatzSpace<Derived> &ansatz_space,
 }
 }  // namespace DuffyTrick
 }  // namespace Test
-#endif
+#endif  // TESTS_DUFFYTRICK_TEST_INTEGRATE4_HPP_

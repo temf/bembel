@@ -1,0 +1,85 @@
+namespace Bembel {
+/**
+\page DesignConsiderations Design Considerations
+
+
+Bembel is a header-only template library.
+On this page we explain fundamental design considerations.
+This is intended to improve a fundamental understanding of the code base and provide starting points for extensions.
+
+\section secCRTP Curiously Recurring Template Pattern
+
+The three essential components [LinearOperator](\ref LinearOperator), [LinearForm](\ref LinearForm) and [Potential](\ref Potential) of the BEM are implemented in Bembel according to the Curiously Recurring Template Pattern.
+
+\subsection CRTPLinearOperator Linear Operator
+
+If you want to add an implementation of an [LinearOperator](\ref LinearOperator), then LinearOperatorTraits must be defined and an implementation for the integral evaluation must be given.
+
+### Traits
+
+The LinearOperatorTraits are explained using the example of the LaplaceSingleLayerOperator. These traits are passed to the implementation via template parameters and fundamentally define the properties of the software.
+
+\snippet traits.cpp operator
+
+The explanation of the traits is
+
+ - `EigenType` defines the type of the vectors.
+ - `Scalar` defines if the operator is real or complex valued.
+ - `OperatorOrder` defines the order of the integral operator which is necessary for the quadrature.
+ - `Form` defines which B-spline basis is chosen.
+ - `NumberOfFMMComponents` is used in the H2Matrix.
+
+There are three options for the parameter `Form`: DifferentialForm::Continuous, DifferentialForm::DivConforming and DifferentialForm::Discontinuous.
+This selects a scalar continuous, vector-valued and div conforming or scalar discontinuous B-spline basis for the discretization.
+
+### Evaluate Integrand
+
+Furthermore, there must be an implementation of the function `evaluateIntegrand_impl()`.
+
+\snippet evaluateIntegrand_impl.cpp operator
+
+The SuperSpace manages the basis functions and interactions thereof.
+Since a BEM always evaluates double integrals, two SurfacePoints are provided, which also contain the information about derivatives.
+Finally, the result must be added to `intval`.
+
+---
+\subsection CRTPPotential Potential
+
+Just as above, as with the LinearOperator, we define and traits and the implementation of the integral evaluation.
+
+### Traits
+
+\snippet traits.cpp potential
+
+ - `Scalar` defines if the potential is real or complex valued.
+ - `OutputSpaceDimension` defines if the potential is scalar or vector valued.
+
+### Evaluate Integrand
+
+\snippet evaluateIntegrand_impl.cpp potential
+
+For the return type the `Scalar` type must be derived from the LinearOperator and Potential.
+Furthermore, the number of rows in the returned matrix corresponds to the dimension of the output space.
+The FunctionEvaluator `fun_ev` takes care over the evaluation of the surface quantity, which needs an ElementTreeNode `element` as input.
+For the SurfacePoint `p` the contribution of the potential in the given `point` is returned.
+
+---
+\subsection CRTPLinearForm Linear Form
+
+We also define the scalar type and the evaluation of the integral for the right-hand side integrated using the LinearForm.
+
+### Traits
+
+\snippet traits.cpp linearform
+
+ - `Scalar` defines if the linear form is real or complex valued.
+
+### Evaluate Integrand
+
+\snippet evaluateIntegrand_impl.cpp linearform
+
+The SuperSpace manages the basis functions.
+Integral is evaluated at the SurfacePoint and the value is returned in `intval`.
+
+*/
+}  // namespace Bembel

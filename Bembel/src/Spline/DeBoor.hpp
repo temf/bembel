@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SPLINE_DEBOOR_H_
-#define BEMBEL_SPLINE_DEBOOR_H_
+#ifndef BEMBEL_SRC_SPLINE_DEBOOR_HPP_
+#define BEMBEL_SRC_SPLINE_DEBOOR_HPP_
 
 namespace Bembel {
 namespace Spl {
@@ -43,8 +46,8 @@ Eigen::Matrix<T, -1, -1> DeBoor(
         0, l - polynomial_degree, rows_control_points, polynomial_degree + 1);
 
     /// ISO C++ forbids variable length array
-    assert(polynomial_degree <= 18);
-    double ws[18];
+    assert(polynomial_degree <= Bembel::Constants::MaxP);
+    double ws[Bembel::Constants::MaxP];
     // Iterators remain the same size, order is correct
     for (int k = polynomial_degree; 0 != k; k--) {
       for (int i = 0; i < k; i++) {
@@ -140,8 +143,8 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoor(
           0, l - polynomial_degree, rows_control_points, polynomial_degree + 1);
 
     // ISO C++ forbids variable length array
-    assert(polynomial_degree <= 18);
-    double ws[18];
+    assert(polynomial_degree <= Bembel::Constants::MaxP);
+    double ws[Bembel::Constants::MaxP];
     // Iterators remain the same size, order is correct
     for (int k = polynomial_degree; 0 != k; k--) {
       for (int i = 0; i < k; i++) {
@@ -163,4 +166,4 @@ std::vector<Eigen::Matrix<T, -1, -1>> DeBoor(
 }
 }  // namespace Spl
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_SPLINE_DEBOOR_HPP_

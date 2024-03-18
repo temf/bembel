@@ -1,4 +1,7 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
@@ -6,14 +9,16 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACESINGLELAYEROPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_LAPLACE_LAPLACESINGLELAYEROPERATOR_H_
+#ifndef BEMBEL_SRC_LAPLACE_SINGLELAYEROPERATOR_HPP_
+#define BEMBEL_SRC_LAPLACE_SINGLELAYEROPERATOR_HPP_
 
 namespace Bembel {
 // forward declaration of class LaplaceSingleLayerOperator in order to define
 // traits
 class LaplaceSingleLayerOperator;
-
+/**
+ * \brief Specification of the LinerOperatorTraits for Laplace.
+ */
 template <>
 struct LinearOperatorTraits<LaplaceSingleLayerOperator> {
   typedef Eigen::VectorXd EigenType;
@@ -27,6 +32,8 @@ struct LinearOperatorTraits<LaplaceSingleLayerOperator> {
 
 /**
  * \ingroup Laplace
+ * \brief This class implements the specification of the integration for the
+ * single layer operator for Laplace.
  */
 class LaplaceSingleLayerOperator
     : public LinearOperatorBase<LaplaceSingleLayerOperator> {
@@ -69,8 +76,9 @@ class LaplaceSingleLayerOperator
 
     // multiply basis functions with integrand and add to intval, this is an
     // efficient implementation of
-    //(*intval) += super_space.basisInteraction(s, t) * evaluateKernel(x_f, y_f)
-    //* x_kappa * y_kappa * ws * wt;
+    // (*intval) += super_space.basisInteraction(s, t) * evaluateKernel(x_f,
+    // y_f)
+    // * x_kappa * y_kappa * ws * wt;
     super_space.addScaledBasisInteraction(intval, integrand, s, t);
 
     return;
@@ -111,4 +119,4 @@ class LaplaceSingleLayerOperator
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LAPLACE_SINGLELAYEROPERATOR_HPP_

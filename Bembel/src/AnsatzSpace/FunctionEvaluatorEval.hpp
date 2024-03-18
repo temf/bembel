@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_ANSATZSPACE_FUNCTIONEVALUATOREVAL_H_
-#define BEMBEL_ANSATZSPACE_FUNCTIONEVALUATOREVAL_H_
+#ifndef BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_
+#define BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_
 
 namespace Bembel {
 
@@ -28,7 +31,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Continuous, LinOp> {
            &coeff) const {
     auto s = p.segment<2>(0);
     return coeff.transpose() * super_space.basis(s) / element.get_h();
-  };
+  }
 };
 
 // div-conforming
@@ -54,7 +57,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::DivConforming, LinOp> {
     return (x_f_dx * tangential_coefficients(0) +
             x_f_dy * tangential_coefficients(1)) /
            h;
-  };
+  }
 
   Scalar evalDiv(
       const SuperSpace<LinOp> &super_space,
@@ -74,7 +77,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::DivConforming, LinOp> {
         phiPhiVec_dy = super_space.basisDy(s);
     return (phiPhiVec_dx.dot(coeff.col(0)) + phiPhiVec_dy.dot(coeff.col(1))) /
            h / h;
-  };
+  }
 };
 
 // discontinuous
@@ -92,7 +95,7 @@ struct FunctionEvaluatorEval<Scalar, DifferentialForm::Discontinuous, LinOp> {
            &coeff) const {
     auto s = p.segment<2>(0);
     return coeff.transpose() * super_space.basis(s) / element.get_h();
-  };
+  }
 };
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_ANSATZSPACE_FUNCTIONEVALUATOREVAL_HPP_

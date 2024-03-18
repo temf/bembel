@@ -1,12 +1,15 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2022 see <http://www.bembel.eu>
+//
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
 // Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_LINEAROPERATOR_DISCRETEOPERATOR_H_
-#define BEMBEL_LINEAROPERATOR_DISCRETEOPERATOR_H_
+#ifndef BEMBEL_SRC_LINEAROPERATOR_DISCRETEOPERATOR_HPP_
+#define BEMBEL_SRC_LINEAROPERATOR_DISCRETEOPERATOR_HPP_
 
 namespace Bembel {
 /**
@@ -24,13 +27,13 @@ struct DiscreteOperatorComputer {};
 template <typename Derived, typename Scalar>
 struct DiscreteOperatorComputer<
     Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>, Derived> {
-  DiscreteOperatorComputer(){};
+  DiscreteOperatorComputer() {}
   static void compute(
       Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
     GaussSquare<Constants::maximum_quadrature_degree> GS;
-    const SuperSpace<Derived>& super_space = ansatz_space.get_superspace();
-    const ElementTree& element_tree = super_space.get_mesh().get_element_tree();
+    const SuperSpace<Derived> &super_space = ansatz_space.get_superspace();
+    const ElementTree &element_tree = super_space.get_mesh().get_element_tree();
     auto number_of_elements = element_tree.get_number_of_elements();
     const auto vector_dimension =
         getFunctionSpaceVectorDimension<LinearOperatorTraits<Derived>::Form>();
@@ -57,9 +60,10 @@ struct DiscreteOperatorComputer<
               Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> intval(
                   vector_dimension * polynomial_degree_plus_one_squared,
                   vector_dimension * polynomial_degree_plus_one_squared);
-              DuffyTrick::evaluateBilinearForm(lin_op, super_space, *element1,
-                                               *element2, GS, ffield_qnodes,
-                                               &intval);
+              DuffyTrick::evaluateBilinearForm(
+                  lin_op, super_space, *element1, *element2, GS,
+                  ffield_qnodes[element1->id_], ffield_qnodes[element2->id_],
+                  &intval);
               for (auto i = 0; i < vector_dimension; ++i)
                 for (auto j = 0; j < vector_dimension; ++j)
                   disc_op->block(polynomial_degree_plus_one_squared *
@@ -88,7 +92,7 @@ struct DiscreteOperatorComputer<
 template <typename Derived>
 struct DiscreteOperatorComputer<
     Eigen::H2Matrix<typename LinearOperatorTraits<Derived>::Scalar>, Derived> {
-  DiscreteOperatorComputer(){};
+  DiscreteOperatorComputer() {}
   static void compute(
       Eigen::H2Matrix<typename LinearOperatorTraits<Derived>::Scalar> *disc_op,
       const Derived &lin_op, const AnsatzSpace<Derived> &ansatz_space) {
@@ -107,7 +111,7 @@ class DiscreteOperator {
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
   DiscreteOperator() {}
-  DiscreteOperator(const AnsatzSpace<Derived> &ansatz_space) {
+  explicit DiscreteOperator(const AnsatzSpace<Derived> &ansatz_space) {
     init_DiscreteOperator(ansatz_space);
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -141,4 +145,4 @@ class DiscreteOperator {
 };
 
 }  // namespace Bembel
-#endif
+#endif  // BEMBEL_SRC_LINEAROPERATOR_DISCRETEOPERATOR_HPP_

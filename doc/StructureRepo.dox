@@ -1,0 +1,34 @@
+namespace Bembel {
+/**
+\page StructureRepo Structure of the Repository
+
+The general structure of the repository looks as follows.
+
+- `Bembel/` contains the library. In `Bembel/`, module files have been created analogously to the 
+  design of the Eigen library. If Bembel is used, only these module files should be included. These modules are the following:
+  - [AnsatzSpace](\ref AnsatzSpace)
+  - [ClusterTree](\ref ClusterTree)
+  - [DuffyTrick](\ref DuffyTrick)
+  - [DummyOperator](\ref DummyOperator)
+  - [Geometry](\ref Geometry)
+  - [H2Matrix](\ref H2Matrix)
+  - [Helmholtz](\ref Helmholtz)
+  - [HomogenisedLaplace](\ref HomogenisedLaplace)
+  - [IO](\ref IO)
+  - [Laplace](\ref Laplace)
+  - [LinearForm](\ref LinearForm)
+  - [LinearOperator](\ref LinearOperator)
+  - [Maxwell](\ref Maxwell)
+  - [Potential](\ref Potential)
+  - [Quadrature](\ref Quadrature)
+  - [Spline](\ref Spline)
+- `Bembel/src/` contains the folders corresponding to these modules, which include the actual implementation.
+- `geo/` contains geometry files in the format of the octave [NURBS package](https://octave.sourceforge.io/nurbs/).
+  They can be utilized for computations. Note that <b>the normal vector must be outward directed</b> on all patches!
+- `geo/octave_example/` includes `.m` files that showcase how geometries can be constructed using the NURBS package.
+- `assets/` only contains things relevant for GitHub pages.
+- `examples/` contains short examples for Bembel's functionality
+- `tests/` contains the unit tests for Bembel.
+
+*/
+}  // namespace Bembel
