@@ -89,7 +89,7 @@ int main() {
       ConjugateGradient<H2Matrix<double>, Lower | Upper, IdentityPreconditioner>
           cg;
       cg.compute(disc_op.get_discrete_operator());
-      auto rho = cg.solve(-disc_lf.get_discrete_linear_form());
+      VectorXd rho = cg.solve(-disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<
