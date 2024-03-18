@@ -26,6 +26,10 @@ class SurfacePoint {
     if (buffer_is_allocated()) delete[] buffer_;
   }
 
+  // patch
+  int get_patch() { return patch_; }
+  const int get_patch() const { return patch_; }
+
   // quadrature point
   Eigen::Vector2d get_xi() { return xi_; }
   const Eigen::Vector2d get_xi() const { return xi_; }
@@ -69,6 +73,7 @@ class SurfacePoint {
   const double *get_buffer() const { return buffer_; }
 
   // setter
+  void set_patch(const int patch) { patch_ = patch; }
   void set_xi(const Eigen::Vector2d &xi) { xi_ = xi; }
   void set_w(const double w) { w_ = w; }
   void set_f(const Eigen::Vector3d &f) { f_ = f; }
@@ -91,6 +96,7 @@ class SurfacePoint {
   }
 
  private:
+  int patch_;
   Eigen::Vector2d xi_;
   double w_;
   Eigen::Vector3d f_;

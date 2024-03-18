@@ -160,7 +160,8 @@ struct SuperSpace {
   void map2surface(const ElementTreeNode& e, const Eigen::Vector2d& xi,
                    double w, SurfacePoint* surf_pt) const {
     Eigen::Vector2d st = e.llc_ + e.get_h() * xi;
-    mesh_->get_geometry()[e.patch_].updateSurfacePoint(surf_pt, st, w, xi);
+    mesh_->get_geometry()[e.patch_].updateSurfacePoint(surf_pt, e.patch_, st, w,
+                                                       xi);
     return;
   }
   //////////////////////////////////////////////////////////////////////////////

@@ -28,7 +28,7 @@ int main() {
     for (auto y : Test::Constants::eq_points) {
       Eigen::Vector2d pt = Eigen::Vector2d(x, y);
       SurfacePoint srf_pt;
-      geometry.get_geometry()[0].updateSurfacePoint(&srf_pt, pt, 3.1415, pt);
+      geometry.get_geometry()[0].updateSurfacePoint(&srf_pt, 0, pt, 3.1415, pt);
       assert((srf_pt.get_xi() - pt).norm() < tol);
       assert(std::abs(srf_pt.get_w() - 3.1415) < tol);
       assert((srf_pt.get_f().head<2>() - pt).norm() < tol);
