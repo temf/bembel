@@ -9,8 +9,8 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 //
-#ifndef BEMBEL_SRCLAPLACE_ADJOINTDOUBLELAYEROPERATOR_HPP_
-#define BEMBEL_SRCLAPLACE_ADJOINTDOUBLELAYEROPERATOR_HPP_
+#ifndef BEMBEL_SRC_LAPLACE_ADJOINTDOUBLELAYEROPERATOR_HPP_
+#define BEMBEL_SRC_LAPLACE_ADJOINTDOUBLELAYEROPERATOR_HPP_
 
 namespace Bembel {
 // forward declaration of class LaplaceAdjointDoubleLayerOperator in order to
@@ -109,7 +109,8 @@ class LaplaceAdjointDoubleLayerOperator
   /**
    * \brief Gradient of fundamental solution of Laplace problem
    */
-  double evaluateKernelGrad(const Eigen::Vector3d &x, const Eigen::Vector3d &x_n,
+  double evaluateKernelGrad(const Eigen::Vector3d &x,
+                            const Eigen::Vector3d &x_n,
                             const Eigen::Vector3d &y) const {
     auto c = x - y;
     auto r = c.norm();
