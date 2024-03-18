@@ -37,22 +37,19 @@ int main() {
   // directory as the executable
   Geometry geometry("sphere.dat");
 
-  // Define evaluation points for scattered field, sphere of radius 2, 10*10
-  // points.
-  MatrixXd gridpoints = Util::makeSphereGrid(2., 10);
+  // Define evaluation points for potential field, a tensor product grid of
+  // 10*10*10 points in [-.25,.25]^3
+  MatrixXd gridpoints = Util::makeTensorProductGrid(
+      VectorXd::LinSpaced(10, -.25, .25), VectorXd::LinSpaced(10, -.25, .25),
+      VectorXd::LinSpaced(10, -.25, .25));
 
-  std::complex<double> wavenumber(0., 0.);
-
-  // Define analytical solution using lambda function, in this case the
-  // Helmholtz fundamental solution centered on 0, see Data.hpp
-  const std::function<double(Vector3d)> fun =
-      [wavenumber](Vector3d pt) {
-        return (Data::HelmholtzFundamentalSolution(pt, wavenumber,
-                                                          Vector3d(0., 0., 0.))).real();
-      };
-  const std::function<Vector3d(Vector3d)> funGrad = [wavenumber](Vector3d pt) {
-    return Vector3d((Data::HelmholtzFundamentalSolutionGrad(pt, wavenumber,
-                                                          Vector3d(0., 0., 0.))).real());
+  // Define analytical solution using lambda function, in this case a harmonic
+  // function, see Data.hpp
+  std::function<double(Vector3d)> fun = [](Vector3d in) {
+    return Data::HarmonicFunction(in);
+  };
+  std::function<Vector3d(Vector3d)> funGrad = [](Vector3d in) {
+    return Data::HarmonicFunctionGrad(in);
   };
 
   std::cout << "\n" << std::string(60, '=') << "\n";
@@ -90,7 +87,7 @@ int main() {
           ansatz_space_mass);
       disc_op_mass.compute();
       SparseMatrix<double> M = disc_op_mass.get_discrete_operator();
-      auto system_matrix = -0.5 * M + AK;  // important: do NOT change auto!
+      auto system_matrix = 0.5 * M + AK;  // important: do NOT change auto!
 
       // solve system
       GMRES<typeof(system_matrix), IdentityPreconditioner> gmres;
