@@ -16,7 +16,7 @@
 #include <Bembel/Laplace>
 #include <Bembel/LinearForm>
 #include <Eigen/Dense>
-#include <unsupported/Eigen/IterativeSolvers>
+#include <Eigen/IterativeLinearSolvers>
 #include <iostream>
 
 #include "examples/Data.hpp"
@@ -86,9 +86,10 @@ int main() {
       disc_op.compute();
 
       // solve system
-      GMRES<H2Matrix<double>, IdentityPreconditioner> gmres;
-      gmres.compute(disc_op.get_discrete_operator());
-      VectorXd rho = gmres.solve(-disc_lf.get_discrete_linear_form());
+      ConjugateGradient<H2Matrix<double>, Lower | Upper, IdentityPreconditioner>
+          cg;
+      cg.compute(disc_op.get_discrete_operator());
+      auto rho = cg.solve(-disc_lf.get_discrete_linear_form());
 
       // evaluate potential
       DiscretePotential<
@@ -97,6 +98,10 @@ int main() {
           disc_pot(ansatz_space);
       disc_pot.set_cauchy_data(rho);
       VectorXd pot = disc_pot.evaluate(gridpoints);
+
+      // factor out constant
+      pot -=
+          0.5 * VectorXd::Ones(pot.rows()) * (pot.maxCoeff() + pot.minCoeff());
 
       // compute reference, print time, and compute error
       VectorXcd pot_ref(gridpoints.rows());
