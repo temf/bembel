@@ -19,9 +19,9 @@ jobs:
         run: |
           sudo apt-get install --yes doxygen
 
-      - name: Install Biblatex
+      - name: Install Biber
         run: |
-          sudo apt-get install --yes biblatex
+          sudo apt-get install --yes biber
 
       - name: Getting dot
         run: |
