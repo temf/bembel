@@ -34,6 +34,10 @@ class SurfacePoint {
   Eigen::Vector2d get_xi() { return xi_; }
   const Eigen::Vector2d get_xi() const { return xi_; }
 
+  // quadrature point on patch
+  Eigen::Vector2d get_xi_patch() { return xi_patch_; }
+  const Eigen::Vector2d get_xi_patch() const { return xi_patch_; }
+
   // quadrature weight
   double get_w() { return w_; }
   const double get_w() const { return w_; }
@@ -75,6 +79,7 @@ class SurfacePoint {
   // setter
   void set_patch(const int patch) { patch_ = patch; }
   void set_xi(const Eigen::Vector2d &xi) { xi_ = xi; }
+  void set_xi_patch(const Eigen::Vector2d &xi_patch) { xi_patch_ = xi_patch; }
   void set_w(const double w) { w_ = w; }
   void set_f(const Eigen::Vector3d &f) { f_ = f; }
   void set_jacobian(const Eigen::Matrix<double, 3, 2> &jacobian) {
@@ -98,6 +103,7 @@ class SurfacePoint {
  private:
   int patch_;
   Eigen::Vector2d xi_;
+  Eigen::Vector2d xi_patch_;
   double w_;
   Eigen::Vector3d f_;
   Eigen::Matrix<double, 3, 2> jacobian_;
@@ -118,4 +124,3 @@ typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
     ElementSurfacePoints;
 
 #endif  // BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
-

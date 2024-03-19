@@ -41,8 +41,7 @@ class DirichletTraceOnReferenceDomain
       const T &super_space, const SurfacePoint &p,
       Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
     // integrand without basis functions
-    //std::cout << p.get_xi() << std::endl;
-    Scalar integrand = function_(p.get_patch(), p.get_xi()) *
+    Scalar integrand = function_(p.get_patch(), p.get_xi_patch()) *
                        p.get_surface_measure() * p.get_w();
     // multiply basis functions with integrand
     super_space.addScaledBasis(intval, integrand, p.get_xi());

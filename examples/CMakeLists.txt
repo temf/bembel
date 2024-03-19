@@ -11,7 +11,7 @@ configure_file(${CMAKE_SOURCE_DIR}/geo/cube_small.dat ${CMAKE_CURRENT_BINARY_DIR
 set(CIFILES
     AnsatzSpace
     BlockClusterTree
-    DiscreteLinearFormOnReferenceDomain
+    DirichletTraceOnReferenceDomain
     Geometry
     MassMatrix
     LaplaceBeltrami

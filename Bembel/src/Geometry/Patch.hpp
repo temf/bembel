@@ -336,6 +336,7 @@ class Patch {
 
     srf_pt->set_patch(patch);
     srf_pt->set_xi(xi);
+    srf_pt->set_xi_patch(ref_pt);
     srf_pt->set_w(w);
     srf_pt->set_f(bot * tmpvec);
     srf_pt->set_jacobian(botsqr * (Eigen::Matrix<double, 3, 2>()

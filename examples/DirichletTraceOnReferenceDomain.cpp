@@ -23,8 +23,8 @@ int main() {
   using namespace Bembel;
   using namespace Eigen;
 
-  int polynomial_degree_max = 0;
-  int refinement_level_max = 1;
+  int polynomial_degree_max = 3;
+  int refinement_level_max = 3;
 
   std::function<double(const Vector3d &)> fun = [](const Vector3d &in) {
     return in(0);
@@ -39,7 +39,7 @@ int main() {
     for (int refinement_level = 0; refinement_level < refinement_level_max + 1;
          ++refinement_level) {
       std::cout << "Degree " << polynomial_degree << " Level "
-                << refinement_level << "\t\t";
+                << refinement_level << std::endl;
       // Build ansatz space
       AnsatzSpace<MassMatrixScalarDisc> ansatz_space(geometry, refinement_level,
                                                      polynomial_degree);
@@ -73,34 +73,12 @@ int main() {
       disc_lf2.get_linear_form().set_function(fun_disc);
       disc_lf2.compute();
 
-      VectorXd x2 = solver.solve(disc_lf2.get_discrete_linear_form());
-
-      // std::cout << std::endl;
-      // std::cout << x.head(10).transpose() << std::endl;
-      // std::cout << x2.head(10).transpose() << std::endl;
-      // std::cout << (x.head(10).array()/x2.head(10).array()).transpose() <<
-      // std::endl;
-      std::cout << (disc_lf.get_discrete_linear_form() -
-                    disc_lf2.get_discrete_linear_form())
-                           .norm() /
-                       disc_lf.get_discrete_linear_form().norm()
-                << std::endl;
-
-      VTKSurfaceExport writer(geometry, 5);
-      writer.addDataSet("x", ansatz_space, x);
-      writer.addDataSet("x2", ansatz_space, x2);
-      writer.addDataSet("fun_disc", fun_disc);
-      writer.addDataSet("fun", fun);
-      writer.writeToFile("gaga.vtp");
-
-      error(refinement_level) = surfaceL2error(ansatz_space, x, fun);
-      // std::cout << error(refinement_level) << std::endl;
+      // check correctness
+      assert(std::abs((disc_lf.get_discrete_linear_form() -
+                       disc_lf2.get_discrete_linear_form())
+                          .norm() /
+                      disc_lf.get_discrete_linear_form().norm()) < 1e-10);
     }
-
-    // estimate rate of convergence and check whether it is at least 90% of the
-    // expected value
-    // assert(checkRateOfConvergence(error.tail(2), polynomial_degree + 1,
-    // 0.9));
 
     std::cout << std::endl;
   }
