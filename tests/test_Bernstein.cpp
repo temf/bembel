@@ -15,25 +15,23 @@
 
 int main() {
   using namespace Bembel;
+  using namespace Eigen;
 
   // We test the Bernstein with given control points against the deBoor code
   constexpr int P = Bembel::Constants::MaxP;
-  double* coefs = new double[P + 1];
-
-  for (int i = 0; i < P + 1; ++i) {
-    coefs[i] = (i + 1) / static_cast<double>(P + 1);
-  }
-
-  Eigen::Map<Eigen::MatrixXd> coefs_vector(coefs, 1, P + 1);
+  VectorXd buffer(P + 1);
+  VectorXd coefs =
+      VectorXd::LinSpaced(1, P + 1, P + 1) / static_cast<double>(P + 1);
 
   for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
-      double result1 = Basis::ShapeFunctionHandler::evalCoef(p, coefs, x);
+      buffer.setZero();
+      Basis::ShapeFunctionHandler::evalBasis(p, buffer.data(), x);
+      double result1 = buffer.dot(coefs);
 
       std::vector<double> v = {x};
-      double result2 =
-          Spl::DeBoor(Eigen::MatrixXd(coefs_vector.leftCols(p + 1)),
-                      Spl::MakeBezierKnotVector(p + 1), v)(0);
+      double result2 = Spl::DeBoor(Eigen::MatrixXd(coefs.leftCols(p + 1)),
+                                   Spl::MakeBezierKnotVector(p + 1), v)(0);
 
       BEMBEL_TEST_IF(std::abs(result1 - result2) <
                      Test::Constants::coefficient_accuracy);
@@ -43,12 +41,13 @@ int main() {
   // Now, we do the same for the derivatives
   for (int p = 1; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
-      double result1 = Basis::ShapeFunctionHandler::evalDerCoef(p, coefs, x);
+      buffer.setZero();
+      Basis::ShapeFunctionHandler::evalDerCoef(p, buffer, x);
+      double result1 = buffer.dot(coefs);
 
       std::vector<double> v = {x};
-      double result2 =
-          Spl::DeBoorDer(Eigen::MatrixXd(coefs_vector.leftCols(p + 1)),
-                         Spl::MakeBezierKnotVector(p + 1), v)(0);
+      double result2 = Spl::DeBoorDer(Eigen::MatrixXd(coefs.leftCols(p + 1)),
+                                      Spl::MakeBezierKnotVector(p + 1), v)(0);
 
       BEMBEL_TEST_IF(std::abs(result1 - result2) <
                      Test::Constants::coefficient_accuracy);

@@ -41,28 +41,15 @@ class LaplaceSingleLayerPotentialGradient
                          const ElementTreeNode &element,
                          const Eigen::Vector3d &point,
                          const SurfacePoint &p) const {
-    // get evaluation points on unit square
-    auto s = p.segment<2>(0);
-
-    // get quadrature weights
-    auto ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    auto x_f = p.segment<3>(3);
-    auto x_f_dx = p.segment<3>(6);
-    auto x_f_dy = p.segment<3>(9);
-
-    // compute surface measures from tangential derivatives
-    auto x_kappa = x_f_dx.cross(x_f_dy).norm();
-
     // evaluate kernel
-    auto kernel = evaluateKernelGrad(point, x_f);
+    auto kernel = evaluateKernelGrad(point, p.get_f());
 
     // assemble Galerkin solution
     auto cauchy_value = fun_ev.evaluate(element, p);
 
     // integrand without basis functions
-    auto integrand = kernel * cauchy_value * x_kappa * ws;
+    auto integrand =
+        kernel * cauchy_value * p.get_surface_measure() * p.get_w();
 
     return integrand;
   }

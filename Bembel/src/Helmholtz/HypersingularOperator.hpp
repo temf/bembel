@@ -41,46 +41,27 @@ class HelmholtzHypersingularOperator
   void evaluateIntegrand_impl(const T &super_space, const SurfacePoint &p1,
                               const SurfacePoint &p2,
                               Eigen::MatrixXcd *intval) const {
-    auto polynomial_degree = super_space.get_polynomial_degree();
-    auto polynomial_degree_plus_one_squared =
-        (polynomial_degree + 1) * (polynomial_degree + 1);
-
-    // get evaluation points on unit square
-    Eigen::Vector2d s = p1.segment<2>(0);
-    Eigen::Vector2d t = p2.segment<2>(0);
-
-    // get quadrature weights
-    double ws = p1(2);
-    double wt = p2(2);
-
-    // get points on geometry and tangential derivatives
-    Eigen::Vector3d x_f = p1.segment<3>(3);
-    Eigen::Vector3d x_f_dx = p1.segment<3>(6);
-    Eigen::Vector3d x_f_dy = p1.segment<3>(9);
-    Eigen::Vector3d y_f = p2.segment<3>(3);
-    Eigen::Vector3d y_f_dx = p2.segment<3>(6);
-    Eigen::Vector3d y_f_dy = p2.segment<3>(9);
-
     // compute surface measures from tangential derivatives
-    Eigen::Vector3d x_n = x_f_dx.cross(x_f_dy);
-    Eigen::Vector3d y_n = y_f_dx.cross(y_f_dy);
+    Eigen::Vector3d x_n = p1.get_normal();
+    Eigen::Vector3d y_n = p2.get_normal();
 
     // compute h
     double h =
         1. / (1 << super_space.get_refinement_level());  // h = 1 ./ (2^M)
 
     // evaluate kernel
-    std::complex<double> kernel = evaluateKernel(x_f, y_f);
+    std::complex<double> kernel = evaluateKernel(p1.get_f(), p2.get_f());
 
     // integrand without basis functions
     std::complex<double> integrandScalar =
-        -kernel * x_n.dot(y_n) * wavenumber2_ * ws * wt;
+        -kernel * x_n.dot(y_n) * wavenumber2_ * p1.get_w() * p2.get_w();
     std::complex<double> integrandCurl =
-        kernel * x_n.norm() * y_n.norm() * ws * wt / h / h;
+        kernel * x_n.norm() * y_n.norm() * p1.get_w() * p2.get_w() / h / h;
 
     // multiply basis functions with integrand and add to intval, this is an
     // efficient implementation of
-    super_space.addScaledBasisInteraction(intval, integrandScalar, s, t);
+    super_space.addScaledBasisInteraction(intval, integrandScalar, p1.get_xi(),
+                                          p2.get_xi());
     super_space.addScaledSurfaceCurlInteraction(intval, integrandCurl, p1, p2);
 
     return;
@@ -88,33 +69,18 @@ class HelmholtzHypersingularOperator
 
   Eigen::Matrix<std::complex<double>, 3, 3> evaluateFMMInterpolation_impl(
       const SurfacePoint &p1, const SurfacePoint &p2) const {
-    // get evaluation points on unit square
-    Eigen::Vector2d s = p1.segment<2>(0);
-    Eigen::Vector2d t = p2.segment<2>(0);
-
-    // get points on geometry and tangential derivatives
-    Eigen::Vector3d x_f = p1.segment<3>(3);
-    Eigen::Vector3d x_f_dx = p1.segment<3>(6);
-    Eigen::Vector3d x_f_dy = p1.segment<3>(9);
-    Eigen::Vector3d y_f = p2.segment<3>(3);
-    Eigen::Vector3d y_f_dx = p2.segment<3>(6);
-    Eigen::Vector3d y_f_dy = p2.segment<3>(9);
-
-    // compute surface measures from tangential derivatives
-    Eigen::Vector3d x_n = x_f_dx.cross(x_f_dy);
-    Eigen::Vector3d y_n = y_f_dx.cross(y_f_dy);
-
     // evaluate kernel
-    std::complex<double> kernel = evaluateKernel(x_f, y_f);
+    std::complex<double> kernel = evaluateKernel(p1.get_f(), p2.get_f());
 
     // interpolation
     Eigen::Matrix<std::complex<double>, 3, 3> intval;
     intval.setZero();
-    intval(0, 0) = -kernel * wavenumber2_ * x_n.dot(y_n);
-    intval(1, 1) = kernel * x_f_dy.dot(y_f_dy);
-    intval(1, 2) = -kernel * x_f_dy.dot(y_f_dx);
-    intval(2, 1) = -kernel * x_f_dx.dot(y_f_dy);
-    intval(2, 2) = kernel * x_f_dx.dot(y_f_dx);
+    intval(0, 0) =
+        -kernel * wavenumber2_ * p1.get_normal().dot(p2.get_normal());
+    intval(1, 1) = kernel * p1.get_f_dy().dot(p2.get_f_dy());
+    intval(1, 2) = -kernel * p1.get_f_dy().dot(p2.get_f_dx());
+    intval(2, 1) = -kernel * p1.get_f_dx().dot(p2.get_f_dy());
+    intval(2, 2) = kernel * p1.get_f_dx().dot(p2.get_f_dx());
 
     return intval;
   }
