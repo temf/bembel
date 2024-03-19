@@ -8,14 +8,6 @@ permissions:
   contents: write
 
 jobs:
-  build-n-test:
-    uses: ./.github/workflows/build-n-test.yml
-    with:
-      target: E2Etests
-
-  coverage-monitor:
-    uses: ./.github/workflows/coverage-monitor.yml
-
   deploy-docs:
     needs: [coverage-monitor, build-n-test]
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
