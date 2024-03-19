@@ -19,9 +19,9 @@ jobs:
         run: |
           sudo apt-get install --yes doxygen
 
-      - name: Install Latex
+      - name: Install Biblatex
         run: |
-          sudo apt install --yes texlive-latex-extra
+          sudo apt-get install --yes biblatex
 
       - name: Getting dot
         run: |
