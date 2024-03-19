@@ -9,7 +9,6 @@ permissions:
 
 jobs:
   deploy-docs:
-    needs: [coverage-monitor, build-n-test]
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
