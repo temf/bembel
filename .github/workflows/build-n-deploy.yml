@@ -21,7 +21,7 @@ jobs:
 
       - name: Install Biber
         run: |
-          sudo apt-get install --yes biber
+          sudo apt install biber
 
       - name: Getting dot
         run: |
