@@ -19,10 +19,9 @@ jobs:
         run: |
           sudo apt-get install --yes doxygen
 
-      - name: Install Biber
+      - name: Install Bibtex
         run: |
-          wget -O biber.tar.gz https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/binaries/Linux/biber-linux_x86_64.tar.gz/download
-          tar -xf biber.tar.gz
+          sudo apt-get install --yes texlive-bibtex-extra
 
       - name: Getting dot
         run: |
