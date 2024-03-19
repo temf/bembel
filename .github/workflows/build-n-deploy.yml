@@ -21,7 +21,8 @@ jobs:
 
       - name: Install Biber
         run: |
-          sudo apt install biber
+          wget -O biber.tar.gz https://sourceforge.net/projects/biblatex-biber/files/biblatex-biber/current/binaries/Linux/biber-linux_x86_64.tar.gz/download
+          tar -xf biber.tar.gz
 
       - name: Getting dot
         run: |
