@@ -27,8 +27,10 @@
 #include "Potential"
 
 #include "src/Laplace/DoubleLayerOperator.hpp"
+#include "src/Laplace/AdjointDoubleLayerOperator.hpp"
 #include "src/Laplace/DoubleLayerPotential.hpp"
 #include "src/Laplace/SingleLayerOperator.hpp"
+#include "src/Laplace/HypersingularOperator.hpp"
 #include "src/Laplace/SingleLayerPotential.hpp"
 #include "src/Laplace/SingleLayerPotentialGradient.hpp"
 

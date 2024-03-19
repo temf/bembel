@@ -23,6 +23,7 @@ var annotated =
         [ "Moment1DDerivative", "struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative.html", "struct_bembel_1_1_h2_multipole_1_1_moment1_d_derivative" ],
         [ "Moment2D", "struct_bembel_1_1_h2_multipole_1_1_moment2_d.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d" ],
         [ "Moment2D< InterpolationPoints, HelmholtzHypersingularOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_helmholtz_hypersingular_operator_01_4.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_helmholtz_hypersingular_operator_01_4" ],
+        [ "Moment2D< InterpolationPoints, LaplaceHypersingularOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_laplace_hypersingular_operator_01_4.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_laplace_hypersingular_operator_01_4" ],
         [ "Moment2D< InterpolationPoints, MaxwellSingleLayerOperator >", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_maxwell_single_layer_operator_01_4.html", "struct_bembel_1_1_h2_multipole_1_1_moment2_d_3_01_interpolation_points_00_01_maxwell_single_layer_operator_01_4" ]
       ] ],
       [ "IO", null, [
@@ -78,10 +79,14 @@ var annotated =
       [ "VTKDomainExport", "class_bembel_1_1_v_t_k_domain_export.html", "class_bembel_1_1_v_t_k_domain_export" ],
       [ "VTKPointExport", "class_bembel_1_1_v_t_k_point_export.html", "class_bembel_1_1_v_t_k_point_export" ],
       [ "VTKSurfaceExport", "class_bembel_1_1_v_t_k_surface_export.html", "class_bembel_1_1_v_t_k_surface_export" ],
+      [ "LinearOperatorTraits< LaplaceAdjointDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_adjoint_double_layer_operator_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_adjoint_double_layer_operator_01_4" ],
+      [ "LaplaceAdjointDoubleLayerOperator", "class_bembel_1_1_laplace_adjoint_double_layer_operator.html", "class_bembel_1_1_laplace_adjoint_double_layer_operator" ],
       [ "LinearOperatorTraits< LaplaceDoubleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_double_layer_operator_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_double_layer_operator_01_4" ],
       [ "LaplaceDoubleLayerOperator", "class_bembel_1_1_laplace_double_layer_operator.html", "class_bembel_1_1_laplace_double_layer_operator" ],
       [ "LaplaceDoubleLayerPotential", "class_bembel_1_1_laplace_double_layer_potential.html", "class_bembel_1_1_laplace_double_layer_potential" ],
       [ "PotentialTraits< LaplaceDoubleLayerPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_laplace_double_layer_potential_3_01_lin_op_01_4_01_4.html", "struct_bembel_1_1_potential_traits_3_01_laplace_double_layer_potential_3_01_lin_op_01_4_01_4" ],
+      [ "LinearOperatorTraits< LaplaceHypersingularOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_hypersingular_operator_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_hypersingular_operator_01_4" ],
+      [ "LaplaceHypersingularOperator", "class_bembel_1_1_laplace_hypersingular_operator.html", "class_bembel_1_1_laplace_hypersingular_operator" ],
       [ "LinearOperatorTraits< LaplaceSingleLayerOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_single_layer_operator_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_laplace_single_layer_operator_01_4" ],
       [ "LaplaceSingleLayerOperator", "class_bembel_1_1_laplace_single_layer_operator.html", "class_bembel_1_1_laplace_single_layer_operator" ],
       [ "LaplaceSingleLayerPotential", "class_bembel_1_1_laplace_single_layer_potential.html", "class_bembel_1_1_laplace_single_layer_potential" ],
