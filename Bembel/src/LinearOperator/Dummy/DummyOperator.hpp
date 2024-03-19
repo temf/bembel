@@ -14,7 +14,9 @@
 namespace Bembel {
 
 class DummyOperator;
-
+/**
+ * \brief Specification of the LinearOperatorTraits for the DummyOperator.
+ */
 template <>
 struct LinearOperatorTraits<DummyOperator> {
   typedef Eigen::VectorXd EigenType;
@@ -33,20 +35,36 @@ std::function<double(const Eigen::Vector2d &, const Eigen::Vector2d &)>
         [](const Eigen::Vector2d &x, const Eigen::Vector2d &y) { return 1.; };
 
 /**
- *  \ingroup DummyOperator
- *  \brief This class provides a dummy specialization of the LinearOperator and
+ * \ingroup DummyOperator
+ * \brief This class provides a dummy specialization of the LinearOperator and
  * corresponding Traits for testing and debugging
  */
 class DummyOperator : public LinearOperatorBase<DummyOperator> {
   // implementation of the kernel evaluation, which may be based on the
   // information available from the superSpace
  public:
+  /**
+   * \brief Default constructor
+   *
+   * The default test function is a constant 1.
+   */
   DummyOperator() { test_func_ = DummyOperator_test_function; }
+  /**
+   * \brief Constructor with a given test function.
+   */
   DummyOperator(
       std::function<double(const Eigen::Vector2d &, const Eigen::Vector2d &)>
           test_func) {
     test_func_ = test_func;
   }
+  /**
+   * \brief Implements the integration routine.
+   *
+   * \param super_space SuperSpace specified with template parameter.
+   * \param p1 SurfacePoint for evaluating the first integral.
+   * \param p2 SurfacePoint for evaluating the second integral.
+   * \param intval Matrix for the computed integral.
+   */
   template <class T>
   void evaluateIntegrand_impl(
       const T &super_space, const SurfacePoint &p1, const SurfacePoint &p2,

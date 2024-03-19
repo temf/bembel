@@ -13,6 +13,9 @@
 #define BEMBEL_SRC_H2MATRIX_TREELEAF_HPP_
 
 namespace Bembel {
+/**
+ * \brief This class is managing the leafs of the H2Matrix BlockClusterTree.
+ */
 template <typename Derived>
 class TreeLeaf {
  public:

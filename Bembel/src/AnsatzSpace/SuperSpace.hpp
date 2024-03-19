@@ -12,9 +12,11 @@
 #define BEMBEL_SRC_ANSATZSPACE_SUPERSPACE_HPP_
 namespace Bembel {
 /**
- *  \ingroup AnsatzSpace
- *  \brief The superspace manages local polynomial bases on each element of the
- * mesh and provides an itnerface to evaluate them.
+ * \ingroup AnsatzSpace
+ * \brief The superspace manages local polynomial bases on each element of the
+ * mesh and provides an interface to evaluate them.
+ *
+ *
  */
 template <typename Derived>
 struct SuperSpace {
@@ -22,8 +24,31 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    constructors
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Default constructor for the SuperSpace class.
+   *
+   * This constructor creates a SuperSpace object with default parameters.
+   */
   SuperSpace() {}
+  /**
+   * \brief Parameterized constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object with the provided
+   * parameters.
+   *
+   * \param geom The geometry object defining the space.
+   * \param M The refinement level of the space.
+   * \param P The degree of polynomials used in the space.
+   */
   SuperSpace(Geometry& geom, int M, int P) { init_SuperSpace(geom, M, P); }
+  /**
+   * \brief Copy constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object by copying another
+   * SuperSpace object.
+   *
+   * \param other The SuperSpace object to copy from.
+   */
   SuperSpace(const SuperSpace& other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -38,6 +63,14 @@ struct SuperSpace {
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
   }
+  /**
+   * \brief Move constructor for the SuperSpace class.
+   *
+   * This constructor initializes a SuperSpace object by moving from another
+   * SuperSpace object.
+   *
+   * \param other The SuperSpace object to move from.
+   */
   SuperSpace(SuperSpace&& other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -52,6 +85,15 @@ struct SuperSpace {
     polynomial_degree_plus_one_squared =
         other.polynomial_degree_plus_one_squared;
   }
+  /**
+   * \brief Assignment operator for the SuperSpace class.
+   *
+   * This operator assigns the contents of another SuperSpace object to this
+   * one.
+   *
+   * \param other The SuperSpace object to copy from.
+   * \return A reference to the updated SuperSpace object.
+   */
   SuperSpace& operator=(SuperSpace other) {
     mesh_ = other.mesh_;
     phi = other.phi;
@@ -104,6 +146,17 @@ struct SuperSpace {
   //////////////////////////////////////////////////////////////////////////////
   //    map2surface
   //////////////////////////////////////////////////////////////////////////////
+  /**
+   * \brief Evaluation of a point in the element and its Jacobian matrix.
+   *
+   * This function performs the affine transformation of an element to the
+   * reference domain of the patch and returns the output in a surface point.
+   *
+   * \param e       : Element to be evaluated,
+   * \param xi      : Point in [0, 1]^2 of the element
+   * \param w       : Quadrature weight
+   * \param surf_pt : Evaluated point and its jacobian
+   */
   void map2surface(const ElementTreeNode& e, const Eigen::Vector2d& xi,
                    double w, SurfacePoint* surf_pt) const {
     Eigen::Vector2d st = e.llc_ + e.get_h() * xi;
@@ -146,14 +199,14 @@ struct SuperSpace {
       const SurfacePoint& p1, const SurfacePoint& p2) const {
     // compute basis functions's surface curl. Each column of s_curl is a basis
     // function's surface curl at point s.
-    Eigen::MatrixXd s_curl(3, polynomial_degree_plus_one_squared);
-    s_curl = (1.0 / p1.get_surface_measure()) *
-             (-p1.get_f_dx() * basisDy(p1.get_xi()).transpose() +
-              p1.get_f_dy() * basisDx(p1.get_xi()).transpose());
-    Eigen::MatrixXd t_curl(3, polynomial_degree_plus_one_squared);
-    t_curl = (1.0 / p2.get_surface_measure()) *
-             (-p2.get_f_dx() * basisDy(p2.get_xi()).transpose() +
-              p2.get_f_dy() * basisDx(p2.get_xi()).transpose());
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> s_curl =
+        (1.0 / p1.get_surface_measure()) *
+        (-p1.get_f_dx() * basisDy(p1.get_xi()).transpose() +
+         p1.get_f_dy() * basisDx(p1.get_xi()).transpose());
+    Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> t_curl =
+        (1.0 / p2.get_surface_measure()) *
+        (-p2.get_f_dx() * basisDy(p2.get_xi()).transpose() +
+         p2.get_f_dy() * basisDx(p2.get_xi()).transpose());
     // inner product of surface curls of any two basis functions
     for (int j = 0; j < polynomial_degree_plus_one_squared; ++j)
       for (int i = 0; i < polynomial_degree_plus_one_squared; ++i)

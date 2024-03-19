@@ -14,11 +14,13 @@
 
 namespace Bembel {
 
-template <typename AnsatzSpace, typename Derived, typename Functor>
-double surfaceL2error(const AnsatzSpace &ansatz_space,
+template <typename Op, typename Derived, typename Functor>
+double surfaceL2error(const AnsatzSpace<Op> &ansatz_space,
                       const Eigen::MatrixBase<Derived> &vec,
                       const Functor &functor, int deg = 4) {
   typedef typename Derived::Scalar Scalar;
+  FunctionEvaluator<Op> fun_val(ansatz_space);
+  fun_val.set_function(vec);
   Scalar retval = 0;
   GaussSquare<Constants::maximum_quadrature_degree> GS;
   auto Q = GS[deg];
@@ -26,17 +28,11 @@ double surfaceL2error(const AnsatzSpace &ansatz_space,
   const auto longvec = (ansatz_space.get_transformation_matrix() * vec).eval();
   const auto &super_space = ansatz_space.get_superspace();
   const ElementTree &et = super_space.get_mesh().get_element_tree();
-  const unsigned int number_of_elements = et.get_number_of_elements();
-  const unsigned int polynomial_degree = super_space.get_polynomial_degree();
-  const unsigned n_shape_fun =
-      (polynomial_degree + 1) * (polynomial_degree + 1);
   for (auto element = et.cpbegin(); element != et.cpend(); ++element) {
     for (auto i = 0; i < Q.w_.size(); ++i) {
       super_space.map2surface(*element, Q.xi_.col(i), Q.w_(i), &qp);
       // integrand without basis functions
-      const Scalar val =
-          longvec.segment(n_shape_fun * element->id_, n_shape_fun).transpose() *
-          super_space.basis(qp.get_xi());
+      const Scalar val = fun_val.evaluate(*element, qp)(0);
       retval += qp.get_surface_measure() * Q.w_(i) * element->get_h() *
                 element->get_h() *
                 (functor(qp.get_f()) - val / element->get_h()) *

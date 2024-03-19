@@ -26,7 +26,12 @@
 #include "LinearOperator"
 #include "Potential"
 
+#include "src/Helmholtz/AdjointDoubleLayerOperator.hpp"
+#include "src/Helmholtz/DoubleLayerOperator.hpp"
+#include "src/Helmholtz/HypersingularOperator.hpp"
 #include "src/Helmholtz/SingleLayerOperator.hpp"
+
+#include "src/Helmholtz/DoubleLayerPotential.hpp"
 #include "src/Helmholtz/SingleLayerPotential.hpp"
 
 #endif  // BEMBEL_HELMHOLTZOPERATOR_MODULE_

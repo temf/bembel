@@ -26,5 +26,17 @@ struct LinearOperatorTraits {
   // enum { OperatorOrder = 0, Form = DifferentialForm::Discontinuous };
 };
 
+template <typename Derived>
+class ContinuousView : public Derived {};
+/**
+ * \brief Helper specification of the LinearOperatorTraits for the export of
+ * data.
+ */
+template <typename Derived>
+struct LinearOperatorTraits<ContinuousView<Derived>>
+    : LinearOperatorTraits<Derived> {
+  enum { Form = DifferentialForm::Continuous };
+};
+
 }  // namespace Bembel
 #endif  // BEMBEL_SRC_LINEAROPERATOR_LINEAROPERATORTRAITS_HPP_

@@ -13,7 +13,14 @@
 #define BEMBEL_SRC_QUADRATURE_QUADRATURE_HPP_
 
 namespace Bembel {
-
+/**
+ * \brief A structure representing a Quadrature.
+ *
+ * This structure is used to represent a Quadrature in a given Dimension.
+ * It contains two members: xi_ and w_.
+ *
+ * \param Dimension The dimension of the Quadrature.
+ */
 template <unsigned int Dimension>
 struct Quadrature {
   Eigen::Matrix<double, Dimension, Eigen::Dynamic> xi_;

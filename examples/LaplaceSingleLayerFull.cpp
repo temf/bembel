@@ -8,7 +8,6 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-
 #include <Bembel/AnsatzSpace>
 #include <Bembel/Geometry>
 #include <Bembel/H2Matrix>
@@ -23,45 +22,56 @@
 #include "examples/Grids.hpp"
 
 /**
- *  \ingroup Examples
- *  \defgroup LaplaceSingleLayerFull Laplace Single Layer Full
- *  \brief This example computes the solution of a Laplace problem.
+ * \ingroup Examples
+ * \defgroup LaplaceSingleLayerOperatorFull Laplace Single Layer Operator Full
+ * \brief This examples solves the Laplace problem with dense matrices.
  *
- *  Consider the following Dirichlet problem.
- *  Let \f$\Omega\f$ be a compact domain with boundary \f$\Gamma\f$.
- *  Given a function \f$g\f$ on \f$\Gamma\f$, find a function \f$u\f$ on
- *  \f$\Omega\f$ such that,
+ * Let \f$\Omega\in\mathbb{R}^3\f$ be a bounded domain with Lipschitz boundary
+ * \f$\Gamma = \partial\Omega\f$. We solve the Laplace problem
  *
- *  \f{aligned}{
- *    \Delta u &= 0\quad\mathrm{in}\, \Omega \\
- *    u &= f\quad\mathrm{on}\, \Gamma.
- *  \f}
+ * \f{eqnarray*}{
+ * -\Delta u &=& 0,\quad \textrm{in}\,\Omega, \\
+ * u &=& g,\quad\textrm{on}\,\Gamma.
+ * \f}
  *
- *  The solution can be computed with the representation formulae
+ * The solution \f$u\f$ can be computed by a single layer potential ansatz
  *
- *  \f{aligned}{
- *    u(x) = \tilde V(\omega)(x)\quad\mathrm{in}\,\Omega,
- *  \f}
+ * \f{eqnarray*}{
+ * u(\mathbf{x}) &=& \tilde{\mathcal{V}}(\rho) = \int_\Gamma
+ * \frac{\rho(\mathbf{y})}{4\pi\|\mathbf{x} -
+ * \mathbf{y}\|}\,\mathrm{d}\sigma(\mathbf{y}),\quad\mathbf{x}\in\Omega.
+ * \f}
  *
- *  where
+ * Applying the Dirichlet trace operator yields the integral equation
  *
- *  \f{aligned}{
- *    \tilde V(\mu)(x) = \int_\Gamma \frac{\mu(y)}{4\pi\|x - y\|}\,\mathrm{d}y
- *  \f}
+ * \f{eqnarray*}{
+ * \mathcal{V}(\rho) = \gamma_0\tilde{\mathcal{V}}(\rho) &=& g
+ * \f}
  *
- *  is the Laplace single layer potential with some density \f$\mu\f$.
- *  Utilizing the trace operator \f$\gamma\f$, the single layer operator is
- *  defined by \f$V = \gamma\circ\tilde V\f$. When discretized in a conformal
- *  finite-dimensional function space \f$\mathbb{S}\f$, the variational
- *  formulation is as follows: Find \f$\omega\in\mathbb{S}\f$, such that
+ * on \f$\Gamma\f$.
  *
- *  \f{aligned}{
- *    \int_\Gamma \mu \int_\Gamma V(\omega)(x)\,\mathrm{d}x = \int_\Gamma \mu
- *  f\,\mathrm{d}x\quad\forall\mu\in \mathbb{S} \\ \f}
+ * Let \f$\langle\cdot,\cdot\rangle\f$ denote the \f$L^2\f$-scalar product.
+ * Discretizing \f$\rho^h = \in\mathbb{S}^0_{p,m}(\Gamma)\f$ with
+ * discontinuous tensorized B-splines with polynomial degree \f$p\f$ and refine
+ * \f$m\f$ times uniformly  yields the variational formulation: Find \f$\rho^h =
+ * \in\mathbb{S}^0_{p,m}(\Gamma)\f$ such that
  *
- *holds, which is realized in this example.
+ * \f{eqnarray*}{
+ * \langle\mathcal{V}(\rho^h), \varphi\rangle &=& \langle g, \varphi\rangle,
+ * \quad\forall \varphi\in\mathbb{S}^0_{p,m}(\Gamma).
+ * \f}
+ *
+ * This system is solved by the Eigen framework. The computed density
+ * \f$\rho^h\f$ is then inserted in the single layer potential ansatz to compute
+ * the numerical solution of the Laplace problem.
+ *
+ * See \cite Dolz_2018aa for details.
  */
 
+/**
+ * \ingroup LaplaceSingleLayerOperatorFull
+ * The procedure is as follows:
+ */
 int main() {
   using namespace Bembel;
   using namespace Eigen;
@@ -70,18 +80,15 @@ int main() {
   int polynomial_degree_max = 3;
   int refinement_level_max = 3;
 
-  // Load geometry from file "sphere.dat", which must be placed in the same
-  // directory as the executable
+  /// Load geometry from file "sphere.dat"
   Geometry geometry("sphere.dat");
 
-  // Define evaluation points for potential field, a tensor product grid of
-  // 7*7*7 points in [-.1,.1]^3
+  /// Define evaluation points \f$\mathbf{x}_i\f$ for potential field
   MatrixXd gridpoints = Util::makeTensorProductGrid(
       VectorXd::LinSpaced(10, -.25, .25), VectorXd::LinSpaced(10, -.25, .25),
       VectorXd::LinSpaced(10, -.25, .25));
 
-  // Define analytical solution using lambda function, in this case a harmonic
-  // function, see Data.hpp
+  /// Define analytical solution \f$g\f$ using a lambda function
   std::function<double(Vector3d)> fun = [](Vector3d in) {
     return Data::HarmonicFunction(in);
   };
@@ -98,34 +105,38 @@ int main() {
 
       std::cout << "Degree " << polynomial_degree << " Level "
                 << refinement_level << "\t\t";
-      // Build ansatz space
+
+      /// Build ansatz space \f$\mathbb{S}^0_{p,m}(\Gamma)\f$ with discontinuous
+      /// tensorized B-splines.
       AnsatzSpace<LaplaceSingleLayerOperator> ansatz_space(
           geometry, refinement_level, polynomial_degree);
 
-      // Set up load vector
+      /// Set up linear form \f$\langle g, \varphi\rangle\f$
       DiscreteLinearForm<DirichletTrace<double>, LaplaceSingleLayerOperator>
           disc_lf(ansatz_space);
       disc_lf.get_linear_form().set_function(fun);
       disc_lf.compute();
 
-      // Set up and compute discrete operator
+      /// Assemble system matrix \f$\langle\mathcal{V}(\rho^h),
+      /// \varphi\rangle\f$
       DiscreteOperator<MatrixXd, LaplaceSingleLayerOperator> disc_op(
           ansatz_space);
       disc_op.compute();
 
-      // solve system
+      /// Solve system with Eigen
       LLT<MatrixXd> llt;
       llt.compute(disc_op.get_discrete_operator());
       auto rho = llt.solve(disc_lf.get_discrete_linear_form());
 
-      // evaluate potential
+      /// Evaluate single layer potential \f$u(\mathbf{x}_i) =
+      /// \tilde{\mathcal{V}}(\rho^h)\f$
       DiscretePotential<LaplaceSingleLayerPotential<LaplaceSingleLayerOperator>,
                         LaplaceSingleLayerOperator>
           disc_pot(ansatz_space);
       disc_pot.set_cauchy_data(rho);
       auto pot = disc_pot.evaluate(gridpoints);
 
-      // compute reference, print time, and compute error
+      /// Compute error to analytical solution
       VectorXd pot_ref(gridpoints.rows());
       for (int i = 0; i < gridpoints.rows(); ++i)
         pot_ref(i) = fun(gridpoints.row(i));

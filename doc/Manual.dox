@@ -1,14 +1,7 @@
+// This file strutures pages and modules into a convenient hierarchical structure.
 
-/**
-\defgroup Modules Modules
+namespace Bembel {
+/** \defgroup Modules Modules */
+/** \defgroup Examples Examples */
 
-Here are listed all modules of Bembel
-
-*/
-
-
-/**
-\defgroup Examples Examples
-
-Here are listed all examples of Bembel
-*/
+}

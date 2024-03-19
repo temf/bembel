@@ -1,0 +1,66 @@
+namespace Bembel {
+/**
+\page GettingStarted Getting Started
+
+\section secStart How to Compile
+
+You need to install the Eigen3 library, see [Eigen's Documentation](https://eigen.tuxfamily.org/dox/GettingStarted.html) for help. 
+We do not rely on any other external libraries, except for the standard template library.
+Thus, having installed Eigen, Bembel should run out of the box.
+If you want to use Bembel as part of your application, simply add the `Bembel/` directory to your includes.
+
+If you want to run the provided examples and tests, you can utilize the provided `CMakeLists.txt`.
+
+\subsection subsecUnix Unix-Based Systems
+
+<pre><code>$ cmake -B build .
+$ cmake --build build --config release
+</code></pre>
+
+There also exist a `debug` config.
+
+\section secProcedure Procedure of the BEM realized in Bembel
+
+The procedure is as follows.
+Let \f$\Omega\in\mathbb{R}^3\f$ be a bounded domain with Lipschitz boundary \f$\Gamma = \partial\Omega\f$.
+Bembel provides examples to the Laplace equation
+
+\f{eqnarray*}{
+-\Delta u &=& 0,\quad \textrm{in}\,\Omega, \\
+u &=& g,\quad\textrm{on}\,\Gamma.
+\f}
+
+The solution \f$u\f$ can be computed by a single layer potential ansatz
+
+\f{eqnarray*}{
+u(\mathbf{x}) &=& \tilde{\mathcal{V}}(\rho) = \int_\Gamma \frac{\rho(\mathbf{y})}{4\pi\|\mathbf{x} - \mathbf{y}\|}\,\mathrm{d}\sigma(\mathbf{y}),\quad\mathbf{x}\in\Omega.
+\f}
+
+Applying the appropriate trace operator yields the integral equation
+
+\f{eqnarray*}{
+\mathcal{V}(\rho) &=& f(g)
+\f}
+
+where \f$f\f$ is a linear form incorporating the boundary data \f$g\f$.
+This equation is solved by a Galerkin method to compute the unknown density \f$\rho\f$.
+See \cite Dolz_2018aa for details.
+
+\subsection subsecExample Example Program
+
+\snippet example.cpp main
+
+\subsection subsecBasicExtending Implement Your Own Operator
+
+The three components [LinearOperator](@ref LinearOperator) \f$\mathcal{V}\f$, [LinearForm](\ref LinearForm) \f$f\f$ and [Potential](\ref Potential) \f$\tilde{\mathcal{V}}\f$ utilized in this procedure are classes in the Bembel library which follow the same design principle.
+Main idea is to define traits which fundamentally define the behavior of the class.
+Whilst the Base class provides a framework, the Operator classes provide contrete implementations of computing the integrals.
+Details on the three classes are given in Section \ref secCRTP.
+
+\image html UML_TraitsBaseOperator.png width=700px
+
+If you now write a new problem class as an extension for Bembel, you only have to define the traits.
+In addition, you have to implement a concrete implementation for computing the integrals.
+
+*/
+}  // namespace Bembel

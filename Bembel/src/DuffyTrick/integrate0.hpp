@@ -14,11 +14,11 @@
 namespace Bembel {
 namespace DuffyTrick {
 /**
- *  \ingroup DuffyTrick
- *    \brief far-field quadrature routine, which is based on precomputed values
- *           in order to quickly evaluate the integrand in the case that the
- *           far-field quadrature degree can be used
- **/
+ * \ingroup DuffyTrick
+ * \brief far-field quadrature routine, which is based on precomputed values in
+ * order to quickly evaluate the integrand in the case that the far-field
+ * quadrature degree can be used
+ */
 template <typename Derived, class T>
 void integrate0(const LinearOperatorBase<Derived> &LinOp, const T &super_space,
                 const ElementTreeNode &e1, int rot1, const ElementTreeNode &e2,

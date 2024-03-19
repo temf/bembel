@@ -15,9 +15,14 @@
 namespace Bembel {
 namespace DuffyTrick {
 /**
- *  \ingroup DuffyTrick
- *  \brief computes rotations for the Duffy trick
- **/
+ * \ingroup DuffyTrick
+ * \brief computes rotations for the DuffyTrick.
+ *
+ * \param x x coordinate
+ * \param y y coordinate
+ * \param thecase Edge case denoting how the element needs to be turned.
+ * \return Point in rotated element.
+ */
 Eigen::Vector2d tau(double x, double y, int thecase) {
   Eigen::Vector2d retval;
   switch (thecase) {

@@ -36,6 +36,14 @@ struct QuadratureVector {
   Quadrature<1> Q_;
 };
 
+/**
+ *  \ingroup Quadrature
+ *  \brief this struct wraps all the defined quadrature Rules in a nice
+ *         structure overloading the [] operator such that they can
+ *         be accessed within a loop during runtime
+ * 
+ * Base Case
+ **/
 template <template <unsigned int qrOrder> class QuadratureRule>
 struct QuadratureVector<QuadratureRule, 0> {
   QuadratureVector() {

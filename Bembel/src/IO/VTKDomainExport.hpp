@@ -49,7 +49,7 @@ class VTKDomainExport {
       for (int y_idx = 0; y_idx < y_vec_.rows(); ++y_idx)
         for (int x_idx = 0; x_idx < x_vec_.rows(); ++x_idx) {
           const uint32_t i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
-                                  (x_vec_.rows() * y_idx) + x_idx;
+                             (x_vec_.rows() * y_idx) + x_idx;
           data(i) =
               fun(Eigen::Vector3d(x_vec_(x_idx), y_vec_(y_idx), z_vec_(z_idx)));
         }
@@ -64,7 +64,7 @@ class VTKDomainExport {
       for (int y_idx = 0; y_idx < y_vec_.rows(); ++y_idx)
         for (int x_idx = 0; x_idx < x_vec_.rows(); ++x_idx) {
           const uint32_t i = (x_vec_.rows() * y_vec_.rows() * z_idx) +
-                                  (x_vec_.rows() * y_idx) + x_idx;
+                             (x_vec_.rows() * y_idx) + x_idx;
           data.row(i) =
               fun(Eigen::Vector3d(x_vec_(x_idx), y_vec_(y_idx), z_vec_(z_idx)))
                   .transpose();
@@ -120,9 +120,14 @@ class VTKDomainExport {
                              "\" NumberOfComponents=\"" +
                              std::to_string(mat.cols()) +
                              "\" format=\"ascii\">\n";
+    std::ostringstream out;
+    out.precision(6);
     for (int i = 0; i < mat.rows(); ++i) {
       for (int j = 0; j < cols; ++j) {
-        data_ascii.append(std::to_string(mat(i, j)) + " ");
+        out << std::scientific << mat(i, j);
+        data_ascii.append(std::move(out).str() + " ");
+        out.str("");
+        out.clear();
       }
       data_ascii.append("\n");
     }

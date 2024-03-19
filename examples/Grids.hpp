@@ -34,21 +34,17 @@ inline Eigen::Matrix<double, Eigen::Dynamic, 3> makeTensorProductGrid(
 }
 
 inline Eigen::Matrix<double, Eigen::Dynamic, 3> makeSphereGrid(
-    const double r, const int n,
+    const double r, const int nSample,
     const Eigen::Vector3d center = Eigen::Vector3d(0, 0, 0)) {
-  Eigen::Matrix<double, Eigen::Dynamic, 3> out(n * n, 3);
-  const double h = 1. / n;
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) {
-      out.row(j + i * n) =
-          (Eigen::Vector3d(
-               r * cos(3.141592653 * h * i) * sin(3.141592653 * h * (j + 0.5)),
-               r * sin(3.141592653 * h * i) * sin(3.141592653 * h * (j + 0.5)),
-               r * cos(3.141592653 * h * j)) +
-           center);
-    }
+  double goldenRatio = (1 + sqrt(5.0)) / 2.0;
+  Eigen::Matrix<double, Eigen::Dynamic, 3> out(nSample, 3);
+  for (int i = 0; i < nSample; ++i) {
+    double phi = acos(1 - 2.0 * (i + 0.5) / nSample);
+    double theta = 2 * BEMBEL_PI * (i + 0.5) / goldenRatio;
+    out.row(i) = (Eigen::Vector3d(r * cos(theta) * sin(phi),
+                                  r * sin(theta) * sin(phi), r * cos(phi)) +
+                  center);
   }
-
   return out;
 }
 }  // namespace Util

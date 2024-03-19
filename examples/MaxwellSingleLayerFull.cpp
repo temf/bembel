@@ -36,9 +36,9 @@ int main() {
   // directory as the executable
   Geometry geometry("sphere.dat");
 
-  // Define evaluation points for scattered field, sphere of radius 2, 10*10
-  // points.
-  MatrixXd gridpoints = Util::makeSphereGrid(2., 10);
+  // Define evaluation points for scattered field, sphere of radius 2, 100
+  // equispaced points.
+  MatrixXd gridpoints = Util::makeSphereGrid(2., 100);
 
   // Define analytical solution using lambda function, in this case a dipole
   // centered on 0, see Data.hpp

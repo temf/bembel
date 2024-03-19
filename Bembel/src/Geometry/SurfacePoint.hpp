@@ -11,7 +11,7 @@
 //
 #ifndef BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
 #define BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
-// #include <Eigen/StdVector>
+#include <Eigen/StdVector>
 /**
  * \ingroup Geometry
  * \brief This class stores quadrature and geometry information on quadrature
@@ -107,4 +107,13 @@ class SurfacePoint {
 typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
     ElementSurfacePoints;
 
+/**
+ * \ingroup Geometry
+ * \brief typedef std::vector<SurfacePoint> with aligned allocator of Eigen for
+ * compatibility with older compilers.
+ */
+typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
+    ElementSurfacePoints;
+
 #endif  // BEMBEL_SRC_GEOMETRY_SURFACEPOINT_HPP_
+

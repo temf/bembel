@@ -86,9 +86,9 @@ class BlockClusterTree {
     updateLeafPointers();
   }
 
-  template <typename Derived>
-  BlockClusterTree(const LinearOperatorBase<Derived> &linear_operator,
-                   const AnsatzSpace<Derived> &ansatz_space) {
+  template <typename LinOp, typename AnsatzSpace>
+  BlockClusterTree(const LinOp &linear_operator,
+                   const AnsatzSpace &ansatz_space) {
     init_BlockClusterTree(linear_operator, ansatz_space);
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -117,9 +117,9 @@ class BlockClusterTree {
     return;
   }
 
-  template <typename Derived>
-  void init_BlockClusterTree(const LinearOperatorBase<Derived> &linOp,
-                             const AnsatzSpace<Derived> &ansatz_space) {
+  template <typename LinOp, typename AnsatzSpace>
+  void init_BlockClusterTree(const LinOp &linOp,
+                             const AnsatzSpace &ansatz_space) {
     if (parameters_ == nullptr) set_parameters();
     // get element tree from ansatz space
     const ElementTree &element_tree =
@@ -151,9 +151,9 @@ class BlockClusterTree {
   //////////////////////////////////////////////////////////////////////////////
   /// methods
   //////////////////////////////////////////////////////////////////////////////
-  template <typename Derived>
-  void appendSubtree(const LinearOperatorBase<Derived> &linear_operator,
-                     const AnsatzSpace<Derived> &ansatz_space,
+  template <typename LinOp, typename AnsatzSpace>
+  void appendSubtree(const LinOp &linear_operator,
+                     const AnsatzSpace &ansatz_space,
                      const ElementTreeNode *cluster1,
                      const ElementTreeNode *cluster2) {
     cc_ = compareCluster(*cluster1, *cluster2);
