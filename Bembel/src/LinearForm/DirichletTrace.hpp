@@ -39,7 +39,8 @@ class DirichletTrace : public LinearFormBase<DirichletTrace<Scalar>, Scalar> {
       const T &super_space, const SurfacePoint &p,
       Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
     // integrand without basis functions
-    Scalar integrand = function_(p.get_f()) * p.get_surface_measure() * p.get_w();
+    Scalar integrand =
+        function_(p.get_f()) * p.get_surface_measure() * p.get_w();
     // multiply basis functions with integrand
     super_space.addScaledBasis(intval, integrand, p.get_xi());
     return;
