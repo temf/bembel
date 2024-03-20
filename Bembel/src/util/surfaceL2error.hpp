@@ -35,8 +35,8 @@ double surfaceL2error(const AnsatzSpace<Op> &ansatz_space,
       const Scalar val = fun_val.evaluate(*element, qp)(0);
       retval += qp.get_surface_measure() * Q.w_(i) * element->get_h() *
                 element->get_h() *
-                (functor(qp.get_f()) - val / element->get_h()) *
-                (functor(qp.get_f()) - val / element->get_h());
+                (functor(qp.get_f()) - val) *
+                (functor(qp.get_f()) - val);
     }
   }
   return sqrt(retval);

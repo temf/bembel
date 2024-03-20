@@ -45,7 +45,7 @@ class HelmholtzDoubleLayerOperator
           Eigen::Dynamic, Eigen::Dynamic> *intval) const {
     // integrand without basis functions
     auto integrand =
-        evaluateKernelGrad(p1.get_f(), p1.get_normal(), p2.get_f()) *
+        evaluateKernelGrad(p1.get_f(), p2.get_f(), p2.get_normal()) *
         p1.get_surface_measure() * p1.get_w() * p2.get_w();
 
     // multiply basis functions with integrand and add to intval
@@ -59,8 +59,8 @@ class HelmholtzDoubleLayerOperator
       const SurfacePoint &p1, const SurfacePoint &p2) const {
     // interpolation
     Eigen::Matrix<std::complex<double>, 1, 1> intval;
-    intval(0) = evaluateKernelGrad(p1.get_f(), p1.get_normal(), p2.get_f()) *
-                p2.get_surface_measure();
+    intval(0) = evaluateKernelGrad(p1.get_f(), p2.get_f(), p2.get_normal()) *
+                p1.get_surface_measure();
     return intval;
   }
 

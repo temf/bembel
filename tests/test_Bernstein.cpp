@@ -21,7 +21,7 @@ int main() {
   constexpr int P = Bembel::Constants::MaxP;
   VectorXd buffer(P + 1);
   VectorXd coefs =
-      VectorXd::LinSpaced(1, P + 1, P + 1) / static_cast<double>(P + 1);
+      VectorXd::LinSpaced(P + 1, 1, P + 1) / static_cast<double>(P + 1);
 
   for (int p = 0; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
@@ -30,7 +30,7 @@ int main() {
       double result1 = buffer.dot(coefs);
 
       std::vector<double> v = {x};
-      double result2 = Spl::DeBoor(Eigen::MatrixXd(coefs.leftCols(p + 1)),
+      double result2 = Spl::DeBoor(MatrixXd(coefs.head(p + 1).transpose()),
                                    Spl::MakeBezierKnotVector(p + 1), v)(0);
 
       BEMBEL_TEST_IF(std::abs(result1 - result2) <
@@ -42,11 +42,11 @@ int main() {
   for (int p = 1; p <= Bembel::Constants::MaxP; ++p) {
     for (auto x : Test::Constants::eq_points) {
       buffer.setZero();
-      Basis::ShapeFunctionHandler::evalDerCoef(p, buffer, x);
+      Basis::ShapeFunctionHandler::evalDerBasis(p, buffer.data(), x);
       double result1 = buffer.dot(coefs);
 
       std::vector<double> v = {x};
-      double result2 = Spl::DeBoorDer(Eigen::MatrixXd(coefs.leftCols(p + 1)),
+      double result2 = Spl::DeBoorDer(MatrixXd(coefs.head(p + 1).transpose()),
                                       Spl::MakeBezierKnotVector(p + 1), v)(0);
 
       BEMBEL_TEST_IF(std::abs(result1 - result2) <
@@ -54,6 +54,5 @@ int main() {
     }
   }
 
-  delete[] coefs;
   return 0;
 }

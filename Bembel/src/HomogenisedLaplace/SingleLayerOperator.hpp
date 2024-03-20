@@ -62,12 +62,9 @@ class HomogenisedLaplaceSingleLayerOperator
                      p1.get_surface_measure() * p2.get_surface_measure() *
                      p1.get_w() * p2.get_w();
 
-    // multiply basis functions with integrand and add to intval, this is an
-    // efficient implementation of
-    // (*intval) += super_space.basisInteraction(s, t)
-    //    * evaluateKernel(x_f, y_f) * x_kappa * y_kappa * ws * wt;
-    super_space.addScaledBasisInteraction(intval, integrand, p1.get_f(),
-                                          p2.get_f());
+    // multiply basis functions with integrand and add to intval
+    super_space.addScaledBasisInteraction(intval, integrand, p1.get_xi(),
+                                          p2.get_xi());
 
     return;
   }
