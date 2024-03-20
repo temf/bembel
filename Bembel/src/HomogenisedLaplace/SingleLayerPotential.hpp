@@ -15,13 +15,13 @@
 namespace Bembel {
 // forward declaration of class HomogenisedLaplaceSingleLayerPotential
 // in order to define traits
-template<typename LinOp>
+template <typename LinOp>
 class HomogenisedLaplaceSingleLayerPotential;
 
 /**
  * \brief Specification of the PotentialTraits for the Homogenised Laplace.
  */
-template<typename LinOp>
+template <typename LinOp>
 struct PotentialTraits<HomogenisedLaplaceSingleLayerPotential<LinOp>> {
   typedef Eigen::VectorXd::Scalar Scalar;
   static constexpr int OutputSpaceDimension = 1;
@@ -32,51 +32,41 @@ struct PotentialTraits<HomogenisedLaplaceSingleLayerPotential<LinOp>> {
  * \brief This class implements the specification of the integration for the
  * single layer potential for the homogenised Laplace.
  */
-template<typename LinOp>
-class HomogenisedLaplaceSingleLayerPotential : public PotentialBase<
-    HomogenisedLaplaceSingleLayerPotential<LinOp>, LinOp> {
+template <typename LinOp>
+class HomogenisedLaplaceSingleLayerPotential
+    : public PotentialBase<HomogenisedLaplaceSingleLayerPotential<LinOp>,
+                           LinOp> {
   // implementation of the kernel evaluation, which may be based on the
   // information available from the superSpace
 
  public:
   /**
-     * \brief Constructs an object initialising the coefficients and the degree
-     *  via the static variable HomogenisedLaplaceSingleLayerOperator::precision.
-     */
+   * \brief Constructs an object initialising the coefficients and the degree
+   *  via the static variable HomogenisedLaplaceSingleLayerOperator::precision.
+   */
   HomogenisedLaplaceSingleLayerPotential() {
-    this->deg = getDegree(
-        HomogenisedLaplaceSingleLayerOperator::getPrecision());
-    this->cs = getCoefficients(
-        HomogenisedLaplaceSingleLayerOperator::getPrecision());
+    this->deg =
+        getDegree(HomogenisedLaplaceSingleLayerOperator::getPrecision());
+    this->cs =
+        getCoefficients(HomogenisedLaplaceSingleLayerOperator::getPrecision());
   }
   Eigen::Matrix<
       typename PotentialReturnScalar<
-          typename LinearOperatorTraits<LinOp>::Scalar,
-            double>::Scalar, 1, 1> evaluateIntegrand_impl(
-      const FunctionEvaluator<LinOp> &fun_ev, const ElementTreeNode &element,
-      const Eigen::Vector3d &point, const SurfacePoint &p) const {
-    // get evaluation points on unit square
-    auto s = p.segment < 2 > (0);
-
-    // get quadrature weights
-    auto ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    auto x_f = p.segment < 3 > (3);
-    auto x_f_dx = p.segment < 3 > (6);
-    auto x_f_dy = p.segment < 3 > (9);
-
-    // compute surface measures from tangential derivatives
-    auto x_kappa = x_f_dx.cross(x_f_dy).norm();
-
+          typename LinearOperatorTraits<LinOp>::Scalar, double>::Scalar,
+      1, 1>
+  evaluateIntegrand_impl(const FunctionEvaluator<LinOp> &fun_ev,
+                         const ElementTreeNode &element,
+                         const Eigen::Vector3d &point,
+                         const SurfacePoint &p) const {
     // evaluate kernel
-    auto kernel = evaluateKernel(point, x_f);
+    auto kernel = evaluateKernel(point, p.get_f());
 
     // assemble Galerkin solution
     auto cauchy_value = fun_ev.evaluate(element, p);
 
     // integrand without basis functions
-    auto integrand = kernel * cauchy_value * x_kappa * ws;
+    auto integrand =
+        kernel * cauchy_value * p.get_surface_measure() * p.get_w();
 
     return integrand;
   }
@@ -85,9 +75,9 @@ class HomogenisedLaplaceSingleLayerPotential : public PotentialBase<
    * \brief Fundamental solution of the homogenised Laplace problem
    */
   double evaluateKernel(const Eigen::Vector3d &x,
-      const Eigen::Vector3d &y) const {
-    return k_mod(x - y)
-        + evaluate_solid_sphericals(x - y, this->cs, this->deg, false);
+                        const Eigen::Vector3d &y) const {
+    return k_mod(x - y) +
+           evaluate_solid_sphericals(x - y, this->cs, this->deg, false);
   }
 
  private:

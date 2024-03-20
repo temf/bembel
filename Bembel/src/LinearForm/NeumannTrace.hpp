@@ -42,7 +42,7 @@ class NeumannTrace : public LinearFormBase<NeumannTrace<Scalar>, Scalar> {
       Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
     // integrand without basis functions
     // dot: adjoint in first variable
-    auto integrand = p.get_normal().dot(function_(p.get_f)) * p.get_w();
+    auto integrand = p.get_normal().dot(function_(p.get_f())) * p.get_w();
 
     // multiply basis functions with integrand
     super_space.addScaledBasis(intval, integrand, p.get_xi());
