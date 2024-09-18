@@ -20,6 +20,7 @@ set(CIFILES
     LaplaceDoubleLayerH2
     LaplaceAdjointDoubleLayerH2
     LazyEigenSum
+    GrayScott
     HelmholtzSingleLayerFull
     HelmholtzSingleLayerH2
     HelmholtzDoubleLayerH2
