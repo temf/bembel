@@ -16,28 +16,37 @@ namespace Bembel {
 namespace util {
 
 /**
- *  \brief computes a ball enclosing the union of \f$B_r1(mp1)\f$ and
- * \f$B_r2(mp2)\f$, i.e \f$B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)\f$.
+ *  \brief computes a ball enclosing of two given enclosing balls.
+ *
+ * The computed enclosing ball contains for sure the two given balls with
+ * mit_point1 and radius1 and 2, respectively.
+ *
+ * \param *midpoint: Pointer to Eigen::Vector3d which is the new mid point of
+ * the enclosing ball
+ * \param *radius: Pointer where the radius of new enclosing ball is saved.
+ * \param midpoint1: Eigen::Vector3d midpoint of the first ball
+ * \param radius1: double radius of the first ball
+ * \param midpoint2: Eigen::Vector3d midpoint of the second ball
+ * \param radius2: double radius of the second ball
  */
-void computeEnclosingBall(Eigen::Vector3d *mp, double *r,
-                          const Eigen::Vector3d &mp1, double r1,
-                          const Eigen::Vector3d &mp2, double r2) {
+void computeEnclosingBall(Eigen::Vector3d *midpoint, double *radius,
+                          const Eigen::Vector3d &midpoint1, double radius1,
+                          const Eigen::Vector3d &midpoint2, double radius2) {
   // compute distance vector of the two spheres
-  auto z = mp1 - mp2;
-  auto norm = (mp1 - mp2).norm();
-  // B(d2,r2) subset B(d1,r1)
-  if (norm + r2 <= r1) {
-    *mp = mp1;
-    *r = r1;
-    // B(d1,r1) subset B(d2,r2)
-  } else if (norm + r1 <= r2) {
-    *mp = mp2;
-    *r = r2;
+  auto z = midpoint1 - midpoint2;
+  auto norm = (midpoint1 - midpoint2).norm();
+  // B(d2,radius2) subset B(d1,radius1)
+  if (norm + radius2 <= radius1) {
+    *midpoint = midpoint1;
+    *radius = radius1;
+    // B(d1,radius1) subset B(d2,radius2)
+  } else if (norm + radius1 <= radius2) {
+    *midpoint = midpoint2;
+    *radius = radius2;
     // the union is not a ball
   } else {
-    *mp = 0.5 * (mp1 + mp2 + (r1 - r2) / norm * z);
-    *r = 0.5 * (r1 + r2 + norm);
-    *r = 0.5 * (r1 + r2 + norm);
+    *midpoint = 0.5 * (midpoint1 + midpoint2 + (radius1 - radius2) / norm * z);
+    *radius = 0.5 * (radius1 + radius2 + norm);
   }
   return;
 }
