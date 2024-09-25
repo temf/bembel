@@ -234,7 +234,7 @@ class ElementTree {
    *
    * This function stores all indices of an element in the column of the
    * returned matrix.
-   * 
+   *
    * \return A 4xN integer Matrix where N is the number elements.
    */
   Eigen::MatrixXi generateElementList() const {
@@ -372,23 +372,25 @@ class ElementTree {
     // compute point list
     if (!el.sons_.size()) {
       // assign enclosing balls to leafs
-      computeEnclosingBall(&mp1, &r1, P.col(el.vertices_[0]), 0,
-                           P.col(el.vertices_[2]), 0);
-      computeEnclosingBall(&mp2, &r2, P.col(el.vertices_[1]), 0,
-                           P.col(el.vertices_[3]), 0);
-      computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2, r2);
+      util::computeEnclosingBall(&mp1, &r1, P.col(el.vertices_[0]), 0,
+                                 P.col(el.vertices_[2]), 0);
+      util::computeEnclosingBall(&mp2, &r2, P.col(el.vertices_[1]), 0,
+                                 P.col(el.vertices_[3]), 0);
+      util::computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2,
+                                 r2);
     } else {
       // handle the four(!!!) children
       for (auto i = 0; i < 4; ++i)
         computeElementEnclosings_recursion(el.sons_[i], P);
       // assign enclosing balls to fathers bottom up
-      computeEnclosingBall(&mp1, &r1, el.sons_[0].midpoint_,
-                           el.sons_[0].radius_, el.sons_[2].midpoint_,
-                           el.sons_[2].radius_);
-      computeEnclosingBall(&mp2, &r2, el.sons_[1].midpoint_,
-                           el.sons_[1].radius_, el.sons_[3].midpoint_,
-                           el.sons_[3].radius_);
-      computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2, r2);
+      util::computeEnclosingBall(&mp1, &r1, el.sons_[0].midpoint_,
+                                 el.sons_[0].radius_, el.sons_[2].midpoint_,
+                                 el.sons_[2].radius_);
+      util::computeEnclosingBall(&mp2, &r2, el.sons_[1].midpoint_,
+                                 el.sons_[1].radius_, el.sons_[3].midpoint_,
+                                 el.sons_[3].radius_);
+      util::computeEnclosingBall(&(el.midpoint_), &(el.radius_), mp1, r1, mp2,
+                                 r2);
     }
     return;
   }
@@ -497,35 +499,6 @@ class ElementTree {
       ++i;
     }
     return retval;
-  }
-  //////////////////////////////////////////////////////////////////////////////
-  /// static members
-  //////////////////////////////////////////////////////////////////////////////
-  /**
-   *  \brief computes a ball enclosing the union of \f$B_r1(mp1)\f$ and \f$B_r2(mp2)\f$,
-   * i.e \f$B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)\f$.
-   */
-  static void computeEnclosingBall(Eigen::Vector3d *mp, double *r,
-                                   const Eigen::Vector3d &mp1, double r1,
-                                   const Eigen::Vector3d &mp2, double r2) {
-    // compute distance vector of the two spheres
-    auto z = mp1 - mp2;
-    auto norm = (mp1 - mp2).norm();
-    // B(d2,r2) subset B(d1,r1)
-    if (norm + r2 <= r1) {
-      *mp = mp1;
-      *r = r1;
-      // B(d1,r1) subset B(d2,r2)
-    } else if (norm + r1 <= r2) {
-      *mp = mp2;
-      *r = r2;
-      // the union is not a ball
-    } else {
-      *mp = 0.5 * (mp1 + mp2 + (r1 - r2) / norm * z);
-      *r = 0.5 * (r1 + r2 + norm);
-      *r = 0.5 * (r1 + r2 + norm);
-    }
-    return;
   }
   /**
    * \brief Resolves neighborhood relations of the patches.
