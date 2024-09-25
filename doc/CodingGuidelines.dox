@@ -46,6 +46,15 @@ Citing Kent Beck: "You need to convey the purpose, type, and lifetime of the var
 \ref FAQNaming
 
 ---
+\subsection ReuseCode Reuse Code
+
+### Helper Functions:
+
+Put code which might be useful outside of your feature into the `src/util` folder.
+Name the file topic + "Helper".
+Everything needs to be placed in the `util` namespace.
+
+---
 \section git Git Workflow
 
 The public [master branch](https://github.com/temf/bembel/tree/master) represents the current state of the software and is the origin for any new feature development or bug fixes.
