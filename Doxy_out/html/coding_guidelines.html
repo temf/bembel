@@ -133,6 +133,11 @@ Naming</h2>
 <p>Citing Kent Beck: "You need to convey the purpose, type, and lifetime of the variable to readers, you need to pick a name that’s easy to read, you need to pick a name that’s easy to write and format."</p>
 <p><a class="el" href="_f_a_qs.html#FAQNaming">Where do I find naming rules?</a></p>
 <hr  />
+ <h2><a class="anchor" id="ReuseCode"></a>
+Reuse Code</h2>
+<h3>Helper Functions:</h3>
+<p>Put code which might be useful outside of your feature into the <code>src/util</code> folder. Name the file topic + "Helper". Everything needs to be placed in the <code>util</code> namespace.</p>
+<hr  />
  <h1><a class="anchor" id="git"></a>
 Git Workflow</h1>
 <p>The public <a href="https://github.com/temf/bembel/tree/master">master branch</a> represents the current state of the software and is the origin for any new feature development or bug fixes. Each developer pulls from the master, implements the feature or bug fix in <a class="el" href="coding_guidelines.html#FeatureBranches">Feature Branches</a> and creates <a class="el" href="coding_guidelines.html#PullRequests">Pull Requests</a> back into the <code>master</code>.</p>
@@ -185,7 +190,7 @@ Pull Requests</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 19 2024 14:43:43 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 30 2024 07:06:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

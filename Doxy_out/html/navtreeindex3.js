@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"namespace_eigen.html#aa079f690520187ae1c463997b82b122b":[5,1,6],
 "namespace_eigen.html#aa47bc8785e2f1e39538627b16d30f71e":[5,1,13],
 "namespace_eigen.html#ad292b392b5429db747ad822ff3e53d46":[5,1,10],
 "namespace_eigen.html#ae7e7bf2bbef483cdd34c5ba714e0a500":[5,1,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "struct_bembel_1_1_linear_operator_traits_3_01_laplace_single_layer_operator_01_4.html#ae7050493a19972ff334078529218024f":[4,0,55,0],
 "struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_cont_01_4.html":[4,0,40],
 "struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_cont_01_4.html#a2a10005ed07ca545c614aa5fa8ef7671":[4,0,40,0],
-"struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_cont_01_4.html#a77b20b428d89d662ccd5d673719846f0":[4,0,40,1],
-"struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_disc_01_4.html":[4,0,42]
+"struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_cont_01_4.html#a77b20b428d89d662ccd5d673719846f0":[4,0,40,1]
 };

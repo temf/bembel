@@ -106,6 +106,9 @@ var namespace_bembel =
       [ "Rescale", "namespace_bembel_1_1_spl.html#aff0011d9cba5053388899d445558f1fe", null ],
       [ "Unroll", "namespace_bembel_1_1_spl.html#afe8b940b8c20a2b4efe8850f853bf5c5", null ]
     ] ],
+    [ "util", null, [
+      [ "computeEnclosingBall", "_geometry_helper_8hpp.html#a67a883efc0ba7177840184e82f3270a8", null ]
+    ] ],
     [ "Util", null, [
       [ "makeSphereGrid", "_grids_8hpp.html#a4658773d7517a4aad9a3f050d7415228", null ],
       [ "makeTensorProductGrid", "_grids_8hpp.html#a19fe1b7d26e2dbf7ce8a9051382d1bd4", null ]

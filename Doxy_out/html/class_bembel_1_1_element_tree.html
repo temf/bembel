@@ -103,7 +103,6 @@ $(document).ready(function(){initNavTree('class_bembel_1_1_element_tree.html',''
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_bembel_1_1_element_tree-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Bembel::ElementTree Class Reference<div class="ingroups"><a class="el" href="group___modules.html">Modules</a> &raquo; <a class="el" href="group___cluster_tree.html">ClusterTree</a></div></div>  </div>
@@ -231,12 +230,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a011b2485f7253f3e31581faf45f1c28e"><td class="memItemLeft" align="right" valign="top"><a id="a011b2485f7253f3e31581faf45f1c28e"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>compute_global_id</b> (const <a class="el" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;el) const</td></tr>
 <tr class="separator:a011b2485f7253f3e31581faf45f1c28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a88842d4e79afeb6d7d2069d4c2bcd58d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a> (Eigen::Vector3d *mp, double *r, const Eigen::Vector3d &amp;mp1, double r1, const Eigen::Vector3d &amp;mp2, double r2)</td></tr>
-<tr class="memdesc:a88842d4e79afeb6d7d2069d4c2bcd58d"><td class="mdescLeft">&#160;</td><td class="mdescRight">static members  <a href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">More...</a><br /></td></tr>
-<tr class="separator:a88842d4e79afeb6d7d2069d4c2bcd58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a58f81b5d284dd488a9f3395ee1f6df51"></a>
@@ -528,71 +521,6 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a88842d4e79afeb6d7d2069d4c2bcd58d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88842d4e79afeb6d7d2069d4c2bcd58d">&#9670;&nbsp;</a></span>computeEnclosingBall()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Bembel::ElementTree::computeEnclosingBall </td>
-          <td>(</td>
-          <td class="paramtype">Eigen::Vector3d *&#160;</td>
-          <td class="paramname"><em>mp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>mp1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>r1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Eigen::Vector3d &amp;&#160;</td>
-          <td class="paramname"><em>mp2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>r2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>static members </p>
-<p>computes a ball enclosing the union of \(B_r1(mp1)\) and \(B_r2(mp2)\), i.e \(B(mp,r)\supset B_r1(mp1) \cup B_r2(mp2)\). </p>
-
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00508">508</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ad93b4a0f31ac5d2941768d0ef3a637b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad93b4a0f31ac5d2941768d0ef3a637b1">&#9670;&nbsp;</a></span>computeReorderingVector()</h2>
 
@@ -620,7 +548,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Limitation to the uniform case!</p>
 <dl class="section return"><dt>Returns</dt><dd>Vector with the tensor product index of the elements. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00571">571</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00544">544</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -710,7 +638,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Return a vector with computed global indices of the elements. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector with global indices of the elements. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00445">445</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00447">447</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -772,7 +700,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Return a matrix with all midpoints of the elements.</p>
 <dl class="section return"><dt>Returns</dt><dd>The midpoint list as 3xN matrix with N the number of points. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00415">415</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00417">417</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -803,7 +731,7 @@ Static Public Member Functions</h2></td></tr>
 <p>The value at the index of the element is 1 if the element is at the patch boundary and there is a neighbor patch. If there is no neighbor patch then the value is -1.</p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of integers of size N with N the number of elements. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00465">465</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00467">467</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -871,7 +799,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Return a matrix with all radii of the element enclosing. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing the radii of the element enclosing. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00430">430</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00432">432</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +952,7 @@ Static Public Member Functions</h2></td></tr>
 <p>The value at the index of the element is 1 if the element is contained within the given patch. Otherwise its zero.</p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of integers of size N with N the number of elements. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00490">490</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00492">492</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1091,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Resolves neighborhood relations of the patches. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector where each entry defines a patch interface or boundary. The entries correspond to [patchIndex1, edgeCase1, patchIndex2, edgeCase2]. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00537">537</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_element_tree_8hpp_source.html#l00510">510</a> of file <a class="el" href="_element_tree_8hpp_source.html">ElementTree.hpp</a>.</p>
 
 </div>
 </div>
@@ -1328,7 +1256,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_bembel.html">Bembel</a></li><li class="navelem"><a class="el" href="class_bembel_1_1_element_tree.html">ElementTree</a></li>
-    <li class="footer">Generated on Tue Mar 19 2024 14:43:43 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 30 2024 07:06:53 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

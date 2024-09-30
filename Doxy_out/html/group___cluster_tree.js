@@ -26,7 +26,6 @@ var group___cluster_tree =
       [ "compute_global_id", "class_bembel_1_1_element_tree.html#a011b2485f7253f3e31581faf45f1c28e", null ],
       [ "computeElementEnclosings", "class_bembel_1_1_element_tree.html#a00e1a6f0649a7d9f53497efebb6cf20f", null ],
       [ "computeElementEnclosings_recursion", "class_bembel_1_1_element_tree.html#ab5e334f70cc2c81196232daabcd423f8", null ],
-      [ "computeEnclosingBall", "class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d", null ],
       [ "computeReorderingVector", "class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1", null ],
       [ "cpbegin", "class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8", null ],
       [ "cpend", "class_bembel_1_1_element_tree.html#a47c786a6da606f54e61ea599d1ae8856", null ],

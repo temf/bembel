@@ -288,331 +288,310 @@ $(document).ready(function(){initNavTree('_element_tree_8hpp_source.html',''); i
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="comment">// compute point list</span></div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">if</span> (!el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>.size()) {</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      <span class="comment">// assign enclosing balls to leafs</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(&amp;mp1, &amp;r1, P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[0]), 0,</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                           P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[2]), 0);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(&amp;mp2, &amp;r2, P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[1]), 0,</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                           P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[3]), 0);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(&amp;(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">midpoint_</a>), &amp;(el.radius_), mp1, r1, mp2, r2);</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      <span class="comment">// handle the four(!!!) children</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i)</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <a class="code" href="class_bembel_1_1_element_tree.html#ab5e334f70cc2c81196232daabcd423f8">computeElementEnclosings_recursion</a>(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[i], P);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      <span class="comment">// assign enclosing balls to fathers bottom up</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(&amp;mp1, &amp;r1, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[0].midpoint_,</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                           el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[0].radius_, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[2].midpoint_,</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                           el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[2].radius_);</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(&amp;mp2, &amp;r2, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[1].midpoint_,</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                           el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[1].radius_, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[3].midpoint_,</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                           el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[3].radius_);</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(&amp;(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">midpoint_</a>), &amp;(el.radius_), mp1, r1, mp2, r2);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00399"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#aa2b6c430ecc4db446c328a0778a607b5">  399</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_element_tree.html#aa2b6c430ecc4db446c328a0778a607b5">printPanels</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keyword">auto</span> i = 0;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      std::cout &lt;&lt; <span class="stringliteral">&quot;element[&quot;</span> &lt;&lt; i++ &lt;&lt; <span class="stringliteral">&quot;] = &quot;</span>;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;      it-&gt;print();</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    }</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  }</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
-<div class="line"><a name="l00415"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#ac21c0ced557875579da6d2c3202c0f64">  415</a></span>&#160;  Eigen::MatrixXd <a class="code" href="class_bembel_1_1_element_tree.html#ac21c0ced557875579da6d2c3202c0f64">generateMidpointList</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    Eigen::MatrixXd retval(3, number_of_elements_);</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      retval.col(i) = it-&gt;midpoint_;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      ++i;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    }</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  }</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
-<div class="line"><a name="l00430"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a747257a656cbc6790908bcf39f0abb7f">  430</a></span>&#160;  Eigen::MatrixXd <a class="code" href="class_bembel_1_1_element_tree.html#a747257a656cbc6790908bcf39f0abb7f">generateRadiusList</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    Eigen::VectorXd retval(number_of_elements_);</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      retval(i) = it-&gt;radius_;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      ++i;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    }</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  }</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
-<div class="line"><a name="l00445"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#ad57f3f9ff67dc84b8549617ecf24593c">  445</a></span>&#160;  Eigen::VectorXi <a class="code" href="class_bembel_1_1_element_tree.html#ad57f3f9ff67dc84b8549617ecf24593c">generateElementLabels</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    Eigen::VectorXi retval(number_of_elements_);</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;      retval(i) = compute_global_id(*it);</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;      ++i;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    }</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  }</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
-<div class="line"><a name="l00465"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a6a6e3bf7be28dbe0a4ccc7404984b2b2">  465</a></span>&#160;  Eigen::VectorXi <a class="code" href="class_bembel_1_1_element_tree.html#a6a6e3bf7be28dbe0a4ccc7404984b2b2">generatePatchBoundaryLabels</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    Eigen::VectorXi retval(number_of_elements_);</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    retval.setZero();</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j)</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <span class="keywordflow">if</span> (it-&gt;adjcents_[j] == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;          retval[i] = -1;</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;          <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it-&gt;adjcents_[j]-&gt;patch_ != it-&gt;patch_) {</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;          ++(retval[i]);</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        }</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;      ++i;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    }</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;  }</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
-<div class="line"><a name="l00490"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a77a9c9dfa785e3a829a68c61b5a39ad6">  490</a></span>&#160;  Eigen::VectorXi <a class="code" href="class_bembel_1_1_element_tree.html#a77a9c9dfa785e3a829a68c61b5a39ad6">identifyPatch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pn)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    Eigen::VectorXi retval(number_of_elements_);</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    retval.setZero();</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    assert(pn &lt; number_of_patches_);</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;      retval[i] = it-&gt;patch_ == pn ? 1 : 0;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;      ++i;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    }</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  }</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
-<div class="line"><a name="l00508"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">  508</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">computeEnclosingBall</a>(Eigen::Vector3d *mp, <span class="keywordtype">double</span> *r,</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                                   <span class="keyword">const</span> Eigen::Vector3d &amp;mp1, <span class="keywordtype">double</span> r1,</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                                   <span class="keyword">const</span> Eigen::Vector3d &amp;mp2, <span class="keywordtype">double</span> r2) {</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="comment">// compute distance vector of the two spheres</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keyword">auto</span> z = mp1 - mp2;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="keyword">auto</span> norm = (mp1 - mp2).norm();</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="comment">// B(d2,r2) subset B(d1,r1)</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">if</span> (norm + r2 &lt;= r1) {</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;      *mp = mp1;</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;      *r = r1;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;      <span class="comment">// B(d1,r1) subset B(d2,r2)</span></div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (norm + r1 &lt;= r2) {</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;      *mp = mp2;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;      *r = r2;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;      <span class="comment">// the union is not a ball</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;      *mp = 0.5 * (mp1 + mp2 + (r1 - r2) / norm * z);</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      *r = 0.5 * (r1 + r2 + norm);</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      *r = 0.5 * (r1 + r2 + norm);</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    }</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;  }</div>
-<div class="line"><a name="l00537"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c">  537</a></span>&#160;  std::vector&lt;std::array&lt;int, 4&gt;&gt; <a class="code" href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c">patchTopologyInfo</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    std::vector&lt;std::array&lt;int, 4&gt;&gt; retval;</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = root_.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>.begin(); it != root_.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>.end(); ++it) {</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j) {</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <span class="comment">// do we have a neighbour?</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">if</span> (it-&gt;adjcents_[j] != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;          <span class="keyword">const</span> <a class="code" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;cur_neighbour = *(it-&gt;adjcents_[j]);</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;          <span class="comment">// add the edge only if it-&gt;id_ &lt; neighbour-&gt;id_</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;          <span class="comment">// otherwise the edge has already been added</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;          <span class="keywordflow">if</span> (it-&gt;id_ &lt; cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">id_</a>) {</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;            <span class="keywordtype">int</span> k = 0;</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;            <span class="keywordflow">for</span> (; k &lt; 4; ++k)</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;              <span class="keywordflow">if</span> (cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">adjcents_</a>[k] != <span class="keyword">nullptr</span> &amp;&amp;</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                  cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">adjcents_</a>[k]-&gt;id_ == it-&gt;id_)</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;            retval.push_back({it-&gt;id_, cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">id_</a>, j, k});</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;          }</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;          retval.push_back({it-&gt;id_, -1, j, -1});</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        }</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;      }</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    }</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;  }</div>
-<div class="line"><a name="l00571"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1">  571</a></span>&#160;  std::vector&lt;int&gt; <a class="code" href="class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1">computeReorderingVector</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    std::vector&lt;int&gt; out(number_of_elements_);</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> h = it-&gt;get_h();</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;      <span class="keyword">const</span> Eigen::Vector2d ref_mid =</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;          it-&gt;llc_ + Eigen::Vector2d(.5 * h, .5 * h);</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> x_idx = std::floor(ref_mid(0) / h);</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> y_idx = std::floor(ref_mid(1) / h);</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> num_in_one_dir = 1 &lt;&lt; max_level_;</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> num_per_patch = num_in_one_dir * num_in_one_dir;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> tp_idx =</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;          it-&gt;patch_ * num_per_patch + y_idx * num_in_one_dir + x_idx;</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;      out[tp_idx] = it-&gt;id_;</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    }</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;  }</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;  <span class="keywordtype">size_t</span> compute_global_id(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;el)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">return</span> number_of_patches_ *</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;               (((1 &lt;&lt; el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">level_</a>) * (1 &lt;&lt; el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">level_</a>) - 1) / 3) +</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;           el.id_;</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;  }</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;  <span class="keyword">struct </span>isEqual {</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> T &amp;v1, <span class="keyword">const</span> T &amp;v2)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;      <span class="keywordflow">return</span> ((v1 - v2).norm() &lt; Constants::pt_comp_tolerance);</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    }</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  };</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;  <span class="keywordtype">void</span> updateTopology(<span class="keyword">const</span> std::vector&lt;ElementTreeNode *&gt; &amp;elements) {</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    std::map&lt;std::array&lt;int, 2&gt;, ElementTreeNode *&gt; edges;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    std::array&lt;int, 2&gt; e1, e2;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="comment">// generate edge list for all elements in question</span></div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; elements.size(); ++i)</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j) {</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        <span class="comment">// compute a unique id for each edge</span></div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> v1 = elements[i]-&gt;vertices_[j];</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> v2 = elements[i]-&gt;vertices_[(j + 1) % 4];</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        e1 = {v1 &lt; v2 ? v1 : v2, v1 &lt; v2 ? v2 : v1};</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="comment">// perferm a look up if the edge is already existing.</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        <span class="keyword">auto</span> it = edges.find(e1);</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <span class="comment">// if so, identify the two neighbours</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;        <span class="keywordflow">if</span> (it != edges.end()) {</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;          elements[i]-&gt;adjcents_[j] = it-&gt;second;</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;          <span class="comment">// now find the edge also in the patch that added it to the set</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;          <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; 4; ++k) {</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> v3 = it-&gt;second-&gt;vertices_[k];</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> v4 = it-&gt;second-&gt;vertices_[(k + 1) % 4];</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;            e2 = {v3 &lt; v4 ? v3 : v4, v3 &lt; v4 ? v4 : v3};</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;            <span class="keywordflow">if</span> (e1 == e2) {</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;              it-&gt;second-&gt;adjcents_[k] = elements[i];</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;              <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;            }</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;          }</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;          <span class="comment">// otherwise add the edge to the list</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;          edges.insert(std::make_pair(e1, elements[i]));</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;        }</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;      }</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  }</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; </div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordtype">void</span> refineLeaf(ElementTreeNode &amp;cur_el) {</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="comment">// check if we have actually a panel</span></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">if</span> (cur_el.sons_.size()) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    std::vector&lt;int&gt; ptIds(5);</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    std::vector&lt;int&gt; refNeighbours(4);</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    std::vector&lt;ElementTreeNode *&gt; elements;</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="comment">// determine position of p with respect to its neighbours</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i) {</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;      <span class="comment">// is there a neighbour?</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      <span class="keywordflow">if</span> (cur_el.adjcents_[i] != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j)</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;          <span class="keywordflow">if</span> (cur_el.adjcents_[i]-&gt;adjcents_[j] == std::addressof(cur_el)) {</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;            refNeighbours[i] = j;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;          }</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        refNeighbours[i] = -1;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;      }</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    }</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="comment">//  determine new points</span></div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i) {</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <span class="comment">// is there a neighbour?</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <span class="keywordflow">if</span> (cur_el.adjcents_[i] != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        ElementTreeNode &amp;ref_cur_neighbour = *(cur_el.adjcents_[i]);</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="comment">// is the neighbour already refined?</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="keywordflow">if</span> (ref_cur_neighbour.sons_.size()) {</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;          <span class="comment">// this is the midpoint of the shared edge</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;          ptIds[i] = ref_cur_neighbour.sons_[refNeighbours[i]]</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;                         .vertices_[(refNeighbours[i] + 1) % 4];</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;          <span class="comment">// these are the two elements adjacent to the edge</span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;          elements.push_back(</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;              std::addressof(ref_cur_neighbour.sons_[refNeighbours[i]]));</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;          elements.push_back(std::addressof(</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;              ref_cur_neighbour.sons_[(refNeighbours[i] + 1) % 4]));</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;          <span class="comment">// otherwise add the point id to the tree</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;          ptIds[i] = number_of_points_;</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;          ++number_of_points_;</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        }</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      util::computeEnclosingBall(&amp;mp1, &amp;r1, P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[0]), 0,</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                 P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[2]), 0);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      util::computeEnclosingBall(&amp;mp2, &amp;r2, P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[1]), 0,</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                                 P.col(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a6de377b349500311b109376881d3ce06">vertices_</a>[3]), 0);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      util::computeEnclosingBall(&amp;(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">midpoint_</a>), &amp;(el.radius_), mp1, r1, mp2,</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                                 r2);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="comment">// handle the four(!!!) children</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i)</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <a class="code" href="class_bembel_1_1_element_tree.html#ab5e334f70cc2c81196232daabcd423f8">computeElementEnclosings_recursion</a>(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[i], P);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="comment">// assign enclosing balls to fathers bottom up</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      util::computeEnclosingBall(&amp;mp1, &amp;r1, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[0].midpoint_,</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                                 el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[0].radius_, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[2].midpoint_,</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                                 el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[2].radius_);</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      util::computeEnclosingBall(&amp;mp2, &amp;r2, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[1].midpoint_,</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                                 el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[1].radius_, el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[3].midpoint_,</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                                 el.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>[3].radius_);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      util::computeEnclosingBall(&amp;(el.<a class="code" href="class_bembel_1_1_element_tree_node.html#aba009f625a16ee295776fa5f5567f139">midpoint_</a>), &amp;(el.radius_), mp1, r1, mp2,</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                                 r2);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    }</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#aa2b6c430ecc4db446c328a0778a607b5">  401</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_bembel_1_1_element_tree.html#aa2b6c430ecc4db446c328a0778a607b5">printPanels</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keyword">auto</span> i = 0;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;      std::cout &lt;&lt; <span class="stringliteral">&quot;element[&quot;</span> &lt;&lt; i++ &lt;&lt; <span class="stringliteral">&quot;] = &quot;</span>;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      it-&gt;print();</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    }</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#ac21c0ced557875579da6d2c3202c0f64">  417</a></span>&#160;  Eigen::MatrixXd <a class="code" href="class_bembel_1_1_element_tree.html#ac21c0ced557875579da6d2c3202c0f64">generateMidpointList</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    Eigen::MatrixXd retval(3, number_of_elements_);</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      retval.col(i) = it-&gt;midpoint_;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      ++i;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    }</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  }</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a747257a656cbc6790908bcf39f0abb7f">  432</a></span>&#160;  Eigen::MatrixXd <a class="code" href="class_bembel_1_1_element_tree.html#a747257a656cbc6790908bcf39f0abb7f">generateRadiusList</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    Eigen::VectorXd retval(number_of_elements_);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      retval(i) = it-&gt;radius_;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      ++i;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    }</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  }</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
+<div class="line"><a name="l00447"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#ad57f3f9ff67dc84b8549617ecf24593c">  447</a></span>&#160;  Eigen::VectorXi <a class="code" href="class_bembel_1_1_element_tree.html#ad57f3f9ff67dc84b8549617ecf24593c">generateElementLabels</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    Eigen::VectorXi retval(number_of_elements_);</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;      retval(i) = compute_global_id(*it);</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;      ++i;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    }</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  }</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a6a6e3bf7be28dbe0a4ccc7404984b2b2">  467</a></span>&#160;  Eigen::VectorXi <a class="code" href="class_bembel_1_1_element_tree.html#a6a6e3bf7be28dbe0a4ccc7404984b2b2">generatePatchBoundaryLabels</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    Eigen::VectorXi retval(number_of_elements_);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    retval.setZero();</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j)</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;        <span class="keywordflow">if</span> (it-&gt;adjcents_[j] == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;          retval[i] = -1;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it-&gt;adjcents_[j]-&gt;patch_ != it-&gt;patch_) {</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;          ++(retval[i]);</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        }</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      ++i;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    }</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  }</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
+<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a77a9c9dfa785e3a829a68c61b5a39ad6">  492</a></span>&#160;  Eigen::VectorXi <a class="code" href="class_bembel_1_1_element_tree.html#a77a9c9dfa785e3a829a68c61b5a39ad6">identifyPatch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pn)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    Eigen::VectorXi retval(number_of_elements_);</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    retval.setZero();</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    assert(pn &lt; number_of_patches_);</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;      retval[i] = it-&gt;patch_ == pn ? 1 : 0;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;      ++i;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    }</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  }</div>
+<div class="line"><a name="l00510"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c">  510</a></span>&#160;  std::vector&lt;std::array&lt;int, 4&gt;&gt; <a class="code" href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c">patchTopologyInfo</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    std::vector&lt;std::array&lt;int, 4&gt;&gt; retval;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = root_.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>.begin(); it != root_.<a class="code" href="class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d">sons_</a>.end(); ++it) {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j) {</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="comment">// do we have a neighbour?</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        <span class="keywordflow">if</span> (it-&gt;adjcents_[j] != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;          <span class="keyword">const</span> <a class="code" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;cur_neighbour = *(it-&gt;adjcents_[j]);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;          <span class="comment">// add the edge only if it-&gt;id_ &lt; neighbour-&gt;id_</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;          <span class="comment">// otherwise the edge has already been added</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;          <span class="keywordflow">if</span> (it-&gt;id_ &lt; cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">id_</a>) {</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keywordtype">int</span> k = 0;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;            <span class="keywordflow">for</span> (; k &lt; 4; ++k)</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;              <span class="keywordflow">if</span> (cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">adjcents_</a>[k] != <span class="keyword">nullptr</span> &amp;&amp;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;                  cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#ac071cbea5c19456524246c4ad79c65bd">adjcents_</a>[k]-&gt;id_ == it-&gt;id_)</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;            retval.push_back({it-&gt;id_, cur_neighbour.<a class="code" href="class_bembel_1_1_element_tree_node.html#a030b4d2002ceeeeabf90a3874f9e94b3">id_</a>, j, k});</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;          }</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;          retval.push_back({it-&gt;id_, -1, j, -1});</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        }</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      }</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;  }</div>
+<div class="line"><a name="l00544"></a><span class="lineno"><a class="line" href="class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1">  544</a></span>&#160;  std::vector&lt;int&gt; <a class="code" href="class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1">computeReorderingVector</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    std::vector&lt;int&gt; out(number_of_elements_);</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = <a class="code" href="class_bembel_1_1_element_tree.html#a48c2f97dbc1ab7db5e35951984595801">pbegin</a>(); it != <a class="code" href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">pend</a>(); ++it) {</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> h = it-&gt;get_h();</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;      <span class="keyword">const</span> Eigen::Vector2d ref_mid =</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;          it-&gt;llc_ + Eigen::Vector2d(.5 * h, .5 * h);</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> x_idx = std::floor(ref_mid(0) / h);</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> y_idx = std::floor(ref_mid(1) / h);</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> num_in_one_dir = 1 &lt;&lt; max_level_;</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> num_per_patch = num_in_one_dir * num_in_one_dir;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> tp_idx =</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;          it-&gt;patch_ * num_per_patch + y_idx * num_in_one_dir + x_idx;</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;      out[tp_idx] = it-&gt;id_;</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    }</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;  }</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  <span class="keywordtype">size_t</span> compute_global_id(<span class="keyword">const</span> <a class="code" href="class_bembel_1_1_element_tree_node.html">ElementTreeNode</a> &amp;el)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="keywordflow">return</span> number_of_patches_ *</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;               (((1 &lt;&lt; el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">level_</a>) * (1 &lt;&lt; el.<a class="code" href="class_bembel_1_1_element_tree_node.html#a15b29d19d3bd69cd8d08323c93bce00f">level_</a>) - 1) / 3) +</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;           el.id_;</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;  }</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;  <span class="keyword">struct </span>isEqual {</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> T &amp;v1, <span class="keyword">const</span> T &amp;v2)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;      <span class="keywordflow">return</span> ((v1 - v2).norm() &lt; Constants::pt_comp_tolerance);</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    }</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  };</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  <span class="keywordtype">void</span> updateTopology(<span class="keyword">const</span> std::vector&lt;ElementTreeNode *&gt; &amp;elements) {</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    std::map&lt;std::array&lt;int, 2&gt;, ElementTreeNode *&gt; edges;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    std::array&lt;int, 2&gt; e1, e2;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="comment">// generate edge list for all elements in question</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; elements.size(); ++i)</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j) {</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        <span class="comment">// compute a unique id for each edge</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> v1 = elements[i]-&gt;vertices_[j];</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> v2 = elements[i]-&gt;vertices_[(j + 1) % 4];</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        e1 = {v1 &lt; v2 ? v1 : v2, v1 &lt; v2 ? v2 : v1};</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="comment">// perferm a look up if the edge is already existing.</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <span class="keyword">auto</span> it = edges.find(e1);</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="comment">// if so, identify the two neighbours</span></div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        <span class="keywordflow">if</span> (it != edges.end()) {</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;          elements[i]-&gt;adjcents_[j] = it-&gt;second;</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;          <span class="comment">// now find the edge also in the patch that added it to the set</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;          <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; 4; ++k) {</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> v3 = it-&gt;second-&gt;vertices_[k];</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> v4 = it-&gt;second-&gt;vertices_[(k + 1) % 4];</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            e2 = {v3 &lt; v4 ? v3 : v4, v3 &lt; v4 ? v4 : v3};</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            <span class="keywordflow">if</span> (e1 == e2) {</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;              it-&gt;second-&gt;adjcents_[k] = elements[i];</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;              <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;            }</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;          }</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;          <span class="comment">// otherwise add the edge to the list</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;          edges.insert(std::make_pair(e1, elements[i]));</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;      }</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  }</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <span class="keywordtype">void</span> refineLeaf(ElementTreeNode &amp;cur_el) {</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="comment">// check if we have actually a panel</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keywordflow">if</span> (cur_el.sons_.size()) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    std::vector&lt;int&gt; ptIds(5);</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    std::vector&lt;int&gt; refNeighbours(4);</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    std::vector&lt;ElementTreeNode *&gt; elements;</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="comment">// determine position of p with respect to its neighbours</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i) {</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;      <span class="comment">// is there a neighbour?</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;      <span class="keywordflow">if</span> (cur_el.adjcents_[i] != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 4; ++j)</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;          <span class="keywordflow">if</span> (cur_el.adjcents_[i]-&gt;adjcents_[j] == std::addressof(cur_el)) {</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;            refNeighbours[i] = j;</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;          }</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        refNeighbours[i] = -1;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;      }</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    }</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="comment">//  determine new points</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i) {</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;      <span class="comment">// is there a neighbour?</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;      <span class="keywordflow">if</span> (cur_el.adjcents_[i] != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;        ElementTreeNode &amp;ref_cur_neighbour = *(cur_el.adjcents_[i]);</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;        <span class="comment">// is the neighbour already refined?</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;        <span class="keywordflow">if</span> (ref_cur_neighbour.sons_.size()) {</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;          <span class="comment">// this is the midpoint of the shared edge</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;          ptIds[i] = ref_cur_neighbour.sons_[refNeighbours[i]]</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                         .vertices_[(refNeighbours[i] + 1) % 4];</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;          <span class="comment">// these are the two elements adjacent to the edge</span></div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;          elements.push_back(</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;              std::addressof(ref_cur_neighbour.sons_[refNeighbours[i]]));</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;          elements.push_back(std::addressof(</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;              ref_cur_neighbour.sons_[(refNeighbours[i] + 1) % 4]));</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;          <span class="comment">// otherwise add the point id to the tree</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;          ptIds[i] = number_of_points_;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;          ++number_of_points_;</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        }</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="comment">// otherwise add the point id to the tree</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;        ptIds[i] = number_of_points_;</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        ++number_of_points_;</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      }</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    }</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <span class="comment">// add midpoint of the current element, which is always a new point</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    ptIds[4] = number_of_points_;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    ++number_of_points_;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="comment">// set up new elements</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    cur_el.sons_.resize(4);</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    number_of_elements_ += 3;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    max_level_ =</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        max_level_ &lt; cur_el.level_ + 1 ? cur_el.level_ + 1 : max_level_;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="comment">//  auto it = leafs_.find(compute_global_id(cur_el));</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="comment">//  if (it != leafs_.end()) leafs_.erase(it);</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i) {</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      <span class="comment">// add linked list structure to the panels</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment"></span>      <span class="keywordflow">if</span> (i == 0) {</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        cur_el.sons_[i].prev_ = cur_el.prev_;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        <span class="keywordflow">if</span> (cur_el.prev_ != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;          (cur_el.prev_)-&gt;next_ = std::addressof(cur_el.sons_[i]);</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        cur_el.prev_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        <span class="keywordflow">if</span> (std::addressof(cur_el) == pfirst_)</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;          pfirst_ = std::addressof(cur_el.sons_[i]);</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="comment">// otherwise add the point id to the tree</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        ptIds[i] = number_of_points_;</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;        ++number_of_points_;</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;      }</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    }</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">// add midpoint of the current element, which is always a new point</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    ptIds[4] = number_of_points_;</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    ++number_of_points_;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="comment">// set up new elements</span></div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    cur_el.sons_.resize(4);</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    number_of_elements_ += 3;</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    max_level_ =</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        max_level_ &lt; cur_el.level_ + 1 ? cur_el.level_ + 1 : max_level_;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="comment">//  auto it = leafs_.find(compute_global_id(cur_el));</span></div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <span class="comment">//  if (it != leafs_.end()) leafs_.erase(it);</span></div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 4; ++i) {</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;      <span class="comment">// add linked list structure to the panels</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment"></span>      <span class="keywordflow">if</span> (i == 0) {</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        cur_el.sons_[i].prev_ = cur_el.prev_;</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        <span class="keywordflow">if</span> (cur_el.prev_ != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;          (cur_el.prev_)-&gt;next_ = std::addressof(cur_el.sons_[i]);</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        cur_el.prev_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        <span class="keywordflow">if</span> (std::addressof(cur_el) == pfirst_)</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;          pfirst_ = std::addressof(cur_el.sons_[i]);</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160; </div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        cur_el.sons_[i].prev_ = std::addressof(cur_el.sons_[i - 1]);</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      <span class="keywordflow">if</span> (i == 3) {</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        cur_el.sons_[i].next_ = cur_el.next_;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        <span class="keywordflow">if</span> (cur_el.next_ != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;          (cur_el.next_)-&gt;prev_ = std::addressof(cur_el.sons_[i]);</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        cur_el.next_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        <span class="keywordflow">if</span> (std::addressof(cur_el) == plast_)</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;          plast_ = std::addressof(cur_el.sons_[i]);</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        cur_el.sons_[i].next_ = std::addressof(cur_el.sons_[i + 1]);</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      }</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      cur_el.sons_[i].patch_ = cur_el.patch_;</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;      cur_el.sons_[i].level_ = cur_el.level_ + 1;</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;      cur_el.sons_[i].id_ = 4 * cur_el.id_ + i;</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;      cur_el.sons_[i].adjcents_ = std::vector&lt;ElementTreeNode *&gt;(4, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      cur_el.sons_[i].llc_(0) =</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;          cur_el.llc_(0) + Constants::llcs[0][i] / double(1 &lt;&lt; cur_el.level_);</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      cur_el.sons_[i].llc_(1) =</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;          cur_el.llc_(1) + Constants::llcs[1][i] / double(1 &lt;&lt; cur_el.level_);</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;      elements.push_back(std::addressof(cur_el.sons_[i]));</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="comment">// set vertices</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="comment">// first element</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    cur_el.sons_[0].vertices_.push_back(cur_el.vertices_[0]);</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    cur_el.sons_[0].vertices_.push_back(ptIds[0]);</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    cur_el.sons_[0].vertices_.push_back(ptIds[4]);</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    cur_el.sons_[0].vertices_.push_back(ptIds[3]);</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="comment">// second element</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    cur_el.sons_[1].vertices_.push_back(ptIds[0]);</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    cur_el.sons_[1].vertices_.push_back(cur_el.vertices_[1]);</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    cur_el.sons_[1].vertices_.push_back(ptIds[1]);</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    cur_el.sons_[1].vertices_.push_back(ptIds[4]);</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <span class="comment">// third element</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    cur_el.sons_[2].vertices_.push_back(ptIds[4]);</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    cur_el.sons_[2].vertices_.push_back(ptIds[1]);</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    cur_el.sons_[2].vertices_.push_back(cur_el.vertices_[2]);</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    cur_el.sons_[2].vertices_.push_back(ptIds[2]);</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    <span class="comment">// fourth element</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    cur_el.sons_[3].vertices_.push_back(ptIds[3]);</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    cur_el.sons_[3].vertices_.push_back(ptIds[4]);</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    cur_el.sons_[3].vertices_.push_back(ptIds[2]);</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    cur_el.sons_[3].vertices_.push_back(cur_el.vertices_[3]);</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="comment">// fix adjecency relations</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    updateTopology(elements);</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160; </div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;  }</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;  std::shared_ptr&lt;PatchVector&gt; geometry_;</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;  ElementTreeNode root_;</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;  ElementTreeNode *pfirst_;</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;  ElementTreeNode *plast_;</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  <span class="keywordtype">int</span> number_of_patches_;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;  <span class="keywordtype">int</span> max_level_;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;  <span class="keywordtype">int</span> number_of_points_;</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;  <span class="keywordtype">int</span> number_of_elements_;</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;};</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_CLUSTERTREE_ELEMENTTREE_HPP_</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        cur_el.sons_[i].prev_ = std::addressof(cur_el.sons_[i - 1]);</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;      }</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;      <span class="keywordflow">if</span> (i == 3) {</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        cur_el.sons_[i].next_ = cur_el.next_;</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="keywordflow">if</span> (cur_el.next_ != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;          (cur_el.next_)-&gt;prev_ = std::addressof(cur_el.sons_[i]);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        cur_el.next_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        <span class="keywordflow">if</span> (std::addressof(cur_el) == plast_)</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;          plast_ = std::addressof(cur_el.sons_[i]);</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        cur_el.sons_[i].next_ = std::addressof(cur_el.sons_[i + 1]);</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      }</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;      cur_el.sons_[i].patch_ = cur_el.patch_;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      cur_el.sons_[i].level_ = cur_el.level_ + 1;</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;      cur_el.sons_[i].id_ = 4 * cur_el.id_ + i;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;      cur_el.sons_[i].adjcents_ = std::vector&lt;ElementTreeNode *&gt;(4, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;      cur_el.sons_[i].llc_(0) =</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;          cur_el.llc_(0) + Constants::llcs[0][i] / double(1 &lt;&lt; cur_el.level_);</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;      cur_el.sons_[i].llc_(1) =</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;          cur_el.llc_(1) + Constants::llcs[1][i] / double(1 &lt;&lt; cur_el.level_);</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;      elements.push_back(std::addressof(cur_el.sons_[i]));</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    }</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="comment">// set vertices</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="comment">// first element</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    cur_el.sons_[0].vertices_.push_back(cur_el.vertices_[0]);</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    cur_el.sons_[0].vertices_.push_back(ptIds[0]);</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    cur_el.sons_[0].vertices_.push_back(ptIds[4]);</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    cur_el.sons_[0].vertices_.push_back(ptIds[3]);</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="comment">// second element</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    cur_el.sons_[1].vertices_.push_back(ptIds[0]);</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    cur_el.sons_[1].vertices_.push_back(cur_el.vertices_[1]);</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    cur_el.sons_[1].vertices_.push_back(ptIds[1]);</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    cur_el.sons_[1].vertices_.push_back(ptIds[4]);</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <span class="comment">// third element</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    cur_el.sons_[2].vertices_.push_back(ptIds[4]);</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    cur_el.sons_[2].vertices_.push_back(ptIds[1]);</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    cur_el.sons_[2].vertices_.push_back(cur_el.vertices_[2]);</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    cur_el.sons_[2].vertices_.push_back(ptIds[2]);</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    <span class="comment">// fourth element</span></div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    cur_el.sons_[3].vertices_.push_back(ptIds[3]);</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    cur_el.sons_[3].vertices_.push_back(ptIds[4]);</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    cur_el.sons_[3].vertices_.push_back(ptIds[2]);</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    cur_el.sons_[3].vertices_.push_back(cur_el.vertices_[3]);</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <span class="comment">// fix adjecency relations</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    updateTopology(elements);</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160; </div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;  }</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;  std::shared_ptr&lt;PatchVector&gt; geometry_;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  ElementTreeNode root_;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;  ElementTreeNode *pfirst_;</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;  ElementTreeNode *plast_;</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;  <span class="keywordtype">int</span> number_of_patches_;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;  <span class="keywordtype">int</span> max_level_;</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;  <span class="keywordtype">int</span> number_of_points_;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;  <span class="keywordtype">int</span> number_of_elements_;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;};</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_CLUSTERTREE_ELEMENTTREE_HPP_</span></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html"><div class="ttname"><a href="class_bembel_1_1_element_tree.html">Bembel::ElementTree</a></div><div class="ttdoc">This class organizes an element structure on a Geometry object and handles refinement.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00032">ElementTree.hpp:32</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a0096ebfa5f958d558ed6bff82927ceb8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a0096ebfa5f958d558ed6bff82927ceb8">Bembel::ElementTree::cpbegin</a></div><div class="ttdeci">ElementTreeNode::const_iterator cpbegin() const</div><div class="ttdoc">Returns an iterator to the beginning of the sequence represented by the leafs as ElementTreeNodes of ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00316">ElementTree.hpp:316</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a00e1a6f0649a7d9f53497efebb6cf20f"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a00e1a6f0649a7d9f53497efebb6cf20f">Bembel::ElementTree::computeElementEnclosings</a></div><div class="ttdeci">Eigen::MatrixXd computeElementEnclosings()</div><div class="ttdoc">Computes enclosing balls surrounding all elements.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00354">ElementTree.hpp:354</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a086f45e87786bfc2b20b128c7b8c1a3c"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c">Bembel::ElementTree::patchTopologyInfo</a></div><div class="ttdeci">std::vector&lt; std::array&lt; int, 4 &gt; &gt; patchTopologyInfo() const</div><div class="ttdoc">Resolves neighborhood relations of the patches.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00537">ElementTree.hpp:537</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a086f45e87786bfc2b20b128c7b8c1a3c"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a086f45e87786bfc2b20b128c7b8c1a3c">Bembel::ElementTree::patchTopologyInfo</a></div><div class="ttdeci">std::vector&lt; std::array&lt; int, 4 &gt; &gt; patchTopologyInfo() const</div><div class="ttdoc">Resolves neighborhood relations of the patches.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00510">ElementTree.hpp:510</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a117f48957a95fe215903265c731aef6d"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a117f48957a95fe215903265c731aef6d">Bembel::ElementTree::operator=</a></div><div class="ttdeci">ElementTree &amp; operator=(ElementTree &amp;&amp;)=delete</div><div class="ttdoc">Deleted move assignment operator for the ElementTree class.</div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a261632962d142694cb351536ce2de157"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a261632962d142694cb351536ce2de157">Bembel::ElementTree::refineUniformly</a></div><div class="ttdeci">void refineUniformly()</div><div class="ttdoc">Refine all patches uniformly.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00182">ElementTree.hpp:182</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a26d696de6baf21b29b55411f04dd98ce"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a26d696de6baf21b29b55411f04dd98ce">Bembel::ElementTree::root</a></div><div class="ttdeci">const ElementTreeNode &amp; root() const</div><div class="ttdoc">Return const reference to the root ElementTreeNode.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00282">ElementTree.hpp:282</a></div></div>
@@ -622,21 +601,20 @@ $(document).ready(function(){initNavTree('_element_tree_8hpp_source.html',''); i
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a50f2b8130863eded89bb1e0055bbaaa8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a50f2b8130863eded89bb1e0055bbaaa8">Bembel::ElementTree::cluster_begin</a></div><div class="ttdeci">ElementTreeNode::const_iterator cluster_begin(const ElementTreeNode &amp;cl) const</div><div class="ttdoc">Returns a cluster iterator to the beginning of the sequence represented by the the given ElementTreeN...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00331">ElementTree.hpp:331</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a58f81b5d284dd488a9f3395ee1f6df51"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a58f81b5d284dd488a9f3395ee1f6df51">Bembel::ElementTree::ElementTree</a></div><div class="ttdeci">ElementTree(const ElementTree &amp;)=delete</div><div class="ttdoc">Deleted copy constructor for the ElementTree class.</div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a5da89274800b8f17291dd801276f568d"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a5da89274800b8f17291dd801276f568d">Bembel::ElementTree::get_number_of_points</a></div><div class="ttdeci">int get_number_of_points() const</div><div class="ttdoc">getter</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00258">ElementTree.hpp:258</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a6a6e3bf7be28dbe0a4ccc7404984b2b2"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a6a6e3bf7be28dbe0a4ccc7404984b2b2">Bembel::ElementTree::generatePatchBoundaryLabels</a></div><div class="ttdeci">Eigen::VectorXi generatePatchBoundaryLabels() const</div><div class="ttdoc">Generate list of labels if elements are on the patch boundary or at the boundary of the geometry.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00465">ElementTree.hpp:465</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a6a6e3bf7be28dbe0a4ccc7404984b2b2"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a6a6e3bf7be28dbe0a4ccc7404984b2b2">Bembel::ElementTree::generatePatchBoundaryLabels</a></div><div class="ttdeci">Eigen::VectorXi generatePatchBoundaryLabels() const</div><div class="ttdoc">Generate list of labels if elements are on the patch boundary or at the boundary of the geometry.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00467">ElementTree.hpp:467</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a73b7b5b1e3f96db5f477f63d783b0e4d"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a73b7b5b1e3f96db5f477f63d783b0e4d">Bembel::ElementTree::pend</a></div><div class="ttdeci">ElementTreeNode::const_iterator pend() const</div><div class="ttdoc">Returns an iterator one past the end of the sequence represented by the leafs as ElementTreeNodes of ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00307">ElementTree.hpp:307</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a747257a656cbc6790908bcf39f0abb7f"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a747257a656cbc6790908bcf39f0abb7f">Bembel::ElementTree::generateRadiusList</a></div><div class="ttdeci">Eigen::MatrixXd generateRadiusList() const</div><div class="ttdoc">Return a matrix with all radii of the element enclosing.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00430">ElementTree.hpp:430</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a77a9c9dfa785e3a829a68c61b5a39ad6"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a77a9c9dfa785e3a829a68c61b5a39ad6">Bembel::ElementTree::identifyPatch</a></div><div class="ttdeci">Eigen::VectorXi identifyPatch(unsigned int pn) const</div><div class="ttdoc">Generate list of labels if elements contained within a given patch.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00490">ElementTree.hpp:490</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a88842d4e79afeb6d7d2069d4c2bcd58d"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a88842d4e79afeb6d7d2069d4c2bcd58d">Bembel::ElementTree::computeEnclosingBall</a></div><div class="ttdeci">static void computeEnclosingBall(Eigen::Vector3d *mp, double *r, const Eigen::Vector3d &amp;mp1, double r1, const Eigen::Vector3d &amp;mp2, double r2)</div><div class="ttdoc">static members</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00508">ElementTree.hpp:508</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a747257a656cbc6790908bcf39f0abb7f"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a747257a656cbc6790908bcf39f0abb7f">Bembel::ElementTree::generateRadiusList</a></div><div class="ttdeci">Eigen::MatrixXd generateRadiusList() const</div><div class="ttdoc">Return a matrix with all radii of the element enclosing.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00432">ElementTree.hpp:432</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_a77a9c9dfa785e3a829a68c61b5a39ad6"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a77a9c9dfa785e3a829a68c61b5a39ad6">Bembel::ElementTree::identifyPatch</a></div><div class="ttdeci">Eigen::VectorXi identifyPatch(unsigned int pn) const</div><div class="ttdoc">Generate list of labels if elements contained within a given patch.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00492">ElementTree.hpp:492</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_a8a36250d8b2392a96b31d1160ebcd25d"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#a8a36250d8b2392a96b31d1160ebcd25d">Bembel::ElementTree::refinePatch</a></div><div class="ttdeci">void refinePatch(int patch)</div><div class="ttdoc">Refine a given patch.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00190">ElementTree.hpp:190</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_aa2b6c430ecc4db446c328a0778a607b5"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#aa2b6c430ecc4db446c328a0778a607b5">Bembel::ElementTree::printPanels</a></div><div class="ttdeci">void printPanels() const</div><div class="ttdoc">Prints all Elements of the Tree.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00399">ElementTree.hpp:399</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_aa2b6c430ecc4db446c328a0778a607b5"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#aa2b6c430ecc4db446c328a0778a607b5">Bembel::ElementTree::printPanels</a></div><div class="ttdeci">void printPanels() const</div><div class="ttdoc">Prints all Elements of the Tree.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00401">ElementTree.hpp:401</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_aa3769979afc7295c56ce721659d83b93"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#aa3769979afc7295c56ce721659d83b93">Bembel::ElementTree::init_ElementTree</a></div><div class="ttdeci">void init_ElementTree(const Geometry &amp;g, unsigned int max_level)</div><div class="ttdoc">init</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00105">ElementTree.hpp:105</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_ab5e334f70cc2c81196232daabcd423f8"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ab5e334f70cc2c81196232daabcd423f8">Bembel::ElementTree::computeElementEnclosings_recursion</a></div><div class="ttdeci">void computeElementEnclosings_recursion(ElementTreeNode &amp;el, const Eigen::MatrixXd &amp;P)</div><div class="ttdoc">Computes enclosing balls of one element and all its sons.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00368">ElementTree.hpp:368</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_abd179822f5abd8261b3cceed00d91061"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#abd179822f5abd8261b3cceed00d91061">Bembel::ElementTree::get_number_of_elements</a></div><div class="ttdeci">int get_number_of_elements() const</div><div class="ttdoc">Return number of elements in the ElementTree.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00264">ElementTree.hpp:264</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_abebcceb563b798b9e06d4cc7f290af0e"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#abebcceb563b798b9e06d4cc7f290af0e">Bembel::ElementTree::generatePointList</a></div><div class="ttdeci">Eigen::MatrixXd generatePointList(Eigen::VectorXi *idct=nullptr) const</div><div class="ttdoc">Return the coordinates of all points of the elements.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00206">ElementTree.hpp:206</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_ac21c0ced557875579da6d2c3202c0f64"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ac21c0ced557875579da6d2c3202c0f64">Bembel::ElementTree::generateMidpointList</a></div><div class="ttdeci">Eigen::MatrixXd generateMidpointList() const</div><div class="ttdoc">other Stuff</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00415">ElementTree.hpp:415</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_ac21c0ced557875579da6d2c3202c0f64"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ac21c0ced557875579da6d2c3202c0f64">Bembel::ElementTree::generateMidpointList</a></div><div class="ttdeci">Eigen::MatrixXd generateMidpointList() const</div><div class="ttdoc">other Stuff</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00417">ElementTree.hpp:417</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_ac61c6b51388520dc85221a9bef523345"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ac61c6b51388520dc85221a9bef523345">Bembel::ElementTree::ElementTree</a></div><div class="ttdeci">ElementTree(ElementTree &amp;&amp;)=delete</div><div class="ttdoc">Deleted move constructor for the ElementTree class.</div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_ad57f3f9ff67dc84b8549617ecf24593c"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ad57f3f9ff67dc84b8549617ecf24593c">Bembel::ElementTree::generateElementLabels</a></div><div class="ttdeci">Eigen::VectorXi generateElementLabels() const</div><div class="ttdoc">Return a vector with computed global indices of the elements.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00445">ElementTree.hpp:445</a></div></div>
-<div class="ttc" id="aclass_bembel_1_1_element_tree_html_ad93b4a0f31ac5d2941768d0ef3a637b1"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1">Bembel::ElementTree::computeReorderingVector</a></div><div class="ttdeci">std::vector&lt; int &gt; computeReorderingVector() const</div><div class="ttdoc">The ordering of elements in the element tree does not correspond to the element order underlying the ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00571">ElementTree.hpp:571</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_ad57f3f9ff67dc84b8549617ecf24593c"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ad57f3f9ff67dc84b8549617ecf24593c">Bembel::ElementTree::generateElementLabels</a></div><div class="ttdeci">Eigen::VectorXi generateElementLabels() const</div><div class="ttdoc">Return a vector with computed global indices of the elements.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00447">ElementTree.hpp:447</a></div></div>
+<div class="ttc" id="aclass_bembel_1_1_element_tree_html_ad93b4a0f31ac5d2941768d0ef3a637b1"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ad93b4a0f31ac5d2941768d0ef3a637b1">Bembel::ElementTree::computeReorderingVector</a></div><div class="ttdeci">std::vector&lt; int &gt; computeReorderingVector() const</div><div class="ttdoc">The ordering of elements in the element tree does not correspond to the element order underlying the ...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00544">ElementTree.hpp:544</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_adbd44db6cc7ad2caf32cdafb7f7e54ef"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#adbd44db6cc7ad2caf32cdafb7f7e54ef">Bembel::ElementTree::generateElementList</a></div><div class="ttdeci">Eigen::MatrixXi generateElementList() const</div><div class="ttdoc">Return list of elements containing the indices of the vertices.</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00240">ElementTree.hpp:240</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_ade83cee307e4ac95eb69680422f59df1"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ade83cee307e4ac95eb69680422f59df1">Bembel::ElementTree::cluster_end</a></div><div class="ttdeci">ElementTreeNode::const_iterator cluster_end(const ElementTreeNode &amp;cl) const</div><div class="ttdoc">Returns a cluster iterator one past the end of the sequence represented by the the given ElementTreeN...</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00342">ElementTree.hpp:342</a></div></div>
 <div class="ttc" id="aclass_bembel_1_1_element_tree_html_ae3b8984557610c903a2547b61c026406"><div class="ttname"><a href="class_bembel_1_1_element_tree.html#ae3b8984557610c903a2547b61c026406">Bembel::ElementTree::ElementTree</a></div><div class="ttdeci">ElementTree()</div><div class="ttdoc">constructors</div><div class="ttdef"><b>Definition:</b> <a href="_element_tree_8hpp_source.html#l00076">ElementTree.hpp:76</a></div></div>
@@ -665,7 +643,7 @@ $(document).ready(function(){initNavTree('_element_tree_8hpp_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_ca76cdc2716056fcdd68371e1ea9d67b.html">ClusterTree</a></li><li class="navelem"><b>ElementTree.hpp</b></li>
-    <li class="footer">Generated on Tue Mar 19 2024 14:43:43 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Sep 30 2024 07:06:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

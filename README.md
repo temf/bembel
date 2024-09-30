@@ -67,7 +67,7 @@ Please send bug reports and feature requests via [issue tracker](https://github.
 
 Any contribution to this project in fixing a bug or implementing a feature is welcome.
 Create a fork of this repository and create a [pull request](https://github.com/temf/bembel/pulls).
-To successfully merge your pull request you should follow our [Coding Guidelines](https://temf.github.io/bembel/Doxy_out/html/codingGuidelines.html)
+To successfully merge your pull request you should follow our [Coding Guidelines](https://temf.github.io/bembel/Doxy_out/html/coding_guidelines.html)
 
 
 ## 6. How to cite <a name="cite"></a>
