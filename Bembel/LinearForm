@@ -28,5 +28,6 @@
 #include "src/LinearForm/DiscreteLinearForm.hpp"
 #include "src/LinearForm/RotatedTangentialTrace.hpp"
 #include "src/LinearForm/TangentialTrace.hpp"
+#include "src/LinearForm/ReactionTerm.hpp"
 
 #endif  // BEMBEL_LINEARFORM_MODULE_
