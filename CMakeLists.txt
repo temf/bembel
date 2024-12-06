@@ -73,6 +73,7 @@ set (BEMBEL_PATH "${PROJECT_SOURCE_DIR}")
 
 set(CMAKE_CXX_STANDARD 11)
 include_directories(${BEMBEL_PATH})
+include_directories(${BEMBEL_PATH}/unsupported)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING
@@ -108,4 +109,5 @@ set(CMAKE_CXX_FLAGS_COVERAGE "-g -fPIC -fprofile-arcs -ftest-coverage" CACHE STR
 
 add_subdirectory(tests)
 add_subdirectory(examples)
+add_subdirectory(unsupported/examples)
 enable_testing()
