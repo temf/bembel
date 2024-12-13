@@ -25,7 +25,7 @@ struct PotentialTraits<VectorPotential<LinOp>> {
 };
 
 /**
- * \ingroup Maxwell
+ * \ingroup AugmentedEFIE
  */
 template <typename LinOp>
 class VectorPotential : public PotentialBase<VectorPotential<LinOp>, LinOp> {

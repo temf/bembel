@@ -14,7 +14,6 @@
 namespace Bembel {
 /**
  *  \ingroup AugmentedEFIE
- *  \brief ToDo
  */
 template <typename Derived_vec, typename Derived>
 class IncidenceMatrix {

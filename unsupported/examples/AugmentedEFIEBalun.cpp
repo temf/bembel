@@ -18,6 +18,18 @@
 #include "examples/Error.hpp"
 #include "examples/Grids.hpp"
 
+/**
+ * \ingroup Examples
+ * \defgroup AugmentedEFIEBalun A-EFIE Application to Balun Spiral Antenna
+ *
+ * \brief This example simulates an application example with the A-EFIE method.
+ *
+ * The geometric model contains a complex geometry with significant curvature.
+ * The simulation with the higher-order spline-based A-EFIE minimizes unwanted
+ * reflections due to the numerical computation. This facilitates the design of
+ * the component of interest.
+ */
+
 template <typename t>
 class logspace {
  private:

@@ -29,7 +29,7 @@ struct LinearOperatorTraits<InductanceMatrix> {
 };
 
 /**
- * \ingroup InductanceMatrix
+ * \ingroup AugmentedEFIE
  */
 class InductanceMatrix : public LinearOperatorBase<InductanceMatrix> {
   // implementation of the kernel evaluation, which may be based on the

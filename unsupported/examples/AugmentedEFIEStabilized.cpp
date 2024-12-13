@@ -19,15 +19,15 @@
 #include "examples/Grids.hpp"
 
 /**
- *  \ingroup Examples
- *  \defgroup AugmentedEFIE Augmented Electric Field Integral Equation Method
+ * \ingroup Examples
+ * \defgroup AugmentedEFIEStabilized A-EFIE Low Frequency Stabilization
  *
- *  \brief This example uses the A-EFIE method to solve a scattering problem.
+ * \brief This example uses the A-EFIE method to solve a scattering problem.
  *
- *  This example sets up an academic example to apply the A-EFIE method to a
- *  problem where the analytical solution is known. A dipole is placed inside
- *  the unit sphere.
- *  Low frequency stability is demonstrated by applying the deflation method.
+ * This example sets up an academic example to apply the A-EFIE method to a
+ * problem where the analytical solution is known. A dipole is placed inside
+ * the unit sphere.
+ * Low frequency stability is demonstrated by applying the deflation method.
  */
 
 template <typename t>

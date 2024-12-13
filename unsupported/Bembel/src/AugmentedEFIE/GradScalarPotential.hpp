@@ -25,7 +25,7 @@ struct PotentialTraits<GradScalarPotential<LinOp>> {
 };
 
 /**
- * \ingroup Maxwell
+ * \ingroup AugmentedEFIE
  */
 template <typename LinOp>
 class GradScalarPotential

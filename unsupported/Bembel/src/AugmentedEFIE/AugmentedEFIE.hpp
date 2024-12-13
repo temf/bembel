@@ -13,8 +13,8 @@
 
 namespace Bembel {
 /**
- *  \brief AugmentedEFIE
- *  \todo  Add a documentation
+ * \ingroup AugmentedEFIE
+ * \brief This class handles the assembly and storage of the system matrix.
  */
 template <typename MatrixFormat, typename Derived>
 class AugmentedEFIE {

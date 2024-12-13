@@ -25,7 +25,7 @@ struct PotentialTraits<EFIE<LinOp>> {
 };
 
 /**
- * \ingroup Maxwell
+ * \ingroup AugmentedEFIE
  */
 template <typename LinOp>
 class EFIE : public PotentialBase<EFIE<LinOp>, LinOp> {

@@ -12,22 +12,20 @@
 #define BEMBEL_SRC_AUGMENTEDEFIE_AUGMENTEDEFIEASSEMBLER_HPP_
 
 namespace Bembel {
-/**
- *  \ingroup LinearOperator
- *  \brief Helper struct that is used in order to partially specialise the
- *         compute routine of DiscreteOperator for different types of
- *         output formats
- */
 template <typename MatrixFormat>
 struct AugmentedEFIEAssembler {};
 /**
- *  \brief Helper struct that is used in order to partially specialise the
- *         compute routine of DiscreteOperator for the Eigen::MatrixXd format
+ * \ingroup AugmentedEFIE
+ * \brief This struct handles the routines for assembling the system matrix.
  */
 template <>
 struct AugmentedEFIEAssembler<Eigen::MatrixXcd> {
  public:
   AugmentedEFIEAssembler() {}
+  /**
+   * This routine assembles the system matrix for solving the scattering
+   * problem.
+   */
   static std::unique_ptr<Eigen::MatrixXcd> compute(
       Eigen::MatrixXcd *system_matrix,
       const AnsatzSpace<MassMatrixScalarDisc> &ansatz_space_mass,

@@ -13,7 +13,7 @@
 
 namespace Bembel {
 /**
- *  \ingroup LinearForm
+ *  \ingroup AugmentedEFIE
  *  \brief This class, given a LinearForm with defined traits, takes care of the
  * assembly of the right hand side.
  */

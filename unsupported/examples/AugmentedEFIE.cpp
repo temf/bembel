@@ -19,17 +19,17 @@
 #include "examples/Grids.hpp"
 
 /**
- *  \ingroup Examples
- *  \defgroup AugmentedEFIE Augmented Electric Field Integral Equation Method
+ * \ingroup Examples
+ * \defgroup AugmentedEFIEDipole Augmented Electric Field Integral Equation
  *
- *  \brief This example uses the A-EFIE method to solve a scattering problem.
+ * \brief This example uses the A-EFIE method to solve a scattering problem.
  *
- *  This example sets up an academic example to apply the A-EFIE method to a
- *  problem where the analytical solution is known. A dipole is placed inside
- *  the unit sphere.
- *  The scattered field in the exterior is computed with the A-EFIE formulation.
- *  This is a mixed problem which is discretized with higher-order B-splines
- *  whereas the geometry is represented with NURBS functions.
+ * This example sets up an academic example to apply the A-EFIE method to a
+ * problem where the analytical solution is known. A dipole is placed inside
+ * the unit sphere.
+ * The scattered field in the exterior is computed with the A-EFIE formulation.
+ * This is a mixed problem which is discretized with higher-order B-splines
+ * whereas the geometry is represented with NURBS functions.
  */
 
 int main() {

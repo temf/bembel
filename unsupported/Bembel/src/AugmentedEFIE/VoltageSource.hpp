@@ -20,6 +20,10 @@ namespace Bembel {
  *  respectively. The first entry of the array is the patch number whereas the
  *  second entry corresponds to the edge case which is connected to the voltage
  *  source.
+
+/**
+ * \ingroup AugmentedEFIE
+ *
  */
 struct VoltageSource {
   std::vector<std::array<int, 2>> positive_;

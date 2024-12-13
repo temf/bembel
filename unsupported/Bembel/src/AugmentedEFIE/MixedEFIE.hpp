@@ -17,7 +17,7 @@ namespace Bembel {
 // traits
 
 /**
- * \ingroup Maxwell
+ * \ingroup AugmentedEFIE
  */
 template <typename LinOpVector, typename LinOpScalar>
 class MixedEFIE {
