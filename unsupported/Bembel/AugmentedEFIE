@@ -1,0 +1,38 @@
+// This file is part of Bembel, the higher order C++ boundary element library.
+//
+// Copyright (C) 2024 see <http://www.bembel.eu>
+//
+// It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
+// M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
+// Universitaet Basel, and Universita della Svizzera italiana, Lugano. This
+// source code is subject to the GNU General Public License version 3 and
+// provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
+// information.
+
+#ifndef BEMBEL_AugmentedEFIE_MODULE_
+#define BEMBEL_AugmentedEFIE_MODULE_
+
+/**
+ * \ingroup Modules
+ * \defgroup AugmentedEFIE AugmentedEFIE
+ * \brief The AugmentedEFIE module contains routines for the spline-based
+ * Augmented Electric Field Integral Equation.
+ **/
+
+#include <Bembel/LinearOperator>
+#include <Bembel/Identity>
+#include <Bembel/LinearForm>
+#include <Bembel/Helmholtz>
+
+#include "src/AugmentedEFIE/IncidenceMatrix.hpp"
+#include "src/AugmentedEFIE/InductanceMatrix.hpp"
+#include "src/AugmentedEFIE/EFIE.hpp"
+#include "src/AugmentedEFIE/VectorPotential.hpp"
+#include "src/AugmentedEFIE/GradScalarPotential.hpp"
+#include "src/AugmentedEFIE/MixedEFIE.hpp"
+#include "src/AugmentedEFIE/VoltageSource.hpp"
+#include "src/AugmentedEFIE/AugmentedEFIEAssembler.hpp"
+#include "src/AugmentedEFIE/AugmentedEFIE.hpp"
+#include "src/AugmentedEFIE/AugmentedEFIEExcitation.hpp"
+
+#endif
