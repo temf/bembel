@@ -9,11 +9,10 @@
   </head>
 
   <body>
+
     <header>
       <h1>GCC Code Coverage Report</h1>
-
       <hr/>
-
       <div class="summary">
 <div>
   <table class="legend">
@@ -23,11 +22,11 @@
     </tr>
     <tr>
       <th scope="row">File:</th>
-      <td>Bembel/src/LinearForm/DirichletTrace.hpp</td>
+      <td>LinearForm/DirichletTrace.hpp</td>
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-09-30 07:01:38</td>
+      <td>2024-12-18 07:36:36</td>
     </tr>
   </table>
 </div>
@@ -60,10 +59,8 @@
   </table>
 </div>
       </div>
-
       <hr/>
     </header>
-
     <nav>
 <details>
   <summary>List of functions</summary>
@@ -73,20 +70,19 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l33">Bembel::DirichletTrace&lt;double&gt;::DirichletTrace() (line 33)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l34">Bembel::DirichletTrace&lt;double&gt;::set_function(std::function&lt;double (Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt;)&gt; const&amp;) (line 34)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l33">Bembel::DirichletTrace&lt;std::complex&lt;double&gt; &gt;::DirichletTrace() (line 33)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
-    <tr><td><a href="#l34">Bembel::DirichletTrace&lt;std::complex&lt;double&gt; &gt;::set_function(std::function&lt;std::complex&lt;double&gt; (Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt;)&gt; const&amp;) (line 34)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
-    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 480 times, returned 480 times</td><td>84.0%</td></tr>
-    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::LaplaceBeltramiOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 108 times, returned 108 times</td><td>84.0%</td></tr>
-    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 384 times, returned 384 times</td><td>84.0%</td></tr>
-    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::MassMatrixScalarCont&gt; &gt;(Bembel::SuperSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 54 times, returned 54 times</td><td>84.0%</td></tr>
-    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;std::complex&lt;double&gt; &gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 384 times, returned 384 times</td><td>86.0%</td></tr>
+    <tr><td><a href="#l33">Bembel::DirichletTrace&lt;double&gt;::DirichletTrace() (line 33)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::DirichletTrace&lt;double&gt;::set_function(std::function&lt;double (Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt;)&gt; const&amp;) (line 34)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l33">Bembel::DirichletTrace&lt;std::complex&lt;double&gt; &gt;::DirichletTrace() (line 33)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l34">Bembel::DirichletTrace&lt;std::complex&lt;double&gt; &gt;::set_function(std::function&lt;std::complex&lt;double&gt; (Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt;)&gt; const&amp;) (line 34)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 480 times</td><td>84.0%</td></tr>
+    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::LaplaceBeltramiOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 108 times</td><td>84.0%</td></tr>
+    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 384 times</td><td>84.0%</td></tr>
+    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;double&gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::MassMatrixScalarCont&gt; &gt;(Bembel::SuperSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 54 times</td><td>84.0%</td></tr>
+    <tr><td><a href="#l38">void Bembel::DirichletTrace&lt;std::complex&lt;double&gt; &gt;::evaluateIntegrand_impl&lt;Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::SuperSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;, Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt;*) const (line 38)</a></td><td>called 384 times</td><td>86.0%</td></tr>
   </table>
 </details>
 
     </nav>
-
     <main>
 <div class="file-source">
   <table>
@@ -415,11 +411,11 @@
       <td class="lineno"><a id="l46" href="#l46">46</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -443,11 +439,11 @@
       <td class="lineno"><a id="l49" href="#l49">49</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -471,11 +467,11 @@
       <td class="lineno"><a id="l52" href="#l52">52</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -485,11 +481,11 @@
       <td class="lineno"><a id="l53" href="#l53">53</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -499,11 +495,11 @@
       <td class="lineno"><a id="l54" href="#l54">54</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -527,13 +523,13 @@
       <td class="lineno"><a id="l57" href="#l57">57</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -557,13 +553,13 @@
       <td class="lineno"><a id="l60" href="#l60">60</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -587,13 +583,13 @@
       <td class="lineno"><a id="l63" href="#l63">63</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1410 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 1410 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1410</td>
@@ -680,9 +676,8 @@
 </div>
       <hr/>
     </main>
-
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
+      Generated by: <a href="http://gcovr.com/en/8.2">GCOVR (Version 8.2)</a>
     </footer>
   </body>
 </html>

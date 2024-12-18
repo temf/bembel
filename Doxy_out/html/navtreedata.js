@@ -39,7 +39,6 @@ var NAVTREE =
       [ "Publications Featuring Bembel", "citelist.html", null ],
       [ "Funding", "_funding.html", null ]
     ] ],
-    [ "Source Code", "modules.html", "modules" ],
     [ "Class List", "annotated.html", "annotated" ],
     [ "Namespace List", "namespaces.html", "namespaces" ]
   ] ]
@@ -47,11 +46,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"class_bembel_1_1_element_tree_node.html#a9f26e0cfe6ff5ec3c1a9e67ce5f9578d",
-"class_bembel_1_1_v_t_k_point_export.html#aef8bcec888f13c4f8e915e1d515841c5",
-"namespace_eigen.html#aa079f690520187ae1c463997b82b122b",
-"struct_bembel_1_1_linear_operator_traits_3_01_mass_matrix_scalar_disc_01_4.html"
+"_configurations.html",
+"namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71",
+"struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a0ebaecda2ac708d80ec18ab374c91f85"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

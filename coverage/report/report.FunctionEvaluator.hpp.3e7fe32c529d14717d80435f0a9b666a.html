@@ -9,11 +9,10 @@
   </head>
 
   <body>
+
     <header>
       <h1>GCC Code Coverage Report</h1>
-
       <hr/>
-
       <div class="summary">
 <div>
   <table class="legend">
@@ -23,11 +22,11 @@
     </tr>
     <tr>
       <th scope="row">File:</th>
-      <td>Bembel/src/AnsatzSpace/FunctionEvaluator.hpp</td>
+      <td>AnsatzSpace/FunctionEvaluator.hpp</td>
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-09-30 07:01:38</td>
+      <td>2024-12-18 07:36:36</td>
     </tr>
   </table>
 </div>
@@ -60,10 +59,8 @@
   </table>
 </div>
       </div>
-
       <hr/>
     </header>
-
     <nav>
 <details>
   <summary>List of functions</summary>
@@ -73,54 +70,53 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 1 time, returned 1 time</td><td>62.0%</td></tr>
-    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times, returned 2 times</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 38401 times, returned 38401 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times, returned 2 times</td><td>87.0%</td></tr>
-    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;) (line 29)</a></td><td>called 1 time, returned 1 time</td><td>78.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times, returned 2 times</td><td>65.0%</td></tr>
-    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 2 times, returned 2 times</td><td>62.0%</td></tr>
-    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times, returned 2 times</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 480000 times, returned 480000 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times, returned 2 times</td><td>87.0%</td></tr>
-    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;) (line 29)</a></td><td>called 2 times, returned 2 times</td><td>78.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times, returned 2 times</td><td>65.0%</td></tr>
-    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;) (line 36)</a></td><td>called 1 time, returned 1 time</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 150 times, returned 150 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;) (line 50)</a></td><td>called 1 time, returned 1 time</td><td>87.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 1 time, returned 1 time</td><td>65.0%</td></tr>
-    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 1 time, returned 1 time</td><td>62.0%</td></tr>
-    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times, returned 2 times</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 384001 times, returned 384001 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times, returned 2 times</td><td>87.0%</td></tr>
-    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;) (line 29)</a></td><td>called 1 time, returned 1 time</td><td>78.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times, returned 2 times</td><td>65.0%</td></tr>
-    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;) (line 36)</a></td><td>called 1 time, returned 1 time</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 150 times, returned 150 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;) (line 50)</a></td><td>called 1 time, returned 1 time</td><td>87.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 1 time, returned 1 time</td><td>65.0%</td></tr>
-    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 2 times, returned 2 times</td><td>62.0%</td></tr>
-    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times, returned 2 times</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 91800 times, returned 91800 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l118">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::evaluateDiv(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 118)</a></td><td>called 91800 times, returned 91800 times</td><td>77.0%</td></tr>
-    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times, returned 2 times</td><td>87.0%</td></tr>
-    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;) (line 29)</a></td><td>called 2 times, returned 2 times</td><td>78.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times, returned 2 times</td><td>65.0%</td></tr>
-    <tr><td><a href="#l40">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 40)</a></td><td>called 64 times, returned 64 times</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 1920 times, returned 1920 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l82">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::evaluateOnPatch(int, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;) const (line 82)</a></td><td>called 1920 times, returned 1920 times</td><td>96.0%</td></tr>
-    <tr><td><a href="#l61">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 61)</a></td><td>called 64 times, returned 64 times</td><td>76.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 64 times, returned 64 times</td><td>65.0%</td></tr>
-    <tr><td><a href="#l40">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorDivC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 40)</a></td><td>called 64 times, returned 64 times</td><td>58.0%</td></tr>
-    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 1920 times, returned 1920 times</td><td>75.0%</td></tr>
-    <tr><td><a href="#l82">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::evaluateOnPatch(int, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;) const (line 82)</a></td><td>called 1920 times, returned 1920 times</td><td>96.0%</td></tr>
-    <tr><td><a href="#l61">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorDivC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 61)</a></td><td>called 64 times, returned 64 times</td><td>76.0%</td></tr>
-    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 64 times, returned 64 times</td><td>65.0%</td></tr>
+    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 1 time</td><td>62.0%</td></tr>
+    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 38401 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times</td><td>87.0%</td></tr>
+    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;) (line 29)</a></td><td>called 1 time</td><td>78.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::HelmholtzSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times</td><td>65.0%</td></tr>
+    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 2 times</td><td>62.0%</td></tr>
+    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 480000 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times</td><td>87.0%</td></tr>
+    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;) (line 29)</a></td><td>called 2 times</td><td>78.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times</td><td>65.0%</td></tr>
+    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;) (line 36)</a></td><td>called 1 time</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 150 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceBeltramiOperator&gt; const&amp;) (line 50)</a></td><td>called 1 time</td><td>87.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::LaplaceBeltramiOperator&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 1 time</td><td>65.0%</td></tr>
+    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 1 time</td><td>62.0%</td></tr>
+    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 384001 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times</td><td>87.0%</td></tr>
+    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;) (line 29)</a></td><td>called 1 time</td><td>78.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::LaplaceSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times</td><td>65.0%</td></tr>
+    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;) (line 36)</a></td><td>called 1 time</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 150 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MassMatrixScalarCont&gt; const&amp;) (line 50)</a></td><td>called 1 time</td><td>87.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::MassMatrixScalarCont&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 1 time</td><td>65.0%</td></tr>
+    <tr><td><a href="#l26">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::FunctionEvaluator() (line 26)</a></td><td>called 2 times</td><td>62.0%</td></tr>
+    <tr><td><a href="#l36">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 36)</a></td><td>called 2 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 91800 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l118">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::evaluateDiv(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 118)</a></td><td>called 91800 times</td><td>77.0%</td></tr>
+    <tr><td><a href="#l50">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 50)</a></td><td>called 2 times</td><td>87.0%</td></tr>
+    <tr><td><a href="#l29">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::operator=(Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;) (line 29)</a></td><td>called 2 times</td><td>78.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;Bembel::MaxwellSingleLayerOperator&gt;::set_function(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 2 times</td><td>65.0%</td></tr>
+    <tr><td><a href="#l40">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 40)</a></td><td>called 64 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 1920 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l82">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::evaluateOnPatch(int, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;) const (line 82)</a></td><td>called 1920 times</td><td>96.0%</td></tr>
+    <tr><td><a href="#l61">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 61)</a></td><td>called 64 times</td><td>76.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;TestOperatorC&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 64 times</td><td>65.0%</td></tr>
+    <tr><td><a href="#l40">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorDivC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 40)</a></td><td>called 64 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l109">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::evaluate(Bembel::ElementTreeNode const&amp;, Eigen::Matrix&lt;double, 12, 1, 0, 12, 1&gt; const&amp;) const (line 109)</a></td><td>called 1920 times</td><td>75.0%</td></tr>
+    <tr><td><a href="#l82">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::evaluateOnPatch(int, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;) const (line 82)</a></td><td>called 1920 times</td><td>96.0%</td></tr>
+    <tr><td><a href="#l61">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::init_FunctionEvaluator(Bembel::AnsatzSpace&lt;TestOperatorDivC&gt; const&amp;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 61)</a></td><td>called 64 times</td><td>76.0%</td></tr>
+    <tr><td><a href="#l131">Bembel::FunctionEvaluator&lt;TestOperatorDivC&gt;::set_function(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;) (line 131)</a></td><td>called 64 times</td><td>65.0%</td></tr>
   </table>
 </details>
 
     </nav>
-
     <main>
 <div class="file-source">
   <table>
@@ -309,13 +305,13 @@
       <td class="lineno"><a id="l26" href="#l26">26</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+            <div class="takenBranch">&check; Branch 5 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -346,11 +342,11 @@
       <td class="lineno"><a id="l30" href="#l30">30</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -395,13 +391,13 @@
       <td class="lineno"><a id="l36" href="#l36">36</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 10 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 10 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 10 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+            <div class="takenBranch">&check; Branch 5 taken 10 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">10</td>
@@ -411,11 +407,11 @@
       <td class="lineno"><a id="l37" href="#l37">37</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 10 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 10 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">10</td>
@@ -460,13 +456,13 @@
       <td class="lineno"><a id="l43" href="#l43">43</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 128 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 128 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 128 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+            <div class="takenBranch">&check; Branch 5 taken 128 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">256</td>
@@ -476,11 +472,11 @@
       <td class="lineno"><a id="l44" href="#l44">44</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 128 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 128 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">256</td>
@@ -532,11 +528,11 @@
       <td class="lineno"><a id="l51" href="#l51">51</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 10 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 10 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">10</td>
@@ -637,11 +633,11 @@
       <td class="lineno"><a id="l65" href="#l65">65</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 128 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 128 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">256</td>
@@ -651,11 +647,11 @@
       <td class="lineno"><a id="l66" href="#l66">66</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 128 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 128 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">256</td>
@@ -784,11 +780,11 @@
       <td class="lineno"><a id="l84" href="#l84">84</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">7680</td>
@@ -819,11 +815,11 @@
       <td class="lineno"><a id="l88" href="#l88">88</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">7680</td>
@@ -833,11 +829,11 @@
       <td class="lineno"><a id="l89" href="#l89">89</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">7680</td>
@@ -903,11 +899,11 @@
       <td class="lineno"><a id="l98" href="#l98">98</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">7680</td>
@@ -931,11 +927,11 @@
       <td class="lineno"><a id="l101" href="#l101">101</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">7680</td>
@@ -945,13 +941,13 @@
       <td class="lineno"><a id="l102" href="#l102">102</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 4 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-          <div class="takenBranch">&check; Branch 7 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 4 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+            <div class="takenBranch">&check; Branch 7 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">7680</td>
@@ -968,11 +964,11 @@
       <td class="lineno"><a id="l104" href="#l104">104</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3840 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">15360</td>
@@ -1059,13 +1055,13 @@
       <td class="lineno"><a id="l116" href="#l116">116</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 998342 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-          <div class="takenBranch">&check; Branch 6 taken 998342 times.</div>
-          <div class="notTakenBranch">&cross; Branch 7 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 998342 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+            <div class="takenBranch">&check; Branch 6 taken 998342 times.</div>
+            <div class="notTakenBranch">&cross; Branch 7 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">2004364</td>
@@ -1096,13 +1092,13 @@
       <td class="lineno"><a id="l120" href="#l120">120</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 91800 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 91800 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 91800 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 91800 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">275400</td>
@@ -1224,13 +1220,13 @@
       <td class="lineno"><a id="l137" href="#l137">137</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 138 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 138 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 138 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+            <div class="takenBranch">&check; Branch 5 taken 138 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">266</td>
@@ -1240,11 +1236,11 @@
       <td class="lineno"><a id="l138" href="#l138">138</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 138 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 138 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">266</td>
@@ -1254,17 +1250,17 @@
       <td class="lineno"><a id="l139" href="#l139">139</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">5/8</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 138 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 66 times.</div>
-          <div class="takenBranch">&check; Branch 5 taken 72 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-          <div class="takenBranch">&check; Branch 7 taken 66 times.</div>
-          <div class="takenBranch">&check; Branch 8 taken 72 times.</div>
-          <div class="notTakenBranch">&cross; Branch 9 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">5/8</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 138 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 66 times.</div>
+            <div class="takenBranch">&check; Branch 5 taken 72 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+            <div class="takenBranch">&check; Branch 7 taken 66 times.</div>
+            <div class="takenBranch">&check; Branch 8 taken 72 times.</div>
+            <div class="notTakenBranch">&cross; Branch 9 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">396</td>
@@ -1428,9 +1424,8 @@
 </div>
       <hr/>
     </main>
-
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
+      Generated by: <a href="http://gcovr.com/en/8.2">GCOVR (Version 8.2)</a>
     </footer>
   </body>
 </html>

@@ -9,11 +9,10 @@
   </head>
 
   <body>
+
     <header>
       <h1>GCC Code Coverage Report</h1>
-
       <hr/>
-
       <div class="summary">
 <div>
   <table class="legend">
@@ -23,11 +22,11 @@
     </tr>
     <tr>
       <th scope="row">File:</th>
-      <td>Bembel/src/Potential/DiscretePotential.hpp</td>
+      <td>Potential/DiscretePotential.hpp</td>
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-09-30 07:01:38</td>
+      <td>2024-12-18 07:36:36</td>
     </tr>
   </table>
 </div>
@@ -60,10 +59,8 @@
   </table>
 </div>
       </div>
-
       <hr/>
     </header>
-
     <nav>
 <details>
   <summary>List of functions</summary>
@@ -73,29 +70,28 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 1 time, returned 1 time</td><td>67.0%</td></tr>
-    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 1 time, returned 1 time</td><td>74.0%</td></tr>
-    <tr><td><a href="#l120">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::get_potential() (line 120)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
-    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 1 time, returned 1 time</td><td>67.0%</td></tr>
-    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 1 time, returned 1 time</td><td>71.0%</td></tr>
-    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 2 times, returned 2 times</td><td>55.0%</td></tr>
-    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 2 times, returned 2 times</td><td>74.0%</td></tr>
-    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
-    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 2 times, returned 2 times</td><td>71.0%</td></tr>
-    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 1 time, returned 1 time</td><td>67.0%</td></tr>
-    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 1 time, returned 1 time</td><td>74.0%</td></tr>
-    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 1 time, returned 1 time</td><td>67.0%</td></tr>
-    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 1 time, returned 1 time</td><td>71.0%</td></tr>
-    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
-    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 2 times, returned 2 times</td><td>74.0%</td></tr>
-    <tr><td><a href="#l120">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::get_potential() (line 120)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 2 times, returned 2 times</td><td>67.0%</td></tr>
-    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 2 times, returned 2 times</td><td>71.0%</td></tr>
+    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 1 time</td><td>67.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 1 time</td><td>74.0%</td></tr>
+    <tr><td><a href="#l120">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::get_potential() (line 120)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 1 time</td><td>67.0%</td></tr>
+    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::HelmholtzSingleLayerPotential&lt;Bembel::HelmholtzSingleLayerOperator&gt;, Bembel::HelmholtzSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 1 time</td><td>71.0%</td></tr>
+    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 2 times</td><td>55.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 2 times</td><td>74.0%</td></tr>
+    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::HomogenisedLaplaceSingleLayerPotential&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt;, Bembel::HomogenisedLaplaceSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 2 times</td><td>71.0%</td></tr>
+    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 1 time</td><td>67.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 1 time</td><td>74.0%</td></tr>
+    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 1 time</td><td>67.0%</td></tr>
+    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::LaplaceSingleLayerPotential&lt;Bembel::LaplaceSingleLayerOperator&gt;, Bembel::LaplaceSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 1 time</td><td>71.0%</td></tr>
+    <tr><td><a href="#l27">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 27)</a></td><td>called 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l49">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::evaluate(Eigen::Matrix&lt;double, -1, 3, 0, -1, 3&gt; const&amp;) (line 49)</a></td><td>called 2 times</td><td>74.0%</td></tr>
+    <tr><td><a href="#l120">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::get_potential() (line 120)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l33">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::init_DiscretePotential(Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 33)</a></td><td>called 2 times</td><td>67.0%</td></tr>
+    <tr><td><a href="#l111">Bembel::DiscretePotential&lt;Bembel::MaxwellSingleLayerPotential&lt;Bembel::MaxwellSingleLayerOperator&gt;, Bembel::MaxwellSingleLayerOperator&gt;::set_cauchy_data(Eigen::Matrix&lt;std::complex&lt;double&gt;, -1, 1, 0, -1, 1&gt; const&amp;) (line 111)</a></td><td>called 2 times</td><td>71.0%</td></tr>
   </table>
 </details>
 
     </nav>
-
     <main>
 <div class="file-source">
   <table>
@@ -291,14 +287,14 @@
       <td class="lineno"><a id="l27" href="#l27">27</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">3/5</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 2 times.</div>
-          <div class="takenBranch">&check; Branch 3 taken 4 times.</div>
-          <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 2 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">3/5</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 2 times.</div>
+            <div class="takenBranch">&check; Branch 3 taken 4 times.</div>
+            <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
+            <div class="takenBranch">&check; Branch 5 taken 2 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -308,11 +304,11 @@
       <td class="lineno"><a id="l28" href="#l28">28</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -357,11 +353,11 @@
       <td class="lineno"><a id="l34" href="#l34">34</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -371,11 +367,11 @@
       <td class="lineno"><a id="l35" href="#l35">35</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -511,11 +507,11 @@
       <td class="lineno"><a id="l54" href="#l54">54</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -525,13 +521,13 @@
       <td class="lineno"><a id="l55" href="#l55">55</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -646,11 +642,11 @@
       <td class="lineno"><a id="l71" href="#l71">71</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -660,11 +656,11 @@
       <td class="lineno"><a id="l72" href="#l72">72</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -681,11 +677,11 @@
       <td class="lineno"><a id="l74" href="#l74">74</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -751,11 +747,11 @@
       <td class="lineno"><a id="l83" href="#l83">83</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -765,11 +761,11 @@
       <td class="lineno"><a id="l84" href="#l84">84</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -786,11 +782,11 @@
       <td class="lineno"><a id="l86" href="#l86">86</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -807,11 +803,11 @@
       <td class="lineno"><a id="l88" href="#l88">88</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 3 taken 414 times.</div>
-          <div class="takenBranch">&check; Branch 4 taken 6 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 3 taken 414 times.</div>
+            <div class="takenBranch">&check; Branch 4 taken 6 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">420</td>
@@ -835,11 +831,11 @@
       <td class="lineno"><a id="l91" href="#l91">91</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 414 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 414 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">414</td>
@@ -849,11 +845,11 @@
       <td class="lineno"><a id="l92" href="#l92">92</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 2166 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 414 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 2166 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 414 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">2580</td>
@@ -863,13 +859,13 @@
       <td class="lineno"><a id="l93" href="#l93">93</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 2166 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 2166 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 2166 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 2166 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">4332</td>
@@ -886,13 +882,13 @@
       <td class="lineno"><a id="l95" href="#l95">95</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 5 taken 2166 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-          <div class="takenBranch">&check; Branch 8 taken 2166 times.</div>
-          <div class="notTakenBranch">&cross; Branch 9 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 5 taken 2166 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+            <div class="takenBranch">&check; Branch 8 taken 2166 times.</div>
+            <div class="notTakenBranch">&cross; Branch 9 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">2166</td>
@@ -902,11 +898,11 @@
       <td class="lineno"><a id="l96" href="#l96">96</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 994200 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 2166 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 994200 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 2166 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">996366</td>
@@ -916,15 +912,15 @@
       <td class="lineno"><a id="l97" href="#l97">97</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">3/6</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 994200 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 4 taken 994200 times.</div>
-          <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
-          <div class="takenBranch">&check; Branch 7 taken 994200 times.</div>
-          <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">3/6</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 994200 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 4 taken 994200 times.</div>
+            <div class="notTakenBranch">&cross; Branch 5 not taken.</div>
+            <div class="takenBranch">&check; Branch 7 taken 994200 times.</div>
+            <div class="notTakenBranch">&cross; Branch 8 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">1988400</td>
@@ -934,13 +930,13 @@
       <td class="lineno"><a id="l98" href="#l98">98</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 994200 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 994200 times.</div>
-          <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">2/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 994200 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 5 taken 994200 times.</div>
+            <div class="notTakenBranch">&cross; Branch 6 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">2982600</td>
@@ -985,11 +981,11 @@
       <td class="lineno"><a id="l104" href="#l104">104</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -1062,11 +1058,11 @@
       <td class="lineno"><a id="l114" href="#l114">114</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 6 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">6</td>
@@ -1209,9 +1205,8 @@
 </div>
       <hr/>
     </main>
-
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
+      Generated by: <a href="http://gcovr.com/en/8.2">GCOVR (Version 8.2)</a>
     </footer>
   </body>
 </html>

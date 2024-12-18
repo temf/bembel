@@ -9,11 +9,10 @@
   </head>
 
   <body>
+
     <header>
       <h1>GCC Code Coverage Report</h1>
-
       <hr/>
-
       <div class="summary">
 <div>
   <table class="legend">
@@ -23,11 +22,11 @@
     </tr>
     <tr>
       <th scope="row">File:</th>
-      <td>Bembel/src/util/GenericMatrix.hpp</td>
+      <td>util/GenericMatrix.hpp</td>
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-09-30 07:01:38</td>
+      <td>2024-12-18 07:36:36</td>
     </tr>
   </table>
 </div>
@@ -60,10 +59,8 @@
   </table>
 </div>
       </div>
-
       <hr/>
     </header>
-
     <nav>
 <details>
   <summary>List of functions</summary>
@@ -73,29 +70,28 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l25">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::GenericMatrix() (line 25)</a></td><td>called 2456 times, returned 2456 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l29">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt; const&amp;) (line 29)</a></td><td>called 1226 times, returned 1226 times</td><td>80.0%</td></tr>
-    <tr><td><a href="#l35">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;&amp;&amp;) (line 35)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l51">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::cols() const (line 51)</a></td><td>called 1496 times, returned 1496 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l61">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::operator()(unsigned long, unsigned long) (line 61)</a></td><td>called 12176 times, returned 12176 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l57">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::operator()(unsigned long, unsigned long) const (line 57)</a></td><td>called 25052 times, returned 25052 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l63">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::operator=(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;) (line 63)</a></td><td>called 1230 times, returned 1230 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l43">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::resize(unsigned long, unsigned long) (line 43)</a></td><td>called 76 times, returned 76 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l53">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::rows() const (line 53)</a></td><td>called 6096 times, returned 6096 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l25">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::GenericMatrix() (line 25)</a></td><td>called 5526 times, returned 5526 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l29">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt; const&amp;) (line 29)</a></td><td>called 3678 times, returned 3678 times</td><td>80.0%</td></tr>
-    <tr><td><a href="#l35">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;&amp;&amp;) (line 35)</a></td><td>called 18 times, returned 18 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l51">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::cols() const (line 51)</a></td><td>called 3366 times, returned 3366 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l61">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::operator()(unsigned long, unsigned long) (line 61)</a></td><td>called 21942 times, returned 21942 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l57">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::operator()(unsigned long, unsigned long) const (line 57)</a></td><td>called 723022 times, returned 723022 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l63">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::operator=(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;) (line 63)</a></td><td>called 3690 times, returned 3690 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l43">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::resize(unsigned long, unsigned long) (line 43)</a></td><td>called 114 times, returned 114 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l53">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::rows() const (line 53)</a></td><td>called 13716 times, returned 13716 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l25">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::GenericMatrix() (line 25)</a></td><td>called 2456 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l29">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt; const&amp;) (line 29)</a></td><td>called 1226 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l35">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;&amp;&amp;) (line 35)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l51">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::cols() const (line 51)</a></td><td>called 1496 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l61">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::operator()(unsigned long, unsigned long) (line 61)</a></td><td>called 12176 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l57">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::operator()(unsigned long, unsigned long) const (line 57)</a></td><td>called 25052 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l63">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::operator=(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;) (line 63)</a></td><td>called 1230 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l43">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::resize(unsigned long, unsigned long) (line 43)</a></td><td>called 76 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l53">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;double&gt; &gt;::rows() const (line 53)</a></td><td>called 6096 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l25">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::GenericMatrix() (line 25)</a></td><td>called 5526 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l29">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt; const&amp;) (line 29)</a></td><td>called 3678 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l35">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::GenericMatrix(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;&amp;&amp;) (line 35)</a></td><td>called 18 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l51">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::cols() const (line 51)</a></td><td>called 3366 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l61">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::operator()(unsigned long, unsigned long) (line 61)</a></td><td>called 21942 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l57">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::operator()(unsigned long, unsigned long) const (line 57)</a></td><td>called 723022 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l63">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::operator=(Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;) (line 63)</a></td><td>called 3690 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l43">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::resize(unsigned long, unsigned long) (line 43)</a></td><td>called 114 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l53">Bembel::GenericMatrix&lt;Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; &gt;::rows() const (line 53)</a></td><td>called 13716 times</td><td>100.0%</td></tr>
   </table>
 </details>
 
     </nav>
-
     <main>
 <div class="file-source">
   <table>
@@ -326,11 +322,11 @@
       <td class="lineno"><a id="l32" href="#l32">32</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 4904 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 4904 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">4904</td>
@@ -424,13 +420,13 @@
       <td class="lineno"><a id="l45" href="#l45">45</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">3/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 3 taken 756 times.</div>
-          <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
-          <div class="takenBranch">&check; Branch 8 taken 756 times.</div>
-          <div class="takenBranch">&check; Branch 9 taken 190 times.</div>
-        </div>
+          <summary class="linebranchSummary">3/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 3 taken 756 times.</div>
+            <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
+            <div class="takenBranch">&check; Branch 8 taken 756 times.</div>
+            <div class="takenBranch">&check; Branch 9 taken 190 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">946</td>
@@ -678,9 +674,8 @@
 </div>
       <hr/>
     </main>
-
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
+      Generated by: <a href="http://gcovr.com/en/8.2">GCOVR (Version 8.2)</a>
     </footer>
   </body>
 </html>

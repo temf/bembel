@@ -138,14 +138,16 @@ $(document).ready(function(){initNavTree('util_2_constants_8hpp_source.html','')
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// to filter some almost-zero coefficients that might be introduced during the</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// solution of the linear system</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;constexpr <span class="keywordtype">double</span> projector_tolerance = 1e-4;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> isAlmostZero(<span class="keywordtype">double</span> in) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">return</span> in &lt; generic_tolerance &amp;&amp; in &gt; -generic_tolerance;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}  <span class="comment">// namespace Constants</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_UTIL_CONSTANTS_HPP_</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;constexpr <span class="keywordtype">double</span> eps0 = 8.854187812813 * 1e-12;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;constexpr <span class="keywordtype">double</span> mu0 = 4 * M_PI * 1e-7;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">bool</span> isAlmostZero(<span class="keywordtype">double</span> in) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">return</span> in &lt; generic_tolerance &amp;&amp; in &gt; -generic_tolerance;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}  <span class="comment">// namespace Constants</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}  <span class="comment">// namespace Bembel</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// BEMBEL_SRC_UTIL_CONSTANTS_HPP_</span></div>
 <div class="ttc" id="anamespace_bembel_html"><div class="ttname"><a href="namespace_bembel.html">Bembel</a></div><div class="ttdoc">Routines for the evalutation of pointwise errors.</div><div class="ttdef"><b>Definition:</b> <a href="_ansatz_space_8hpp_source.html#l00014">AnsatzSpace.hpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -153,7 +155,7 @@ $(document).ready(function(){initNavTree('util_2_constants_8hpp_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6511baee97c6d368f3c8794f4711eeb4.html">Bembel</a></li><li class="navelem"><a class="el" href="dir_1661f7552841f4f43560732ff45957fc.html">src</a></li><li class="navelem"><a class="el" href="dir_1879e71a94a345eac010056fcef60201.html">util</a></li><li class="navelem"><b>Constants.hpp</b></li>
-    <li class="footer">Generated on Mon Sep 30 2024 07:06:52 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Dec 18 2024 07:42:16 for Bembel by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -171,7 +171,22 @@ var annotated =
       [ "Binomial< N, N >", "struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html", null ],
       [ "Binomial< 0, N >", "struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html", null ],
       [ "GenericMatrix", "class_bembel_1_1_generic_matrix.html", "class_bembel_1_1_generic_matrix" ],
-      [ "LinearOperatorTraits< FakeDivergenceConformingOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_fake_divergence_conforming_operator_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_fake_divergence_conforming_operator_01_4" ]
+      [ "LinearOperatorTraits< FakeDivergenceConformingOperator >", "struct_bembel_1_1_linear_operator_traits_3_01_fake_divergence_conforming_operator_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_fake_divergence_conforming_operator_01_4" ],
+      [ "AugmentedEFIE", "class_bembel_1_1_augmented_e_f_i_e.html", "class_bembel_1_1_augmented_e_f_i_e" ],
+      [ "AugmentedEFIEAssembler", "struct_bembel_1_1_augmented_e_f_i_e_assembler.html", null ],
+      [ "AugmentedEFIEAssembler< Eigen::MatrixXcd >", "struct_bembel_1_1_augmented_e_f_i_e_assembler_3_01_eigen_1_1_matrix_xcd_01_4.html", "struct_bembel_1_1_augmented_e_f_i_e_assembler_3_01_eigen_1_1_matrix_xcd_01_4" ],
+      [ "AugmentedEFIEExcitation", "class_bembel_1_1_augmented_e_f_i_e_excitation.html", "class_bembel_1_1_augmented_e_f_i_e_excitation" ],
+      [ "EFIE", "class_bembel_1_1_e_f_i_e.html", "class_bembel_1_1_e_f_i_e" ],
+      [ "PotentialTraits< EFIE< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_e_f_i_e_3_01_lin_op_01_4_01_4.html", "struct_bembel_1_1_potential_traits_3_01_e_f_i_e_3_01_lin_op_01_4_01_4" ],
+      [ "GradScalarPotential", "class_bembel_1_1_grad_scalar_potential.html", "class_bembel_1_1_grad_scalar_potential" ],
+      [ "PotentialTraits< GradScalarPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_grad_scalar_potential_3_01_lin_op_01_4_01_4.html", "struct_bembel_1_1_potential_traits_3_01_grad_scalar_potential_3_01_lin_op_01_4_01_4" ],
+      [ "IncidenceMatrix", "class_bembel_1_1_incidence_matrix.html", "class_bembel_1_1_incidence_matrix" ],
+      [ "LinearOperatorTraits< InductanceMatrix >", "struct_bembel_1_1_linear_operator_traits_3_01_inductance_matrix_01_4.html", "struct_bembel_1_1_linear_operator_traits_3_01_inductance_matrix_01_4" ],
+      [ "InductanceMatrix", "class_bembel_1_1_inductance_matrix.html", "class_bembel_1_1_inductance_matrix" ],
+      [ "MixedEFIE", "class_bembel_1_1_mixed_e_f_i_e.html", "class_bembel_1_1_mixed_e_f_i_e" ],
+      [ "VectorPotential", "class_bembel_1_1_vector_potential.html", "class_bembel_1_1_vector_potential" ],
+      [ "PotentialTraits< VectorPotential< LinOp > >", "struct_bembel_1_1_potential_traits_3_01_vector_potential_3_01_lin_op_01_4_01_4.html", "struct_bembel_1_1_potential_traits_3_01_vector_potential_3_01_lin_op_01_4_01_4" ],
+      [ "VoltageSource", "struct_bembel_1_1_voltage_source.html", "struct_bembel_1_1_voltage_source" ]
     ] ],
     [ "Eigen", "namespace_eigen.html", [
       [ "internal", "namespace_eigen_1_1internal.html", [
@@ -211,5 +226,6 @@ var annotated =
     [ "H2Matrix", "class_h2_matrix.html", null ],
     [ "LinearFormTraits< DirichletTrace< ScalarT > >", "struct_linear_form_traits_3_01_dirichlet_trace_3_01_scalar_t_01_4_01_4.html", "struct_linear_form_traits_3_01_dirichlet_trace_3_01_scalar_t_01_4_01_4" ],
     [ "LinearOperatorTraits< LaplaceSingleLayerOperator >", "struct_linear_operator_traits_3_01_laplace_single_layer_operator_01_4.html", "struct_linear_operator_traits_3_01_laplace_single_layer_operator_01_4" ],
+    [ "logspace", "classlogspace.html", "classlogspace" ],
     [ "PotentialTraits< LaplaceSingleLayerPotential< LinOp > >", "struct_potential_traits_3_01_laplace_single_layer_potential_3_01_lin_op_01_4_01_4.html", "struct_potential_traits_3_01_laplace_single_layer_potential_3_01_lin_op_01_4_01_4" ]
 ];

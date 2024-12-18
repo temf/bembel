@@ -9,11 +9,10 @@
   </head>
 
   <body>
+
     <header>
       <h1>GCC Code Coverage Report</h1>
-
       <hr/>
-
       <div class="summary">
 <div>
   <table class="legend">
@@ -23,11 +22,11 @@
     </tr>
     <tr>
       <th scope="row">File:</th>
-      <td>Bembel/src/H2Matrix/BlockClusterTree.hpp</td>
+      <td>H2Matrix/BlockClusterTree.hpp</td>
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-09-30 07:01:38</td>
+      <td>2024-12-18 07:36:36</td>
     </tr>
   </table>
 </div>
@@ -60,10 +59,8 @@
   </table>
 </div>
       </div>
-
       <hr/>
     </header>
-
     <nav>
 <details>
   <summary>List of functions</summary>
@@ -73,69 +70,68 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l44">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree() (line 44)</a></td><td>called 1226 times, returned 1226 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l68">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree(Bembel::BlockClusterTree&lt;double&gt; const&amp;) (line 68)</a></td><td>called 1226 times, returned 1226 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l44">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree() (line 44)</a></td><td>called 1226 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l68">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree(Bembel::BlockClusterTree&lt;double&gt; const&amp;) (line 68)</a></td><td>called 1226 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l55">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree(Bembel::BlockClusterTree&lt;double&gt;&amp;&amp;) (line 55)</a></td><td>not called</td><td>0.0%</td></tr>
-    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree&lt;Bembel::HomogenisedLaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::HomogenisedLaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 1 time, returned 1 time</td><td>50.0%</td></tr>
-    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree&lt;Bembel::LaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::LaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 1 time, returned 1 time</td><td>50.0%</td></tr>
-    <tr><td><a href="#l212">Bembel::BlockClusterTree&lt;double&gt;::clbegin() const (line 212)</a></td><td>called 23 times, returned 23 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l215">Bembel::BlockClusterTree&lt;double&gt;::clend() const (line 215)</a></td><td>called 13271 times, returned 13271 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l255">Bembel::BlockClusterTree&lt;double&gt;::compareCluster(Bembel::ElementTreeNode const&amp;, Bembel::ElementTreeNode const&amp;) (line 255)</a></td><td>called 1226 times, returned 1226 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l200">Bembel::BlockClusterTree&lt;double&gt;::get_cc() const (line 200)</a></td><td>called 14400 times, returned 14400 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l203">Bembel::BlockClusterTree&lt;double&gt;::get_cluster1() const (line 203)</a></td><td>called 12864 times, returned 12864 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l204">Bembel::BlockClusterTree&lt;double&gt;::get_cluster2() const (line 204)</a></td><td>called 7008 times, returned 7008 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l232">Bembel::BlockClusterTree&lt;double&gt;::get_col_end_index() (line 232)</a></td><td>called 7392 times, returned 7392 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l227">Bembel::BlockClusterTree&lt;double&gt;::get_col_start_index() (line 227)</a></td><td>called 14784 times, returned 14784 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l245">Bembel::BlockClusterTree&lt;double&gt;::get_leaf() (line 245)</a></td><td>called 14880 times, returned 14880 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l239">Bembel::BlockClusterTree&lt;double&gt;::get_parameters() (line 239)</a></td><td>called 88706 times, returned 88706 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l236">Bembel::BlockClusterTree&lt;double&gt;::get_parameters() const (line 236)</a></td><td>called 11758 times, returned 11758 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l223">Bembel::BlockClusterTree&lt;double&gt;::get_row_end_index() (line 223)</a></td><td>called 7392 times, returned 7392 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l218">Bembel::BlockClusterTree&lt;double&gt;::get_row_start_index() (line 218)</a></td><td>called 14784 times, returned 14784 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l206">Bembel::BlockClusterTree&lt;double&gt;::lbegin() (line 206)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l209">Bembel::BlockClusterTree&lt;double&gt;::lend() (line 209)</a></td><td>called 1154 times, returned 1154 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l97">Bembel::BlockClusterTree&lt;double&gt;::operator=(Bembel::BlockClusterTree&lt;double&gt;) (line 97)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l113">Bembel::BlockClusterTree&lt;double&gt;::set_parameters(double, int) (line 113)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l279">Bembel::BlockClusterTree&lt;double&gt;::updateLeafPointers() (line 279)</a></td><td>called 1230 times, returned 1230 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l288">Bembel::BlockClusterTree&lt;double&gt;::updateLeafPointers_recursion(Bembel::BlockClusterTree&lt;double&gt;&amp;) (line 288)</a></td><td>called 3678 times, returned 3678 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l44">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree() (line 44)</a></td><td>called 1842 times, returned 1842 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l68">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; const&amp;) (line 68)</a></td><td>called 3678 times, returned 3678 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree&lt;Bembel::HomogenisedLaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::HomogenisedLaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 1 time</td><td>50.0%</td></tr>
+    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;double&gt;::BlockClusterTree&lt;Bembel::LaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::LaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 1 time</td><td>50.0%</td></tr>
+    <tr><td><a href="#l212">Bembel::BlockClusterTree&lt;double&gt;::clbegin() const (line 212)</a></td><td>called 23 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l215">Bembel::BlockClusterTree&lt;double&gt;::clend() const (line 215)</a></td><td>called 13271 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l255">Bembel::BlockClusterTree&lt;double&gt;::compareCluster(Bembel::ElementTreeNode const&amp;, Bembel::ElementTreeNode const&amp;) (line 255)</a></td><td>called 1226 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l200">Bembel::BlockClusterTree&lt;double&gt;::get_cc() const (line 200)</a></td><td>called 14400 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l203">Bembel::BlockClusterTree&lt;double&gt;::get_cluster1() const (line 203)</a></td><td>called 12864 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l204">Bembel::BlockClusterTree&lt;double&gt;::get_cluster2() const (line 204)</a></td><td>called 7008 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l232">Bembel::BlockClusterTree&lt;double&gt;::get_col_end_index() (line 232)</a></td><td>called 7392 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l227">Bembel::BlockClusterTree&lt;double&gt;::get_col_start_index() (line 227)</a></td><td>called 14784 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l245">Bembel::BlockClusterTree&lt;double&gt;::get_leaf() (line 245)</a></td><td>called 14880 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l239">Bembel::BlockClusterTree&lt;double&gt;::get_parameters() (line 239)</a></td><td>called 88706 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l236">Bembel::BlockClusterTree&lt;double&gt;::get_parameters() const (line 236)</a></td><td>called 11758 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l223">Bembel::BlockClusterTree&lt;double&gt;::get_row_end_index() (line 223)</a></td><td>called 7392 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l218">Bembel::BlockClusterTree&lt;double&gt;::get_row_start_index() (line 218)</a></td><td>called 14784 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l206">Bembel::BlockClusterTree&lt;double&gt;::lbegin() (line 206)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l209">Bembel::BlockClusterTree&lt;double&gt;::lend() (line 209)</a></td><td>called 1154 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l97">Bembel::BlockClusterTree&lt;double&gt;::operator=(Bembel::BlockClusterTree&lt;double&gt;) (line 97)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l113">Bembel::BlockClusterTree&lt;double&gt;::set_parameters(double, int) (line 113)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l279">Bembel::BlockClusterTree&lt;double&gt;::updateLeafPointers() (line 279)</a></td><td>called 1230 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l288">Bembel::BlockClusterTree&lt;double&gt;::updateLeafPointers_recursion(Bembel::BlockClusterTree&lt;double&gt;&amp;) (line 288)</a></td><td>called 3678 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l44">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree() (line 44)</a></td><td>called 1842 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l68">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt; const&amp;) (line 68)</a></td><td>called 3678 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l55">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;&amp;&amp;) (line 55)</a></td><td>not called</td><td>0.0%</td></tr>
-    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree&lt;Bembel::HelmholtzSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::HelmholtzSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 2 times, returned 2 times</td><td>50.0%</td></tr>
-    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree&lt;Bembel::MaxwellSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; &gt;(Bembel::MaxwellSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 1 time, returned 1 time</td><td>50.0%</td></tr>
-    <tr><td><a href="#l212">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::clbegin() const (line 212)</a></td><td>called 751 times, returned 751 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l215">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::clend() const (line 215)</a></td><td>called 433327 times, returned 433327 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l255">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::compareCluster(Bembel::ElementTreeNode const&amp;, Bembel::ElementTreeNode const&amp;) (line 255)</a></td><td>called 1839 times, returned 1839 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l200">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_cc() const (line 200)</a></td><td>called 434304 times, returned 434304 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l203">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_cluster1() const (line 203)</a></td><td>called 290112 times, returned 290112 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l204">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_cluster2() const (line 204)</a></td><td>called 145920 times, returned 145920 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l232">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_col_end_index() (line 232)</a></td><td>called 288384 times, returned 288384 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l227">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_col_start_index() (line 227)</a></td><td>called 576768 times, returned 576768 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l245">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_leaf() (line 245)</a></td><td>called 437184 times, returned 437184 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l239">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_parameters() (line 239)</a></td><td>called 3460611 times, returned 3460611 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l236">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_parameters() const (line 236)</a></td><td>called 288944 times, returned 288944 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l223">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_row_end_index() (line 223)</a></td><td>called 288384 times, returned 288384 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l218">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_row_start_index() (line 218)</a></td><td>called 576768 times, returned 576768 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l206">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::lbegin() (line 206)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l209">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::lend() (line 209)</a></td><td>called 1731 times, returned 1731 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l97">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::operator=(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;) (line 97)</a></td><td>called 6 times, returned 6 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l113">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::set_parameters(double, int) (line 113)</a></td><td>called 3 times, returned 3 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l279">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::updateLeafPointers() (line 279)</a></td><td>called 3687 times, returned 3687 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l288">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::updateLeafPointers_recursion(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;&amp;) (line 288)</a></td><td>called 9195 times, returned 9195 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l25">Bembel::BlockClusterTreeParameters&lt;double&gt;::BlockClusterTreeParameters() (line 25)</a></td><td>called 2 times, returned 2 times</td><td>80.0%</td></tr>
-    <tr><td><a href="#l25">Bembel::BlockClusterTreeParameters&lt;std::complex&lt;double&gt; &gt;::BlockClusterTreeParameters() (line 25)</a></td><td>called 3 times, returned 3 times</td><td>80.0%</td></tr>
-    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;double&gt;::appendSubtree&lt;Bembel::HomogenisedLaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::HomogenisedLaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 613 times, returned 613 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;double&gt;::appendSubtree&lt;Bembel::LaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::LaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 613 times, returned 613 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;double&gt;::init_BlockClusterTree&lt;Bembel::HomogenisedLaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::HomogenisedLaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
-    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;double&gt;::init_BlockClusterTree&lt;Bembel::LaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::LaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
-    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::appendSubtree&lt;Bembel::HelmholtzSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::HelmholtzSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 1226 times, returned 1226 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::appendSubtree&lt;Bembel::MaxwellSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; &gt;(Bembel::MaxwellSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 613 times, returned 613 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::init_BlockClusterTree&lt;Bembel::HelmholtzSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::HelmholtzSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 2 times, returned 2 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::init_BlockClusterTree&lt;Bembel::MaxwellSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; &gt;(Bembel::MaxwellSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 1 time, returned 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree&lt;Bembel::HelmholtzSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::HelmholtzSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 2 times</td><td>50.0%</td></tr>
+    <tr><td><a href="#l90">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::BlockClusterTree&lt;Bembel::MaxwellSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; &gt;(Bembel::MaxwellSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 90)</a></td><td>called 1 time</td><td>50.0%</td></tr>
+    <tr><td><a href="#l212">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::clbegin() const (line 212)</a></td><td>called 751 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l215">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::clend() const (line 215)</a></td><td>called 433327 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l255">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::compareCluster(Bembel::ElementTreeNode const&amp;, Bembel::ElementTreeNode const&amp;) (line 255)</a></td><td>called 1839 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l200">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_cc() const (line 200)</a></td><td>called 434304 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l203">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_cluster1() const (line 203)</a></td><td>called 290112 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l204">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_cluster2() const (line 204)</a></td><td>called 145920 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l232">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_col_end_index() (line 232)</a></td><td>called 288384 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l227">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_col_start_index() (line 227)</a></td><td>called 576768 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l245">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_leaf() (line 245)</a></td><td>called 437184 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l239">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_parameters() (line 239)</a></td><td>called 3460611 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l236">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_parameters() const (line 236)</a></td><td>called 288944 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l223">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_row_end_index() (line 223)</a></td><td>called 288384 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l218">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::get_row_start_index() (line 218)</a></td><td>called 576768 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l206">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::lbegin() (line 206)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l209">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::lend() (line 209)</a></td><td>called 1731 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l97">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::operator=(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;) (line 97)</a></td><td>called 6 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l113">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::set_parameters(double, int) (line 113)</a></td><td>called 3 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l279">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::updateLeafPointers() (line 279)</a></td><td>called 3687 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l288">Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::updateLeafPointers_recursion(Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;&amp;) (line 288)</a></td><td>called 9195 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l25">Bembel::BlockClusterTreeParameters&lt;double&gt;::BlockClusterTreeParameters() (line 25)</a></td><td>called 2 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l25">Bembel::BlockClusterTreeParameters&lt;std::complex&lt;double&gt; &gt;::BlockClusterTreeParameters() (line 25)</a></td><td>called 3 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;double&gt;::appendSubtree&lt;Bembel::HomogenisedLaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::HomogenisedLaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 613 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;double&gt;::appendSubtree&lt;Bembel::LaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::LaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 613 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;double&gt;::init_BlockClusterTree&lt;Bembel::HomogenisedLaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; &gt;(Bembel::HomogenisedLaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HomogenisedLaplaceSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;double&gt;::init_BlockClusterTree&lt;Bembel::LaplaceSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; &gt;(Bembel::LaplaceSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::LaplaceSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 1 time</td><td>100.0%</td></tr>
+    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::appendSubtree&lt;Bembel::HelmholtzSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::HelmholtzSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 1226 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l155">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::appendSubtree&lt;Bembel::MaxwellSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; &gt;(Bembel::MaxwellSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;, Bembel::ElementTreeNode const*, Bembel::ElementTreeNode const*) (line 155)</a></td><td>called 613 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::init_BlockClusterTree&lt;Bembel::HelmholtzSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; &gt;(Bembel::HelmholtzSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::HelmholtzSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 2 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l121">void Bembel::BlockClusterTree&lt;std::complex&lt;double&gt; &gt;::init_BlockClusterTree&lt;Bembel::MaxwellSingleLayerOperator, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; &gt;(Bembel::MaxwellSingleLayerOperator const&amp;, Bembel::AnsatzSpace&lt;Bembel::MaxwellSingleLayerOperator&gt; const&amp;) (line 121)</a></td><td>called 1 time</td><td>100.0%</td></tr>
   </table>
 </details>
 
     </nav>
-
     <main>
 <div class="file-source">
   <table>
@@ -324,11 +320,11 @@
       <td class="lineno"><a id="l26" href="#l26">26</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 5 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 5 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">5</td>
@@ -660,11 +656,11 @@
       <td class="lineno"><a id="l73" href="#l73">73</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 4608 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 296 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 4608 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 296 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">4904</td>
@@ -800,11 +796,11 @@
       <td class="lineno"><a id="l92" href="#l92">92</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 5 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 5 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">5</td>
@@ -1024,11 +1020,11 @@
       <td class="lineno"><a id="l123" href="#l123">123</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 5 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 5 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">5</td>
@@ -1297,11 +1293,11 @@
       <td class="lineno"><a id="l161" href="#l161">161</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 185 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 2880 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 185 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 2880 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">3065</td>
@@ -1325,11 +1321,11 @@
       <td class="lineno"><a id="l164" href="#l164">164</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 750 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 185 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 750 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 185 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">935</td>
@@ -1339,11 +1335,11 @@
       <td class="lineno"><a id="l165" href="#l165">165</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3060 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 750 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3060 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 750 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">3810</td>
@@ -1997,11 +1993,11 @@
       <td class="lineno"><a id="l258" href="#l258">258</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 2 taken 3065 times.</div>
-          <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 2 taken 3065 times.</div>
+            <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">3065</td>
@@ -2018,11 +2014,11 @@
       <td class="lineno"><a id="l260" href="#l260">260</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 1920 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 1145 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 1920 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 1145 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">3065</td>
@@ -2032,11 +2028,11 @@
       <td class="lineno"><a id="l261" href="#l261">261</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 176 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 2889 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 176 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 2889 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">3065</td>
@@ -2081,15 +2077,15 @@
       <td class="lineno"><a id="l267" href="#l267">267</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">5/6</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 3065 times.</div>
-          <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
-          <div class="takenBranch">&check; Branch 3 taken 2009 times.</div>
-          <div class="takenBranch">&check; Branch 4 taken 1056 times.</div>
-          <div class="takenBranch">&check; Branch 5 taken 2009 times.</div>
-          <div class="takenBranch">&check; Branch 6 taken 1056 times.</div>
-        </div>
+          <summary class="linebranchSummary">5/6</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 3065 times.</div>
+            <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
+            <div class="takenBranch">&check; Branch 3 taken 2009 times.</div>
+            <div class="takenBranch">&check; Branch 4 taken 1056 times.</div>
+            <div class="takenBranch">&check; Branch 5 taken 2009 times.</div>
+            <div class="takenBranch">&check; Branch 6 taken 1056 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">3065</td>
@@ -2127,13 +2123,13 @@
       <td class="lineno"><a id="l272" href="#l272">272</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">4/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 2009 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 1056 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 1824 times.</div>
-          <div class="takenBranch">&check; Branch 3 taken 1241 times.</div>
-        </div>
+          <summary class="linebranchSummary">4/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 2009 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 1056 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 1824 times.</div>
+            <div class="takenBranch">&check; Branch 3 taken 1241 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">5074</td>
@@ -2150,11 +2146,11 @@
       <td class="lineno"><a id="l274" href="#l274">274</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 1824 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 185 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 1824 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 185 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">2009</td>
@@ -2206,13 +2202,13 @@
       <td class="lineno"><a id="l281" href="#l281">281</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">3/4</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 21 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 4896 times.</div>
-          <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
-          <div class="takenBranch">&check; Branch 3 taken 21 times.</div>
-        </div>
+          <summary class="linebranchSummary">3/4</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 21 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 4896 times.</div>
+            <div class="notTakenBranch">&cross; Branch 2 not taken.</div>
+            <div class="takenBranch">&check; Branch 3 taken 21 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">4917</td>
@@ -2271,11 +2267,11 @@
       <td class="lineno"><a id="l289" href="#l289">289</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 777 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 12096 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 0 taken 777 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 12096 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">12873</td>
@@ -2285,11 +2281,11 @@
       <td class="lineno"><a id="l290" href="#l290">290</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 3150 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 777 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 3150 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 777 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">3927</td>
@@ -2299,11 +2295,11 @@
       <td class="lineno"><a id="l291" href="#l291">291</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">2/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 12852 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 3150 times.</div>
-        </div>
+          <summary class="linebranchSummary">2/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 1 taken 12852 times.</div>
+            <div class="takenBranch">&check; Branch 2 taken 3150 times.</div>
+          </div>
         </details>
       </td>
       <td class="linecount coveredLine">16002</td>
@@ -2327,11 +2323,11 @@
       <td class="lineno"><a id="l294" href="#l294">294</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
-        <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 3 taken 12096 times.</div>
-          <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
-        </div>
+          <summary class="linebranchSummary">1/2</summary>
+          <div class="linebranchContents">
+            <div class="takenBranch">&check; Branch 3 taken 12096 times.</div>
+            <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
+          </div>
         </details>
       </td>
       <td class="linecount partialCoveredLine">12096</td>
@@ -2495,9 +2491,8 @@
 </div>
       <hr/>
     </main>
-
     <footer>
-      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
+      Generated by: <a href="http://gcovr.com/en/8.2">GCOVR (Version 8.2)</a>
     </footer>
   </body>
 </html>
