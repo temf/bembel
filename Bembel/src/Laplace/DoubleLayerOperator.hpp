@@ -49,8 +49,8 @@ class LaplaceDoubleLayerOperator
         p1.get_surface_measure() * p1.get_w() * p2.get_w();
 
     // multiply basis functions with integrand and add to intval
-    super_space.addScaledBasisInteraction(intval, integrand, p1.get_f(),
-                                          p2.get_f());
+    super_space.addScaledBasisInteraction(intval, integrand, p1.get_xi(),
+                                          p2.get_xi());
 
     return;
   }
