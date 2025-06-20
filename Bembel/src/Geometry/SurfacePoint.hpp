@@ -109,7 +109,7 @@ class SurfacePoint {
   Eigen::Matrix<double, 3, 2> jacobian_;
   bool buffer_is_alloced_ = false;
   int buffer_size_ = 0;
-  double *buffer_;
+  double *buffer_ = nullptr;
 };
 
 typedef std::vector<SurfacePoint, Eigen::aligned_allocator<SurfacePoint>>
