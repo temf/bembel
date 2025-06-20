@@ -46,8 +46,9 @@ class LaplaceHypersingularOperator
     auto h = 1. / (1 << super_space.get_refinement_level());  // h = 1 ./ (2^M)
 
     // integrand without basis functions
-    auto integrand =
-        evaluateKernel(p1.get_f(), p2.get_f()) * p1.get_surface_measure() * p2.get_surface_measure() * p1.get_w() * p2.get_w() / h / h;
+    auto integrand = evaluateKernel(p1.get_f(), p2.get_f()) *
+                     p1.get_surface_measure() * p2.get_surface_measure() *
+                     p1.get_w() * p2.get_w() / h / h;
 
     // multiply basis functions with integrand and add to intval, this is an
     // efficient implementation of
