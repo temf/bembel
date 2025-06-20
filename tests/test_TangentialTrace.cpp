@@ -22,10 +22,27 @@ struct Bembel::LinearOperatorTraits<TestOperatorDivC> {
   typedef Eigen::VectorXd::Scalar Scalar;
   enum { OperatorOrder = 0, Form = DifferentialForm::DivConforming };
 };
-
+/*
+ * This test uses a five patch geometry. After discretizing with level zero
+ * refinement four degrees of freedom remain which are all located on the edge
+ * of patch 0.
+ * The linear form integrates the function (x,y,z) with the tangential trace.
+ * For a simplified test the function is 0 outside of patch 0. Thereby only
+ * contributions of basis functions with support on patch 0 need to be taken
+ * into account.
+ *
+ *      ----
+ *      |4 |
+ *   ----------
+ *   |2 |0 |1 |
+ *   ----------
+ *      |3 |
+ *      ----
+ *
+ */
 int main() {
-  Test::TestGeometryWriter::writeScreen();
-  Bembel::Geometry geometry("test_Screen.dat");
+  Test::TestGeometryWriter::writeEdgeCase1();
+  Bembel::Geometry geometry("test_EdgeCase1.dat");
 
   const int refinement_level = 0;
   const int polynomial_degree = 1;
@@ -33,7 +50,13 @@ int main() {
                                                      polynomial_degree);
 
   std::function<Eigen::Vector3d(Eigen::Vector3d)> fun = [](Eigen::Vector3d in) {
-    return Eigen::Vector3d(in(0), in(1), in(2));
+    Eigen::Vector3d retval;
+    if (in(0) < 0 || in(0) > 1 || in(1) < 0 || in(1) > 1) {
+      retval << 0, 0, 0;
+    } else {
+      retval << in(0), in(1), in(2);
+    }
+    return retval;
   };
 
   Bembel::DiscreteLinearForm<Bembel::TangentialTrace<double>, TestOperatorDivC>

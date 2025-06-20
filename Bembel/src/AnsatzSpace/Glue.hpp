@@ -165,13 +165,15 @@ class Glue {
 
     // Here, we fill the two vectors above
     int number_of_slaves = 0;
+    int number_of_boundary_dofs = 0;
     for (auto dofset : dof_id) {
       // This sorting is required, since by construction only dofs[0]<dofs[1] is
       // given, but in the case of corners and H1 discretizations, it might
       // happen that dofs[0]>dofs[2]. Moreover, we count how many dofs we "glue
-      // away".
+      // away" or skipped on the boundary.
       std::sort(dofset.dofs.begin(), dofset.dofs.end());
       dof_is_master[dofset.dofs[0]] = true;
+      if (dofset.dofs.size() == 1) ++number_of_boundary_dofs;
       for (int i = 1; i < dofset.dofs.size(); ++i) {
         dof_is_slave[dofset.dofs[i]] = true;
         ++number_of_slaves;
@@ -185,17 +187,24 @@ class Glue {
                 return a.dofs[0] < b.dofs[0];
               });
 
-    const int post_dofs = pre_dofs - number_of_slaves;
-
+    const int post_dofs = pre_dofs - number_of_slaves - number_of_boundary_dofs;
+    const int glued_dofs = pre_dofs - number_of_slaves;
+    assert(post_dofs != 0 && "All degrees of freedom are on the boundary!");
     // This block is the heart of the algorithms. Skip keeps track of how many
     // slaves have been skipped already, and master_index keeps track on which
-    // master is about to be glued next.
+    // master is about to be glued next. post_index keeps track on how many
+    // dofs are on the boundary of the patches and therefore skipped.
     int skip = 0;
     int master_index = 0;
-    for (int i = 0; i < post_dofs; ++i) {
-      const int post_index = i;
+    int post_index = 0;
+    for (int i = 0; i < glued_dofs; ++i) {
       while (dof_is_slave[i + skip] && ((i + skip) < pre_dofs)) ++skip;
       const int pre_index = i + skip;
+      // skip dofs on patch boundary without a slave patch
+      if (dof_is_master[pre_index] && dof_id[master_index].dofs.size() == 1) {
+        ++master_index;
+        continue;
+      }
       trips.push_back(Eigen::Triplet<double>(pre_index, post_index, 1));
       // The dof cannot be declared slave and master at the same time
       assert(!(dof_is_master[pre_index] && dof_is_slave[pre_index]));
@@ -212,12 +221,13 @@ class Glue {
         }
         ++master_index;
       }
+      ++post_index;
     }
 
     Eigen::SparseMatrix<double> glue_matrix(pre_dofs, post_dofs);
     glue_matrix.setFromTriplets(trips.begin(), trips.end());
 
-    assert(trips.size() == pre_dofs);
+    assert(trips.size() == (pre_dofs - number_of_boundary_dofs));
     return glue_matrix;
   }
 };
@@ -557,7 +567,7 @@ struct glue_identificationmaker_<Derived, DifferentialForm::DivConforming> {
       const bool needReversion = reverseParametrized(edge);
       const int coef = glueCoefficientDivergenceConforming(edge);
 
-      // Check if the edge is hanging. For screens one would need an "else".
+      // Check if the edge is hanging.
       if (edge[1] > -1 && edge[0] > -1) {
         for (int i = 0; i < size_of_edge_dofs; ++i) {
           GlueRoutines::dofIdentification d;
@@ -567,6 +577,13 @@ struct glue_identificationmaker_<Derived, DifferentialForm::DivConforming> {
           d.dofs.push_back(std::min(dofs_e1[i], dofs_e2[j]));
           d.dofs.push_back(std::max(dofs_e1[i], dofs_e2[j]));
           d.coef = coef;
+          out.push_back(d);
+        }
+      } else {
+        for (int i = 0; i < size_of_edge_dofs; ++i) {
+          // Add only the master dof which is skipped in subsequent routines
+          GlueRoutines::dofIdentification d;
+          d.dofs.push_back(dofs_e1[i]);
           out.push_back(d);
         }
       }
