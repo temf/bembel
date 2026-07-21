@@ -76,7 +76,7 @@ int main() {
   // Iterate over polynomial degree.
   for (auto polynomial_degree : {1, 2, 3, 4}) {
     std::cout << "Degree " << polynomial_degree << std::endl;
-    int MAX_LVL = 7;
+    int MAX_LVL = 5;
 
     std::vector<Eigen::SparseMatrix<double>> Ps;
 
