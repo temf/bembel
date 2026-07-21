@@ -12,6 +12,8 @@
 #ifndef BEMBEL_SRC_MULTIGRID_PROLONGATIONBSPLINES_HPP_
 #define BEMBEL_SRC_MULTIGRID_PROLONGATIONBSPLINES_HPP_
 
+#include <tuple>
+
 namespace Bembel {
 namespace MG {
 
