@@ -14,6 +14,7 @@ set(CIFILES
     Geometry
     MassMatrix
     LaplaceBeltrami
+    LaplaceBeltramiMultiGrid
     LaplaceSingleLayerFull
     LaplaceSingleLayerH2
     LaplaceHypersingularH2
