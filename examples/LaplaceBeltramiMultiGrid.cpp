@@ -133,9 +133,10 @@ int main() {
       auto difft = sw.toc();
       // print INFO
       error(refinement_level) = surfaceL2error(ansatz_space, x, refsol);
-      std::cout << std::left << std::setw(8) << refinement_level << std::left
-                << std::setw(8) << iters << std::left << std::setw(15) << error(refinement_level)
-                << std::left << std::setw(15) << difft << std::endl;
+      std::cout << std::left << std::setw(8) << refinement_level
+                << std::left << std::setw(8) << iters << std::left
+                << std::setw(15) << error(refinement_level) << std::left
+                << std::setw(15) << difft << std::endl;
     }
     // estimate rate of convergence and check whether it is at least 90% of the
     // expected value
