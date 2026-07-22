@@ -20,6 +20,7 @@
 
 #include <Bembel/src/util/Macros.hpp>
 #include <Bembel/src/util/surfaceL2error.hpp>
+#include "examples/Error.hpp"
 
 // MG solver for the Laplace Beltrami with Neumann condition.
 int mmg(const Eigen::VectorXd &constant_one,
@@ -77,6 +78,7 @@ int main() {
   for (auto polynomial_degree : {1, 2, 3, 4}) {
     std::cout << "Degree " << polynomial_degree << std::endl;
     int MAX_LVL = 5;
+    VectorXd error(MAX_LVL + 1);
 
     std::vector<Eigen::SparseMatrix<double>> Ps;
 
@@ -130,11 +132,17 @@ int main() {
                       refinement_level, 1e-10);
       auto difft = sw.toc();
       // print INFO
-      auto err = surfaceL2error(ansatz_space, x, refsol);
+      error(refinement_level) = surfaceL2error(ansatz_space, x, refsol);
       std::cout << std::left << std::setw(8) << refinement_level << std::left
-                << std::setw(8) << iters << std::left << std::setw(15) << err
+                << std::setw(8) << iters << std::left << std::setw(15) << error(refinement_level)
                 << std::left << std::setw(15) << difft << std::endl;
     }
+    // estimate rate of convergence and check whether it is at least 90% of the
+    // expected value
+    assert(
+        checkRateOfConvergence(error.tail(2), polynomial_degree + 1, 0.9));
+
+    std::cout << std::endl;
   }
   std::cout << "============================================================="
                "=========="
