@@ -1,5 +1,10 @@
 <map id="Bembel::BlockClusterTreeParameters&lt; Scalar &gt;" name="Bembel::BlockClusterTreeParameters&lt; Scalar &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="355,94,544,135"/>
-<area shape="rect" id="node2" href="$class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree." alt="" coords="30,59,225,85"/>
-<area shape="rect" id="node3" href="$struct_bembel_1_1_tensor_product_quadrature_vector.html" title=" " alt="" coords="5,109,249,165"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="615,71,804,111"/>
+<area shape="rect" id="Node000002" href="$struct_bembel_1_1_tensor_product_quadrature_vector.html" title=" " alt="" coords="265,5,509,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="523,55,615,72,614,77,522,60"/>
+<area shape="rect" id="Node000003" href="$struct_bembel_1_1_quadrature.html" title=" " alt="" coords="5,20,196,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="210,30,265,30,265,35,210,35"/>
+<area shape="rect" id="Node000004" href="$class_bembel_1_1_element_tree_node.html" title="The ElementTreeNode corresponds to an element in the element tree." alt="" coords="290,137,485,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="471,132,614,106,615,111,472,137"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="357,123,366,114,387,111,405,113,416,119,419,129,413,139,409,136,414,128,412,123,403,118,387,116,368,119,361,127"/>
 </map>

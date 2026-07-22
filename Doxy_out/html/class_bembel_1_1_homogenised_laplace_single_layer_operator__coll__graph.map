@@ -1,4 +1,5 @@
 <map id="Bembel::HomogenisedLaplaceSingleLayerOperator" name="Bembel::HomogenisedLaplaceSingleLayerOperator">
-<area shape="rect" id="node1" title="This class implements the specification of the integration for the single layer operator for the homo..." alt="" coords="22,109,242,151"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,259,61"/>
+<area shape="rect" id="Node000001" title="This class implements the specification of the integration for the single layer operator for the homo..." alt="" coords="22,108,242,148"/>
+<area shape="rect" id="Node000002" href="$struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,259,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,74,135,108,129,108,129,74"/>
 </map>

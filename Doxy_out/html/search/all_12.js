@@ -1,19 +1,16 @@
 var searchData=
 [
-  ['scalar_444',['Scalar',['../class_eigen_1_1_h2_matrix.html#a883fb6e69f36b96e83392f0204bd174a',1,'Eigen::H2Matrix']]],
-  ['set_5fparameters_445',['set_parameters',['../class_bembel_1_1_block_cluster_tree.html#a844108af0d77d0259d6ccf7e979b4d28',1,'Bembel::BlockClusterTree']]],
-  ['set_5fwavenumber_446',['set_wavenumber',['../class_bembel_1_1_augmented_e_f_i_e.html#acdec086c346b842409bc4728ca74f6ad',1,'Bembel::AugmentedEFIE']]],
-  ['setprecision_447',['setPrecision',['../class_bembel_1_1_homogenised_laplace_single_layer_operator.html#aeaf41f93d8deed00877edaa4697ca4ad',1,'Bembel::HomogenisedLaplaceSingleLayerOperator']]],
-  ['sons_5f_448',['sons_',['../class_bembel_1_1_element_tree_node.html#ae3b0c9c48996599cfcbc6a538aa92e9d',1,'Bembel::ElementTreeNode']]],
-  ['spherical_5fharmonics_5ffull_449',['spherical_harmonics_full',['../namespace_bembel.html#ac471d8ce3c1bed1faa03d1a234b9044d',1,'Bembel']]],
-  ['spherical_5fprev_450',['spherical_prev',['../namespace_bembel.html#aeaf21aded2538756462f6ea3631dc909',1,'Bembel']]],
-  ['spline_451',['Spline',['../group___spline.html',1,'']]],
-  ['static_5fassertklessseqn_452',['static_assertKlessseqN',['../struct_bembel_1_1static__assert_klessseq_n.html',1,'Bembel']]],
-  ['static_5fassertklessseqn_3c_20true_20_3e_453',['static_assertKlessseqN&lt; true &gt;',['../struct_bembel_1_1static__assert_klessseq_n_3_01true_01_4.html',1,'Bembel']]],
-  ['stopwatch_454',['Stopwatch',['../class_bembel_1_1_i_o_1_1_stopwatch.html',1,'Bembel::IO']]],
-  ['storage_5fkind_5fto_5fevaluator_5fkind_3c_20h2_20_3e_455',['storage_kind_to_evaluator_kind&lt; H2 &gt;',['../struct_eigen_1_1internal_1_1storage__kind__to__evaluator__kind_3_01_h2_01_4.html',1,'Eigen::internal']]],
-  ['storage_5fkind_5fto_5fshape_3c_20h2_20_3e_456',['storage_kind_to_shape&lt; H2 &gt;',['../struct_eigen_1_1internal_1_1storage__kind__to__shape_3_01_h2_01_4.html',1,'Eigen::internal']]],
-  ['structure_20of_20the_20repository_457',['Structure of the Repository',['../_structure_repo.html',1,'']]],
-  ['superspace_458',['SuperSpace',['../struct_bembel_1_1_super_space.html',1,'Bembel::SuperSpace&lt; Derived &gt;'],['../struct_bembel_1_1_super_space.html#ab20a5cddf39d5023db66104827bb00a9',1,'Bembel::SuperSpace::SuperSpace()'],['../struct_bembel_1_1_super_space.html#a539f6c0b0cf2e175163290761d84cbc3',1,'Bembel::SuperSpace::SuperSpace(Geometry &amp;geom, int M, int P)'],['../struct_bembel_1_1_super_space.html#a50d854e48c78d380fc9d0d810057470e',1,'Bembel::SuperSpace::SuperSpace(const SuperSpace &amp;other)'],['../struct_bembel_1_1_super_space.html#ab3c1efe593c67bb9ef1dc38a03c4d90d',1,'Bembel::SuperSpace::SuperSpace(SuperSpace &amp;&amp;other)']]],
-  ['surfacepoint_459',['SurfacePoint',['../group___geometry.html#ga7f3488fb214d75f08146ff31726428b4',1,'SurfacePoint.hpp']]]
+  ['tangentialtrace_0',['TangentialTrace',['../class_bembel_1_1_tangential_trace.html',1,'Bembel']]],
+  ['tau_1',['tau',['../group___duffy_trick.html#gaa45bae55cdce9e0a39ded6b20eedeb4a',1,'Bembel::DuffyTrick']]],
+  ['template_20pattern_2',['Curiously Recurring Template Pattern',['../_design_considerations.html#secCRTP',1,'']]],
+  ['tensorproductquadraturevector_3',['TensorProductQuadratureVector',['../struct_bembel_1_1_tensor_product_quadrature_vector.html',1,'Bembel']]],
+  ['tensorproductquadraturevector_3c_20constants_3a_3amaximum_5fquadrature_5fdegree_20_3e_4',['TensorProductQuadratureVector&lt; Constants::maximum_quadrature_degree &gt;',['../struct_bembel_1_1_tensor_product_quadrature_vector.html',1,'Bembel']]],
+  ['tensorproductquadraturevector_3c_20quadraturerule_2c_200_20_3e_5',['TensorProductQuadratureVector&lt; QuadratureRule, 0 &gt;',['../struct_bembel_1_1_tensor_product_quadrature_vector_3_01_quadrature_rule_00_010_01_4.html',1,'Bembel']]],
+  ['the_20bem_20realized_20in_20bembel_6',['Procedure of the BEM realized in Bembel',['../_getting_started.html#secProcedure',1,'']]],
+  ['the_20repository_7',['Structure of the Repository',['../_structure_repo.html',1,'']]],
+  ['to_20balun_20spiral_20antenna_8',['A-EFIE Application to Balun Spiral Antenna',['../group___augmented_e_f_i_e_balun.html',1,'']]],
+  ['to_20compile_9',['How to Compile',['../_getting_started.html#secStart',1,'']]],
+  ['todo_20list_10',['Todo List',['../todo.html',1,'']]],
+  ['traits_3c_20h2matrix_3c_20scalart_20_3e_20_3e_11',['traits&lt; H2Matrix&lt; ScalarT &gt; &gt;',['../struct_eigen_1_1internal_1_1traits_3_01_h2_matrix_3_01_scalar_t_01_4_01_4.html',1,'Eigen::internal']]],
+  ['treeleaf_12',['treeleaf',['../class_bembel_1_1_tree_leaf.html#a37d64902f934440fe267b9cdfca256f0',1,'Bembel::TreeLeaf::TreeLeaf(const TreeLeaf &amp;other)'],['../class_bembel_1_1_tree_leaf.html#a5fc78cbaf513afb47c5bd87766a49854',1,'Bembel::TreeLeaf::TreeLeaf(TreeLeaf &amp;&amp;other)'],['../class_bembel_1_1_tree_leaf.html#a9565e3bfaa3cee339b541a38d60d1fc3',1,'Bembel::TreeLeaf::TreeLeaf(const Eigen::MatrixBase&lt; otherDerived &gt; &amp;L, const Eigen::MatrixBase&lt; otherDerived &gt; &amp;R)'],['../class_bembel_1_1_tree_leaf.html#af44413eb5337f59c51250f5ade151358',1,'Bembel::TreeLeaf::TreeLeaf(const Eigen::MatrixBase&lt; otherDerived &gt; &amp;F)'],['../class_bembel_1_1_tree_leaf.html#a2a24739e694ad57d8df9755c4f75fb6a',1,'Bembel::TreeLeaf::TreeLeaf(Derived &amp;&amp;L, Derived &amp;&amp;R)'],['../class_bembel_1_1_tree_leaf.html#a23b3b6a0b86a2a4761ef289db113fd87',1,'Bembel::TreeLeaf::TreeLeaf(Derived &amp;&amp;F)'],['../class_bembel_1_1_tree_leaf.html#adbd97a46cff8f7b258de1f005a87363b',1,'Bembel::TreeLeaf::TreeLeaf(void)'],['../class_bembel_1_1_tree_leaf.html',1,'Bembel::TreeLeaf&lt; Derived &gt;']]]
 ];

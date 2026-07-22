@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['ansatzspace_489',['AnsatzSpace',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20bembel_3a_3ahelmholtzsinglelayeroperator_20_3e_490',['AnsatzSpace&lt; Bembel::HelmholtzSingleLayerOperator &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20bembel_3a_3ainductancematrix_20_3e_491',['AnsatzSpace&lt; Bembel::InductanceMatrix &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20bembel_3a_3amassmatrixscalardisc_20_3e_492',['AnsatzSpace&lt; Bembel::MassMatrixScalarDisc &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20derived_5fvec_20_3e_493',['AnsatzSpace&lt; Derived_vec &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20linop_20_3e_494',['AnsatzSpace&lt; LinOp &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20linopscalar_20_3e_495',['AnsatzSpace&lt; LinOpScalar &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['ansatzspace_3c_20linopvector_20_3e_496',['AnsatzSpace&lt; LinOpVector &gt;',['../class_bembel_1_1_ansatz_space.html',1,'Bembel']]],
-  ['augmentedefie_497',['AugmentedEFIE',['../class_bembel_1_1_augmented_e_f_i_e.html',1,'Bembel']]],
-  ['augmentedefieassembler_498',['AugmentedEFIEAssembler',['../struct_bembel_1_1_augmented_e_f_i_e_assembler.html',1,'Bembel']]],
-  ['augmentedefieassembler_3c_20eigen_3a_3amatrixxcd_20_3e_499',['AugmentedEFIEAssembler&lt; Eigen::MatrixXcd &gt;',['../struct_bembel_1_1_augmented_e_f_i_e_assembler_3_01_eigen_1_1_matrix_xcd_01_4.html',1,'Bembel']]],
-  ['augmentedefieexcitation_500',['AugmentedEFIEExcitation',['../class_bembel_1_1_augmented_e_f_i_e_excitation.html',1,'Bembel']]]
+  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20h2_2c_20h2_20_3e_0',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html',1,'Eigen::internal']]],
+  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20h2_2c_20indexbased_20_3e_1',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, IndexBased &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_07844db242e78d493ececb06eddc8ad7a.html',1,'Eigen::internal']]],
+  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20h2_2c_20iteratorbased_20_3e_2',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, IteratorBased &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_02380796a39ed8f8fbeef465401aaf2fd.html',1,'Eigen::internal']]],
+  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20indexbased_2c_20h2_20_3e_3',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, IndexBased, H2 &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_094d7085e16ec6f5c59616c044fb1ed0a.html',1,'Eigen::internal']]],
+  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20iteratorbased_2c_20h2_20_3e_4',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, IteratorBased, H2 &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0e20e24b49f6868a5f994afbcb553d278.html',1,'Eigen::internal']]],
+  ['binomial_5',['Binomial',['../struct_bembel_1_1_binomial.html',1,'Bembel']]],
+  ['binomial_3c_200_2c_200_20_3e_6',['Binomial&lt; 0, 0 &gt;',['../struct_bembel_1_1_binomial_3_010_00_010_01_4.html',1,'Bembel']]],
+  ['binomial_3c_200_2c_20n_20_3e_7',['Binomial&lt; 0, N &gt;',['../struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html',1,'Bembel']]],
+  ['binomial_3c_20n_2c_20n_20_3e_8',['Binomial&lt; N, N &gt;',['../struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html',1,'Bembel']]],
+  ['blockclusteradmissibility_9',['BlockClusterAdmissibility',['../struct_bembel_1_1_block_cluster_admissibility.html',1,'Bembel']]],
+  ['blockclustertree_10',['BlockClusterTree',['../class_bembel_1_1_block_cluster_tree.html',1,'Bembel']]],
+  ['blockclustertreeparameters_11',['BlockClusterTreeParameters',['../struct_bembel_1_1_block_cluster_tree_parameters.html',1,'Bembel']]]
 ];

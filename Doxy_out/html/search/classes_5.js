@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['efie_538',['EFIE',['../class_bembel_1_1_e_f_i_e.html',1,'Bembel']]],
-  ['elementtree_539',['ElementTree',['../class_bembel_1_1_element_tree.html',1,'Bembel']]],
-  ['elementtreenode_540',['ElementTreeNode',['../class_bembel_1_1_element_tree_node.html',1,'Bembel']]],
-  ['evaluator_3c_20h2matrix_3c_20scalar_20_3e_20_3e_541',['evaluator&lt; H2Matrix&lt; Scalar &gt; &gt;',['../struct_eigen_1_1internal_1_1evaluator_3_01_h2_matrix_3_01_scalar_01_4_01_4.html',1,'Eigen::internal']]],
-  ['evaluator_3c_20h2matrixbase_3c_20derived_20_3e_20_3e_542',['evaluator&lt; H2MatrixBase&lt; Derived &gt; &gt;',['../struct_eigen_1_1internal_1_1evaluator_3_01_h2_matrix_base_3_01_derived_01_4_01_4.html',1,'Eigen::internal']]]
+  ['functionevaluator_0',['FunctionEvaluator',['../class_bembel_1_1_function_evaluator.html',1,'Bembel']]],
+  ['functionevaluator_3c_20linop_20_3e_1',['FunctionEvaluator&lt; LinOp &gt;',['../class_bembel_1_1_function_evaluator.html',1,'Bembel']]],
+  ['functionevaluatoreval_2',['FunctionEvaluatorEval',['../struct_bembel_1_1_function_evaluator_eval.html',1,'Bembel']]],
+  ['functionevaluatoreval_3c_20scalar_2c_20differentialform_3a_3acontinuous_2c_20linop_20_3e_3',['FunctionEvaluatorEval&lt; Scalar, DifferentialForm::Continuous, LinOp &gt;',['../struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_continuous_00_01_lin_op_01_4.html',1,'Bembel']]],
+  ['functionevaluatoreval_3c_20scalar_2c_20differentialform_3a_3adiscontinuous_2c_20linop_20_3e_4',['FunctionEvaluatorEval&lt; Scalar, DifferentialForm::Discontinuous, LinOp &gt;',['../struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_discontinuous_00_01_lin_op_01_4.html',1,'Bembel']]],
+  ['functionevaluatoreval_3c_20scalar_2c_20differentialform_3a_3adivconforming_2c_20linop_20_3e_5',['FunctionEvaluatorEval&lt; Scalar, DifferentialForm::DivConforming, LinOp &gt;',['../struct_bembel_1_1_function_evaluator_eval_3_01_scalar_00_01_differential_form_1_1_div_conforming_00_01_lin_op_01_4.html',1,'Bembel']]],
+  ['functionevaluatoreval_3c_20typename_20bembel_3a_3alinearoperatortraits_3c_20derived_20_3e_3a_3ascalar_2c_20bembel_3a_3alinearoperatortraits_3c_20derived_20_3e_3a_3aform_2c_20derived_20_3e_6',['FunctionEvaluatorEval&lt; typename Bembel::LinearOperatorTraits&lt; Derived &gt;::Scalar, Bembel::LinearOperatorTraits&lt; Derived &gt;::Form, Derived &gt;',['../struct_bembel_1_1_function_evaluator_eval.html',1,'Bembel']]],
+  ['functionevaluatoreval_3c_20typename_20bembel_3a_3alinearoperatortraits_3c_20linop_20_3e_3a_3ascalar_2c_20bembel_3a_3alinearoperatortraits_3c_20linop_20_3e_3a_3aform_2c_20linop_20_3e_7',['FunctionEvaluatorEval&lt; typename Bembel::LinearOperatorTraits&lt; LinOp &gt;::Scalar, Bembel::LinearOperatorTraits&lt; LinOp &gt;::Form, LinOp &gt;',['../struct_bembel_1_1_function_evaluator_eval.html',1,'Bembel']]]
 ];

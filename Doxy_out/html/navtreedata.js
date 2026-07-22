@@ -39,6 +39,7 @@ var NAVTREE =
       [ "Publications Featuring Bembel", "citelist.html", null ],
       [ "Funding", "_funding.html", null ]
     ] ],
+    [ "Source Code", "topics.html", "topics" ],
     [ "Class List", "annotated.html", "annotated" ],
     [ "Namespace List", "namespaces.html", "namespaces" ]
   ] ]
@@ -47,8 +48,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_configurations.html",
-"namespace_bembel.html#a272b65592bd5c21fea7ff48a082b4f71",
-"struct_bembel_1_1_linear_operator_traits_3_01_dummy_operator_01_4.html#a0ebaecda2ac708d80ec18ab374c91f85"
+"class_bembel_1_1_projector.html#aecaf8f9a3c60267e9304d2d70e03b635",
+"struct_bembel_1_1_gauss_legendre_rule_3_013_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

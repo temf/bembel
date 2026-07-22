@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['structure_20of_20the_20repository_1000',['Structure of the Repository',['../_structure_repo.html',1,'']]]
+  ['list_0',['list',['../deprecated.html',1,'Deprecated List'],['../todo.html',1,'Todo List']]]
 ];

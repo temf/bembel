@@ -1,5 +1,7 @@
 <map id="Eigen::internal::generic_product_impl&lt; const CwiseBinaryOp&lt; BinaryOp, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;" name="Eigen::internal::generic_product_impl&lt; const CwiseBinaryOp&lt; BinaryOp, BinaryLhs, BinaryRhs &gt;, Rhs, H2, DenseShape, ProductType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="689,27,976,98"/>
-<area shape="rect" id="node2" href="$struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01_binary_op_00_01_bindee96f1c7e248fc6a07c919bd232bde5.html" title="overwrite eigen implementation by using distributive law, i.e., compute A*c+B*c instead of (A+B)*c" alt="" coords="355,27,641,98"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,307,120"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="689,27,976,97"/>
+<area shape="rect" id="Node000002" href="$struct_eigen_1_1internal_1_1generic__product__impl_3_01_cwise_binary_op_3_01_binary_op_00_01_bindee96f1c7e248fc6a07c919bd232bde5.html" title="overwrite eigen implementation by using distributive law, i.e., compute A*c+B*c instead of (A+B)*c" alt="" coords="355,27,641,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="655,59,689,59,689,65,655,65"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,307,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="321,59,354,59,354,65,321,65"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="Bembel::ElementTreeNode" name="Bembel::ElementTreeNode">
-<area shape="rect" id="node1" title="The ElementTreeNode corresponds to an element in the element tree." alt="" coords="5,7,200,33"/>
+<area shape="rect" id="Node000001" title="The ElementTreeNode corresponds to an element in the element tree." alt="" coords="5,7,200,33"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="215,14,227,20,201,27,200,21,221,20,213,20"/>
 </map>

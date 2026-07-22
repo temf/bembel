@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['getting_20started_998',['Getting Started',['../_getting_started.html',1,'']]]
+  ['featuring_20bembel_0',['Publications Featuring Bembel',['../_publications.html',1,'']]],
+  ['frequently_20asked_20questions_1',['Frequently Asked Questions',['../_f_a_qs.html',1,'']]],
+  ['funding_2',['Funding',['../_funding.html',1,'']]]
 ];

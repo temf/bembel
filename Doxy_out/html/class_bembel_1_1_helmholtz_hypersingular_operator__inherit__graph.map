@@ -1,4 +1,5 @@
 <map id="Bembel::HelmholtzHypersingularOperator" name="Bembel::HelmholtzHypersingularOperator">
-<area shape="rect" id="node1" title=" " alt="" coords="19,95,258,136"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,272,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="19,93,258,133"/>
+<area shape="rect" id="Node000002" href="$struct_bembel_1_1_linear_operator_base.html" title=" " alt="" coords="5,5,272,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,59,141,93,136,93,136,59"/>
 </map>

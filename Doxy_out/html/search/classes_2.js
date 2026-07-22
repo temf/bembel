@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20h2_2c_20h2_20_3e_501',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, H2 &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0ab961f8b5532cc9922b5dcf1c32e3048.html',1,'Eigen::internal']]],
-  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20h2_2c_20indexbased_20_3e_502',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, IndexBased &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_07844db242e78d493ececb06eddc8ad7a.html',1,'Eigen::internal']]],
-  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20h2_2c_20iteratorbased_20_3e_503',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, H2, IteratorBased &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_02380796a39ed8f8fbeef465401aaf2fd.html',1,'Eigen::internal']]],
-  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20indexbased_2c_20h2_20_3e_504',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, IndexBased, H2 &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_094d7085e16ec6f5c59616c044fb1ed0a.html',1,'Eigen::internal']]],
-  ['binary_5fevaluator_3c_20cwisebinaryop_3c_20binaryop_2c_20lhs_2c_20rhs_20_3e_2c_20iteratorbased_2c_20h2_20_3e_505',['binary_evaluator&lt; CwiseBinaryOp&lt; BinaryOp, Lhs, Rhs &gt;, IteratorBased, H2 &gt;',['../struct_eigen_1_1internal_1_1binary__evaluator_3_01_cwise_binary_op_3_01_binary_op_00_01_lhs_00_0e20e24b49f6868a5f994afbcb553d278.html',1,'Eigen::internal']]],
-  ['binomial_506',['Binomial',['../struct_bembel_1_1_binomial.html',1,'Bembel']]],
-  ['binomial_3c_200_2c_200_20_3e_507',['Binomial&lt; 0, 0 &gt;',['../struct_bembel_1_1_binomial_3_010_00_010_01_4.html',1,'Bembel']]],
-  ['binomial_3c_200_2c_20n_20_3e_508',['Binomial&lt; 0, N &gt;',['../struct_bembel_1_1_binomial_3_010_00_01_n_01_4.html',1,'Bembel']]],
-  ['binomial_3c_20n_2c_20n_20_3e_509',['Binomial&lt; N, N &gt;',['../struct_bembel_1_1_binomial_3_01_n_00_01_n_01_4.html',1,'Bembel']]],
-  ['blockclusteradmissibility_510',['BlockClusterAdmissibility',['../struct_bembel_1_1_block_cluster_admissibility.html',1,'Bembel']]],
-  ['blockclustertree_511',['BlockClusterTree',['../class_bembel_1_1_block_cluster_tree.html',1,'Bembel']]],
-  ['blockclustertreeparameters_512',['BlockClusterTreeParameters',['../struct_bembel_1_1_block_cluster_tree_parameters.html',1,'Bembel']]]
+  ['chebychevroots_0',['ChebychevRoots',['../struct_bembel_1_1_h2_multipole_1_1_chebychev_roots.html',1,'Bembel::H2Multipole']]],
+  ['clustertree_1',['ClusterTree',['../class_bembel_1_1_cluster_tree.html',1,'Bembel']]],
+  ['const_5fiterator_2',['const_iterator',['../struct_bembel_1_1_element_tree_node_1_1const__iterator.html',1,'Bembel::ElementTreeNode']]],
+  ['continuousview_3',['ContinuousView',['../class_bembel_1_1_continuous_view.html',1,'Bembel']]],
+  ['cwise_5fpromote_5fstorage_5ftype_3c_20dense_2c_20h2_2c_20functor_20_3e_4',['cwise_promote_storage_type&lt; Dense, H2, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_dense_00_01_h2_00_01_functor_01_4.html',1,'Eigen::internal']]],
+  ['cwise_5fpromote_5fstorage_5ftype_3c_20h2_2c_20dense_2c_20functor_20_3e_5',['cwise_promote_storage_type&lt; H2, Dense, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_h2_00_01_dense_00_01_functor_01_4.html',1,'Eigen::internal']]],
+  ['cwise_5fpromote_5fstorage_5ftype_3c_20h2_2c_20sparse_2c_20functor_20_3e_6',['cwise_promote_storage_type&lt; H2, Sparse, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_h2_00_01_sparse_00_01_functor_01_4.html',1,'Eigen::internal']]],
+  ['cwise_5fpromote_5fstorage_5ftype_3c_20sparse_2c_20h2_2c_20functor_20_3e_7',['cwise_promote_storage_type&lt; Sparse, H2, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_sparse_00_01_h2_00_01_functor_01_4.html',1,'Eigen::internal']]],
+  ['cwisebinaryopimpl_3c_20binaryop_2c_20lhs_2c_20rhs_2c_20h2_20_3e_8',['CwiseBinaryOpImpl&lt; BinaryOp, Lhs, Rhs, H2 &gt;',['../class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html',1,'Eigen']]]
 ];

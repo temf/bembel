@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quadrature_988',['Quadrature',['../group___quadrature.html',1,'']]]
+  ['maxwell_0',['Maxwell',['../group___maxwell.html',1,'']]],
+  ['modules_1',['Modules',['../group___modules.html',1,'']]]
 ];

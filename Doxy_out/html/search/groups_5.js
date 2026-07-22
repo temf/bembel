@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['h2matrix_977',['H2Matrix',['../group___h2_matrix.html',1,'']]],
-  ['helmholtz_978',['Helmholtz',['../group___helmholtz.html',1,'']]],
-  ['homogenisedlaplace_979',['HomogenisedLaplace',['../group___homogenised_laplace.html',1,'']]]
+  ['field_20integral_20equation_0',['Augmented Electric Field Integral Equation',['../group___augmented_e_f_i_e_dipole.html',1,'']]],
+  ['frequency_20stabilization_1',['A-EFIE Low Frequency Stabilization',['../group___augmented_e_f_i_e_stabilized.html',1,'']]],
+  ['full_2',['Laplace Single Layer Operator Full',['../group___laplace_single_layer_operator_full.html',1,'']]]
 ];

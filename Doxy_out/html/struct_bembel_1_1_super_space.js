@@ -1,6 +1,5 @@
 var struct_bembel_1_1_super_space =
 [
-    [ "Scalar", "struct_bembel_1_1_super_space.html#ad4d1abf0c875a4d026ae2e7534a08a6c", null ],
     [ "SuperSpace", "struct_bembel_1_1_super_space.html#ab20a5cddf39d5023db66104827bb00a9", null ],
     [ "SuperSpace", "struct_bembel_1_1_super_space.html#a539f6c0b0cf2e175163290761d84cbc3", null ],
     [ "SuperSpace", "struct_bembel_1_1_super_space.html#a50d854e48c78d380fc9d0d810057470e", null ],
@@ -15,22 +14,14 @@ var struct_bembel_1_1_super_space =
     [ "addScaledSurfaceGradientInteraction", "struct_bembel_1_1_super_space.html#adaf2f6a8f0fb6176d2997f6bfa8753ec", null ],
     [ "addScaledVectorBasisDivergenceInteraction", "struct_bembel_1_1_super_space.html#a6d9ed5ff3d5ec971798c678b7c4ed610", null ],
     [ "addScaledVectorBasisInteraction", "struct_bembel_1_1_super_space.html#acf087d630a75dcb2d6ce5bc83a15209b", null ],
-    [ "basis", "struct_bembel_1_1_super_space.html#ac9ed3b8f26e85ac3d18a42e622f6d642", null ],
-    [ "basis1D", "struct_bembel_1_1_super_space.html#a654bc93437b49bfda1ee92d5d4b05f90", null ],
-    [ "basis1DDx", "struct_bembel_1_1_super_space.html#afb106403b4c9475da7ea60af723337ed", null ],
-    [ "basisDx", "struct_bembel_1_1_super_space.html#a1f3174ff6264672ae9b719a216710284", null ],
-    [ "basisDy", "struct_bembel_1_1_super_space.html#ade66b57b366eca54c71137ea058c4ebc", null ],
-    [ "basisInteraction", "struct_bembel_1_1_super_space.html#a6ba5bbc27c394bf6f21b26a1d88d5838", null ],
-    [ "get_geometry", "struct_bembel_1_1_super_space.html#a5d5af7cfa2599b5879c6d1a23b354aa6", null ],
-    [ "get_mesh", "struct_bembel_1_1_super_space.html#a14e5e60f4c5b98840f6457bcdf3b9376", null ],
-    [ "get_number_of_elements", "struct_bembel_1_1_super_space.html#a67c8f4e64c33d5f3e5572ebe670b9d0a", null ],
-    [ "get_number_of_patches", "struct_bembel_1_1_super_space.html#a51d1cc7bd6a9367686fd3ba51a09da29", null ],
-    [ "get_polynomial_degree", "struct_bembel_1_1_super_space.html#a6675b25cd3d78e2d9958ebbceb72e548", null ],
-    [ "get_polynomial_degree_plus_one_squared", "struct_bembel_1_1_super_space.html#a96bd1d153e9e08652fc2fd84c9ae3817", null ],
-    [ "get_refinement_level", "struct_bembel_1_1_super_space.html#a5f3f9572bcbb4306e4e7e7ec55801574", null ],
-    [ "init_SuperSpace", "struct_bembel_1_1_super_space.html#afbe66fe8571dc707289a2dbcaae673e2", null ],
+    [ "basis", "struct_bembel_1_1_super_space.html#a96488030ac57911e1ec668e74a9b874f", null ],
+    [ "basis1D", "struct_bembel_1_1_super_space.html#a05bad52132101cc30acef69759f96d23", null ],
+    [ "basis1DDx", "struct_bembel_1_1_super_space.html#ad59b20550c2c59d7ec3afafb74cba947", null ],
+    [ "basisDx", "struct_bembel_1_1_super_space.html#a6e9d932079d8e174899a8e16d3159cc8", null ],
+    [ "basisDy", "struct_bembel_1_1_super_space.html#a3113b5c3114904b29a72af9dbbf75971", null ],
+    [ "basisInteraction", "struct_bembel_1_1_super_space.html#a35e93337a360da3ae48d1356bc940493", null ],
     [ "map2surface", "struct_bembel_1_1_super_space.html#afb46395178178b0d82d14ba3dfeb806e", null ],
-    [ "operator=", "struct_bembel_1_1_super_space.html#ae0530e0219a580eeb6fc5e0e7f78f377", null ],
-    [ "vectorBasisDivergenceInteraction", "struct_bembel_1_1_super_space.html#ac29ba4a6d02d564a7ec3fe3c91003565", null ],
-    [ "vectorBasisInteraction", "struct_bembel_1_1_super_space.html#abebd91f1bf499833d960736905774920", null ]
+    [ "operator=", "struct_bembel_1_1_super_space.html#a08a57edb2eaabc2cb9dee71bfb39a7d1", null ],
+    [ "vectorBasisDivergenceInteraction", "struct_bembel_1_1_super_space.html#afcc7d31b0a7dd352b913d9a7fc4c2844", null ],
+    [ "vectorBasisInteraction", "struct_bembel_1_1_super_space.html#abd1b83513fc09a41741f5b0aa34e5898", null ]
 ];

@@ -1,12 +1,21 @@
 <map id="Bembel::LocalOperatorBase&lt; Derived &gt;" name="Bembel::LocalOperatorBase&lt; Derived &gt;">
-<area shape="rect" id="node1" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="263,136,465,177"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="523,5,751,47"/>
-<area shape="rect" id="node5" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="521,71,752,112"/>
-<area shape="rect" id="node7" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title=" " alt="" coords="513,136,760,177"/>
-<area shape="rect" id="node9" href="$class_bembel_1_1_identity_operator_base.html" title="This class is the base for all mass matrices." alt="" coords="543,201,730,243"/>
-<area shape="rect" id="node10" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title="This class is the base for Laplace Beltrami operator." alt="" coords="515,267,758,308"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_linear_operator_base.html" title="linear operator base class. this serves as a common interface for existing linear operators." alt="" coords="5,136,215,177"/>
-<area shape="rect" id="node4" href="$class_bembel_1_1_mass_matrix_scalar_disc.html" title=" " alt="" coords="817,13,1041,39"/>
-<area shape="rect" id="node6" href="$class_bembel_1_1_mass_matrix_scalar_cont.html" title=" " alt="" coords="816,78,1043,105"/>
-<area shape="rect" id="node8" href="$class_bembel_1_1_laplace_beltrami_operator.html" title=" " alt="" coords="808,143,1051,170"/>
+<area shape="rect" id="Node000001" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="263,133,465,173"/>
+<area shape="rect" id="Node000003" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="521,5,752,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="400,123,451,88,512,55,545,43,547,48,514,60,454,92,403,127"/>
+<area shape="rect" id="Node000005" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="523,69,751,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="462,128,550,107,552,112,464,133"/>
+<area shape="rect" id="Node000007" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title=" " alt="" coords="513,133,760,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="479,151,513,151,513,156,479,156"/>
+<area shape="rect" id="Node000009" href="$class_bembel_1_1_identity_operator_base.html" title="This class is the base for all mass matrices." alt="" coords="543,197,730,237"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="464,174,552,195,550,200,462,179"/>
+<area shape="rect" id="Node000010" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title="This class is the base for Laplace Beltrami operator." alt="" coords="515,261,758,301"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="403,179,454,214,514,247,547,259,545,264,512,252,451,219,400,184"/>
+<area shape="rect" id="Node000002" href="$struct_bembel_1_1_linear_operator_base.html" title="linear operator base class. this serves as a common interface for existing linear operators." alt="" coords="5,133,215,173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,151,262,151,262,156,229,156"/>
+<area shape="rect" id="Node000004" href="$class_bembel_1_1_mass_matrix_scalar_cont.html" title=" " alt="" coords="816,13,1043,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="766,23,816,23,816,28,766,28"/>
+<area shape="rect" id="Node000006" href="$class_bembel_1_1_mass_matrix_scalar_disc.html" title=" " alt="" coords="817,77,1041,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="764,87,817,87,817,92,764,92"/>
+<area shape="rect" id="Node000008" href="$class_bembel_1_1_laplace_beltrami_operator.html" title=" " alt="" coords="808,141,1051,166"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="774,151,808,151,808,156,774,156"/>
 </map>

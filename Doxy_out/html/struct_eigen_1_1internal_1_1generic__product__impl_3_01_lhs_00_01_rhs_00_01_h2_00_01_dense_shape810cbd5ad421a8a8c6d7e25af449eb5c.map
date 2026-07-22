@@ -1,4 +1,5 @@
 <map id="Eigen::internal::generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt;" name="Eigen::internal::generic_product_impl&lt; Lhs, Rhs, H2, DenseShape, ProductType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="304,13,539,69"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,256,76"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="304,13,539,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,256,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,37,304,37,304,43,270,43"/>
 </map>

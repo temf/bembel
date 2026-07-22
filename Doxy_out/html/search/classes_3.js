@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['chebychevroots_513',['ChebychevRoots',['../struct_bembel_1_1_h2_multipole_1_1_chebychev_roots.html',1,'Bembel::H2Multipole']]],
-  ['clustertree_514',['ClusterTree',['../class_bembel_1_1_cluster_tree.html',1,'Bembel']]],
-  ['const_5fiterator_515',['const_iterator',['../struct_bembel_1_1_element_tree_node_1_1const__iterator.html',1,'Bembel::ElementTreeNode']]],
-  ['continuousview_516',['ContinuousView',['../class_bembel_1_1_continuous_view.html',1,'Bembel']]],
-  ['cwise_5fpromote_5fstorage_5ftype_3c_20dense_2c_20h2_2c_20functor_20_3e_517',['cwise_promote_storage_type&lt; Dense, H2, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_dense_00_01_h2_00_01_functor_01_4.html',1,'Eigen::internal']]],
-  ['cwise_5fpromote_5fstorage_5ftype_3c_20h2_2c_20dense_2c_20functor_20_3e_518',['cwise_promote_storage_type&lt; H2, Dense, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_h2_00_01_dense_00_01_functor_01_4.html',1,'Eigen::internal']]],
-  ['cwise_5fpromote_5fstorage_5ftype_3c_20h2_2c_20sparse_2c_20functor_20_3e_519',['cwise_promote_storage_type&lt; H2, Sparse, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_h2_00_01_sparse_00_01_functor_01_4.html',1,'Eigen::internal']]],
-  ['cwise_5fpromote_5fstorage_5ftype_3c_20sparse_2c_20h2_2c_20functor_20_3e_520',['cwise_promote_storage_type&lt; Sparse, H2, Functor &gt;',['../struct_eigen_1_1internal_1_1cwise__promote__storage__type_3_01_sparse_00_01_h2_00_01_functor_01_4.html',1,'Eigen::internal']]],
-  ['cwisebinaryopimpl_3c_20binaryop_2c_20lhs_2c_20rhs_2c_20h2_20_3e_521',['CwiseBinaryOpImpl&lt; BinaryOp, Lhs, Rhs, H2 &gt;',['../class_eigen_1_1_cwise_binary_op_impl_3_01_binary_op_00_01_lhs_00_01_rhs_00_01_h2_01_4.html',1,'Eigen']]]
+  ['differentialform_0',['DifferentialForm',['../struct_bembel_1_1_differential_form.html',1,'Bembel']]],
+  ['differentialformtraits_1',['DifferentialFormTraits',['../struct_bembel_1_1_differential_form_traits.html',1,'Bembel']]],
+  ['differentialformtraits_3c_20differentialform_3a_3acontinuous_2c_20scalar_20_3e_2',['DifferentialFormTraits&lt; DifferentialForm::Continuous, Scalar &gt;',['../struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_continuous_00_01_scalar_01_4.html',1,'Bembel']]],
+  ['differentialformtraits_3c_20differentialform_3a_3adiscontinuous_2c_20scalar_20_3e_3',['DifferentialFormTraits&lt; DifferentialForm::Discontinuous, Scalar &gt;',['../struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_discontinuous_00_01_scalar_01_4.html',1,'Bembel']]],
+  ['differentialformtraits_3c_20differentialform_3a_3adivconforming_2c_20scalar_20_3e_4',['DifferentialFormTraits&lt; DifferentialForm::DivConforming, Scalar &gt;',['../struct_bembel_1_1_differential_form_traits_3_01_differential_form_1_1_div_conforming_00_01_scalar_01_4.html',1,'Bembel']]],
+  ['dirichlettrace_5',['DirichletTrace',['../class_bembel_1_1_dirichlet_trace.html',1,'Bembel']]],
+  ['discretelinearform_6',['DiscreteLinearForm',['../class_bembel_1_1_discrete_linear_form.html',1,'Bembel']]],
+  ['discretelocaloperatorcomputer_7',['DiscreteLocalOperatorComputer',['../struct_bembel_1_1_discrete_local_operator_computer.html',1,'Bembel']]],
+  ['discreteoperator_8',['DiscreteOperator',['../class_bembel_1_1_discrete_operator.html',1,'Bembel']]],
+  ['discreteoperatorcomputer_9',['DiscreteOperatorComputer',['../struct_bembel_1_1_discrete_operator_computer.html',1,'Bembel']]],
+  ['discreteoperatorcomputer_3c_20eigen_3a_3ah2matrix_3c_20typename_20linearoperatortraits_3c_20derived_20_3e_3a_3ascalar_20_3e_2c_20derived_20_3e_10',['DiscreteOperatorComputer&lt; Eigen::H2Matrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;',['../struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_h2_matrix_3_01typename_01_linear_ope625c1c1af22631c19398e86cea9e13d0.html',1,'Bembel']]],
+  ['discreteoperatorcomputer_3c_20eigen_3a_3amatrix_3c_20scalar_2c_20eigen_3a_3adynamic_2c_20eigen_3a_3adynamic_20_3e_2c_20derived_20_3e_11',['DiscreteOperatorComputer&lt; Eigen::Matrix&lt; Scalar, Eigen::Dynamic, Eigen::Dynamic &gt;, Derived &gt;',['../struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_matrix_3_01_scalar_00_01_eigen_1_1_d3ab5fe988617dc61bfc63242dee3aaad.html',1,'Bembel']]],
+  ['discreteoperatorcomputer_3c_20eigen_3a_3asparsematrix_3c_20typename_20linearoperatortraits_3c_20derived_20_3e_3a_3ascalar_20_3e_2c_20derived_20_3e_12',['DiscreteOperatorComputer&lt; Eigen::SparseMatrix&lt; typename LinearOperatorTraits&lt; Derived &gt;::Scalar &gt;, Derived &gt;',['../struct_bembel_1_1_discrete_operator_computer_3_01_eigen_1_1_sparse_matrix_3_01typename_01_lineare0378e06ff3993ff9d40171378eb3319.html',1,'Bembel']]],
+  ['discretepotential_13',['DiscretePotential',['../class_bembel_1_1_discrete_potential.html',1,'Bembel']]],
+  ['dofidentification_14',['dofIdentification',['../struct_bembel_1_1_glue_routines_1_1dof_identification.html',1,'Bembel::GlueRoutines']]],
+  ['dummyoperator_15',['DummyOperator',['../class_bembel_1_1_dummy_operator.html',1,'Bembel']]]
 ];

@@ -1,12 +1,27 @@
 <map id="Bembel::LinearOperatorBase&lt; Derived &gt;" name="Bembel::LinearOperatorBase&lt; Derived &gt;">
-<area shape="rect" id="node1" title="linear operator base class. this serves as a common interface for existing linear operators." alt="" coords="5,136,215,177"/>
-<area shape="rect" id="node2" href="$struct_bembel_1_1_local_operator_base.html" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="263,136,465,177"/>
-<area shape="rect" id="node3" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="523,5,751,47"/>
-<area shape="rect" id="node5" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="521,71,752,112"/>
-<area shape="rect" id="node7" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title=" " alt="" coords="513,136,760,177"/>
-<area shape="rect" id="node9" href="$class_bembel_1_1_identity_operator_base.html" title="This class is the base for all mass matrices." alt="" coords="543,201,730,243"/>
-<area shape="rect" id="node10" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title="This class is the base for Laplace Beltrami operator." alt="" coords="515,267,758,308"/>
-<area shape="rect" id="node4" href="$class_bembel_1_1_mass_matrix_scalar_disc.html" title=" " alt="" coords="817,13,1041,39"/>
-<area shape="rect" id="node6" href="$class_bembel_1_1_mass_matrix_scalar_cont.html" title=" " alt="" coords="816,78,1043,105"/>
-<area shape="rect" id="node8" href="$class_bembel_1_1_laplace_beltrami_operator.html" title=" " alt="" coords="808,143,1051,170"/>
+<area shape="rect" id="Node000001" title="linear operator base class. this serves as a common interface for existing linear operators." alt="" coords="5,101,215,141"/>
+<area shape="rect" id="Node000002" href="$struct_bembel_1_1_local_operator_base.html" title=" " alt="" coords="263,5,477,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,93,262,55,297,43,299,48,264,60,169,98"/>
+<area shape="rect" id="Node000003" href="$struct_bembel_1_1_local_operator_base.html" title=" " alt="" coords="269,69,471,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,104,268,99,269,104,229,109"/>
+<area shape="rect" id="Node000004" href="$struct_bembel_1_1_local_operator_base.html" title=" " alt="" coords="269,133,471,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,133,269,138,268,144,228,139"/>
+<area shape="rect" id="Node000005" href="$struct_bembel_1_1_local_operator_base.html" title="local operator base class. this serves as a common interface for existing local operators" alt="" coords="269,197,471,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="169,144,264,183,299,195,297,200,262,188,167,149"/>
+<area shape="rect" id="Node000006" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="533,69,764,109"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="467,189,476,183,491,168,499,152,507,135,524,119,546,107,548,112,527,123,512,138,504,154,495,171,479,187,470,193"/>
+<area shape="rect" id="Node000008" href="$class_bembel_1_1_identity_operator_base.html" title=" " alt="" coords="535,133,763,173"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="471,192,560,171,562,176,472,197"/>
+<area shape="rect" id="Node000010" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title=" " alt="" coords="525,197,772,237"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="485,215,525,215,525,220,485,220"/>
+<area shape="rect" id="Node000012" href="$class_bembel_1_1_identity_operator_base.html" title="This class is the base for all mass matrices." alt="" coords="555,261,742,301"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="472,238,562,259,560,264,471,243"/>
+<area shape="rect" id="Node000013" href="$class_bembel_1_1_laplace_beltrami_operator_base.html" title="This class is the base for Laplace Beltrami operator." alt="" coords="527,325,770,365"/>
+<area shape="poly" id="edge12_Node000005_Node000013" title=" " alt="" coords="411,243,464,278,526,311,559,323,557,328,524,316,462,283,408,248"/>
+<area shape="rect" id="Node000007" href="$class_bembel_1_1_mass_matrix_scalar_cont.html" title=" " alt="" coords="828,77,1055,102"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="778,87,828,87,828,92,778,92"/>
+<area shape="rect" id="Node000009" href="$class_bembel_1_1_mass_matrix_scalar_disc.html" title=" " alt="" coords="829,141,1053,166"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="776,151,829,151,829,156,776,156"/>
+<area shape="rect" id="Node000011" href="$class_bembel_1_1_laplace_beltrami_operator.html" title=" " alt="" coords="820,205,1063,230"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="786,215,820,215,820,220,786,220"/>
 </map>
