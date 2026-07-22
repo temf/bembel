@@ -1,4 +1,4 @@
-// This file is part of Bembel, the higher order C++ boundary element library.
+﻿// This file is part of Bembel, the higher order C++ boundary element library.
 //
 // Copyright (C) 2022 see <http://www.bembel.eu>
 //
@@ -11,6 +11,10 @@
 #ifndef BEMBEL_SRC_UTIL_CONSTANTS_HPP_
 #define BEMBEL_SRC_UTIL_CONSTANTS_HPP_
 
+#ifndef M_PI
+// since M_PI is not defined in Windows MSVC++ 
+#define M_PI 3.14159265358979323846
+#endif
 namespace Bembel {
 namespace Constants {
 

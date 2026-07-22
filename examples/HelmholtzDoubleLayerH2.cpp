@@ -1,4 +1,4 @@
-// This file is part of Bembel, the higher order C++ boundary element library.
+﻿// This file is part of Bembel, the higher order C++ boundary element library.
 //
 // Copyright (C) 2024 see <http://www.bembel.eu>
 //
@@ -90,7 +90,7 @@ int main() {
       auto system_matrix = 0.5 * M + K;  // important: do NOT change auto!
 
       // solve system
-      GMRES<typeof(system_matrix), IdentityPreconditioner> gmres;
+      GMRES<decltype(system_matrix), IdentityPreconditioner> gmres;
       gmres.compute(system_matrix);
       VectorXcd rho = gmres.solve(disc_lf.get_discrete_linear_form());
 
