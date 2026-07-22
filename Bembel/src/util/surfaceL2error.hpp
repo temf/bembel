@@ -25,21 +25,18 @@ double surfaceL2error(const AnsatzSpace<Op> &ansatz_space,
   GaussSquare<Constants::maximum_quadrature_degree> GS;
   auto Q = GS[deg];
   SurfacePoint qp;
+  const auto longvec = (ansatz_space.get_transformation_matrix() * vec).eval();
   const auto &super_space = ansatz_space.get_superspace();
   const ElementTree &et = super_space.get_mesh().get_element_tree();
   for (auto element = et.cpbegin(); element != et.cpend(); ++element) {
     for (auto i = 0; i < Q.w_.size(); ++i) {
       super_space.map2surface(*element, Q.xi_.col(i), Q.w_(i), &qp);
-      // get points on geometry and tangential derivatives
-      const auto &x_f = qp.segment<3>(3);
-      const auto &x_f_dx = qp.segment<3>(6);
-      const auto &x_f_dy = qp.segment<3>(9);
-      const auto &normal = x_f_dx.cross(x_f_dy);
-      // compute surface measures from tangential derivatives
-      Scalar x_kappa = normal.norm();
+      // integrand without basis functions
       const Scalar val = fun_val.evaluate(*element, qp)(0);
-      retval += x_kappa * Q.w_(i) * element->get_h() * element->get_h() *
-                (functor(x_f) - val) * (functor(x_f) - val);
+      retval += qp.get_surface_measure() * Q.w_(i) * element->get_h() *
+                element->get_h() *
+                (functor(qp.get_f()) - val) *
+                (functor(qp.get_f()) - val);
     }
   }
   return sqrt(retval);

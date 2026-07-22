@@ -15,9 +15,6 @@
 namespace Bembel {
 namespace Basis {
 
-using funptr_doubleOut_doubleptrDoubleIn = double (*)(double*, double);
-using funptr_voidOut_doubleptrDoubleIn = void (*)(double*, double);
-
 /**
  *  \ingroup Spline
  *  \brief These routines implement a template recursion that allows to choose a
@@ -27,79 +24,92 @@ using funptr_voidOut_doubleptrDoubleIn = void (*)(double*, double);
 template <int P>
 class PSpecificShapeFunctionHandler {
  public:
-  inline static double evalCoef(int p, double* ar, double x) {
-    return p == P ? Bembel::Basis::EvalBernstein<double, P>(ar, x)
-                  : PSpecificShapeFunctionHandler<P - 1>::evalCoef(p, ar, x);
-  }
-  inline static double evalDerCoef(int p, double* ar, double x) {
-    return p == P ? Bembel::Basis::EvalBernsteinDer<double, P>(ar, x)
-                  : PSpecificShapeFunctionHandler<P - 1>::evalDerCoef(p, ar, x);
-  }
-  inline static void evalBasis(int p, double* ar, double x) {
-    return p == P ? Bembel::Basis::EvalBernsteinBasis<double, P>(ar, x)
+  /**
+   * \brief Evaluates the Bernstein basis of degree p at point x into ar.
+   */
+  inline static void evalBasis(const int p, double* ar, const double x) {
+    return p == P ? Bembel::Basis::EvalBernsteinBasis<P>(ar, x)
                   : PSpecificShapeFunctionHandler<P - 1>::evalBasis(p, ar, x);
   }
-  inline static void evalDerBasis(int p, double* ar, double x) {
+  /**
+   * \brief Evaluates the Bernstein basis of degree p at point x into an
+   * Eigen::VectorXd.
+   *
+   * \attention For performance critical applications use the pointer version of
+   * this function to avoid slow memory allocation.
+   */
+  inline static Eigen::Matrix<double, Eigen::Dynamic, 1> evalBasis(
+      const int p, const double x) {
+    Eigen::VectorXd eval(p + 1);
+    evalBasis(p, eval.data(), x);
+    return eval;
+  }
+  /**
+   * \brief Evaluates the derivative of the Bernstein basis of degree p at point
+   * x into ar.
+   */
+  inline static void evalDerBasis(const int p, double* ar, const double x) {
     return p == P
-               ? Bembel::Basis::EvalBernsteinDerBasis<double, P>(ar, x)
+               ? Bembel::Basis::EvalBernsteinDerBasis<P>(ar, x)
                : PSpecificShapeFunctionHandler<P - 1>::evalDerBasis(p, ar, x);
   }
-  inline static constexpr funptr_doubleOut_doubleptrDoubleIn ptrEvalCoef(
-      int p) {
-    return p == P ? &Bembel::Basis::EvalBernstein<double, P>
-                  : PSpecificShapeFunctionHandler<P - 1>::ptrEvalCoef(p);
-  }
-  inline static constexpr funptr_doubleOut_doubleptrDoubleIn ptrEvalDerCoef(
-      int p) {
-    return p == P ? &Bembel::Basis::EvalBernsteinDer<double, P>
-                  : PSpecificShapeFunctionHandler<P - 1>::ptrEvalDerCoef(p);
-  }
-  inline static constexpr funptr_voidOut_doubleptrDoubleIn ptrEvalBasis(int p) {
-    return p == P ? &Bembel::Basis::EvalBernsteinBasis<double, P>
-                  : PSpecificShapeFunctionHandler<P - 1>::ptrEvalBasis(p);
-  }
-  inline static constexpr funptr_voidOut_doubleptrDoubleIn ptrEvalDerBasis(
-      int p) {
-    return p == P ? &Bembel::Basis::EvalBernsteinDerBasis<double, P>
-                  : PSpecificShapeFunctionHandler<P - 1>::ptrEvalDerBasis(p);
-  }
-  inline static constexpr bool checkP(int p) {
-    static_assert(P > 0, "Polynomial degree must be larger than zero");
-    return p <= Constants::MaxP;
+  /**
+   * \brief Evaluates the derivative of the Bernstein basis of degree p into an
+   * Eigen::VectorXd.
+   *
+   * \attention For performance critical applications use the pointer version of
+   * this function to avoid slow memory allocation.
+   */
+  inline static Eigen::Matrix<double, Eigen::Dynamic, 1> evalDerBasis(
+      const int p, const double x) {
+    Eigen::VectorXd eval(p + 1);
+    evalDerBasis(p, eval.data(), x);
+    return eval;
   }
 };
 
 template <>
 class PSpecificShapeFunctionHandler<0> {
  public:
-  inline static double evalCoef(int p, double* ar, double x) {
-    return Bembel::Basis::EvalBernstein<double, 0>(ar, x);
+  /**
+   * \brief Evaluates the Bernstein basis of degree p at point x into ar.
+   */
+  inline static void evalBasis(const int p, double* ar, const double x) {
+    Bembel::Basis::EvalBernsteinBasis<0>(ar, x);
+    return;
   }
-  inline static double evalDerCoef(int p, double* ar, double x) {
-    return Bembel::Basis::EvalBernsteinDer<double, 0>(ar, x);
+  /**
+   * \brief Evaluates the Bernstein basis of degree p at point x into an
+   * Eigen::VectorXd.
+   *
+   * \attention For performance critical applications use the pointer version of
+   * this function to avoid slow memory allocation.
+   */
+  inline static Eigen::VectorXd evalBasis(const int p, const double x) {
+    Eigen::VectorXd eval(p + 1);
+    evalBasis(p, eval.data(), x);
+    return eval;
   }
-  inline static void evalBasis(int p, double* ar, double x) {
-    return Bembel::Basis::EvalBernsteinBasis<double, 0>(ar, x);
+  /**
+   * \brief Evaluates the derivative of the Bernstein basis of degree p at point
+   * x into ar.
+   */
+  inline static void evalDerBasis(const int p, double* ar, const double x) {
+    Bembel::Basis::EvalBernsteinDerBasis<0>(ar, x);
+    return;
   }
-  inline static void evalDerBasis(int p, double* ar, double x) {
-    return Bembel::Basis::EvalBernsteinDerBasis<double, 0>(ar, x);
+  /**
+   * \brief Evaluates the derivative of the Bernstein basis of degree p into an
+   * Eigen::VectorXd.
+   *
+   * \attention For performance critical applications use the pointer version of
+   * this function to avoid slow memory allocation.
+   */
+  inline static Eigen::VectorXd evalDerBasis(const int p, const double x) {
+    Eigen::VectorXd eval(p + 1);
+    evalDerBasis(p, eval.data(), x);
+    return eval;
   }
-  inline static constexpr funptr_doubleOut_doubleptrDoubleIn ptrEvalCoef(
-      int p) {
-    return &Bembel::Basis::EvalBernstein<double, 0>;
-  }
-  inline static constexpr funptr_doubleOut_doubleptrDoubleIn ptrEvalDerCoef(
-      int p) {
-    return &Bembel::Basis::EvalBernsteinDer<double, 0>;
-  }
-  inline static constexpr funptr_voidOut_doubleptrDoubleIn ptrEvalBasis(int p) {
-    return &Bembel::Basis::EvalBernsteinBasis<double, 0>;
-  }
-  inline static constexpr funptr_voidOut_doubleptrDoubleIn ptrEvalDerBasis(
-      int p) {
-    return &Bembel::Basis::EvalBernsteinDerBasis<double, 0>;
-  }
-  inline static constexpr bool checkP(int p) { return Constants::MaxP >= 0; }
 };
 
 using ShapeFunctionHandler = PSpecificShapeFunctionHandler<Constants::MaxP>;

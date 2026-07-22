@@ -1,6 +1,6 @@
 // This file is part of Bembel, the higher order C++ boundary element library.
 //
-// Copyright (C) 2022 see <http://www.bembel.eu>
+// Copyright (C) 2024 see <http://www.bembel.eu>
 //
 // It was written as part of a cooperation of J. Doelz, H. Harbrecht, S. Kurz,
 // M. Multerer, S. Schoeps, and F. Wolf at Technische Universitaet Darmstadt,
@@ -8,16 +8,16 @@
 // source code is subject to the GNU General Public License version 3 and
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
-#ifndef BEMBEL_SRC_LINEARFORM_DIRICHLETTRACE_HPP_
-#define BEMBEL_SRC_LINEARFORM_DIRICHLETTRACE_HPP_
+#ifndef BEMBEL_SRC_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_HPP_
+#define BEMBEL_SRC_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_HPP_
 
 namespace Bembel {
 
 template <typename Scalar>
-class DirichletTrace;
+class DirichletTraceOnReferenceDomain;
 
 template <typename ScalarT>
-struct LinearFormTraits<DirichletTrace<ScalarT>> {
+struct LinearFormTraits<DirichletTraceOnReferenceDomain<ScalarT>> {
   typedef ScalarT Scalar;
 };
 
@@ -28,10 +28,12 @@ struct LinearFormTraits<DirichletTrace<ScalarT>> {
  * right hand side of the system via quadrature.
  */
 template <typename Scalar>
-class DirichletTrace : public LinearFormBase<DirichletTrace<Scalar>, Scalar> {
+class DirichletTraceOnReferenceDomain
+    : public LinearFormBase<DirichletTraceOnReferenceDomain<Scalar>, Scalar> {
  public:
-  DirichletTrace() {}
-  void set_function(const std::function<Scalar(Eigen::Vector3d)> &function) {
+  DirichletTraceOnReferenceDomain() {}
+  void set_function(
+      const std::function<Scalar(int, Eigen::Vector2d)> &function) {
     function_ = function;
   }
   template <class T>
@@ -39,16 +41,16 @@ class DirichletTrace : public LinearFormBase<DirichletTrace<Scalar>, Scalar> {
       const T &super_space, const SurfacePoint &p,
       Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
     // integrand without basis functions
-    Scalar integrand =
-        function_(p.get_f()) * p.get_surface_measure() * p.get_w();
+    Scalar integrand = function_(p.get_patch(), p.get_xi_patch()) *
+                       p.get_surface_measure() * p.get_w();
     // multiply basis functions with integrand
     super_space.addScaledBasis(intval, integrand, p.get_xi());
     return;
   }
 
  private:
-  std::function<Scalar(Eigen::Vector3d)> function_;
+  std::function<Scalar(int, Eigen::Vector2d)> function_;
 };
 }  // namespace Bembel
 
-#endif  // BEMBEL_SRC_LINEARFORM_DIRICHLETTRACE_HPP_
+#endif  // BEMBEL_SRC_LINEARFORM_DIRICHLETTRACEONREFERENCEDOMAIN_HPP_

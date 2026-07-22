@@ -43,31 +43,18 @@ class TangentialTrace : public LinearFormBase<TangentialTrace<Scalar>, Scalar> {
     int polynomial_degree_plus_one_squared =
         (polynomial_degree + 1) * (polynomial_degree + 1);
 
-    // get evaluation points on unit square
-    Eigen::Vector2d s = p.segment<2>(0);
-
-    // get quadrature weights
-    double ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    Eigen::Vector3d x_f = p.segment<3>(3);
-    Eigen::Vector3d x_f_dx = p.segment<3>(6);
-    Eigen::Vector3d x_f_dy = p.segment<3>(9);
-
-    // compute surface measures from tangential derivatives
-    Eigen::Vector3d x_n = x_f_dx.cross(x_f_dy).normalized();
-
     // tangential component + quadrature weights
-    Eigen::Matrix<Scalar, 3, 1> fun_x_f = function_(x_f);
-    Eigen::Matrix<Scalar, 3, 1> tangential_component = fun_x_f.cross(x_n) * ws;
+    Eigen::Matrix<Scalar, 3, 1> fun_x_f = function_(p.get_f());
+    Eigen::Matrix<Scalar, 3, 1> tangential_component =
+        fun_x_f.cross(p.get_unit_normal()) * p.get_w();
 
     // extract tangential component
-    Scalar component_x = x_f_dx.dot(tangential_component);
-    Scalar component_y = x_f_dy.dot(tangential_component);
+    Scalar component_x = p.get_f_dx().dot(tangential_component);
+    Scalar component_y = p.get_f_dy().dot(tangential_component);
 
     // evaluate shape functions
     Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> phiPhiVec =
-        super_space.basis(s);
+        super_space.basis(p.get_xi());
 
     // multiply basis functions with integrand
     Eigen::Matrix<Scalar, Eigen::Dynamic, 2> phiPhiMat(

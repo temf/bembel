@@ -70,8 +70,8 @@ class DummyOperator : public LinearOperatorBase<DummyOperator> {
       const T &super_space, const SurfacePoint &p1, const SurfacePoint &p2,
       Eigen::Matrix<typename LinearOperatorTraits<DummyOperator>::Scalar,
                     Eigen::Dynamic, Eigen::Dynamic> *intval) const {
-    (*intval)(0, 0) +=
-        test_func_(p1.segment(3, 2), p2.segment(3, 2)) * p1(2) * p2(2);
+    (*intval)(0, 0) += test_func_(p1.get_f().head<2>(), p2.get_f().head<2>()) *
+                       p1.get_w() * p2.get_w();
     return;
   }
 

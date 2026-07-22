@@ -29,6 +29,7 @@
 #include <Eigen/Sparse>
 
 #include "src/util/Constants.hpp"
+#include "src/util/Macros.hpp"
 #include "src/LinearOperator/DifferentialFormEnum.hpp"
 
 #include "src/Spline/DeBoor.hpp"

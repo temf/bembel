@@ -40,30 +40,12 @@ class NeumannTrace : public LinearFormBase<NeumannTrace<Scalar>, Scalar> {
   void evaluateIntegrand_impl(
       const T &super_space, const SurfacePoint &p,
       Eigen::Matrix<Scalar, Eigen::Dynamic, 1> *intval) const {
-    auto polynomial_degree = super_space.get_polynomial_degree();
-    auto polynomial_degree_plus_one_squared =
-        (polynomial_degree + 1) * (polynomial_degree + 1);
-
-    // get evaluation points on unit square
-    auto s = p.segment<2>(0);
-
-    // get quadrature weights
-    auto ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    auto x_f = p.segment<3>(3);
-    auto x_f_dx = p.segment<3>(6);
-    auto x_f_dy = p.segment<3>(9);
-
-    // compute (unnormalized) surface normal from tangential derivatives
-    auto x_f_n = x_f_dx.cross(x_f_dy);
-
     // integrand without basis functions
     // dot: adjoint in first variable
-    auto integrand = x_f_n.dot(function_(x_f)) * ws;
+    auto integrand = p.get_normal().dot(function_(p.get_f())) * p.get_w();
 
     // multiply basis functions with integrand
-    super_space.addScaledBasis(intval, integrand, s);
+    super_space.addScaledBasis(intval, integrand, p.get_xi());
 
     return;
   }

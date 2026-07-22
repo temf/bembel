@@ -41,26 +41,13 @@ class HelmholtzDoubleLayerPotential
                          const ElementTreeNode &element,
                          const Eigen::Vector3d &point,
                          const SurfacePoint &p) const {
-    // get evaluation points on unit square
-    auto s = p.segment<2>(0);
-
-    // get quadrature weights
-    auto ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    auto x_f = p.segment<3>(3);
-    auto x_f_dx = p.segment<3>(6);
-    auto x_f_dy = p.segment<3>(9);
-
-    // compute unnormalized normal from tangential derivatives
-    auto x_n = x_f_dx.cross(x_f_dy);
-
     // assemble Galerkin solution
     auto cauchy_value = fun_ev.evaluate(element, p);
 
     // integrand without basis functions
     // dot: adjoint in first variable
-    auto integrand = evaluateKernelGrad(point, x_f, x_n) * cauchy_value * ws;
+    auto integrand = evaluateKernelGrad(point, p.get_f(), p.get_normal()) *
+                     cauchy_value * p.get_w();
 
     return integrand;
   }

@@ -100,7 +100,7 @@ class FunctionEvaluator {
 
     SurfacePoint sp;
     ansatz_space_.get_superspace().get_geometry()[patch].updateSurfacePoint(
-        &sp, ref_point, 1, element.mapToReferenceElement(ref_point));
+        &sp, patch, ref_point, 1, element.mapToReferenceElement(ref_point));
     return evaluate(element, sp);
   }
   Eigen::Matrix<

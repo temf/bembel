@@ -30,15 +30,9 @@ class LaplaceBeltramiOperatorBase : public LocalOperatorBase<Derived> {
     const unsigned int elements_per_direction =
         (1 << super_space.get_refinement_level());
     const double h = 1. / ((double)(elements_per_direction));
-
-    // compute surface measures from tangential derivatives
-    double x_kappa = p1.segment<3>(6).cross(p1.segment<3>(9)).norm();
-
     // integrand without basis functions
-    double integrand = x_kappa * p1(2) / (h * h);
-
+    double integrand = p1.get_surface_measure() * p1.get_w() / (h * h);
     super_space.addScaledSurfaceGradientInteraction(intval, integrand, p1, p2);
-
     return;
   }
 };

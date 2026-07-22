@@ -45,32 +45,20 @@ class MaxwellSingleLayerPotential
                          const ElementTreeNode &element,
                          const Eigen::Vector3d &point,
                          const SurfacePoint &p) const {
-    // get evaluation points on unit square
-    auto s = p.segment<2>(0);
-
-    // get quadrature weights
-    auto ws = p(2);
-
-    // get points on geometry and tangential derivatives
-    auto x_f = p.segment<3>(3);
-
     // compute surface measures from tangential derivatives
     auto h = element.get_h();
-
     // evaluate kernel
-    auto kernel = evaluateKernel(point, x_f);
-    auto kernel_gradient = evaluateKernelGrad(point, x_f);
-
+    auto kernel = evaluateKernel(point, p.get_f());
+    auto kernel_gradient = evaluateKernelGrad(point, p.get_f());
     // assemble Galerkin solution
     auto scalar_part = fun_ev.evaluate(element, p);
     auto divergence_part = fun_ev.evaluateDiv(element, p);
-
     // integrand without basis functions, note that the surface measure
     // disappears for the divergence
     // auto integrand = kernel * scalar_part * ws;
     auto integrand = (kernel * scalar_part +
                       1. / wavenumber2_ * kernel_gradient * divergence_part) *
-                     ws;
+                     p.get_w();
 
     return integrand;
   }

@@ -28,25 +28,10 @@ class IdentityOperatorBase : public LocalOperatorBase<Derived> {
   void evaluateIntegrand_impl(const T &super_space, const SurfacePoint &p1,
                               const SurfacePoint &p2,
                               Eigen::MatrixXd *intval) const {
-    // get evaluation points on unit square
-    const auto s = p1.segment<2>(0);
-
-    // get quadrature weights
-    const auto ws = p1(2);
-
-    // get points on geometry and tangential derivatives
-    const auto &x_f = p1.segment<3>(3);
-    const auto &x_f_dx = p1.segment<3>(6);
-    const auto &x_f_dy = p1.segment<3>(9);
-
-    // compute surface measures from tangential derivatives
-    const auto x_kappa = x_f_dx.cross(x_f_dy).norm();
-
     // integrand without basis functions
-    const auto integrand = x_kappa * ws;
-
-    super_space.addScaledBasisInteraction(intval, integrand, s, s);
-
+    const auto integrand = p1.get_surface_measure() * p1.get_w();
+    super_space.addScaledBasisInteraction(intval, integrand, p1.get_xi(),
+                                          p1.get_xi());
     return;
   }
 };
