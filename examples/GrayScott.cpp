@@ -16,8 +16,6 @@
 #include <Eigen/Dense>
 #include <iostream>
 
-#include <Bembel/src/util/surfaceL2error.hpp>
-
 int main() {
   using namespace Bembel;
   using namespace Eigen;
@@ -64,7 +62,7 @@ int main() {
       geometry, refinement_level, polynomial_degree);
   // Gray Scott Model
   // u_t = r_u * \laplacian u -uv^2 + f(1-u)
-  // v_y = r_v * \laplacian v +uv^2 - (f+k)v
+  // v_t = r_v * \laplacian v +uv^2 - (f+k)v
   double delta_t = 0.1;
   double diffusion_rate_u = 0.01;
   double diffusion_rate_v =
@@ -109,7 +107,7 @@ int main() {
   for (int i = 0; i < 20000; ++i) {
     // Right hand side
     Eigen::VectorXd reaction_term;
-    reactionLinearFrom(ansatz_space_lb, u, v, reaction, &reaction_term);
+    reactionLinearForm(ansatz_space_lb, u, v, reaction, &reaction_term);
     Eigen::Matrix<double, Eigen::Dynamic, 1> rhs_u =
         (delta_t * f) * disc_lf.get_discrete_linear_form() +
         disc_op_mass.get_discrete_operator() * u - delta_t * reaction_term;

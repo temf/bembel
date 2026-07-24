@@ -19,7 +19,7 @@ namespace Bembel {
  * assembly of the linear form of the reaction term, i.e., uv^2.
  */
 template <typename Derived, typename Scalar, typename Functor>
-void reactionLinearFrom(const AnsatzSpace<Derived> &ansatz_space,
+void reactionLinearForm(const AnsatzSpace<Derived> &ansatz_space,
                         const Eigen::Matrix<Scalar, Eigen::Dynamic, 1> &u,
                         const Eigen::Matrix<Scalar, Eigen::Dynamic, 1> &v,
                         const Functor &functor,
@@ -45,12 +45,7 @@ void reactionLinearFrom(const AnsatzSpace<Derived> &ansatz_space,
         super_space.basis(Q.xi_.col(i));
     for (auto element = et.cpbegin(); element != et.cpend(); ++element) {
       super_space.map2surface(*element, Q.xi_.col(i), Q.w_(i), &qp);
-      // get evaluation points on unit square
-      const auto &s = qp.segment<2>(0);
-      // get quadrature weights
-      Scalar ws = qp(2);
       // get points on geometry and tangential derivatives
-      const auto &x_f = qp.segment<3>(3);
       const auto &x_f_dx = qp.segment<3>(6);
       const auto &x_f_dy = qp.segment<3>(9);
       const auto &normal = x_f_dx.cross(x_f_dy);
