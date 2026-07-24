@@ -9,24 +9,20 @@
 // provided WITHOUT ANY WARRANTY, see <http://www.bembel.eu> for further
 // information.
 
-#ifndef BEMBEL_LINEARFORM_MODULE_
-#define BEMBEL_LINEARFORM_MODULE_
+#ifndef BEMBEL_GRAYSCOTT_MODULE_
+#define BEMBEL_GRAYSCOTT_MODULE_
 
 /**
  *  \ingroup Modules
- *  \defgroup LinearForm LinearForm
- *  \brief The LinearForm template class must be specialized for the assembly of
- *the right hand side.
+ *  \defgroup GrayScott GrayScott
+ *  \brief Everything which is needed to solve the Gray-Scott model using
+ * Bembel.
  **/
 
-#include "Quadrature"
+#include <Bembel/Identity>
+#include <Bembel/LaplaceBeltrami>
+#include <Bembel/LinearForm>
 
-#include "src/LinearForm/LinearForm.hpp"
+#include "src/GrayScott/ReactionTerm.hpp"
 
-#include "src/LinearForm/DirichletTrace.hpp"
-#include "src/LinearForm/NeumannTrace.hpp"
-#include "src/LinearForm/DiscreteLinearForm.hpp"
-#include "src/LinearForm/RotatedTangentialTrace.hpp"
-#include "src/LinearForm/TangentialTrace.hpp"
-
-#endif  // BEMBEL_LINEARFORM_MODULE_
+#endif  // BEMBEL_GRAYSCOTT_MODULE_

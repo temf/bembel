@@ -49,7 +49,6 @@ add_dependencies(E2Etests ${CIFILES})
 ###############################################################################
 
 set(NOCIFILES
-    GrayScott
     Quadrature
     VTKSurfaceExport
     VTKDomainExport

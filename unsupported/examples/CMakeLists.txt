@@ -7,6 +7,7 @@ set(OTHER_NOCIFILES
     AugmentedEFIE
     AugmentedEFIEStabilized
     AugmentedEFIEBalun
+    GrayScott
     )
 
 foreach(file IN LISTS OTHER_NOCIFILES)

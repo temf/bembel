@@ -15,30 +15,31 @@
 #include <Bembel/LinearForm>
 #include <Eigen/Dense>
 #include <iostream>
+#include <unsupported/Bembel/GrayScott>
 
 int main() {
   using namespace Bembel;
   using namespace Eigen;
   IO::Stopwatch sw;
-  std::function<double(const Vector3d &)> init_u = [](const Vector3d &in) {
+  std::function<double(const Vector3d&)> init_u = [](const Vector3d& in) {
     // small perturbation
     return 0.6581 + 0.01 * (double)rand() / RAND_MAX - 0.005;
     // return 0.6581 + 0.005;
     // return 1.0;
   };
 
-  std::function<double(const Vector3d &)> init_v = [](const Vector3d &in) {
+  std::function<double(const Vector3d&)> init_v = [](const Vector3d& in) {
     // small perturbation
     return 0.2279 + 0.01 * (double)rand() / RAND_MAX - 0.005;
     // return 0.2279 - 0.005;
   };
 
-  std::function<double(const Vector3d &)> init_cf = [](const Vector3d &in) {
+  std::function<double(const Vector3d&)> init_cf = [](const Vector3d& in) {
     return 1.0;
   };
 
-  std::function<double(const double &u_val, const double &v_val)> reaction =
-      [](const double &u_val, const double &v_val) {
+  std::function<double(const double& u_val, const double& v_val)> reaction =
+      [](const double& u_val, const double& v_val) {
         return u_val * v_val * v_val;
       };
 
@@ -89,9 +90,9 @@ int main() {
   disc_lf.get_linear_form().set_function(init_cf);
   disc_lf.compute();
   // Left hand side
-  const Eigen::SparseMatrix<double> &stiff_mat =
+  const Eigen::SparseMatrix<double>& stiff_mat =
       disc_op_lb.get_discrete_operator();
-  const Eigen::SparseMatrix<double> &mass_mat =
+  const Eigen::SparseMatrix<double>& mass_mat =
       disc_op_mass.get_discrete_operator();
 
   Eigen::SimplicialLLT<Eigen::SparseMatrix<double>> solver_u;
@@ -124,8 +125,8 @@ int main() {
   FunctionEvaluator<MassMatrixScalarCont> evaluator(ansatz_space_mass);
   evaluator.set_function(u);
   VTKSurfaceExport writer(geometry, 6);
-  std::function<double(int, const Eigen::Vector2d &)> fun1 =
-      [&](int patch_number, const Eigen::Vector2d &reference_domain_point) {
+  std::function<double(int, const Eigen::Vector2d&)> fun1 =
+      [&](int patch_number, const Eigen::Vector2d& reference_domain_point) {
         auto retval =
             evaluator.evaluateOnPatch(patch_number, reference_domain_point);
         return double(retval(0, 0));
